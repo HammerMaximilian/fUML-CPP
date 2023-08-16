@@ -20,7 +20,7 @@ using namespace fuml::syntax::packages;
 void Package::addPackagedElement(
 		const std::shared_ptr<fuml::syntax::commonstructure::PackageableElement>& packagedElement)
 {
-	Namespace::addOwnedMember(packagedElement);
+	fuml::syntax::commonstructure::Namespace::addOwnedMember(packagedElement);
 	this->packagedElement->push_back(packagedElement);
 
 	std::shared_ptr<fuml::syntax::commonstructure::Type> type =

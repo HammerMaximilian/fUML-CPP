@@ -18,7 +18,7 @@ namespace fuml::syntax::commonstructure
 
 namespace fuml::syntax::commonstructure
 {
-	class TypedElement : public fuml::syntax::commonstructure::NamedElement {
+	class TypedElement : virtual public fuml::syntax::commonstructure::NamedElement {
 
 		public:
 			std::shared_ptr<fuml::syntax::commonstructure::Type> type = nullptr;

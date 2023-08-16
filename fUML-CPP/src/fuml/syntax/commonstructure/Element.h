@@ -26,9 +26,9 @@ namespace fuml::syntax::commonstructure
 	{
 
 		public:
-			std::shared_ptr<fuml::syntax::commonstructure::ElementList> ownedElement = nullptr;
+			std::shared_ptr<fuml::syntax::commonstructure::ElementList> ownedElement = std::make_shared<fuml::syntax::commonstructure::ElementList>();
 			std::shared_ptr<fuml::syntax::commonstructure::Element> owner = nullptr;
-			std::shared_ptr<fuml::syntax::commonstructure::CommentList> ownedComment = nullptr;
+			std::shared_ptr<fuml::syntax::commonstructure::CommentList> ownedComment = std::make_shared<fuml::syntax::commonstructure::CommentList>();
 
 		protected:
 			std::weak_ptr<fuml::syntax::commonstructure::Element> thisElementPtr;

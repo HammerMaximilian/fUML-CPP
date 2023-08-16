@@ -29,11 +29,11 @@ namespace fuml::syntax::commonstructure
 	{
 
 		public:
-			std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> member = nullptr;
-			std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> ownedMember = nullptr;
-			std::shared_ptr<fuml::syntax::commonstructure::ElementImportList> elementImport = nullptr;
-			std::shared_ptr<fuml::syntax::commonstructure::PackageImportList> packageImport = nullptr;
-			std::shared_ptr<fuml::syntax::commonstructure::PackageableElementList> importedMember = nullptr;
+			std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> member = std::make_shared<fuml::syntax::commonstructure::NamedElementList>();
+			std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> ownedMember = std::make_shared<fuml::syntax::commonstructure::NamedElementList>();
+			std::shared_ptr<fuml::syntax::commonstructure::ElementImportList> elementImport = std::make_shared<fuml::syntax::commonstructure::ElementImportList>();
+			std::shared_ptr<fuml::syntax::commonstructure::PackageImportList> packageImport = std::make_shared<fuml::syntax::commonstructure::PackageImportList>();
+			std::shared_ptr<fuml::syntax::commonstructure::PackageableElementList> importedMember = std::make_shared<fuml::syntax::commonstructure::PackageableElementList>();
 
 		protected:
 			std::weak_ptr<fuml::syntax::commonstructure::Namespace> thisNamespacePtr;

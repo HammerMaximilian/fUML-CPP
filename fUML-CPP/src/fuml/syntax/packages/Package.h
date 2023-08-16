@@ -31,9 +31,9 @@ namespace fuml::syntax::packages
 	class Package : public fuml::syntax::commonstructure::Namespace
 	{
 		public:
-			std::shared_ptr<fuml::syntax::commonstructure::PackageableElementList> packagedElement = nullptr;
-			std::shared_ptr<fuml::syntax::commonstructure::TypeList> ownedType = nullptr;
-			std::shared_ptr<fuml::syntax::packages::PackageList> nestedPackage = nullptr;
+			std::shared_ptr<fuml::syntax::commonstructure::PackageableElementList> packagedElement = std::make_shared<fuml::syntax::commonstructure::PackageableElementList>();
+			std::shared_ptr<fuml::syntax::commonstructure::TypeList> ownedType = std::make_shared<fuml::syntax::commonstructure::TypeList>();
+			std::shared_ptr<fuml::syntax::packages::PackageList> nestedPackage = std::make_shared<fuml::syntax::packages::PackageList>();
 			std::shared_ptr<fuml::syntax::packages::Package> nestingPackage = nullptr;
 			std::string URI = "";
 

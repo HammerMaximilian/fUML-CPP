@@ -23,7 +23,7 @@ namespace fuml::syntax::commonstructure
 	class Comment : public fuml_cpp::FumlObject {
 
 		public:
-			std::shared_ptr<fuml::syntax::commonstructure::ElementList> annotatedElement = nullptr;
+			std::shared_ptr<fuml::syntax::commonstructure::ElementList> annotatedElement = std::make_shared<fuml::syntax::commonstructure::ElementList>();
 			std::string body = "";
 
 		public:
