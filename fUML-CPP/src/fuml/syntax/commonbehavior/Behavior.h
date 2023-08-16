@@ -10,6 +10,7 @@
 
 #include <memory>
 #include <vector>
+#include "fuml/syntax/structuredclassifiers/Class_.h"
 
 namespace fuml::syntax::classification
 {
@@ -24,7 +25,7 @@ namespace fuml::syntax::commonbehavior
 
 namespace fuml::syntax::commonbehavior
 {
-	class Behavior
+	class Behavior : public fuml::syntax::structuredclassifiers::Class_
 	{
 		public:
 			bool isReentrant = true;

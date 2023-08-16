@@ -18,7 +18,7 @@ namespace fuml::syntax::simpleclassifiers
 
 namespace fuml::syntax::simpleclassifiers
 {
-	class Reception : public fuml::syntax::classification::BehavioralFeature
+	class Reception : virtual public fuml::syntax::classification::BehavioralFeature
 	{
 		public:
 			std::shared_ptr<fuml::syntax::simpleclassifiers::Signal> signal = nullptr;
