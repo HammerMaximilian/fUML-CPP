@@ -17,6 +17,12 @@ Namespace::~Namespace()
 {
 }
 
+void Namespace::setThisPtr(std::weak_ptr<fuml::syntax::commonstructure::Namespace> thisNamespacePtr)
+{
+	this->thisNamespacePtr = thisNamespacePtr;
+	fuml::syntax::commonstructure::Element::setThisPtr(thisNamespacePtr);
+}
+
 void Namespace::addOwnedMember(
 	const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>& ownedMember)
 {

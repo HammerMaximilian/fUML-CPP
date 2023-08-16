@@ -37,10 +37,12 @@ namespace fuml::syntax::packages
 			std::shared_ptr<fuml::syntax::packages::Package> nestingPackage = nullptr;
 			std::string URI = "";
 
-		protected:
+		private:
 			std::weak_ptr<fuml::syntax::packages::Package> thisPackagePtr;
 
 		public:
+			virtual void setThisPtr(std::weak_ptr<fuml::syntax::packages::Package>);
+
 			void addPackagedElement(
 				const std::shared_ptr<fuml::syntax::commonstructure::PackageableElement>&);
 			std::shared_ptr<fuml::syntax::commonstructure::PackageableElementList> visibleMembers();

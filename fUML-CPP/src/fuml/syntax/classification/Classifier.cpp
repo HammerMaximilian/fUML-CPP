@@ -17,6 +17,12 @@ Classifier::~Classifier()
 {
 }
 
+void Classifier::setThisPtr(std::weak_ptr<fuml::syntax::classification::Classifier> thisClassifierPtr)
+{
+	this->thisClassifierPtr = thisClassifierPtr;
+	fuml::syntax::commonstructure::Namespace::setThisPtr(thisClassifierPtr);
+}
+
 void Classifier::addGeneralization(
 	const std::shared_ptr<fuml::syntax::classification::Generalization>& generalization)
 {

@@ -11,6 +11,12 @@
 
 using namespace fuml::syntax::simpleclassifiers;
 
+void Enumeration::setThisPtr(std::weak_ptr<fuml::syntax::simpleclassifiers::Enumeration> thisEnumerationPtr)
+{
+	this->thisEnumerationPtr = thisEnumerationPtr;
+	fuml::syntax::simpleclassifiers::DataType::setThisPtr(thisEnumerationPtr);
+}
+
 void Enumeration::addOwnedLiteral(
 	const std::shared_ptr<fuml::syntax::simpleclassifiers::EnumerationLiteral>& ownedLiteral)
 {

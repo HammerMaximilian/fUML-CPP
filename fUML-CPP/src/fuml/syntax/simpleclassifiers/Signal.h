@@ -25,10 +25,12 @@ namespace fuml::syntax::simpleclassifiers
 		public:
 			std::shared_ptr<fuml::syntax::classification::PropertyList> ownedAttribute = std::make_shared<fuml::syntax::classification::PropertyList>();
 
-		protected:
+		private:
 			std::weak_ptr<fuml::syntax::simpleclassifiers::Signal> thisSignalPtr;
 
 		public:
+			virtual void setThisPtr(std::weak_ptr<fuml::syntax::simpleclassifiers::Signal>);
+
 			void addOwnedAttribute(
 				const std::shared_ptr<fuml::syntax::classification::Property>&);
 	}; // Signal

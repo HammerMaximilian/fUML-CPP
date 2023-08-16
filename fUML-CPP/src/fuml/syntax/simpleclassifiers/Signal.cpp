@@ -11,6 +11,12 @@
 
 using namespace fuml::syntax::simpleclassifiers;
 
+void Signal::setThisPtr(std::weak_ptr<fuml::syntax::simpleclassifiers::Signal> thisSignalPtr)
+{
+	this->thisSignalPtr = thisSignalPtr;
+	fuml::syntax::classification::Classifier::setThisPtr(thisSignalPtr);
+}
+
 void Signal::addOwnedAttribute(
 	const std::shared_ptr<fuml::syntax::classification::Property>& ownedAttribute)
 {

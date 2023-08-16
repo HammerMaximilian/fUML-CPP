@@ -35,21 +35,22 @@ namespace fuml::syntax::commonstructure
 			std::shared_ptr<fuml::syntax::commonstructure::PackageImportList> packageImport = std::make_shared<fuml::syntax::commonstructure::PackageImportList>();
 			std::shared_ptr<fuml::syntax::commonstructure::PackageableElementList> importedMember = std::make_shared<fuml::syntax::commonstructure::PackageableElementList>();
 
-		protected:
+		private:
 			std::weak_ptr<fuml::syntax::commonstructure::Namespace> thisNamespacePtr;
-
-		protected:
-			void addOwnedMember(
-				const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>&);
-			void addMember(const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>&);
 
 		public:
 			virtual ~Namespace() = 0;
+			virtual void setThisPtr(std::weak_ptr<fuml::syntax::commonstructure::Namespace>);
 
 			void addElementImport(
 				const std::shared_ptr<fuml::syntax::commonstructure::ElementImport>&);
 			void addPackageImport(
 				const std::shared_ptr<fuml::syntax::commonstructure::PackageImport>&);
+
+		protected:
+			void addOwnedMember(
+				const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>&);
+			void addMember(const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>&);
 
 		private:
 			void addImportedMember(

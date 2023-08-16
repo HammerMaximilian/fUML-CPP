@@ -47,10 +47,12 @@ namespace fuml::syntax::classification
 			std::shared_ptr<fuml::syntax::commonstructure::Type> type = nullptr;
 			std::shared_ptr<fuml::syntax::classification::ParameterList> ownedParameter = std::make_shared<fuml::syntax::classification::ParameterList>();
 
-		protected:
+		private:
 			std::weak_ptr<fuml::syntax::classification::Operation> thisOperationPtr;
 
 		public:
+			virtual void setThisPtr(std::weak_ptr<fuml::syntax::classification::Operation>);
+
 			void setIsQuery(bool);
 			void addOwnedParameter(
 					const std::shared_ptr<fuml::syntax::classification::Parameter>&);

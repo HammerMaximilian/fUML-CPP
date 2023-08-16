@@ -27,10 +27,12 @@ namespace fuml::syntax::classification
 			std::shared_ptr<fuml::syntax::classification::ClassifierList> classifier = std::make_shared<fuml::syntax::classification::ClassifierList>();
 			std::shared_ptr<fuml::syntax::classification::SlotList> slot = std::make_shared<fuml::syntax::classification::SlotList>();
 
-		protected:
+		private:
 			std::weak_ptr<fuml::syntax::classification::InstanceSpecification> thisInstanceSpecificationPtr;
 
 		public:
+			virtual void setThisPtr(std::weak_ptr<fuml::syntax::classification::InstanceSpecification>);
+
 			void addClassifier(const std::shared_ptr<fuml::syntax::classification::Classifier>&);
 			void addSlot(const std::shared_ptr<fuml::syntax::classification::Slot>&);
 	}; // InstanceSpecification

@@ -17,6 +17,12 @@
 
 using namespace fuml::syntax::packages;
 
+void Package::setThisPtr(std::weak_ptr<fuml::syntax::packages::Package> thisPackagePtr)
+{
+	this->thisPackagePtr = thisPackagePtr;
+	fuml::syntax::commonstructure::Namespace::setThisPtr(thisPackagePtr);
+}
+
 void Package::addPackagedElement(
 		const std::shared_ptr<fuml::syntax::commonstructure::PackageableElement>& packagedElement)
 {

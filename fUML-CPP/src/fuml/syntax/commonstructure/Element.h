@@ -30,11 +30,12 @@ namespace fuml::syntax::commonstructure
 			std::shared_ptr<fuml::syntax::commonstructure::Element> owner = nullptr;
 			std::shared_ptr<fuml::syntax::commonstructure::CommentList> ownedComment = std::make_shared<fuml::syntax::commonstructure::CommentList>();
 
-		protected:
+		private:
 			std::weak_ptr<fuml::syntax::commonstructure::Element> thisElementPtr;
 
 		public:
 			virtual ~Element() = 0;
+			virtual void setThisPtr(std::weak_ptr<fuml::syntax::commonstructure::Element>);
 
 		protected:
 			void addOwnedElement(

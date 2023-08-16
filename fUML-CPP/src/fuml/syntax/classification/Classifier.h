@@ -42,11 +42,13 @@ namespace fuml::syntax::classification
 			std::shared_ptr<fuml::syntax::classification::ClassifierList> general = std::make_shared<fuml::syntax::classification::ClassifierList>();
 			bool isFinalSpecialization = false;
 
-		protected:
+		private:
 			std::weak_ptr<fuml::syntax::classification::Classifier> thisClassifierPtr;
 
 		public:
 			~Classifier() = 0;
+			virtual void setThisPtr(std::weak_ptr<fuml::syntax::classification::Classifier>);
+
 			void addGeneralization(
 				const std::shared_ptr<fuml::syntax::classification::Generalization>&);
 			void setIsAbstract(bool);

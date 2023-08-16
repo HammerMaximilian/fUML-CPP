@@ -11,6 +11,12 @@
 
 using namespace fuml::syntax::classification;
 
+void InstanceSpecification::setThisPtr(std::weak_ptr<fuml::syntax::classification::InstanceSpecification> thisInstanceSpecificationPtr)
+{
+	this->thisInstanceSpecificationPtr = thisInstanceSpecificationPtr;
+	fuml::syntax::commonstructure::Element::setThisPtr(thisInstanceSpecificationPtr);
+}
+
 void InstanceSpecification::addClassifier(const std::shared_ptr<fuml::syntax::classification::Classifier>& classifier)
 {
 	this->classifier->push_back(classifier);

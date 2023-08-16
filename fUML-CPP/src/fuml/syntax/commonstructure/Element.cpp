@@ -15,6 +15,11 @@ Element::~Element()
 {
 }
 
+void Element::setThisPtr(std::weak_ptr<fuml::syntax::commonstructure::Element> thisElementPtr)
+{
+	this->thisElementPtr = thisElementPtr;
+}
+
 void Element::addOwnedElement(
 	const std::shared_ptr<fuml::syntax::commonstructure::Element>& ownedElement)
 {

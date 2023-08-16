@@ -13,6 +13,12 @@
 
 using namespace fuml::syntax::classification;
 
+void Operation::setThisPtr(std::weak_ptr<fuml::syntax::classification::Operation> thisOperationPtr)
+{
+	this->thisOperationPtr = thisOperationPtr;
+	fuml::syntax::classification::BehavioralFeature::setThisPtr(thisOperationPtr);
+}
+
 void Operation::setIsQuery(bool isQuery)
 {
 	this->isQuery = isQuery;

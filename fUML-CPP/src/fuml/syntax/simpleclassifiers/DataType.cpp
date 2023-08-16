@@ -11,6 +11,12 @@
 
 using namespace fuml::syntax::simpleclassifiers;
 
+void DataType::setThisPtr(std::weak_ptr<fuml::syntax::simpleclassifiers::DataType> thisDataTypePtr)
+{
+	this->thisDataTypePtr = thisDataTypePtr;
+	fuml::syntax::classification::Classifier::setThisPtr(thisDataTypePtr);
+}
+
 void DataType::addOwnedAttribute(
 	const std::shared_ptr<fuml::syntax::classification::Property>& ownedAttribute)
 {

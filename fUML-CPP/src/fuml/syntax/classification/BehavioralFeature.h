@@ -41,11 +41,12 @@ namespace fuml::syntax::classification
 			fuml::syntax::commonbehavior::CallConcurrencyKind concurrency = fuml::syntax::commonbehavior::CallConcurrencyKind::sequential;
 			std::shared_ptr<fuml::syntax::commonstructure::TypeList> raisedException = std::make_shared<fuml::syntax::commonstructure::TypeList>();
 
-		protected:
+		private:
 			std::weak_ptr<fuml::syntax::classification::BehavioralFeature> thisBehavioralFeaturePtr;
 
 		public:
 			~BehavioralFeature() = 0;
+			virtual void setThisPtr(std::weak_ptr<fuml::syntax::classification::BehavioralFeature>);
 
 			void setIsAbstract(bool);
 			void addOwnedParameter(

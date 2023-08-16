@@ -16,6 +16,12 @@ BehavioralFeature::~BehavioralFeature()
 {
 }
 
+void BehavioralFeature::setThisPtr(std::weak_ptr<fuml::syntax::classification::BehavioralFeature> thisBehavioralFeaturePtr)
+{
+	this->thisBehavioralFeaturePtr = thisBehavioralFeaturePtr;
+	fuml::syntax::commonstructure::Namespace::setThisPtr(thisBehavioralFeaturePtr);
+}
+
 void BehavioralFeature::setIsAbstract(bool isAbstract)
 {
 	this->isAbstract = isAbstract;
