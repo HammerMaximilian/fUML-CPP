@@ -12,7 +12,7 @@
 
 namespace fuml::syntax::commonstructure
 {
-	class PackageableElement : public fuml::syntax::commonstructure::NamedElement
+	class PackageableElement : virtual public fuml::syntax::commonstructure::NamedElement
 	{
 		public:
 			PackageableElement();

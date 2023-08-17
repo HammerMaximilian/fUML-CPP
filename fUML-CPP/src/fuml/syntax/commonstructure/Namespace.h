@@ -25,7 +25,7 @@ namespace fuml::syntax::commonstructure
 
 namespace fuml::syntax::commonstructure
 {
-	class Namespace : public fuml::syntax::commonstructure::PackageableElement
+	class Namespace : virtual public fuml::syntax::commonstructure::PackageableElement
 	{
 
 		public:
