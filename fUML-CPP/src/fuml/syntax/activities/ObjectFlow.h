@@ -8,8 +8,13 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_OBJECTFLOW_H_
 #define FUML_SYNTAX_ACTIVITIES_OBJECTFLOW_H_
 
+#include "ActivityEdge.h"
 
-
-
+namespace fuml::syntax::activities
+{
+	class ObjectFlow : public fuml::syntax::activities::ActivityEdge
+	{
+	}; // ObjectFlow
+}
 
 #endif /* FUML_SYNTAX_ACTIVITIES_OBJECTFLOW_H_ */

@@ -8,8 +8,15 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_CONTROLNODE_H_
 #define FUML_SYNTAX_ACTIVITIES_CONTROLNODE_H_
 
+#include "ActivityNode.h"
 
-
-
+namespace fuml::syntax::activities
+{
+	class ControlNode : public fuml::syntax::activities::ActivityNode
+	{
+		public:
+			virtual ~ControlNode() = 0;
+	}; // ControlNode
+}
 
 #endif /* FUML_SYNTAX_ACTIVITIES_CONTROLNODE_H_ */

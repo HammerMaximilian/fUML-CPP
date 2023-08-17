@@ -8,8 +8,13 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_JOINNODE_H_
 #define FUML_SYNTAX_ACTIVITIES_JOINNODE_H_
 
+#include "ControlNode.h"
 
-
-
+namespace fuml::syntax::activities
+{
+	class JoinNode : public fuml::syntax::activities::ControlNode
+	{
+	}; // JoinNode
+}
 
 #endif /* FUML_SYNTAX_ACTIVITIES_JOINNODE_H_ */

@@ -8,8 +8,15 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_FINALNODE_H_
 #define FUML_SYNTAX_ACTIVITIES_FINALNODE_H_
 
+#include "ControlNode.h"
 
-
-
+namespace fuml::syntax::activities
+{
+	class FinalNode : public fuml::syntax::activities::ControlNode
+	{
+		public:
+			virtual ~FinalNode() = 0;
+	}; // FinalNode
+}
 
 #endif /* FUML_SYNTAX_ACTIVITIES_FINALNODE_H_ */

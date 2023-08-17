@@ -8,8 +8,14 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_ACTIVITYPARAMETERNODE_H_
 #define FUML_SYNTAX_ACTIVITIES_ACTIVITYPARAMETERNODE_H_
 
+#include "ObjectNode.h"
 
+namespace fuml::syntax::activities
+{
+	class ActivityParameterNode : public fuml::syntax::activities::ObjectNode
+	{
 
-
+	}; // ActivityParameterNode
+}
 
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYPARAMETERNODE_H_ */

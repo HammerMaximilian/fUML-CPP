@@ -8,8 +8,13 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_FORKNODE_H_
 #define FUML_SYNTAX_ACTIVITIES_FORKNODE_H_
 
+#include "ControlNode.h"
 
-
-
+namespace fuml::syntax::activities
+{
+	class ForkNode : public fuml::syntax::activities::ControlNode
+	{
+	}; // ForkNode
+}
 
 #endif /* FUML_SYNTAX_ACTIVITIES_FORKNODE_H_ */

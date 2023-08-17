@@ -8,8 +8,13 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_CENTRALBUFFERNODE_H_
 #define FUML_SYNTAX_ACTIVITIES_CENTRALBUFFERNODE_H_
 
+#include "ObjectNode.h"
 
-
-
+namespace fuml::syntax::activities
+{
+	class CentralBufferNode : public fuml::syntax::activities::ObjectNode
+	{
+	}; // CentralBufferNode
+}
 
 #endif /* FUML_SYNTAX_ACTIVITIES_CENTRALBUFFERNODE_H_ */

@@ -5,6 +5,10 @@
  *      Author: maha6913
  */
 
+#include "FinalNode.h"
 
+using namespace fuml::syntax::activities;
 
-
+FinalNode::~FinalNode()
+{
+}

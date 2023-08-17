@@ -8,8 +8,13 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_MERGENODE_H_
 #define FUML_SYNTAX_ACTIVITIES_MERGENODE_H_
 
+#include "ControlNode.h"
 
-
-
+namespace fuml::syntax::activities
+{
+	class MergeNode : public fuml::syntax::activities::ControlNode
+	{
+	}; // MergeNode
+}
 
 #endif /* FUML_SYNTAX_ACTIVITIES_MERGENODE_H_ */

@@ -8,8 +8,13 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_ACTIVITYFINALNODE_H_
 #define FUML_SYNTAX_ACTIVITIES_ACTIVITYFINALNODE_H_
 
+#include "FinalNode.h"
 
-
-
+namespace fuml::syntax::activities
+{
+	class ActivityFinalNode : public fuml::syntax::activities::FinalNode
+	{
+	}; // ActivityFinalNode
+}
 
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYFINALNODE_H_ */

@@ -5,6 +5,10 @@
  *      Author: maha6913
  */
 
+#include "ObjectNode.h"
 
+using namespace fuml::syntax::activities;
 
-
+ObjectNode::~ObjectNode()
+{
+}

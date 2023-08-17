@@ -8,8 +8,15 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_ACTIVITYGROUP_H_
 #define FUML_SYNTAX_ACTIVITIES_ACTIVITYGROUP_H_
 
+#include "ActivityNode.h"
 
-
-
+namespace fuml::syntax::activities
+{
+	class ActivityGroup : public fuml::syntax::activities::ActivityNode
+	{
+		public:
+			virtual ~ActivityGroup() = 0;
+	}; // ActivityGroup
+}
 
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYGROUP_H_ */

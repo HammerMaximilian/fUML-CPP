@@ -5,6 +5,10 @@
  *      Author: maha6913
  */
 
+#include "ActivityNode.h"
 
+using namespace fuml::syntax::activities;
 
-
+ActivityNode::~ActivityNode()
+{
+}
