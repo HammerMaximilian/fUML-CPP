@@ -11,12 +11,11 @@
 #include <memory>
 #include <vector>
 #include "fuml/syntax/structuredclassifiers/Class_.h"
+#include "fuml/syntax/classification/ParameterList.h"
 
 namespace fuml::syntax::classification
 {
 	class BehavioralFeature;
-	class Parameter;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Parameter>> ParameterList;
 }
 namespace fuml::syntax::commonbehavior
 {
