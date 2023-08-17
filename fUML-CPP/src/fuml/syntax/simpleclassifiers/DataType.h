@@ -11,12 +11,7 @@
 #include <memory>
 #include <vector>
 #include "fuml/syntax/classification/Classifier.h"
-
-namespace fuml::syntax::classification
-{
-	class Property;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Property>> PropertyList;
-}
+#include "fuml/syntax/classification/PropertyList.h"
 
 namespace fuml::syntax::simpleclassifiers
 {

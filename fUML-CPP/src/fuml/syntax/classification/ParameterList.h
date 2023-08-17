@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "Parameter.h"
 
 namespace fuml::syntax::classification
 {
+	class Parameter;
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Parameter>> ParameterList;
 }
 

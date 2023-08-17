@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "PackageableElement.h"
 
 namespace fuml::syntax::commonstructure
 {
+	class PackageableElement;
 	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::PackageableElement>> PackageableElementList;
 }
 

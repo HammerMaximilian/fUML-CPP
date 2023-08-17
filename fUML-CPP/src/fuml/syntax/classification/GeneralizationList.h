@@ -8,10 +8,9 @@
 #ifndef FUML_SYNTAX_CLASSIFICATION_GENERALIZATIONLIST_H_
 #define FUML_SYNTAX_CLASSIFICATION_GENERALIZATIONLIST_H_
 
-#include "fuml/syntax/classification/Generalization.h"
-
 namespace fuml::syntax::classification
 {
+	class Generalization;
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Generalization>> GeneralizationList;
 }
 

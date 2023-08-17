@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "Behavior.h"
 
-namespace fuml::syntax::commonstructure
+namespace fuml::syntax::commonbehavior
 {
+	class Behavior;
 	typedef std::vector<std::shared_ptr<fuml::syntax::commonbehavior::Behavior>> BehaviorList;
 }
 

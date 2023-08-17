@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "RedefinableElement.h"
 
 namespace fuml::syntax::classification
 {
+	class RedefinableElement;
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::RedefinableElement>> RedefinableElementList;
 }
 

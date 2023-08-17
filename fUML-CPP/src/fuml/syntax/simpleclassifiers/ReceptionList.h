@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "Reception.h"
 
 namespace fuml::syntax::simpleclassifiers
 {
+	class Reception;
 	typedef std::vector<std::shared_ptr<fuml::syntax::simpleclassifiers::Reception>> ReceptionList;
 }
 

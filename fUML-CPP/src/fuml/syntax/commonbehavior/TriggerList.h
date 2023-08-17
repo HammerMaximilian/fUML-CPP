@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "Trigger.h"
 
-namespace fuml::syntax::commonstructure
+namespace fuml::syntax::commonbehavior
 {
+	class Trigger;
 	typedef std::vector<std::shared_ptr<fuml::syntax::commonbehavior::Trigger>> TriggerList;
 }
 

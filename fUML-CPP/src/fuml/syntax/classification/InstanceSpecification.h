@@ -10,14 +10,8 @@
 
 #include <memory>
 #include "fuml/syntax/commonstructure/NamedElement.h"
-
-namespace fuml::syntax::classification
-{
-	class Classifier;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Classifier>> ClassifierList;
-	class Slot;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Slot>> SlotList;
-}
+#include "ClassifierList.h"
+#include "SlotList.h"
 
 namespace fuml::syntax::classification
 {

@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "PrimitiveType.h"
 
 namespace fuml::syntax::simpleclassifiers
 {
+	class PrimitiveType;
 	typedef std::vector<std::shared_ptr<fuml::syntax::simpleclassifiers::PrimitiveType>> PrimitiveTypeList;
 }
 

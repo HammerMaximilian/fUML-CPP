@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "EnumerationLiteral.h"
 
 namespace fuml::syntax::simpleclassifiers
 {
+	class EnumerationLiteral;
 	typedef std::vector<std::shared_ptr<fuml::syntax::simpleclassifiers::EnumerationLiteral>> EnumerationLiteralList;
 }
 

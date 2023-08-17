@@ -11,12 +11,7 @@
 #include <memory>
 #include <vector>
 #include "RedefinableElement.h"
-
-namespace fuml::syntax::classification
-{
-	class Classifier;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Classifier>> ClassifierList;
-}
+#include "ClassifierList.h"
 
 namespace fuml::syntax::classification
 {

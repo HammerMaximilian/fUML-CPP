@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "StructuralFeature.h"
 
 namespace fuml::syntax::classification
 {
+	class StructuralFeature;
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::StructuralFeature>> StructuralFeatureList;
 }
 

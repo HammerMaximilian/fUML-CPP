@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "Property.h"
 
 namespace fuml::syntax::classification
 {
+	class Property;
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Property>> PropertyList;
 }
 

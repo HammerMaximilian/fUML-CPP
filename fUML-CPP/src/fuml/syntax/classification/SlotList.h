@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "Slot.h"
 
 namespace fuml::syntax::classification
 {
+	class Slot;
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Slot>> SlotList;
 }
 

@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "Class_.h"
 
-namespace fuml::syntax::classification
+namespace fuml::syntax::structuredclassifiers
 {
+	class Class_;
 	typedef std::vector<std::shared_ptr<fuml::syntax::structuredclassifiers::Class_>> Class_List;
 }
 

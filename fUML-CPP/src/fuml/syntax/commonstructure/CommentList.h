@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "Comment.h"
 
 namespace fuml::syntax::commonstructure
 {
+	class Comment;
 	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::Comment>> CommentList;
 }
 

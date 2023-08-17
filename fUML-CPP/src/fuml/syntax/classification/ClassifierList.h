@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "Classifier.h"
 
 namespace fuml::syntax::classification
 {
+	class Classifier;
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Classifier>> ClassifierList;
 }
 

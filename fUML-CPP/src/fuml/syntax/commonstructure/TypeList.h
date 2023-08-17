@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "Type.h"
 
 namespace fuml::syntax::commonstructure
 {
+	class Type;
 	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::Type>> TypeList;
 }
 

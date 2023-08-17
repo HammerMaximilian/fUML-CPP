@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "Operation.h"
 
 namespace fuml::syntax::classification
 {
+	class Operation;
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Operation>> OperationList;
 }
 

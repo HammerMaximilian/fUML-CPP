@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "ValueSpecification.h"
 
 namespace fuml::syntax::values
 {
+	class ValueSpecification;
 	typedef std::vector<std::shared_ptr<fuml::syntax::values::ValueSpecification>> ValueSpecificationList;
 }
 

@@ -11,12 +11,7 @@
 #include <memory>
 #include <vector>
 #include "DataType.h"
-
-namespace fuml::syntax::simpleclassifiers
-{
-	class EnumerationLiteral;
-	typedef std::vector<std::shared_ptr<fuml::syntax::simpleclassifiers::EnumerationLiteral>> EnumerationLiteralList;
-}
+#include "EnumerationLiteralList.h"
 
 namespace fuml::syntax::simpleclassifiers
 {

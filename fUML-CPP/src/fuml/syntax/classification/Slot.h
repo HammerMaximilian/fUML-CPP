@@ -10,16 +10,12 @@
 
 #include <memory>
 #include "fuml/syntax/commonstructure/Element.h"
+#include "fuml/syntax/values/ValueSpecificationList.h"
 
 namespace fuml::syntax::classification
 {
 	class InstanceSpecification;
 	class StructuralFeature;
-}
-namespace fuml::syntax::values
-{
-	class ValueSpecification;
-	typedef std::vector<std::shared_ptr<fuml::syntax::values::ValueSpecification>> ValueSpecificationList;
 }
 
 namespace fuml::syntax::classification

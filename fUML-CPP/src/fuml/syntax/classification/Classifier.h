@@ -11,23 +11,11 @@
 #include <memory>
 #include <vector>
 #include "fuml/syntax/commonstructure/Type.h"
-
-namespace fuml::syntax::classification
-{
-	class Generalization;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Generalization>> GeneralizationList;
-	class Feature;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Feature>> FeatureList;
-	class Property;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Property>> PropertyList;
-	class Classifier;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Classifier>> ClassifierList;
-}
-namespace fuml::syntax::commonstructure
-{
-	class NamedElement;
-	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::NamedElement>> NamedElementList;
-}
+#include "GeneralizationList.h"
+#include "FeatureList.h"
+#include "PropertyList.h"
+#include "ClassifierList.h"
+#include "fuml/syntax/commonstructure/NamedElementList.h"
 
 namespace fuml::syntax::classification
 {

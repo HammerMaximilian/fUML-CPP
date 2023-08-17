@@ -9,14 +9,8 @@
 #define FUML_SYNTAX_CLASSIFICATION_REDEFINABLEELEMENT_H_
 
 #include "fuml/syntax/commonstructure/NamedElement.h"
-
-namespace fuml::syntax::classification
-{
-	class Classifier;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Classifier>> ClassifierList;
-	class RedefinableElement;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::RedefinableElement>> RedefinableElementList;
-}
+#include "ClassifierList.h"
+#include "RedefinableElementList.h"
 
 namespace fuml::syntax::classification
 {

@@ -9,12 +9,7 @@
 #define FUML_SYNTAX_COMMONBEHAVIOR_BEHAVIOREDCLASSIFIER_H_
 
 #include "fuml/syntax/classification/Classifier.h"
-
-namespace fuml::syntax::commonbehavior
-{
-	class Behavior;
-	typedef std::vector<std::shared_ptr<fuml::syntax::commonbehavior::Behavior>> BehaviorList;
-}
+#include "fuml/syntax/commonbehavior/BehaviorList.h"
 
 namespace fuml::syntax::commonbehavior
 {

@@ -10,12 +10,12 @@
 
 #include <memory>
 #include "Element.h"
+#include "VisibilityKind.h"
 
 namespace fuml::syntax::commonstructure
 {
 	class Namespace;
 	class PackageableElement;
-	enum class VisibilityKind;
 }
 
 namespace fuml::syntax::commonstructure

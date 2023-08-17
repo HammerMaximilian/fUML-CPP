@@ -11,14 +11,8 @@
 #include <memory>
 #include <vector>
 #include "other/FumlObject.h"
-
-namespace fuml::syntax::commonstructure
-{
-	class Comment;
-	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::Comment>> CommentList;
-	class Element;
-	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::Element>> ElementList;
-}
+#include "CommentList.h"
+#include "ElementList.h"
 
 namespace fuml::syntax::commonstructure
 {

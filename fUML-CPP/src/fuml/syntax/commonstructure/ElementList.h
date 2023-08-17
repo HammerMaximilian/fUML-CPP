@@ -10,10 +10,10 @@
 
 #include <memory>
 #include <vector>
-#include "Element.h"
 
 namespace fuml::syntax::commonstructure
 {
+	class Element;
 	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::Element>> ElementList;
 }
 

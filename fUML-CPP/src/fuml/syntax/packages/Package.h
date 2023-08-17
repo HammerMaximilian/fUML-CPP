@@ -11,20 +11,9 @@
 #include <memory>
 #include <vector>
 #include "fuml/syntax/commonstructure/Namespace.h"
-
-namespace fuml::syntax::commonstructure
-{
-	class Type;
-	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::Type>> TypeList;
-	class PackageableElement;
-	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::PackageableElement>> PackageableElementList;
-}
-
-namespace fuml::syntax::packages
-{
-	class Package;
-	typedef std::vector<std::shared_ptr<fuml::syntax::packages::Package>> PackageList;
-}
+#include "fuml/syntax/commonstructure/TypeList.h"
+#include "fuml/syntax/commonstructure/PackageableElementList.h"
+#include "fuml/syntax/packages/PackageList.h"
 
 namespace fuml::syntax::packages
 {

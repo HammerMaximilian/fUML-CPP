@@ -11,17 +11,8 @@
 #include <memory>
 #include <vector>
 #include "fuml/syntax/classification/Classifier.h"
-
-namespace fuml::syntax::classification
-{
-	class Property;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Property>> PropertyList;
-}
-namespace fuml::syntax::commonstructure
-{
-	class Type;
-	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::Type>> TypeList;
-}
+#include "fuml/syntax/classification/PropertyList.h"
+#include "fuml/syntax/commonstructure/TypeList.h"
 
 namespace fuml::syntax::structuredclassifiers
 {

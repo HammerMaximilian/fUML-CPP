@@ -11,17 +11,10 @@
 #include <memory>
 #include <vector>
 #include "PackageableElement.h"
-
-namespace fuml::syntax::commonstructure
-{
-	class ElementImport;
-	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::ElementImport>> ElementImportList;
-	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::NamedElement>> NamedElementList;
-	class PackageImport;
-	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::PackageImport>> PackageImportList;
-	class PackageableElement;
-	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::PackageableElement>> PackageableElementList;
-}
+#include "ElementImportList.h"
+#include "NamedElementList.h"
+#include "PackageImportList.h"
+#include "PackageableElementList.h"
 
 namespace fuml::syntax::commonstructure
 {

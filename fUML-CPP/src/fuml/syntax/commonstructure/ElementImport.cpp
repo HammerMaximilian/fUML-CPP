@@ -9,7 +9,6 @@
 
 #include "Namespace.h"
 #include "PackageableElement.h"
-#include "VisibilityKind.h"
 
 using namespace fuml::syntax::commonstructure;
 

@@ -9,24 +9,10 @@
 #define FUML_SYNTAX_STRUCTUREDCLASSIFIERS_CLASS__H_
 
 #include "fuml/syntax/commonbehavior/BehavioredClassifier.h"
-
-namespace fuml::syntax::classification
-{
-	class Operation;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Operation>> OperationList;
-	class Property;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Property>> PropertyList;
-}
-namespace fuml::syntax::simpleclassifiers
-{
-	class Reception;
-	typedef std::vector<std::shared_ptr<fuml::syntax::simpleclassifiers::Reception>> ReceptionList;
-}
-namespace fuml::syntax::structuredclassifiers
-{
-	class Class_;
-	typedef std::vector<std::shared_ptr<fuml::syntax::structuredclassifiers::Class_>> Class_List;
-}
+#include "fuml/syntax/classification/OperationList.h"
+#include "fuml/syntax/classification/PropertyList.h"
+#include "fuml/syntax/simpleclassifiers/ReceptionList.h"
+#include "Class_List.h"
 
 namespace fuml::syntax::structuredclassifiers
 {

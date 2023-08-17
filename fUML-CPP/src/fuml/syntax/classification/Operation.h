@@ -11,14 +11,9 @@
 #include <memory>
 #include "BehavioralFeature.h"
 #include "UMLPrimitiveTypes/unlimitedNatural.h"
+#include "OperationList.h"
+#include "ParameterList.h"
 
-namespace fuml::syntax::classification
-{
-	class Operation;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Operation>> OperationList;
-	class Parameter;
-	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Parameter>> ParameterList;
-}
 namespace fuml::syntax::commonbehavior
 {
 	class Behavior;
