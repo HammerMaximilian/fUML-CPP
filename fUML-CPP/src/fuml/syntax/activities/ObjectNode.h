@@ -9,10 +9,13 @@
 #define FUML_SYNTAX_ACTIVITIES_OBJECTNODE_H_
 
 #include "ActivityNode.h"
+#include "fuml/syntax/commonstructure/TypedElement.h"
 
 namespace fuml::syntax::activities
 {
-	class ObjectNode : public fuml::syntax::activities::ActivityNode
+	class ObjectNode :
+		virtual public fuml::syntax::activities::ActivityNode,
+		virtual public fuml::syntax::commonstructure::TypedElement
 	{
 		public:
 			virtual ~ObjectNode() = 0;

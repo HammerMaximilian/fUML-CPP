@@ -8,8 +8,14 @@
 #ifndef FUML_SYNTAX_ACTIONS_STRUCTUREDACTIVITYNODE_H_
 #define FUML_SYNTAX_ACTIONS_STRUCTUREDACTIVITYNODE_H_
 
+#include "Action.h"
 
+namespace fuml::syntax::actions
+{
+	class StructuredActivityNode : public fuml::syntax::actions::Action
+	{
 
-
+	}; // StructuredActivityNode
+}
 
 #endif /* FUML_SYNTAX_ACTIONS_STRUCTUREDACTIVITYNODE_H_ */

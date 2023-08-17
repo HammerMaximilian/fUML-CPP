@@ -10,11 +10,28 @@
 
 #include "ControlNode.h"
 
+namespace fuml::syntax::commonbehavior
+{
+	class Behavior;
+}
+namespace fuml::syntax::activities
+{
+	class ObjectFlow;
+}
+
 namespace fuml::syntax::activities
 {
 	class DecisionNode : public fuml::syntax::activities::ControlNode
 	{
+		public:
+			std::shared_ptr<fuml::syntax::commonbehavior::Behavior> decisionInput = nullptr;
+			std::shared_ptr<fuml::syntax::activities::ObjectFlow> decisionInputFlow = nullptr;
 
+		public:
+			void setDecisionInput(
+					const std::shared_ptr<fuml::syntax::commonbehavior::Behavior>&);
+			void setDecisionInputFlow(
+					const std::shared_ptr<fuml::syntax::activities::ObjectFlow>&);
 	}; // DecisionNode
 }
 

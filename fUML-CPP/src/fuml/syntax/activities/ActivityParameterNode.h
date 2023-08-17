@@ -10,11 +10,20 @@
 
 #include "ObjectNode.h"
 
+namespace fuml::syntax::classification
+{
+	class Parameter;
+}
+
 namespace fuml::syntax::activities
 {
 	class ActivityParameterNode : public fuml::syntax::activities::ObjectNode
 	{
+		public:
+			std::shared_ptr<fuml::syntax::classification::Parameter> parameter = nullptr;
 
+		public:
+			void setParameter(const std::shared_ptr<fuml::syntax::classification::Parameter>&);
 	}; // ActivityParameterNode
 }
 
