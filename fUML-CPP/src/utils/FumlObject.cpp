@@ -5,9 +5,9 @@
  *      Author: Maximilian
  */
 
-#include "FumlObject.h"
+#include <utils/FumlObject.h>
 
-using namespace fuml_cpp;
+using namespace utils;
 
 std::string FumlObject::getXmiId() const
 {

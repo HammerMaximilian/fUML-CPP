@@ -8,15 +8,15 @@
 #ifndef FUML_SYNTAX_COMMONSTRUCTURE_ELEMENT_H_
 #define FUML_SYNTAX_COMMONSTRUCTURE_ELEMENT_H_
 
+#include <utils/FumlObject.h>
 #include <memory>
 #include <vector>
-#include "other/FumlObject.h"
 #include "CommentList.h"
 #include "ElementList.h"
 
 namespace fuml::syntax::commonstructure
 {
-	class Element : public fuml_cpp::FumlObject
+	class Element : public utils::FumlObject
 	{
 
 		public:

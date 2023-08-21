@@ -5,12 +5,12 @@
  *      Author: Maximilian
  */
 
-#ifndef OTHER_FUMLOBJECT_H_
-#define OTHER_FUMLOBJECT_H_
+#ifndef UTILS_FUMLOBJECT_H_
+#define UTILS_FUMLOBJECT_H_
 
 #include <string>
 
-namespace fuml_cpp
+namespace utils
 {
 	class FumlObject
 	{
@@ -29,4 +29,4 @@ namespace fuml_cpp
 	};
 }
 
-#endif /* OTHER_FUMLOBJECT_H_ */
+#endif /* UTILS_FUMLOBJECT_H_ */
