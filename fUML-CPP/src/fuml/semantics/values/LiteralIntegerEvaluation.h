@@ -1,0 +1,15 @@
+/*
+ * LiteralIntegerEvaluation.h
+ *
+ *  Created on: 21.08.2023
+ *      Author: Maximilian
+ */
+
+#ifndef FUML_SEMANTICS_VALUES_LITERALINTEGEREVALUATION_H_
+#define FUML_SEMANTICS_VALUES_LITERALINTEGEREVALUATION_H_
+
+
+
+
+
+#endif /* FUML_SEMANTICS_VALUES_LITERALINTEGEREVALUATION_H_ */

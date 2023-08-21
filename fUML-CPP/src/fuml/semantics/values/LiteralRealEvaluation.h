@@ -1,0 +1,15 @@
+/*
+ * LiteralRealEvaluation.h
+ *
+ *  Created on: 21.08.2023
+ *      Author: Maximilian
+ */
+
+#ifndef FUML_SEMANTICS_VALUES_LITERALREALEVALUATION_H_
+#define FUML_SEMANTICS_VALUES_LITERALREALEVALUATION_H_
+
+
+
+
+
+#endif /* FUML_SEMANTICS_VALUES_LITERALREALEVALUATION_H_ */
