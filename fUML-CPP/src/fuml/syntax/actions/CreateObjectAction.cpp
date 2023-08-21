@@ -5,6 +5,19 @@
  *      Author: maha6913
  */
 
+#include "CreateObjectAction.h"
 
+using namespace fuml::syntax::actions;
 
+void CreateObjectAction::setClassifier(
+	const std::shared_ptr<fuml::syntax::classification::Classifier>& endData)
+{
+	this->classifier = classifier;
+} // setClassifier
 
+void CreateObjectAction::setResult(
+	const std::shared_ptr<OutputPin>& result)
+{
+	Action::addOutput(result);
+	this->result = result;
+} // setClassifier

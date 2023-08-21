@@ -8,8 +8,14 @@
 #ifndef FUML_SYNTAX_ACTIONS_EXPANSIONKIND_H_
 #define FUML_SYNTAX_ACTIONS_EXPANSIONKIND_H_
 
-
-
-
+namespace fuml::syntax::actions
+{
+	enum class ExpansionKind
+	{
+		parallel,
+		iterative,
+		stream
+	}; // ExpansionKind
+}
 
 #endif /* FUML_SYNTAX_ACTIONS_EXPANSIONKIND_H_ */

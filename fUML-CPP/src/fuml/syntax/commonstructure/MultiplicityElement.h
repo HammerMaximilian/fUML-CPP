@@ -19,7 +19,7 @@ namespace fuml::syntax::values
 
 namespace fuml::syntax::commonstructure
 {
-	class MultiplicityElement : public fuml::syntax::commonstructure::Element
+	class MultiplicityElement : virtual public fuml::syntax::commonstructure::Element
 	{
 		public:
 			bool isOrdered = false;

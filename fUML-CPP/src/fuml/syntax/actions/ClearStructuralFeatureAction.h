@@ -8,8 +8,24 @@
 #ifndef FUML_SYNTAX_ACTIONS_CLEARSTRUCTURALFEATUREACTION_H_
 #define FUML_SYNTAX_ACTIONS_CLEARSTRUCTURALFEATUREACTION_H_
 
+#include <memory>
+#include "StructuralFeatureAction.h"
 
+namespace fuml::syntax::actions
+{
+	class OutputPin;
+}
 
+namespace fuml::syntax::actions
+{
+	class ClearStructuralFeatureAction : public StructuralFeatureAction
+	{
+		public:
+			std::shared_ptr<OutputPin> result = nullptr;
 
+		public:
+			void setResult(const std::shared_ptr<OutputPin>&);
+	}; // ClearStructuralFeatureAction
+}
 
 #endif /* FUML_SYNTAX_ACTIONS_CLEARSTRUCTURALFEATUREACTION_H_ */

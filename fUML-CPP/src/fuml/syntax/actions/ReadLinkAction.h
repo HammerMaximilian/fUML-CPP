@@ -8,8 +8,25 @@
 #ifndef FUML_SYNTAX_ACTIONS_READLINKACTION_H_
 #define FUML_SYNTAX_ACTIONS_READLINKACTION_H_
 
+#include <memory>
+#include "LinkAction.h"
 
+namespace fuml::syntax::actions
+{
+	class OutputPin;
+}
 
+namespace fuml::syntax::actions
+{
+	class ReadLinkAction : public LinkAction
+	{
+		public:
+			std::shared_ptr<OutputPin> result = nullptr;
+
+		public:
+			void setResult(const std::shared_ptr<OutputPin>&);
+	}; // ReadLinkAction
+}
 
 
 #endif /* FUML_SYNTAX_ACTIONS_READLINKACTION_H_ */

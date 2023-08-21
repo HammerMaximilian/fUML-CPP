@@ -8,8 +8,13 @@
 #ifndef FUML_SYNTAX_ACTIONS_OUTPUTPIN_H_
 #define FUML_SYNTAX_ACTIONS_OUTPUTPIN_H_
 
+#include "fuml/syntax/actions/Pin.h"
 
-
-
+namespace fuml::syntax::actions
+{
+	class OutputPin: virtual public fuml::syntax::actions::Pin
+	{
+	}; // OutputPin
+}
 
 #endif /* FUML_SYNTAX_ACTIONS_OUTPUTPIN_H_ */

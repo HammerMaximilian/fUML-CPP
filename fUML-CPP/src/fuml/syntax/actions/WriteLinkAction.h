@@ -8,8 +8,16 @@
 #ifndef FUML_SYNTAX_ACTIONS_WRITELINKACTION_H_
 #define FUML_SYNTAX_ACTIONS_WRITELINKACTION_H_
 
+#include <memory>
+#include "LinkAction.h"
 
-
-
+namespace fuml::syntax::actions
+{
+	class WriteLinkAction : public LinkAction
+	{
+		public:
+			virtual ~WriteLinkAction() = 0;
+	}; // WriteLinkAction
+}
 
 #endif /* FUML_SYNTAX_ACTIONS_WRITELINKACTION_H_ */

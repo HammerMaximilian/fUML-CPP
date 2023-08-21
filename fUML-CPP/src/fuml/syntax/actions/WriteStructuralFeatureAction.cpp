@@ -5,6 +5,22 @@
  *      Author: maha6913
  */
 
+#include "WriteStructuralFeatureAction.h"
 
+using namespace fuml::syntax::actions;
 
+WriteStructuralFeatureAction::~WriteStructuralFeatureAction()
+{
+}
 
+void WriteStructuralFeatureAction::setResult(const std::shared_ptr<OutputPin>& result)
+{
+	Action::addOutput(result);
+	this->result = result;
+} // setResult
+
+void WriteStructuralFeatureAction::setValue(const std::shared_ptr<InputPin>& value)
+{
+	Action::addInput(value);
+	this->value = value;
+} //setValue

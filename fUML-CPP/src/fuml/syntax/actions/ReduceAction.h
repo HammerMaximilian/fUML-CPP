@@ -8,8 +8,36 @@
 #ifndef FUML_SYNTAX_ACTIONS_REDUCEACTION_H_
 #define FUML_SYNTAX_ACTIONS_REDUCEACTION_H_
 
+#include <memory>
+#include "Action.h"
 
+namespace fuml::syntax::commonbehavior
+{
+	class Behavior;
+}
+namespace fuml::syntax::actions
+{
+	class InputPin;
+	class OutputPin;
+}
 
+namespace fuml::syntax::actions
+{
+	class ReduceAction : public Action
+	{
+		public:
+			std::shared_ptr<fuml::syntax::commonbehavior::Behavior> reducer = nullptr;
+			std::shared_ptr<OutputPin> result = nullptr;
+			std::shared_ptr<InputPin> collection = nullptr;
+			bool isOrdered;
+
+		public:
+			void setIsOrdered(bool);
+			void setReducer(const std::shared_ptr<fuml::syntax::commonbehavior::Behavior>&);
+			void setCollection(const std::shared_ptr<InputPin>&);
+			void setResult(const std::shared_ptr<OutputPin>&);
+	}; // ReduceAction
+}
 
 
 #endif /* FUML_SYNTAX_ACTIONS_REDUCEACTION_H_ */

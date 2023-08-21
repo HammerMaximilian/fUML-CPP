@@ -5,6 +5,10 @@
  *      Author: maha6913
  */
 
+#include "WriteLinkAction.h"
 
+using namespace fuml::syntax::actions;
 
-
+WriteLinkAction::~WriteLinkAction()
+{
+}

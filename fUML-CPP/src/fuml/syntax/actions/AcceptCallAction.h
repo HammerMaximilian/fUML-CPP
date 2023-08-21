@@ -8,7 +8,25 @@
 #ifndef FUML_SYNTAX_ACTIONS_ACCEPTCALLACTION_H_
 #define FUML_SYNTAX_ACTIONS_ACCEPTCALLACTION_H_
 
+#include <memory>
+#include "AcceptEventAction.h"
 
+namespace fuml::syntax::actions
+{
+	class OutputPin;
+}
+
+namespace fuml::syntax::actions
+{
+	class AcceptCallAction : public AcceptEventAction
+	{
+		public:
+			std::shared_ptr<OutputPin> returnInformation = nullptr;
+
+		public:
+			void setReturnInformation(const std::shared_ptr<OutputPin>&);
+	}; // AcceptCallAction
+}
 
 
 

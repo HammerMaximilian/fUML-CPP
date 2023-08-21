@@ -8,8 +8,28 @@
 #ifndef FUML_SYNTAX_ACTIONS_DESTROYOBJECTACTION_H_
 #define FUML_SYNTAX_ACTIONS_DESTROYOBJECTACTION_H_
 
+#include <memory>
+#include "Action.h"
 
+namespace fuml::syntax::actions
+{
+	class InputPin;
+}
 
+namespace fuml::syntax::actions
+{
+	class DestroyObjectAction : public Action
+	{
+		public:
+			bool isDestroyLinks = false;
+			bool isDestroyOwnedObjects = false;
+			std::shared_ptr<InputPin> target = nullptr;
 
+		public:
+			void setIsDestroyLinks(bool);
+			void setIsDestroyOwnedObjects(bool);
+			void setTarget(const std::shared_ptr<InputPin>& target);
+	}; // DestroyObjectAction
+}
 
 #endif /* FUML_SYNTAX_ACTIONS_DESTROYOBJECTACTION_H_ */

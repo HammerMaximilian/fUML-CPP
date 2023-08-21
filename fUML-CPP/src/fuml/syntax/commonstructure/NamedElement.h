@@ -20,7 +20,7 @@ namespace fuml::syntax::commonstructure
 
 namespace fuml::syntax::commonstructure
 {
-	class NamedElement : public fuml::syntax::commonstructure::Element
+	class NamedElement : virtual public fuml::syntax::commonstructure::Element
 	{
 
 		public:

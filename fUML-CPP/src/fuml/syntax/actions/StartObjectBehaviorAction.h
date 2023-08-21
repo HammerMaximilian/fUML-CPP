@@ -8,8 +8,24 @@
 #ifndef FUML_SYNTAX_ACTIONS_STARTOBJECTBEHAVIORACTION_H_
 #define FUML_SYNTAX_ACTIONS_STARTOBJECTBEHAVIORACTION_H_
 
+#include <memory>
+#include "Action.h"
 
+namespace fuml::syntax::actions
+{
+	class InputPin;
+}
 
+namespace fuml::syntax::actions
+{
+	class StartObjectBehaviorAction : public Action
+	{
+		public:
+			std::shared_ptr<InputPin> object = nullptr;
 
+		public:
+			void setObject(const std::shared_ptr<InputPin>&);
+	}; // StartObjectBehaviorAction
+}
 
 #endif /* FUML_SYNTAX_ACTIONS_STARTOBJECTBEHAVIORACTION_H_ */

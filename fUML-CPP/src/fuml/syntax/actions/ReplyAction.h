@@ -8,8 +8,30 @@
 #ifndef FUML_SYNTAX_ACTIONS_REPLYACTION_H_
 #define FUML_SYNTAX_ACTIONS_REPLYACTION_H_
 
+#include <memory>
+#include "Action.h"
+#include "InputPinList.h"
 
+namespace fuml::syntax::commonbehavior
+{
+	class Trigger;
+}
 
+namespace fuml::syntax::actions
+{
+	class ReplyAction : public Action
+	{
+		public:
+			std::shared_ptr<fuml::syntax::commonbehavior::Trigger> replyToCall = nullptr;
+			std::shared_ptr<InputPinList> replyValue = std::make_shared<InputPinList>();
+			std::shared_ptr<InputPin> returnInformation = nullptr;
+
+		public:
+			void setReplyToCall(const std::shared_ptr<fuml::syntax::commonbehavior::Trigger>&);
+			void addReplyValue(const std::shared_ptr<InputPin>&);
+			void setReturnInformation(const std::shared_ptr<InputPin>&);
+	}; // ReplyAction
+}
 
 
 #endif /* FUML_SYNTAX_ACTIONS_REPLYACTION_H_ */
