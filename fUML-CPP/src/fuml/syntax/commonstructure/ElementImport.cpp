@@ -5,10 +5,8 @@
  *      Author: Maximilian
  */
 
-#include "ElementImport.h"
-
-#include "Namespace.h"
-#include "PackageableElement.h"
+#include <fuml/syntax/commonstructure/ElementImport.h>
+#include <string>
 
 void ElementImport::setAlias(std::string alias)
 {

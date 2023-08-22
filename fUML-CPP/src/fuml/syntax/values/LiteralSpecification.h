@@ -8,11 +8,12 @@
 #ifndef FUML_SYNTAX_VALUES_LITERALSPECIFICATION_H_
 #define FUML_SYNTAX_VALUES_LITERALSPECIFICATION_H_
 
-#include "ValueSpecification.h"
+#include <fuml/syntax/values/ValueSpecification.h>
+#include <memory>
 
 namespace fuml::syntax::values
 {
-	class LiteralSpecification : public fuml::syntax::values::ValueSpecification
+	class LiteralSpecification : public ValueSpecification
 	{
 		public:
 			virtual ~LiteralSpecification() = 0;

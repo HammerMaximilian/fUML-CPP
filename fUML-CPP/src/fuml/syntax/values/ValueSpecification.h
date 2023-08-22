@@ -8,11 +8,12 @@
 #ifndef FUML_SYNTAX_VALUES_VALUESPECIFICATION_H_
 #define FUML_SYNTAX_VALUES_VALUESPECIFICATION_H_
 
-#include "fuml/syntax/commonstructure/TypedElement.h"
+#include <fuml/syntax/commonstructure/TypedElement.h>
+#include <memory>
 
 namespace fuml::syntax::values
 {
-	class ValueSpecification : public fuml::syntax::commonstructure::TypedElement
+	class ValueSpecification : public TypedElement
 	{
 		public:
 			virtual ~ValueSpecification() = 0;

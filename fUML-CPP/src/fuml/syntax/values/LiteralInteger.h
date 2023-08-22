@@ -8,11 +8,12 @@
 #ifndef FUML_SYNTAX_VALUES_LITERALINTEGER_H_
 #define FUML_SYNTAX_VALUES_LITERALINTEGER_H_
 
-#include "LiteralSpecification.h"
+#include <fuml/syntax/values/LiteralSpecification.h>
+#include <memory>
 
 namespace fuml::syntax::values
 {
-	class LiteralInteger : public fuml::syntax::values::LiteralSpecification
+	class LiteralInteger : public LiteralSpecification
 	{
 		public:
 			int value = 0;

@@ -8,23 +8,25 @@
 #ifndef FUML_SYNTAX_COMMONSTRUCTURE_TYPEDELEMENT_H_
 #define FUML_SYNTAX_COMMONSTRUCTURE_TYPEDELEMENT_H_
 
+#include <fuml/syntax/commonstructure/NamedElement.h>
 #include <memory>
-#include "NamedElement.h"
 
 namespace fuml::syntax::commonstructure
 {
 	class Type;
 }
+using Type = fuml::syntax::commonstructure::Type;
+using TypePtr = std::shared_ptr<Type>;
 
 namespace fuml::syntax::commonstructure
 {
 	class TypedElement : virtual public fuml::syntax::commonstructure::NamedElement {
 
 		public:
-			std::shared_ptr<fuml::syntax::commonstructure::Type> type = nullptr;
+			TypePtr type = nullptr;
 
 		public:
-			void setType(const std::shared_ptr<fuml::syntax::commonstructure::Type>&);
+			void setType(const TypePtr&);
 	}; // TypedElement
 }
 

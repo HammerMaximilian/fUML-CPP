@@ -5,9 +5,7 @@
  *      Author: Maximilian
  */
 
-#include "LiteralReal.h"
-
-using namespace fuml::syntax::values;
+#include <fuml/syntax/values/LiteralReal.h>
 
 void LiteralReal::setValue(float value)
 {

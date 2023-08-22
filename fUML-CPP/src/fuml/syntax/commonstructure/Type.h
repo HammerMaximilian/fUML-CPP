@@ -8,24 +8,26 @@
 #ifndef FUML_SYNTAX_COMMONSTRUCTURE_TYPE_H_
 #define FUML_SYNTAX_COMMONSTRUCTURE_TYPE_H_
 
+#include <fuml/syntax/commonstructure/Namespace.h>
 #include <memory>
-#include "Namespace.h"
 
 namespace fuml::syntax::packages
 {
 	class Package;
 }
+using Package = fuml::syntax::packages::Package;
+using PackagePtr = std::shared_ptr<Package>;
 
 namespace fuml::syntax::commonstructure
 {
 	class Type : public fuml::syntax::commonstructure::Namespace
 	{
 		public:
-			std::shared_ptr<fuml::syntax::packages::Package> package =  nullptr;
+			PackagePtr package =  nullptr;
 
 		public:
 			virtual ~Type() = 0;
-			void _setPackage(const std::shared_ptr<fuml::syntax::packages::Package>&);
+			void _setPackage(const PackagePtr&);
 	}; //Type
 }
 

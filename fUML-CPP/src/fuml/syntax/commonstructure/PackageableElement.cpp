@@ -5,11 +5,8 @@
  *      Author: Maximilian
  */
 
-#include "PackageableElement.h"
-
-#include "VisibilityKind.h"
-
-using namespace fuml::syntax::commonstructure;
+#include <fuml/syntax/commonstructure/PackageableElement.h>
+#include <fuml/syntax/commonstructure/VisibilityKind.h>
 
 PackageableElement::PackageableElement()
 {

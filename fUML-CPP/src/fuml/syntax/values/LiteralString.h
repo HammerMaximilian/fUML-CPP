@@ -8,12 +8,13 @@
 #ifndef FUML_SYNTAX_VALUES_LITERALSTRING_H_
 #define FUML_SYNTAX_VALUES_LITERALSTRING_H_
 
+#include <fuml/syntax/values/LiteralSpecification.h>
+#include <memory>
 #include <string>
-#include "LiteralSpecification.h"
 
 namespace fuml::syntax::values
 {
-	class LiteralString : public fuml::syntax::values::LiteralSpecification
+	class LiteralString : public LiteralSpecification
 	{
 		public:
 			std::string value = "";

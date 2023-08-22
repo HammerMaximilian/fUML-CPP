@@ -27,7 +27,7 @@ std::shared_ptr<fuml::syntax::simpleclassifiers::PrimitiveType> LiteralEvaluatio
 			std::dynamic_pointer_cast<fuml::syntax::simpleclassifiers::PrimitiveType>(this->specification->type);
 
 	if (type == nullptr) {
-		type = this->locus->factory->getBuiltInType(builtInTypeName);
+		//type = this->locus->factory->getBuiltInType(builtInTypeName);
 	}
 
 	return type;

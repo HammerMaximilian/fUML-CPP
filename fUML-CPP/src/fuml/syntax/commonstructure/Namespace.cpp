@@ -5,26 +5,24 @@
  *      Author: Maximilian
  */
 
+#include <fuml/syntax/commonstructure/ElementImport.h>
+#include <fuml/syntax/commonstructure/PackageImport.h>
+#include <fuml/syntax/packages/Package.h>
 #include "Namespace.h"
-
-#include "ElementImport.h"
-#include "PackageImport.h"
-#include "fuml/syntax/packages/Package.h"
-
-using namespace fuml::syntax::commonstructure;
+#include <vector>
 
 Namespace::~Namespace()
 {
 }
 
-void Namespace::setThisPtr(std::weak_ptr<fuml::syntax::commonstructure::Namespace> thisNamespacePtr)
+void Namespace::setThisPtr(std::weak_ptr<Namespace> thisNamespacePtr)
 {
 	this->thisNamespacePtr = thisNamespacePtr;
-	fuml::syntax::commonstructure::Element::setThisPtr(thisNamespacePtr);
+	Element::setThisPtr(thisNamespacePtr);
 }
 
 void Namespace::addOwnedMember(
-	const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>& ownedMember)
+	const NamedElementPtr& ownedMember)
 {
 	this->addOwnedElement(ownedMember);
 
@@ -34,7 +32,7 @@ void Namespace::addOwnedMember(
 	this->addMember(ownedMember);
 } // addOwnedMember
 
-void Namespace::addMember(const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>& member)
+void Namespace::addMember(const NamedElementPtr& member)
 {
 	// Note: This operation should not be used for owned members. The
 	// operation addOwnedMember should be used instead.
@@ -47,7 +45,7 @@ void Namespace::addMember(const std::shared_ptr<fuml::syntax::commonstructure::N
 } // addMember
 
 void Namespace::addElementImport(
-	const std::shared_ptr<fuml::syntax::commonstructure::ElementImport>& elementImport)
+	const ElementImportPtr& elementImport)
 {
 	this->addOwnedElement(elementImport);
 
@@ -58,23 +56,23 @@ void Namespace::addElementImport(
 } // addElementImport
 
 void Namespace::addPackageImport(
-	const std::shared_ptr<fuml::syntax::commonstructure::PackageImport>& packageImport)
+	const PackageImportPtr& packageImport)
 {
 	this->addOwnedElement(packageImport);
 
 	this->packageImport->push_back(packageImport);
 	packageImport->importingNamespace = thisNamespacePtr.lock();
 
-	std::shared_ptr<fuml::syntax::commonstructure::PackageableElementList> importedElements =
+	PackageableElementListPtr importedElements =
 			packageImport->importedPackage->visibleMembers();
-	for(const std::shared_ptr<fuml::syntax::commonstructure::PackageableElement>& importedElement : *importedElements)
+	for(const PackageableElementPtr& importedElement : *importedElements)
 	{
 		this->addImportedMember(importedElement);
 	}
 } // addPackageImport
 
 void Namespace::addImportedMember(
-	const std::shared_ptr<fuml::syntax::commonstructure::PackageableElement>& importedMember)
+	const PackageableElementPtr& importedMember)
 {
 	this->addMember(importedMember);
 	this->importedMember->push_back(importedMember);

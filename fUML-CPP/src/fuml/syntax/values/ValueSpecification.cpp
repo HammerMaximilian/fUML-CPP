@@ -5,9 +5,7 @@
  *      Author: Maximilian
  */
 
-#include "ValueSpecification.h"
-
-using namespace fuml::syntax::values;
+#include <fuml/syntax/values/ValueSpecification.h>
 
 ValueSpecification::~ValueSpecification()
 {

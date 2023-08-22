@@ -5,9 +5,7 @@
  *      Author: Maximilian
  */
 
-#include "LiteralUnlimitedNatural.h"
-
-using namespace fuml::syntax::values;
+#include <fuml/syntax/values/LiteralUnlimitedNatural.h>
 
 void LiteralUnlimitedNatural::setValue(UMLPrimitiveTypes::unlimitedNatural value)
 {

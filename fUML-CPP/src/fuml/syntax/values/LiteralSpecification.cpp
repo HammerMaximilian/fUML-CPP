@@ -5,9 +5,7 @@
  *      Author: Maximilian
  */
 
-#include "LiteralSpecification.h"
-
-using namespace fuml::syntax::values;
+#include <fuml/syntax/values/LiteralSpecification.h>
 
 LiteralSpecification::~LiteralSpecification()
 {

@@ -8,7 +8,8 @@
 #ifndef FUML_SYNTAX_COMMONSTRUCTURE_PACKAGEABLEELEMENT_H_
 #define FUML_SYNTAX_COMMONSTRUCTURE_PACKAGEABLEELEMENT_H_
 
-#include "NamedElement.h"
+#include <fuml/syntax/commonstructure/NamedElement.h>
+#include <memory>
 
 namespace fuml::syntax::commonstructure
 {

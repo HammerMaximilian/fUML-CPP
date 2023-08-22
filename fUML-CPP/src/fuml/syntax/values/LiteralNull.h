@@ -8,11 +8,12 @@
 #ifndef FUML_SYNTAX_VALUES_LITERALNULL_H_
 #define FUML_SYNTAX_VALUES_LITERALNULL_H_
 
-#include "LiteralSpecification.h"
+#include <fuml/syntax/values/LiteralSpecification.h>
+#include <memory>
 
 namespace fuml::syntax::values
 {
-	class LiteralNull : public fuml::syntax::values::LiteralSpecification
+	class LiteralNull : public LiteralSpecification
 	{
 	}; // LiteralNull
 }

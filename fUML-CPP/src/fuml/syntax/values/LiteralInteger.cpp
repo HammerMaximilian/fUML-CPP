@@ -5,9 +5,7 @@
  *      Author: Maximilian
  */
 
-#include "LiteralInteger.h"
-
-using namespace fuml::syntax::values;
+#include <fuml/syntax/values/LiteralInteger.h>
 
 void LiteralInteger::setValue(int value)
 {

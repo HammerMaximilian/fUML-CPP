@@ -8,9 +8,10 @@
 #ifndef FUML_SYNTAX_COMMONSTRUCTURE_ELEMENTIMPORT_H_
 #define FUML_SYNTAX_COMMONSTRUCTURE_ELEMENTIMPORT_H_
 
+#include <fuml/syntax/commonstructure/Element.h>
+#include <fuml/syntax/commonstructure/VisibilityKind.h>
 #include <memory>
-#include "Element.h"
-#include "VisibilityKind.h"
+#include <string>
 
 namespace fuml::syntax::commonstructure
 {

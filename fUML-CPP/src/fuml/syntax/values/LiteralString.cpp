@@ -5,9 +5,7 @@
  *      Author: Maximilian
  */
 
-#include "LiteralString.h"
-
-using namespace fuml::syntax::values;
+#include <fuml/syntax/values/LiteralString.h>
 
 void LiteralString::setValue(std::string value)
 {

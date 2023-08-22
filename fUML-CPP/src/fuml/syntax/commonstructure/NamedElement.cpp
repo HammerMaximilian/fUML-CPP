@@ -5,12 +5,8 @@
  *      Author: Maximilian
  */
 
-#include "NamedElement.h"
-
-#include "Namespace.h"
-#include "VisibilityKind.h"
-
-using namespace fuml::syntax::commonstructure;
+#include <fuml/syntax/commonstructure/NamedElement.h>
+#include <fuml/syntax/commonstructure/Namespace.h>
 
 NamedElement::~NamedElement()
 {
@@ -30,13 +26,13 @@ void NamedElement::setName(std::string name)
 } // setName
 
 void NamedElement::setVisibility(
-	fuml::syntax::commonstructure::VisibilityKind visibility)
+	VisibilityKind visibility)
 {
 	this->visibility = visibility;
 } // setVisibility
 
 void NamedElement::_setNamespace(
-		const std::shared_ptr<fuml::syntax::commonstructure::Namespace>& namespace_)
+		const NamespacePtr& namespace_)
 {
 	this->namespace_ = namespace_;
 

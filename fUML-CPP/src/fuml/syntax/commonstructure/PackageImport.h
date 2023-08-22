@@ -8,19 +8,23 @@
 #ifndef FUML_SYNTAX_COMMONSTRUCTURE_PACKAGEIMPORT_H_
 #define FUML_SYNTAX_COMMONSTRUCTURE_PACKAGEIMPORT_H_
 
+#include <fuml/syntax/commonstructure/Element.h>
+#include <fuml/syntax/commonstructure/VisibilityKind.h>
 #include <memory>
-#include "Element.h"
 
 namespace fuml::syntax::commonstructure
 {
 	class Namespace;
-	enum class VisibilityKind;
 }
+using Namespace = fuml::syntax::commonstructure::Namespace;
+using NamespacePtr = std::shared_ptr<Namespace>;
 
 namespace fuml::syntax::packages
 {
 	class Package;
 }
+using Package = fuml::syntax::packages::Package;
+using PackagePtr = std::shared_ptr<Package>;
 
 namespace fuml::syntax::commonstructure
 {
@@ -28,17 +32,17 @@ namespace fuml::syntax::commonstructure
 	class PackageImport : public fuml::syntax::commonstructure::Element
 	{
 		public:
-			fuml::syntax::commonstructure::VisibilityKind visibility;
-			std::shared_ptr<fuml::syntax::commonstructure::Namespace> importingNamespace = nullptr;
-			std::shared_ptr<fuml::syntax::packages::Package> importedPackage = nullptr;
+			VisibilityKind visibility;
+			NamespacePtr importingNamespace = nullptr;
+			PackagePtr importedPackage = nullptr;
 
 		public:
 			void setVisibility(
-				fuml::syntax::commonstructure::VisibilityKind);
+				VisibilityKind);
 			void setImportedPackage(
-				const std::shared_ptr<fuml::syntax::packages::Package>&);
+				const PackagePtr&);
 			void _setImportingNamespace(
-				const std::shared_ptr<fuml::syntax::commonstructure::Namespace>&);
+				const NamespacePtr&);
 	}; // PackageImport
 }
 

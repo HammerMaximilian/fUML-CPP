@@ -5,16 +5,13 @@
  *      Author: Maximilian
  */
 
-#include "Type.h"
-#include "fuml/syntax/packages/Package.h"
-
-using namespace fuml::syntax::commonstructure;
+#include <fuml/syntax/commonstructure/Type.h>
 
 Type::~Type()
 {
 }
 
-void Type::_setPackage(const std::shared_ptr<fuml::syntax::packages::Package>& package)
+void Type::_setPackage(const PackagePtr& package)
 {
 	this->package = package;
 }

@@ -8,11 +8,12 @@
 #ifndef FUML_SYNTAX_VALUES_LITERALREAL_H_
 #define FUML_SYNTAX_VALUES_LITERALREAL_H_
 
-#include "LiteralSpecification.h"
+#include <fuml/syntax/values/LiteralSpecification.h>
+#include <memory>
 
 namespace fuml::syntax::values
 {
-	class LiteralReal : public fuml::syntax::values::LiteralSpecification
+	class LiteralReal : public LiteralSpecification
 	{
 		public:
 			float value = 0.0f;

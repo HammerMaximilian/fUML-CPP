@@ -5,9 +5,7 @@
  *      Author: Maximilian
  */
 
-#include "LiteralBoolean.h"
-
-using namespace fuml::syntax::values;
+#include <fuml/syntax/values/LiteralBoolean.h>
 
 void LiteralBoolean::setValue(bool value)
 {

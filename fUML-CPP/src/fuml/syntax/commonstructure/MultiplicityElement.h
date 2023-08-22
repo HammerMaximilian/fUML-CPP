@@ -8,14 +8,16 @@
 #ifndef FUML_SYNTAX_COMMONSTRUCTURE_MULTIPLICITYELEMENT_H_
 #define FUML_SYNTAX_COMMONSTRUCTURE_MULTIPLICITYELEMENT_H_
 
+#include <fuml/syntax/commonstructure/Element.h>
+#include <UMLPrimitiveTypes/unlimitedNatural.h>
 #include <memory>
-#include "Element.h"
-#include "UMLPrimitiveTypes/unlimitedNatural.h"
 
 namespace fuml::syntax::values
 {
 	class ValueSpecification;
 }
+using ValueSpecification = fuml::syntax::values::ValueSpecification;
+using ValueSpecificationPtr = std::shared_ptr<ValueSpecification>;
 
 namespace fuml::syntax::commonstructure
 {
@@ -26,8 +28,8 @@ namespace fuml::syntax::commonstructure
 			bool isUnique = true;
 			UMLPrimitiveTypes::unlimitedNatural upper = 1;
 			int lower = 1;
-			std::shared_ptr<fuml::syntax::values::ValueSpecification> upperValue = nullptr;
-			std::shared_ptr<fuml::syntax::values::ValueSpecification> lowerValue = nullptr;
+			ValueSpecificationPtr upperValue = nullptr;
+			ValueSpecificationPtr lowerValue = nullptr;
 
 		public:
 			MultiplicityElement();
@@ -35,9 +37,9 @@ namespace fuml::syntax::commonstructure
 			void setIsOrdered(bool);
 			void setIsUnique(bool);
 			void setUpperValue(
-				const std::shared_ptr<fuml::syntax::values::ValueSpecification>&);
+				const ValueSpecificationPtr&);
 			void setLowerValue(
-				const std::shared_ptr<fuml::syntax::values::ValueSpecification>&);
+				const ValueSpecificationPtr&);
 			void setUpper(int);
 			void setLower(int);
 	}; // MultiplicityElement

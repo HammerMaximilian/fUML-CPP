@@ -5,13 +5,9 @@
  *      Author: Maximilian
  */
 
-#include "TypedElement.h"
+#include <fuml/syntax/commonstructure/TypedElement.h>
 
-#include "Type.h"
-
-using namespace fuml::syntax::commonstructure;
-
-void TypedElement::setType(const std::shared_ptr<fuml::syntax::commonstructure::Type>& type)
+void TypedElement::setType(const TypePtr& type)
 {
 	this->type = type;
 } // setType

@@ -8,11 +8,12 @@
 #ifndef FUML_SYNTAX_VALUES_LITERALBOOLEAN_H_
 #define FUML_SYNTAX_VALUES_LITERALBOOLEAN_H_
 
-#include "LiteralSpecification.h"
+#include <fuml/syntax/values/LiteralSpecification.h>
+#include <memory>
 
 namespace fuml::syntax::values
 {
-	class LiteralBoolean : public fuml::syntax::values::LiteralSpecification
+	class LiteralBoolean : public LiteralSpecification
 	{
 		public:
 			bool value = false;

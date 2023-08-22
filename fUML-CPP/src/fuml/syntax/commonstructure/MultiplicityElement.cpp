@@ -5,13 +5,9 @@
  *      Author: Maximilian
  */
 
-#include "MultiplicityElement.h"
-
-#include "fuml/syntax/values/LiteralInteger.h"
-#include "fuml/syntax/values/LiteralUnlimitedNatural.h"
-#include "fuml/syntax/values/ValueSpecification.h"
-
-using namespace fuml::syntax::commonstructure;
+#include <fuml/syntax/commonstructure/MultiplicityElement.h>
+#include <fuml/syntax/values/LiteralInteger.h>
+#include <fuml/syntax/values/LiteralUnlimitedNatural.h>
 
 MultiplicityElement::MultiplicityElement()
 {
@@ -33,12 +29,12 @@ void MultiplicityElement::setIsUnique(bool isUnique)
 } // setIsUnique
 
 void MultiplicityElement::setUpperValue(
-	const std::shared_ptr<fuml::syntax::values::ValueSpecification>& upperValue)
+	const ValueSpecificationPtr& upperValue)
 {
 	this->upperValue = upperValue;
 
-	std::shared_ptr<fuml::syntax::values::LiteralUnlimitedNatural> literalUnlimitedNatural =
-			std::dynamic_pointer_cast<fuml::syntax::values::LiteralUnlimitedNatural>(upperValue);
+	LiteralUnlimitedNaturalPtr literalUnlimitedNatural =
+			std::dynamic_pointer_cast<LiteralUnlimitedNatural>(upperValue);
 
 	if (literalUnlimitedNatural)
 	{
@@ -47,12 +43,12 @@ void MultiplicityElement::setUpperValue(
 } // setUpperValue
 
 void MultiplicityElement::setLowerValue(
-	const std::shared_ptr<fuml::syntax::values::ValueSpecification>& lowerValue)
+	const ValueSpecificationPtr& lowerValue)
 {
 	this->lowerValue = lowerValue;
 
-	std::shared_ptr<fuml::syntax::values::LiteralInteger> literalInteger =
-			std::dynamic_pointer_cast<fuml::syntax::values::LiteralInteger>(lowerValue);
+	LiteralIntegerPtr literalInteger =
+			std::dynamic_pointer_cast<LiteralInteger>(lowerValue);
 
 	if (literalInteger)
 	{
@@ -66,8 +62,8 @@ void MultiplicityElement::setUpper(int upper)
 	// setUpperValue, not in addition to it.
 
 	this->upper = upper;
-	this->upperValue = std::make_shared<fuml::syntax::values::LiteralUnlimitedNatural>();
-	(std::dynamic_pointer_cast<fuml::syntax::values::LiteralUnlimitedNatural>(this->upperValue))->setValue(this->upper);
+	this->upperValue = std::make_shared<LiteralUnlimitedNatural>();
+	(std::dynamic_pointer_cast<LiteralUnlimitedNatural>(this->upperValue))->setValue(this->upper);
 } // setUpper
 
 void MultiplicityElement::setLower(int lower)
@@ -76,6 +72,6 @@ void MultiplicityElement::setLower(int lower)
 	// setLowerValue, not in addition to it.
 
 	this->lower = lower;
-	this->lowerValue = std::make_shared<fuml::syntax::values::LiteralInteger>();
-	(std::dynamic_pointer_cast<fuml::syntax::values::LiteralInteger>(this->lowerValue))->setValue(this->lower);
+	this->lowerValue = std::make_shared<LiteralInteger>();
+	(std::dynamic_pointer_cast<LiteralInteger>(this->lowerValue))->setValue(this->lower);
 } // setLower

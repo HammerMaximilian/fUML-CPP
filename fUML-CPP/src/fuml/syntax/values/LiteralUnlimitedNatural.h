@@ -8,12 +8,13 @@
 #ifndef FUML_SYNTAX_VALUES_LITERALUNLIMITEDNATURAL_H_
 #define FUML_SYNTAX_VALUES_LITERALUNLIMITEDNATURAL_H_
 
-#include "LiteralSpecification.h"
-#include "UMLPrimitiveTypes/unlimitedNatural.h"
+#include <fuml/syntax/values/LiteralSpecification.h>
+#include <UMLPrimitiveTypes/unlimitedNatural.h>
+#include <memory>
 
 namespace fuml::syntax::values
 {
-	class LiteralUnlimitedNatural : public fuml::syntax::values::LiteralSpecification
+	class LiteralUnlimitedNatural : public LiteralSpecification
 	{
 		public:
 			UMLPrimitiveTypes::unlimitedNatural value = 0;
