@@ -4,33 +4,31 @@
  *  Created on: 16.08.2023
  *      Author: Maximilian
  */
-#include "Package.h"
 
-#include "fuml/syntax/commonstructure/ElementImport.h"
-#include "fuml/syntax/commonstructure/NamedElement.h"
-#include "fuml/syntax/commonstructure/NamedElementList.h"
-#include "fuml/syntax/commonstructure/PackageableElement.h"
-#include "fuml/syntax/commonstructure/PackageableElementList.h"
-#include "fuml/syntax/commonstructure/PackageImport.h"
-#include "fuml/syntax/commonstructure/Type.h"
-#include "fuml/syntax/commonstructure/VisibilityKind.h"
+#include <fuml/syntax/commonstructure/ElementImport.h>
+#include <fuml/syntax/commonstructure/NamedElement.h>
+#include <fuml/syntax/commonstructure/NamedElementList.h>
+#include <fuml/syntax/commonstructure/PackageableElement.h>
+#include <fuml/syntax/commonstructure/PackageImport.h>
+#include <fuml/syntax/commonstructure/Type.h>
+#include <fuml/syntax/commonstructure/VisibilityKind.h>
+#include <fuml/syntax/packages/Package.h>
+#include <vector>
 
-using namespace fuml::syntax::packages;
-
-void Package::setThisPtr(std::weak_ptr<fuml::syntax::packages::Package> thisPackagePtr)
+void Package::setThisPtr(std::weak_ptr<Package> thisPackagePtr)
 {
 	this->thisPackagePtr = thisPackagePtr;
-	fuml::syntax::commonstructure::Namespace::setThisPtr(thisPackagePtr);
+	Namespace::setThisPtr(thisPackagePtr);
 }
 
 void Package::addPackagedElement(
-		const std::shared_ptr<fuml::syntax::commonstructure::PackageableElement>& packagedElement)
+		const PackageableElementPtr& packagedElement)
 {
-	fuml::syntax::commonstructure::Namespace::addOwnedMember(packagedElement);
+	Namespace::addOwnedMember(packagedElement);
 	this->packagedElement->push_back(packagedElement);
 
-	std::shared_ptr<fuml::syntax::commonstructure::Type> type =
-			std::dynamic_pointer_cast<fuml::syntax::commonstructure::Type>(packagedElement);
+	TypePtr type =
+			std::dynamic_pointer_cast<Type>(packagedElement);
 
 	if (type)
 	{
@@ -38,8 +36,8 @@ void Package::addPackagedElement(
 		type->_setPackage(thisPackagePtr.lock());
 	}
 
-	std::shared_ptr<fuml::syntax::packages::Package> package =
-			std::dynamic_pointer_cast<fuml::syntax::packages::Package>(packagedElement);
+	PackagePtr package =
+			std::dynamic_pointer_cast<Package>(packagedElement);
 
 	if (package)
 	{
@@ -49,12 +47,12 @@ void Package::addPackagedElement(
 
 } // addPackagedElement
 
-std::shared_ptr<fuml::syntax::commonstructure::PackageableElementList> Package::visibleMembers()
+PackageableElementListPtr Package::visibleMembers()
 {
-	std::shared_ptr<fuml::syntax::commonstructure::PackageableElementList> visibleMembers =
-			std::make_shared<fuml::syntax::commonstructure::PackageableElementList>();
+	PackageableElementListPtr visibleMembers =
+			std::make_shared<PackageableElementList>();
 
-	for (const std::shared_ptr<fuml::syntax::commonstructure::PackageableElement>& member : *(this->packagedElement))
+	for (const PackageableElementPtr& member : *(this->packagedElement))
 	{
 		if (this->makesVisible(member))
 		{
@@ -65,18 +63,18 @@ std::shared_ptr<fuml::syntax::commonstructure::PackageableElementList> Package::
 	return visibleMembers;
 } // visibleMembers
 
-bool Package::makesVisible(const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>& el)
+bool Package::makesVisible(const NamedElementPtr& el)
 {
-	for (const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>& member : *(this->ownedMember))
+	for (const NamedElementPtr& member : *(this->ownedMember))
 	{
 		if (member == el)
 		{
-			return ((member->visibility == fuml::syntax::commonstructure::VisibilityKind::null_)
-					|| (member->visibility == fuml::syntax::commonstructure::VisibilityKind::public_));
+			return ((member->visibility == VisibilityKind::null_)
+					|| (member->visibility == VisibilityKind::public_));
 		}
 	}
 
-	for (const std::shared_ptr<fuml::syntax::commonstructure::ElementImport>& elementImport : *(this->elementImport))
+	for (const ElementImportPtr& elementImport : *(this->elementImport))
 	{
 		if (elementImport->importedElement == el)
 		{
@@ -84,13 +82,13 @@ bool Package::makesVisible(const std::shared_ptr<fuml::syntax::commonstructure::
 		}
 	}
 
-	for (const std::shared_ptr<fuml::syntax::commonstructure::PackageImport>& packageImport : *(this->packageImport))
+	for (const PackageImportPtr& packageImport : *(this->packageImport))
 	{
-		if (packageImport->visibility == fuml::syntax::commonstructure::VisibilityKind::public_) {
+		if (packageImport->visibility == VisibilityKind::public_) {
 			// NOTE: This won't work unless the imported package members
 			// have already been loaded
-			std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> packageMembers = packageImport->importedPackage->member;
-			for (const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>& packageMember : *packageMembers)
+			NamedElementListPtr packageMembers = packageImport->importedPackage->member;
+			for (const NamedElementPtr& packageMember : *packageMembers)
 			{
 				if (packageMember == el)
 				{

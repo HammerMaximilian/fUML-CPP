@@ -13,21 +13,28 @@
 #include "fuml/syntax/classification/Classifier.h"
 #include "fuml/syntax/classification/PropertyList.h"
 
+namespace fuml::syntax::classification
+{
+	class Property;
+}
+using Property = fuml::syntax::classification::Property;
+using PropertyPtr = std::shared_ptr<Property>;
+
 namespace fuml::syntax::simpleclassifiers
 {
 	class Signal : public fuml::syntax::classification::Classifier
 	{
 		public:
-			std::shared_ptr<fuml::syntax::classification::PropertyList> ownedAttribute = std::make_shared<fuml::syntax::classification::PropertyList>();
+			PropertyListPtr ownedAttribute = std::make_shared<PropertyList>();
 
 		private:
-			std::weak_ptr<fuml::syntax::simpleclassifiers::Signal> thisSignalPtr;
+			std::weak_ptr<Signal> thisSignalPtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<fuml::syntax::simpleclassifiers::Signal>);
+			virtual void setThisPtr(std::weak_ptr<Signal>);
 
 			void addOwnedAttribute(
-				const std::shared_ptr<fuml::syntax::classification::Property>&);
+				const PropertyPtr&);
 	}; // Signal
 }
 

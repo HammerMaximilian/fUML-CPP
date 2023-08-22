@@ -15,17 +15,19 @@ namespace fuml::syntax::simpleclassifiers
 {
 	class Signal;
 }
+using Signal = fuml::syntax::simpleclassifiers::Signal;
+using SignalPtr = std::shared_ptr<Signal>;
 
 namespace fuml::syntax::simpleclassifiers
 {
 	class Reception : virtual public fuml::syntax::classification::BehavioralFeature
 	{
 		public:
-			std::shared_ptr<fuml::syntax::simpleclassifiers::Signal> signal = nullptr;
+			SignalPtr signal = nullptr;
 
 		public:
 			void setSignal(
-				const std::shared_ptr<fuml::syntax::simpleclassifiers::Signal>&);
+				const SignalPtr&);
 	}; // Reception
 }
 

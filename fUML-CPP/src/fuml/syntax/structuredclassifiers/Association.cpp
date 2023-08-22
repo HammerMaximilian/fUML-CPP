@@ -5,22 +5,19 @@
  *      Author: maha6913
  */
 
-#include "Association.h"
+#include <fuml/syntax/classification/Property.h>
+#include <fuml/syntax/structuredclassifiers/Association.h>
 
-#include "fuml/syntax/classification/Property.h"
-
-using namespace fuml::syntax::structuredclassifiers;
-
-void Association::setThisPtr(std::weak_ptr<fuml::syntax::structuredclassifiers::Association> thisAssociationPtr)
+void Association::setThisPtr(std::weak_ptr<Association> thisAssociationPtr)
 {
 	this->thisAssociationPtr = thisAssociationPtr;
-	fuml::syntax::classification::Classifier::setThisPtr(thisAssociationPtr);
+	Classifier::setThisPtr(thisAssociationPtr);
 }
 
-void Association::addOwnedEnd(const std::shared_ptr<fuml::syntax::classification::Property>& ownedEnd)
+void Association::addOwnedEnd(const PropertyPtr& ownedEnd)
 {
-	fuml::syntax::classification::Classifier::addFeature(ownedEnd);
-	fuml::syntax::commonstructure::Namespace::addOwnedMember(ownedEnd);
+	Classifier::addFeature(ownedEnd);
+	Namespace::addOwnedMember(ownedEnd);
 
 	this->ownedEnd->push_back(ownedEnd);
 	ownedEnd->_setOwningAssociation(thisAssociationPtr.lock());
@@ -29,7 +26,7 @@ void Association::addOwnedEnd(const std::shared_ptr<fuml::syntax::classification
 } // addOwnedEnd
 
 void Association::addNavigableOwnedEnd(
-	const std::shared_ptr<fuml::syntax::classification::Property>& navigableOwnedEnd)
+	const PropertyPtr& navigableOwnedEnd)
 {
 	// Note: A navigable end must also be set as an owned end using
 	// setOwnedEnd.
@@ -37,7 +34,7 @@ void Association::addNavigableOwnedEnd(
 	this->navigableOwnedEnd->push_back(navigableOwnedEnd);
 } // addNavigableOwnedEnd
 
-void Association::addMemberEnd(const std::shared_ptr<fuml::syntax::classification::Property>& memberEnd)
+void Association::addMemberEnd(const PropertyPtr& memberEnd)
 {
 	// Note: This operation should not be used for owned ends. The
 	// operation addOwnedEnd should be used instead.
@@ -46,7 +43,7 @@ void Association::addMemberEnd(const std::shared_ptr<fuml::syntax::classificatio
 	this->_addMemberEnd(memberEnd);
 } //addMemberEnd
 
-void Association::_addMemberEnd(const std::shared_ptr<fuml::syntax::classification::Property>& memberEnd)
+void Association::_addMemberEnd(const PropertyPtr& memberEnd)
 {
 	this->memberEnd->push_back(memberEnd);
 	memberEnd->_setAssociation(thisAssociationPtr.lock());
@@ -58,11 +55,11 @@ void Association::_addMemberEnd(const std::shared_ptr<fuml::syntax::classificati
 
 	if (this->memberEnd->size() == 2)
 	{
-		const std::shared_ptr<fuml::syntax::classification::Property>& opposite = this->memberEnd->at(0);
+		const PropertyPtr& opposite = this->memberEnd->at(0);
 		memberEnd->_setOpposite(opposite);
 		opposite->_setOpposite(memberEnd);
 	} else if (this->memberEnd->size() > 2) {
-		for (const std::shared_ptr<fuml::syntax::classification::Property>& end : *(this->memberEnd))
+		for (const PropertyPtr& end : *(this->memberEnd))
 		{
 			end->_setOpposite(nullptr);
 		}

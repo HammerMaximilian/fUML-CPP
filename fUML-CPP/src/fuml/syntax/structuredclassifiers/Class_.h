@@ -14,38 +14,58 @@
 #include "fuml/syntax/simpleclassifiers/ReceptionList.h"
 #include "Class_List.h"
 
+namespace fuml::syntax::classification
+{
+	class Generalization;
+	class Operation;
+	class Property;
+}
+using Generalization = fuml::syntax::classification::Generalization;
+using GeneralizationPtr = std::shared_ptr<Generalization>;
+using Operation = fuml::syntax::classification::Operation;
+using OperationPtr = std::shared_ptr<Operation>;
+using Property = fuml::syntax::classification::Property;
+using PropertyPtr = std::shared_ptr<Property>;
+
+namespace fuml::syntax::simpleclassifiers
+{
+	class Reception;
+}
+using Reception = fuml::syntax::simpleclassifiers::Reception;
+using ReceptionPtr = std::shared_ptr<Reception>;
+
 namespace fuml::syntax::structuredclassifiers
 {
 	class Class_ : public fuml::syntax::commonbehavior::BehavioredClassifier
 	{
 		public:
-			std::shared_ptr<fuml::syntax::classification::OperationList> ownedOperation = std::make_shared<fuml::syntax::classification::OperationList>();
+			OperationListPtr ownedOperation = std::make_shared<OperationList>();
 			bool isActive = false;
-			std::shared_ptr<fuml::syntax::simpleclassifiers::ReceptionList> ownedReception = std::make_shared<fuml::syntax::simpleclassifiers::ReceptionList>();
-			std::shared_ptr<fuml::syntax::classification::PropertyList> ownedAttribute = std::make_shared<fuml::syntax::classification::PropertyList>();
-			std::shared_ptr<fuml::syntax::classification::ClassifierList> nestedClassifier = std::make_shared<fuml::syntax::classification::ClassifierList>();
+			ReceptionListPtr ownedReception = std::make_shared<ReceptionList>();
+			PropertyListPtr ownedAttribute = std::make_shared<PropertyList>();
+			ClassifierListPtr nestedClassifier = std::make_shared<ClassifierList>();
 			bool isID = false;
-			std::shared_ptr<fuml::syntax::structuredclassifiers::Class_List> superClass = std::make_shared<fuml::syntax::structuredclassifiers::Class_List>();
+			Class_ListPtr superClass = std::make_shared<Class_List>();
 
 		private:
-			std::weak_ptr<fuml::syntax::structuredclassifiers::Class_> thisClass_Ptr;
+			std::weak_ptr<Class_> thisClass_Ptr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<fuml::syntax::structuredclassifiers::Class_>);
+			virtual void setThisPtr(std::weak_ptr<Class_>);
 
 			void setIsActive(bool);
 			void addGeneralization(
-				const std::shared_ptr<fuml::syntax::classification::Generalization>&);
+				const GeneralizationPtr&);
 			void addOwnedAttribute(
-				const std::shared_ptr<fuml::syntax::classification::Property>&);
+				const PropertyPtr&);
 			void addOwnedOperation(
-				const std::shared_ptr<fuml::syntax::classification::Operation>&);
+				const OperationPtr&);
 			void addOwnedReception(
-				const std::shared_ptr<fuml::syntax::simpleclassifiers::Reception>&);
-			std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> inherit(
-				const std::shared_ptr<fuml::syntax::commonstructure::NamedElementList>&);
+				const ReceptionPtr&);
+			NamedElementListPtr inherit(
+				const NamedElementListPtr&);
 			void addNestedClassifier(
-				const std::shared_ptr<fuml::syntax::classification::Classifier>&);
+				const ClassifierPtr&);
 	}; // Class
 }
 

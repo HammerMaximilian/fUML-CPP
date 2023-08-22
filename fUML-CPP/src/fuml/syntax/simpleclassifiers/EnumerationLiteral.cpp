@@ -5,16 +5,15 @@
  *      Author: maha6913
  */
 
-#include "EnumerationLiteral.h"
-
-#include "fuml/syntax/simpleclassifiers/Enumeration.h"
+#include <fuml/syntax/simpleclassifiers/EnumerationLiteral.h>
+#include <fuml/syntax/simpleclassifiers/Enumeration.h>
 
 using namespace fuml::syntax::simpleclassifiers;
 
 void EnumerationLiteral::_setEnumeration(
-	const std::shared_ptr<fuml::syntax::simpleclassifiers::Enumeration>& enumeration)
+	const EnumerationPtr& enumeration)
 {
-	fuml::syntax::classification::InstanceSpecification::addClassifier(enumeration);
+	InstanceSpecification::addClassifier(enumeration);
 	this->classifier = enumeration;
 	this->enumeration = enumeration;
 }

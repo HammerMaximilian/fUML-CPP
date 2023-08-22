@@ -5,14 +5,10 @@
  *      Author: maha6913
  */
 
-#include "Reception.h"
-
-#include "fuml/syntax/simpleclassifiers/Signal.h"
-
-using namespace fuml::syntax::simpleclassifiers;
+#include <fuml/syntax/simpleclassifiers/Reception.h>
 
 void Reception::setSignal(
-	const std::shared_ptr<fuml::syntax::simpleclassifiers::Signal>& signal)
+	const SignalPtr& signal)
 {
 	this->signal = signal;
 }

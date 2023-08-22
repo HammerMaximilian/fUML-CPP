@@ -5,23 +5,20 @@
  *      Author: maha6913
  */
 
-#include "DataType.h"
+#include <fuml/syntax/simpleclassifiers/DataType.h>
+#include <fuml/syntax/classification/Property.h>
 
-#include "fuml/syntax/classification/Property.h"
-
-using namespace fuml::syntax::simpleclassifiers;
-
-void DataType::setThisPtr(std::weak_ptr<fuml::syntax::simpleclassifiers::DataType> thisDataTypePtr)
+void DataType::setThisPtr(std::weak_ptr<DataType> thisDataTypePtr)
 {
 	this->thisDataTypePtr = thisDataTypePtr;
-	fuml::syntax::classification::Classifier::setThisPtr(thisDataTypePtr);
+	Classifier::setThisPtr(thisDataTypePtr);
 }
 
 void DataType::addOwnedAttribute(
-	const std::shared_ptr<fuml::syntax::classification::Property>& ownedAttribute)
+	const PropertyPtr& ownedAttribute)
 {
-	fuml::syntax::classification::Classifier::addAttribute(ownedAttribute);
-	fuml::syntax::commonstructure::Namespace::addOwnedMember(ownedAttribute);
+	Classifier::addAttribute(ownedAttribute);
+	Namespace::addOwnedMember(ownedAttribute);
 
 	this->ownedAttribute->push_back(ownedAttribute);
 	ownedAttribute->_setDatatype(thisDataTypePtr.lock());

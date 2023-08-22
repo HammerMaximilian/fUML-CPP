@@ -14,30 +14,37 @@
 #include "fuml/syntax/classification/PropertyList.h"
 #include "fuml/syntax/commonstructure/TypeList.h"
 
+namespace fuml::syntax::classification
+{
+	class Property;
+}
+using Property = fuml::syntax::classification::Property;
+using PropertyPtr = std::shared_ptr<Property>;
+
 namespace fuml::syntax::structuredclassifiers
 {
 	class Association : public fuml::syntax::classification::Classifier
 	{
 		public:
 			bool isDerived = false;
-			std::shared_ptr<fuml::syntax::classification::PropertyList> ownedEnd = std::make_shared<fuml::syntax::classification::PropertyList>();
-			std::shared_ptr<fuml::syntax::commonstructure::TypeList> endType = std::make_shared<fuml::syntax::commonstructure::TypeList>();
-			std::shared_ptr<fuml::syntax::classification::PropertyList> memberEnd = std::make_shared<fuml::syntax::classification::PropertyList>();
-			std::shared_ptr<fuml::syntax::classification::PropertyList> navigableOwnedEnd = std::make_shared<fuml::syntax::classification::PropertyList>();
+			PropertyListPtr ownedEnd = std::make_shared<PropertyList>();
+			TypeListPtr endType = std::make_shared<TypeList>();
+			PropertyListPtr memberEnd = std::make_shared<PropertyList>();
+			PropertyListPtr navigableOwnedEnd = std::make_shared<PropertyList>();
 
 		private:
-			std::weak_ptr<fuml::syntax::structuredclassifiers::Association> thisAssociationPtr;
+			std::weak_ptr<Association> thisAssociationPtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<fuml::syntax::structuredclassifiers::Association>);
+			virtual void setThisPtr(std::weak_ptr<Association>);
 
-			void addOwnedEnd(const std::shared_ptr<fuml::syntax::classification::Property>&);
+			void addOwnedEnd(const PropertyPtr&);
 			void addNavigableOwnedEnd(
-				const std::shared_ptr<fuml::syntax::classification::Property>&);
-			void addMemberEnd(const std::shared_ptr<fuml::syntax::classification::Property>&);
+				const PropertyPtr&);
+			void addMemberEnd(const PropertyPtr&);
 
 		protected:
-			void _addMemberEnd(const std::shared_ptr<fuml::syntax::classification::Property>&);
+			void _addMemberEnd(const PropertyPtr&);
 	}; // Association
 }
 

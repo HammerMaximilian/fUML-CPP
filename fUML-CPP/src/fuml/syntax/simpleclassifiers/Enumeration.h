@@ -15,19 +15,26 @@
 
 namespace fuml::syntax::simpleclassifiers
 {
+	class EnumerationLiteral;
+}
+using EnumerationLiteral = fuml::syntax::simpleclassifiers::EnumerationLiteral;
+using EnumerationLiteralPtr = std::shared_ptr<EnumerationLiteral>;
+
+namespace fuml::syntax::simpleclassifiers
+{
 	class Enumeration : public fuml::syntax::simpleclassifiers::DataType
 	{
 		public:
-			std::shared_ptr<fuml::syntax::simpleclassifiers::EnumerationLiteralList> ownedLiteral = std::make_shared<fuml::syntax::simpleclassifiers::EnumerationLiteralList>();
+			EnumerationLiteralListPtr ownedLiteral = std::make_shared<EnumerationLiteralList>();
 
 		private:
-			std::weak_ptr<fuml::syntax::simpleclassifiers::Enumeration> thisEnumerationPtr;
+			std::weak_ptr<Enumeration> thisEnumerationPtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<fuml::syntax::simpleclassifiers::Enumeration>);
+			virtual void setThisPtr(std::weak_ptr<Enumeration>);
 
 			void addOwnedLiteral(
-				const std::shared_ptr<fuml::syntax::simpleclassifiers::EnumerationLiteral>&);
+				const EnumerationLiteralPtr&);
 	}; // Enumeration
 }
 

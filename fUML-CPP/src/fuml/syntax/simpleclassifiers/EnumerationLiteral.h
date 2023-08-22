@@ -15,18 +15,20 @@ namespace fuml::syntax::simpleclassifiers
 {
 	class Enumeration;
 }
+using Enumeration = fuml::syntax::simpleclassifiers::Enumeration;
+using EnumerationPtr = std::shared_ptr<Enumeration>;
 
 namespace fuml::syntax::simpleclassifiers
 {
 	class EnumerationLiteral : public fuml::syntax::classification::InstanceSpecification
 	{
 		public:
-			std::shared_ptr<fuml::syntax::simpleclassifiers::Enumeration> enumeration = nullptr;
-			std::shared_ptr<fuml::syntax::simpleclassifiers::Enumeration> classifier = nullptr;
+			EnumerationPtr enumeration = nullptr;
+			EnumerationPtr classifier = nullptr;
 
 		public:
 			void _setEnumeration(
-				const std::shared_ptr<fuml::syntax::simpleclassifiers::Enumeration>&);
+				const EnumerationPtr&);
 	}; // EnumerationLiteral
 }
 

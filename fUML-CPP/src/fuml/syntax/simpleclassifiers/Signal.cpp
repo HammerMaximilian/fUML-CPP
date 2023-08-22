@@ -9,19 +9,17 @@
 
 #include "fuml/syntax/classification/Property.h"
 
-using namespace fuml::syntax::simpleclassifiers;
-
-void Signal::setThisPtr(std::weak_ptr<fuml::syntax::simpleclassifiers::Signal> thisSignalPtr)
+void Signal::setThisPtr(std::weak_ptr<Signal> thisSignalPtr)
 {
 	this->thisSignalPtr = thisSignalPtr;
-	fuml::syntax::classification::Classifier::setThisPtr(thisSignalPtr);
+	Classifier::setThisPtr(thisSignalPtr);
 }
 
 void Signal::addOwnedAttribute(
-	const std::shared_ptr<fuml::syntax::classification::Property>& ownedAttribute)
+	const PropertyPtr& ownedAttribute)
 {
-	fuml::syntax::classification::Classifier::addAttribute(ownedAttribute);
-	fuml::syntax::commonstructure::Namespace::addOwnedMember(ownedAttribute);
+	Classifier::addAttribute(ownedAttribute);
+	Namespace::addOwnedMember(ownedAttribute);
 
 	this->ownedAttribute->push_back(ownedAttribute);
 } // addOwnedAttribute
