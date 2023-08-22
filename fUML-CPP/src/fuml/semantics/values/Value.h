@@ -24,8 +24,8 @@ namespace fuml::semantics::values
 			virtual ~Value() = 0;
 
 			virtual std::shared_ptr<fuml::syntax::values::ValueSpecification> specify() = 0;
-			bool equals(const std::shared_ptr<fuml::semantics::values::Value>&);
-			std::shared_ptr<fuml::semantics::values::Value> copy();
+			virtual bool equals(const std::shared_ptr<fuml::semantics::values::Value>&);
+			virtual std::shared_ptr<fuml::semantics::values::Value> copy();
 			virtual std::shared_ptr<fuml::syntax::classification::ClassifierList> getTypes() = 0;
 			bool hasType(const std::shared_ptr<fuml::syntax::classification::Classifier>&);
 			bool isInstanceOf(const std::shared_ptr<fuml::syntax::classification::Classifier>&);
@@ -37,5 +37,8 @@ namespace fuml::semantics::values
 			virtual std::shared_ptr<fuml::semantics::values::Value> new_() = 0;
 	}; // Value
 }
+
+using Value = fuml::semantics::values::Value;
+using ValuePtr = std::shared_ptr<Value>;
 
 #endif /* FUML_SEMANTICS_VALUES_VALUE_H_ */

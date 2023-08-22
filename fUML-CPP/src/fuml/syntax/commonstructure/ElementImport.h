@@ -17,26 +17,29 @@ namespace fuml::syntax::commonstructure
 	class Namespace;
 	class PackageableElement;
 }
+using Namespace = fuml::syntax::commonstructure::Namespace;
+using NamespacePtr = std::shared_ptr<Namespace>;
+using PackageableElement = fuml::syntax::commonstructure::PackageableElement;
+using PackageableElementPtr = std::shared_ptr<PackageableElement>;
+
 
 namespace fuml::syntax::commonstructure
 {
 	class ElementImport : public fuml::syntax::commonstructure::Element
 	{
-
 		public:
-			fuml::syntax::commonstructure::VisibilityKind visibility;
+			VisibilityKind visibility;
 			std::string alias = "";
-			std::shared_ptr<fuml::syntax::commonstructure::PackageableElement> importedElement = nullptr;
-			std::shared_ptr<fuml::syntax::commonstructure::Namespace> importingNamespace = nullptr;
+			PackageableElementPtr importedElement = nullptr;
+			NamespacePtr importingNamespace = nullptr;
 
 		public:
 			void setAlias(std::string);
-			void setVisibility(
-				fuml::syntax::commonstructure::VisibilityKind);
+			void setVisibility(VisibilityKind);
 			void setImportedElement(
-				const std::shared_ptr<fuml::syntax::commonstructure::PackageableElement>&);
+				const PackageableElementPtr&);
 			void _setImportingNamespace(
-				const std::shared_ptr<fuml::syntax::commonstructure::Namespace>&);
+				const NamespacePtr&);
 	}; // ElementImport
 }
 

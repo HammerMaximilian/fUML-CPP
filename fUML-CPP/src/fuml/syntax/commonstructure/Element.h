@@ -8,36 +8,35 @@
 #ifndef FUML_SYNTAX_COMMONSTRUCTURE_ELEMENT_H_
 #define FUML_SYNTAX_COMMONSTRUCTURE_ELEMENT_H_
 
+#include <fuml/syntax/commonstructure/CommentList.h>
+#include <fuml/syntax/commonstructure/ElementList.h>
 #include <utils/FumlObject.h>
 #include <memory>
-#include <vector>
-#include "CommentList.h"
-#include "ElementList.h"
 
 namespace fuml::syntax::commonstructure
 {
 	class Element : public utils::FumlObject
 	{
+		using ElementPtr = std::shared_ptr<Element>;
 
 		public:
-			std::shared_ptr<fuml::syntax::commonstructure::ElementList> ownedElement = std::make_shared<fuml::syntax::commonstructure::ElementList>();
-			std::shared_ptr<fuml::syntax::commonstructure::Element> owner = nullptr;
-			std::shared_ptr<fuml::syntax::commonstructure::CommentList> ownedComment = std::make_shared<fuml::syntax::commonstructure::CommentList>();
+			ElementListPtr ownedElement = std::make_shared<ElementList>();
+			ElementPtr owner = nullptr;
+			CommentListPtr ownedComment = std::make_shared<CommentList>();
 
 		private:
-			std::weak_ptr<fuml::syntax::commonstructure::Element> thisElementPtr;
+			std::weak_ptr<Element> thisElementPtr;
 
 		public:
 			virtual ~Element() = 0;
-			virtual void setThisPtr(std::weak_ptr<fuml::syntax::commonstructure::Element>);
+			virtual void setThisPtr(std::weak_ptr<Element>);
 
 		protected:
 			void addOwnedElement(
-				const std::shared_ptr<fuml::syntax::commonstructure::Element>& ownedElement);
+				const ElementPtr& ownedElement);
 	}; // Element
 }
 
 using Element = fuml::syntax::commonstructure::Element;
-using ElementPtr = std::shared_ptr<Element>;
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_ELEMENT_H_ */

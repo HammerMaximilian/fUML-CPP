@@ -5,23 +5,20 @@
  *      Author: Maximilian
  */
 
-#include "Element.h"
-
-#include "ElementList.h"
-
-using namespace fuml::syntax::commonstructure;
+#include <fuml/syntax/commonstructure/Element.h>
+#include <vector>
 
 Element::~Element()
 {
 }
 
-void Element::setThisPtr(std::weak_ptr<fuml::syntax::commonstructure::Element> thisElementPtr)
+void Element::setThisPtr(std::weak_ptr<Element> thisElementPtr)
 {
 	this->thisElementPtr = thisElementPtr;
 }
 
 void Element::addOwnedElement(
-	const std::shared_ptr<fuml::syntax::commonstructure::Element>& ownedElement)
+	const ElementPtr& ownedElement)
 {
 	this->ownedElement->push_back(ownedElement);
 	ownedElement->owner = thisElementPtr.lock();

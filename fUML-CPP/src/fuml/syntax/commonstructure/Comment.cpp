@@ -5,15 +5,11 @@
  *      Author: Maximilian
  */
 
-#include "Comment.h"
-
-#include "Element.h"
-#include "ElementList.h"
-
-using namespace fuml::syntax::commonstructure;
+#include <fuml/syntax/commonstructure/Comment.h>
+#include <vector>
 
 void Comment::setAnnotatedElement(
-	const std::shared_ptr<fuml::syntax::commonstructure::Element>& annotatedElement)
+	const ElementPtr& annotatedElement)
 {
 	this->annotatedElement->push_back(annotatedElement);
 } // setAnnotatedElement

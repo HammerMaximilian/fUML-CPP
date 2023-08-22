@@ -8,22 +8,29 @@
 #ifndef FUML_SYNTAX_COMMONSTRUCTURE_COMMENT_H_
 #define FUML_SYNTAX_COMMONSTRUCTURE_COMMENT_H_
 
+#include <fuml/syntax/commonstructure/ElementList.h>
 #include <utils/FumlObject.h>
 #include <memory>
-#include <vector>
-#include "ElementList.h"
+#include <string>
+
+namespace fuml::syntax::commonstructure
+{
+	class Element;
+}
+using Element = fuml::syntax::commonstructure::Element;
+using ElementPtr = std::shared_ptr<Element>;
 
 namespace fuml::syntax::commonstructure
 {
 	class Comment : public utils::FumlObject {
 
 		public:
-			std::shared_ptr<fuml::syntax::commonstructure::ElementList> annotatedElement = std::make_shared<fuml::syntax::commonstructure::ElementList>();
+			ElementListPtr annotatedElement = std::make_shared<ElementList>();
 			std::string body = "";
 
 		public:
 			void setAnnotatedElement(
-				const std::shared_ptr<fuml::syntax::commonstructure::Element>&);
+				const ElementPtr&);
 			void setBody(std::string);
 	}; // Comment
 }

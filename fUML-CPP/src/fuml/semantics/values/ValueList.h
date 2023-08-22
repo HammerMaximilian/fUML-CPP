@@ -17,4 +17,7 @@ namespace fuml::semantics::values
 	typedef std::vector<std::shared_ptr<fuml::semantics::values::Value>> ValueList;
 }
 
+using ValueList = fuml::semantics::values::ValueList;
+using ValueListPtr = std::shared_ptr<ValueList>;
+
 #endif /* FUML_SEMANTICS_VALUES_VALUELIST_H_ */
