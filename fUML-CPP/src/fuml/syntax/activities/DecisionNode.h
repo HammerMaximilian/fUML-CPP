@@ -35,4 +35,7 @@ namespace fuml::syntax::activities
 	}; // DecisionNode
 }
 
+using DecisionNode = fuml::syntax::activities::DecisionNode;
+using DecisionNodePtr = std::shared_ptr<DecisionNode>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_DECISIONNODE_H_ */

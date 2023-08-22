@@ -17,4 +17,7 @@ namespace fuml::syntax::classification
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Property>> PropertyList;
 }
 
+using PropertyList = fuml::syntax::classification::PropertyList;
+using PropertyListPtr = std::shared_ptr<PropertyList>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_PROPERTYLIST_H_ */

@@ -27,4 +27,7 @@ namespace fuml::syntax::activities
 	}; // ActivityParameterNode
 }
 
+using ActivityParameterNode = fuml::syntax::activities::ActivityParameterNode;
+using ActivityParameterNodePtr = std::shared_ptr<ActivityParameterNode>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYPARAMETERNODE_H_ */

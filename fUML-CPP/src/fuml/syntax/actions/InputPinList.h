@@ -17,4 +17,7 @@ namespace fuml::syntax::actions
 	typedef std::vector<std::shared_ptr<fuml::syntax::actions::InputPin>> InputPinList;
 }
 
+using InputPinList = fuml::syntax::actions::InputPinList;
+using InputPinListPtr = std::shared_ptr<InputPinList>;
+
 #endif /* FUML_SYNTAX_ACTIONS_INPUTPINLIST_H_ */

@@ -30,4 +30,7 @@ namespace fuml::syntax::actions
 	}; // AddStructuralFeatureValueAction
 }
 
+using AddStructuralFeatureValueAction = fuml::syntax::actions::AddStructuralFeatureValueAction;
+using AddStructuralFeatureValueActionPtr = std::shared_ptr<AddStructuralFeatureValueAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_ADDSTRUCTURALFEATUREVALUEACTION_H_ */

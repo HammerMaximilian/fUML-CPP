@@ -34,5 +34,7 @@ namespace fuml::syntax::actions
 	}; // ReadExtentAction
 }
 
+using ReadExtentAction = fuml::syntax::actions::ReadExtentAction;
+using ReadExtentActionPtr = std::shared_ptr<ReadExtentAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_READEXTENTACTION_H_ */

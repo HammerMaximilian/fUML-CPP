@@ -17,4 +17,7 @@ namespace fuml::syntax::classification
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Classifier>> ClassifierList;
 }
 
+using ClassifierList = fuml::syntax::classification::ClassifierList;
+using ClassifierListPtr = std::shared_ptr<ClassifierList>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_CLASSIFIERLIST_H_ */

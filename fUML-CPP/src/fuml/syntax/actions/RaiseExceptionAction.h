@@ -28,4 +28,7 @@ namespace fuml::syntax::actions
 	}; // RaiseExceptionAction
 }
 
+using RaiseExceptionAction = fuml::syntax::actions::RaiseExceptionAction;
+using RaiseExceptionActionPtr = std::shared_ptr<RaiseExceptionAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_RAISEEXCEPTIONACTION_H_ */

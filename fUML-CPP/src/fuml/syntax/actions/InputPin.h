@@ -17,4 +17,7 @@ namespace fuml::syntax::actions
 	}; // InputPin
 }
 
+using InputPin = fuml::syntax::actions::InputPin;
+using InputPinPtr = std::shared_ptr<InputPin>;
+
 #endif /* FUML_SYNTAX_ACTIONS_INPUTPIN_H_ */

@@ -19,4 +19,7 @@ namespace fuml::syntax::activities
 	}; // FinalNode
 }
 
+using FinalNode = fuml::syntax::activities::FinalNode;
+using FinalNodePtr = std::shared_ptr<FinalNode>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_FINALNODE_H_ */

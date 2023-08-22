@@ -17,4 +17,7 @@ namespace fuml::syntax::commonstructure
 	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::Element>> ElementList;
 }
 
+using ElementList = fuml::syntax::commonstructure::ElementList;
+using ElementListPtr = std::shared_ptr<ElementList>;
+
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_ELEMENTLIST_H_ */

@@ -31,4 +31,7 @@ namespace fuml::syntax::simpleclassifiers
 	}; // DataType
 }
 
+using DataType = fuml::syntax::simpleclassifiers::DataType;
+using DataTypePtr = std::shared_ptr<DataType>;
+
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_DATATYPE_H_ */

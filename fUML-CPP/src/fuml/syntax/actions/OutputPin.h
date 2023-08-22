@@ -17,4 +17,7 @@ namespace fuml::syntax::actions
 	}; // OutputPin
 }
 
+using OutputPin = fuml::syntax::actions::OutputPin;
+using OutputPinPtr = std::shared_ptr<OutputPin>;
+
 #endif /* FUML_SYNTAX_ACTIONS_OUTPUTPIN_H_ */

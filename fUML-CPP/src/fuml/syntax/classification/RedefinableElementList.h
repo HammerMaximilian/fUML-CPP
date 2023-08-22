@@ -17,4 +17,7 @@ namespace fuml::syntax::classification
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::RedefinableElement>> RedefinableElementList;
 }
 
+using RedefinableElementList = fuml::syntax::classification::RedefinableElementList;
+using RedefinableElementListPtr = std::shared_ptr<RedefinableElementList>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_REDEFINABLEELEMENTLIST_H_ */

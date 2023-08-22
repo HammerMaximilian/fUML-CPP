@@ -29,4 +29,7 @@ namespace fuml::syntax::classification
 	}; // InstanceValue
 }
 
+using InstanceValue = fuml::syntax::classification::InstanceValue;
+using InstanceValuePtr = std::shared_ptr<InstanceValue>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_INSTANCEVALUE_H_ */

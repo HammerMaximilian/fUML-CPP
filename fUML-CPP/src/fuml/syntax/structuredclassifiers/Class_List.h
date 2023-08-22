@@ -17,4 +17,7 @@ namespace fuml::syntax::structuredclassifiers
 	typedef std::vector<std::shared_ptr<fuml::syntax::structuredclassifiers::Class_>> Class_List;
 }
 
+using Class_List = fuml::syntax::structuredclassifiers::Class_List;
+using Class_ListPtr = std::shared_ptr<Class_List>;
+
 #endif /* FUML_SYNTAX_STRUCTUREDCLASSIFIERS_CLASS_LIST_H_ */

@@ -24,4 +24,7 @@ namespace fuml::syntax::actions
 	}; // DestroyLinkAction
 }
 
+using DestroyLinkAction = fuml::syntax::actions::DestroyLinkAction;
+using DestroyLinkActionPtr = std::shared_ptr<DestroyLinkAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_DESTROYLINKACTION_H_ */

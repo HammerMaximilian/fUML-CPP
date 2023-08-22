@@ -29,4 +29,7 @@ namespace fuml::syntax::classification
 	}; // Feature
 }
 
+using Feature = fuml::syntax::classification::Feature;
+using FeaturePtr = std::shared_ptr<Feature>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_FEATURE_H_ */

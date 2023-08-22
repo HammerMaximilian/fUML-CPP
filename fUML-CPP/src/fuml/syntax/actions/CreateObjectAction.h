@@ -34,4 +34,7 @@ namespace fuml::syntax::actions
 	}; // CreateObjectAction
 }
 
+using CreateObjectAction = fuml::syntax::actions::CreateObjectAction;
+using CreateObjectActionPtr = std::shared_ptr<CreateObjectAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_CREATEOBJECTACTION_H_ */

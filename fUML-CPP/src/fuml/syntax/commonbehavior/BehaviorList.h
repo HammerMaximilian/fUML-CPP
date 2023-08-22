@@ -17,4 +17,7 @@ namespace fuml::syntax::commonbehavior
 	typedef std::vector<std::shared_ptr<fuml::syntax::commonbehavior::Behavior>> BehaviorList;
 }
 
+using BehaviorList = fuml::syntax::commonbehavior::BehaviorList;
+using BehaviorListPtr = std::shared_ptr<BehaviorList>;
+
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_BEHAVIORLIST_H_ */

@@ -17,4 +17,7 @@ namespace fuml::syntax::actions
 	typedef std::vector<std::shared_ptr<fuml::syntax::actions::StructuredActivityNode>> StructuredActivityNodeList;
 }
 
+using StructuredActivityNodeList = fuml::syntax::actions::StructuredActivityNodeList;
+using StructuredActivityNodeListPtr = std::shared_ptr<StructuredActivityNodeList>;
+
 #endif /* FUML_SYNTAX_ACTIONS_STRUCTUREDACTIVITYNODELIST_H_ */

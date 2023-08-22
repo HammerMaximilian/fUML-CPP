@@ -43,4 +43,7 @@ namespace fuml::syntax::activities
 	}; // Activity
 }
 
+using Activity = fuml::syntax::activities::Activity;
+using ActivityPtr = std::shared_ptr<Activity>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITY_H_ */

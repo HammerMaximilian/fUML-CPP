@@ -17,4 +17,7 @@ namespace fuml::syntax::commonstructure
 	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::Type>> TypeList;
 }
 
+using TypeList = fuml::syntax::commonstructure::TypeList;
+using TypeListPtr = std::shared_ptr<TypeList>;
+
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_TYPELIST_H_ */

@@ -39,4 +39,7 @@ namespace fuml::syntax::commonstructure
 	}; // NamedElement
 }
 
+using NamedElement = fuml::syntax::commonstructure::NamedElement;
+using NamedElementPtr = std::shared_ptr<NamedElement>;
+
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_NAMEDELEMENT_H_ */

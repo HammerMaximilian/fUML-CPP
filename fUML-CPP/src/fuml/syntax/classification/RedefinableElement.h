@@ -34,4 +34,7 @@ namespace fuml::syntax::classification
 	}; // RedefinableElement
 }
 
+using RedefinableElement = fuml::syntax::classification::RedefinableElement;
+using RedefinableElementPtr = std::shared_ptr<RedefinableElement>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_REDEFINABLEELEMENT_H_ */

@@ -18,4 +18,6 @@ namespace fuml::syntax::classification
 	};
 }
 
+using AggregationKind = fuml::syntax::classification::AggregationKind;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_AGGREGATIONKIND_H_ */

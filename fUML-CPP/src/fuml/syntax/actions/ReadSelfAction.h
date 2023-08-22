@@ -28,4 +28,7 @@ namespace fuml::syntax::actions
 	}; // ReadSelfAction
 }
 
+using ReadSelfAction = fuml::syntax::actions::ReadSelfAction;
+using ReadSelfActionPtr = std::shared_ptr<ReadSelfAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_READSELFACTION_H_ */

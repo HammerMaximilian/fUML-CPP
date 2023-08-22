@@ -17,4 +17,7 @@ namespace fuml::syntax::commonstructure
 	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::Comment>> CommentList;
 }
 
+using CommentList = fuml::syntax::commonstructure::CommentList;
+using CommentListPtr = std::shared_ptr<CommentList>;
+
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_COMMENTLIST_H_ */

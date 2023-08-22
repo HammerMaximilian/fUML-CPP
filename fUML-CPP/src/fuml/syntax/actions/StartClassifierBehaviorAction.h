@@ -28,4 +28,7 @@ namespace fuml::syntax::actions
 	}; // StartClassifierBehaviorAction
 }
 
+using StartClassifierBehaviorAction = fuml::syntax::actions::StartClassifierBehaviorAction;
+using StartClassifierBehaviorActionPtr = std::shared_ptr<StartClassifierBehaviorAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_STARTCLASSIFIERBEHAVIORACTION_H_ */

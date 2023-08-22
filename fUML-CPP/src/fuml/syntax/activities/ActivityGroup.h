@@ -19,4 +19,7 @@ namespace fuml::syntax::activities
 	}; // ActivityGroup
 }
 
+using ActivityGroup = fuml::syntax::activities::ActivityGroup;
+using ActivityGroupPtr = std::shared_ptr<ActivityGroup>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYGROUP_H_ */

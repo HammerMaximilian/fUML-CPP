@@ -40,5 +40,7 @@ namespace fuml::syntax::packages
 	}; //Package
 }
 
+using Package = fuml::syntax::packages::Package;
+using PackagePtr = std::shared_ptr<Package>;
 
 #endif /* FUML_SYNTAX_PACKAGES_PACKAGE_H_ */

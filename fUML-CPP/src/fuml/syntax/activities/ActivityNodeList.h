@@ -17,4 +17,7 @@ namespace fuml::syntax::activities
 	typedef std::vector<std::shared_ptr<fuml::syntax::activities::ActivityNode>> ActivityNodeList;
 }
 
+using ActivityNodeList = fuml::syntax::activities::ActivityNodeList;
+using ActivityNodeListPtr = std::shared_ptr<ActivityNodeList>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYNODELIST_H_ */

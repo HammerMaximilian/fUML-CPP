@@ -17,4 +17,7 @@ namespace fuml::syntax::simpleclassifiers
 	typedef std::vector<std::shared_ptr<fuml::syntax::simpleclassifiers::EnumerationLiteral>> EnumerationLiteralList;
 }
 
+using EnumerationLiteralList = fuml::syntax::simpleclassifiers::EnumerationLiteralList;
+using EnumerationLiteralListPtr = std::shared_ptr<EnumerationLiteralList>;
+
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_ENUMERATIONLITERALLIST_H_ */

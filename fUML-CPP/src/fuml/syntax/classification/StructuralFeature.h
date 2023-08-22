@@ -28,4 +28,7 @@ namespace fuml::syntax::classification
 	}; // StructuralFeature
 }
 
+using StructuralFeature = fuml::syntax::classification::StructuralFeature;
+using StructuralFeaturePtr = std::shared_ptr<StructuralFeature>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_STRUCTURALFEATURE_H_ */

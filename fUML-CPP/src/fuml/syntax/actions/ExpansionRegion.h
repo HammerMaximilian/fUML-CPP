@@ -36,4 +36,7 @@ namespace fuml::syntax::actions
 	}; // ExpansionRegion
 }
 
+using ExpansionRegion = fuml::syntax::actions::ExpansionRegion;
+using ExpansionRegionPtr = std::shared_ptr<ExpansionRegion>;
+
 #endif /* FUML_SYNTAX_ACTIONS_EXPANSIONREGION_H_ */

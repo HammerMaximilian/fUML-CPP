@@ -24,4 +24,7 @@ namespace fuml::syntax::actions
 	}; // CreateLinkAction
 }
 
+using CreateLinkAction = fuml::syntax::actions::CreateLinkAction;
+using CreateLinkActionPtr = std::shared_ptr<CreateLinkAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_CREATELINKACTION_H_ */

@@ -19,7 +19,10 @@ namespace fuml::syntax::values
 
 		public:
 			void setValue(int);
-	};
-} // LiteralInteger
+	}; // LiteralInteger
+}
+
+using LiteralInteger = fuml::syntax::values::LiteralInteger;
+using LiteralIntegerPtr = std::shared_ptr<LiteralInteger>;
 
 #endif /* FUML_SYNTAX_VALUES_LITERALINTEGER_H_ */

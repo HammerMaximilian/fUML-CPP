@@ -17,4 +17,7 @@ namespace fuml::syntax::commonstructure
 	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::PackageImport>> PackageImportList;
 }
 
+using PackageImportList = fuml::syntax::commonstructure::PackageImportList;
+using PackageImportListPtr = std::shared_ptr<PackageImportList>;
+
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_PACKAGEIMPORTLIST_H_ */

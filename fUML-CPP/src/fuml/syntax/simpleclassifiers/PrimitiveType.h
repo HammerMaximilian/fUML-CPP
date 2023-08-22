@@ -17,4 +17,7 @@ namespace fuml::syntax::simpleclassifiers
 	}; // PrimitiveType
 }
 
+using PrimitiveType = fuml::syntax::simpleclassifiers::PrimitiveType;
+using PrimitiveTypePtr = std::shared_ptr<PrimitiveType>;
+
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_PRIMITIVETYPE_H_ */

@@ -41,4 +41,7 @@ namespace fuml::syntax::structuredclassifiers
 	}; // Association
 }
 
+using Association = fuml::syntax::structuredclassifiers::Association;
+using AssociationPtr = std::shared_ptr<Association>;
+
 #endif /* FUML_SYNTAX_STRUCTUREDCLASSIFIERS_ASSOCIATION_H_ */

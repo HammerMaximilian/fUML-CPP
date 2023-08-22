@@ -30,4 +30,7 @@ namespace fuml::syntax::simpleclassifiers
 	}; // EnumerationLiteral
 }
 
+using EnumerationLiteral = fuml::syntax::simpleclassifiers::EnumerationLiteral;
+using EnumerationLiteralPtr = std::shared_ptr<EnumerationLiteral>;
+
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_ENUMERATIONLITERAL_H_ */

@@ -26,4 +26,7 @@ namespace fuml::syntax::commonbehavior
 	}; // OpaqueBehavior
 }
 
+using OpaqueBehavior = fuml::syntax::commonbehavior::OpaqueBehavior;
+using OpaqueBehaviorPtr = std::shared_ptr<OpaqueBehavior>;
+
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_OPAQUEBEHAVIOR_H_ */

@@ -20,4 +20,7 @@ namespace fuml::syntax::commonstructure
 	};
 }
 
+using PackageableElement = fuml::syntax::commonstructure::PackageableElement;
+using PackageableElementPtr = std::shared_ptr<PackageableElement>;
+
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_PACKAGEABLEELEMENT_H_ */

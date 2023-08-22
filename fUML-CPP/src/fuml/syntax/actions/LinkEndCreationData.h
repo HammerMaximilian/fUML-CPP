@@ -30,4 +30,7 @@ namespace fuml::syntax::actions
 	}; // LinkEndCreationData
 }
 
+using LinkEndCreationData = fuml::syntax::actions::LinkEndCreationData;
+using LinkEndCreationDataPtr = std::shared_ptr<LinkEndCreationData>;
+
 #endif /* FUML_SYNTAX_ACTIONS_LINKENDCREATIONDATA_H_ */

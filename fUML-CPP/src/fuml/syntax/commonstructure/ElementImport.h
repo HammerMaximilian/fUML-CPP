@@ -40,5 +40,7 @@ namespace fuml::syntax::commonstructure
 	}; // ElementImport
 }
 
+using ElementImport = fuml::syntax::commonstructure::ElementImport;
+using ElementImportPtr = std::shared_ptr<ElementImport>;
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_ELEMENTIMPORT_H_ */

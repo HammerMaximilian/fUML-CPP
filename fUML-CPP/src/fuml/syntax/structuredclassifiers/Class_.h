@@ -48,4 +48,8 @@ namespace fuml::syntax::structuredclassifiers
 				const std::shared_ptr<fuml::syntax::classification::Classifier>&);
 	}; // Class
 }
+
+using Class_ = fuml::syntax::structuredclassifiers::Class_;
+using Class_Ptr = std::shared_ptr<Class_>;
+
 #endif /* FUML_SYNTAX_STRUCTUREDCLASSIFIERS_CLASS__H_ */

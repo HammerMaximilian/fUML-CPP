@@ -29,4 +29,7 @@ namespace fuml::syntax::commonstructure
 	}; //Type
 }
 
+using Type = fuml::syntax::commonstructure::Type;
+using TypePtr = std::shared_ptr<Type>;
+
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_TYPE_H_ */

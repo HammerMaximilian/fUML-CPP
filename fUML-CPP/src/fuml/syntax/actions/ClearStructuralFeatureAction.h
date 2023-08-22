@@ -28,4 +28,7 @@ namespace fuml::syntax::actions
 	}; // ClearStructuralFeatureAction
 }
 
+using ClearStructuralFeatureAction = fuml::syntax::actions::ClearStructuralFeatureAction;
+using ClearStructuralFeatureActionPtr = std::shared_ptr<ClearStructuralFeatureAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_CLEARSTRUCTURALFEATUREACTION_H_ */

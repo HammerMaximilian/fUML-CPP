@@ -31,4 +31,7 @@ namespace fuml::syntax::actions
 	}; // ConditionalNode
 }
 
+using ConditionalNode = fuml::syntax::actions::ConditionalNode;
+using ConditionalNodePtr = std::shared_ptr<ConditionalNode>;
+
 #endif /* FUML_SYNTAX_ACTIONS_CONDITIONALNODE_H_ */

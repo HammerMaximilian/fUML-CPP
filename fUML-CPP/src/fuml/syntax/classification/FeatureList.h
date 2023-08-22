@@ -17,4 +17,7 @@ namespace fuml::syntax::classification
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Feature>> FeatureList;
 }
 
+using FeatureList = fuml::syntax::classification::FeatureList;
+using FeatureListPtr = std::shared_ptr<FeatureList>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_FEATURELIST_H_ */

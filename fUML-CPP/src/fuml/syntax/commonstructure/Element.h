@@ -37,4 +37,7 @@ namespace fuml::syntax::commonstructure
 	}; // Element
 }
 
+using Element = fuml::syntax::commonstructure::Element;
+using ElementPtr = std::shared_ptr<Element>;
+
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_ELEMENT_H_ */

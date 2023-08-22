@@ -29,4 +29,7 @@ namespace fuml::syntax::commonbehavior
 	}; // SignalEvent
 }
 
+using SignalEvent = fuml::syntax::commonbehavior::SignalEvent;
+using SignalEventPtr = std::shared_ptr<SignalEvent>;
+
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_SIGNALEVENT_H_ */

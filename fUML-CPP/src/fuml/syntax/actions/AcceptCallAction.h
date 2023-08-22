@@ -28,6 +28,7 @@ namespace fuml::syntax::actions
 	}; // AcceptCallAction
 }
 
-
+using AcceptCallAction = fuml::syntax::actions::AcceptCallAction;
+using AcceptCallActionPtr = std::shared_ptr<AcceptCallAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_ACCEPTCALLACTION_H_ */

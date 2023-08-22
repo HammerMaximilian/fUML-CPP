@@ -47,4 +47,7 @@ namespace fuml::syntax::actions
 	}; // StructuredActivityNode
 }
 
+using StructuredActivityNode = fuml::syntax::actions::StructuredActivityNode;
+using StructuredActivityNodePtr = std::shared_ptr<StructuredActivityNode>;
+
 #endif /* FUML_SYNTAX_ACTIONS_STRUCTUREDACTIVITYNODE_H_ */

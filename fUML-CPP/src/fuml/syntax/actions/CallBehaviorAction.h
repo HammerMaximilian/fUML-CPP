@@ -29,4 +29,7 @@ namespace fuml::syntax::actions
 	}; // CallBehaviorAction
 }
 
+using CallBehaviorAction = fuml::syntax::actions::CallBehaviorAction;
+using CallBehaviorActionPtr = std::shared_ptr<CallBehaviorAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_CALLBEHAVIORACTION_H_ */

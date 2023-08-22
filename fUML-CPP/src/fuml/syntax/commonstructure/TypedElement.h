@@ -28,4 +28,7 @@ namespace fuml::syntax::commonstructure
 	}; // TypedElement
 }
 
+using TypedElement = fuml::syntax::commonstructure::TypedElement;
+using TypedElementPtr = std::shared_ptr<TypedElement>;
+
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_TYPEDELEMENT_H_ */

@@ -28,6 +28,7 @@ namespace fuml::syntax::commonstructure
 	}; // Comment
 }
 
-
+using Comment = fuml::syntax::commonstructure::Comment;
+using CommentPtr = std::shared_ptr<Comment>;
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_COMMENT_H_ */

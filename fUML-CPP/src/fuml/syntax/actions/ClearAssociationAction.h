@@ -34,4 +34,7 @@ namespace fuml::syntax::actions
 	}; // ClearAssociationAction
 }
 
+using ClearAssociationAction = fuml::syntax::actions::ClearAssociationAction;
+using ClearAssociationActionPtr = std::shared_ptr<ClearAssociationAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_CLEARASSOCIATIONACTION_H_ */

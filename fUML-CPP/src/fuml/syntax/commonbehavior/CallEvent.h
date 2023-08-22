@@ -28,5 +28,7 @@ namespace fuml::syntax::commonbehavior
 	}; // CallEvent
 }
 
+using CallEvent = fuml::syntax::commonbehavior::CallEvent;
+using CallEventPtr = std::shared_ptr<CallEvent>;
 
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_CALLEVENT_H_ */

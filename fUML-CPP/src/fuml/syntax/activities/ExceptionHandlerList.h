@@ -17,4 +17,7 @@ namespace fuml::syntax::activities
 	typedef std::vector<std::shared_ptr<fuml::syntax::activities::ExceptionHandler>> ExceptionHandlerList;
 }
 
+using ExceptionHandlerList = fuml::syntax::activities::ExceptionHandlerList;
+using ExceptionHandlerListPtr = std::shared_ptr<ExceptionHandlerList>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_EXCEPTIONHANDLERLIST_H_ */

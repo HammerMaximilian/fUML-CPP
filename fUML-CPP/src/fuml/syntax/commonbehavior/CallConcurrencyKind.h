@@ -16,4 +16,6 @@ namespace fuml::syntax::commonbehavior
 	};
 }
 
+using CallConcurrencyKind = fuml::syntax::commonbehavior::CallConcurrencyKind;
+
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_CALLCONCURRENCYKIND_H_ */

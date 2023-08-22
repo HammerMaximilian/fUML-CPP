@@ -20,4 +20,7 @@ namespace fuml::syntax::actions
 	}; // WriteLinkAction
 }
 
+using WriteLinkAction = fuml::syntax::actions::WriteLinkAction;
+using WriteLinkActionPtr = std::shared_ptr<WriteLinkAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_WRITELINKACTION_H_ */

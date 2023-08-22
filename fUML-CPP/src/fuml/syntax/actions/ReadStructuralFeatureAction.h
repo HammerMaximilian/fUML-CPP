@@ -28,4 +28,7 @@ namespace fuml::syntax::actions
 	}; // ReadStructuralFeatureAction
 }
 
+using ReadStructuralFeatureAction = fuml::syntax::actions::ReadStructuralFeatureAction;
+using ReadStructuralFeatureActionPtr = std::shared_ptr<ReadStructuralFeatureAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_READSTRUCTURALFEATUREACTION_H_ */

@@ -27,4 +27,7 @@ namespace fuml::syntax::actions
 	}; // CallAction
 }
 
+using CallAction = fuml::syntax::actions::CallAction;
+using CallActionPtr = std::shared_ptr<CallAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_CALLACTION_H_ */

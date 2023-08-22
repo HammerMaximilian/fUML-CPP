@@ -17,4 +17,7 @@ namespace fuml::syntax::actions
 	typedef std::vector<std::shared_ptr<fuml::syntax::actions::ExpansionNode>> ExpansionNodeList;
 }
 
+using ExpansionNodeList = fuml::syntax::actions::ExpansionNodeList;
+using ExpansionNodeListPtr = std::shared_ptr<ExpansionNodeList>;
+
 #endif /* FUML_SYNTAX_ACTIONS_EXPANSIONNODELIST_H_ */

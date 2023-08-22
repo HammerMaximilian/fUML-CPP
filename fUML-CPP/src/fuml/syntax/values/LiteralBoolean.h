@@ -19,7 +19,10 @@ namespace fuml::syntax::values
 
 		public:
 			void setValue(bool);
-	};
-} // LiteralBoolean
+	}; // LiteralBoolean
+}
+
+using LiteralBoolean = fuml::syntax::values::LiteralBoolean;
+using LiteralBooleanPtr = std::shared_ptr<LiteralBoolean>;
 
 #endif /* FUML_SYNTAX_VALUES_LITERALBOOLEAN_H_ */

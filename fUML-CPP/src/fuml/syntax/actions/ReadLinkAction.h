@@ -28,5 +28,7 @@ namespace fuml::syntax::actions
 	}; // ReadLinkAction
 }
 
+using ReadLinkAction = fuml::syntax::actions::ReadLinkAction;
+using ReadLinkActionPtr = std::shared_ptr<ReadLinkAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_READLINKACTION_H_ */

@@ -56,4 +56,7 @@ namespace fuml::syntax::activities
 	}; // ExceptionHandler
 }
 
+using ExceptionHandler = fuml::syntax::activities::ExceptionHandler;
+using ExceptionHandlerPtr = std::shared_ptr<ExceptionHandler>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_EXCEPTIONHANDLER_H_ */

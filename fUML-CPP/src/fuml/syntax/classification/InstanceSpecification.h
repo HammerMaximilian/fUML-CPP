@@ -32,4 +32,7 @@ namespace fuml::syntax::classification
 	}; // InstanceSpecification
 }
 
+using InstanceSpecification = fuml::syntax::classification::InstanceSpecification;
+using InstanceSpecificationPtr = std::shared_ptr<InstanceSpecification>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_INSTANCESPECIFICATION_H_ */

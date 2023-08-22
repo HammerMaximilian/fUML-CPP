@@ -17,4 +17,7 @@ namespace fuml::syntax::simpleclassifiers
 	typedef std::vector<std::shared_ptr<fuml::syntax::simpleclassifiers::Reception>> ReceptionList;
 }
 
+using ReceptionList = fuml::syntax::simpleclassifiers::ReceptionList;
+using ReceptionListPtr = std::shared_ptr<ReceptionList>;
+
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_RECEPTIONLIST_H_ */

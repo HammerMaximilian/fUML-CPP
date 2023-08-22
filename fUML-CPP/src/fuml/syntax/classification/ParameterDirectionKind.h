@@ -19,4 +19,6 @@ namespace fuml::syntax::classification
 	};
 }
 
+using ParameterDirectionKind = fuml::syntax::classification::ParameterDirectionKind;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_PARAMETERDIRECTIONKIND_H_ */

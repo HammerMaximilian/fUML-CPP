@@ -17,4 +17,7 @@ namespace fuml::syntax::values
 	typedef std::vector<std::shared_ptr<fuml::syntax::values::ValueSpecification>> ValueSpecificationList;
 }
 
+using ValueSpecificationList = fuml::syntax::values::ValueSpecificationList;
+using ValueSpecificationListPtr = std::shared_ptr<ValueSpecificationList>;
+
 #endif /* FUML_SYNTAX_VALUES_VALUESPECIFICATIONLIST_H_ */

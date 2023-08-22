@@ -41,4 +41,7 @@ namespace fuml::syntax::actions
 	}; // Action
 }
 
+using Action = fuml::syntax::actions::Action;
+using ActionPtr = std::shared_ptr<Action>;
+
 #endif /* FUML_SYNTAX_ACTIONS_ACTION_H_ */

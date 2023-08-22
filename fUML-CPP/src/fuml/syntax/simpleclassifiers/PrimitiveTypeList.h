@@ -17,4 +17,7 @@ namespace fuml::syntax::simpleclassifiers
 	typedef std::vector<std::shared_ptr<fuml::syntax::simpleclassifiers::PrimitiveType>> PrimitiveTypeList;
 }
 
+using PrimitiveTypeList = fuml::syntax::simpleclassifiers::PrimitiveTypeList;
+using PrimitiveTypeListPtr = std::shared_ptr<PrimitiveTypeList>;
+
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_PRIMITIVETYPELIST_H_ */

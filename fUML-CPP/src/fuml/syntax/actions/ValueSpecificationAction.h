@@ -34,4 +34,7 @@ namespace fuml::syntax::actions
 	}; // ValueSpecificationAction
 }
 
+using ValueSpecificationAction = fuml::syntax::actions::ValueSpecificationAction;
+using ValueSpecificationActionPtr = std::shared_ptr<ValueSpecificationAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_VALUESPECIFICATIONACTION_H_ */

@@ -29,4 +29,7 @@ namespace fuml::syntax::simpleclassifiers
 	}; // Reception
 }
 
+using Reception = fuml::syntax::simpleclassifiers::Reception;
+using ReceptionPtr = std::shared_ptr<Reception>;
+
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_RECEPTION_H_ */

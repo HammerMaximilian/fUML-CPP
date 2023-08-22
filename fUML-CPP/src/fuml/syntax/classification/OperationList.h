@@ -17,4 +17,7 @@ namespace fuml::syntax::classification
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Operation>> OperationList;
 }
 
+using OperationList = fuml::syntax::classification::OperationList;
+using OperationListPtr = std::shared_ptr<OperationList>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_OPERATIONLIST_H_ */

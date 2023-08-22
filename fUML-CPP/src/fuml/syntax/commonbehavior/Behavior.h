@@ -44,4 +44,7 @@ namespace fuml::syntax::commonbehavior
 	}; // Behavior
 }
 
+using Behavior = fuml::syntax::commonbehavior::Behavior;
+using BehaviorPtr = std::shared_ptr<Behavior>;
+
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_BEHAVIOR_H_ */

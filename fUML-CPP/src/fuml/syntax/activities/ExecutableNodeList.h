@@ -17,4 +17,7 @@ namespace fuml::syntax::activities
 	typedef std::vector<std::shared_ptr<fuml::syntax::activities::ExecutableNode>> ExecutableNodeList;
 }
 
+using ExecutableNodeList = fuml::syntax::activities::ExecutableNodeList;
+using ExecutableNodeListPtr = std::shared_ptr<ExecutableNodeList>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_EXECUTABLENODELIST_H_ */

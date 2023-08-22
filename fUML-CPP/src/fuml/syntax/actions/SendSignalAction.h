@@ -34,4 +34,7 @@ namespace fuml::syntax::actions
 	}; // SendSignalAction
 }
 
+using SendSignalAction = fuml::syntax::actions::SendSignalAction;
+using SendSignalActionPtr = std::shared_ptr<SendSignalAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_SENDSIGNALACTION_H_ */

@@ -42,4 +42,7 @@ namespace fuml::syntax::commonstructure
 	}; // PackageImport
 }
 
+using PackageImport = fuml::syntax::commonstructure::PackageImport;
+using PackageImportPtr = std::shared_ptr<PackageImport>;
+
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_PACKAGEIMPORT_H_ */

@@ -17,4 +17,7 @@ namespace fuml::syntax::classification
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Slot>> SlotList;
 }
 
+using SlotList = fuml::syntax::classification::SlotList;
+using SlotListPtr = std::shared_ptr<SlotList>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_SLOTLIST_H_ */

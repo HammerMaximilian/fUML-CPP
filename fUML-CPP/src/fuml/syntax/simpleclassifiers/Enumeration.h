@@ -31,4 +31,7 @@ namespace fuml::syntax::simpleclassifiers
 	}; // Enumeration
 }
 
+using Enumeration = fuml::syntax::simpleclassifiers::Enumeration;
+using EnumerationPtr = std::shared_ptr<Enumeration>;
+
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_ENUMERATION_H_ */

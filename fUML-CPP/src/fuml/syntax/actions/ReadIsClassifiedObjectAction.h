@@ -39,5 +39,7 @@ namespace fuml::syntax::actions
 	}; // ReadIsClassifiedObjectAction
 }
 
+using ReadIsClassifiedObjectAction = fuml::syntax::actions::ReadIsClassifiedObjectAction;
+using ReadIsClassifiedObjectActionPtr = std::shared_ptr<ReadIsClassifiedObjectAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_READISCLASSIFIEDOBJECTACTION_H_ */

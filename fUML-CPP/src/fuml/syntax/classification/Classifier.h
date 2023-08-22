@@ -53,4 +53,7 @@ namespace fuml::syntax::classification
 	}; //Classifier
 }
 
+using Classifier = fuml::syntax::classification::Classifier;
+using ClassifierPtr = std::shared_ptr<Classifier>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_CLASSIFIER_H_ */

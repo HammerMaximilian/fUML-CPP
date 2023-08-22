@@ -19,7 +19,10 @@ namespace fuml::syntax::values
 
 		public:
 			void setValue(float);
-	};
-} // LiteralReal
+	}; // LiteralReal
+}
+
+using LiteralReal = fuml::syntax::values::LiteralReal;
+using LiteralRealPtr = std::shared_ptr<LiteralReal>;
 
 #endif /* FUML_SYNTAX_VALUES_LITERALREAL_H_ */

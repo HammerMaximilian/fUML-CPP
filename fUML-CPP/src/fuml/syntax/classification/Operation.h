@@ -59,4 +59,7 @@ namespace fuml::syntax::classification
 	}; // Operation
 }
 
+using Operation = fuml::syntax::classification::Operation;
+using OperationPtr = std::shared_ptr<Operation>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_OPERATION_H_ */

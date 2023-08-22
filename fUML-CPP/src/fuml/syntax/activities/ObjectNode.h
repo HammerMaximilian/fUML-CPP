@@ -22,4 +22,7 @@ namespace fuml::syntax::activities
 	}; // ObjectNode
 }
 
+using ObjectNode = fuml::syntax::activities::ObjectNode;
+using ObjectNodePtr = std::shared_ptr<ObjectNode>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_OBJECTNODE_H_ */

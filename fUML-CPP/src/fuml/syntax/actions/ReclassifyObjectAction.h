@@ -35,5 +35,7 @@ namespace fuml::syntax::actions
 	}; // ReclassifyObjectAction
 }
 
+using ReclassifyObjectAction = fuml::syntax::actions::ReclassifyObjectAction;
+using ReclassifyObjectActionPtr = std::shared_ptr<ReclassifyObjectAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_RECLASSIFYOBJECTACTION_H_ */

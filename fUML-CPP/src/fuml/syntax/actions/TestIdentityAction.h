@@ -33,4 +33,7 @@ namespace fuml::syntax::actions
 	}; // TestIdentityAction
 }
 
+using TestIdentityAction = fuml::syntax::actions::TestIdentityAction;
+using TestIdentityActionPtr = std::shared_ptr<TestIdentityAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_TESTIDENTITYACTION_H_ */

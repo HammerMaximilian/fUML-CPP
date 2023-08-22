@@ -43,4 +43,7 @@ namespace fuml::syntax::commonstructure
 	}; // MultiplicityElement
 }
 
+using MultiplicityElement = fuml::syntax::commonstructure::MultiplicityElement;
+using MultiplicityElementPtr = std::shared_ptr<MultiplicityElement>;
+
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_MULTIPLICITYELEMENT_H_ */

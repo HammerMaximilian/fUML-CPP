@@ -37,4 +37,7 @@ namespace fuml::syntax::actions
 	}; // UnmarshallAction
 }
 
+using UnmarshallAction = fuml::syntax::actions::UnmarshallAction;
+using UnmarshallActionPtr = std::shared_ptr<UnmarshallAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_UNMARSHALLACTION_H_ */

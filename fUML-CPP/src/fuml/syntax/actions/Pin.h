@@ -22,4 +22,7 @@ namespace fuml::syntax::actions
 	}; // Pin
 }
 
+using Pin = fuml::syntax::actions::Pin;
+using PinPtr = std::shared_ptr<Pin>;
+
 #endif /* FUML_SYNTAX_ACTIONS_PIN_H_ */

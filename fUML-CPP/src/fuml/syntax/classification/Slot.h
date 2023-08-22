@@ -36,4 +36,7 @@ namespace fuml::syntax::classification
 	}; // Slot
 }
 
+using Slot = fuml::syntax::classification::Slot;
+using SlotPtr = std::shared_ptr<Slot>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_SLOT_H_ */

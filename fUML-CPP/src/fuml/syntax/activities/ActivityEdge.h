@@ -55,4 +55,7 @@ namespace fuml::syntax::activities
 	}; // ActivityEdge
 }
 
+using ActivityEdge = fuml::syntax::activities::ActivityEdge;
+using ActivityEdgePtr = std::shared_ptr<ActivityEdge>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYEDGE_H_ */

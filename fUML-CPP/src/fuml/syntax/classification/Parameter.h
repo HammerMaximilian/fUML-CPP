@@ -37,4 +37,7 @@ namespace fuml::syntax::classification
 	}; // Parameter
 }
 
+using Parameter = fuml::syntax::classification::Parameter;
+using ParameterPtr = std::shared_ptr<Parameter>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_PARAMETER_H_ */

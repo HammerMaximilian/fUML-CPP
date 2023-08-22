@@ -29,4 +29,7 @@ namespace fuml::syntax::activities
 	}; // ExecutableNode
 }
 
+using ExecutableNode = fuml::syntax::activities::ExecutableNode;
+using ExecutableNodePtr = std::shared_ptr<ExecutableNode>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_EXECUTABLENODE_H_ */

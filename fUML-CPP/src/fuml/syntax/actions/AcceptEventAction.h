@@ -29,4 +29,7 @@ namespace fuml::syntax::actions
 	}; // AcceptEventAction
 }
 
+using AcceptEventAction = fuml::syntax::actions::AcceptEventAction;
+using AcceptEventActionPtr = std::shared_ptr<AcceptEventAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_ACCEPTEVENTACTION_H_ */

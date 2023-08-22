@@ -30,4 +30,7 @@ namespace fuml::syntax::actions
 	}; // RemoveStructuralFeatureValueAction
 }
 
+using RemoveStructuralFeatureValueAction = fuml::syntax::actions::RemoveStructuralFeatureValueAction;
+using RemoveStructuralFeatureValueActionPtr = std::shared_ptr<RemoveStructuralFeatureValueAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_REMOVESTRUCTURALFEATUREVALUEACTION_H_ */

@@ -17,4 +17,7 @@ namespace fuml::syntax::actions
 	typedef std::vector<std::shared_ptr<fuml::syntax::actions::LinkEndData>> LinkEndDataList;
 }
 
+using LinkEndDataList = fuml::syntax::actions::LinkEndDataList;
+using LinkEndDataListPtr = std::shared_ptr<LinkEndDataList>;
+
 #endif /* FUML_SYNTAX_ACTIONS_LINKENDDATALIST_H_ */

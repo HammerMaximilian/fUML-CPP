@@ -17,4 +17,7 @@ namespace fuml::syntax::activities
 	typedef std::vector<std::shared_ptr<fuml::syntax::activities::ActivityGroup>> ActivityGroupList;
 }
 
+using ActivityGroupList = fuml::syntax::activities::ActivityGroupList;
+using ActivityGroupListPtr = std::shared_ptr<ActivityGroupList>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYGROUPLIST_H_ */

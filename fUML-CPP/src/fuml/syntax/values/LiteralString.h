@@ -20,7 +20,10 @@ namespace fuml::syntax::values
 
 		public:
 			void setValue(std::string);
-	};
-} // LiteralString
+	}; // LiteralString
+}
+
+using LiteralString = fuml::syntax::values::LiteralString;
+using LiteralStringPtr = std::shared_ptr<LiteralString>;
 
 #endif /* FUML_SYNTAX_VALUES_LITERALSTRING_H_ */

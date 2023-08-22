@@ -17,4 +17,7 @@ namespace fuml::syntax::activities
 	}; // MergeNode
 }
 
+using MergeNode = fuml::syntax::activities::MergeNode;
+using MergeNodePtr = std::shared_ptr<MergeNode>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_MERGENODE_H_ */

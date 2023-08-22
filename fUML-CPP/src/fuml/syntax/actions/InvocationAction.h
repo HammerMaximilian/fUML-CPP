@@ -25,4 +25,7 @@ namespace fuml::syntax::actions
 	}; // InvocationAction
 }
 
+using InvocationAction = fuml::syntax::actions::InvocationAction;
+using InvocationActionPtr = std::shared_ptr<InvocationAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_INVOCATIONACTION_H_ */

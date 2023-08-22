@@ -29,4 +29,7 @@ namespace fuml::syntax::actions
 	}; // LinkAction
 }
 
+using LinkAction = fuml::syntax::actions::LinkAction;
+using LinkActionPtr = std::shared_ptr<LinkAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_LINKACTION_H_ */

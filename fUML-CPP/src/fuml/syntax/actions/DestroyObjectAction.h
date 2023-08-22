@@ -32,4 +32,7 @@ namespace fuml::syntax::actions
 	}; // DestroyObjectAction
 }
 
+using DestroyObjectAction = fuml::syntax::actions::DestroyObjectAction;
+using DestroyObjectActionPtr = std::shared_ptr<DestroyObjectAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_DESTROYOBJECTACTION_H_ */

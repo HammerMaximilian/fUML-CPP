@@ -27,4 +27,8 @@ namespace fuml::syntax::commonbehavior
 			void setEvent(const std::shared_ptr<fuml::syntax::commonbehavior::Event>&);
 	}; // Trigger
 }
+
+using Trigger = fuml::syntax::commonbehavior::Trigger;
+using TriggerPtr = std::shared_ptr<Trigger>;
+
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_TRIGGER_H_ */

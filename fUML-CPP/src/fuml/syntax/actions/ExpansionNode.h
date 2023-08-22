@@ -31,4 +31,7 @@ namespace fuml::syntax::actions
 	}; // ExpansionNode
 }
 
+using ExpansionNode = fuml::syntax::actions::ExpansionNode;
+using ExpansionNodePtr = std::shared_ptr<ExpansionNode>;
+
 #endif /* FUML_SYNTAX_ACTIONS_EXPANSIONNODE_H_ */

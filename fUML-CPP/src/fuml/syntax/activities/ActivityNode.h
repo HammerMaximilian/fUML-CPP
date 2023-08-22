@@ -44,4 +44,7 @@ namespace fuml::syntax::activities
 	}; // ActivityNode
 }
 
+using ActivityNode = fuml::syntax::activities::ActivityNode;
+using ActivityNodePtr = std::shared_ptr<ActivityNode>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYNODE_H_ */

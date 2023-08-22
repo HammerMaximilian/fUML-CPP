@@ -17,4 +17,7 @@ namespace fuml::syntax::commonbehavior
 	typedef std::vector<std::shared_ptr<fuml::syntax::commonbehavior::Trigger>> TriggerList;
 }
 
+using TriggerList = fuml::syntax::commonbehavior::TriggerList;
+using TriggerListPtr = std::shared_ptr<TriggerList>;
+
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_TRIGGERLIST_H_ */

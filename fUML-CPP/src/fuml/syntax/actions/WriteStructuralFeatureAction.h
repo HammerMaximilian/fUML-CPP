@@ -33,4 +33,7 @@ namespace fuml::syntax::actions
 	}; // WriteStructuralFeatureAction
 }
 
+using WriteStructuralFeatureAction = fuml::syntax::actions::WriteStructuralFeatureAction;
+using WriteStructuralFeatureActionPtr = std::shared_ptr<WriteStructuralFeatureAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_WRITESTRUCTURALFEATUREACTION_H_ */

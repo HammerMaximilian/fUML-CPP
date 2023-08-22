@@ -17,4 +17,7 @@ namespace fuml::syntax::actions
 	typedef std::vector<std::shared_ptr<fuml::syntax::actions::OutputPin>> OutputPinList;
 }
 
+using OutputPinList = fuml::syntax::actions::OutputPinList;
+using OutputPinListPtr = std::shared_ptr<OutputPinList>;
+
 #endif /* FUML_SYNTAX_ACTIONS_OUTPUTPINLIST_H_ */

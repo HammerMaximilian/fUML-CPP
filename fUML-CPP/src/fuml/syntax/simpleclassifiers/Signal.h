@@ -31,4 +31,7 @@ namespace fuml::syntax::simpleclassifiers
 	}; // Signal
 }
 
+using Signal = fuml::syntax::simpleclassifiers::Signal;
+using SignalPtr = std::shared_ptr<Signal>;
+
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_SIGNAL_H_ */

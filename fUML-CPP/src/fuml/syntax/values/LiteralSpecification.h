@@ -16,7 +16,10 @@ namespace fuml::syntax::values
 	{
 		public:
 			virtual ~LiteralSpecification() = 0;
-	};
+	}; // LiteralSpecification
 }
+
+using LiteralSpecification = fuml::syntax::values::LiteralSpecification;
+using LiteralSpecificationPtr = std::shared_ptr<LiteralSpecification>;
 
 #endif /* FUML_SYNTAX_VALUES_LITERALSPECIFICATION_H_ */

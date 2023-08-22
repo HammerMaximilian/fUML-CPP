@@ -34,4 +34,7 @@ namespace fuml::syntax::commonbehavior
 	}; // BehavioredClassifier
 }
 
+using BehavioredClassifier = fuml::syntax::commonbehavior::BehavioredClassifier;
+using BehavioredClassifierPtr = std::shared_ptr<BehavioredClassifier>;
+
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_BEHAVIOREDCLASSIFIER_H_ */

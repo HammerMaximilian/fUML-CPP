@@ -17,4 +17,7 @@ namespace fuml::syntax::packages
 	typedef std::vector<std::shared_ptr<fuml::syntax::packages::Package>> PackageList;
 }
 
+using PackageList = fuml::syntax::packages::PackageList;
+using PackageListPtr = std::shared_ptr<PackageList>;
+
 #endif /* FUML_SYNTAX_PACKAGES_PACKAGELIST_H_ */

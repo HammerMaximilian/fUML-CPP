@@ -14,4 +14,7 @@ namespace fuml::syntax::classification
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Generalization>> GeneralizationList;
 }
 
+using GeneralizationList = fuml::syntax::classification::GeneralizationList;
+using GeneralizationListPtr = std::shared_ptr<GeneralizationList>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_GENERALIZATIONLIST_H_ */

@@ -50,4 +50,8 @@ namespace fuml::syntax::commonstructure
 				const std::shared_ptr<fuml::syntax::commonstructure::PackageableElement>&);
 	}; // Namespace
 }
+
+using Namespace = fuml::syntax::commonstructure::Namespace;
+using NamespacePtr = std::shared_ptr<Namespace>;
+
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_NAMESPACE_H_ */

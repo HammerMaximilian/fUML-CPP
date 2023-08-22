@@ -32,4 +32,7 @@ namespace fuml::syntax::classification
 	}; // Generalization
 }
 
+using Generalization = fuml::syntax::classification::Generalization;
+using GeneralizationPtr = std::shared_ptr<Generalization>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_GENERALIZATION_H_ */

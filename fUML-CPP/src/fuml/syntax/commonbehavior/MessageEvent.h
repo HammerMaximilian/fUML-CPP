@@ -19,5 +19,7 @@ namespace fuml::syntax::commonbehavior
 	}; // MessageEvent
 }
 
+using MessageEvent = fuml::syntax::commonbehavior::MessageEvent;
+using MessageEventPtr = std::shared_ptr<MessageEvent>;
 
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_MESSAGEEVENT_H_ */

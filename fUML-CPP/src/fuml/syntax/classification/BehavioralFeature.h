@@ -44,4 +44,7 @@ namespace fuml::syntax::classification
 	}; // BehavioralFeature
 }
 
+using BehavioralFeature = fuml::syntax::classification::BehavioralFeature;
+using BehavioralFeaturePtr = std::shared_ptr<BehavioralFeature>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_BEHAVIORALFEATURE_H_ */

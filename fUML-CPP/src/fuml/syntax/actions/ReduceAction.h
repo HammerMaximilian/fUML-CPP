@@ -39,5 +39,7 @@ namespace fuml::syntax::actions
 	}; // ReduceAction
 }
 
+using ReduceAction = fuml::syntax::actions::ReduceAction;
+using ReduceActionPtr = std::shared_ptr<ReduceAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_REDUCEACTION_H_ */

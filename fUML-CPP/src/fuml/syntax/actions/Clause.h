@@ -43,4 +43,7 @@ namespace fuml::syntax::actions
 	}; // Clause
 }
 
+using Clause = fuml::syntax::actions::Clause;
+using ClausePtr = std::shared_ptr<Clause>;
+
 #endif /* FUML_SYNTAX_ACTIONS_CLAUSE_H_ */

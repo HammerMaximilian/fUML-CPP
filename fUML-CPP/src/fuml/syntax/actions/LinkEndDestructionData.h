@@ -30,4 +30,7 @@ namespace fuml::syntax::actions
 	}; // LinkEndDestructionData
 }
 
+using LinkEndDestructionData = fuml::syntax::actions::LinkEndDestructionData;
+using LinkEndDestructionDataPtr = std::shared_ptr<LinkEndDestructionData>;
+
 #endif /* FUML_SYNTAX_ACTIONS_LINKENDDESTRUCTIONDATA_H_ */

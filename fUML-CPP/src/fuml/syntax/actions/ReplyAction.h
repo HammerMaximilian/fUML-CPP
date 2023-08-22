@@ -33,5 +33,7 @@ namespace fuml::syntax::actions
 	}; // ReplyAction
 }
 
+using ReplyAction = fuml::syntax::actions::ReplyAction;
+using ReplyActionPtr = std::shared_ptr<ReplyAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_REPLYACTION_H_ */

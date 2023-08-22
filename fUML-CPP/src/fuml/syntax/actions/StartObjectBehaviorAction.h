@@ -28,4 +28,7 @@ namespace fuml::syntax::actions
 	}; // StartObjectBehaviorAction
 }
 
+using StartObjectBehaviorAction = fuml::syntax::actions::StartObjectBehaviorAction;
+using StartObjectBehaviorActionPtr = std::shared_ptr<StartObjectBehaviorAction>;
+
 #endif /* FUML_SYNTAX_ACTIONS_STARTOBJECTBEHAVIORACTION_H_ */

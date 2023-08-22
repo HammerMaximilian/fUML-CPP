@@ -17,4 +17,7 @@ namespace fuml::syntax::actions
 	typedef std::vector<std::shared_ptr<fuml::syntax::actions::LinkEndDestructionData>> LinkEndDestructionDataList;
 }
 
+using LinkEndDestructionDataList = fuml::syntax::actions::LinkEndDestructionDataList;
+using LinkEndDestructionDataListPtr = std::shared_ptr<LinkEndDestructionDataList>;
+
 #endif /* FUML_SYNTAX_ACTIONS_LINKENDDESTRUCTIONDATALIST_H_ */

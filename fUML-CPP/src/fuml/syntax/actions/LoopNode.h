@@ -45,4 +45,7 @@ namespace fuml::syntax::actions
 	}; // LoopNode
 }
 
+using LoopNode = fuml::syntax::actions::LoopNode;
+using LoopNodePtr = std::shared_ptr<LoopNode>;
+
 #endif /* FUML_SYNTAX_ACTIONS_LOOPNODE_H_ */

@@ -19,4 +19,7 @@ namespace fuml::syntax::values
 	};
 }
 
+using ValueSpecification = fuml::syntax::values::ValueSpecification;
+using ValueSpecificationPtr = std::shared_ptr<ValueSpecification>;
+
 #endif /* FUML_SYNTAX_VALUES_VALUESPECIFICATION_H_ */

@@ -17,4 +17,7 @@ namespace fuml::syntax::classification
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::Parameter>> ParameterList;
 }
 
+using ParameterList = fuml::syntax::classification::ParameterList;
+using ParameterListPtr = std::shared_ptr<ParameterList>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_PARAMETERLIST_H_ */

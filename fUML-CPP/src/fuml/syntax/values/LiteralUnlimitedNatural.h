@@ -20,7 +20,10 @@ namespace fuml::syntax::values
 
 		public:
 			void setValue(UMLPrimitiveTypes::unlimitedNatural);
-	};
-} // LiteralUnlimitedNatural
+	}; // LiteralUnlimitedNatural
+}
+
+using LiteralUnlimitedNatural = fuml::syntax::values::LiteralUnlimitedNatural;
+using LiteralUnlimitedNaturalPtr = std::shared_ptr<LiteralUnlimitedNatural>;
 
 #endif /* FUML_SYNTAX_VALUES_LITERALUNLIMITEDNATURAL_H_ */

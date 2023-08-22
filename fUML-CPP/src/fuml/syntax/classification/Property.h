@@ -59,4 +59,7 @@ namespace fuml::syntax::classification
 	}; // Property
 }
 
+using Property = fuml::syntax::classification::Property;
+using PropertyPtr = std::shared_ptr<Property>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_PROPERTY_H_ */

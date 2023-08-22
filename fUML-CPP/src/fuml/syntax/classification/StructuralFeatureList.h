@@ -17,4 +17,7 @@ namespace fuml::syntax::classification
 	typedef std::vector<std::shared_ptr<fuml::syntax::classification::StructuralFeature>> StructuralFeatureList;
 }
 
+using StructuralFeatureList = fuml::syntax::classification::StructuralFeatureList;
+using StructuralFeatureListPtr = std::shared_ptr<StructuralFeatureList>;
+
 #endif /* FUML_SYNTAX_CLASSIFICATION_STRUCTURALFEATURELIST_H_ */

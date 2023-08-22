@@ -17,4 +17,7 @@ namespace fuml::syntax::commonstructure
 	typedef std::vector<std::shared_ptr<fuml::syntax::commonstructure::PackageableElement>> PackageableElementList;
 }
 
+using PackageableElementList = fuml::syntax::commonstructure::PackageableElementList;
+using PackageableElementListPtr = std::shared_ptr<PackageableElementList>;
+
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_PACKAGEABLEELEMENTLIST_H_ */
