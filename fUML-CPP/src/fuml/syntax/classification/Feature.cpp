@@ -8,14 +8,12 @@
 #include <fuml/syntax/classification/Feature.h>
 #include <vector>
 
-using namespace fuml::syntax::classification;
-
 Feature::~Feature()
 {
 }
 
 void Feature::_addFeaturingClassifier(
-		const std::shared_ptr<fuml::syntax::classification::Classifier>& featuringClassifier)
+		const ClassifierPtr& featuringClassifier)
 {
 	this->featuringClassifier->push_back(featuringClassifier);
 } // _addFeaturingClassifier

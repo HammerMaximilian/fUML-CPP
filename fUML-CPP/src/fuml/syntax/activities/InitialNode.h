@@ -12,7 +12,7 @@
 
 namespace fuml::syntax::activities
 {
-	class InitialNode : public fuml::syntax::activities::ControlNode
+	class InitialNode : public ControlNode
 	{
 	}; // InitialNode
 }

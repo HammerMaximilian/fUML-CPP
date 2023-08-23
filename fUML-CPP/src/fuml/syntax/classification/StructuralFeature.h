@@ -16,9 +16,9 @@
 namespace fuml::syntax::classification
 {
 	class StructuralFeature :
-		virtual public fuml::syntax::classification::Feature,
-		virtual public fuml::syntax::commonstructure::MultiplicityElement,
-		virtual public fuml::syntax::commonstructure::TypedElement
+		virtual public Feature,
+		virtual public MultiplicityElement,
+		virtual public TypedElement
 	{
 		public:
 			bool isReadOnly = false;

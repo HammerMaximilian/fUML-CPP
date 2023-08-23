@@ -20,7 +20,7 @@ namespace fuml::syntax::activities
 	class Activity : public fuml::syntax::commonbehavior::Behavior
 	{
 		public:
-			std::shared_ptr<fuml::syntax::actions::StructuredActivityNodeList> structuredNode = std::make_shared<fuml::syntax::actions::StructuredActivityNodeList>();
+			StructuredActivityNodeListPtr structuredNode = std::make_shared<fuml::syntax::actions::StructuredActivityNodeList>();
 			std::shared_ptr<ActivityNodeList> node = std::make_shared<ActivityNodeList>();
 			bool isReadOnly = false;
 			std::shared_ptr<ActivityEdgeList> edge = std::make_shared<ActivityEdgeList>();
@@ -34,13 +34,13 @@ namespace fuml::syntax::activities
 
 			void setIsReadOnly(bool);
 			void addNode(
-					const std::shared_ptr<fuml::syntax::activities::ActivityNode>&);
-			void addStructuredNode(const std::shared_ptr<fuml::syntax::actions::StructuredActivityNode>&);
-			void addGroup(const std::shared_ptr<fuml::syntax::activities::ActivityGroup>&);
+					const ActivityNodePtr&);
+			void addStructuredNode(const StructuredActivityNodePtr&);
+			void addGroup(const ActivityGroupPtr&);
 			void addEdge(
-					const std::shared_ptr<fuml::syntax::activities::ActivityEdge>&);
+					const ActivityEdgePtr&);
 			void _setContext(
-					const std::shared_ptr<fuml::syntax::commonbehavior::BehavioredClassifier>&);
+					const BehavioredClassifierPtr&);
 	}; // Activity
 }
 

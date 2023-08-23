@@ -15,20 +15,22 @@ namespace fuml::syntax::classification
 {
 	class Classifier;
 }
+using Classifier = fuml::syntax::classification::Classifier;
+using ClassifierPtr = std::shared_ptr<Classifier>;
 
 namespace fuml::syntax::classification
 {
-	class Generalization : public fuml::syntax::commonstructure::Element
+	class Generalization : public Element
 	{
 		public:
 			bool isSubstitutable = true;
-			std::shared_ptr<fuml::syntax::classification::Classifier> specific = nullptr;
-			std::shared_ptr<fuml::syntax::classification::Classifier> general = nullptr;
+			ClassifierPtr specific = nullptr;
+			ClassifierPtr general = nullptr;
 
 		public:
 			void setIsSubstitutable(bool);
-			void setGeneral(const std::shared_ptr<fuml::syntax::classification::Classifier>&);
-			void _setSpecific(const std::shared_ptr<fuml::syntax::classification::Classifier>&);
+			void setGeneral(const ClassifierPtr&);
+			void _setSpecific(const ClassifierPtr&);
 	}; // Generalization
 }
 

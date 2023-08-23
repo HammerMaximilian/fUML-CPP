@@ -18,37 +18,53 @@
 
 namespace fuml::syntax::classification
 {
-	class Classifier : public fuml::syntax::commonstructure::Type
+	class Feature;
+	class Generalization;
+	class Property;
+}
+using Feature = fuml::syntax::classification::Feature;
+using FeaturePtr = std::shared_ptr<Feature>;
+using Generalization = fuml::syntax::classification::Generalization;
+using GeneralizationPtr = std::shared_ptr<Generalization>;
+using Property = fuml::syntax::classification::Property;
+using PropertyPtr = std::shared_ptr<Property>;
+
+namespace fuml::syntax::classification
+{
+	class Classifier : public Type
 	{
 		public:
+			using ClassifierPtr = std::shared_ptr<Classifier>;
+
+		public:
 			bool isAbstract = false;
-			std::shared_ptr<fuml::syntax::classification::GeneralizationList> generalization = std::make_shared<fuml::syntax::classification::GeneralizationList>();
-			std::shared_ptr<fuml::syntax::classification::FeatureList> feature = std::make_shared<fuml::syntax::classification::FeatureList>();
-			std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> inheritedMember = std::make_shared<fuml::syntax::commonstructure::NamedElementList>();
-			std::shared_ptr<fuml::syntax::classification::PropertyList> attribute = std::make_shared<fuml::syntax::classification::PropertyList>();
-			std::shared_ptr<fuml::syntax::classification::ClassifierList> general = std::make_shared<fuml::syntax::classification::ClassifierList>();
+			GeneralizationListPtr generalization = std::make_shared<GeneralizationList>();
+			FeatureListPtr feature = std::make_shared<FeatureList>();
+			NamedElementListPtr inheritedMember = std::make_shared<NamedElementList>();
+			PropertyListPtr attribute = std::make_shared<PropertyList>();
+			ClassifierListPtr general = std::make_shared<ClassifierList>();
 			bool isFinalSpecialization = false;
 
 		private:
-			std::weak_ptr<fuml::syntax::classification::Classifier> thisClassifierPtr;
+			std::weak_ptr<Classifier> thisClassifierPtr;
 
 		public:
 			~Classifier() = 0;
-			virtual void setThisPtr(std::weak_ptr<fuml::syntax::classification::Classifier>);
+			virtual void setThisPtr(std::weak_ptr<Classifier>);
 
 			void addGeneralization(
-				const std::shared_ptr<fuml::syntax::classification::Generalization>&);
+				const GeneralizationPtr&);
 			void setIsAbstract(bool);
-			std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> inherit(
-				const std::shared_ptr<fuml::syntax::commonstructure::NamedElementList>&);
-			std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> inheritableMembers(
-				const std::shared_ptr<fuml::syntax::classification::Classifier>&);
-			bool hasVisibilityOf(const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>&);
+			NamedElementListPtr inherit(
+				const NamedElementListPtr&);
+			NamedElementListPtr inheritableMembers(
+				const ClassifierPtr&);
+			bool hasVisibilityOf(const NamedElementPtr&);
 			void setIsFinalSpecialization(bool);
 
 			protected:
-				void addFeature(const std::shared_ptr<fuml::syntax::classification::Feature>&);
-				void addAttribute(const std::shared_ptr<fuml::syntax::classification::Property>&);
+				void addFeature(const FeaturePtr&);
+				void addAttribute(const PropertyPtr&);
 	}; //Classifier
 }
 

@@ -9,20 +9,18 @@
 #include <fuml/syntax/classification/Slot.h>
 #include <vector>
 
-using namespace fuml::syntax::classification;
-
-void InstanceSpecification::setThisPtr(std::weak_ptr<fuml::syntax::classification::InstanceSpecification> thisInstanceSpecificationPtr)
+void InstanceSpecification::setThisPtr(std::weak_ptr<InstanceSpecification> thisInstanceSpecificationPtr)
 {
 	this->thisInstanceSpecificationPtr = thisInstanceSpecificationPtr;
-	fuml::syntax::commonstructure::Element::setThisPtr(thisInstanceSpecificationPtr);
+	Element::setThisPtr(thisInstanceSpecificationPtr);
 }
 
-void InstanceSpecification::addClassifier(const std::shared_ptr<fuml::syntax::classification::Classifier>& classifier)
+void InstanceSpecification::addClassifier(const ClassifierPtr& classifier)
 {
 	this->classifier->push_back(classifier);
 } // addClassifier
 
-void InstanceSpecification::addSlot(const std::shared_ptr<fuml::syntax::classification::Slot>& slot)
+void InstanceSpecification::addSlot(const SlotPtr& slot)
 {
 	this->addOwnedElement(slot);
 	this->slot->push_back(slot);

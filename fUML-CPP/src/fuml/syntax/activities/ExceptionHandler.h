@@ -11,15 +11,26 @@
 #include <fuml/syntax/commonstructure/Element.h>
 #include <fuml/syntax/classification/ClassifierList.h>
 
+namespace fuml::syntax::classification
+{
+	class Classifier;
+}
+using Classifier = fuml::syntax::classification::Classifier;
+using ClassifierPtr = std::shared_ptr<Classifier>;
+
 namespace fuml::syntax::activities
 {
 	class ExecutableNode;
 	class ObjectNode;
 }
+using ExecutableNode = fuml::syntax::activities::ExecutableNode;
+using ExecutableNodePtr = std::shared_ptr<ExecutableNode>;
+using ObjectNode = fuml::syntax::activities::ObjectNode;
+using ObjectNodePtr = std::shared_ptr<ObjectNode>;
 
 namespace fuml::syntax::activities
 {
-	class ExceptionHandler : public fuml::syntax::commonstructure::Element
+	class ExceptionHandler : public Element
 	{
 		public:
 			/**
@@ -27,32 +38,32 @@ namespace fuml::syntax::activities
 			 * exception, the exception token is placed on this ObjectNode, causing the
 			 * handlerBody to execute.
 			 */
-			std::shared_ptr<fuml::syntax::activities::ObjectNode> exceptionInput;
+			ObjectNodePtr exceptionInput;
 
 			/**
 			 * The Classifiers whose instances the ExceptionHandler catches as exceptions.
 			 * If an exception occurs whose type is any exceptionType, the ExceptionHandler
 			 * catches the exception and executes the handlerBody.
 			 */
-			std::shared_ptr<fuml::syntax::classification::ClassifierList> exceptionType = std::make_shared<fuml::syntax::classification::ClassifierList>();
+			ClassifierListPtr exceptionType = std::make_shared<ClassifierList>();
 
 			/**
 			 * An ExecutableNode that is executed if the ExceptionHandler catches an
 			 * exception.
 			 */
-			std::shared_ptr<fuml::syntax::activities::ExecutableNode> handlerBody;
+			ExecutableNodePtr handlerBody;
 
 			/**
 			 * The ExecutableNode protected by the ExceptionHandler. If an exception
 			 * propagates out of the protectedNode and has a type matching one of the
 			 * exceptionTypes, then it is caught by this ExceptionHandler.
 			 */
-			std::shared_ptr<fuml::syntax::activities::ExecutableNode> protectedNode;
+			ExecutableNodePtr protectedNode;
 
 		public:
-			void setExceptionInput(const std::shared_ptr<fuml::syntax::activities::ObjectNode>&);
-			void addExceptionType(const std::shared_ptr<fuml::syntax::classification::Classifier>&);
-			void setHandlerBody(const std::shared_ptr<fuml::syntax::activities::ExecutableNode>&);
+			void setExceptionInput(const ObjectNodePtr&);
+			void addExceptionType(const ClassifierPtr&);
+			void setHandlerBody(const ExecutableNodePtr&);
 	}; // ExceptionHandler
 }
 

@@ -15,8 +15,8 @@
 namespace fuml::syntax::activities
 {
 	class ObjectNode :
-		virtual public fuml::syntax::activities::ActivityNode,
-		virtual public fuml::syntax::commonstructure::TypedElement
+		virtual public ActivityNode,
+		virtual public TypedElement
 	{
 		public:
 			virtual ~ObjectNode() = 0;

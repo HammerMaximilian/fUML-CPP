@@ -12,7 +12,7 @@
 
 namespace fuml::syntax::activities
 {
-	class ObjectFlow : public fuml::syntax::activities::ActivityEdge
+	class ObjectFlow : public ActivityEdge
 	{
 	}; // ObjectFlow
 }

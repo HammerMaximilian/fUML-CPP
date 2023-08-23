@@ -7,19 +7,17 @@
 
 #include <fuml/syntax/classification/Generalization.h>
 
-using namespace fuml::syntax::classification;
-
 void Generalization::setIsSubstitutable(bool isSubstitutable)
 {
 	this->isSubstitutable = isSubstitutable;
 } // setIsSubstitutable
 
-void Generalization::setGeneral(const std::shared_ptr<fuml::syntax::classification::Classifier>& general)
+void Generalization::setGeneral(const ClassifierPtr& general)
 {
 	this->general = general;
 } // setGeneral
 
-void Generalization::_setSpecific(const std::shared_ptr<fuml::syntax::classification::Classifier>& specific)
+void Generalization::_setSpecific(const ClassifierPtr& specific)
 {
 	this->specific = specific;
 } // _setSpecific

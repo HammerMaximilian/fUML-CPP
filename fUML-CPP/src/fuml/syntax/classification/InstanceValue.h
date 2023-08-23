@@ -15,17 +15,19 @@ namespace fuml::syntax::classification
 {
 	class InstanceSpecification;
 }
+using InstanceSpecification = fuml::syntax::classification::InstanceSpecification;
+using InstanceSpecificationPtr = std::shared_ptr<InstanceSpecification>;
 
 namespace fuml::syntax::classification
 {
-	class InstanceValue : public fuml::syntax::values::ValueSpecification
+	class InstanceValue : public ValueSpecification
 	{
 		public:
-			std::shared_ptr<fuml::syntax::classification::InstanceSpecification> instance = nullptr;
+			InstanceSpecificationPtr instance = nullptr;
 
 		public:
 			void setInstance(
-					const std::shared_ptr<fuml::syntax::classification::InstanceSpecification>&);
+					const InstanceSpecificationPtr&);
 	}; // InstanceValue
 }
 

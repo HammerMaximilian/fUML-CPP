@@ -12,7 +12,7 @@
 
 namespace fuml::syntax::activities
 {
-	class FlowFinalNode : public fuml::syntax::activities::FinalNode
+	class FlowFinalNode : public FinalNode
 	{
 	}; // FlowFinalNode
 }

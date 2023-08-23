@@ -14,17 +14,17 @@
 
 namespace fuml::syntax::classification
 {
-	class Feature : virtual public fuml::syntax::classification::RedefinableElement
+	class Feature : virtual public RedefinableElement
 	{
 		public:
 			bool isStatic = false;
-			std::shared_ptr<fuml::syntax::classification::ClassifierList> featuringClassifier = std::make_shared<fuml::syntax::classification::ClassifierList>();
+			ClassifierListPtr featuringClassifier = std::make_shared<ClassifierList>();
 
 		public:
 			~Feature() = 0;
 
 			void _addFeaturingClassifier(
-					const std::shared_ptr<fuml::syntax::classification::Classifier>&);
+					const ClassifierPtr&);
 	}; // Feature
 }
 

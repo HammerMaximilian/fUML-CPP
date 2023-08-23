@@ -17,23 +17,25 @@ namespace fuml::syntax::classification
 {
 	class Operation;
 }
+using Operation = fuml::syntax::classification::Operation;
+using OperationPtr = std::shared_ptr<Operation>;
 
 namespace fuml::syntax::classification
 {
 	class Parameter :
-		virtual public fuml::syntax::commonstructure::MultiplicityElement,
-		virtual public fuml::syntax::commonstructure::TypedElement
+		virtual public MultiplicityElement,
+		virtual public TypedElement
 	{
 		public:
-			fuml::syntax::classification::ParameterDirectionKind direction = fuml::syntax::classification::ParameterDirectionKind::in;
-			std::shared_ptr<fuml::syntax::classification::Operation> operation = nullptr;
+			ParameterDirectionKind direction = ParameterDirectionKind::in;
+			OperationPtr operation = nullptr;
 			bool isStream = false;
 
 		public:
 			void setDirection(
-					fuml::syntax::classification::ParameterDirectionKind);
+					ParameterDirectionKind);
 			void setIsStream(bool);
-			void _setOperation(const std::shared_ptr<fuml::syntax::classification::Operation>&);
+			void _setOperation(const OperationPtr&);
 	}; // Parameter
 }
 

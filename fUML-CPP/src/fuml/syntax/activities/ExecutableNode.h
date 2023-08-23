@@ -14,10 +14,17 @@
 
 namespace fuml::syntax::activities
 {
-	class ExecutableNode : public fuml::syntax::activities::ActivityGroup
+	class ExceptionHandler;
+}
+using ExceptionHandler = fuml::syntax::activities::ExceptionHandler;
+using ExceptionHandlerPtr = std::shared_ptr<ExceptionHandler>;
+
+namespace fuml::syntax::activities
+{
+	class ExecutableNode : public ActivityGroup
 	{
 		public:
-			std::shared_ptr<fuml::syntax::activities::ExceptionHandlerList> handler = std::make_shared<fuml::syntax::activities::ExceptionHandlerList>();
+			ExceptionHandlerListPtr handler = std::make_shared<ExceptionHandlerList>();
 
 		private:
 			std::weak_ptr<ExecutableNode> thisExecutableNodePtr;
@@ -26,7 +33,7 @@ namespace fuml::syntax::activities
 			virtual ~ExecutableNode() = 0;
 			virtual void setThisPtr(std::weak_ptr<ExecutableNode>);
 
-			void addExceptionHandler(const std::shared_ptr<fuml::syntax::activities::ExceptionHandler>&);
+			void addExceptionHandler(const ExceptionHandlerPtr&);
 	}; // ExecutableNode
 }
 

@@ -18,30 +18,51 @@
 
 namespace fuml::syntax::classification
 {
+	class Parameter;
+}
+using Parameter = fuml::syntax::classification::Parameter;
+using ParameterPtr = std::shared_ptr<Parameter>;
+
+namespace fuml::syntax::commonbehavior
+{
+	class Behavior;
+}
+using Behavior = fuml::syntax::commonbehavior::Behavior;
+using BehaviorPtr = std::shared_ptr<Behavior>;
+
+namespace fuml::syntax::commonstructure
+{
+	class Type;
+}
+using Type = fuml::syntax::commonstructure::Type;
+using TypePtr = std::shared_ptr<Type>;
+
+namespace fuml::syntax::classification
+{
 	class BehavioralFeature :
-		virtual public fuml::syntax::classification::Feature,
-		virtual public fuml::syntax::commonstructure::Namespace
+		virtual public Feature,
+		virtual public Namespace
 	{
 		public:
-			std::shared_ptr<fuml::syntax::classification::ParameterList> ownedParameter = std::make_shared<fuml::syntax::classification::ParameterList>();
+			ParameterListPtr ownedParameter = std::make_shared<ParameterList>();
 			bool isAbstract = false;
-			std::shared_ptr<fuml::syntax::commonbehavior::BehaviorList> method = std::make_shared<fuml::syntax::commonbehavior::BehaviorList>();
-			fuml::syntax::commonbehavior::CallConcurrencyKind concurrency = fuml::syntax::commonbehavior::CallConcurrencyKind::sequential;
-			std::shared_ptr<fuml::syntax::commonstructure::TypeList> raisedException = std::make_shared<fuml::syntax::commonstructure::TypeList>();
+			BehaviorListPtr method = std::make_shared<BehaviorList>();
+			CallConcurrencyKind concurrency = CallConcurrencyKind::sequential;
+			TypeListPtr raisedException = std::make_shared<TypeList>();
 
 		private:
-			std::weak_ptr<fuml::syntax::classification::BehavioralFeature> thisBehavioralFeaturePtr;
+			std::weak_ptr<BehavioralFeature> thisBehavioralFeaturePtr;
 
 		public:
 			~BehavioralFeature() = 0;
-			virtual void setThisPtr(std::weak_ptr<fuml::syntax::classification::BehavioralFeature>);
+			virtual void setThisPtr(std::weak_ptr<BehavioralFeature>);
 
 			void setIsAbstract(bool);
 			void addOwnedParameter(
-				const std::shared_ptr<fuml::syntax::classification::Parameter>&);
+				const ParameterPtr&);
 			void addMethod(
-				const std::shared_ptr<fuml::syntax::commonbehavior::Behavior>&);
-			void addRaisedException(const std::shared_ptr<fuml::syntax::commonstructure::Type>&);
+				const BehaviorPtr&);
+			void addRaisedException(const TypePtr&);
 	}; // BehavioralFeature
 }
 

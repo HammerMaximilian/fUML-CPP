@@ -15,12 +15,21 @@
 
 namespace fuml::syntax::classification
 {
-	class RedefinableElement : virtual public fuml::syntax::commonstructure::NamedElement
+	class Classifier;
+}
+using Classifier = fuml::syntax::classification::Classifier;
+using ClassifierPtr = std::shared_ptr<Classifier>;
+
+namespace fuml::syntax::classification
+{
+	class RedefinableElement : virtual public NamedElement
 	{
+		using RedefinableElementPtr = std::shared_ptr<RedefinableElement>;
+
 		public:
 			bool isLeaf = false;
-			std::shared_ptr<fuml::syntax::classification::RedefinableElementList> redefinedElement = std::make_shared<fuml::syntax::classification::RedefinableElementList>();
-			std::shared_ptr<fuml::syntax::classification::ClassifierList> redefinitionContext = std::make_shared<fuml::syntax::classification::ClassifierList>();
+			RedefinableElementListPtr redefinedElement = std::make_shared<RedefinableElementList>();
+			ClassifierListPtr redefinitionContext = std::make_shared<ClassifierList>();
 
 		public:
 			~RedefinableElement() = 0;
@@ -29,9 +38,9 @@ namespace fuml::syntax::classification
 
 		protected:
 			void addRedefinedElement(
-					const std::shared_ptr<fuml::syntax::classification::RedefinableElement>&);
+					const RedefinableElementPtr&);
 			void addRedefinitionContext(
-					const std::shared_ptr<fuml::syntax::classification::Classifier>&);
+					const ClassifierPtr&);
 	}; // RedefinableElement
 }
 

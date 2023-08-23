@@ -17,22 +17,33 @@ namespace fuml::syntax::classification
 	class InstanceSpecification;
 	class StructuralFeature;
 }
+using InstanceSpecification = fuml::syntax::classification::InstanceSpecification;
+using InstanceSpecificationPtr = std::shared_ptr<InstanceSpecification>;
+using StructuralFeature = fuml::syntax::classification::StructuralFeature;
+using StructuralFeaturePtr = std::shared_ptr<StructuralFeature>;
+
+namespace fuml::syntax::values
+{
+	class ValueSpecification;
+}
+using ValueSpecification = fuml::syntax::values::ValueSpecification;
+using ValueSpecificationPtr = std::shared_ptr<ValueSpecification>;
 
 namespace fuml::syntax::classification
 {
-	class Slot : public fuml::syntax::commonstructure::Element
+	class Slot : public Element
 	{
 		public:
-			std::shared_ptr<fuml::syntax::classification::InstanceSpecification> owningInstance = nullptr;
-			std::shared_ptr<fuml::syntax::classification::StructuralFeature> definingFeature = nullptr;
-			std::shared_ptr<fuml::syntax::values::ValueSpecificationList> value = std::make_shared<fuml::syntax::values::ValueSpecificationList>();
+			InstanceSpecificationPtr owningInstance = nullptr;
+			StructuralFeaturePtr definingFeature = nullptr;
+			ValueSpecificationListPtr value = std::make_shared<fuml::syntax::values::ValueSpecificationList>();
 
 		public:
 			void setDefiningFeature(
-					std::shared_ptr<fuml::syntax::classification::StructuralFeature>);
-			void addValue(std::shared_ptr<fuml::syntax::values::ValueSpecification>);
+					StructuralFeaturePtr);
+			void addValue(ValueSpecificationPtr);
 			void _setOwningInstance(
-					std::shared_ptr<fuml::syntax::classification::InstanceSpecification>);
+					InstanceSpecificationPtr);
 	}; // Slot
 }
 

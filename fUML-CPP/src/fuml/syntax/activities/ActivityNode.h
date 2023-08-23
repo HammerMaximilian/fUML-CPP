@@ -16,32 +16,40 @@ namespace fuml::syntax::actions
 {
 	class StructuredActivityNode;
 }
-namespace fuml::syntax::activities
-{
-	class Activity;
-}
+using StructuredActivityNode = fuml::syntax::actions::StructuredActivityNode;
+using StructuredActivityNodePtr = std::shared_ptr<StructuredActivityNode>;
 
 namespace fuml::syntax::activities
 {
-	class ActivityNode : public fuml::syntax::classification::RedefinableElement
+	class Activity;
+	class ActivityEdge;
+}
+using Activity = fuml::syntax::activities::Activity;
+using ActivityPtr = std::shared_ptr<Activity>;
+using ActivityEdge = fuml::syntax::activities::ActivityEdge;
+using ActivityEdgePtr = std::shared_ptr<ActivityEdge>;
+
+namespace fuml::syntax::activities
+{
+	class ActivityNode : public RedefinableElement
 	{
 		public:
-			std::shared_ptr<fuml::syntax::actions::StructuredActivityNode> inStructuredNode = nullptr;
-			std::shared_ptr<fuml::syntax::activities::Activity> activity = nullptr;
-			std::shared_ptr<fuml::syntax::activities::ActivityEdgeList> outgoing = std::make_shared<fuml::syntax::activities::ActivityEdgeList>();
-			std::shared_ptr<fuml::syntax::activities::ActivityEdgeList> incoming = std::make_shared<fuml::syntax::activities::ActivityEdgeList>();
+			StructuredActivityNodePtr inStructuredNode = nullptr;
+			ActivityPtr activity = nullptr;
+			ActivityEdgeListPtr outgoing = std::make_shared<ActivityEdgeList>();
+			ActivityEdgeListPtr incoming = std::make_shared<ActivityEdgeList>();
 
 		public:
 			virtual ~ActivityNode() = 0;
 
 			void _setActivity(
-					const std::shared_ptr<fuml::syntax::activities::Activity>&);
+					const ActivityPtr&);
 			void _setInStructuredNode(
-					const std::shared_ptr<fuml::syntax::actions::StructuredActivityNode>&);
+					const StructuredActivityNodePtr&);
 			void _addIncoming(
-					const std::shared_ptr<fuml::syntax::activities::ActivityEdge>&);
+					const ActivityEdgePtr&);
 			void _addOutgoing(
-					const std::shared_ptr<fuml::syntax::activities::ActivityEdge>&);
+					const ActivityEdgePtr&);
 	}; // ActivityNode
 }
 

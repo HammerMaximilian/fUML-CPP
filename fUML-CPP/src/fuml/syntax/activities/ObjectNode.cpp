@@ -7,8 +7,6 @@
 
 #include <fuml/syntax/activities/ObjectNode.h>
 
-using namespace fuml::syntax::activities;
-
 ObjectNode::~ObjectNode()
 {
 }

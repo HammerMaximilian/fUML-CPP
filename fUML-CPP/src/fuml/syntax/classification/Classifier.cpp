@@ -11,30 +11,28 @@
 #include <fuml/syntax/commonstructure/VisibilityKind.h>
 #include <vector>
 
-using namespace fuml::syntax::classification;
-
 Classifier::~Classifier()
 {
 }
 
-void Classifier::setThisPtr(std::weak_ptr<fuml::syntax::classification::Classifier> thisClassifierPtr)
+void Classifier::setThisPtr(std::weak_ptr<Classifier> thisClassifierPtr)
 {
 	this->thisClassifierPtr = thisClassifierPtr;
-	fuml::syntax::commonstructure::Namespace::setThisPtr(thisClassifierPtr);
+	Namespace::setThisPtr(thisClassifierPtr);
 }
 
 void Classifier::addGeneralization(
-	const std::shared_ptr<fuml::syntax::classification::Generalization>& generalization)
+	const GeneralizationPtr& generalization)
 {
 	this->addOwnedElement(generalization);
 	this->generalization->push_back(generalization);
 	generalization->_setSpecific(thisClassifierPtr.lock());
 	this->general->push_back(generalization->general);
 
-	std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> inheritedMembers =
+	NamedElementListPtr inheritedMembers =
 		this->inherit(generalization->general->inheritableMembers(thisClassifierPtr.lock()));
 
-	for (const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>& inheritedMember : *inheritedMembers)
+	for (const NamedElementPtr& inheritedMember : *inheritedMembers)
 	{
 		this->addMember(inheritedMember);
 		this->inheritedMember->push_back(inheritedMember);
@@ -46,12 +44,12 @@ void Classifier::setIsAbstract(bool isAbstract)
 	this->isAbstract = isAbstract;
 } // setIsAbstract
 
-std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> Classifier::inherit(
-	const std::shared_ptr<fuml::syntax::commonstructure::NamedElementList>& inhs)
+NamedElementListPtr Classifier::inherit(
+	const NamedElementListPtr& inhs)
 {
-	std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> inheritedElements = std::make_shared<fuml::syntax::commonstructure::NamedElementList>();
+	NamedElementListPtr inheritedElements = std::make_shared<NamedElementList>();
 
-	for (const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>& inh : *inhs) {
+	for (const NamedElementPtr& inh : *inhs) {
 		inheritedElements->push_back(inh);
 	}
 
@@ -59,12 +57,12 @@ std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> Classifier::inh
 
 } // inherit
 
-std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> Classifier::inheritableMembers(
-	const std::shared_ptr<fuml::syntax::classification::Classifier>& c)
+NamedElementListPtr Classifier::inheritableMembers(
+	const ClassifierPtr& c)
 {
-	std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> inheritable = std::make_shared<fuml::syntax::commonstructure::NamedElementList>();
+	NamedElementListPtr inheritable = std::make_shared<NamedElementList>();
 
-	for (const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>& m : *(this->member)) {
+	for (const NamedElementPtr& m : *(this->member)) {
 		if (c->hasVisibilityOf(m)) {
 			inheritable->push_back(m);
 		}
@@ -73,11 +71,11 @@ std::shared_ptr<fuml::syntax::commonstructure::NamedElementList> Classifier::inh
 	return inheritable;
 } // inheritableMembers
 
-bool Classifier::hasVisibilityOf(const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>& n)
+bool Classifier::hasVisibilityOf(const NamedElementPtr& n)
 {
-	for (const std::shared_ptr<fuml::syntax::commonstructure::NamedElement>& inheritedMember : *(this->inheritedMember)) {
+	for (const NamedElementPtr& inheritedMember : *(this->inheritedMember)) {
 		if (inheritedMember == n) {
-			return n->visibility != fuml::syntax::commonstructure::VisibilityKind::private_;
+			return n->visibility != VisibilityKind::private_;
 		}
 	}
 
@@ -89,7 +87,7 @@ void Classifier::setIsFinalSpecialization(bool isFinalSpecialization)
 	this->isFinalSpecialization = isFinalSpecialization;
 } // setIsFinalSpecialization
 
-void Classifier::addFeature(const std::shared_ptr<fuml::syntax::classification::Feature>& feature)
+void Classifier::addFeature(const FeaturePtr& feature)
 {
 	// Note: This operation should not be used directly to add Properties.
 	// The addAttribute operation should be used instead.
@@ -98,7 +96,7 @@ void Classifier::addFeature(const std::shared_ptr<fuml::syntax::classification::
 	feature->_addFeaturingClassifier(thisClassifierPtr.lock());
 } // addFeature
 
-void Classifier::addAttribute(const std::shared_ptr<fuml::syntax::classification::Property>& attribute)
+void Classifier::addAttribute(const PropertyPtr& attribute)
 {
 	this->addFeature(attribute);
 	this->attribute->push_back(attribute);

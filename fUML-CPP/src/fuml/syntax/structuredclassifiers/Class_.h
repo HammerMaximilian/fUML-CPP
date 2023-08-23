@@ -20,10 +20,13 @@
 
 namespace fuml::syntax::classification
 {
+	class Classifier;
 	class Generalization;
 	class Operation;
 	class Property;
 }
+using Classifier = fuml::syntax::classification::Classifier;
+using ClassifierPtr = std::shared_ptr<Classifier>;
 using Generalization = fuml::syntax::classification::Generalization;
 using GeneralizationPtr = std::shared_ptr<Generalization>;
 using Operation = fuml::syntax::classification::Operation;

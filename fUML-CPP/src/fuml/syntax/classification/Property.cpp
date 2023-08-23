@@ -7,32 +7,30 @@
 
 #include <fuml/syntax/classification/Property.h>
 
-using namespace fuml::syntax::classification;
-
 void Property::setIsReadOnly(bool isReadOnly)
 {
 	this->isReadOnly = isReadOnly;
 } // setIsReadOnly
 
 void Property::setAggregation(
-	fuml::syntax::classification::AggregationKind aggregation)
+	AggregationKind aggregation)
 {
 	this->aggregation = aggregation;
-	this->isComposite = (aggregation == fuml::syntax::classification::AggregationKind::composite);
+	this->isComposite = (aggregation == AggregationKind::composite);
 } // setAggregation
 
 void Property::_setAssociation(
-	const std::shared_ptr<fuml::syntax::structuredclassifiers::Association>& association)
+	const AssociationPtr& association)
 {
 	this->association = association;
 } // _setAssociation
 
-void Property::_setClass(const std::shared_ptr<fuml::syntax::structuredclassifiers::Class_>& class_)
+void Property::_setClass(const std::shared_ptr<Class_>& class_)
 {
 	this->class_ = class_;
 } // _setClass
 
-void Property::_setDatatype(const std::shared_ptr<fuml::syntax::simpleclassifiers::DataType>& datatype)
+void Property::_setDatatype(const DataTypePtr& datatype)
 {
 	this->datatype = datatype;
 } // _setDataType
@@ -43,12 +41,12 @@ void Property::setIsID(bool isID)
 } // setIsID
 
 void Property::_setOwningAssociation(
-	const std::shared_ptr<fuml::syntax::structuredclassifiers::Association>& association)
+	const AssociationPtr& association)
 {
 	this->association = association;
 } // _setOwningAssociation
 
-void Property::_setOpposite(const std::shared_ptr<fuml::syntax::classification::Property>& opposite)
+void Property::_setOpposite(const PropertyPtr& opposite)
 {
 	this->opposite = opposite;
 } // _setOpposite

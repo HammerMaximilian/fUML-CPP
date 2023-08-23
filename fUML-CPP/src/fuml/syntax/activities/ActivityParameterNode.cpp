@@ -10,7 +10,7 @@
 
 using namespace fuml::syntax::activities;
 
-void ActivityParameterNode::setParameter(const std::shared_ptr<fuml::syntax::classification::Parameter>& parameter)
+void ActivityParameterNode::setParameter(const ParameterPtr& parameter)
 {
 	this->parameter = parameter;
 }

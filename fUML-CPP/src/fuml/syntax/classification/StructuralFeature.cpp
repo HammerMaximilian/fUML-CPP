@@ -7,8 +7,6 @@
 
 #include <fuml/syntax/classification/StructuralFeature.h>
 
-using namespace fuml::syntax::classification;
-
 void StructuralFeature::setIsReadOnly(bool isReadOnly)
 {
 	this->isReadOnly = isReadOnly;

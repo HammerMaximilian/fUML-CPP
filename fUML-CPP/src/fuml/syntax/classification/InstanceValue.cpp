@@ -7,10 +7,8 @@
 
 #include <fuml/syntax/classification/InstanceValue.h>
 
-using namespace fuml::syntax::classification;
-
 void InstanceValue::setInstance(
-		const std::shared_ptr<fuml::syntax::classification::InstanceSpecification>& instance)
+		const InstanceSpecificationPtr& instance)
 {
 	this->instance = instance;
 } // setInstance

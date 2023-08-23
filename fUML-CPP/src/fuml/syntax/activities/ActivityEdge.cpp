@@ -18,40 +18,40 @@ ActivityEdge::~ActivityEdge()
 void ActivityEdge::setThisPtr(std::weak_ptr<ActivityEdge> thisActivityEdgePtr)
 {
 	this->thisActivityEdgePtr = thisActivityEdgePtr;
-	fuml::syntax::commonstructure::Element::setThisPtr(thisActivityEdgePtr);
+	Element::setThisPtr(thisActivityEdgePtr);
 }
 
 void ActivityEdge::setTarget(
-	const std::shared_ptr<fuml::syntax::activities::ActivityNode>& target)
+	const ActivityNodePtr& target)
 {
 	this->target = target;
 	target->_addIncoming(thisActivityEdgePtr.lock());
 } // setTarget
 
 void ActivityEdge::setSource(
-	const std::shared_ptr<fuml::syntax::activities::ActivityNode>& source)
+	const ActivityNodePtr& source)
 {
 	this->source = source;
 	source->_addOutgoing(thisActivityEdgePtr.lock());
 } // setSource
 
-void ActivityEdge::setGuard(const std::shared_ptr<fuml::syntax::values::ValueSpecification>& guard)
+void ActivityEdge::setGuard(const ValueSpecificationPtr& guard)
 {
 	if (guard != nullptr) {
-		fuml::syntax::commonstructure::Element::addOwnedElement(guard);
+		Element::addOwnedElement(guard);
 	}
 
 	this->guard = guard;
 } // setGuard
 
 void ActivityEdge::_setActivity(
-	const std::shared_ptr<fuml::syntax::activities::Activity>& activity)
+	const ActivityPtr& activity)
 {
 	this->activity = activity;
 } // _setActivity
 
 void ActivityEdge::_setInStructuredNode(
-	const std::shared_ptr<fuml::syntax::actions::StructuredActivityNode>& inStructuredNode)
+	const StructuredActivityNodePtr& inStructuredNode)
 {
 	this->inStructuredNode = inStructuredNode;
 } // _setInStructuredNode

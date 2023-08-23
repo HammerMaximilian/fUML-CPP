@@ -5,26 +5,24 @@
  *      Author: maha6913
  */
 
-#include <Slot.h>
-
-#include <fuml/syntax/values/ValueSpecification.h>
-
-using namespace fuml::syntax::classification;
+#include <fuml/syntax/classification/Slot.h>
+#include "fuml/syntax/values/ValueSpecification.h"
+#include <vector>
 
 void Slot::setDefiningFeature(
-		std::shared_ptr<fuml::syntax::classification::StructuralFeature> definingFeature)
+		StructuralFeaturePtr definingFeature)
 {
 	this->definingFeature = definingFeature;
 } // setDefiningFeature
 
-void Slot::addValue(std::shared_ptr<fuml::syntax::values::ValueSpecification> value)
+void Slot::addValue(ValueSpecificationPtr value)
 {
 	this->addOwnedElement(value);
 	this->value->push_back(value);
 } // addValue
 
 void Slot::_setOwningInstance(
-		std::shared_ptr<fuml::syntax::classification::InstanceSpecification> owningInstance)
+		InstanceSpecificationPtr owningInstance)
 {
 	this->owningInstance = owningInstance;
 } // _setOwningInstance

@@ -11,12 +11,10 @@
 #include <fuml/syntax/commonbehavior/Behavior.h>
 #include <vector>
 
-using namespace fuml::syntax::classification;
-
-void Operation::setThisPtr(std::weak_ptr<fuml::syntax::classification::Operation> thisOperationPtr)
+void Operation::setThisPtr(std::weak_ptr<Operation> thisOperationPtr)
 {
 	this->thisOperationPtr = thisOperationPtr;
-	fuml::syntax::classification::BehavioralFeature::setThisPtr(thisOperationPtr);
+	BehavioralFeature::setThisPtr(thisOperationPtr);
 }
 
 void Operation::setIsQuery(bool isQuery)
@@ -25,13 +23,13 @@ void Operation::setIsQuery(bool isQuery)
 } // setIsQuery
 
 void Operation::addOwnedParameter(
-	const std::shared_ptr<fuml::syntax::classification::Parameter>& ownedParameter)
+	const ParameterPtr& ownedParameter)
 {
 	BehavioralFeature::addOwnedParameter(ownedParameter);
 	this->ownedParameter->push_back(ownedParameter);
 	ownedParameter->_setOperation(thisOperationPtr.lock());
 
-	if (ownedParameter->direction == fuml::syntax::classification::ParameterDirectionKind::return_) {
+	if (ownedParameter->direction == ParameterDirectionKind::return_) {
 		this->isOrdered = ownedParameter->isOrdered;
 		this->isUnique = ownedParameter->isUnique;
 		this->lower = ownedParameter->lower;
@@ -41,14 +39,14 @@ void Operation::addOwnedParameter(
 } // addOwnedParameter
 
 void Operation::addRedefinedOperation(
-	const std::shared_ptr<fuml::syntax::classification::Operation>& redefinedOperation)
+	const OperationPtr& redefinedOperation)
 {
 	RedefinableElement::addRedefinedElement(redefinedOperation);
 	this->redefinedOperation->push_back(redefinedOperation);
 } // addRedefinedOperation
 
 void Operation::addMethod(
-	const std::shared_ptr<fuml::syntax::commonbehavior::Behavior>& method)
+	const BehaviorPtr& method)
 {
 	// Note: To have a method, an operation must be owned by a class. The
 	// method must be an owned behavior of the class.
@@ -58,6 +56,6 @@ void Operation::addMethod(
 
 } // addMethod
 
-void Operation::_setClass(const std::shared_ptr<fuml::syntax::structuredclassifiers::Class_>& class_) {
+void Operation::_setClass(const std::shared_ptr<Class_>& class_) {
 	this->class_ = class_;
 } // _setClass

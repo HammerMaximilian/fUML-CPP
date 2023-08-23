@@ -12,7 +12,7 @@
 
 namespace fuml::syntax::activities
 {
-	class ForkNode : public fuml::syntax::activities::ControlNode
+	class ForkNode : public ControlNode
 	{
 	}; // ForkNode
 }

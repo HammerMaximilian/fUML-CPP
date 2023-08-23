@@ -12,7 +12,7 @@
 
 namespace fuml::syntax::activities
 {
-	class CentralBufferNode : public fuml::syntax::activities::ObjectNode
+	class CentralBufferNode : public ObjectNode
 	{
 	}; // CentralBufferNode
 }

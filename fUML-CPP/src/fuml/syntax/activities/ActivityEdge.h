@@ -15,26 +15,36 @@ namespace fuml::syntax::actions
 {
 	class StructuredActivityNode;
 }
+using StructuredActivityNode = fuml::syntax::actions::StructuredActivityNode;
+using StructuredActivityNodePtr = std::shared_ptr<StructuredActivityNode>;
+
 namespace fuml::syntax::activities
 {
 	class Activity;
 	class ActivityNode;
 }
+using Activity = fuml::syntax::activities::Activity;
+using ActivityPtr = std::shared_ptr<Activity>;
+using ActivityNode = fuml::syntax::activities::ActivityNode;
+using ActivityNodePtr = std::shared_ptr<ActivityNode>;
+
 namespace fuml::syntax::values
 {
 	class ValueSpecification;
 }
+using ValueSpecification = fuml::syntax::values::ValueSpecification;
+using ValueSpecificationPtr = std::shared_ptr<ValueSpecification>;
 
 namespace fuml::syntax::activities
 {
 	class ActivityEdge : public fuml::syntax::classification::RedefinableElement
 	{
 		public:
-			std::shared_ptr<Activity> activity = nullptr;
-			std::shared_ptr<ActivityNode> source = nullptr;
-			std::shared_ptr<ActivityNode> target = nullptr;
-			std::shared_ptr<fuml::syntax::values::ValueSpecification> guard = nullptr;
-			std::shared_ptr<fuml::syntax::actions::StructuredActivityNode> inStructuredNode = nullptr;
+			ActivityPtr activity = nullptr;
+			ActivityNodePtr source = nullptr;
+			ActivityNodePtr target = nullptr;
+			ValueSpecificationPtr guard = nullptr;
+			StructuredActivityNodePtr inStructuredNode = nullptr;
 
 		private:
 			std::weak_ptr<ActivityEdge> thisActivityEdgePtr;
@@ -44,14 +54,14 @@ namespace fuml::syntax::activities
 			virtual void setThisPtr(std::weak_ptr<ActivityEdge>);
 
 			void setTarget(
-					const std::shared_ptr<fuml::syntax::activities::ActivityNode>&);
+					const ActivityNodePtr&);
 			void setSource(
-					const std::shared_ptr<fuml::syntax::activities::ActivityNode>&);
-			void setGuard(const std::shared_ptr<fuml::syntax::values::ValueSpecification>&);
+					const ActivityNodePtr&);
+			void setGuard(const ValueSpecificationPtr&);
 			void _setActivity(
-					const std::shared_ptr<fuml::syntax::activities::Activity>&);
+					const ActivityPtr&);
 			void _setInStructuredNode(
-					const std::shared_ptr<fuml::syntax::actions::StructuredActivityNode>&);
+					const StructuredActivityNodePtr&);
 	}; // ActivityEdge
 }
 

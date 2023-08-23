@@ -12,7 +12,7 @@
 
 namespace fuml::syntax::activities
 {
-	class JoinNode : public fuml::syntax::activities::ControlNode
+	class JoinNode : public ControlNode
 	{
 	}; // JoinNode
 }

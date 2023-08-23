@@ -8,8 +8,6 @@
 #include <fuml/syntax/classification/RedefinableElement.h>
 #include <vector>
 
-using namespace fuml::syntax::classification;
-
 RedefinableElement::~RedefinableElement()
 {
 }
@@ -20,13 +18,13 @@ void RedefinableElement::setIsLeaf(bool isLeaf)
 } // setIsLeaf
 
 void RedefinableElement::addRedefinedElement(
-	const std::shared_ptr<fuml::syntax::classification::RedefinableElement>& redefinedElement)
+	const RedefinableElementPtr& redefinedElement)
 {
 	this->redefinedElement->push_back(redefinedElement);
 } // addRedefinedElement
 
 void RedefinableElement::addRedefinitionContext(
-	const std::shared_ptr<fuml::syntax::classification::Classifier>& redefinitionContext)
+	const ClassifierPtr& redefinitionContext)
 {
 	this->redefinitionContext->push_back(redefinitionContext);
 } // addRedefinitionContext

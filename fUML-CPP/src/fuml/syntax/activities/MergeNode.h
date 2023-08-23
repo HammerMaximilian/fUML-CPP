@@ -12,7 +12,7 @@
 
 namespace fuml::syntax::activities
 {
-	class MergeNode : public fuml::syntax::activities::ControlNode
+	class MergeNode : public ControlNode
 	{
 	}; // MergeNode
 }

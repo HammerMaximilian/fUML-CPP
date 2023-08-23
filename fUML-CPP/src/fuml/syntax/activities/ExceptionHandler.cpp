@@ -11,14 +11,14 @@
 
 using namespace fuml::syntax::activities;
 
-void ExceptionHandler::setExceptionInput(const std::shared_ptr<fuml::syntax::activities::ObjectNode>& exceptionInput) {
+void ExceptionHandler::setExceptionInput(const ObjectNodePtr& exceptionInput) {
 	this->exceptionInput = exceptionInput;
 }
 
-void ExceptionHandler::addExceptionType(const std::shared_ptr<fuml::syntax::classification::Classifier>& exceptionType) {
+void ExceptionHandler::addExceptionType(const ClassifierPtr& exceptionType) {
 	this->exceptionType->push_back(exceptionType);
 }
 
-void ExceptionHandler::setHandlerBody(const std::shared_ptr<fuml::syntax::activities::ExecutableNode>& handlerBody) {
+void ExceptionHandler::setHandlerBody(const ExecutableNodePtr& handlerBody) {
 	this->handlerBody = handlerBody;
 }

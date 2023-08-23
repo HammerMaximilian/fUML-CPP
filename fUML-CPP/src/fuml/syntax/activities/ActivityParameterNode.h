@@ -15,16 +15,18 @@ namespace fuml::syntax::classification
 {
 	class Parameter;
 }
+using Parameter = fuml::syntax::classification::Parameter;
+using ParameterPtr = std::shared_ptr<Parameter>;
 
 namespace fuml::syntax::activities
 {
-	class ActivityParameterNode : public fuml::syntax::activities::ObjectNode
+	class ActivityParameterNode : public ObjectNode
 	{
 		public:
-			std::shared_ptr<fuml::syntax::classification::Parameter> parameter = nullptr;
+			ParameterPtr parameter = nullptr;
 
 		public:
-			void setParameter(const std::shared_ptr<fuml::syntax::classification::Parameter>&);
+			void setParameter(const ParameterPtr&);
 	}; // ActivityParameterNode
 }
 

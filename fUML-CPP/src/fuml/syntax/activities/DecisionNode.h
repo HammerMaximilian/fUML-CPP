@@ -15,24 +15,29 @@ namespace fuml::syntax::commonbehavior
 {
 	class Behavior;
 }
+using Behavior = fuml::syntax::commonbehavior::Behavior;
+using BehaviorPtr = std::shared_ptr<Behavior>;
+
 namespace fuml::syntax::activities
 {
 	class ObjectFlow;
 }
+using ObjectFlow = fuml::syntax::activities::ObjectFlow;
+using ObjectFlowPtr = std::shared_ptr<ObjectFlow>;
 
 namespace fuml::syntax::activities
 {
-	class DecisionNode : public fuml::syntax::activities::ControlNode
+	class DecisionNode : public ControlNode
 	{
 		public:
-			std::shared_ptr<fuml::syntax::commonbehavior::Behavior> decisionInput = nullptr;
-			std::shared_ptr<fuml::syntax::activities::ObjectFlow> decisionInputFlow = nullptr;
+			BehaviorPtr decisionInput = nullptr;
+			ObjectFlowPtr decisionInputFlow = nullptr;
 
 		public:
 			void setDecisionInput(
-					const std::shared_ptr<fuml::syntax::commonbehavior::Behavior>&);
+					const BehaviorPtr&);
 			void setDecisionInputFlow(
-					const std::shared_ptr<fuml::syntax::activities::ObjectFlow>&);
+					const ObjectFlowPtr&);
 	}; // DecisionNode
 }
 

@@ -14,48 +14,65 @@
 #include <UMLPrimitiveTypes/unlimitedNatural.h>
 #include <memory>
 
+namespace fuml::syntax::classification
+{
+	class Parameter;
+}
+using Parameter = fuml::syntax::classification::Parameter;
+using ParameterPtr = std::shared_ptr<Parameter>;
+
 namespace fuml::syntax::commonbehavior
 {
 	class Behavior;
 }
+using Behavior = fuml::syntax::commonbehavior::Behavior;
+using BehaviorPtr = std::shared_ptr<Behavior>;
+
 namespace fuml::syntax::commonstructure
 {
 	class Type;
 }
+using Type = fuml::syntax::commonstructure::Type;
+using TypePtr = std::shared_ptr<Type>;
+
 namespace fuml::syntax::structuredclassifiers
 {
 	class Class_;
 }
+using Class_ = fuml::syntax::structuredclassifiers::Class_;
+using Class_Ptr = std::shared_ptr<Class_>;
 
 namespace fuml::syntax::classification
 {
-	class Operation : virtual public fuml::syntax::classification::BehavioralFeature
+	class Operation : virtual public BehavioralFeature
 	{
+		using OperationPtr = std::shared_ptr<Operation>;
+
 		public:
 			bool isQuery = false;
 			bool isOrdered = false;
 			bool isUnique = true;
 			int lower = 0;
 			UMLPrimitiveTypes::unlimitedNatural upper = 0;
-			std::shared_ptr<fuml::syntax::structuredclassifiers::Class_> class_ = nullptr;
-			std::shared_ptr<fuml::syntax::classification::OperationList> redefinedOperation = std::make_shared<fuml::syntax::classification::OperationList>();
-			std::shared_ptr<fuml::syntax::commonstructure::Type> type = nullptr;
-			std::shared_ptr<fuml::syntax::classification::ParameterList> ownedParameter = std::make_shared<fuml::syntax::classification::ParameterList>();
+			Class_Ptr class_ = nullptr;
+			OperationListPtr redefinedOperation = std::make_shared<OperationList>();
+			TypePtr type = nullptr;
+			ParameterListPtr ownedParameter = std::make_shared<ParameterList>();
 
 		private:
-			std::weak_ptr<fuml::syntax::classification::Operation> thisOperationPtr;
+			std::weak_ptr<Operation> thisOperationPtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<fuml::syntax::classification::Operation>);
+			virtual void setThisPtr(std::weak_ptr<Operation>);
 
 			void setIsQuery(bool);
 			void addOwnedParameter(
-					const std::shared_ptr<fuml::syntax::classification::Parameter>&);
+					const ParameterPtr&);
 			void addRedefinedOperation(
-					const std::shared_ptr<fuml::syntax::classification::Operation>&);
+					const OperationPtr&);
 			void addMethod(
-					const std::shared_ptr<fuml::syntax::commonbehavior::Behavior>&);
-			void _setClass(const std::shared_ptr<fuml::syntax::structuredclassifiers::Class_>&);
+					const BehaviorPtr&);
+			void _setClass(const Class_Ptr&);
 	}; // Operation
 }
 

@@ -18,12 +18,12 @@ ExecutableNode::~ExecutableNode()
 void ExecutableNode::setThisPtr(std::weak_ptr<ExecutableNode> thisExecutableNodePtr)
 {
 	this->thisExecutableNodePtr = thisExecutableNodePtr;
-	fuml::syntax::commonstructure::Element::setThisPtr(thisExecutableNodePtr);
+	Element::setThisPtr(thisExecutableNodePtr);
 }
 
-void ExecutableNode::addExceptionHandler(const std::shared_ptr<fuml::syntax::activities::ExceptionHandler>& handler)
+void ExecutableNode::addExceptionHandler(const ExceptionHandlerPtr& handler)
 {
-	fuml::syntax::commonstructure::Element::addOwnedElement(handler);
+	Element::addOwnedElement(handler);
 	this->handler->push_back(handler);
 	handler->protectedNode = thisExecutableNodePtr.lock();
 }

@@ -16,46 +16,58 @@ namespace fuml::syntax::simpleclassifiers
 {
 	class DataType;
 }
+using DataType = fuml::syntax::simpleclassifiers::DataType;
+using DataTypePtr = std::shared_ptr<DataType>;
+
 namespace fuml::syntax::structuredclassifiers
 {
 	class Association;
 	class Class_;
 }
+using Association = fuml::syntax::structuredclassifiers::Association;
+using AssociationPtr = std::shared_ptr<Association>;
+using Class_ = fuml::syntax::structuredclassifiers::Class_;
+using Class_Ptr = std::shared_ptr<Class_>;
+
 namespace fuml::syntax::values
 {
 	class ValueSpecification;
 }
+using ValueSpecification = fuml::syntax::values::ValueSpecification;
+using ValueSpecificationPtr = std::shared_ptr<ValueSpecification>;
 
 namespace fuml::syntax::classification
 {
-	class Property : public fuml::syntax::classification::StructuralFeature
+	class Property : public StructuralFeature
 	{
+		using PropertyPtr = std::shared_ptr<Property>;
+
 		public:
 			bool isDerived = false;
 			bool isReadOnly = false;
 			bool isDerivedUnion = false;
-			fuml::syntax::classification::AggregationKind aggregation = fuml::syntax::classification::AggregationKind::none;
+			AggregationKind aggregation = AggregationKind::none;
 			bool isComposite = false;
-			std::shared_ptr<fuml::syntax::structuredclassifiers::Association> owningAssociation = nullptr;
-			std::shared_ptr<fuml::syntax::simpleclassifiers::DataType> datatype = nullptr;
-			std::shared_ptr<fuml::syntax::structuredclassifiers::Association> association = nullptr;
-			std::shared_ptr<fuml::syntax::structuredclassifiers::Class_> class_ = nullptr;
-			std::shared_ptr<fuml::syntax::classification::Property> opposite = nullptr;
-			std::shared_ptr<fuml::syntax::values::ValueSpecification> defaultValue = nullptr;
+			AssociationPtr owningAssociation = nullptr;
+			DataTypePtr datatype = nullptr;
+			AssociationPtr association = nullptr;
+			Class_Ptr class_ = nullptr;
+			PropertyPtr opposite = nullptr;
+			ValueSpecificationPtr defaultValue = nullptr;
 			bool isID = false;
 
 		public:
 			void setIsReadOnly(bool);
 			void setAggregation(
-				fuml::syntax::classification::AggregationKind);
+				AggregationKind);
 			void _setAssociation(
-				const std::shared_ptr<fuml::syntax::structuredclassifiers::Association>&);
-			void _setClass(const std::shared_ptr<fuml::syntax::structuredclassifiers::Class_>&);
-			void _setDatatype(const std::shared_ptr<fuml::syntax::simpleclassifiers::DataType>&);
+				const AssociationPtr&);
+			void _setClass(const Class_Ptr&);
+			void _setDatatype(const DataTypePtr&);
 			void setIsID(bool);
 			void _setOwningAssociation(
-				const std::shared_ptr<fuml::syntax::structuredclassifiers::Association>&);
-			void _setOpposite(const std::shared_ptr<fuml::syntax::classification::Property>&);
+				const AssociationPtr&);
+			void _setOpposite(const PropertyPtr&);
 	}; // Property
 }
 

@@ -12,7 +12,7 @@
 
 namespace fuml::syntax::activities
 {
-	class DataStoreNode : public fuml::syntax::activities::CentralBufferNode
+	class DataStoreNode : public CentralBufferNode
 	{
 	}; // DataStoreNode
 }

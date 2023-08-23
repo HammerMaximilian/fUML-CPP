@@ -13,7 +13,7 @@
 
 namespace fuml::syntax::activities
 {
-	class ControlNode : public fuml::syntax::activities::ActivityNode
+	class ControlNode : public ActivityNode
 	{
 		public:
 			virtual ~ControlNode() = 0;

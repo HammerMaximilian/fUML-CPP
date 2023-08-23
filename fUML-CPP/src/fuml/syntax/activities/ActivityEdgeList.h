@@ -17,4 +17,7 @@ namespace fuml::syntax::activities
 	typedef std::vector<std::shared_ptr<fuml::syntax::activities::ActivityEdge>> ActivityEdgeList;
 }
 
+using ActivityEdgeList = fuml::syntax::activities::ActivityEdgeList;
+using ActivityEdgeListPtr = std::shared_ptr<ActivityEdgeList>;
+
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYEDGELIST_H_ */

@@ -15,20 +15,30 @@
 
 namespace fuml::syntax::classification
 {
-	class InstanceSpecification : public fuml::syntax::commonstructure::NamedElement
+	class Classifier;
+	class Slot;
+}
+using Classifier = fuml::syntax::classification::Classifier;
+using ClassifierPtr = std::shared_ptr<Classifier>;
+using Slot = fuml::syntax::classification::Slot;
+using SlotPtr = std::shared_ptr<Slot>;
+
+namespace fuml::syntax::classification
+{
+	class InstanceSpecification : public NamedElement
 	{
 		public:
-			std::shared_ptr<fuml::syntax::classification::ClassifierList> classifier = std::make_shared<fuml::syntax::classification::ClassifierList>();
-			std::shared_ptr<fuml::syntax::classification::SlotList> slot = std::make_shared<fuml::syntax::classification::SlotList>();
+			ClassifierListPtr classifier = std::make_shared<ClassifierList>();
+			SlotListPtr slot = std::make_shared<SlotList>();
 
 		private:
-			std::weak_ptr<fuml::syntax::classification::InstanceSpecification> thisInstanceSpecificationPtr;
+			std::weak_ptr<InstanceSpecification> thisInstanceSpecificationPtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<fuml::syntax::classification::InstanceSpecification>);
+			virtual void setThisPtr(std::weak_ptr<InstanceSpecification>);
 
-			void addClassifier(const std::shared_ptr<fuml::syntax::classification::Classifier>&);
-			void addSlot(const std::shared_ptr<fuml::syntax::classification::Slot>&);
+			void addClassifier(const ClassifierPtr&);
+			void addSlot(const SlotPtr&);
 	}; // InstanceSpecification
 }
 
