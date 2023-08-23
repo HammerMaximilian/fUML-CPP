@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "ReadSelfAction.h"
+#include <fuml/syntax/actions/ReadSelfAction.h>
 
 using namespace fuml::syntax::actions;
 

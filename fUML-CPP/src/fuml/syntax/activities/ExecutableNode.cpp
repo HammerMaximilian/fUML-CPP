@@ -5,8 +5,9 @@
  *      Author: maha6913
  */
 
-#include "ExecutableNode.h"
-#include "ExceptionHandler.h"
+#include <fuml/syntax/activities/ExceptionHandler.h>
+#include <fuml/syntax/activities/ExecutableNode.h>
+#include <vector>
 
 using namespace fuml::syntax::activities;
 

@@ -9,7 +9,7 @@
 #define FUML_SYNTAX_CLASSIFICATION_INSTANCEVALUE_H_
 
 #include <memory>
-#include "fuml/syntax/values/ValueSpecification.h"
+#include <fuml/syntax/values/ValueSpecification.h>
 
 namespace fuml::syntax::classification
 {

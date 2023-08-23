@@ -8,7 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_ACTIVITYPARAMETERNODE_H_
 #define FUML_SYNTAX_ACTIVITIES_ACTIVITYPARAMETERNODE_H_
 
-#include "ObjectNode.h"
+#include <fuml/syntax/activities/ObjectNode.h>
+#include <memory>
 
 namespace fuml::syntax::classification
 {

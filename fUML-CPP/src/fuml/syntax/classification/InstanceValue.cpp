@@ -5,9 +5,7 @@
  *      Author: maha6913
  */
 
-#include "InstanceValue.h"
-
-#include "InstanceSpecification.h"
+#include <fuml/syntax/classification/InstanceValue.h>
 
 using namespace fuml::syntax::classification;
 

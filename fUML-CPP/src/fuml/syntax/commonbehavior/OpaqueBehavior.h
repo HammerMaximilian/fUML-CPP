@@ -8,9 +8,10 @@
 #ifndef FUML_SYNTAX_COMMONBEHAVIOR_OPAQUEBEHAVIOR_H_
 #define FUML_SYNTAX_COMMONBEHAVIOR_OPAQUEBEHAVIOR_H_
 
+#include <fuml/syntax/commonbehavior/Behavior.h>
+#include <UMLPrimitiveTypes/stringList.h>
 #include <memory>
-#include "Behavior.h"
-#include "UMLPrimitiveTypes/stringList.h"
+#include <string>
 
 namespace fuml::syntax::commonbehavior
 {

@@ -8,11 +8,12 @@
 #ifndef FUML_SYNTAX_ACTIONS_STRUCTUREDACTIVITYNODE_H_
 #define FUML_SYNTAX_ACTIONS_STRUCTUREDACTIVITYNODE_H_
 
-#include "Action.h"
-#include "fuml/syntax/activities/ActivityNodeList.h"
-#include "fuml/syntax/activities/ActivityEdgeList.h"
-#include "OutputPinList.h"
-#include "InputPinList.h"
+#include <fuml/syntax/actions/Action.h>
+#include <fuml/syntax/actions/InputPinList.h>
+#include <fuml/syntax/actions/OutputPinList.h>
+#include <fuml/syntax/activities/ActivityEdgeList.h>
+#include <fuml/syntax/activities/ActivityNodeList.h>
+#include <memory>
 
 namespace fuml::syntax::actions
 {

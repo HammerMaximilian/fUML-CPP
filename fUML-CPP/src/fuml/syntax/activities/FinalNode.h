@@ -8,7 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_FINALNODE_H_
 #define FUML_SYNTAX_ACTIVITIES_FINALNODE_H_
 
-#include "ControlNode.h"
+#include <fuml/syntax/activities/ControlNode.h>
+#include <memory>
 
 namespace fuml::syntax::activities
 {

@@ -8,8 +8,9 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_ACTIVITYNODE_H_
 #define FUML_SYNTAX_ACTIVITIES_ACTIVITYNODE_H_
 
-#include "fuml/syntax/classification/RedefinableElement.h"
-#include "ActivityEdgeList.h"
+#include <fuml/syntax/activities/ActivityEdgeList.h>
+#include <fuml/syntax/classification/RedefinableElement.h>
+#include <memory>
 
 namespace fuml::syntax::actions
 {

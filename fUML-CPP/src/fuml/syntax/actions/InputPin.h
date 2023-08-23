@@ -8,7 +8,7 @@
 #ifndef FUML_SYNTAX_ACTIONS_INPUTPIN_H_
 #define FUML_SYNTAX_ACTIONS_INPUTPIN_H_
 
-#include "fuml/syntax/actions/Pin.h"
+#include <fuml/syntax/actions/Pin.h>
 
 namespace fuml::syntax::actions
 {

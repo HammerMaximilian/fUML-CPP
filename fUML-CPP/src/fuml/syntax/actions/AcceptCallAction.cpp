@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "AcceptCallAction.h"
+#include <fuml/syntax/actions/AcceptCallAction.h>
 
 using namespace fuml::syntax::actions;
 

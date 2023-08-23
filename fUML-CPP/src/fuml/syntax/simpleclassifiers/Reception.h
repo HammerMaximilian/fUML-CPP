@@ -9,7 +9,7 @@
 #define FUML_SYNTAX_SIMPLECLASSIFIERS_RECEPTION_H_
 
 #include <memory>
-#include "fUML/syntax/classification/BehavioralFeature.h"
+#include <fUML/syntax/classification/BehavioralFeature.h>
 
 namespace fuml::syntax::simpleclassifiers
 {

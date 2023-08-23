@@ -8,9 +8,9 @@
 #ifndef FUML_SYNTAX_ACTIONS_CREATELINKACTION_H_
 #define FUML_SYNTAX_ACTIONS_CREATELINKACTION_H_
 
+#include <fuml/syntax/actions/LinkEndCreationDataList.h>
+#include <fuml/syntax/actions/WriteLinkAction.h>
 #include <memory>
-#include "WriteLinkAction.h"
-#include "LinkEndCreationDataList.h"
 
 namespace fuml::syntax::actions
 {

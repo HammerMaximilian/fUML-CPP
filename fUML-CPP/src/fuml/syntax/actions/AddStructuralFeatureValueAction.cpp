@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "AddStructuralFeatureValueAction.h"
+#include <fuml/syntax/actions/AddStructuralFeatureValueAction.h>
 
 using namespace fuml::syntax::actions;
 

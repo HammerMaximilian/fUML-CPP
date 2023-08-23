@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_STARTCLASSIFIERBEHAVIORACTION_H_
 #define FUML_SYNTAX_ACTIONS_STARTCLASSIFIERBEHAVIORACTION_H_
 
+#include <fuml/syntax/actions/Action.h>
 #include <memory>
-#include "Action.h"
 
 namespace fuml::syntax::actions
 {

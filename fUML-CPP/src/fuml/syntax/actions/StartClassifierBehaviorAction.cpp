@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "StartClassifierBehaviorAction.h"
+#include <fuml/syntax/actions/StartClassifierBehaviorAction.h>
 
 using namespace fuml::syntax::actions;
 

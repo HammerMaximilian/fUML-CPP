@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_SENDSIGNALACTION_H_
 #define FUML_SYNTAX_ACTIONS_SENDSIGNALACTION_H_
 
+#include <fuml/syntax/actions/InvocationAction.h>
 #include <memory>
-#include "InvocationAction.h"
 
 namespace fuml::syntax::simpleclassifiers
 {

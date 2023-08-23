@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "ValueSpecificationAction.h"
+#include <fuml/syntax/actions/ValueSpecificationAction.h>
 
 using namespace fuml::syntax::actions;
 

@@ -9,7 +9,7 @@
 #define FUML_SYNTAX_ACTIVITIES_ACTIVITYEDGE_H_
 
 #include <memory>
-#include "fuml/syntax/classification/RedefinableElement.h"
+#include <fuml/syntax/classification/RedefinableElement.h>
 
 namespace fuml::syntax::actions
 {

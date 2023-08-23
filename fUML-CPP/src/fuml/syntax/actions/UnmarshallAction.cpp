@@ -5,7 +5,8 @@
  *      Author: maha6913
  */
 
-#include "UnmarshallAction.h"
+#include <fuml/syntax/actions/UnmarshallAction.h>
+#include <vector>
 
 using namespace fuml::syntax::actions;
 

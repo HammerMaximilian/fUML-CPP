@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_PIN_H_
 #define FUML_SYNTAX_ACTIONS_PIN_H_
 
-#include "fuml/syntax/commonstructure/MultiplicityElement.h"
-#include "fuml/syntax/activities/ObjectNode.h"
+#include <fuml/syntax/commonstructure/MultiplicityElement.h>
+#include <fuml/syntax/activities/ObjectNode.h>
 
 namespace fuml::syntax::actions
 {

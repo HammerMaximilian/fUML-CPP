@@ -5,7 +5,9 @@
  *      Author: maha6913
  */
 
-#include "ActivityNode.h"
+#include <fuml/syntax/activities/ActivityNode.h>
+#include <memory>
+#include <vector>
 
 using namespace fuml::syntax::activities;
 

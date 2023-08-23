@@ -5,13 +5,13 @@
  *      Author: maha6913
  */
 
-#include "Activity.h"
-#include "ActivityNode.h"
-#include "ActivityEdge.h"
-#include "fuml/syntax/actions/Action.h"
-#include "fuml/syntax/actions/StructuredActivityNode.h"
-
+#include <fuml/syntax/actions/StructuredActivityNode.h>
+#include <fuml/syntax/activities/Activity.h>
+#include <fuml/syntax/activities/ActivityEdge.h>
 #include <algorithm>
+#include <iterator>
+#include <memory>
+#include <vector>
 
 using namespace fuml::syntax::activities;
 

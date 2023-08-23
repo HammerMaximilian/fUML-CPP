@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "ClearAssociationAction.h"
+#include <fuml/syntax/actions/ClearAssociationAction.h>
 
 using namespace fuml::syntax::actions;
 

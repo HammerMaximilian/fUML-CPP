@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "RaiseExceptionAction.h"
+#include <fuml/syntax/actions/RaiseExceptionAction.h>
 
 using namespace fuml::syntax::actions;
 

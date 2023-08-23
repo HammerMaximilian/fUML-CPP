@@ -5,9 +5,10 @@
  *      Author: maha6913
  */
 
-#include "ConditionalNode.h"
-#include "Clause.h"
-#include "OutputPin.h"
+#include <fuml/syntax/actions/ConditionalNode.h>
+#include <fuml/syntax/actions/Clause.h>
+#include <memory>
+#include <vector>
 
 using namespace fuml::syntax::actions;
 

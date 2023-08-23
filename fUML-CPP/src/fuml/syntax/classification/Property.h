@@ -9,8 +9,8 @@
 #define FUML_SYNTAX_CLASSIFICATION_PROPERTY_H_
 
 #include <memory>
-#include "fuml/syntax/classification/StructuralFeature.h"
-#include "fuml/syntax/classification/AggregationKind.h"
+#include <fuml/syntax/classification/StructuralFeature.h>
+#include <fuml/syntax/classification/AggregationKind.h>
 
 namespace fuml::syntax::simpleclassifiers
 {

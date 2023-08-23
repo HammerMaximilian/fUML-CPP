@@ -5,7 +5,9 @@
  *      Author: maha6913
  */
 
-#include "OpaqueBehavior.h"
+#include <fuml/syntax/commonbehavior/OpaqueBehavior.h>
+#include <string>
+#include <vector>
 
 using namespace fuml::syntax::commonbehavior;
 

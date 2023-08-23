@@ -9,7 +9,7 @@
 #define FUML_SYNTAX_COMMONBEHAVIOR_SIGNALEVENT_H_
 
 #include <memory>
-#include "MessageEvent.h"
+#include <MessageEvent.h>
 
 namespace fuml::syntax::simpleclassifiers
 {

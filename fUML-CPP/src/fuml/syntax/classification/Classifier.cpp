@@ -5,11 +5,11 @@
  *      Author: maha6913
  */
 
-#include "Classifier.h"
-
-#include "Generalization.h"
-#include "fuml/syntax/commonstructure/VisibilityKind.h"
-#include "Property.h"
+#include <fuml/syntax/classification/Classifier.h>
+#include <fuml/syntax/classification/Generalization.h>
+#include <fuml/syntax/classification/Property.h>
+#include <fuml/syntax/commonstructure/VisibilityKind.h>
+#include <vector>
 
 using namespace fuml::syntax::classification;
 

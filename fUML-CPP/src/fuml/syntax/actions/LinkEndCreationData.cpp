@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "LinkEndCreationData.h"
+#include <fuml/syntax/actions/LinkEndCreationData.h>
 
 using namespace fuml::syntax::actions;
 

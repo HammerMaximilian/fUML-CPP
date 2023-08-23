@@ -8,10 +8,10 @@
 #ifndef FUML_SYNTAX_CLASSIFICATION_INSTANCESPECIFICATION_H_
 #define FUML_SYNTAX_CLASSIFICATION_INSTANCESPECIFICATION_H_
 
+#include <fuml/syntax/classification/ClassifierList.h>
+#include <fuml/syntax/classification/SlotList.h>
+#include <fuml/syntax/commonstructure/NamedElement.h>
 #include <memory>
-#include "fuml/syntax/commonstructure/NamedElement.h"
-#include "ClassifierList.h"
-#include "SlotList.h"
 
 namespace fuml::syntax::classification
 {

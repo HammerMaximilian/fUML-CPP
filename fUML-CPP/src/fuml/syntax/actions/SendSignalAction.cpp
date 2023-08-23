@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "SendSignalAction.h"
+#include <fuml/syntax/actions/SendSignalAction.h>
 
 using namespace fuml::syntax::actions;
 

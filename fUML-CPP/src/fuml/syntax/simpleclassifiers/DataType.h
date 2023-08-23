@@ -10,8 +10,8 @@
 
 #include <memory>
 #include <vector>
-#include "fuml/syntax/classification/Classifier.h"
-#include "fuml/syntax/classification/PropertyList.h"
+#include <fuml/syntax/classification/Classifier.h>
+#include <fuml/syntax/classification/PropertyList.h>
 
 namespace fuml::syntax::classification
 {

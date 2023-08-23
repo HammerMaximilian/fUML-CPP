@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "StartObjectBehaviorAction.h"
+#include <fuml/syntax/actions/StartObjectBehaviorAction.h>
 
 using namespace fuml::syntax::actions;
 

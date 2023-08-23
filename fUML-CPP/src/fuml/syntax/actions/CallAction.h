@@ -8,9 +8,9 @@
 #ifndef FUML_SYNTAX_ACTIONS_CALLACTION_H_
 #define FUML_SYNTAX_ACTIONS_CALLACTION_H_
 
+#include <fuml/syntax/actions/InvocationAction.h>
+#include <fuml/syntax/actions/OutputPinList.h>
 #include <memory>
-#include "InvocationAction.h"
-#include "OutputPinList.h"
 
 namespace fuml::syntax::actions
 {

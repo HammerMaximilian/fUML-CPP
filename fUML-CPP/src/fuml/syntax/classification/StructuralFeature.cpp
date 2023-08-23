@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "fuml/syntax/classification/StructuralFeature.h"
+#include <fuml/syntax/classification/StructuralFeature.h>
 
 using namespace fuml::syntax::classification;
 

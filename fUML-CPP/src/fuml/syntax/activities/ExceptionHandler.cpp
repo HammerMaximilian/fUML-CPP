@@ -5,7 +5,9 @@
  *      Author: maha6913
  */
 
-#include "ExceptionHandler.h"
+#include <fuml/syntax/activities/ExceptionHandler.h>
+#include <memory>
+#include <vector>
 
 using namespace fuml::syntax::activities;
 

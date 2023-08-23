@@ -5,11 +5,11 @@
  *      Author: maha6913
  */
 
-#include "Operation.h"
-
-#include "Parameter.h"
-#include "ParameterDirectionKind.h"
-#include "fuml/syntax/commonbehavior/Behavior.h"
+#include <fuml/syntax/classification/Operation.h>
+#include <fuml/syntax/classification/Parameter.h>
+#include <fuml/syntax/classification/ParameterDirectionKind.h>
+#include <fuml/syntax/commonbehavior/Behavior.h>
+#include <vector>
 
 using namespace fuml::syntax::classification;
 

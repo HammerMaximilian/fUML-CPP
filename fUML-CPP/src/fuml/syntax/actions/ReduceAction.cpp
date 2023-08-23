@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "ReduceAction.h"
+#include <fuml/syntax/actions/ReduceAction.h>
 
 using namespace fuml::syntax::actions;
 

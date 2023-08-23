@@ -8,9 +8,9 @@
 #ifndef FUML_SYNTAX_ACTIONS_UNMARSHALLACTION_H_
 #define FUML_SYNTAX_ACTIONS_UNMARSHALLACTION_H_
 
+#include <fuml/syntax/actions/Action.h>
+#include <fuml/syntax/actions/OutputPinList.h>
 #include <memory>
-#include "Action.h"
-#include "OutputPinList.h"
 
 namespace fuml::syntax::classification
 {

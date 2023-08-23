@@ -5,7 +5,8 @@
  *      Author: maha6913
  */
 
-#include "CallAction.h"
+#include <fuml/syntax/actions/CallAction.h>
+#include <vector>
 
 using namespace fuml::syntax::actions;
 

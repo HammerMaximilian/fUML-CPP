@@ -9,7 +9,7 @@
 #define FUML_SYNTAX_COMMONBEHAVIOR_CALLEVENT_H_
 
 #include <memory>
-#include "Event.h"
+#include <Event.h>
 
 namespace fuml::syntax::classification
 {

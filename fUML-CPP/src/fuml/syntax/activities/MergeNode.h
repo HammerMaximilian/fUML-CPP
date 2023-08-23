@@ -8,7 +8,7 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_MERGENODE_H_
 #define FUML_SYNTAX_ACTIVITIES_MERGENODE_H_
 
-#include "ControlNode.h"
+#include <ControlNode.h>
 
 namespace fuml::syntax::activities
 {

@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_READSTRUCTURALFEATUREACTION_H_
 #define FUML_SYNTAX_ACTIONS_READSTRUCTURALFEATUREACTION_H_
 
+#include <fuml/syntax/actions/StructuralFeatureAction.h>
 #include <memory>
-#include "StructuralFeatureAction.h"
 
 namespace fuml::syntax::actions
 {

@@ -5,7 +5,8 @@
  *      Author: maha6913
  */
 
-#include "Clause.h"
+#include <fuml/syntax/actions/Clause.h>
+#include <vector>
 
 using namespace fuml::syntax::actions;
 

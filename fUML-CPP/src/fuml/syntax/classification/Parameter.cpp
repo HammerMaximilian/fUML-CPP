@@ -5,9 +5,9 @@
  *      Author: maha6913
  */
 
-#include "fuml/syntax/classification/Parameter.h"
+#include <fuml/syntax/classification/Parameter.h>
 
-#include "fuml/syntax/classification/Operation.h"
+#include <fuml/syntax/classification/Operation.h>
 
 using namespace fuml::syntax::classification;
 

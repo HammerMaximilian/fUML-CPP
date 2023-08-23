@@ -8,12 +8,13 @@
 #ifndef FUML_SYNTAX_CLASSIFICATION_BEHAVIORALFEATURE_H_
 #define FUML_SYNTAX_CLASSIFICATION_BEHAVIORALFEATURE_H_
 
-#include "Feature.h"
-#include "fuml/syntax/commonstructure/Namespace.h"
-#include "fuml/syntax/commonbehavior/CallConcurrencyKind.h"
-#include "ParameterList.h"
-#include "fuml/syntax/commonbehavior/BehaviorList.h"
-#include "fuml/syntax/commonstructure/TypeList.h"
+#include <fuml/syntax/classification/Feature.h>
+#include <fuml/syntax/classification/ParameterList.h>
+#include <fuml/syntax/commonbehavior/BehaviorList.h>
+#include <fuml/syntax/commonbehavior/CallConcurrencyKind.h>
+#include <fuml/syntax/commonstructure/Namespace.h>
+#include <fuml/syntax/commonstructure/TypeList.h>
+#include <memory>
 
 namespace fuml::syntax::classification
 {

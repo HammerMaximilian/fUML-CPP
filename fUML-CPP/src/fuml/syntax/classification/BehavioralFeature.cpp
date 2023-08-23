@@ -5,10 +5,11 @@
  *      Author: maha6913
  */
 
-#include "BehavioralFeature.h"
-
-#include "fuml/syntax/commonbehavior/Behavior.h"
-#include "fUML/syntax/classification/Parameter.h"
+#include <fuml/syntax/classification/BehavioralFeature.h>
+#include <fuml/syntax/commonbehavior/Behavior.h>
+#include <fuml/syntax/classification/Parameter.h>
+#include <memory>
+#include <vector>
 
 using namespace fuml::syntax::classification;
 

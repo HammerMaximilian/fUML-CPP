@@ -5,7 +5,8 @@
  *      Author: maha6913
  */
 
-#include "ActivityParameterNode.h"
+#include <fuml/syntax/activities/ActivityParameterNode.h>
+#include <memory>
 
 using namespace fuml::syntax::activities;
 

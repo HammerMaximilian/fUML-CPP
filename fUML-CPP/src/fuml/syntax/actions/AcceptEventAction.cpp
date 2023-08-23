@@ -5,7 +5,9 @@
  *      Author: maha6913
  */
 
-#include "AcceptEventAction.h"
+#include <fuml/syntax/actions/AcceptEventAction.h>
+#include <memory>
+#include <vector>
 
 using namespace fuml::syntax::actions;
 

@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "CallOperationAction.h"
+#include <fuml/syntax/actions/CallOperationAction.h>
 
 using namespace fuml::syntax::actions;
 

@@ -8,8 +8,9 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_EXECUTABLENODE_H_
 #define FUML_SYNTAX_ACTIVITIES_EXECUTABLENODE_H_
 
-#include "ActivityGroup.h"
-#include "ExceptionHandlerList.h"
+#include <fuml/syntax/activities/ActivityGroup.h>
+#include <fuml/syntax/activities/ExceptionHandlerList.h>
+#include <memory>
 
 namespace fuml::syntax::activities
 {

@@ -5,7 +5,8 @@
  *      Author: maha6913
  */
 
-#include "CreateObjectAction.h"
+#include <fuml/syntax/actions/CreateObjectAction.h>
+#include <fuml/syntax/classification/Classifier.h>
 
 using namespace fuml::syntax::actions;
 

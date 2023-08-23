@@ -8,11 +8,11 @@
 #ifndef FUML_SYNTAX_CLASSIFICATION_OPERATION_H_
 #define FUML_SYNTAX_CLASSIFICATION_OPERATION_H_
 
+#include <fuml/syntax/classification/BehavioralFeature.h>
+#include <fuml/syntax/classification/OperationList.h>
+#include <fuml/syntax/classification/ParameterList.h>
+#include <UMLPrimitiveTypes/unlimitedNatural.h>
 #include <memory>
-#include "BehavioralFeature.h"
-#include "UMLPrimitiveTypes/unlimitedNatural.h"
-#include "OperationList.h"
-#include "ParameterList.h"
 
 namespace fuml::syntax::commonbehavior
 {

@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "DestroyObjectAction.h"
+#include <fuml/syntax/actions/DestroyObjectAction.h>
 
 using namespace fuml::syntax::actions;
 

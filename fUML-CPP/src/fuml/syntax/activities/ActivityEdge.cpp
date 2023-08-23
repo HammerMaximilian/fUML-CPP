@@ -5,9 +5,9 @@
  *      Author: maha6913
  */
 
-#include "ActivityEdge.h"
-#include "ActivityNode.h"
-#include "fuml/syntax/values/ValueSpecification.h"
+#include <fuml/syntax/activities/ActivityEdge.h>
+#include <fuml/syntax/activities/ActivityNode.h>
+#include <fuml/syntax/values/ValueSpecification.h>
 
 using namespace fuml::syntax::activities;
 

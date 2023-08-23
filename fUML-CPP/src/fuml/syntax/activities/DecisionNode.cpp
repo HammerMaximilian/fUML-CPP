@@ -5,7 +5,8 @@
  *      Author: maha6913
  */
 
-#include "DecisionNode.h"
+#include <fuml/syntax/activities/DecisionNode.h>
+#include <memory>
 
 using namespace fuml::syntax::activities;
 

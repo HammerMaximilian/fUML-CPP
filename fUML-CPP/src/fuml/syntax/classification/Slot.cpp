@@ -5,9 +5,9 @@
  *      Author: maha6913
  */
 
-#include "Slot.h"
+#include <Slot.h>
 
-#include "fuml/syntax/values/ValueSpecification.h"
+#include <fuml/syntax/values/ValueSpecification.h>
 
 using namespace fuml::syntax::classification;
 

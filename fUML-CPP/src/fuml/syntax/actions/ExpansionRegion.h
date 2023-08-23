@@ -8,9 +8,10 @@
 #ifndef FUML_SYNTAX_ACTIONS_EXPANSIONREGION_H_
 #define FUML_SYNTAX_ACTIONS_EXPANSIONREGION_H_
 
-#include "StructuredActivityNode.h"
-#include "ExpansionKind.h"
-#include "ExpansionNodeList.h"
+#include <fuml/syntax/actions/ExpansionKind.h>
+#include <fuml/syntax/actions/ExpansionNodeList.h>
+#include <fuml/syntax/actions/StructuredActivityNode.h>
+#include <memory>
 
 namespace fuml::syntax::actions
 {

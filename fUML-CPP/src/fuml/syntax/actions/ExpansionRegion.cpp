@@ -5,9 +5,10 @@
  *      Author: maha6913
  */
 
-#include "ExpansionRegion.h"
-
-#include "ExpansionNode.h"
+#include <fuml/syntax/actions/ExpansionNode.h>
+#include <fuml/syntax/actions/ExpansionRegion.h>
+#include <memory>
+#include <vector>
 
 using namespace fuml::syntax::actions;
 

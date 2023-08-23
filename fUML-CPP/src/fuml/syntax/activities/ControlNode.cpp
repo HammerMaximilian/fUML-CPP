@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "ControlNode.h"
+#include <fuml/syntax/activities/ControlNode.h>
 
 using namespace fuml::syntax::activities;
 

@@ -9,8 +9,8 @@
 #define FUML_SYNTAX_CLASSIFICATION_SLOT_H_
 
 #include <memory>
-#include "fuml/syntax/commonstructure/Element.h"
-#include "fuml/syntax/values/ValueSpecificationList.h"
+#include <fuml/syntax/commonstructure/Element.h>
+#include <fuml/syntax/values/ValueSpecificationList.h>
 
 namespace fuml::syntax::classification
 {

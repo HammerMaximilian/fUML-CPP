@@ -8,9 +8,10 @@
 #ifndef FUML_SYNTAX_ACTIONS_ACTION_H_
 #define FUML_SYNTAX_ACTIONS_ACTION_H_
 
-#include "fuml/syntax/activities/ExecutableNode.h"
-#include "OutputPinList.h"
-#include "InputPinList.h"
+#include <fuml/syntax/actions/InputPinList.h>
+#include <fuml/syntax/actions/OutputPinList.h>
+#include <fuml/syntax/activities/ExecutableNode.h>
+#include <memory>
 
 namespace fuml::syntax::classification
 {

@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "LinkEndData.h"
+#include <LinkEndData.h>
 
 using namespace fuml::syntax::actions;
 

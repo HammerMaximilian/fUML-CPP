@@ -8,10 +8,9 @@
 #ifndef FUML_SYNTAX_SIMPLECLASSIFIERS_ENUMERATION_H_
 #define FUML_SYNTAX_SIMPLECLASSIFIERS_ENUMERATION_H_
 
+#include <fuml/syntax/simpleclassifiers/DataType.h>
+#include <fuml/syntax/simpleclassifiers/EnumerationLiteralList.h>
 #include <memory>
-#include <vector>
-#include "DataType.h"
-#include "EnumerationLiteralList.h"
 
 namespace fuml::syntax::simpleclassifiers
 {

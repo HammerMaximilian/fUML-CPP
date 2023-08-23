@@ -8,10 +8,9 @@
 #ifndef FUML_SYNTAX_CLASSIFICATION_FEATURE_H_
 #define FUML_SYNTAX_CLASSIFICATION_FEATURE_H_
 
+#include <fuml/syntax/classification/ClassifierList.h>
+#include <fuml/syntax/classification/RedefinableElement.h>
 #include <memory>
-#include <vector>
-#include "RedefinableElement.h"
-#include "ClassifierList.h"
 
 namespace fuml::syntax::classification
 {

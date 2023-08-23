@@ -10,8 +10,8 @@
 
 #include <memory>
 #include <vector>
-#include "fuml/syntax/structuredclassifiers/Class_.h"
-#include "fuml/syntax/classification/ParameterList.h"
+#include <fuml/syntax/structuredclassifiers/Class_.h>
+#include <fuml/syntax/classification/ParameterList.h>
 
 namespace fuml::syntax::classification
 {

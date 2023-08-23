@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_EXCEPTIONHANDLER_H_
 #define FUML_SYNTAX_ACTIVITIES_EXCEPTIONHANDLER_H_
 
-#include "fuml/syntax/commonstructure/Element.h"
-#include "fuml/syntax/classification/ClassifierList.h"
+#include <fuml/syntax/commonstructure/Element.h>
+#include <fuml/syntax/classification/ClassifierList.h>
 
 namespace fuml::syntax::activities
 {

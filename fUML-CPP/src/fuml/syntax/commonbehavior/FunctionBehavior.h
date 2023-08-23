@@ -8,7 +8,7 @@
 #ifndef FUML_SYNTAX_COMMONBEHAVIOR_FUNCTIONBEHAVIOR_H_
 #define FUML_SYNTAX_COMMONBEHAVIOR_FUNCTIONBEHAVIOR_H_
 
-#include "OpaqueBehavior.h"
+#include <OpaqueBehavior.h>
 
 namespace fuml::syntax::commonbehavior
 {

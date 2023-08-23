@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "FinalNode.h"
+#include <fuml/syntax/activities/FinalNode.h>
 
 using namespace fuml::syntax::activities;
 

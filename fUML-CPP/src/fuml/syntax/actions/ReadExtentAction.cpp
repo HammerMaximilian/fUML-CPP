@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "ReadExtentAction.h"
+#include <fuml/syntax/actions/ReadExtentAction.h>
 
 using namespace fuml::syntax::actions;
 

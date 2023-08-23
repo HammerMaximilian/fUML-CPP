@@ -9,7 +9,7 @@
 #define FUML_SYNTAX_ACTIONS_LINKENDDATA_H_
 
 #include <memory>
-#include "fuml/syntax/commonstructure/Element.h"
+#include <fuml/syntax/commonstructure/Element.h>
 
 namespace fuml::syntax::classification
 {

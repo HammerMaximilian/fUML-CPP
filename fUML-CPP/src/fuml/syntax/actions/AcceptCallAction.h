@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_ACCEPTCALLACTION_H_
 #define FUML_SYNTAX_ACTIONS_ACCEPTCALLACTION_H_
 
+#include <fuml/syntax/actions/AcceptEventAction.h>
 #include <memory>
-#include "AcceptEventAction.h"
 
 namespace fuml::syntax::actions
 {

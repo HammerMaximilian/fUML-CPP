@@ -8,7 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_ACTIVITYGROUP_H_
 #define FUML_SYNTAX_ACTIVITIES_ACTIVITYGROUP_H_
 
-#include "ActivityNode.h"
+#include <fuml/syntax/activities/ActivityNode.h>
+#include <memory>
 
 namespace fuml::syntax::activities
 {

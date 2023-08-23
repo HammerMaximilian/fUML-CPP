@@ -8,7 +8,8 @@
 #ifndef FUML_SYNTAX_SIMPLECLASSIFIERS_PRIMITIVETYPE_H_
 #define FUML_SYNTAX_SIMPLECLASSIFIERS_PRIMITIVETYPE_H_
 
-#include "DataType.h"
+#include <fuml/syntax/simpleclassifiers/DataType.h>
+#include <memory>
 
 namespace fuml::syntax::simpleclassifiers
 {

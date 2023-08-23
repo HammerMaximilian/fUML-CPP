@@ -8,9 +8,10 @@
 #ifndef FUML_SYNTAX_ACTIONS_ACCEPTEVENTACTION_H_
 #define FUML_SYNTAX_ACTIONS_ACCEPTEVENTACTION_H_
 
-#include "Action.h"
-#include "OutputPinList.h"
-#include "fuml/syntax/commonbehavior/TriggerList.h"
+#include <fuml/syntax/actions/Action.h>
+#include <fuml/syntax/actions/OutputPinList.h>
+#include <fuml/syntax/commonbehavior/TriggerList.h>
+#include <memory>
 
 namespace fuml::syntax::actions
 {

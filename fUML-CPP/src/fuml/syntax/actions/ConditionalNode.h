@@ -8,9 +8,10 @@
 #ifndef FUML_SYNTAX_ACTIONS_CONDITIONALNODE_H_
 #define FUML_SYNTAX_ACTIONS_CONDITIONALNODE_H_
 
-#include "StructuredActivityNode.h"
-#include "ClauseList.h"
-#include "OutputPinList.h"
+#include <fuml/syntax/actions/ClauseList.h>
+#include <fuml/syntax/actions/OutputPinList.h>
+#include <fuml/syntax/actions/StructuredActivityNode.h>
+#include <memory>
 
 namespace fuml::syntax::actions
 {

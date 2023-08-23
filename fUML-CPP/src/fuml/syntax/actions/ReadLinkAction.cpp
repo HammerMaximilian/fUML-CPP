@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "ReadLinkAction.h"
+#include <fuml/syntax/actions/ReadLinkAction.h>
 
 using namespace fuml::syntax::actions;
 

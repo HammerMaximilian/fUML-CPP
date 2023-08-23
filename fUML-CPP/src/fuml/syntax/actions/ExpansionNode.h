@@ -8,7 +8,7 @@
 #ifndef FUML_SYNTAX_ACTIONS_EXPANSIONNODE_H_
 #define FUML_SYNTAX_ACTIONS_EXPANSIONNODE_H_
 
-#include "fuml/syntax/activities/ObjectNode.h"
+#include <fuml/syntax/activities/ObjectNode.h>
 
 namespace fuml::syntax::actions
 {

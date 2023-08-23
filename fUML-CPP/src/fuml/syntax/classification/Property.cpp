@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "Property.h"
+#include <fuml/syntax/classification/Property.h>
 
 using namespace fuml::syntax::classification;
 

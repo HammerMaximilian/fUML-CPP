@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_CALLBEHAVIORACTION_H_
 #define FUML_SYNTAX_ACTIONS_CALLBEHAVIORACTION_H_
 
+#include <fuml/syntax/actions/CallAction.h>
 #include <memory>
-#include "CallAction.h"
 
 namespace fuml::syntax::commonbehavior
 {

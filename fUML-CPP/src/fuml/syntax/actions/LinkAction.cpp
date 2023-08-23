@@ -5,7 +5,8 @@
  *      Author: maha6913
  */
 
-#include "LinkAction.h"
+#include <fuml/syntax/actions/LinkAction.h>
+#include <vector>
 
 using namespace fuml::syntax::actions;
 

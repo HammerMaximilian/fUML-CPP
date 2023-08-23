@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "Pin.h"
+#include <fuml/syntax/actions/Pin.h>
 
 using namespace fuml::syntax::actions;
 

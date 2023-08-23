@@ -5,9 +5,7 @@
  *      Author: maha6913
  */
 
-#include "Generalization.h"
-
-#include "Classifier.h"
+#include <fuml/syntax/classification/Generalization.h>
 
 using namespace fuml::syntax::classification;
 

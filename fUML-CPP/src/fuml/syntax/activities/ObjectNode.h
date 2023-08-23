@@ -8,8 +8,9 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_OBJECTNODE_H_
 #define FUML_SYNTAX_ACTIVITIES_OBJECTNODE_H_
 
-#include "ActivityNode.h"
-#include "fuml/syntax/commonstructure/TypedElement.h"
+#include <fuml/syntax/activities/ActivityNode.h>
+#include <fuml/syntax/commonstructure/TypedElement.h>
+#include <memory>
 
 namespace fuml::syntax::activities
 {

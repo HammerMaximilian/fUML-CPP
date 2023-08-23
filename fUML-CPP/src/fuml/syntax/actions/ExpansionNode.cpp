@@ -5,7 +5,8 @@
  *      Author: maha6913
  */
 
-#include "ExpansionNode.h"
+#include <fuml/syntax/actions/ExpansionNode.h>
+#include <memory>
 
 using namespace fuml::syntax::actions;
 

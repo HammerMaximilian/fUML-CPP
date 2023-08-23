@@ -5,9 +5,8 @@
  *      Author: maha6913
  */
 
-#include "Signal.h"
-
-#include "fuml/syntax/classification/Property.h"
+#include <fuml/syntax/simpleclassifiers/Signal.h>
+#include <fuml/syntax/classification/Property.h>
 
 void Signal::setThisPtr(std::weak_ptr<Signal> thisSignalPtr)
 {

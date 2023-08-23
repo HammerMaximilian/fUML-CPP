@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "WriteLinkAction.h"
+#include <fuml/syntax/actions/WriteLinkAction.h>
 
 using namespace fuml::syntax::actions;
 

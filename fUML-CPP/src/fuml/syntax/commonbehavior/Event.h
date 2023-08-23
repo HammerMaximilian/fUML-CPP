@@ -8,7 +8,7 @@
 #ifndef FUML_SYNTAX_COMMONBEHAVIOR_EVENT_H_
 #define FUML_SYNTAX_COMMONBEHAVIOR_EVENT_H_
 
-#include "fuml/syntax/commonstructure/PackageableElement.h"
+#include <fuml/syntax/commonstructure/PackageableElement.h>
 
 namespace fuml::syntax::commonbehavior
 {

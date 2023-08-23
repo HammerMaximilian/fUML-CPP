@@ -8,7 +8,7 @@
 #ifndef FUML_SYNTAX_COMMONBEHAVIOR_MESSAGEEVENT_H_
 #define FUML_SYNTAX_COMMONBEHAVIOR_MESSAGEEVENT_H_
 
-#include "Event.h"
+#include <Event.h>
 
 namespace fuml::syntax::commonbehavior
 {

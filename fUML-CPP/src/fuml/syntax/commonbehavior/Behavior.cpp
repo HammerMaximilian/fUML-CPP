@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "Behavior.h"
+#include <fuml/syntax/commonbehavior/Behavior.h>
 
 using namespace fuml::syntax::commonbehavior;
 

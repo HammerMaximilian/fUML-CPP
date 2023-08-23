@@ -8,11 +8,15 @@
 #ifndef FUML_SYNTAX_STRUCTUREDCLASSIFIERS_CLASS__H_
 #define FUML_SYNTAX_STRUCTUREDCLASSIFIERS_CLASS__H_
 
-#include "fuml/syntax/commonbehavior/BehavioredClassifier.h"
-#include "fuml/syntax/classification/OperationList.h"
-#include "fuml/syntax/classification/PropertyList.h"
-#include "fuml/syntax/simpleclassifiers/ReceptionList.h"
-#include "Class_List.h"
+#include <fuml/syntax/classification/Classifier.h>
+#include <fuml/syntax/classification/ClassifierList.h>
+#include <fuml/syntax/classification/OperationList.h>
+#include <fuml/syntax/classification/PropertyList.h>
+#include <fuml/syntax/commonbehavior/BehavioredClassifier.h>
+#include <fuml/syntax/commonstructure/NamedElementList.h>
+#include <fuml/syntax/simpleclassifiers/ReceptionList.h>
+#include <fuml/syntax/structuredclassifiers/Class_List.h>
+#include <memory>
 
 namespace fuml::syntax::classification
 {

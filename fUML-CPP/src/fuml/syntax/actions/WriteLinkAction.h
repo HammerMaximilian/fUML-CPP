@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_WRITELINKACTION_H_
 #define FUML_SYNTAX_ACTIONS_WRITELINKACTION_H_
 
+#include <fuml/syntax/actions/LinkAction.h>
 #include <memory>
-#include "LinkAction.h"
 
 namespace fuml::syntax::actions
 {

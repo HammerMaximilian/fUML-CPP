@@ -5,7 +5,8 @@
  *      Author: maha6913
  */
 
-#include "ReplyAction.h"
+#include <fuml/syntax/actions/ReplyAction.h>
+#include <vector>
 
 using namespace fuml::syntax::actions;
 

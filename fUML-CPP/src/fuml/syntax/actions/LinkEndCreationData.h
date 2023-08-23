@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_LINKENDCREATIONDATA_H_
 #define FUML_SYNTAX_ACTIONS_LINKENDCREATIONDATA_H_
 
+#include <fuml/syntax/actions/LinkEndData.h>
 #include <memory>
-#include "LinkEndData.h"
 
 namespace fuml::syntax::actions
 {

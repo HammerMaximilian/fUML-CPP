@@ -8,11 +8,12 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_ACTIVITY_H_
 #define FUML_SYNTAX_ACTIVITIES_ACTIVITY_H_
 
-#include "fuml/syntax/commonbehavior/Behavior.h"
-#include "fuml/syntax/actions/StructuredActivityNodeList.h"
-#include "ActivityNodeList.h"
-#include "ActivityEdgeList.h"
-#include "ActivityGroupList.h"
+#include <fuml/syntax/actions/StructuredActivityNodeList.h>
+#include <fuml/syntax/activities/ActivityEdgeList.h>
+#include <fuml/syntax/activities/ActivityGroupList.h>
+#include <fuml/syntax/activities/ActivityNodeList.h>
+#include <fuml/syntax/commonbehavior/Behavior.h>
+#include <memory>
 
 namespace fuml::syntax::activities
 {

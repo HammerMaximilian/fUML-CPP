@@ -8,14 +8,13 @@
 #ifndef FUML_SYNTAX_CLASSIFICATION_CLASSIFIER_H_
 #define FUML_SYNTAX_CLASSIFICATION_CLASSIFIER_H_
 
+#include <fuml/syntax/classification/ClassifierList.h>
+#include <fuml/syntax/classification/FeatureList.h>
+#include <fuml/syntax/classification/GeneralizationList.h>
+#include <fuml/syntax/classification/PropertyList.h>
+#include <fuml/syntax/commonstructure/NamedElementList.h>
+#include <fuml/syntax/commonstructure/Type.h>
 #include <memory>
-#include <vector>
-#include "fuml/syntax/commonstructure/Type.h"
-#include "GeneralizationList.h"
-#include "FeatureList.h"
-#include "PropertyList.h"
-#include "ClassifierList.h"
-#include "fuml/syntax/commonstructure/NamedElementList.h"
 
 namespace fuml::syntax::classification
 {

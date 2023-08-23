@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "ClearStructuralFeatureAction.h"
+#include <fuml/syntax/actions/ClearStructuralFeatureAction.h>
 
 using namespace fuml::syntax::actions;
 

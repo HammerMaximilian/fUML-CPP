@@ -5,9 +5,9 @@
  *      Author: maha6913
  */
 
-#include "InstanceSpecification.h"
-
-#include "Slot.h"
+#include <fuml/syntax/classification/InstanceSpecification.h>
+#include <fuml/syntax/classification/Slot.h>
+#include <vector>
 
 using namespace fuml::syntax::classification;
 

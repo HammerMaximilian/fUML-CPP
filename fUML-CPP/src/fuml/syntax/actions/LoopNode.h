@@ -8,10 +8,11 @@
 #ifndef FUML_SYNTAX_ACTIONS_LOOPNODE_H_
 #define FUML_SYNTAX_ACTIONS_LOOPNODE_H_
 
-#include "StructuredActivityNode.h"
-#include "fuml/syntax/activities/ExecutableNodeList.h"
-#include "OutputPinList.h"
-#include "InputPinList.h"
+#include <fuml/syntax/actions/InputPinList.h>
+#include <fuml/syntax/actions/OutputPinList.h>
+#include <fuml/syntax/actions/StructuredActivityNode.h>
+#include <fuml/syntax/activities/ExecutableNodeList.h>
+#include <memory>
 
 namespace fuml::syntax::actions
 {

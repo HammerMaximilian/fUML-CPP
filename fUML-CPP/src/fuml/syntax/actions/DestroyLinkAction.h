@@ -8,9 +8,9 @@
 #ifndef FUML_SYNTAX_ACTIONS_DESTROYLINKACTION_H_
 #define FUML_SYNTAX_ACTIONS_DESTROYLINKACTION_H_
 
+#include <fuml/syntax/actions/LinkEndDestructionDataList.h>
+#include <fuml/syntax/actions/WriteLinkAction.h>
 #include <memory>
-#include "WriteLinkAction.h"
-#include "LinkEndDestructionDataList.h"
 
 namespace fuml::syntax::actions
 {

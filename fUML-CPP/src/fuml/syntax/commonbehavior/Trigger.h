@@ -9,7 +9,7 @@
 #define FUML_SYNTAX_COMMONBEHAVIOR_TRIGGER_H_
 
 #include <memory>
-#include "fuml/syntax/commonstructure/NamedElement.h"
+#include <fuml/syntax/commonstructure/NamedElement.h>
 
 namespace fuml::syntax::commonbehavior
 {

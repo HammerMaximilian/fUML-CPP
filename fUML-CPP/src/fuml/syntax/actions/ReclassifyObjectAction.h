@@ -8,9 +8,9 @@
 #ifndef FUML_SYNTAX_ACTIONS_RECLASSIFYOBJECTACTION_H_
 #define FUML_SYNTAX_ACTIONS_RECLASSIFYOBJECTACTION_H_
 
+#include <fuml/syntax/actions/Action.h>
+#include <fuml/syntax/classification/ClassifierList.h>
 #include <memory>
-#include "Action.h"
-#include "fuml/syntax/classification/ClassifierList.h"
 
 namespace fuml::syntax::actions
 {

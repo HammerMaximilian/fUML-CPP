@@ -5,7 +5,9 @@
  *      Author: maha6913
  */
 
-#include "LoopNode.h"
+#include <fuml/syntax/actions/LoopNode.h>
+#include <memory>
+#include <vector>
 
 using namespace fuml::syntax::actions;
 

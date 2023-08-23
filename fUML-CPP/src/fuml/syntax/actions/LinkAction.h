@@ -8,10 +8,10 @@
 #ifndef FUML_SYNTAX_ACTIONS_LINKACTION_H_
 #define FUML_SYNTAX_ACTIONS_LINKACTION_H_
 
+#include <fuml/syntax/actions/Action.h>
+#include <fuml/syntax/actions/InputPinList.h>
+#include <fuml/syntax/actions/LinkEndDataList.h>
 #include <memory>
-#include "Action.h"
-#include "LinkEndDataList.h"
-#include "InputPinList.h"
 
 namespace fuml::syntax::actions
 {

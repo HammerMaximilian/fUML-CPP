@@ -5,7 +5,8 @@
  *      Author: maha6913
  */
 
-#include "RedefinableElement.h"
+#include <fuml/syntax/classification/RedefinableElement.h>
+#include <vector>
 
 using namespace fuml::syntax::classification;
 

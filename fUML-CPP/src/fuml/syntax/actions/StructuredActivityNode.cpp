@@ -5,8 +5,9 @@
  *      Author: maha6913
  */
 
-#include "StructuredActivityNode.h"
-#include "fuml/syntax/activities/ActivityEdge.h"
+#include <fuml/syntax/actions/StructuredActivityNode.h>
+#include <fuml/syntax/activities/ActivityEdge.h>
+#include <vector>
 
 using namespace fuml::syntax::actions;
 

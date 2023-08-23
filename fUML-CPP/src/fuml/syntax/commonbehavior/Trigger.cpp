@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "Trigger.h"
+#include <Trigger.h>
 
 using namespace fuml::syntax::commonbehavior;
 

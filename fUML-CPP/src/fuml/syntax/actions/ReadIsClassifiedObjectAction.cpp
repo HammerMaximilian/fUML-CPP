@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "ReadIsClassifiedObjectAction.h"
+#include <fuml/syntax/actions/ReadIsClassifiedObjectAction.h>
 
 using namespace fuml::syntax::actions;
 

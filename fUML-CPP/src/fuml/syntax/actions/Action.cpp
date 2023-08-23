@@ -5,11 +5,12 @@
  *      Author: maha6913
  */
 
-#include "Action.h"
-
-#include "fuml/syntax/activities/Activity.h"
-#include "OutputPin.h"
-#include "InputPin.h"
+#include <fuml/syntax/actions/Action.h>
+#include <fuml/syntax/actions/InputPin.h>
+#include <fuml/syntax/actions/OutputPin.h>
+#include <fuml/syntax/activities/Activity.h>
+#include <memory>
+#include <vector>
 
 using namespace fuml::syntax::actions;
 

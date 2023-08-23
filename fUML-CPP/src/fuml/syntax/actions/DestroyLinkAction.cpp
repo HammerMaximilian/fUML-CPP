@@ -5,8 +5,9 @@
  *      Author: maha6913
  */
 
-#include "DestroyLinkAction.h"
-#include "LinkEndDestructionData.h"
+#include <fuml/syntax/actions/DestroyLinkAction.h>
+#include <fuml/syntax/actions/LinkEndDestructionData.h>
+#include <vector>
 
 using namespace fuml::syntax::actions;
 

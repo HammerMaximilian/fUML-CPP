@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "ActivityGroup.h"
+#include <fuml/syntax/activities/ActivityGroup.h>
 
 using namespace fuml::syntax::activities;
 

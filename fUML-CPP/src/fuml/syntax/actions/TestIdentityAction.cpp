@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include "TestIdentityAction.h"
+#include <fuml/syntax/actions/TestIdentityAction.h>
 
 using namespace fuml::syntax::actions;
 

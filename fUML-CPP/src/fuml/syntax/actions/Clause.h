@@ -8,10 +8,11 @@
 #ifndef FUML_SYNTAX_ACTIONS_CLAUSE_H_
 #define FUML_SYNTAX_ACTIONS_CLAUSE_H_
 
-#include "fuml/syntax/commonstructure/Element.h"
-#include "fuml/syntax/activities/ExecutableNodeList.h"
-#include "ClauseList.h"
-#include "OutputPinList.h"
+#include <fuml/syntax/actions/ClauseList.h>
+#include <fuml/syntax/actions/OutputPinList.h>
+#include <fuml/syntax/activities/ExecutableNodeList.h>
+#include <fuml/syntax/commonstructure/Element.h>
+#include <memory>
 
 namespace fuml::syntax::actions
 {

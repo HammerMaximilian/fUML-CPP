@@ -5,7 +5,8 @@
  *      Author: maha6913
  */
 
-#include "Feature.h"
+#include <fuml/syntax/classification/Feature.h>
+#include <vector>
 
 using namespace fuml::syntax::classification;
 

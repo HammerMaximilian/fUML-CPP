@@ -9,9 +9,9 @@
 #define FUML_SYNTAX_CLASSIFICATION_STRUCTURALFEATURE_H_
 
 #include <memory>
-#include "fuml/syntax/classification/Feature.h"
-#include "fuml/syntax/commonstructure/MultiplicityElement.h"
-#include "fuml/syntax/commonstructure/TypedElement.h"
+#include <fuml/syntax/classification/Feature.h>
+#include <fuml/syntax/commonstructure/MultiplicityElement.h>
+#include <fuml/syntax/commonstructure/TypedElement.h>
 
 namespace fuml::syntax::classification
 {

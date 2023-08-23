@@ -5,12 +5,12 @@
  *      Author: maha6913
  */
 
-#include "Class_.h"
-
-#include "fuml/syntax/classification/Generalization.h"
-#include "fuml/syntax/classification/Operation.h"
-#include "fuml/syntax/classification/Property.h"
-#include "fuml/syntax/simpleclassifiers/Reception.h"
+#include <fuml/syntax/classification/Generalization.h>
+#include <fuml/syntax/classification/Operation.h>
+#include <fuml/syntax/classification/Property.h>
+#include <fuml/syntax/simpleclassifiers/Reception.h>
+#include <fuml/syntax/structuredclassifiers/Class_.h>
+#include <vector>
 
 void Class_::setThisPtr(std::weak_ptr<Class_> thisClass_Ptr)
 {

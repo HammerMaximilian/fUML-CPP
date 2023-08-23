@@ -5,8 +5,9 @@
  *      Author: maha6913
  */
 
-#include "CreateLinkAction.h"
-#include "LinkEndCreationData.h"
+#include <fuml/syntax/actions/CreateLinkAction.h>
+#include <fuml/syntax/actions/LinkEndCreationData.h>
+#include <vector>
 
 using namespace fuml::syntax::actions;
 

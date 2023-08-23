@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_COMMONBEHAVIOR_BEHAVIOREDCLASSIFIER_H_
 #define FUML_SYNTAX_COMMONBEHAVIOR_BEHAVIOREDCLASSIFIER_H_
 
-#include "fuml/syntax/classification/Classifier.h"
-#include "fuml/syntax/commonbehavior/BehaviorList.h"
+#include <fuml/syntax/classification/Classifier.h>
+#include <fuml/syntax/commonbehavior/BehaviorList.h>
 
 namespace fuml::syntax::commonbehavior
 {
