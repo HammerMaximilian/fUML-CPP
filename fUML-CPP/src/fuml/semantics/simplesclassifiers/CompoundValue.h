@@ -18,13 +18,13 @@ namespace fuml::semantics::simpleclassifiers
 			FeatureValueListPtr featureValues = std::make_shared<FeatureValueList>();
 
 		public:
-			virtual bool equals(const ValuePtr&);
-			virtual ValuePtr copy();
-			virtual FeatureValuePtr getFeatureValue(const StructuralFeaturePtr&);
+			virtual bool equals(const ValuePtr&) override;
+			virtual ValuePtr copy() override;
+			virtual FeatureValuePtr getFeatureValue(const StructuralFeaturePtr&) override;
 			virtual void setFeatureValue(const StructuralFeaturePtr&,
-					const ValueListPtr&, int position);
-			virtual FeatureValueListPtr getFeatureValues();
-			virtual std::string toString();
+					const ValueListPtr&, int position) override;
+			virtual FeatureValueListPtr getFeatureValues() override;
+			virtual std::string toString() override;
 	}; // CompoundValue
 }
 

@@ -7,7 +7,10 @@
 
 #include <fuml/semantics/simplesclassifiers/CompoundValue.h>
 #include <fuml/semantics/simplesclassifiers/FeatureValue.h>
+#include <fuml/semantics/structuredclassifiers/Object_.h>
+#include <fuml/semantics/structuredclassifiers/Reference.h>
 #include <fuml/syntax/classification/Classifier.h>
+#include <fuml/syntax/classification/StructuralFeature.h>
 
 bool CompoundValue::equals(
 		const ValuePtr& otherValue)
@@ -136,7 +139,7 @@ std::string CompoundValue::toString()
 	for (const FeatureValuePtr& featureValue : *(this->featureValues))
 	{
 		buffer = buffer + "\n\t\t" + featureValue->feature->name + "["
-				+ featureValue->position + "]  =";
+				+ std::to_string(featureValue->position) + "]  =";
 
 		for (const ValuePtr& value : *(featureValue->values))
 		{

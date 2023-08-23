@@ -12,7 +12,7 @@
 
 namespace fuml::semantics::simpleclassifiers
 {
-	class StructuredValue : Value
+	class StructuredValue : public Value
 	{
 		public:
 			virtual ~StructuredValue() = 0;
@@ -20,7 +20,7 @@ namespace fuml::semantics::simpleclassifiers
 			virtual ValueSpecificationPtr specify() override;
 			virtual FeatureValuePtr getFeatureValue(
 					const StructuralFeaturePtr&) = 0;
-			virtual FeatureValuePtr setFeatureValue(
+			virtual void setFeatureValue(
 					const StructuralFeaturePtr&,
 					const ValueListPtr&,
 					int position) = 0;
