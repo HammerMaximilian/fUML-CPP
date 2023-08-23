@@ -1,0 +1,24 @@
+/*
+ * RedefinitionBasedDispatchStrategy.h
+ *
+ *  Created on: 23.08.2023
+ *      Author: Maximilian
+ */
+
+#ifndef FUML_SEMANTICS_STRUCTUREDCLASSIFIERS_REDEFINITIONBASEDDISPATCHSTRATEGY_H_
+#define FUML_SEMANTICS_STRUCTUREDCLASSIFIERS_REDEFINITIONBASEDDISPATCHSTRATEGY_H_
+
+#include <fuml/semantics/structuredclassifiers/DispatchStrategy.h>
+
+namespace fuml::semantics::structuredclassifiers
+{
+	class RedefinitionBasedDispatchStrategy : public DispatchStrategy
+	{
+		public:
+			virtual BehaviorPtr getMethod(
+					const Object_Ptr&,
+					const OperationPtr&) override;
+	}; // RedefinitionBasedDispatchStrategy
+}
+
+#endif /* FUML_SEMANTICS_STRUCTUREDCLASSIFIERS_REDEFINITIONBASEDDISPATCHSTRATEGY_H_ */
