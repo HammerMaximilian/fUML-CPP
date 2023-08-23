@@ -7,21 +7,19 @@
 
 #include <fuml/syntax/commonbehavior/Behavior.h>
 
-using namespace fuml::syntax::commonbehavior;
-
 Behavior::~Behavior()
 {
 }
 
 void Behavior::addOwnedParameter(
-	const std::shared_ptr<fuml::syntax::classification::Parameter>& ownedParameter)
+	const ParameterPtr& ownedParameter)
 {
 	//super.addOwnedMember(ownedParameter);
 	this->ownedParameter->push_back(ownedParameter);
 } // addOwnedParameter
 
 void Behavior::_setContext(
-	const std::shared_ptr<fuml::syntax::commonbehavior::BehavioredClassifier>& context)
+	const BehavioredClassifierPtr& context)
 {
 	// Note: This is a helper operation intended to be called by certain
 	// operations outside the Behavior class in order to allow the setting
@@ -36,7 +34,7 @@ void Behavior::_setContext(
 } // _setContext
 
 void Behavior::_setSpecification(
-	const std::shared_ptr<fuml::syntax::classification::BehavioralFeature>& specification)
+	const BehavioralFeaturePtr& specification)
 {
 	this->specification = specification;
 } // _setSpecification

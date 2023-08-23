@@ -21,7 +21,7 @@ using EnumerationLiteralPtr = std::shared_ptr<EnumerationLiteral>;
 
 namespace fuml::syntax::simpleclassifiers
 {
-	class Enumeration : public fuml::syntax::simpleclassifiers::DataType
+	class Enumeration : public DataType
 	{
 		public:
 			EnumerationLiteralListPtr ownedLiteral = std::make_shared<EnumerationLiteralList>();

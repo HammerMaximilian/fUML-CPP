@@ -13,23 +13,30 @@
 
 namespace fuml::syntax::commonbehavior
 {
-	class BehavioredClassifier : public fuml::syntax::classification::Classifier
+	class Behavior;
+}
+using Behavior = fuml::syntax::commonbehavior::Behavior;
+using BehaviorPtr = std::shared_ptr<Behavior>;
+
+namespace fuml::syntax::commonbehavior
+{
+	class BehavioredClassifier : public Classifier
 	{
 		public:
-			std::shared_ptr<fuml::syntax::commonbehavior::BehaviorList> ownedBehavior = std::make_shared<fuml::syntax::commonbehavior::BehaviorList>();
-			std::shared_ptr<fuml::syntax::commonbehavior::Behavior> classifierBehavior = nullptr;
+			BehaviorListPtr ownedBehavior = std::make_shared<BehaviorList>();
+			BehaviorPtr classifierBehavior = nullptr;
 
 		private:
-			std::weak_ptr<fuml::syntax::commonbehavior::BehavioredClassifier> thisBehavioredClassifierPtr;
+			std::weak_ptr<BehavioredClassifier> thisBehavioredClassifierPtr;
 
 		public:
 			virtual ~BehavioredClassifier() = 0;
-			virtual void setThisPtr(std::weak_ptr<fuml::syntax::commonbehavior::BehavioredClassifier>);
+			virtual void setThisPtr(std::weak_ptr<BehavioredClassifier>);
 
 			void addOwnedBehavior(
-					const std::shared_ptr<fuml::syntax::commonbehavior::Behavior>& ownedBehavior);
+					const BehaviorPtr& ownedBehavior);
 			void setClassifierBehavior(
-					const std::shared_ptr<fuml::syntax::commonbehavior::Behavior>& classifierBehavior);
+					const BehaviorPtr& classifierBehavior);
 
 	}; // BehavioredClassifier
 }

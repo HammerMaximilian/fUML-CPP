@@ -26,7 +26,7 @@ using PackageableElementPtr = std::shared_ptr<PackageableElement>;
 
 namespace fuml::syntax::commonstructure
 {
-	class ElementImport : public fuml::syntax::commonstructure::Element
+	class ElementImport : public Element
 	{
 		public:
 			VisibilityKind visibility;

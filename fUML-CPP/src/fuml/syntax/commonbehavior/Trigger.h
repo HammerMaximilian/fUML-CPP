@@ -15,16 +15,18 @@ namespace fuml::syntax::commonbehavior
 {
 	class Event;
 }
+using Event = fuml::syntax::commonbehavior::Event;
+using EventPtr = std::shared_ptr<Event>;
 
 namespace fuml::syntax::commonbehavior
 {
-	class Trigger : public fuml::syntax::commonstructure::NamedElement
+	class Trigger : public NamedElement
 	{
 		public:
-			std::shared_ptr<fuml::syntax::commonbehavior::Event> event = nullptr;
+			EventPtr event = nullptr;
 
 		public:
-			void setEvent(const std::shared_ptr<fuml::syntax::commonbehavior::Event>&);
+			void setEvent(const EventPtr&);
 	}; // Trigger
 }
 

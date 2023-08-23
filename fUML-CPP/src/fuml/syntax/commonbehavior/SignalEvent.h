@@ -8,24 +8,26 @@
 #ifndef FUML_SYNTAX_COMMONBEHAVIOR_SIGNALEVENT_H_
 #define FUML_SYNTAX_COMMONBEHAVIOR_SIGNALEVENT_H_
 
+#include <fuml/syntax/commonbehavior/MessageEvent.h>
 #include <memory>
-#include <MessageEvent.h>
 
 namespace fuml::syntax::simpleclassifiers
 {
 	class Signal;
 }
+using Signal = fuml::syntax::simpleclassifiers::Signal;
+using SignalPtr = std::shared_ptr<Signal>;
 
 namespace fuml::syntax::commonbehavior
 {
 	class SignalEvent : public MessageEvent
 	{
 		public:
-			std::shared_ptr<fuml::syntax::simpleclassifiers::Signal> signal = nullptr;
+			SignalPtr signal = nullptr;
 
 		public:
 			void setSignal(
-				const std::shared_ptr<fuml::syntax::simpleclassifiers::Signal>&);
+				const SignalPtr&);
 	}; // SignalEvent
 }
 

@@ -22,7 +22,7 @@ using PropertyPtr = std::shared_ptr<Property>;
 
 namespace fuml::syntax::simpleclassifiers
 {
-	class DataType : public fuml::syntax::classification::Classifier
+	class DataType : public Classifier
 	{
 		public:
 			PropertyListPtr ownedAttribute = std::make_shared<PropertyList>();

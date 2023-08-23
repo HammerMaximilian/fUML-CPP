@@ -20,7 +20,7 @@ using EnumerationPtr = std::shared_ptr<Enumeration>;
 
 namespace fuml::syntax::simpleclassifiers
 {
-	class EnumerationLiteral : public fuml::syntax::classification::InstanceSpecification
+	class EnumerationLiteral : public InstanceSpecification
 	{
 		public:
 			EnumerationPtr enumeration = nullptr;

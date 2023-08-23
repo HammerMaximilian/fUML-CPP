@@ -28,7 +28,7 @@ using PackageImportPtr = std::shared_ptr<PackageImport>;
 
 namespace fuml::syntax::commonstructure
 {
-	class Namespace : virtual public fuml::syntax::commonstructure::PackageableElement
+	class Namespace : virtual public PackageableElement
 	{
 
 		public:

@@ -5,9 +5,7 @@
  *      Author: maha6913
  */
 
-#include <MessageEvent.h>
-
-using namespace fuml::syntax::commonbehavior;
+#include <fuml/syntax/commonbehavior/MessageEvent.h>
 
 MessageEvent::~MessageEvent()
 {

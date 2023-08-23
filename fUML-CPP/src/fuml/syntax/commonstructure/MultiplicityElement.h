@@ -21,7 +21,7 @@ using ValueSpecificationPtr = std::shared_ptr<ValueSpecification>;
 
 namespace fuml::syntax::commonstructure
 {
-	class MultiplicityElement : virtual public fuml::syntax::commonstructure::Element
+	class MultiplicityElement : virtual public Element
 	{
 		public:
 			bool isOrdered = false;

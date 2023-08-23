@@ -16,31 +16,32 @@
 namespace fuml::syntax::classification
 {
 	class BehavioralFeature;
+	class Parameter;
 }
-namespace fuml::syntax::commonbehavior
-{
-	class BehavioredClassifier;
-}
+using BehavioralFeature = fuml::syntax::classification::BehavioralFeature;
+using BehavioralFeaturePtr = std::shared_ptr<BehavioralFeature>;
+using Parameter = fuml::syntax::classification::Parameter;
+using ParameterPtr = std::shared_ptr<Parameter>;
 
 namespace fuml::syntax::commonbehavior
 {
-	class Behavior : public fuml::syntax::structuredclassifiers::Class_
+	class Behavior : public Class_
 	{
 		public:
 			bool isReentrant = true;
-			std::shared_ptr<fuml::syntax::classification::BehavioralFeature> specification = nullptr;
-			std::shared_ptr<fuml::syntax::classification::ParameterList> ownedParameter = std::make_shared<fuml::syntax::classification::ParameterList>();
-			std::shared_ptr<fuml::syntax::commonbehavior::BehavioredClassifier> context = nullptr;
+			BehavioralFeaturePtr specification = nullptr;
+			ParameterListPtr ownedParameter = std::make_shared<ParameterList>();
+			BehavioredClassifierPtr context = nullptr;
 
 		public:
 			virtual ~Behavior() = 0;
 
 			void addOwnedParameter(
-					const std::shared_ptr<fuml::syntax::classification::Parameter>&);
+					const ParameterPtr&);
 			void _setContext(
-					const std::shared_ptr<fuml::syntax::commonbehavior::BehavioredClassifier>&);
+					const BehavioredClassifierPtr&);
 			void _setSpecification(
-					const std::shared_ptr<fuml::syntax::classification::BehavioralFeature>&);
+					const BehavioralFeaturePtr&);
 	}; // Behavior
 }
 

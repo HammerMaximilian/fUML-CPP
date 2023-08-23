@@ -29,7 +29,7 @@ using PackagePtr = std::shared_ptr<Package>;
 namespace fuml::syntax::commonstructure
 {
 
-	class PackageImport : public fuml::syntax::commonstructure::Element
+	class PackageImport : public Element
 	{
 		public:
 			VisibilityKind visibility;

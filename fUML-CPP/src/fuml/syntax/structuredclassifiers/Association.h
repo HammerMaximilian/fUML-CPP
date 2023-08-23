@@ -23,7 +23,7 @@ using PropertyPtr = std::shared_ptr<Property>;
 
 namespace fuml::syntax::structuredclassifiers
 {
-	class Association : public fuml::syntax::classification::Classifier
+	class Association : public Classifier
 	{
 		public:
 			bool isDerived = false;

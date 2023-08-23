@@ -5,11 +5,9 @@
  *      Author: maha6913
  */
 
-#include <CallEvent.h>
+#include <fuml/syntax/commonbehavior/CallEvent.h>
 
-using namespace fuml::syntax::commonbehavior;
-
-void CallEvent::setOperation(const std::shared_ptr<fuml::syntax::classification::Operation>& operation)
+void CallEvent::setOperation(const OperationPtr& operation)
 {
 	this->operation = operation;
 }

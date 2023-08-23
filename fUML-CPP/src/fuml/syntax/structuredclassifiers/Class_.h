@@ -40,7 +40,7 @@ using ReceptionPtr = std::shared_ptr<Reception>;
 
 namespace fuml::syntax::structuredclassifiers
 {
-	class Class_ : public fuml::syntax::commonbehavior::BehavioredClassifier
+	class Class_ : public BehavioredClassifier
 	{
 		public:
 			OperationListPtr ownedOperation = std::make_shared<OperationList>();

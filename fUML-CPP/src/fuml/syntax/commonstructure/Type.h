@@ -20,7 +20,7 @@ using PackagePtr = std::shared_ptr<Package>;
 
 namespace fuml::syntax::commonstructure
 {
-	class Type : public fuml::syntax::commonstructure::Namespace
+	class Type : public Namespace
 	{
 		public:
 			PackagePtr package =  nullptr;

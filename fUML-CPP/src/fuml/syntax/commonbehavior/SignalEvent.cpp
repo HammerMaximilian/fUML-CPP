@@ -5,12 +5,10 @@
  *      Author: maha6913
  */
 
-#include <SignalEvent.h>
-
-using namespace fuml::syntax::commonbehavior;
+#include <fuml/syntax/commonbehavior/SignalEvent.h>
 
 void SignalEvent::setSignal(
-	const std::shared_ptr<fuml::syntax::simpleclassifiers::Signal>& signal)
+	const SignalPtr& signal)
 {
 	this->signal = signal;
 } // setSignal

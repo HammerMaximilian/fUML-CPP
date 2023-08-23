@@ -22,7 +22,7 @@ using NamespacePtr = std::shared_ptr<Namespace>;
 
 namespace fuml::syntax::commonstructure
 {
-	class NamedElement : virtual public fuml::syntax::commonstructure::Element
+	class NamedElement : virtual public Element
 	{
 
 		public:

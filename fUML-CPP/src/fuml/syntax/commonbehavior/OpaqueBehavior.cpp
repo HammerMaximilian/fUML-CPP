@@ -9,8 +9,6 @@
 #include <string>
 #include <vector>
 
-using namespace fuml::syntax::commonbehavior;
-
 void OpaqueBehavior::addBody(std::string body)
 {
 	this->body->push_back(body);

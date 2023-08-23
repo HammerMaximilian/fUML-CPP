@@ -13,7 +13,7 @@
 
 namespace fuml::syntax::simpleclassifiers
 {
-	class PrimitiveType : public fuml::syntax::simpleclassifiers::DataType
+	class PrimitiveType : public DataType
 	{
 	}; // PrimitiveType
 }

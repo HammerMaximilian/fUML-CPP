@@ -9,7 +9,7 @@
 
 using namespace fuml::syntax::commonbehavior;
 
-void Trigger::setEvent(const std::shared_ptr<fuml::syntax::commonbehavior::Event>& event)
+void Trigger::setEvent(const EventPtr& event)
 {
 	this->event = event;
 } // setEvent

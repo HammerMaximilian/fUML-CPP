@@ -20,7 +20,7 @@ using SignalPtr = std::shared_ptr<Signal>;
 
 namespace fuml::syntax::simpleclassifiers
 {
-	class Reception : virtual public fuml::syntax::classification::BehavioralFeature
+	class Reception : virtual public BehavioralFeature
 	{
 		public:
 			SignalPtr signal = nullptr;

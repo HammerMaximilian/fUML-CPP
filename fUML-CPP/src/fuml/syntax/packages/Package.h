@@ -17,7 +17,7 @@
 
 namespace fuml::syntax::packages
 {
-	class Package : public fuml::syntax::commonstructure::Namespace
+	class Package : public Namespace
 	{
 		using PackagePtr = std::shared_ptr<Package>;
 

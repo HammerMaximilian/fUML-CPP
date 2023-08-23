@@ -20,7 +20,7 @@ using TypePtr = std::shared_ptr<Type>;
 
 namespace fuml::syntax::commonstructure
 {
-	class TypedElement : virtual public fuml::syntax::commonstructure::NamedElement {
+	class TypedElement : virtual public NamedElement {
 
 		public:
 			TypePtr type = nullptr;

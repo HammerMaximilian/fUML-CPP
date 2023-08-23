@@ -16,21 +16,21 @@ BehavioredClassifier::~BehavioredClassifier()
 {
 }
 
-void BehavioredClassifier::setThisPtr(std::weak_ptr<fuml::syntax::commonbehavior::BehavioredClassifier> thisBehavioredClassifierPtr)
+void BehavioredClassifier::setThisPtr(std::weak_ptr<BehavioredClassifier> thisBehavioredClassifierPtr)
 {
 	this->thisBehavioredClassifierPtr = thisBehavioredClassifierPtr;
-	fuml::syntax::classification::Classifier::setThisPtr(thisBehavioredClassifierPtr);
+	Classifier::setThisPtr(thisBehavioredClassifierPtr);
 }
 
 void BehavioredClassifier::addOwnedBehavior(
-	const std::shared_ptr<fuml::syntax::commonbehavior::Behavior>& ownedBehavior)
+	const BehaviorPtr& ownedBehavior)
 {
-	fuml::syntax::commonstructure::Namespace::addOwnedMember(ownedBehavior);
+	Namespace::addOwnedMember(ownedBehavior);
 
 	this->ownedBehavior->push_back(ownedBehavior);
 
-	std::shared_ptr<fuml::syntax::commonbehavior::Behavior> behavior =
-			std::dynamic_pointer_cast<fuml::syntax::commonbehavior::Behavior>(thisBehavioredClassifierPtr.lock());
+	BehaviorPtr behavior =
+			std::dynamic_pointer_cast<Behavior>(thisBehavioredClassifierPtr.lock());
 
 	if (!behavior || behavior->context == nullptr) {
 		ownedBehavior->_setContext(thisBehavioredClassifierPtr.lock());
@@ -41,7 +41,7 @@ void BehavioredClassifier::addOwnedBehavior(
 } // addOwnedBehavior
 
 void BehavioredClassifier::setClassifierBehavior(
-	const std::shared_ptr<fuml::syntax::commonbehavior::Behavior>& classifierBehavior) {
+	const BehaviorPtr& classifierBehavior) {
 	// Note: The classifier behavior must also be added as an owned behavior
 	// using addOwnedBehavior.
 
