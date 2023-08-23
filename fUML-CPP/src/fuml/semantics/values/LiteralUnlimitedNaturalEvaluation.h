@@ -8,8 +8,15 @@
 #ifndef FUML_SEMANTICS_VALUES_LITERALUNLIMITEDNATURALEVALUATION_H_
 #define FUML_SEMANTICS_VALUES_LITERALUNLIMITEDNATURALEVALUATION_H_
 
+#include <fuml/semantics/values/LiteralEvaluation.h>
 
-
-
+namespace fuml::semantics::values
+{
+	class LiteralUnlimitedNaturalEvaluation : LiteralEvaluation
+	{
+		public:
+			virtual ValuePtr evaluate() override;
+	};  // LiteralUnlimitedNaturalEvaluation
+}
 
 #endif /* FUML_SEMANTICS_VALUES_LITERALUNLIMITEDNATURALEVALUATION_H_ */

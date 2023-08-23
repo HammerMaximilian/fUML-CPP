@@ -5,6 +5,17 @@
  *      Author: Maximilian
  */
 
+#include <fuml/semantics/simplesclassifiers/RealValue.h>
+#include <fuml/semantics/values/LiteralRealEvaluation.h>
+#include <fuml/syntax/values/LiteralReal.h>
 
+ValuePtr LiteralRealEvaluation::evaluate()
+{
+	// Evaluate a real integer, producing a real value.
 
-
+	LiteralRealPtr literal = std::dynamic_pointer_cast<LiteralReal>(specification);
+	RealValuePtr realValue(new RealValue());
+	realValue->type = this->getType("Real");
+	realValue->value = literal->value;
+	return realValue;
+} //evaluate

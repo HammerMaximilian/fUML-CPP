@@ -8,8 +8,15 @@
 #ifndef FUML_SEMANTICS_VALUES_LITERALINTEGEREVALUATION_H_
 #define FUML_SEMANTICS_VALUES_LITERALINTEGEREVALUATION_H_
 
+#include <fuml/semantics/values/LiteralEvaluation.h>
 
-
-
+namespace fuml::semantics::values
+{
+	class LiteralIntegerEvaluation : LiteralEvaluation
+	{
+		public:
+			virtual ValuePtr evaluate() override;
+	};  // LiteralIntegerEvaluation
+}
 
 #endif /* FUML_SEMANTICS_VALUES_LITERALINTEGEREVALUATION_H_ */
