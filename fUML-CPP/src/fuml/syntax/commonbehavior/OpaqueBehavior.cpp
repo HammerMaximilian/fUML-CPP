@@ -7,7 +7,6 @@
 
 #include <fuml/syntax/commonbehavior/OpaqueBehavior.h>
 #include <string>
-#include <vector>
 
 void OpaqueBehavior::addBody(std::string body)
 {

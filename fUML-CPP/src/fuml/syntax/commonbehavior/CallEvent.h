@@ -9,14 +9,6 @@
 #define FUML_SYNTAX_COMMONBEHAVIOR_CALLEVENT_H_
 
 #include <fuml/syntax/commonbehavior/Event.h>
-#include <memory>
-
-namespace fuml::syntax::classification
-{
-	class Operation;
-}
-using Operation = fuml::syntax::classification::Operation;
-using OperationPtr = std::shared_ptr<Operation>;
 
 namespace fuml::syntax::commonbehavior
 {
@@ -29,8 +21,5 @@ namespace fuml::syntax::commonbehavior
 			void setOperation(const OperationPtr&);
 	}; // CallEvent
 }
-
-using CallEvent = fuml::syntax::commonbehavior::CallEvent;
-using CallEventPtr = std::shared_ptr<CallEvent>;
 
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_CALLEVENT_H_ */

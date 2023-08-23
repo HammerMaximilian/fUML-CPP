@@ -5,9 +5,7 @@
  *      Author: Maximilian
  */
 
-#include "ChoiceStrategy.h"
-
-using namespace fuml::semantics::loci;
+#include <fuml/semantics/loci/ChoiceStrategy.h>
 
 ChoiceStrategy::~ChoiceStrategy()
 {

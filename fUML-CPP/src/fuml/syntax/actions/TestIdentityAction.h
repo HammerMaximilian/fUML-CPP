@@ -9,31 +9,21 @@
 #define FUML_SYNTAX_ACTIONS_TESTIDENTITYACTION_H_
 
 #include <fuml/syntax/actions/Action.h>
-#include <memory>
-
-namespace fuml::syntax::actions
-{
-	class InputPin;
-	class OutputPin;
-}
 
 namespace fuml::syntax::actions
 {
 	class TestIdentityAction : public Action
 	{
 		public:
-			std::shared_ptr<InputPin> second = nullptr;
-			std::shared_ptr<OutputPin> result = nullptr;
-			std::shared_ptr<InputPin> first = nullptr;
+			InputPinPtr second = nullptr;
+			OutputPinPtr result = nullptr;
+			InputPinPtr first = nullptr;
 
 		public:
-			void setFirst(const std::shared_ptr<InputPin>&);
-			void setSecond(const std::shared_ptr<InputPin>&);
-			void setResult(const std::shared_ptr<OutputPin>&);
+			void setFirst(const InputPinPtr&);
+			void setSecond(const InputPinPtr&);
+			void setResult(const OutputPinPtr&);
 	}; // TestIdentityAction
 }
-
-using TestIdentityAction = fuml::syntax::actions::TestIdentityAction;
-using TestIdentityActionPtr = std::shared_ptr<TestIdentityAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_TESTIDENTITYACTION_H_ */

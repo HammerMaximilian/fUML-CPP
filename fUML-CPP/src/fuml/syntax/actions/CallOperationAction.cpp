@@ -7,16 +7,14 @@
 
 #include <fuml/syntax/actions/CallOperationAction.h>
 
-using namespace fuml::syntax::actions;
-
-void CallOperationAction::setTarget(const std::shared_ptr<InputPin>& target)
+void CallOperationAction::setTarget(const InputPinPtr& target)
 {
 	Action::addInput(target);
 	this->target = target;
 }
 
 void CallOperationAction::setOperation(
-	const std::shared_ptr<fuml::syntax::classification::Operation>& operation)
+	const OperationPtr& operation)
 {
 	this->operation = operation;
 } // setOperation

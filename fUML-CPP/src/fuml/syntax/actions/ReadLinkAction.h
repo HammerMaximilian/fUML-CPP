@@ -9,26 +9,17 @@
 #define FUML_SYNTAX_ACTIONS_READLINKACTION_H_
 
 #include <fuml/syntax/actions/LinkAction.h>
-#include <memory>
-
-namespace fuml::syntax::actions
-{
-	class OutputPin;
-}
 
 namespace fuml::syntax::actions
 {
 	class ReadLinkAction : public LinkAction
 	{
 		public:
-			std::shared_ptr<OutputPin> result = nullptr;
+			OutputPinPtr result = nullptr;
 
 		public:
-			void setResult(const std::shared_ptr<OutputPin>&);
+			void setResult(const OutputPinPtr&);
 	}; // ReadLinkAction
 }
-
-using ReadLinkAction = fuml::syntax::actions::ReadLinkAction;
-using ReadLinkActionPtr = std::shared_ptr<ReadLinkAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_READLINKACTION_H_ */

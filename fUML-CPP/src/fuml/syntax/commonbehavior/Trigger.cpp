@@ -7,8 +7,6 @@
 
 #include <fuml/syntax/commonbehavior/Trigger.h>
 
-using namespace fuml::syntax::commonbehavior;
-
 void Trigger::setEvent(const EventPtr& event)
 {
 	this->event = event;

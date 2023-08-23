@@ -7,8 +7,6 @@
 
 #include <fuml/syntax/activities/FinalNode.h>
 
-using namespace fuml::syntax::activities;
-
 FinalNode::~FinalNode()
 {
 }

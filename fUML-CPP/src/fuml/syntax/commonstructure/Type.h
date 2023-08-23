@@ -9,14 +9,6 @@
 #define FUML_SYNTAX_COMMONSTRUCTURE_TYPE_H_
 
 #include <fuml/syntax/commonstructure/Namespace.h>
-#include <memory>
-
-namespace fuml::syntax::packages
-{
-	class Package;
-}
-using Package = fuml::syntax::packages::Package;
-using PackagePtr = std::shared_ptr<Package>;
 
 namespace fuml::syntax::commonstructure
 {
@@ -30,8 +22,5 @@ namespace fuml::syntax::commonstructure
 			void _setPackage(const PackagePtr&);
 	}; //Type
 }
-
-using Type = fuml::syntax::commonstructure::Type;
-using TypePtr = std::shared_ptr<Type>;
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_TYPE_H_ */

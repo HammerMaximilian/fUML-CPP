@@ -8,26 +8,8 @@
 #ifndef FUML_SYNTAX_CLASSIFICATION_SLOT_H_
 #define FUML_SYNTAX_CLASSIFICATION_SLOT_H_
 
-#include <memory>
+#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/commonstructure/Element.h>
-#include <fuml/syntax/values/ValueSpecificationList.h>
-
-namespace fuml::syntax::classification
-{
-	class InstanceSpecification;
-	class StructuralFeature;
-}
-using InstanceSpecification = fuml::syntax::classification::InstanceSpecification;
-using InstanceSpecificationPtr = std::shared_ptr<InstanceSpecification>;
-using StructuralFeature = fuml::syntax::classification::StructuralFeature;
-using StructuralFeaturePtr = std::shared_ptr<StructuralFeature>;
-
-namespace fuml::syntax::values
-{
-	class ValueSpecification;
-}
-using ValueSpecification = fuml::syntax::values::ValueSpecification;
-using ValueSpecificationPtr = std::shared_ptr<ValueSpecification>;
 
 namespace fuml::syntax::classification
 {
@@ -36,7 +18,7 @@ namespace fuml::syntax::classification
 		public:
 			InstanceSpecificationPtr owningInstance = nullptr;
 			StructuralFeaturePtr definingFeature = nullptr;
-			ValueSpecificationListPtr value = std::make_shared<fuml::syntax::values::ValueSpecificationList>();
+			ValueSpecificationListPtr value = std::make_shared<ValueSpecificationList>();
 
 		public:
 			void setDefiningFeature(
@@ -46,8 +28,5 @@ namespace fuml::syntax::classification
 					InstanceSpecificationPtr);
 	}; // Slot
 }
-
-using Slot = fuml::syntax::classification::Slot;
-using SlotPtr = std::shared_ptr<Slot>;
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_SLOT_H_ */

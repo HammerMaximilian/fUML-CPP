@@ -9,12 +9,6 @@
 #define FUML_SYNTAX_ACTIONS_LINKENDCREATIONDATA_H_
 
 #include <fuml/syntax/actions/LinkEndData.h>
-#include <memory>
-
-namespace fuml::syntax::actions
-{
-	class InputPin;
-}
 
 namespace fuml::syntax::actions
 {
@@ -22,15 +16,12 @@ namespace fuml::syntax::actions
 	{
 		public:
 			bool isReplaceAll = false;;
-			std::shared_ptr<InputPin> insertAt = nullptr;
+			InputPinPtr insertAt = nullptr;
 
 		public:
 			void setIsReplaceAll(bool);
-			void setInsertAt(const std::shared_ptr<InputPin>&);
+			void setInsertAt(const InputPinPtr&);
 	}; // LinkEndCreationData
 }
-
-using LinkEndCreationData = fuml::syntax::actions::LinkEndCreationData;
-using LinkEndCreationDataPtr = std::shared_ptr<LinkEndCreationData>;
 
 #endif /* FUML_SYNTAX_ACTIONS_LINKENDCREATIONDATA_H_ */

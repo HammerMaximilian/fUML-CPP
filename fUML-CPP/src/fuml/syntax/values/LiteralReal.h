@@ -9,7 +9,6 @@
 #define FUML_SYNTAX_VALUES_LITERALREAL_H_
 
 #include <fuml/syntax/values/LiteralSpecification.h>
-#include <memory>
 
 namespace fuml::syntax::values
 {
@@ -22,8 +21,5 @@ namespace fuml::syntax::values
 			void setValue(float);
 	}; // LiteralReal
 }
-
-using LiteralReal = fuml::syntax::values::LiteralReal;
-using LiteralRealPtr = std::shared_ptr<LiteralReal>;
 
 #endif /* FUML_SYNTAX_VALUES_LITERALREAL_H_ */

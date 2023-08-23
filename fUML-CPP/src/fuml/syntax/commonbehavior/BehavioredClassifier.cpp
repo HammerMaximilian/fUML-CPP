@@ -7,10 +7,6 @@
 
 #include <fuml/syntax/commonbehavior/Behavior.h>
 #include <fuml/syntax/commonbehavior/BehavioredClassifier.h>
-#include <memory>
-#include <vector>
-
-using namespace fuml::syntax::commonbehavior;
 
 BehavioredClassifier::~BehavioredClassifier()
 {

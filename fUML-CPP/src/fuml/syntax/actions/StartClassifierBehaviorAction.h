@@ -9,26 +9,17 @@
 #define FUML_SYNTAX_ACTIONS_STARTCLASSIFIERBEHAVIORACTION_H_
 
 #include <fuml/syntax/actions/Action.h>
-#include <memory>
-
-namespace fuml::syntax::actions
-{
-	class InputPin;
-}
 
 namespace fuml::syntax::actions
 {
 	class StartClassifierBehaviorAction : public Action
 	{
 		public:
-			std::shared_ptr<InputPin> object = nullptr;
+			InputPinPtr object = nullptr;
 
 		public:
-			void setObject(const std::shared_ptr<InputPin>&);
+			void setObject(const InputPinPtr&);
 	}; // StartClassifierBehaviorAction
 }
-
-using StartClassifierBehaviorAction = fuml::syntax::actions::StartClassifierBehaviorAction;
-using StartClassifierBehaviorActionPtr = std::shared_ptr<StartClassifierBehaviorAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_STARTCLASSIFIERBEHAVIORACTION_H_ */

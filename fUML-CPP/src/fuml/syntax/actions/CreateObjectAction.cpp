@@ -8,16 +8,14 @@
 #include <fuml/syntax/actions/CreateObjectAction.h>
 #include <fuml/syntax/classification/Classifier.h>
 
-using namespace fuml::syntax::actions;
-
 void CreateObjectAction::setClassifier(
-	const std::shared_ptr<fuml::syntax::classification::Classifier>& endData)
+	const ClassifierPtr& endData)
 {
 	this->classifier = classifier;
 } // setClassifier
 
 void CreateObjectAction::setResult(
-	const std::shared_ptr<OutputPin>& result)
+	const OutputPinPtr& result)
 {
 	Action::addOutput(result);
 	this->result = result;

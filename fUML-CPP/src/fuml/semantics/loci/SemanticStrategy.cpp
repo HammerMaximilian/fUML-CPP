@@ -5,9 +5,7 @@
  *      Author: Maximilian
  */
 
-#include "SemanticStrategy.h"
-
-using namespace fuml::semantics::loci;
+#include <fuml/semantics/loci/SemanticStrategy.h>
 
 SemanticStrategy::~SemanticStrategy()
 {

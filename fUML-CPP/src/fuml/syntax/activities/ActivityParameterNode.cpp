@@ -6,9 +6,6 @@
  */
 
 #include <fuml/syntax/activities/ActivityParameterNode.h>
-#include <memory>
-
-using namespace fuml::syntax::activities;
 
 void ActivityParameterNode::setParameter(const ParameterPtr& parameter)
 {

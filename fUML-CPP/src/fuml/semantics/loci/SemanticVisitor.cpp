@@ -5,11 +5,9 @@
  *      Author: Maximilian
  */
 
-#include "SemanticVisitor.h"
+#include <fuml/Debug.h>
+#include <fuml/semantics/loci/SemanticVisitor.h>
 
-#include "fuml/Debug.h"
-
-using namespace fuml::semantics::loci;
 using namespace utils;
 
 SemanticVisitor::~SemanticVisitor()

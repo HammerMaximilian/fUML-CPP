@@ -17,7 +17,4 @@ namespace fuml::syntax::activities
 	}; // FlowFinalNode
 }
 
-using FlowFinalNode = fuml::syntax::activities::FlowFinalNode;
-using FlowFinalNodePtr = std::shared_ptr<FlowFinalNode>;
-
 #endif /* FUML_SYNTAX_ACTIVITIES_FLOWFINALNODE_H_ */

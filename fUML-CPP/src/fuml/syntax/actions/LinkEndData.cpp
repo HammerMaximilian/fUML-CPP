@@ -5,16 +5,14 @@
  *      Author: maha6913
  */
 
-#include <LinkEndData.h>
+#include <fuml/syntax/actions/LinkEndData.h>
 
-using namespace fuml::syntax::actions;
-
-void LinkEndData::setEnd(const std::shared_ptr<fuml::syntax::classification::Property>& end)
+void LinkEndData::setEnd(const PropertyPtr& end)
 {
 	this->end = end;
 } // setEnd
 
-void LinkEndData::setValue(const std::shared_ptr<InputPin>& value)
+void LinkEndData::setValue(const InputPinPtr& value)
 {
 	this->value = value;
 } // setValue

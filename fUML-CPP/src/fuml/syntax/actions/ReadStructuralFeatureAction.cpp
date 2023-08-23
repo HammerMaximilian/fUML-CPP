@@ -7,9 +7,7 @@
 
 #include <fuml/syntax/actions/ReadStructuralFeatureAction.h>
 
-using namespace fuml::syntax::actions;
-
-void ReadStructuralFeatureAction::setResult(const std::shared_ptr<OutputPin>& result)
+void ReadStructuralFeatureAction::setResult(const OutputPinPtr& result)
 {
 	Action::addOutput(result);
 	this->result = result;

@@ -7,7 +7,6 @@
 
 #include <fuml/syntax/classification/Slot.h>
 #include "fuml/syntax/values/ValueSpecification.h"
-#include <vector>
 
 void Slot::setDefiningFeature(
 		StructuralFeaturePtr definingFeature)

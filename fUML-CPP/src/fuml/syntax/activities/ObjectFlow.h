@@ -17,7 +17,4 @@ namespace fuml::syntax::activities
 	}; // ObjectFlow
 }
 
-using ObjectFlow = fuml::syntax::activities::ObjectFlow;
-using ObjectFlowPtr = std::shared_ptr<ObjectFlow>;
-
 #endif /* FUML_SYNTAX_ACTIVITIES_OBJECTFLOW_H_ */

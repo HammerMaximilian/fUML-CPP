@@ -6,10 +6,6 @@
  */
 
 #include <fuml/syntax/actions/AcceptEventAction.h>
-#include <memory>
-#include <vector>
-
-using namespace fuml::syntax::actions;
 
 void AcceptEventAction::setIsUnmarshall(bool isUnmarshall)
 {
@@ -17,12 +13,12 @@ void AcceptEventAction::setIsUnmarshall(bool isUnmarshall)
 } // setIsUnmarshall
 
 void AcceptEventAction::addTrigger(
-	const std::shared_ptr<fuml::syntax::commonbehavior::Trigger>& trigger)
+	const TriggerPtr& trigger)
 {
 	this->trigger->push_back(trigger);
 } // addTrigger
 
-void AcceptEventAction::addResult(const std::shared_ptr<fuml::syntax::actions::OutputPin>& result)
+void AcceptEventAction::addResult(const OutputPinPtr& result)
 {
 	Action::addOutput(result);
 	this->result->push_back(result);

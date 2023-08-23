@@ -7,13 +7,11 @@
 
 #include <fuml/syntax/commonstructure/ElementImport.h>
 #include <fuml/syntax/commonstructure/NamedElement.h>
-#include <fuml/syntax/commonstructure/NamedElementList.h>
 #include <fuml/syntax/commonstructure/PackageableElement.h>
 #include <fuml/syntax/commonstructure/PackageImport.h>
 #include <fuml/syntax/commonstructure/Type.h>
 #include <fuml/syntax/commonstructure/VisibilityKind.h>
 #include <fuml/syntax/packages/Package.h>
-#include <vector>
 
 void Package::setThisPtr(std::weak_ptr<Package> thisPackagePtr)
 {

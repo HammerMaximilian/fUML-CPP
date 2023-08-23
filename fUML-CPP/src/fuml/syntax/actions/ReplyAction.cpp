@@ -6,23 +6,20 @@
  */
 
 #include <fuml/syntax/actions/ReplyAction.h>
-#include <vector>
-
-using namespace fuml::syntax::actions;
 
 void ReplyAction::setReplyToCall(
-	const std::shared_ptr<fuml::syntax::commonbehavior::Trigger>& replyToCall)
+	const TriggerPtr& replyToCall)
 {
 	this->replyToCall = replyToCall;
 }
 
-void ReplyAction::addReplyValue(const std::shared_ptr<InputPin>& replyValue)
+void ReplyAction::addReplyValue(const InputPinPtr& replyValue)
 {
 	Action::addInput(replyValue);
 	this->replyValue->push_back(replyValue);
 }
 
-void ReplyAction::setReturnInformation(const std::shared_ptr<InputPin>& returnInformation)
+void ReplyAction::setReturnInformation(const InputPinPtr& returnInformation)
 {
 	Action::addInput(returnInformation);
 	this->returnInformation = returnInformation;

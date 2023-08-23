@@ -9,7 +9,6 @@
 #include <fuml/syntax/classification/Generalization.h>
 #include <fuml/syntax/classification/Property.h>
 #include <fuml/syntax/commonstructure/VisibilityKind.h>
-#include <vector>
 
 Classifier::~Classifier()
 {

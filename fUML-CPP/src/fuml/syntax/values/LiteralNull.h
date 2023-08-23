@@ -9,7 +9,6 @@
 #define FUML_SYNTAX_VALUES_LITERALNULL_H_
 
 #include <fuml/syntax/values/LiteralSpecification.h>
-#include <memory>
 
 namespace fuml::syntax::values
 {
@@ -17,8 +16,5 @@ namespace fuml::syntax::values
 	{
 	}; // LiteralNull
 }
-
-using LiteralNull = fuml::syntax::values::LiteralNull;
-using LiteralNullPtr = std::shared_ptr<LiteralNull>;
 
 #endif /* FUML_SYNTAX_VALUES_LITERALNULL_H_ */

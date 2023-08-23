@@ -7,9 +7,7 @@
 
 #include <fuml/syntax/actions/ReadSelfAction.h>
 
-using namespace fuml::syntax::actions;
-
-void ReadSelfAction::setResult(const std::shared_ptr<OutputPin>& result)
+void ReadSelfAction::setResult(const OutputPinPtr& result)
 {
 	Action::addOutput(result);
 	this->result = result;

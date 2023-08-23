@@ -6,24 +6,21 @@
  */
 
 #include <fuml/syntax/actions/UnmarshallAction.h>
-#include <vector>
 
-using namespace fuml::syntax::actions;
-
-void UnmarshallAction::setObject(const std::shared_ptr<InputPin>& object)
+void UnmarshallAction::setObject(const InputPinPtr& object)
 {
 	Action::addInput(object);
 	this->object = object;
 }
 
-void UnmarshallAction::addResult(const std::shared_ptr<OutputPin>& result)
+void UnmarshallAction::addResult(const OutputPinPtr& result)
 {
 	Action::addOutput(result);
 	this->result->push_back(result);
 }
 
 void UnmarshallAction::setUnmarshallType(
-	const std::shared_ptr<fuml::syntax::classification::Classifier>& unmarshallType)
+	const ClassifierPtr& unmarshallType)
 {
 	this->unmarshallType = unmarshallType;
 }

@@ -8,15 +8,7 @@
 #ifndef FUML_SYNTAX_SIMPLECLASSIFIERS_RECEPTION_H_
 #define FUML_SYNTAX_SIMPLECLASSIFIERS_RECEPTION_H_
 
-#include <memory>
 #include <fUML/syntax/classification/BehavioralFeature.h>
-
-namespace fuml::syntax::simpleclassifiers
-{
-	class Signal;
-}
-using Signal = fuml::syntax::simpleclassifiers::Signal;
-using SignalPtr = std::shared_ptr<Signal>;
 
 namespace fuml::syntax::simpleclassifiers
 {
@@ -30,8 +22,5 @@ namespace fuml::syntax::simpleclassifiers
 				const SignalPtr&);
 	}; // Reception
 }
-
-using Reception = fuml::syntax::simpleclassifiers::Reception;
-using ReceptionPtr = std::shared_ptr<Reception>;
 
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_RECEPTION_H_ */

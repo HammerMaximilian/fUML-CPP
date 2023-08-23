@@ -9,7 +9,6 @@
 #define FUML_SYNTAX_VALUES_LITERALINTEGER_H_
 
 #include <fuml/syntax/values/LiteralSpecification.h>
-#include <memory>
 
 namespace fuml::syntax::values
 {
@@ -22,8 +21,5 @@ namespace fuml::syntax::values
 			void setValue(int);
 	}; // LiteralInteger
 }
-
-using LiteralInteger = fuml::syntax::values::LiteralInteger;
-using LiteralIntegerPtr = std::shared_ptr<LiteralInteger>;
 
 #endif /* FUML_SYNTAX_VALUES_LITERALINTEGER_H_ */

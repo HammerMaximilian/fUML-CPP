@@ -9,7 +9,6 @@
 #include <fuml/syntax/classification/Parameter.h>
 #include <fuml/syntax/classification/ParameterDirectionKind.h>
 #include <fuml/syntax/commonbehavior/Behavior.h>
-#include <vector>
 
 void Operation::setThisPtr(std::weak_ptr<Operation> thisOperationPtr)
 {

@@ -9,7 +9,6 @@
 #include <fuml/syntax/commonstructure/Namespace.h>
 #include <fuml/syntax/commonstructure/PackageImport.h>
 #include <fuml/syntax/packages/Package.h>
-#include <vector>
 
 Namespace::~Namespace()
 {

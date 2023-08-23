@@ -9,32 +9,19 @@
 #define FUML_SYNTAX_ACTIONS_VALUESPECIFICATIONACTION_H_
 
 #include <fuml/syntax/actions/Action.h>
-#include <memory>
-
-namespace fuml::syntax::values
-{
-	class ValueSpecification;
-}
-namespace fuml::syntax::actions
-{
-	class OutputPin;
-}
 
 namespace fuml::syntax::actions
 {
 	class ValueSpecificationAction : public Action
 	{
 		public:
-			std::shared_ptr<fuml::syntax::values::ValueSpecification> value = nullptr;
-			std::shared_ptr<OutputPin> result = nullptr;
+			ValueSpecificationPtr value = nullptr;
+			OutputPinPtr result = nullptr;
 
 		public:
-			void setValue(const std::shared_ptr<fuml::syntax::values::ValueSpecification>&);
-			void setResult(const std::shared_ptr<OutputPin>&);
+			void setValue(const ValueSpecificationPtr&);
+			void setResult(const OutputPinPtr&);
 	}; // ValueSpecificationAction
 }
-
-using ValueSpecificationAction = fuml::syntax::actions::ValueSpecificationAction;
-using ValueSpecificationActionPtr = std::shared_ptr<ValueSpecificationAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_VALUESPECIFICATIONACTION_H_ */

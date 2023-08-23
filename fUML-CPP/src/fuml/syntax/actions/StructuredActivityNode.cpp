@@ -7,9 +7,6 @@
 
 #include <fuml/syntax/actions/StructuredActivityNode.h>
 #include <fuml/syntax/activities/ActivityEdge.h>
-#include <vector>
-
-using namespace fuml::syntax::actions;
 
 void StructuredActivityNode::setThisPtr(std::weak_ptr<StructuredActivityNode> thisStructuredActivityNodePtr)
 {
@@ -23,38 +20,38 @@ void StructuredActivityNode::setMustIsolate(bool mustIsolate)
 } // setMustIsolate
 
 void StructuredActivityNode::addNode(
-	const std::shared_ptr<fuml::syntax::activities::ActivityNode>& node)
+	const ActivityNodePtr& node)
 {
 	this->node->push_back(node);
 	node->_setInStructuredNode(this->thisStructuredActivityNodePtr.lock());
 } // addNode
 
 void StructuredActivityNode::addEdge(
-	const std::shared_ptr<fuml::syntax::activities::ActivityEdge>& edge)
+	const ActivityEdgePtr& edge)
 {
 	this->edge->push_back(edge);
 	edge->_setInStructuredNode(this->thisStructuredActivityNodePtr.lock());
 } // addEdge
 
 void StructuredActivityNode::addStructuredNodeOutput(
-	const std::shared_ptr<fuml::syntax::actions::OutputPin>& structuredNodeOutput)
+	const OutputPinPtr& structuredNodeOutput)
 {
 	this->addOutput(structuredNodeOutput);
 	this->structuredNodeOutput->push_back(structuredNodeOutput);
 } // addStructuredNodeOutput
 
 void StructuredActivityNode::addStructuredNodeInput(
-	const std::shared_ptr<fuml::syntax::actions::InputPin>& structuredNodeInput)
+	const InputPinPtr& structuredNodeInput)
 {
 	this->addInput(structuredNodeInput);
 	this->structuredNodeInput->push_back(structuredNodeInput);
 } // addStructuredNodeInput
 
-void StructuredActivityNode::_setContext(const std::shared_ptr<fuml::syntax::classification::Classifier>& context)
+void StructuredActivityNode::_setContext(const ClassifierPtr& context)
 {
 	Action::_setContext(context);
-	for (const std::shared_ptr<fuml::syntax::activities::ActivityNode>& node : *(this->node)) {
-		std::shared_ptr<Action> action = std::dynamic_pointer_cast<Action>(node);
+	for (const ActivityNodePtr& node : *(this->node)) {
+		ActionPtr action = std::dynamic_pointer_cast<Action>(node);
 		if (action) {
 			action->_setContext(context);
 		}
@@ -62,7 +59,7 @@ void StructuredActivityNode::_setContext(const std::shared_ptr<fuml::syntax::cla
 } // _setContext
 
 void StructuredActivityNode::_setActivity(
-	const std::shared_ptr<fuml::syntax::activities::Activity>& activity)
+	const ActivityPtr& activity)
 {
 	Action::_setActivity(activity);
 	this->activity = activity;

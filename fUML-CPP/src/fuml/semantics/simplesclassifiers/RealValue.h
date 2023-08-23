@@ -23,13 +23,13 @@ namespace fuml::semantics::simpleclassifiers
 			float value = 0.0;
 
 		public:
-			virtual std::shared_ptr<fuml::syntax::values::ValueSpecification> specify() override;
-			virtual bool equals(const std::shared_ptr<fuml::semantics::values::Value>&) override;
-			virtual std::shared_ptr<fuml::semantics::values::Value> copy() override;
+			virtual ValueSpecificationPtr specify() override;
+			virtual bool equals(const ValuePtr&) override;
+			virtual ValuePtr copy() override;
 			virtual std::string toString() override;
 
 		protected:
-			virtual std::shared_ptr<fuml::semantics::values::Value> new_() override;
+			virtual ValuePtr new_() override;
 	}; // RealValue
 }
 

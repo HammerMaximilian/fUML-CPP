@@ -14,15 +14,12 @@
 namespace fuml::syntax::actions
 {
 	class Pin:
-		virtual public fuml::syntax::commonstructure::MultiplicityElement,
-		virtual public fuml::syntax::activities::ObjectNode
+		virtual public MultiplicityElement,
+		virtual public ObjectNode
 	{
 		public:
 			virtual ~Pin() = 0;
 	}; // Pin
 }
-
-using Pin = fuml::syntax::actions::Pin;
-using PinPtr = std::shared_ptr<Pin>;
 
 #endif /* FUML_SYNTAX_ACTIONS_PIN_H_ */

@@ -9,7 +9,6 @@
 #define FUML_SYNTAX_SIMPLECLASSIFIERS_PRIMITIVETYPE_H_
 
 #include <fuml/syntax/simpleclassifiers/DataType.h>
-#include <memory>
 
 namespace fuml::syntax::simpleclassifiers
 {
@@ -17,8 +16,5 @@ namespace fuml::syntax::simpleclassifiers
 	{
 	}; // PrimitiveType
 }
-
-using PrimitiveType = fuml::syntax::simpleclassifiers::PrimitiveType;
-using PrimitiveTypePtr = std::shared_ptr<PrimitiveType>;
 
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_PRIMITIVETYPE_H_ */

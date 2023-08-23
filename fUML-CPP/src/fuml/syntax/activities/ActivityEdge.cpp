@@ -9,8 +9,6 @@
 #include <fuml/syntax/activities/ActivityNode.h>
 #include <fuml/syntax/values/ValueSpecification.h>
 
-using namespace fuml::syntax::activities;
-
 ActivityEdge::~ActivityEdge()
 {
 }

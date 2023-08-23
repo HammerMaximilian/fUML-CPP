@@ -17,7 +17,4 @@ namespace fuml::syntax::commonbehavior
 	}; // Event
 }
 
-using Event = fuml::syntax::commonbehavior::Event;
-using EventPtr = std::shared_ptr<Event>;
-
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_EVENT_H_ */

@@ -6,7 +6,6 @@
  */
 
 #include <fuml/syntax/commonstructure/Element.h>
-#include <vector>
 
 Element::~Element()
 {

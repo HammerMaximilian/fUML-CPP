@@ -7,7 +7,6 @@
 
 #include <fuml/syntax/classification/InstanceSpecification.h>
 #include <fuml/syntax/classification/Slot.h>
-#include <vector>
 
 void InstanceSpecification::setThisPtr(std::weak_ptr<InstanceSpecification> thisInstanceSpecificationPtr)
 {

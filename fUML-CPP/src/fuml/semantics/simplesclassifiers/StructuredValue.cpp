@@ -8,18 +8,13 @@
 #include <fuml/semantics/simplesclassifiers/FeatureValue.h>
 #include <fuml/semantics/simplesclassifiers/StructuredValue.h>
 #include <fuml/syntax/classification/Classifier.h>
-#include <fuml/syntax/classification/ClassifierList.h>
 #include <fuml/syntax/classification/InstanceSpecification.h>
 #include <fuml/syntax/classification/InstanceValue.h>
 #include <fuml/syntax/classification/Property.h>
 #include <fuml/syntax/classification/Slot.h>
 #include <fuml/syntax/classification/StructuralFeature.h>
 #include <fuml/syntax/commonstructure/NamedElement.h>
-#include <fuml/syntax/commonstructure/NamedElementList.h>
 #include <fuml/syntax/values/ValueSpecification.h>
-#include <vector>
-
-using namespace fuml::semantics::simpleclassifiers;
 
 StructuredValue::~StructuredValue()
 {
@@ -148,7 +143,7 @@ void StructuredValue::createFeatureValues()
 	// features of the types of this structured value and all its supertypes
 	// (including private features that are not inherited).
 
-	this->addFeatureValues(FeatureValueListPtr(new FeatureValueList));
+	this->addFeatureValues(FeatureValueListPtr(new FeatureValueList()));
 }
 
 void StructuredValue::addFeatureValues(const FeatureValueListPtr& oldFeatureValues)

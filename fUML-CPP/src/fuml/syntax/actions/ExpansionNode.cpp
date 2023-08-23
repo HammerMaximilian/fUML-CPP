@@ -6,16 +6,13 @@
  */
 
 #include <fuml/syntax/actions/ExpansionNode.h>
-#include <memory>
-
-using namespace fuml::syntax::actions;
 
 void ExpansionNode::_setRegionAsInput(
-		const std::shared_ptr<fuml::syntax::actions::ExpansionRegion>& regionAsInput) {
+		const ExpansionRegionPtr& regionAsInput) {
 	this->regionAsInput = regionAsInput;
 } // _setRegionAsInput
 
 void ExpansionNode::_setRegionAsOutput(
-		const std::shared_ptr<fuml::syntax::actions::ExpansionRegion>& regionAsOutput) {
+		const ExpansionRegionPtr& regionAsOutput) {
 	this->regionAsOutput = regionAsOutput;
 } // _setRegionAsOutput

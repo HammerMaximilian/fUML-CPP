@@ -9,26 +9,17 @@
 #define FUML_SYNTAX_ACTIONS_CLEARSTRUCTURALFEATUREACTION_H_
 
 #include <fuml/syntax/actions/StructuralFeatureAction.h>
-#include <memory>
-
-namespace fuml::syntax::actions
-{
-	class OutputPin;
-}
 
 namespace fuml::syntax::actions
 {
 	class ClearStructuralFeatureAction : public StructuralFeatureAction
 	{
 		public:
-			std::shared_ptr<OutputPin> result = nullptr;
+			OutputPinPtr result = nullptr;
 
 		public:
-			void setResult(const std::shared_ptr<OutputPin>&);
+			void setResult(const OutputPinPtr&);
 	}; // ClearStructuralFeatureAction
 }
-
-using ClearStructuralFeatureAction = fuml::syntax::actions::ClearStructuralFeatureAction;
-using ClearStructuralFeatureActionPtr = std::shared_ptr<ClearStructuralFeatureAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_CLEARSTRUCTURALFEATUREACTION_H_ */

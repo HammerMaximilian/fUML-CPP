@@ -7,15 +7,13 @@
 
 #include <fuml/syntax/actions/ValueSpecificationAction.h>
 
-using namespace fuml::syntax::actions;
-
 void ValueSpecificationAction::setValue(
-	const std::shared_ptr<fuml::syntax::values::ValueSpecification>& value)
+	const ValueSpecificationPtr& value)
 {
 	this->value = value;
 } // setValue
 
-void ValueSpecificationAction::setResult(const std::shared_ptr<OutputPin>& result)
+void ValueSpecificationAction::setResult(const OutputPinPtr& result)
 {
 	Action::addOutput(result);
 	this->result = result;

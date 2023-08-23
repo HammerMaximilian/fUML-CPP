@@ -8,17 +8,9 @@
 #ifndef FUML_SYNTAX_COMMONSTRUCTURE_COMMENT_H_
 #define FUML_SYNTAX_COMMONSTRUCTURE_COMMENT_H_
 
-#include <fuml/syntax/commonstructure/ElementList.h>
+#include <fuml/syntax/fwd.h>
 #include <utils/FumlObject.h>
-#include <memory>
 #include <string>
-
-namespace fuml::syntax::commonstructure
-{
-	class Element;
-}
-using Element = fuml::syntax::commonstructure::Element;
-using ElementPtr = std::shared_ptr<Element>;
 
 namespace fuml::syntax::commonstructure
 {
@@ -34,8 +26,5 @@ namespace fuml::syntax::commonstructure
 			void setBody(std::string);
 	}; // Comment
 }
-
-using Comment = fuml::syntax::commonstructure::Comment;
-using CommentPtr = std::shared_ptr<Comment>;
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_COMMENT_H_ */

@@ -9,7 +9,6 @@
 #define FUML_SYNTAX_VALUES_VALUESPECIFICATION_H_
 
 #include <fuml/syntax/commonstructure/TypedElement.h>
-#include <memory>
 
 namespace fuml::syntax::values
 {
@@ -19,8 +18,5 @@ namespace fuml::syntax::values
 			virtual ~ValueSpecification() = 0;
 	};
 }
-
-using ValueSpecification = fuml::syntax::values::ValueSpecification;
-using ValueSpecificationPtr = std::shared_ptr<ValueSpecification>;
 
 #endif /* FUML_SYNTAX_VALUES_VALUESPECIFICATION_H_ */

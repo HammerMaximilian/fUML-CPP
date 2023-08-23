@@ -9,12 +9,6 @@
 #define FUML_SYNTAX_ACTIONS_REMOVESTRUCTURALFEATUREVALUEACTION_H_
 
 #include <fuml/syntax/actions/WriteStructuralFeatureAction.h>
-#include <memory>
-
-namespace fuml::syntax::actions
-{
-	class InputPin;
-}
 
 namespace fuml::syntax::actions
 {
@@ -22,15 +16,12 @@ namespace fuml::syntax::actions
 	{
 		public:
 			bool isRemoveDuplicates = false;
-			std::shared_ptr<InputPin> removeAt = nullptr;
+			InputPinPtr removeAt = nullptr;
 
 		public:
 			void setIsRemoveDuplicates(bool);
-			void setRemoveAt(const std::shared_ptr<InputPin>&);
+			void setRemoveAt(const InputPinPtr&);
 	}; // RemoveStructuralFeatureValueAction
 }
-
-using RemoveStructuralFeatureValueAction = fuml::syntax::actions::RemoveStructuralFeatureValueAction;
-using RemoveStructuralFeatureValueActionPtr = std::shared_ptr<RemoveStructuralFeatureValueAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_REMOVESTRUCTURALFEATUREVALUEACTION_H_ */

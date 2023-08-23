@@ -9,7 +9,6 @@
 #define FUML_SYNTAX_VALUES_LITERALSPECIFICATION_H_
 
 #include <fuml/syntax/values/ValueSpecification.h>
-#include <memory>
 
 namespace fuml::syntax::values
 {
@@ -19,8 +18,5 @@ namespace fuml::syntax::values
 			virtual ~LiteralSpecification() = 0;
 	}; // LiteralSpecification
 }
-
-using LiteralSpecification = fuml::syntax::values::LiteralSpecification;
-using LiteralSpecificationPtr = std::shared_ptr<LiteralSpecification>;
 
 #endif /* FUML_SYNTAX_VALUES_LITERALSPECIFICATION_H_ */

@@ -9,7 +9,6 @@
 #define FUML_SYNTAX_ACTIONS_WRITELINKACTION_H_
 
 #include <fuml/syntax/actions/LinkAction.h>
-#include <memory>
 
 namespace fuml::syntax::actions
 {
@@ -19,8 +18,5 @@ namespace fuml::syntax::actions
 			virtual ~WriteLinkAction() = 0;
 	}; // WriteLinkAction
 }
-
-using WriteLinkAction = fuml::syntax::actions::WriteLinkAction;
-using WriteLinkActionPtr = std::shared_ptr<WriteLinkAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_WRITELINKACTION_H_ */

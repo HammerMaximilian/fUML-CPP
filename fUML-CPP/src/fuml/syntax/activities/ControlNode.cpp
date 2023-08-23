@@ -7,8 +7,6 @@
 
 #include <fuml/syntax/activities/ControlNode.h>
 
-using namespace fuml::syntax::activities;
-
 ControlNode::~ControlNode()
 {
 }

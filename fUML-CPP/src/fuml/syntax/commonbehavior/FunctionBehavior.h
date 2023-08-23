@@ -9,7 +9,6 @@
 #define FUML_SYNTAX_COMMONBEHAVIOR_FUNCTIONBEHAVIOR_H_
 
 #include <fuml/syntax/commonbehavior/OpaqueBehavior.h>
-#include <memory>
 
 namespace fuml::syntax::commonbehavior
 {
@@ -17,8 +16,5 @@ namespace fuml::syntax::commonbehavior
 	{
 	}; // FunctionBehavior
 }
-
-using FunctionBehavior = fuml::syntax::commonbehavior::FunctionBehavior;
-using FunctionBehaviorPtr = std::shared_ptr<FunctionBehavior>;
 
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_FUNCTIONBEHAVIOR_H_ */

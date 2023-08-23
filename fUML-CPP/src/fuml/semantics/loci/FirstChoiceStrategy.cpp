@@ -5,9 +5,7 @@
  *      Author: Maximilian
  */
 
-#include "FirstChoiceStrategy.h"
-
-using namespace fuml::semantics::loci;
+#include <fuml/semantics/loci/FirstChoiceStrategy.h>
 
 int FirstChoiceStrategy::choose(int size)
 {

@@ -9,14 +9,6 @@
 #define FUML_SYNTAX_ACTIVITIES_ACTIVITYPARAMETERNODE_H_
 
 #include <fuml/syntax/activities/ObjectNode.h>
-#include <memory>
-
-namespace fuml::syntax::classification
-{
-	class Parameter;
-}
-using Parameter = fuml::syntax::classification::Parameter;
-using ParameterPtr = std::shared_ptr<Parameter>;
 
 namespace fuml::syntax::activities
 {
@@ -29,8 +21,5 @@ namespace fuml::syntax::activities
 			void setParameter(const ParameterPtr&);
 	}; // ActivityParameterNode
 }
-
-using ActivityParameterNode = fuml::syntax::activities::ActivityParameterNode;
-using ActivityParameterNodePtr = std::shared_ptr<ActivityParameterNode>;
 
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYPARAMETERNODE_H_ */

@@ -9,45 +9,12 @@
 #define FUML_SYNTAX_CLASSIFICATION_OPERATION_H_
 
 #include <fuml/syntax/classification/BehavioralFeature.h>
-#include <fuml/syntax/classification/OperationList.h>
-#include <fuml/syntax/classification/ParameterList.h>
 #include <UMLPrimitiveTypes/unlimitedNatural.h>
-#include <memory>
-
-namespace fuml::syntax::classification
-{
-	class Parameter;
-}
-using Parameter = fuml::syntax::classification::Parameter;
-using ParameterPtr = std::shared_ptr<Parameter>;
-
-namespace fuml::syntax::commonbehavior
-{
-	class Behavior;
-}
-using Behavior = fuml::syntax::commonbehavior::Behavior;
-using BehaviorPtr = std::shared_ptr<Behavior>;
-
-namespace fuml::syntax::commonstructure
-{
-	class Type;
-}
-using Type = fuml::syntax::commonstructure::Type;
-using TypePtr = std::shared_ptr<Type>;
-
-namespace fuml::syntax::structuredclassifiers
-{
-	class Class_;
-}
-using Class_ = fuml::syntax::structuredclassifiers::Class_;
-using Class_Ptr = std::shared_ptr<Class_>;
 
 namespace fuml::syntax::classification
 {
 	class Operation : virtual public BehavioralFeature
 	{
-		using OperationPtr = std::shared_ptr<Operation>;
-
 		public:
 			bool isQuery = false;
 			bool isOrdered = false;
@@ -75,8 +42,5 @@ namespace fuml::syntax::classification
 			void _setClass(const Class_Ptr&);
 	}; // Operation
 }
-
-using Operation = fuml::syntax::classification::Operation;
-using OperationPtr = std::shared_ptr<Operation>;
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_OPERATION_H_ */

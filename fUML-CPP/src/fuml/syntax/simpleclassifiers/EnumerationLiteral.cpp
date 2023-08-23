@@ -8,8 +8,6 @@
 #include <fuml/syntax/simpleclassifiers/EnumerationLiteral.h>
 #include <fuml/syntax/simpleclassifiers/Enumeration.h>
 
-using namespace fuml::syntax::simpleclassifiers;
-
 void EnumerationLiteral::_setEnumeration(
 	const EnumerationPtr& enumeration)
 {

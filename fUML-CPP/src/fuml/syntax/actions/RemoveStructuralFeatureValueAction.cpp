@@ -7,14 +7,12 @@
 
 #include <fuml/syntax/actions/RemoveStructuralFeatureValueAction.h>
 
-using namespace fuml::syntax::actions;
-
 void RemoveStructuralFeatureValueAction::setIsRemoveDuplicates(bool isRemoveDuplicates)
 {
 	this->isRemoveDuplicates = isRemoveDuplicates;
 } // setIsRemoveDuplicates
 
-void RemoveStructuralFeatureValueAction::setRemoveAt(const std::shared_ptr<InputPin>& removeAt)
+void RemoveStructuralFeatureValueAction::setRemoveAt(const InputPinPtr& removeAt)
 {
 	if(removeAt != nullptr)
 	{

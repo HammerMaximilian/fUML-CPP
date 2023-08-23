@@ -10,10 +10,6 @@
 #include <fuml/syntax/activities/ActivityEdge.h>
 #include <algorithm>
 #include <iterator>
-#include <memory>
-#include <vector>
-
-using namespace fuml::syntax::activities;
 
 void Activity::setThisPtr(std::weak_ptr<Activity> thisActivityPtr)
 {

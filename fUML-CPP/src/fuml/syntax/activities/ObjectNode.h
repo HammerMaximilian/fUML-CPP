@@ -10,7 +10,6 @@
 
 #include <fuml/syntax/activities/ActivityNode.h>
 #include <fuml/syntax/commonstructure/TypedElement.h>
-#include <memory>
 
 namespace fuml::syntax::activities
 {
@@ -22,8 +21,5 @@ namespace fuml::syntax::activities
 			virtual ~ObjectNode() = 0;
 	}; // ObjectNode
 }
-
-using ObjectNode = fuml::syntax::activities::ObjectNode;
-using ObjectNodePtr = std::shared_ptr<ObjectNode>;
 
 #endif /* FUML_SYNTAX_ACTIVITIES_OBJECTNODE_H_ */

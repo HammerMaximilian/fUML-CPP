@@ -9,32 +9,19 @@
 #define FUML_SYNTAX_ACTIONS_CREATEOBJECTACTION_H_
 
 #include <fuml/syntax/actions/Action.h>
-#include <memory>
-
-namespace fuml::syntax::classification
-{
-	class Classifier;
-}
-namespace fuml::syntax::actions
-{
-	class OutputPin;
-}
 
 namespace fuml::syntax::actions
 {
 	class CreateObjectAction : public Action
 	{
 		public:
-			std::shared_ptr<OutputPin> result = nullptr;
-			std::shared_ptr<fuml::syntax::classification::Classifier> classifier = nullptr;
+			OutputPinPtr result = nullptr;
+			ClassifierPtr classifier = nullptr;
 
 		public:
-			void setClassifier(const std::shared_ptr<fuml::syntax::classification::Classifier>&);
-			void setResult(const std::shared_ptr<OutputPin>& result);
+			void setClassifier(const ClassifierPtr&);
+			void setResult(const OutputPinPtr& result);
 	}; // CreateObjectAction
 }
-
-using CreateObjectAction = fuml::syntax::actions::CreateObjectAction;
-using CreateObjectActionPtr = std::shared_ptr<CreateObjectAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_CREATEOBJECTACTION_H_ */

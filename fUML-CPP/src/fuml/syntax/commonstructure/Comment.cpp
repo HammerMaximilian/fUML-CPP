@@ -6,7 +6,6 @@
  */
 
 #include <fuml/syntax/commonstructure/Comment.h>
-#include <vector>
 
 void Comment::setAnnotatedElement(
 	const ElementPtr& annotatedElement)

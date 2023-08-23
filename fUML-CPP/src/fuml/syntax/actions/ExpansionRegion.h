@@ -9,18 +9,16 @@
 #define FUML_SYNTAX_ACTIONS_EXPANSIONREGION_H_
 
 #include <fuml/syntax/actions/ExpansionKind.h>
-#include <fuml/syntax/actions/ExpansionNodeList.h>
 #include <fuml/syntax/actions/StructuredActivityNode.h>
-#include <memory>
 
 namespace fuml::syntax::actions
 {
-	class ExpansionRegion : public fuml::syntax::actions::StructuredActivityNode
+	class ExpansionRegion : public StructuredActivityNode
 	{
 		public:
-			fuml::syntax::actions::ExpansionKind mode = fuml::syntax::actions::ExpansionKind::iterative;
-			std::shared_ptr<ExpansionNodeList> outputElement = std::make_shared<ExpansionNodeList>();
-			std::shared_ptr<ExpansionNodeList> inputElement = std::make_shared<ExpansionNodeList>();
+			ExpansionKind mode = ExpansionKind::iterative;
+			ExpansionNodeListPtr outputElement = std::make_shared<ExpansionNodeList>();
+			ExpansionNodeListPtr inputElement = std::make_shared<ExpansionNodeList>();
 
 		private:
 			std::weak_ptr<ExpansionRegion> thisExpansionRegionPtr;
@@ -29,15 +27,12 @@ namespace fuml::syntax::actions
 			virtual void setThisPtr(std::weak_ptr<ExpansionRegion>);
 
 			void setMode(
-					fuml::syntax::actions::ExpansionKind);
+					ExpansionKind);
 			void addInputElement(
-					const std::shared_ptr<fuml::syntax::actions::ExpansionNode>&);
+					const ExpansionNodePtr&);
 			void addOutputElement(
-					const std::shared_ptr<fuml::syntax::actions::ExpansionNode>&);
+					const ExpansionNodePtr&);
 	}; // ExpansionRegion
 }
-
-using ExpansionRegion = fuml::syntax::actions::ExpansionRegion;
-using ExpansionRegionPtr = std::shared_ptr<ExpansionRegion>;
 
 #endif /* FUML_SYNTAX_ACTIONS_EXPANSIONREGION_H_ */

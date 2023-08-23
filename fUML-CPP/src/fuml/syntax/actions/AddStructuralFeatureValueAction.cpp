@@ -7,14 +7,12 @@
 
 #include <fuml/syntax/actions/AddStructuralFeatureValueAction.h>
 
-using namespace fuml::syntax::actions;
-
 void AddStructuralFeatureValueAction::setIsReplaceAll(bool isReplaceAll)
 {
 	this->isReplaceAll = isReplaceAll;
 } // setIsReplaceAll
 
-void AddStructuralFeatureValueAction::setInsertAt(const std::shared_ptr<InputPin>& insertAt)
+void AddStructuralFeatureValueAction::setInsertAt(const InputPinPtr& insertAt)
 {
 	if(insertAt != nullptr)
 	{

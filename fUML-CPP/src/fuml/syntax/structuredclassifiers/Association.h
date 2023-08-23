@@ -8,18 +8,8 @@
 #ifndef FUML_SYNTAX_STRUCTUREDCLASSIFIERS_ASSOCIATION_H_
 #define FUML_SYNTAX_STRUCTUREDCLASSIFIERS_ASSOCIATION_H_
 
-#include <memory>
-#include <vector>
+#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/classification/Classifier.h>
-#include <fuml/syntax/classification/PropertyList.h>
-#include <fuml/syntax/commonstructure/TypeList.h>
-
-namespace fuml::syntax::classification
-{
-	class Property;
-}
-using Property = fuml::syntax::classification::Property;
-using PropertyPtr = std::shared_ptr<Property>;
 
 namespace fuml::syntax::structuredclassifiers
 {
@@ -47,8 +37,5 @@ namespace fuml::syntax::structuredclassifiers
 			void _addMemberEnd(const PropertyPtr&);
 	}; // Association
 }
-
-using Association = fuml::syntax::structuredclassifiers::Association;
-using AssociationPtr = std::shared_ptr<Association>;
 
 #endif /* FUML_SYNTAX_STRUCTUREDCLASSIFIERS_ASSOCIATION_H_ */

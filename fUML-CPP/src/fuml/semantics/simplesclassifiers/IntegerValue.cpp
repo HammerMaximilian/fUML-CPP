@@ -5,18 +5,15 @@
  *      Author: maha6913
  */
 
-#include "IntegerValue.h"
-
-#include "fuml/syntax/simpleclassifiers/PrimitiveType.h"
+#include <fuml/semantics/simplesclassifiers/IntegerValue.h>
+#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
 #include "fuml/syntax/values/LiteralInteger.h"
 
-using namespace fuml::semantics::simpleclassifiers;
-
-std::shared_ptr<fuml::syntax::values::ValueSpecification> IntegerValue::specify()
+ValueSpecificationPtr IntegerValue::specify()
 {
 	// Return a literal integer with the value of this integer value.
 
-	std::shared_ptr<fuml::syntax::values::LiteralInteger> literal(new fuml::syntax::values::LiteralInteger());
+	LiteralIntegerPtr literal(new LiteralInteger());
 
 	literal->type = this->type;
 	literal->value = this->value;
@@ -24,14 +21,14 @@ std::shared_ptr<fuml::syntax::values::ValueSpecification> IntegerValue::specify(
 	return literal;
 } // specify
 
-bool IntegerValue::equals(const std::shared_ptr<fuml::semantics::values::Value>& otherValue)
+bool IntegerValue::equals(const ValuePtr& otherValue)
 {
 	// Test if this integer value is equal to the otherValue.
 	// To be equal, the otherValue must have the same value as this integer
 	// value.
 
 	bool isEqual = false;
-	std::shared_ptr<IntegerValue> integerValue = std::dynamic_pointer_cast<IntegerValue>(otherValue);
+	IntegerValuePtr integerValue = std::dynamic_pointer_cast<IntegerValue>(otherValue);
 	if (integerValue) {
 		isEqual = (integerValue->value == this->value);
 	}
@@ -39,11 +36,11 @@ bool IntegerValue::equals(const std::shared_ptr<fuml::semantics::values::Value>&
 	return isEqual;
 } // equals
 
-std::shared_ptr<fuml::semantics::values::Value> IntegerValue::copy()
+ValuePtr IntegerValue::copy()
 {
 	// Create a new integer value with the same value as this integer value.
 
-	std::shared_ptr<IntegerValue> newValue = std::dynamic_pointer_cast<IntegerValue>(PrimitiveValue::copy());
+	IntegerValuePtr newValue = std::dynamic_pointer_cast<IntegerValue>(PrimitiveValue::copy());
 
 	newValue->value = this->value;
 	return newValue;
@@ -98,9 +95,9 @@ std::string IntegerValue::toString()
 	return stringValue;
 } // toString
 
-std::shared_ptr<fuml::semantics::values::Value> IntegerValue::new_()
+ValuePtr IntegerValue::new_()
 {
 	// Return a new integer value with no value.
 
-	return std::shared_ptr<IntegerValue>(new IntegerValue());
+	return IntegerValuePtr(new IntegerValue());
 }

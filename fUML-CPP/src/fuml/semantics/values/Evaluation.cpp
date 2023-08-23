@@ -7,8 +7,6 @@
 
 #include "Evaluation.h"
 
-using namespace fuml::semantics::values;
-
 Evaluation::~Evaluation()
 {
 }

@@ -7,14 +7,12 @@
 
 #include <fuml/syntax/actions/LinkEndCreationData.h>
 
-using namespace fuml::syntax::actions;
-
 void LinkEndCreationData::setIsReplaceAll(bool isReplaceAll)
 {
 	this->isReplaceAll = isReplaceAll;
 } // setEnd
 
-void LinkEndCreationData::setInsertAt(const std::shared_ptr<InputPin>& insertAt)
+void LinkEndCreationData::setInsertAt(const InputPinPtr& insertAt)
 {
 	this->insertAt = insertAt;
 } // setValue

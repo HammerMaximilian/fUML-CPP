@@ -6,7 +6,6 @@
  */
 
 #include <fuml/syntax/classification/RedefinableElement.h>
-#include <vector>
 
 RedefinableElement::~RedefinableElement()
 {

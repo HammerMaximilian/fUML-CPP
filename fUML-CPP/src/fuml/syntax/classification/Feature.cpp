@@ -6,7 +6,6 @@
  */
 
 #include <fuml/syntax/classification/Feature.h>
-#include <vector>
 
 Feature::~Feature()
 {

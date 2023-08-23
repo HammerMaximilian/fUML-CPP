@@ -7,14 +7,12 @@
 
 #include <fuml/syntax/actions/LinkEndDestructionData.h>
 
-using namespace fuml::syntax::actions;
-
 void LinkEndDestructionData::setIsDestroyDuplicates(bool isDestroyDuplicates)
 {
 	this->isDestroyDuplicates = isDestroyDuplicates;
 } // setIsDestroyDuplicates
 
-void LinkEndDestructionData::setDestroyAt(const std::shared_ptr<InputPin>& destroyAt)
+void LinkEndDestructionData::setDestroyAt(const InputPinPtr& destroyAt)
 {
 	this->destroyAt = destroyAt;
 } // setDestroyAt

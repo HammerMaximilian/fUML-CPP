@@ -12,12 +12,9 @@
 
 namespace fuml::syntax::actions
 {
-	class OutputPin: virtual public fuml::syntax::actions::Pin
+	class OutputPin: virtual public Pin
 	{
 	}; // OutputPin
 }
-
-using OutputPin = fuml::syntax::actions::OutputPin;
-using OutputPinPtr = std::shared_ptr<OutputPin>;
 
 #endif /* FUML_SYNTAX_ACTIONS_OUTPUTPIN_H_ */

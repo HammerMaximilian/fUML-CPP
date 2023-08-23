@@ -7,8 +7,6 @@
 
 #include <fuml/syntax/actions/DestroyObjectAction.h>
 
-using namespace fuml::syntax::actions;
-
 void DestroyObjectAction::setIsDestroyLinks(bool isDestroyLinks)
 {
 	this->isDestroyLinks = isDestroyLinks;
@@ -20,7 +18,7 @@ void DestroyObjectAction::setIsDestroyOwnedObjects(bool isDestroyOwnedObjects)
 } // setIsDestroyOwnedObjects
 
 void DestroyObjectAction::setTarget(
-	const std::shared_ptr<InputPin>& target)
+	const InputPinPtr& target)
 {
 	Action::addInput(target);
 	this->target = target;

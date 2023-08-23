@@ -7,9 +7,6 @@
 
 #include <fuml/syntax/activities/ExceptionHandler.h>
 #include <fuml/syntax/activities/ExecutableNode.h>
-#include <vector>
-
-using namespace fuml::syntax::activities;
 
 ExecutableNode::~ExecutableNode()
 {

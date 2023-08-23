@@ -10,14 +10,6 @@
 
 #include <fuml/syntax/commonstructure/Element.h>
 #include <UMLPrimitiveTypes/unlimitedNatural.h>
-#include <memory>
-
-namespace fuml::syntax::values
-{
-	class ValueSpecification;
-}
-using ValueSpecification = fuml::syntax::values::ValueSpecification;
-using ValueSpecificationPtr = std::shared_ptr<ValueSpecification>;
 
 namespace fuml::syntax::commonstructure
 {
@@ -44,8 +36,5 @@ namespace fuml::syntax::commonstructure
 			void setLower(int);
 	}; // MultiplicityElement
 }
-
-using MultiplicityElement = fuml::syntax::commonstructure::MultiplicityElement;
-using MultiplicityElementPtr = std::shared_ptr<MultiplicityElement>;
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_MULTIPLICITYELEMENT_H_ */

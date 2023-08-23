@@ -9,14 +9,6 @@
 #define FUML_SYNTAX_COMMONSTRUCTURE_TYPEDELEMENT_H_
 
 #include <fuml/syntax/commonstructure/NamedElement.h>
-#include <memory>
-
-namespace fuml::syntax::commonstructure
-{
-	class Type;
-}
-using Type = fuml::syntax::commonstructure::Type;
-using TypePtr = std::shared_ptr<Type>;
 
 namespace fuml::syntax::commonstructure
 {
@@ -29,8 +21,5 @@ namespace fuml::syntax::commonstructure
 			void setType(const TypePtr&);
 	}; // TypedElement
 }
-
-using TypedElement = fuml::syntax::commonstructure::TypedElement;
-using TypedElementPtr = std::shared_ptr<TypedElement>;
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_TYPEDELEMENT_H_ */

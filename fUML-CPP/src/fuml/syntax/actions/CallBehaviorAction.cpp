@@ -7,10 +7,8 @@
 
 #include <fuml/syntax/actions/CallBehaviorAction.h>
 
-using namespace fuml::syntax::actions;
-
 void CallBehaviorAction::setBehavior(
-	const std::shared_ptr<fuml::syntax::commonbehavior::Behavior>& behavior)
+	const BehaviorPtr& behavior)
 {
 	this->behavior = behavior;
 } // setBehavior

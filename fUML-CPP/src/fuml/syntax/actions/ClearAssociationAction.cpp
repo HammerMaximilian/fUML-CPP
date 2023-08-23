@@ -7,16 +7,14 @@
 
 #include <fuml/syntax/actions/ClearAssociationAction.h>
 
-using namespace fuml::syntax::actions;
-
-void ClearAssociationAction::setObject(const std::shared_ptr<InputPin>& object)
+void ClearAssociationAction::setObject(const InputPinPtr& object)
 {
 	Action::addInput(object);
 	this->object = object;
 } // setObject
 
 void ClearAssociationAction::setAssociation(
-	const std::shared_ptr<fuml::syntax::structuredclassifiers::Association>& association)
+	const AssociationPtr& association)
 {
 	this->association = association;
 } // setAssociation

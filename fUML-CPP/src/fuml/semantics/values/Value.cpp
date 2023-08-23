@@ -5,25 +5,23 @@
  *      Author: Maximilian
  */
 
-#include "Value.h"
+#include <fuml/semantics/values/Value.h>
 
 #include "fuml/syntax/classification/Classifier.h"
-
-using namespace fuml::semantics::values;
 
 Value::~Value()
 {
 }
 
-bool Value::equals(const std::shared_ptr<fuml::semantics::values::Value>& otherValue)
+bool Value::equals(const ValuePtr& otherValue)
 {
 	// Test if this value is equal to otherValue. To be equal, this value
 	// must have the same type as otherValue.
 	// This operation must be overridden in Value subclasses to check for
 	// equality of properties defined in those subclasses.
 
-	std::shared_ptr<fuml::syntax::classification::ClassifierList> myTypes = this->getTypes();
-	std::shared_ptr<fuml::syntax::classification::ClassifierList> otherTypes = otherValue->getTypes();
+	ClassifierListPtr myTypes = this->getTypes();
+	ClassifierListPtr otherTypes = otherValue->getTypes();
 
 	bool isEqual = true;
 
@@ -51,7 +49,7 @@ bool Value::equals(const std::shared_ptr<fuml::semantics::values::Value>& otherV
 	return isEqual;
 } // equals
 
-std::shared_ptr<fuml::semantics::values::Value> Value::copy()
+ValuePtr Value::copy()
 {
 	// Create a new value that is equal to this value.
 	// By default, this operation simply creates a new value with empty
@@ -62,11 +60,11 @@ std::shared_ptr<fuml::semantics::values::Value> Value::copy()
 	return this->new_();
 } // copy
 
-bool Value::hasType(const std::shared_ptr<fuml::syntax::classification::Classifier>& type)
+bool Value::hasType(const ClassifierPtr& type)
 {
 	// Check if this object has the given classifier as a type.
 
-	std::shared_ptr<fuml::syntax::classification::ClassifierList> types = this->getTypes();
+	ClassifierListPtr types = this->getTypes();
 
 	bool found = false;
 	unsigned int i = 1;
@@ -79,12 +77,12 @@ bool Value::hasType(const std::shared_ptr<fuml::syntax::classification::Classifi
 	return found;
 } // hasType
 
-bool Value::isInstanceOf(const std::shared_ptr<fuml::syntax::classification::Classifier>& classifier)
+bool Value::isInstanceOf(const ClassifierPtr& classifier)
 {
 	// Check if this value has the given classifier as its type
 	// or as an ancestor of one of its types.
 
-	std::shared_ptr<fuml::syntax::classification::ClassifierList> types = this->getTypes();
+	ClassifierListPtr types = this->getTypes();
 
 	bool isInstance = this->hasType(classifier);
 	unsigned int i = 1;
@@ -97,18 +95,18 @@ bool Value::isInstanceOf(const std::shared_ptr<fuml::syntax::classification::Cla
 	return isInstance;
 }
 
-bool Value::checkAllParents(const std::shared_ptr<fuml::syntax::classification::Classifier>& type,
-		const std::shared_ptr<fuml::syntax::classification::Classifier>& classifier)
+bool Value::checkAllParents(const ClassifierPtr& type,
+		const ClassifierPtr& classifier)
 {
 	// Check if the given classifier matches any of the direct or indirect
 	// ancestors of a given type.
 
-	std::shared_ptr<fuml::syntax::classification::ClassifierList> directParents = type->general;
+	ClassifierListPtr directParents = type->general;
 	bool matched = false;
 	unsigned int i = 1;
 	unsigned int directParentsSize = directParents->size();
 	while (!matched && i <= directParentsSize) {
-		std::shared_ptr<fuml::syntax::classification::Classifier> directParent = directParents->at(i - 1);
+		ClassifierPtr directParent = directParents->at(i - 1);
 		if (directParent == classifier) {
 			matched = true;
 		} else {

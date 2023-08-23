@@ -10,7 +10,6 @@
 
 #include <fuml/syntax/commonbehavior/Behavior.h>
 #include <UMLPrimitiveTypes/stringList.h>
-#include <memory>
 #include <string>
 
 namespace fuml::syntax::commonbehavior
@@ -26,8 +25,5 @@ namespace fuml::syntax::commonbehavior
 			void addLanguage(std::string);
 	}; // OpaqueBehavior
 }
-
-using OpaqueBehavior = fuml::syntax::commonbehavior::OpaqueBehavior;
-using OpaqueBehaviorPtr = std::shared_ptr<OpaqueBehavior>;
 
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_OPAQUEBEHAVIOR_H_ */

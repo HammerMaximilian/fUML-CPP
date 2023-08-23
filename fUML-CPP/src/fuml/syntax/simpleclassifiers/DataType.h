@@ -8,17 +8,8 @@
 #ifndef FUML_SYNTAX_SIMPLECLASSIFIERS_DATATYPE_H_
 #define FUML_SYNTAX_SIMPLECLASSIFIERS_DATATYPE_H_
 
-#include <memory>
-#include <vector>
+#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/classification/Classifier.h>
-#include <fuml/syntax/classification/PropertyList.h>
-
-namespace fuml::syntax::classification
-{
-	class Property;
-}
-using Property = fuml::syntax::classification::Property;
-using PropertyPtr = std::shared_ptr<Property>;
 
 namespace fuml::syntax::simpleclassifiers
 {
@@ -37,8 +28,5 @@ namespace fuml::syntax::simpleclassifiers
 				const PropertyPtr&);
 	}; // DataType
 }
-
-using DataType = fuml::syntax::simpleclassifiers::DataType;
-using DataTypePtr = std::shared_ptr<DataType>;
 
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_DATATYPE_H_ */

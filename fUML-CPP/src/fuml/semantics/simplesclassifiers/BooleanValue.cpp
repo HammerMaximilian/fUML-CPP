@@ -5,18 +5,15 @@
  *      Author: maha6913
  */
 
-#include "BooleanValue.h"
+#include <fuml/semantics/simplesclassifiers/BooleanValue.h>
+#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
+#include <fuml/syntax/values/LiteralBoolean.h>
 
-#include "fuml/syntax/simpleclassifiers/PrimitiveType.h"
-#include "fuml/syntax/values/LiteralBoolean.h"
-
-using namespace fuml::semantics::simpleclassifiers;
-
-std::shared_ptr<fuml::syntax::values::ValueSpecification> BooleanValue::specify()
+ValueSpecificationPtr BooleanValue::specify()
 {
 	// Return a literal boolean with the value of this boolean value.
 
-	std::shared_ptr<fuml::syntax::values::LiteralBoolean> literal(new fuml::syntax::values::LiteralBoolean());
+	LiteralBooleanPtr literal(new LiteralBoolean());
 
 	literal->type = this->type;
 	literal->value = this->value;
@@ -24,14 +21,14 @@ std::shared_ptr<fuml::syntax::values::ValueSpecification> BooleanValue::specify(
 	return literal;
 } // specify
 
-bool BooleanValue::equals(const std::shared_ptr<fuml::semantics::values::Value>& otherValue)
+bool BooleanValue::equals(const ValuePtr& otherValue)
 {
 	// Test if this boolean value is equal to the otherValue.
 	// To be equal, the otherValue must have the same value as this boolean
 	// value.
 
 	bool isEqual = false;
-	std::shared_ptr<BooleanValue> booleanValue = std::dynamic_pointer_cast<BooleanValue>(otherValue);
+	BooleanValuePtr booleanValue = std::dynamic_pointer_cast<BooleanValue>(otherValue);
 	if (booleanValue) {
 		isEqual = (booleanValue->value == this->value);
 	}
@@ -39,11 +36,11 @@ bool BooleanValue::equals(const std::shared_ptr<fuml::semantics::values::Value>&
 	return isEqual;
 } // equals
 
-std::shared_ptr<fuml::semantics::values::Value> BooleanValue::copy()
+ValuePtr BooleanValue::copy()
 {
 	// Create a new boolean value with the same value as this boolean value.
 
-	std::shared_ptr<BooleanValue> newValue = std::dynamic_pointer_cast<BooleanValue>(PrimitiveValue::copy());
+	BooleanValuePtr newValue = std::dynamic_pointer_cast<BooleanValue>(PrimitiveValue::copy());
 
 	newValue->value = this->value;
 	return newValue;
@@ -60,9 +57,9 @@ std::string BooleanValue::toString()
 	return stringValue;
 } // toString
 
-std::shared_ptr<fuml::semantics::values::Value> BooleanValue::new_()
+ValuePtr BooleanValue::new_()
 {
 	// Return a new boolean value with no value.
 
-	return std::shared_ptr<BooleanValue>(new BooleanValue());
+	return BooleanValuePtr(new BooleanValue());
 }

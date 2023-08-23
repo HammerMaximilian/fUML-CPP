@@ -8,25 +8,21 @@
 #ifndef FUML_SEMANTICS_SIMPLESCLASSIFIERS_PRIMITIVEVALUE_H_
 #define FUML_SEMANTICS_SIMPLESCLASSIFIERS_PRIMITIVEVALUE_H_
 
-#include "fuml/semantics/values/Value.h"
-#include "fuml/syntax/classification/ClassifierList.h"
-
-namespace fuml::syntax::simpleclassifiers
-{
-	class PrimitiveType;
-}
+#include <fuml/syntax/fwd.h>
+#include <fuml/semantics/values/Value.h>
 
 namespace fuml::semantics::simpleclassifiers
 {
-	class PrimitiveValue : public fuml::semantics::values::Value
+	class PrimitiveValue : public Value
 	{
 		public:
-			std::shared_ptr<fuml::syntax::simpleclassifiers::PrimitiveType> type = nullptr;
+			PrimitiveTypePtr type = nullptr;
+
 		public:
 			virtual ~PrimitiveValue() = 0;
 
-			virtual std::shared_ptr<fuml::semantics::values::Value> copy() override;
-			virtual std::shared_ptr<fuml::syntax::classification::ClassifierList> getTypes() override;
+			virtual ValuePtr copy() override;
+			virtual ClassifierListPtr getTypes() override;
 	}; // PrimitiveValue
 }
 

@@ -8,30 +8,23 @@
 #ifndef FUML_SYNTAX_ACTIONS_EXPANSIONNODE_H_
 #define FUML_SYNTAX_ACTIONS_EXPANSIONNODE_H_
 
+#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/activities/ObjectNode.h>
 
 namespace fuml::syntax::actions
 {
-	class ExpansionRegion;
-}
-
-namespace fuml::syntax::actions
-{
-	class ExpansionNode : fuml::syntax::activities::ObjectNode
+	class ExpansionNode : ObjectNode
 	{
 		public:
-			std::shared_ptr<fuml::syntax::actions::ExpansionRegion> regionAsOutput = nullptr;
-			std::shared_ptr<fuml::syntax::actions::ExpansionRegion> regionAsInput = nullptr;
+			ExpansionRegionPtr regionAsOutput = nullptr;
+			ExpansionRegionPtr regionAsInput = nullptr;
 
 		public:
 			void _setRegionAsInput(
-					const std::shared_ptr<fuml::syntax::actions::ExpansionRegion>&);
+					const ExpansionRegionPtr&);
 			void _setRegionAsOutput(
-					const std::shared_ptr<fuml::syntax::actions::ExpansionRegion>&);
+					const ExpansionRegionPtr&);
 	}; // ExpansionNode
 }
-
-using ExpansionNode = fuml::syntax::actions::ExpansionNode;
-using ExpansionNodePtr = std::shared_ptr<ExpansionNode>;
 
 #endif /* FUML_SYNTAX_ACTIONS_EXPANSIONNODE_H_ */

@@ -6,9 +6,6 @@
  */
 
 #include <fuml/syntax/activities/DecisionNode.h>
-#include <memory>
-
-using namespace fuml::syntax::activities;
 
 void DecisionNode::setDecisionInput(
 	const BehaviorPtr& decisionInput)

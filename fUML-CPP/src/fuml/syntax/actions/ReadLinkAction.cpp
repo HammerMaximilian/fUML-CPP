@@ -7,9 +7,7 @@
 
 #include <fuml/syntax/actions/ReadLinkAction.h>
 
-using namespace fuml::syntax::actions;
-
-void ReadLinkAction::setResult(const std::shared_ptr<OutputPin>& result)
+void ReadLinkAction::setResult(const OutputPinPtr& result)
 {
 	Action::addOutput(result);
 	this->result = result;

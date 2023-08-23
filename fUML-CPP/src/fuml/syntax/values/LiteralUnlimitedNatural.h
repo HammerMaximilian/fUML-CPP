@@ -10,7 +10,6 @@
 
 #include <fuml/syntax/values/LiteralSpecification.h>
 #include <UMLPrimitiveTypes/unlimitedNatural.h>
-#include <memory>
 
 namespace fuml::syntax::values
 {
@@ -23,8 +22,5 @@ namespace fuml::syntax::values
 			void setValue(UMLPrimitiveTypes::unlimitedNatural);
 	}; // LiteralUnlimitedNatural
 }
-
-using LiteralUnlimitedNatural = fuml::syntax::values::LiteralUnlimitedNatural;
-using LiteralUnlimitedNaturalPtr = std::shared_ptr<LiteralUnlimitedNatural>;
 
 #endif /* FUML_SYNTAX_VALUES_LITERALUNLIMITEDNATURAL_H_ */

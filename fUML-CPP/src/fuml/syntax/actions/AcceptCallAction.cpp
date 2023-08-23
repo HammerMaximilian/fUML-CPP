@@ -7,9 +7,7 @@
 
 #include <fuml/syntax/actions/AcceptCallAction.h>
 
-using namespace fuml::syntax::actions;
-
-void AcceptCallAction::setReturnInformation(const std::shared_ptr<OutputPin>& returnInformation)
+void AcceptCallAction::setReturnInformation(const OutputPinPtr& returnInformation)
 {
 	Action::addOutput(returnInformation);
 	this->returnInformation = returnInformation;

@@ -6,10 +6,6 @@
  */
 
 #include <fuml/syntax/activities/ExceptionHandler.h>
-#include <memory>
-#include <vector>
-
-using namespace fuml::syntax::activities;
 
 void ExceptionHandler::setExceptionInput(const ObjectNodePtr& exceptionInput) {
 	this->exceptionInput = exceptionInput;

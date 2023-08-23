@@ -7,16 +7,14 @@
 
 #include <fuml/syntax/actions/ReadExtentAction.h>
 
-using namespace fuml::syntax::actions;
-
-void ReadExtentAction::setResult(const std::shared_ptr<OutputPin>& result)
+void ReadExtentAction::setResult(const OutputPinPtr& result)
 {
 	Action::addOutput(result);
 	this->result = result;
 } // setResult
 
 void ReadExtentAction::setClassifier(
-	const std::shared_ptr<fuml::syntax::classification::Classifier>& classifier)
+	const ClassifierPtr& classifier)
 {
 	this->classifier = classifier;
 } // setClassifier

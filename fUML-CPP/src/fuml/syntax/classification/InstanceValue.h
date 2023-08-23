@@ -8,15 +8,7 @@
 #ifndef FUML_SYNTAX_CLASSIFICATION_INSTANCEVALUE_H_
 #define FUML_SYNTAX_CLASSIFICATION_INSTANCEVALUE_H_
 
-#include <memory>
 #include <fuml/syntax/values/ValueSpecification.h>
-
-namespace fuml::syntax::classification
-{
-	class InstanceSpecification;
-}
-using InstanceSpecification = fuml::syntax::classification::InstanceSpecification;
-using InstanceSpecificationPtr = std::shared_ptr<InstanceSpecification>;
 
 namespace fuml::syntax::classification
 {
@@ -30,8 +22,5 @@ namespace fuml::syntax::classification
 					const InstanceSpecificationPtr&);
 	}; // InstanceValue
 }
-
-using InstanceValue = fuml::syntax::classification::InstanceValue;
-using InstanceValuePtr = std::shared_ptr<InstanceValue>;
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_INSTANCEVALUE_H_ */

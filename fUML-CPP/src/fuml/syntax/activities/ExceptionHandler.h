@@ -8,25 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_EXCEPTIONHANDLER_H_
 #define FUML_SYNTAX_ACTIVITIES_EXCEPTIONHANDLER_H_
 
+#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/commonstructure/Element.h>
-#include <fuml/syntax/classification/ClassifierList.h>
-
-namespace fuml::syntax::classification
-{
-	class Classifier;
-}
-using Classifier = fuml::syntax::classification::Classifier;
-using ClassifierPtr = std::shared_ptr<Classifier>;
-
-namespace fuml::syntax::activities
-{
-	class ExecutableNode;
-	class ObjectNode;
-}
-using ExecutableNode = fuml::syntax::activities::ExecutableNode;
-using ExecutableNodePtr = std::shared_ptr<ExecutableNode>;
-using ObjectNode = fuml::syntax::activities::ObjectNode;
-using ObjectNodePtr = std::shared_ptr<ObjectNode>;
 
 namespace fuml::syntax::activities
 {
@@ -66,8 +49,5 @@ namespace fuml::syntax::activities
 			void setHandlerBody(const ExecutableNodePtr&);
 	}; // ExceptionHandler
 }
-
-using ExceptionHandler = fuml::syntax::activities::ExceptionHandler;
-using ExceptionHandlerPtr = std::shared_ptr<ExceptionHandler>;
 
 #endif /* FUML_SYNTAX_ACTIVITIES_EXCEPTIONHANDLER_H_ */

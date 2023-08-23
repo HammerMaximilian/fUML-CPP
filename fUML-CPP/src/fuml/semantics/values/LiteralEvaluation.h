@@ -8,12 +8,8 @@
 #ifndef FUML_SEMANTICS_VALUES_LITERALEVALUATION_H_
 #define FUML_SEMANTICS_VALUES_LITERALEVALUATION_H_
 
-#include "Evaluation.h"
-
-namespace fuml::syntax::simpleclassifiers
-{
-	class PrimitiveType;
-}
+#include <fuml/syntax/fwd.h>
+#include <fuml/semantics/values/Evaluation.h>
 
 namespace fuml::semantics::values
 {
@@ -22,7 +18,7 @@ namespace fuml::semantics::values
 		public:
 			virtual ~LiteralEvaluation() = 0;
 
-			std::shared_ptr<fuml::syntax::simpleclassifiers::PrimitiveType> getType(std::string);
+			PrimitiveTypePtr getType(std::string);
 	}; // LiteralEvaluation
 }
 

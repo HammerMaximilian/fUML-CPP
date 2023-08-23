@@ -7,26 +7,24 @@
 
 #include <fuml/syntax/actions/ReduceAction.h>
 
-using namespace fuml::syntax::actions;
-
 void ReduceAction::setIsOrdered(bool isOrdered)
 {
 	this->isOrdered = isOrdered;
 } //setIsOrdered
 
 void ReduceAction::setReducer(
-	const std::shared_ptr<fuml::syntax::commonbehavior::Behavior>& reducer)
+	const BehaviorPtr& reducer)
 {
 	this->reducer = reducer;
 } // setReducer
 
-void ReduceAction::setCollection(const std::shared_ptr<InputPin>& collection)
+void ReduceAction::setCollection(const InputPinPtr& collection)
 {
 	Action::addInput(collection);
 	this->collection = collection;
 } // setCollection
 
-void ReduceAction::setResult(const std::shared_ptr<OutputPin>& result)
+void ReduceAction::setResult(const OutputPinPtr& result)
 {
 	Action::addOutput(result);
 	this->result = result;

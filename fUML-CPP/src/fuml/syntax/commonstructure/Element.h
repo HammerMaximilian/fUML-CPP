@@ -8,17 +8,13 @@
 #ifndef FUML_SYNTAX_COMMONSTRUCTURE_ELEMENT_H_
 #define FUML_SYNTAX_COMMONSTRUCTURE_ELEMENT_H_
 
-#include <fuml/syntax/commonstructure/CommentList.h>
-#include <fuml/syntax/commonstructure/ElementList.h>
+#include <fuml/syntax/fwd.h>
 #include <utils/FumlObject.h>
-#include <memory>
 
 namespace fuml::syntax::commonstructure
 {
 	class Element : public utils::FumlObject
 	{
-		using ElementPtr = std::shared_ptr<Element>;
-
 		public:
 			ElementListPtr ownedElement = std::make_shared<ElementList>();
 			ElementPtr owner = nullptr;
@@ -36,7 +32,5 @@ namespace fuml::syntax::commonstructure
 				const ElementPtr& ownedElement);
 	}; // Element
 }
-
-using Element = fuml::syntax::commonstructure::Element;
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_ELEMENT_H_ */

@@ -18,6 +18,4 @@ namespace fuml::syntax::actions
 	}; // ExpansionKind
 }
 
-using ExpansionKind = fuml::syntax::actions::ExpansionKind;
-
 #endif /* FUML_SYNTAX_ACTIONS_EXPANSIONKIND_H_ */

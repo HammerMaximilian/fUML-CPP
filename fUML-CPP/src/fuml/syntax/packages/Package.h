@@ -9,18 +9,12 @@
 #define FUML_SYNTAX_PACKAGES_PACKAGE_H_
 
 #include <fuml/syntax/commonstructure/Namespace.h>
-#include <fuml/syntax/commonstructure/PackageableElementList.h>
-#include <fuml/syntax/commonstructure/TypeList.h>
-#include <fuml/syntax/packages/PackageList.h>
-#include <memory>
 #include <string>
 
 namespace fuml::syntax::packages
 {
 	class Package : public Namespace
 	{
-		using PackagePtr = std::shared_ptr<Package>;
-
 		public:
 			PackageableElementListPtr packagedElement = std::make_shared<PackageableElementList>();
 			TypeListPtr ownedType = std::make_shared<TypeList>();
@@ -40,8 +34,5 @@ namespace fuml::syntax::packages
 			void setURI(std::string URI);
 	}; //Package
 }
-
-using Package = fuml::syntax::packages::Package;
-using PackagePtr = std::shared_ptr<Package>;
 
 #endif /* FUML_SYNTAX_PACKAGES_PACKAGE_H_ */

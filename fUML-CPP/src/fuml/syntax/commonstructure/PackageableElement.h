@@ -9,7 +9,6 @@
 #define FUML_SYNTAX_COMMONSTRUCTURE_PACKAGEABLEELEMENT_H_
 
 #include <fuml/syntax/commonstructure/NamedElement.h>
-#include <memory>
 
 namespace fuml::syntax::commonstructure
 {
@@ -20,8 +19,5 @@ namespace fuml::syntax::commonstructure
 			virtual ~PackageableElement() = 0;
 	};
 }
-
-using PackageableElement = fuml::syntax::commonstructure::PackageableElement;
-using PackageableElementPtr = std::shared_ptr<PackageableElement>;
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_PACKAGEABLEELEMENT_H_ */

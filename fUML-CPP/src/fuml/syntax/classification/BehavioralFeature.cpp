@@ -8,8 +8,6 @@
 #include <fuml/syntax/classification/BehavioralFeature.h>
 #include <fuml/syntax/commonbehavior/Behavior.h>
 #include <fuml/syntax/classification/Parameter.h>
-#include <memory>
-#include <vector>
 
 BehavioralFeature::~BehavioralFeature()
 {

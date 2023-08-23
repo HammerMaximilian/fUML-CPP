@@ -10,7 +10,6 @@
 #include <fuml/syntax/classification/Property.h>
 #include <fuml/syntax/simpleclassifiers/Reception.h>
 #include <fuml/syntax/structuredclassifiers/Class_.h>
-#include <vector>
 
 void Class_::setThisPtr(std::weak_ptr<Class_> thisClass_Ptr)
 {

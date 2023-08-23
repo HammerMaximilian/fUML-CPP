@@ -8,24 +8,13 @@
 #ifndef FUML_SYNTAX_CLASSIFICATION_REDEFINABLEELEMENT_H_
 #define FUML_SYNTAX_CLASSIFICATION_REDEFINABLEELEMENT_H_
 
-#include <fuml/syntax/classification/ClassifierList.h>
-#include <fuml/syntax/classification/RedefinableElementList.h>
 #include <fuml/syntax/commonstructure/NamedElement.h>
-#include <memory>
 
-namespace fuml::syntax::classification
-{
-	class Classifier;
-}
-using Classifier = fuml::syntax::classification::Classifier;
-using ClassifierPtr = std::shared_ptr<Classifier>;
 
 namespace fuml::syntax::classification
 {
 	class RedefinableElement : virtual public NamedElement
 	{
-		using RedefinableElementPtr = std::shared_ptr<RedefinableElement>;
-
 		public:
 			bool isLeaf = false;
 			RedefinableElementListPtr redefinedElement = std::make_shared<RedefinableElementList>();
@@ -43,8 +32,5 @@ namespace fuml::syntax::classification
 					const ClassifierPtr&);
 	}; // RedefinableElement
 }
-
-using RedefinableElement = fuml::syntax::classification::RedefinableElement;
-using RedefinableElementPtr = std::shared_ptr<RedefinableElement>;
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_REDEFINABLEELEMENT_H_ */

@@ -9,35 +9,21 @@
 #define FUML_SYNTAX_ACTIONS_UNMARSHALLACTION_H_
 
 #include <fuml/syntax/actions/Action.h>
-#include <fuml/syntax/actions/OutputPinList.h>
-#include <memory>
-
-namespace fuml::syntax::classification
-{
-	class Classifier;
-}
-namespace fuml::syntax::actions
-{
-	class InputPin;
-}
 
 namespace fuml::syntax::actions
 {
 	class UnmarshallAction : public Action
 	{
 		public:
-			std::shared_ptr<InputPin> object = nullptr;
-			std::shared_ptr<OutputPinList> result = std::make_shared<OutputPinList>();
-			std::shared_ptr<fuml::syntax::classification::Classifier> unmarshallType = nullptr;
+			InputPinPtr object = nullptr;
+			OutputPinListPtr result = std::make_shared<OutputPinList>();
+			ClassifierPtr unmarshallType = nullptr;
 
 		public:
-			void setObject(const std::shared_ptr<InputPin>&);
-			void addResult(const std::shared_ptr<OutputPin>&);
-			void setUnmarshallType(const std::shared_ptr<fuml::syntax::classification::Classifier>&);
+			void setObject(const InputPinPtr&);
+			void addResult(const OutputPinPtr&);
+			void setUnmarshallType(const ClassifierPtr&);
 	}; // UnmarshallAction
 }
-
-using UnmarshallAction = fuml::syntax::actions::UnmarshallAction;
-using UnmarshallActionPtr = std::shared_ptr<UnmarshallAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_UNMARSHALLACTION_H_ */

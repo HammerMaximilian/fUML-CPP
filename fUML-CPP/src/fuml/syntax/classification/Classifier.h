@@ -8,34 +8,12 @@
 #ifndef FUML_SYNTAX_CLASSIFICATION_CLASSIFIER_H_
 #define FUML_SYNTAX_CLASSIFICATION_CLASSIFIER_H_
 
-#include <fuml/syntax/classification/ClassifierList.h>
-#include <fuml/syntax/classification/FeatureList.h>
-#include <fuml/syntax/classification/GeneralizationList.h>
-#include <fuml/syntax/classification/PropertyList.h>
-#include <fuml/syntax/commonstructure/NamedElementList.h>
 #include <fuml/syntax/commonstructure/Type.h>
-#include <memory>
-
-namespace fuml::syntax::classification
-{
-	class Feature;
-	class Generalization;
-	class Property;
-}
-using Feature = fuml::syntax::classification::Feature;
-using FeaturePtr = std::shared_ptr<Feature>;
-using Generalization = fuml::syntax::classification::Generalization;
-using GeneralizationPtr = std::shared_ptr<Generalization>;
-using Property = fuml::syntax::classification::Property;
-using PropertyPtr = std::shared_ptr<Property>;
 
 namespace fuml::syntax::classification
 {
 	class Classifier : public Type
 	{
-		public:
-			using ClassifierPtr = std::shared_ptr<Classifier>;
-
 		public:
 			bool isAbstract = false;
 			GeneralizationListPtr generalization = std::make_shared<GeneralizationList>();
@@ -67,8 +45,5 @@ namespace fuml::syntax::classification
 				void addAttribute(const PropertyPtr&);
 	}; //Classifier
 }
-
-using Classifier = fuml::syntax::classification::Classifier;
-using ClassifierPtr = std::shared_ptr<Classifier>;
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_CLASSIFIER_H_ */

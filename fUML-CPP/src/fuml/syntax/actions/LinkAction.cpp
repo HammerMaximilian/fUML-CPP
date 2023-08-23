@@ -6,22 +6,19 @@
  */
 
 #include <fuml/syntax/actions/LinkAction.h>
-#include <vector>
-
-using namespace fuml::syntax::actions;
 
 LinkAction::~LinkAction()
 {
 }
 
 void LinkAction::addEndData(
-	const std::shared_ptr<LinkEndData>& endData)
+	const LinkEndDataPtr& endData)
 {
 	this->endData->push_back(endData);
 } //addEndData
 
 void LinkAction::addInputValue(
-	const std::shared_ptr<InputPin>& inputValue)
+	const InputPinPtr& inputValue)
 {
 	Action::addInput(inputValue);
 	this->inputValue->push_back(inputValue);

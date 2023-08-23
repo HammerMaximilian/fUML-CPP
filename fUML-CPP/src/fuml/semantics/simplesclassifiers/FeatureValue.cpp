@@ -5,14 +5,11 @@
  *      Author: maha6913
  */
 
-#include "FeatureValue.h"
+#include <fuml/semantics/simplesclassifiers/FeatureValue.h>
+#include <fuml/syntax/classification/StructuralFeature.h>
+#include <fuml/semantics/values/Value.h>
 
-#include "fuml/syntax/classification/StructuralFeature.h"
-#include "fuml/semantics/values/Value.h"
-
-using namespace fuml::semantics::simpleclassifiers;
-
-bool FeatureValue::hasEqualValues(const std::shared_ptr<FeatureValue>& other)
+bool FeatureValue::hasEqualValues(const FeatureValuePtr& other)
 {
 	// Determine if this feature value has an equal set of values as another
 	// feature value.
@@ -44,8 +41,8 @@ bool FeatureValue::hasEqualValues(const std::shared_ptr<FeatureValue>& other)
 			// since the Java to UML mapping conventions do not allow
 			// "remove" on a local list variable.
 
-			std::shared_ptr<FeatureValue> otherFeatureValues(new FeatureValue());
-			for (const std::shared_ptr<fuml::semantics::values::Value> value : *(other->values))
+			FeatureValuePtr otherFeatureValues(new FeatureValue());
+			for (const ValuePtr value : *(other->values))
 			{
 				otherFeatureValues->values->push_back(value);
 			}
@@ -75,16 +72,16 @@ bool FeatureValue::hasEqualValues(const std::shared_ptr<FeatureValue>& other)
 	return equal;
 }
 
-std::shared_ptr<FeatureValue> FeatureValue::copy()
+FeatureValuePtr FeatureValue::copy()
 {
 	// Create a copy of this feature value.
 
-	std::shared_ptr<FeatureValue> newValue(new FeatureValue());
+	FeatureValuePtr newValue(new FeatureValue());
 
 	newValue->feature = this->feature;
 	newValue->position = this->position;
 
-	for (const std::shared_ptr<fuml::semantics::values::Value> value : *(this->values))
+	for (const ValuePtr value : *(this->values))
 	{
 		newValue->values->push_back(value->copy());
 	}

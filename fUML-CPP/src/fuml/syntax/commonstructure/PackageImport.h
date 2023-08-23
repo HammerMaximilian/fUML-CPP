@@ -10,21 +10,6 @@
 
 #include <fuml/syntax/commonstructure/Element.h>
 #include <fuml/syntax/commonstructure/VisibilityKind.h>
-#include <memory>
-
-namespace fuml::syntax::commonstructure
-{
-	class Namespace;
-}
-using Namespace = fuml::syntax::commonstructure::Namespace;
-using NamespacePtr = std::shared_ptr<Namespace>;
-
-namespace fuml::syntax::packages
-{
-	class Package;
-}
-using Package = fuml::syntax::packages::Package;
-using PackagePtr = std::shared_ptr<Package>;
 
 namespace fuml::syntax::commonstructure
 {
@@ -45,8 +30,5 @@ namespace fuml::syntax::commonstructure
 				const NamespacePtr&);
 	}; // PackageImport
 }
-
-using PackageImport = fuml::syntax::commonstructure::PackageImport;
-using PackageImportPtr = std::shared_ptr<PackageImport>;
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_PACKAGEIMPORT_H_ */

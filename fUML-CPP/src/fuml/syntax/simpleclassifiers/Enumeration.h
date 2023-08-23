@@ -9,15 +9,6 @@
 #define FUML_SYNTAX_SIMPLECLASSIFIERS_ENUMERATION_H_
 
 #include <fuml/syntax/simpleclassifiers/DataType.h>
-#include <fuml/syntax/simpleclassifiers/EnumerationLiteralList.h>
-#include <memory>
-
-namespace fuml::syntax::simpleclassifiers
-{
-	class EnumerationLiteral;
-}
-using EnumerationLiteral = fuml::syntax::simpleclassifiers::EnumerationLiteral;
-using EnumerationLiteralPtr = std::shared_ptr<EnumerationLiteral>;
 
 namespace fuml::syntax::simpleclassifiers
 {
@@ -36,8 +27,5 @@ namespace fuml::syntax::simpleclassifiers
 				const EnumerationLiteralPtr&);
 	}; // Enumeration
 }
-
-using Enumeration = fuml::syntax::simpleclassifiers::Enumeration;
-using EnumerationPtr = std::shared_ptr<Enumeration>;
 
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_ENUMERATION_H_ */

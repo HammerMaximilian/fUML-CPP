@@ -9,8 +9,6 @@
 #define FUML_SYNTAX_ACTIONS_CALLACTION_H_
 
 #include <fuml/syntax/actions/InvocationAction.h>
-#include <fuml/syntax/actions/OutputPinList.h>
-#include <memory>
 
 namespace fuml::syntax::actions
 {
@@ -18,16 +16,13 @@ namespace fuml::syntax::actions
 	{
 		public:
 			bool isSynchronous = true;
-			std::shared_ptr<OutputPinList> result = std::make_shared<OutputPinList>();
+			OutputPinListPtr result = std::make_shared<OutputPinList>();
 
 		public:
 			virtual ~CallAction() = 0;
 
-			void addResult(const std::shared_ptr<OutputPin>&);
+			void addResult(const OutputPinPtr&);
 	}; // CallAction
 }
-
-using CallAction = fuml::syntax::actions::CallAction;
-using CallActionPtr = std::shared_ptr<CallAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_CALLACTION_H_ */

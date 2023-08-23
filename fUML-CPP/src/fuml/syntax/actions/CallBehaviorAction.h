@@ -9,27 +9,18 @@
 #define FUML_SYNTAX_ACTIONS_CALLBEHAVIORACTION_H_
 
 #include <fuml/syntax/actions/CallAction.h>
-#include <memory>
-
-namespace fuml::syntax::commonbehavior
-{
-	class Behavior;
-}
 
 namespace fuml::syntax::actions
 {
 	class CallBehaviorAction : public CallAction
 	{
 		public:
-			std::shared_ptr<fuml::syntax::commonbehavior::Behavior> behavior = nullptr;
+			BehaviorPtr behavior = nullptr;
 
 		public:
 			void setBehavior(
-					const std::shared_ptr<fuml::syntax::commonbehavior::Behavior>&);
+					const BehaviorPtr&);
 	}; // CallBehaviorAction
 }
-
-using CallBehaviorAction = fuml::syntax::actions::CallBehaviorAction;
-using CallBehaviorActionPtr = std::shared_ptr<CallBehaviorAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_CALLBEHAVIORACTION_H_ */

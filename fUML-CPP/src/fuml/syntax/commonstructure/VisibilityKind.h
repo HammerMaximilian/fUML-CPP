@@ -20,6 +20,4 @@ namespace fuml::syntax::commonstructure
 	};
 }
 
-using VisibilityKind = fuml::syntax::commonstructure::VisibilityKind;
-
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_VISIBILITYKIND_H_ */

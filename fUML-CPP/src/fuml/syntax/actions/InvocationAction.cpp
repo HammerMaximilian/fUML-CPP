@@ -6,15 +6,12 @@
  */
 
 #include <fuml/syntax/actions/InvocationAction.h>
-#include <vector>
-
-using namespace fuml::syntax::actions;
 
 InvocationAction::~InvocationAction()
 {
 }
 
-void InvocationAction::addArgument(const std::shared_ptr<InputPin>& argument)
+void InvocationAction::addArgument(const InputPinPtr& argument)
 {
 	Action::addInput(argument);
 	this->argument->push_back(argument);

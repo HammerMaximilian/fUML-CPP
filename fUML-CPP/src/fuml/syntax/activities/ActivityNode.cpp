@@ -6,10 +6,6 @@
  */
 
 #include <fuml/syntax/activities/ActivityNode.h>
-#include <memory>
-#include <vector>
-
-using namespace fuml::syntax::activities;
 
 ActivityNode::~ActivityNode()
 {

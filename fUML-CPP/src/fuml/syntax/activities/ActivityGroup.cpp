@@ -7,8 +7,6 @@
 
 #include <fuml/syntax/activities/ActivityGroup.h>
 
-using namespace fuml::syntax::activities;
-
 ActivityGroup::~ActivityGroup()
 {
 }

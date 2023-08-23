@@ -7,9 +7,7 @@
 
 #include <fuml/syntax/actions/ClearStructuralFeatureAction.h>
 
-using namespace fuml::syntax::actions;
-
-void ClearStructuralFeatureAction::setResult(const std::shared_ptr<OutputPin>& result)
+void ClearStructuralFeatureAction::setResult(const OutputPinPtr& result)
 {
 	Action::addOutput(result);
 	this->result = result;

@@ -8,10 +8,7 @@
 #ifndef FUML_SYNTAX_ACTIONS_CONDITIONALNODE_H_
 #define FUML_SYNTAX_ACTIONS_CONDITIONALNODE_H_
 
-#include <fuml/syntax/actions/ClauseList.h>
-#include <fuml/syntax/actions/OutputPinList.h>
 #include <fuml/syntax/actions/StructuredActivityNode.h>
-#include <memory>
 
 namespace fuml::syntax::actions
 {
@@ -20,19 +17,16 @@ namespace fuml::syntax::actions
 		public:
 			bool isDeterminate = false;
 			bool isAssured = false;
-			std::shared_ptr<ClauseList> clause = std::make_shared<ClauseList>();
-			std::shared_ptr<OutputPinList> result = std::make_shared<OutputPinList>();
+			ClauseListPtr clause = std::make_shared<ClauseList>();
+			OutputPinListPtr result = std::make_shared<OutputPinList>();
 
 		public:
 			void setIsDeterminate(bool);
 			void setIsAssured(bool);
 			void addClause(
-					const std::shared_ptr<Clause>&);
-			void addResult(const std::shared_ptr<OutputPin>&);
+					const ClausePtr&);
+			void addResult(const OutputPinPtr&);
 	}; // ConditionalNode
 }
-
-using ConditionalNode = fuml::syntax::actions::ConditionalNode;
-using ConditionalNodePtr = std::shared_ptr<ConditionalNode>;
 
 #endif /* FUML_SYNTAX_ACTIONS_CONDITIONALNODE_H_ */

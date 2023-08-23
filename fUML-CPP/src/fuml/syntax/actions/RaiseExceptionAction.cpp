@@ -7,9 +7,7 @@
 
 #include <fuml/syntax/actions/RaiseExceptionAction.h>
 
-using namespace fuml::syntax::actions;
-
-void RaiseExceptionAction::setException(const std::shared_ptr<InputPin>& exception)
+void RaiseExceptionAction::setException(const InputPinPtr& exception)
 {
 	Action::addInput(exception);
 	this->exception = exception;

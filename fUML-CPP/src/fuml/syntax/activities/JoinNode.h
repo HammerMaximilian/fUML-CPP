@@ -17,7 +17,4 @@ namespace fuml::syntax::activities
 	}; // JoinNode
 }
 
-using JoinNode = fuml::syntax::activities::JoinNode;
-using JoinNodePtr = std::shared_ptr<JoinNode>;
-
 #endif /* FUML_SYNTAX_ACTIVITIES_JOINNODE_H_ */

@@ -9,32 +9,19 @@
 #define FUML_SYNTAX_ACTIONS_CALLOPERATIONACTION_H_
 
 #include <fuml/syntax/actions/CallAction.h>
-#include <memory>
-
-namespace fuml::syntax::classification
-{
-	class Operation;
-}
-namespace fuml::syntax::actions
-{
-	class InputPin;
-}
 
 namespace fuml::syntax::actions
 {
 	class CallOperationAction : public CallAction
 	{
 		public:
-			std::shared_ptr<fuml::syntax::classification::Operation> operation = nullptr;
-			std::shared_ptr<InputPin> target = nullptr;
+			OperationPtr operation = nullptr;
+			InputPinPtr target = nullptr;
 
 		public:
-			void setTarget(const std::shared_ptr<InputPin>&);
-			void setOperation(const std::shared_ptr<fuml::syntax::classification::Operation>&);
+			void setTarget(const InputPinPtr&);
+			void setOperation(const OperationPtr&);
 	}; // CallBehaviorAction
 }
-
-using CallOperationAction = fuml::syntax::actions::CallOperationAction;
-using CallOperationActionPtr = std::shared_ptr<CallOperationAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_CALLOPERATIONACTION_H_ */

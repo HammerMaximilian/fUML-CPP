@@ -8,17 +8,9 @@
 #ifndef FUML_SYNTAX_CLASSIFICATION_PARAMETER_H_
 #define FUML_SYNTAX_CLASSIFICATION_PARAMETER_H_
 
-#include <memory>
 #include <fuml/syntax/commonstructure/MultiplicityElement.h>
 #include <fuml/syntax/commonstructure/TypedElement.h>
 #include <fuml/syntax/classification/ParameterDirectionKind.h>
-
-namespace fuml::syntax::classification
-{
-	class Operation;
-}
-using Operation = fuml::syntax::classification::Operation;
-using OperationPtr = std::shared_ptr<Operation>;
 
 namespace fuml::syntax::classification
 {
@@ -38,8 +30,5 @@ namespace fuml::syntax::classification
 			void _setOperation(const OperationPtr&);
 	}; // Parameter
 }
-
-using Parameter = fuml::syntax::classification::Parameter;
-using ParameterPtr = std::shared_ptr<Parameter>;
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_PARAMETER_H_ */

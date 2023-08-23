@@ -17,7 +17,4 @@ namespace fuml::syntax::activities
 	}; // ControlFlow
 }
 
-using ControlFlow = fuml::syntax::activities::ControlFlow;
-using ControlFlowPtr = std::shared_ptr<ControlFlow>;
-
 #endif /* FUML_SYNTAX_ACTIVITIES_CONTROLFLOW_H_ */

@@ -9,15 +9,6 @@
 #define FUML_SYNTAX_ACTIVITIES_EXECUTABLENODE_H_
 
 #include <fuml/syntax/activities/ActivityGroup.h>
-#include <fuml/syntax/activities/ExceptionHandlerList.h>
-#include <memory>
-
-namespace fuml::syntax::activities
-{
-	class ExceptionHandler;
-}
-using ExceptionHandler = fuml::syntax::activities::ExceptionHandler;
-using ExceptionHandlerPtr = std::shared_ptr<ExceptionHandler>;
 
 namespace fuml::syntax::activities
 {
@@ -36,8 +27,5 @@ namespace fuml::syntax::activities
 			void addExceptionHandler(const ExceptionHandlerPtr&);
 	}; // ExecutableNode
 }
-
-using ExecutableNode = fuml::syntax::activities::ExecutableNode;
-using ExecutableNodePtr = std::shared_ptr<ExecutableNode>;
 
 #endif /* FUML_SYNTAX_ACTIVITIES_EXECUTABLENODE_H_ */

@@ -8,15 +8,8 @@
 #ifndef FUML_SYNTAX_CLASSIFICATION_GENERALIZATION_H_
 #define FUML_SYNTAX_CLASSIFICATION_GENERALIZATION_H_
 
-#include <memory>
+#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/commonstructure/Element.h>
-
-namespace fuml::syntax::classification
-{
-	class Classifier;
-}
-using Classifier = fuml::syntax::classification::Classifier;
-using ClassifierPtr = std::shared_ptr<Classifier>;
 
 namespace fuml::syntax::classification
 {
@@ -33,8 +26,5 @@ namespace fuml::syntax::classification
 			void _setSpecific(const ClassifierPtr&);
 	}; // Generalization
 }
-
-using Generalization = fuml::syntax::classification::Generalization;
-using GeneralizationPtr = std::shared_ptr<Generalization>;
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_GENERALIZATION_H_ */

@@ -8,10 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_ACCEPTEVENTACTION_H_
 #define FUML_SYNTAX_ACTIONS_ACCEPTEVENTACTION_H_
 
+#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/actions/Action.h>
-#include <fuml/syntax/actions/OutputPinList.h>
-#include <fuml/syntax/commonbehavior/TriggerList.h>
-#include <memory>
 
 namespace fuml::syntax::actions
 {
@@ -19,18 +17,15 @@ namespace fuml::syntax::actions
 	{
 		public:
 			bool isUnmarshall = false;
-			std::shared_ptr<OutputPinList> result = std::make_shared<OutputPinList>();
-			std::shared_ptr<fuml::syntax::commonbehavior::TriggerList> trigger = std::make_shared<fuml::syntax::commonbehavior::TriggerList>();
+			OutputPinListPtr result = std::make_shared<OutputPinList>();
+			TriggerListPtr trigger = std::make_shared<TriggerList>();
 
 		public:
 			void setIsUnmarshall(bool);
 			void addTrigger(
-					const std::shared_ptr<fuml::syntax::commonbehavior::Trigger>&);
-			void addResult(const std::shared_ptr<fuml::syntax::actions::OutputPin>&);
+					const TriggerPtr&);
+			void addResult(const OutputPinPtr&);
 	}; // AcceptEventAction
 }
-
-using AcceptEventAction = fuml::syntax::actions::AcceptEventAction;
-using AcceptEventActionPtr = std::shared_ptr<AcceptEventAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_ACCEPTEVENTACTION_H_ */

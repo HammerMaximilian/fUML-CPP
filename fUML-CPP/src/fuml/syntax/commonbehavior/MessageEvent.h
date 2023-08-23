@@ -9,7 +9,6 @@
 #define FUML_SYNTAX_COMMONBEHAVIOR_MESSAGEEVENT_H_
 
 #include <fuml/syntax/commonbehavior/Event.h>
-#include <memory>
 
 namespace fuml::syntax::commonbehavior
 {
@@ -19,8 +18,5 @@ namespace fuml::syntax::commonbehavior
 			~MessageEvent() = 0;
 	}; // MessageEvent
 }
-
-using MessageEvent = fuml::syntax::commonbehavior::MessageEvent;
-using MessageEventPtr = std::shared_ptr<MessageEvent>;
 
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_MESSAGEEVENT_H_ */

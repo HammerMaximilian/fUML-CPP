@@ -7,9 +7,7 @@
 
 #include <fuml/syntax/actions/StartClassifierBehaviorAction.h>
 
-using namespace fuml::syntax::actions;
-
-void StartClassifierBehaviorAction::setObject(const std::shared_ptr<InputPin>& object)
+void StartClassifierBehaviorAction::setObject(const InputPinPtr& object)
 {
 	Action::addInput(object);
 	this->object = object;

@@ -7,9 +7,7 @@
 
 #include <fuml/syntax/actions/StartObjectBehaviorAction.h>
 
-using namespace fuml::syntax::actions;
-
-void StartObjectBehaviorAction::setObject(const std::shared_ptr<InputPin>& object)
+void StartObjectBehaviorAction::setObject(const InputPinPtr& object)
 {
 	Action::addInput(object);
 	this->object = object;

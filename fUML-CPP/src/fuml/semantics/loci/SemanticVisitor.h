@@ -8,6 +8,7 @@
 #ifndef FUML_SEMANTICS_LOCI_SEMANTICVISITOR_H_
 #define FUML_SEMANTICS_LOCI_SEMANTICVISITOR_H_
 
+#include <fuml/semantics/fwd.h>
 #include "utils/FumlObject.h"
 
 namespace fuml::semantics::loci

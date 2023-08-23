@@ -6,9 +6,6 @@
  */
 
 #include <fuml/syntax/actions/ReclassifyObjectAction.h>
-#include <vector>
-
-using namespace fuml::syntax::actions;
 
 void ReclassifyObjectAction::setIsReplaceAll(bool isReplaceAll)
 {
@@ -16,18 +13,18 @@ void ReclassifyObjectAction::setIsReplaceAll(bool isReplaceAll)
 } // setIsReplaceAll
 
 void ReclassifyObjectAction::addOldClassifier(
-	const std::shared_ptr<fuml::syntax::classification::Classifier>& oldClassifier)
+	const ClassifierPtr& oldClassifier)
 {
 	this->oldClassifier->push_back(oldClassifier);
 } // addOldClassifier
 
 void ReclassifyObjectAction::addNewClassifier(
-	const std::shared_ptr<fuml::syntax::classification::Classifier>& newClassifier)
+	const ClassifierPtr& newClassifier)
 {
 	this->newClassifier->push_back(newClassifier);
 } // addNewClassifier
 
-void ReclassifyObjectAction::setObject(const std::shared_ptr<InputPin>& object)
+void ReclassifyObjectAction::setObject(const InputPinPtr& object)
 {
 	Action::addInput(object);
 	this->object = object;

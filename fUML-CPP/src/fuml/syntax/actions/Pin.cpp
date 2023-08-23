@@ -7,8 +7,6 @@
 
 #include <fuml/syntax/actions/Pin.h>
 
-using namespace fuml::syntax::actions;
-
 Pin::~Pin()
 {
 }

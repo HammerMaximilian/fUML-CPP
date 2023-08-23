@@ -9,26 +9,17 @@
 #define FUML_SYNTAX_ACTIONS_STARTOBJECTBEHAVIORACTION_H_
 
 #include <fuml/syntax/actions/Action.h>
-#include <memory>
-
-namespace fuml::syntax::actions
-{
-	class InputPin;
-}
 
 namespace fuml::syntax::actions
 {
 	class StartObjectBehaviorAction : public Action
 	{
 		public:
-			std::shared_ptr<InputPin> object = nullptr;
+			InputPinPtr object = nullptr;
 
 		public:
-			void setObject(const std::shared_ptr<InputPin>&);
+			void setObject(const InputPinPtr&);
 	}; // StartObjectBehaviorAction
 }
-
-using StartObjectBehaviorAction = fuml::syntax::actions::StartObjectBehaviorAction;
-using StartObjectBehaviorActionPtr = std::shared_ptr<StartObjectBehaviorAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_STARTOBJECTBEHAVIORACTION_H_ */

@@ -17,7 +17,4 @@ namespace fuml::syntax::activities
 	}; // InitialNode
 }
 
-using InitialNode = fuml::syntax::activities::InitialNode;
-using InitialNodePtr = std::shared_ptr<InitialNode>;
-
 #endif /* FUML_SYNTAX_ACTIVITIES_INITIALNODE_H_ */

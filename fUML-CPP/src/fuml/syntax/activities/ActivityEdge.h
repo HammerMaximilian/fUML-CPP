@@ -8,32 +8,7 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_ACTIVITYEDGE_H_
 #define FUML_SYNTAX_ACTIVITIES_ACTIVITYEDGE_H_
 
-#include <memory>
 #include <fuml/syntax/classification/RedefinableElement.h>
-
-namespace fuml::syntax::actions
-{
-	class StructuredActivityNode;
-}
-using StructuredActivityNode = fuml::syntax::actions::StructuredActivityNode;
-using StructuredActivityNodePtr = std::shared_ptr<StructuredActivityNode>;
-
-namespace fuml::syntax::activities
-{
-	class Activity;
-	class ActivityNode;
-}
-using Activity = fuml::syntax::activities::Activity;
-using ActivityPtr = std::shared_ptr<Activity>;
-using ActivityNode = fuml::syntax::activities::ActivityNode;
-using ActivityNodePtr = std::shared_ptr<ActivityNode>;
-
-namespace fuml::syntax::values
-{
-	class ValueSpecification;
-}
-using ValueSpecification = fuml::syntax::values::ValueSpecification;
-using ValueSpecificationPtr = std::shared_ptr<ValueSpecification>;
 
 namespace fuml::syntax::activities
 {
@@ -64,8 +39,5 @@ namespace fuml::syntax::activities
 					const StructuredActivityNodePtr&);
 	}; // ActivityEdge
 }
-
-using ActivityEdge = fuml::syntax::activities::ActivityEdge;
-using ActivityEdgePtr = std::shared_ptr<ActivityEdge>;
 
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYEDGE_H_ */

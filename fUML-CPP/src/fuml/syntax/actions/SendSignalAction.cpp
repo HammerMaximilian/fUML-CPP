@@ -7,16 +7,14 @@
 
 #include <fuml/syntax/actions/SendSignalAction.h>
 
-using namespace fuml::syntax::actions;
-
-void SendSignalAction::setTarget(const std::shared_ptr<InputPin>& target)
+void SendSignalAction::setTarget(const InputPinPtr& target)
 {
 	Action::addInput(target);
 	this->target = target;
 } // setTarget
 
 void SendSignalAction::setSignal(
-	const std::shared_ptr<fuml::syntax::simpleclassifiers::Signal>& signal)
+	const SignalPtr& signal)
 {
 	this->signal = signal;
 } // setSignal

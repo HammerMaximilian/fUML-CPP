@@ -8,14 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_RECLASSIFYOBJECTACTION_H_
 #define FUML_SYNTAX_ACTIONS_RECLASSIFYOBJECTACTION_H_
 
+#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/actions/Action.h>
-#include <fuml/syntax/classification/ClassifierList.h>
-#include <memory>
-
-namespace fuml::syntax::actions
-{
-	class InputPin;
-}
 
 namespace fuml::syntax::actions
 {
@@ -23,19 +17,16 @@ namespace fuml::syntax::actions
 	{
 		public:
 			bool isReplaceAll = false;
-			std::shared_ptr<fuml::syntax::classification::ClassifierList> oldClassifier = std::make_shared<fuml::syntax::classification::ClassifierList>();
-			std::shared_ptr<InputPin> object = nullptr;
-			std::shared_ptr<fuml::syntax::classification::ClassifierList> newClassifier = std::make_shared<fuml::syntax::classification::ClassifierList>();
+			ClassifierListPtr oldClassifier = std::make_shared<ClassifierList>();
+			InputPinPtr object = nullptr;
+			ClassifierListPtr newClassifier = std::make_shared<ClassifierList>();
 
 		public:
 			void setIsReplaceAll(bool);
-			void addOldClassifier(const std::shared_ptr<fuml::syntax::classification::Classifier>&);
-			void addNewClassifier(const std::shared_ptr<fuml::syntax::classification::Classifier>&);
-			void setObject(const std::shared_ptr<InputPin>&);
+			void addOldClassifier(const ClassifierPtr&);
+			void addNewClassifier(const ClassifierPtr&);
+			void setObject(const InputPinPtr&);
 	}; // ReclassifyObjectAction
 }
-
-using ReclassifyObjectAction = fuml::syntax::actions::ReclassifyObjectAction;
-using ReclassifyObjectActionPtr = std::shared_ptr<ReclassifyObjectAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_RECLASSIFYOBJECTACTION_H_ */

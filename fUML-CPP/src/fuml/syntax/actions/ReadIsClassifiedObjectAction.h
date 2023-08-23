@@ -9,17 +9,6 @@
 #define FUML_SYNTAX_ACTIONS_READISCLASSIFIEDOBJECTACTION_H_
 
 #include <fuml/syntax/actions/Action.h>
-#include <memory>
-
-namespace fuml::syntax::classification
-{
-	class Classifier;
-}
-namespace fuml::syntax::actions
-{
-	class InputPin;
-	class OutputPin;
-}
 
 namespace fuml::syntax::actions
 {
@@ -27,19 +16,16 @@ namespace fuml::syntax::actions
 	{
 		public:
 			bool isDirect = false;
-			std::shared_ptr<fuml::syntax::classification::Classifier> classifier = nullptr;
-			std::shared_ptr<OutputPin> result = nullptr;
-			std::shared_ptr<InputPin> object = nullptr;
+			ClassifierPtr classifier = nullptr;
+			OutputPinPtr result = nullptr;
+			InputPinPtr object = nullptr;
 
 		public:
 			void setIsDirect(bool);
-			void setClassifier(const std::shared_ptr<fuml::syntax::classification::Classifier>&);
-			void setResult(const std::shared_ptr<OutputPin>&);
-			void setObject(const std::shared_ptr<InputPin>&);
+			void setClassifier(const ClassifierPtr&);
+			void setResult(const OutputPinPtr&);
+			void setObject(const InputPinPtr&);
 	}; // ReadIsClassifiedObjectAction
 }
-
-using ReadIsClassifiedObjectAction = fuml::syntax::actions::ReadIsClassifiedObjectAction;
-using ReadIsClassifiedObjectActionPtr = std::shared_ptr<ReadIsClassifiedObjectAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_READISCLASSIFIEDOBJECTACTION_H_ */

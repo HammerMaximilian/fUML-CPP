@@ -9,7 +9,6 @@
 #define FUML_SYNTAX_ACTIVITIES_CONTROLNODE_H_
 
 #include <fuml/syntax/activities/ActivityNode.h>
-#include <memory>
 
 namespace fuml::syntax::activities
 {
@@ -19,8 +18,5 @@ namespace fuml::syntax::activities
 			virtual ~ControlNode() = 0;
 	}; // ControlNode
 }
-
-using ControlNode = fuml::syntax::activities::ControlNode;
-using ControlNodePtr = std::shared_ptr<ControlNode>;
 
 #endif /* FUML_SYNTAX_ACTIVITIES_CONTROLNODE_H_ */

@@ -7,8 +7,6 @@
 
 #include <fuml/syntax/actions/WriteLinkAction.h>
 
-using namespace fuml::syntax::actions;
-
 WriteLinkAction::~WriteLinkAction()
 {
 }

@@ -10,15 +10,7 @@
 
 #include <fuml/syntax/commonstructure/Element.h>
 #include <fuml/syntax/commonstructure/VisibilityKind.h>
-#include <memory>
 #include <string>
-
-namespace fuml::syntax::commonstructure
-{
-	class Namespace;
-}
-using Namespace = fuml::syntax::commonstructure::Namespace;
-using NamespacePtr = std::shared_ptr<Namespace>;
 
 namespace fuml::syntax::commonstructure
 {
@@ -40,8 +32,5 @@ namespace fuml::syntax::commonstructure
 			void _setNamespace(const NamespacePtr&);
 	}; // NamedElement
 }
-
-using NamedElement = fuml::syntax::commonstructure::NamedElement;
-using NamedElementPtr = std::shared_ptr<NamedElement>;
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_NAMEDELEMENT_H_ */

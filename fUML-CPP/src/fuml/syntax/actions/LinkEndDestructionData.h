@@ -9,12 +9,6 @@
 #define FUML_SYNTAX_ACTIONS_LINKENDDESTRUCTIONDATA_H_
 
 #include <fuml/syntax/actions/LinkEndData.h>
-#include <memory>
-
-namespace fuml::syntax::actions
-{
-	class InputPin;
-}
 
 namespace fuml::syntax::actions
 {
@@ -22,15 +16,12 @@ namespace fuml::syntax::actions
 	{
 		public:
 			bool isDestroyDuplicates = false;
-			std::shared_ptr<InputPin> destroyAt = nullptr;
+			InputPinPtr destroyAt = nullptr;
 
 		public:
 			void setIsDestroyDuplicates(bool);
-			void setDestroyAt(const std::shared_ptr<InputPin>&);
+			void setDestroyAt(const InputPinPtr&);
 	}; // LinkEndDestructionData
 }
-
-using LinkEndDestructionData = fuml::syntax::actions::LinkEndDestructionData;
-using LinkEndDestructionDataPtr = std::shared_ptr<LinkEndDestructionData>;
 
 #endif /* FUML_SYNTAX_ACTIONS_LINKENDDESTRUCTIONDATA_H_ */

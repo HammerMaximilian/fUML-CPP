@@ -9,26 +9,17 @@
 #define FUML_SYNTAX_ACTIONS_RAISEEXCEPTIONACTION_H_
 
 #include <fuml/syntax/actions/Action.h>
-#include <memory>
-
-namespace fuml::syntax::actions
-{
-	class InputPin;
-}
 
 namespace fuml::syntax::actions
 {
 	class RaiseExceptionAction : public Action
 	{
 		public:
-			std::shared_ptr<InputPin> exception = nullptr;
+			InputPinPtr exception = nullptr;
 
 		public:
-			void setException(const std::shared_ptr<InputPin>&);
+			void setException(const InputPinPtr&);
 	}; // RaiseExceptionAction
 }
-
-using RaiseExceptionAction = fuml::syntax::actions::RaiseExceptionAction;
-using RaiseExceptionActionPtr = std::shared_ptr<RaiseExceptionAction>;
 
 #endif /* FUML_SYNTAX_ACTIONS_RAISEEXCEPTIONACTION_H_ */

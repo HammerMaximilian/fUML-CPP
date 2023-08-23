@@ -17,7 +17,4 @@ namespace fuml::syntax::activities
 	}; // CentralBufferNode
 }
 
-using CentralBufferNode = fuml::syntax::activities::CentralBufferNode;
-using CentralBufferNodePtr = std::shared_ptr<CentralBufferNode>;
-
 #endif /* FUML_SYNTAX_ACTIVITIES_CENTRALBUFFERNODE_H_ */

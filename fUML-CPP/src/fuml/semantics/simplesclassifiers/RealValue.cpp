@@ -5,19 +5,16 @@
  *      Author: maha6913
  */
 
-#include "RealValue.h"
+#include <fuml/semantics/simplesclassifiers/IntegerValue.h>
+#include <fuml/semantics/simplesclassifiers/RealValue.h>
+#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
+#include <fuml/syntax/values/LiteralReal.h>
 
-#include "fuml/semantics/simplesclassifiers/IntegerValue.h"
-#include "fuml/syntax/simpleclassifiers/PrimitiveType.h"
-#include "fuml/syntax/values/LiteralReal.h"
-
-using namespace fuml::semantics::simpleclassifiers;
-
-std::shared_ptr<fuml::syntax::values::ValueSpecification> RealValue::specify()
+ValueSpecificationPtr RealValue::specify()
 {
 	// Return a literal real with the value of this real value.
 
-	std::shared_ptr<fuml::syntax::values::LiteralReal> literal(new fuml::syntax::values::LiteralReal());
+	LiteralRealPtr literal(new LiteralReal());
 
 	literal->type = this->type;
 	literal->value = this->value;
@@ -25,14 +22,14 @@ std::shared_ptr<fuml::syntax::values::ValueSpecification> RealValue::specify()
 	return literal;
 } // specify
 
-bool RealValue::equals(const std::shared_ptr<fuml::semantics::values::Value>& otherValue)
+bool RealValue::equals(const ValuePtr& otherValue)
 {
 	// Test if this real value is equal to the otherValue.
 	// To be equal, the otherValue must have the same value as this real
 	// value.
 
 	bool isEqual = false;
-	std::shared_ptr<RealValue> realValue = std::dynamic_pointer_cast<RealValue>(otherValue);
+	RealValuePtr realValue = std::dynamic_pointer_cast<RealValue>(otherValue);
 	if (realValue) {
 		isEqual = (realValue->value == this->value);
 	}
@@ -40,11 +37,11 @@ bool RealValue::equals(const std::shared_ptr<fuml::semantics::values::Value>& ot
 	return isEqual;
 } // equals
 
-std::shared_ptr<fuml::semantics::values::Value> RealValue::copy()
+ValuePtr RealValue::copy()
 {
 	// Create a new real value with the same value as this real value.
 
-	std::shared_ptr<RealValue> newValue = std::dynamic_pointer_cast<RealValue>(PrimitiveValue::copy());
+	RealValuePtr newValue = std::dynamic_pointer_cast<RealValue>(PrimitiveValue::copy());
 
 	newValue->value = this->value;
 	return newValue;
@@ -82,7 +79,7 @@ std::string RealValue::toString()
 			positiveValue = positiveValue * 10;
 		}
 
-		std::shared_ptr<IntegerValue> integerValue(new IntegerValue());
+		IntegerValuePtr integerValue(new IntegerValue());
 		integerValue->value = (int) positiveValue;
 		stringValue = "0." + integerValue->toString();
 		integerValue->value = exponent;
@@ -96,9 +93,9 @@ std::string RealValue::toString()
 	return stringValue;
 } // toString
 
-std::shared_ptr<fuml::semantics::values::Value> RealValue::new_()
+ValuePtr RealValue::new_()
 {
 	// Return a new real value with no value.
 
-	return std::shared_ptr<RealValue>(new RealValue());
+	return RealValuePtr(new RealValue());
 }

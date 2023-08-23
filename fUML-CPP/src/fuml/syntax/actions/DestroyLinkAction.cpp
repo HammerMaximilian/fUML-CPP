@@ -7,12 +7,9 @@
 
 #include <fuml/syntax/actions/DestroyLinkAction.h>
 #include <fuml/syntax/actions/LinkEndDestructionData.h>
-#include <vector>
-
-using namespace fuml::syntax::actions;
 
 void DestroyLinkAction::addEndData(
-	const std::shared_ptr<LinkEndDestructionData>& endData)
+	const LinkEndDestructionDataPtr& endData)
 {
 	LinkAction::addEndData(endData);
 	this->endData->push_back(endData);
