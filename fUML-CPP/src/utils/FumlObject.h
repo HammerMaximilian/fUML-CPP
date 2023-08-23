@@ -18,6 +18,7 @@ namespace utils
 			std::string xmiId;
 			std::string href;
 			std::string xmiNamespace;
+			size_t internalHash = 0;
 
 		public:
 			std::string getXmiId() const;
@@ -26,6 +27,7 @@ namespace utils
 			void setHref(std::string);
 			std::string getXmiNamespace() const;
 			void setXmiNamespace(std::string);
+			size_t hashCode();
 	};
 }
 

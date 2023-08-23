@@ -17,7 +17,7 @@ namespace fuml::semantics::loci
 	class Locus : public utils::FumlObject
 	{
 		public:
-			std::string identifier;
+			std::string identifier = std::to_string(this->hashCode());
 			ExecutorPtr executor = nullptr;
 			ExecutionFactoryPtr factory = nullptr;
 			ExtensionalValueListPtr extensionalValues = std::make_shared<ExtensionalValueList>();

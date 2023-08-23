@@ -6,6 +6,9 @@
  */
 
 #include <utils/FumlObject.h>
+#include <functional>
+
+static size_t hashCode_(void* _addr);
 
 using namespace utils;
 
@@ -39,4 +42,19 @@ void FumlObject::setXmiNamespace(std::string _namespace)
 	this->xmiNamespace = _namespace;
 }
 
+size_t FumlObject::hashCode()
+{
+	if(this->internalHash == 0)
+	{
+		this->internalHash = hashCode_(this);
+	}
+
+	return this->internalHash;
+}
+
+static size_t hashCode_(void* _addr)
+{
+	std::hash<void*> hasher;
+	return hasher(_addr);
+}
 
