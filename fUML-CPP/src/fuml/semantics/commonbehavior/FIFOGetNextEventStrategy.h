@@ -15,6 +15,8 @@ namespace fuml::semantics::commonbehavior
 	class FIFOGetNextEventStrategy : public GetNextEventStrategy
 	{
 		public:
+			virtual ~FIFOGetNextEventStrategy() = default;
+		
 			virtual EventOccurrencePtr getNextEvent(const ObjectActivationPtr&) override;
 	}; // FIFOGetNextEventStrategy
 }

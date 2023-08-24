@@ -18,6 +18,8 @@ namespace fuml::semantics::simpleclassifiers
 			SignalPtr type = nullptr;
 
 		public:
+			virtual ~SignalInstance() = default;
+		
 			virtual ClassifierListPtr getTypes() override;
 			virtual ValuePtr copy() override;
 

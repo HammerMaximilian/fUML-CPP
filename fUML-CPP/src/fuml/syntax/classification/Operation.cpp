@@ -10,10 +10,10 @@
 #include <fuml/syntax/classification/ParameterDirectionKind.h>
 #include <fuml/syntax/commonbehavior/Behavior.h>
 
-void Operation::setThisPtr(std::weak_ptr<Operation> thisOperationPtr)
+void Operation::setThisOperationPtr(std::weak_ptr<Operation> thisOperationPtr)
 {
 	this->thisOperationPtr = thisOperationPtr;
-	BehavioralFeature::setThisPtr(thisOperationPtr);
+	BehavioralFeature::setThisBehavioralFeaturePtr(thisOperationPtr);
 }
 
 void Operation::setIsQuery(bool isQuery)

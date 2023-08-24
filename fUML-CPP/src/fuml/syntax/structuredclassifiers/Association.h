@@ -26,7 +26,8 @@ namespace fuml::syntax::structuredclassifiers
 			std::weak_ptr<Association> thisAssociationPtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<Association>);
+			virtual ~Association() = default;
+			void setThisAssociationPtr(std::weak_ptr<Association>);
 
 			void addOwnedEnd(const PropertyPtr&);
 			void addNavigableOwnedEnd(

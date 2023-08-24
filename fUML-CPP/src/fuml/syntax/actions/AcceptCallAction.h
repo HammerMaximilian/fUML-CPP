@@ -19,6 +19,8 @@ namespace fuml::syntax::actions
 			OutputPinPtr returnInformation = nullptr;
 
 		public:
+			virtual ~AcceptCallAction() = default;
+		
 			void setReturnInformation(const OutputPinPtr&);
 	}; // AcceptCallAction
 }

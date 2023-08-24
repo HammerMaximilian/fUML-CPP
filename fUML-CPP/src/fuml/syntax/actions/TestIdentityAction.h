@@ -20,6 +20,8 @@ namespace fuml::syntax::actions
 			InputPinPtr first = nullptr;
 
 		public:
+			virtual ~TestIdentityAction() = default;
+		
 			void setFirst(const InputPinPtr&);
 			void setSecond(const InputPinPtr&);
 			void setResult(const OutputPinPtr&);

@@ -15,6 +15,8 @@ namespace fuml::semantics::values
 	class LiteralBooleanEvaluation : LiteralEvaluation
 	{
 		public:
+			virtual ~LiteralBooleanEvaluation() = default;
+		
 			virtual ValuePtr evaluate() override;
 	}; // LiteralBooleanEvaluation
 }

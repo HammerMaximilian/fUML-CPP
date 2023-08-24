@@ -30,6 +30,8 @@ namespace fuml::syntax::classification
 			bool isID = false;
 
 		public:
+			virtual ~Property() = default;
+			
 			void setIsReadOnly(bool);
 			void setAggregation(
 				AggregationKind);

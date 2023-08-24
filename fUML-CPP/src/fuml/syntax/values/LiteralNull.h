@@ -14,6 +14,9 @@ namespace fuml::syntax::values
 {
 	class LiteralNull : public LiteralSpecification
 	{
+		public:
+			virtual ~LiteralNull() = default;
+		
 	}; // LiteralNull
 }
 

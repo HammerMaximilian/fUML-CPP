@@ -18,6 +18,8 @@ namespace fuml::semantics::structuredclassifiers
 			AssociationPtr type = nullptr;
 
 		public:
+			virtual ~Link() = default;
+		
 			virtual void destroy() override;
 			virtual ValuePtr copy() override;
 			virtual ClassifierListPtr getTypes() override;

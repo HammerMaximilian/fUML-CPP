@@ -23,6 +23,8 @@ namespace fuml::semantics::loci
 			ExtensionalValueListPtr extensionalValues = std::make_shared<ExtensionalValueList>();
 
 		public:
+			virtual ~Locus() = default;
+		
 			void setExecutor(const ExecutorPtr&);
 			void setFactory(const ExecutionFactoryPtr&);
 			ExtensionalValueListPtr getExtent(const ClassifierPtr);

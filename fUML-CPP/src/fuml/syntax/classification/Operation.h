@@ -30,7 +30,8 @@ namespace fuml::syntax::classification
 			std::weak_ptr<Operation> thisOperationPtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<Operation>);
+			virtual ~Operation() = default;
+			void setThisOperationPtr(std::weak_ptr<Operation>);
 
 			void setIsQuery(bool);
 			void addOwnedParameter(

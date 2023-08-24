@@ -19,6 +19,8 @@ namespace fuml::syntax::actions
 			ClassifierPtr classifier = nullptr;
 
 		public:
+			virtual ~CreateObjectAction() = default;
+		
 			void setClassifier(const ClassifierPtr&);
 			void setResult(const OutputPinPtr& result);
 	}; // CreateObjectAction

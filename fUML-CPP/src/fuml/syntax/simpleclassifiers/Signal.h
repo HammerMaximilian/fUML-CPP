@@ -21,7 +21,8 @@ namespace fuml::syntax::simpleclassifiers
 			std::weak_ptr<Signal> thisSignalPtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<Signal>);
+			virtual ~Signal() = default;
+			void setThisSignalPtr(std::weak_ptr<Signal>);
 
 			void addOwnedAttribute(
 				const PropertyPtr&);

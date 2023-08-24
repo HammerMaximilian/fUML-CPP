@@ -19,6 +19,7 @@ namespace fuml::semantics::commonbehavior
 
 		public:
 			EventOccurrence_SendingBehaviorExecution(const EventOccurrencePtr&);
+			virtual ~EventOccurrence_SendingBehaviorExecution() = default;
 
 			void _startObjectBehavior();
 			virtual void execute() override;

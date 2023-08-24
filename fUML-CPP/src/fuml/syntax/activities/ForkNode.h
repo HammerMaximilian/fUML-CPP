@@ -14,6 +14,8 @@ namespace fuml::syntax::activities
 {
 	class ForkNode : public ControlNode
 	{
+		public:
+			virtual ~ForkNode = default;
 	}; // ForkNode
 }
 

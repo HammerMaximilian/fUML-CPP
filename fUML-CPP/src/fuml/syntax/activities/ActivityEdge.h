@@ -26,7 +26,7 @@ namespace fuml::syntax::activities
 
 		public:
 			virtual ~ActivityEdge() = 0;
-			virtual void setThisPtr(std::weak_ptr<ActivityEdge>);
+			void setThisActivityEdgePtr(std::weak_ptr<ActivityEdge>);
 
 			void setTarget(
 					const ActivityNodePtr&);

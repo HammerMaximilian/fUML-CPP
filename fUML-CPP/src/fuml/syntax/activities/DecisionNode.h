@@ -19,6 +19,8 @@ namespace fuml::syntax::activities
 			ObjectFlowPtr decisionInputFlow = nullptr;
 
 		public:
+			virtual ~DecisionNode() = default;
+			
 			void setDecisionInput(
 					const BehaviorPtr&);
 			void setDecisionInputFlow(

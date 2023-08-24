@@ -14,6 +14,9 @@ namespace fuml::syntax::commonbehavior
 {
 	class Event : public fuml::syntax::commonstructure::PackageableElement
 	{
+		public:
+			virtual ~Event() = default;
+			
 	}; // Event
 }
 

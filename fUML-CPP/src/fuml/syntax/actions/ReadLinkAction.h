@@ -18,6 +18,8 @@ namespace fuml::syntax::actions
 			OutputPinPtr result = nullptr;
 
 		public:
+			virtual ~ReadLinkAction() = default;
+		
 			void setResult(const OutputPinPtr&);
 	}; // ReadLinkAction
 }

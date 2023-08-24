@@ -19,6 +19,8 @@ namespace fuml::syntax::actions
 			InputPinPtr insertAt = nullptr;
 
 		public:
+			virtual ~AddStructuralFeatureValueAction() = default;
+		
 			void setIsReplaceAll(bool);
 			void setInsertAt(const InputPinPtr&);
 	}; // AddStructuralFeatureValueAction

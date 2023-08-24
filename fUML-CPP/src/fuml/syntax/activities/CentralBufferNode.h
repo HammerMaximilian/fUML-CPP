@@ -14,6 +14,9 @@ namespace fuml::syntax::activities
 {
 	class CentralBufferNode : public ObjectNode
 	{
+		public:
+			virtual ~CentralBufferNode = default;
+			
 	}; // CentralBufferNode
 }
 

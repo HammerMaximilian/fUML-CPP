@@ -22,6 +22,8 @@ namespace fuml::syntax::commonstructure
 			PackagePtr importedPackage = nullptr;
 
 		public:
+			virtual ~PackageImport() = default;
+		
 			void setVisibility(
 				VisibilityKind);
 			void setImportedPackage(

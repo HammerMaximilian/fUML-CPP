@@ -19,6 +19,8 @@ namespace fuml::syntax::actions
 			PropertyPtr end = nullptr;
 
 		public:
+			virtual ~LinkEndData() = default;
+		
 			void setEnd(const PropertyPtr&);
 			void setValue(const InputPinPtr&);
 	}; // LinkEndData

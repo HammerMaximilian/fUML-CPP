@@ -18,6 +18,8 @@ namespace fuml::syntax::commonstructure
 			TypePtr type = nullptr;
 
 		public:
+			virtual ~TypedElement() = default;
+		
 			void setType(const TypePtr&);
 	}; // TypedElement
 }

@@ -27,8 +27,8 @@ namespace fuml::syntax::classification
 			std::weak_ptr<Classifier> thisClassifierPtr;
 
 		public:
-			~Classifier() = 0;
-			virtual void setThisPtr(std::weak_ptr<Classifier>);
+			virtual ~Classifier() = 0;
+			void setThisClassifierPtr(std::weak_ptr<Classifier>);
 
 			void addGeneralization(
 				const GeneralizationPtr&);

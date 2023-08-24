@@ -20,6 +20,8 @@ namespace fuml::syntax::actions
 			InputPinPtr target = nullptr;
 
 		public:
+			virtual ~DestroyObjectAction() = default;
+		
 			void setIsDestroyLinks(bool);
 			void setIsDestroyOwnedObjects(bool);
 			void setTarget(const InputPinPtr& target);

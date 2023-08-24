@@ -24,6 +24,8 @@ namespace fuml::syntax::classification
 			bool isStream = false;
 
 		public:
+			virtual ~Parameter() = default;
+			
 			void setDirection(
 					ParameterDirectionKind);
 			void setIsStream(bool);

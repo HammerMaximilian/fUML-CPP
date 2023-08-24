@@ -19,6 +19,8 @@ namespace fuml::semantics::simpleclassifiers
 			EnumerationLiteralPtr literal = nullptr;
 
 		public:
+			virtual ~EnumerationValue() = default;
+		
 			virtual ValueSpecificationPtr specify() override;
 			virtual bool equals(const ValuePtr&) override;
 			virtual ValuePtr copy() override;

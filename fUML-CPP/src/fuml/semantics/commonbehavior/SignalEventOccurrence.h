@@ -18,6 +18,8 @@ namespace fuml::semantics::commonbehavior
 			SignalInstancePtr signalInstance;
 
 		public:
+			virtual ~SignalEventOccurrence() = default;
+		
 			virtual bool match(const TriggerPtr&) override;
 			virtual ParameterValueListPtr getParameterValues(const EventPtr&) override;
 	}; // SignalEventOccurrence

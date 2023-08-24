@@ -27,6 +27,8 @@ namespace fuml::syntax::actions
 			ExecutableNodeListPtr setupPart = std::make_shared<ExecutableNodeList>();
 
 		public:
+			virtual ~LoopNode() = default;
+		
 			void setIsTestedFirst(bool);
 			void addTest(
 					const ExecutableNodePtr&);

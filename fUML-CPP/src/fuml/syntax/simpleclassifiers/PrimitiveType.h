@@ -14,6 +14,9 @@ namespace fuml::syntax::simpleclassifiers
 {
 	class PrimitiveType : public DataType
 	{
+		public:
+			virtual ~PrimitiveType() = default;
+		
 	}; // PrimitiveType
 }
 

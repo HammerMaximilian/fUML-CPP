@@ -18,6 +18,8 @@ namespace fuml::syntax::actions
 			BehaviorPtr behavior = nullptr;
 
 		public:
+			virtual ~CallBehaviorAction() = default;
+		
 			void setBehavior(
 					const BehaviorPtr&);
 	}; // CallBehaviorAction

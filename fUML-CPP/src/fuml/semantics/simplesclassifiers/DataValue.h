@@ -18,6 +18,8 @@ namespace fuml::semantics::simpleclassifiers
 			DataTypePtr type = nullptr;
 
 		public:
+			virtual ~DataValue() = default;
+		
 			virtual ClassifierListPtr getTypes() override;
 			virtual ValuePtr copy() override;
 

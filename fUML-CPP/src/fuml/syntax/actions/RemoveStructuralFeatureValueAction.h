@@ -19,6 +19,8 @@ namespace fuml::syntax::actions
 			InputPinPtr removeAt = nullptr;
 
 		public:
+			virtual ~RemoveStructuralFeatureValueAction() = default;
+		
 			void setIsRemoveDuplicates(bool);
 			void setRemoveAt(const InputPinPtr&);
 	}; // RemoveStructuralFeatureValueAction

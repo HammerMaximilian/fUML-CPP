@@ -21,7 +21,8 @@ namespace fuml::syntax::simpleclassifiers
 			std::weak_ptr<Enumeration> thisEnumerationPtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<Enumeration>);
+			virtual ~Enumeration() = default;
+			void setThisEnumerationPtr(std::weak_ptr<Enumeration>);
 
 			void addOwnedLiteral(
 				const EnumerationLiteralPtr&);

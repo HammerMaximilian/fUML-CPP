@@ -23,7 +23,7 @@ namespace fuml::syntax::commonbehavior
 
 		public:
 			virtual ~BehavioredClassifier() = 0;
-			virtual void setThisPtr(std::weak_ptr<BehavioredClassifier>);
+			void setThisBehavioredClassifierPtr(std::weak_ptr<BehavioredClassifier>);
 
 			void addOwnedBehavior(
 					const BehaviorPtr& ownedBehavior);

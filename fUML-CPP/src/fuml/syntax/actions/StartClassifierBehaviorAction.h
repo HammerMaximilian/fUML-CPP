@@ -18,6 +18,8 @@ namespace fuml::syntax::actions
 			InputPinPtr object = nullptr;
 
 		public:
+			virtual ~StartClassifierBehaviorAction() = default;
+		
 			void setObject(const InputPinPtr&);
 	}; // StartClassifierBehaviorAction
 }

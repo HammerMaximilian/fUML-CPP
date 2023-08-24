@@ -20,6 +20,8 @@ namespace fuml::syntax::actions
 			ClassifierPtr unmarshallType = nullptr;
 
 		public:
+			virtual ~UnmarshallAction() = default;
+			
 			void setObject(const InputPinPtr&);
 			void addResult(const OutputPinPtr&);
 			void setUnmarshallType(const ClassifierPtr&);

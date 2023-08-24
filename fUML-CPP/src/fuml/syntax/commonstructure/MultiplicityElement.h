@@ -25,6 +25,7 @@ namespace fuml::syntax::commonstructure
 
 		public:
 			MultiplicityElement();
+			virtual ~MultiplicityElement() = default;
 
 			void setIsOrdered(bool);
 			void setIsUnique(bool);

@@ -18,6 +18,8 @@ namespace fuml::syntax::values
 			float value = 0.0f;
 
 		public:
+			virtual ~LiteralReal() = default;
+		
 			void setValue(float);
 	}; // LiteralReal
 }

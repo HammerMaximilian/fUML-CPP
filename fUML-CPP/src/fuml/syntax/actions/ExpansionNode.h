@@ -20,6 +20,8 @@ namespace fuml::syntax::actions
 			ExpansionRegionPtr regionAsInput = nullptr;
 
 		public:
+			virtual ~ExpansionNode() = default;
+		
 			void _setRegionAsInput(
 					const ExpansionRegionPtr&);
 			void _setRegionAsOutput(

@@ -21,6 +21,8 @@ namespace fuml::syntax::actions
 			bool isOrdered;
 
 		public:
+			virtual ~ReduceAction() = default;
+		
 			void setIsOrdered(bool);
 			void setReducer(const BehaviorPtr&);
 			void setCollection(const InputPinPtr&);

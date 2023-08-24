@@ -21,7 +21,7 @@ namespace fuml::syntax::classification
 			ClassifierListPtr redefinitionContext = std::make_shared<ClassifierList>();
 
 		public:
-			~RedefinableElement() = 0;
+			virtual ~RedefinableElement() = 0;
 
 			void setIsLeaf(bool);
 

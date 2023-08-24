@@ -19,6 +19,8 @@ namespace fuml::syntax::actions
 			InputPinPtr target = nullptr;
 
 		public:
+			virtual ~SendSignalAction() = default;
+		
 			void setTarget(const InputPinPtr&);
 			void setSignal(const SignalPtr&);
 	}; // SendSignalAction

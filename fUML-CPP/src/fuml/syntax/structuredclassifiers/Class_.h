@@ -28,7 +28,8 @@ namespace fuml::syntax::structuredclassifiers
 			std::weak_ptr<Class_> thisClass_Ptr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<Class_>);
+			virtual ~Class_() = default;
+			void setThisClass_Ptr(std::weak_ptr<Class_>);
 
 			void setIsActive(bool);
 			void addGeneralization(

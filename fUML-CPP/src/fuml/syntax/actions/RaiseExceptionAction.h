@@ -18,6 +18,8 @@ namespace fuml::syntax::actions
 			InputPinPtr exception = nullptr;
 
 		public:
+			virtual ~RaiseExceptionAction() = default;
+		
 			void setException(const InputPinPtr&);
 	}; // RaiseExceptionAction
 }

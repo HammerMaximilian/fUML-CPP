@@ -19,6 +19,8 @@ namespace fuml::semantics::structuredclassifiers
 			ObjectActivationPtr objectActivation = nullptr;
 
 		public:
+			virtual ~Object_() = default;
+		
 			void startBehavior(
 					const Class_Ptr&,
 					const ParameterValueListPtr&);

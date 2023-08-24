@@ -22,6 +22,8 @@ namespace fuml::syntax::actions
 			ClassifierListPtr newClassifier = std::make_shared<ClassifierList>();
 
 		public:
+			virtual ~ReclassifyObjectAction() = default;
+		
 			void setIsReplaceAll(bool);
 			void addOldClassifier(const ClassifierPtr&);
 			void addNewClassifier(const ClassifierPtr&);

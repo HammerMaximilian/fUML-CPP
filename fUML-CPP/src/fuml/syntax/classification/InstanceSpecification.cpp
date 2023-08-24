@@ -8,10 +8,10 @@
 #include <fuml/syntax/classification/InstanceSpecification.h>
 #include <fuml/syntax/classification/Slot.h>
 
-void InstanceSpecification::setThisPtr(std::weak_ptr<InstanceSpecification> thisInstanceSpecificationPtr)
+void InstanceSpecification::setThisInstanceSpecificationPtr(std::weak_ptr<InstanceSpecification> thisInstanceSpecificationPtr)
 {
 	this->thisInstanceSpecificationPtr = thisInstanceSpecificationPtr;
-	Element::setThisPtr(thisInstanceSpecificationPtr);
+	Element::setThisElementPtr(thisInstanceSpecificationPtr);
 }
 
 void InstanceSpecification::addClassifier(const ClassifierPtr& classifier)

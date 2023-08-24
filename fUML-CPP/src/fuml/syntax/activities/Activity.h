@@ -26,7 +26,8 @@ namespace fuml::syntax::activities
 			std::weak_ptr<Activity> thisActivityPtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<fuml::syntax::activities::Activity>);
+			virtual ~Activity() = default;
+			void setThisActivityPtr(std::weak_ptr<Activity>);
 
 			void setIsReadOnly(bool);
 			void addNode(

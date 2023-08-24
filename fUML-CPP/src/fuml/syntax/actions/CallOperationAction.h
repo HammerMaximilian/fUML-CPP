@@ -19,6 +19,8 @@ namespace fuml::syntax::actions
 			InputPinPtr target = nullptr;
 
 		public:
+			virtual ~CallOperationAction() = default;
+		
 			void setTarget(const InputPinPtr&);
 			void setOperation(const OperationPtr&);
 	}; // CallBehaviorAction

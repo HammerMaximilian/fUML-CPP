@@ -25,7 +25,7 @@ namespace fuml::syntax::commonstructure
 
 		public:
 			virtual ~Element() = 0;
-			virtual void setThisPtr(std::weak_ptr<Element>);
+			void setThisElementPtr(std::weak_ptr<Element>);
 
 		protected:
 			void addOwnedElement(

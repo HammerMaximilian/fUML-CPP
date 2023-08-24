@@ -21,6 +21,8 @@ namespace fuml::syntax::classification
 			ValueSpecificationListPtr value = std::make_shared<ValueSpecificationList>();
 
 		public:
+			virtual ~Slot() = default;
+			
 			void setDefiningFeature(
 					StructuralFeaturePtr);
 			void addValue(ValueSpecificationPtr);

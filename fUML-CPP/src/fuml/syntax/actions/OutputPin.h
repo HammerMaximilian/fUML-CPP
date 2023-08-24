@@ -14,6 +14,9 @@ namespace fuml::syntax::actions
 {
 	class OutputPin: virtual public Pin
 	{
+		public:
+			virtual ~OutputPin() = default;
+		
 	}; // OutputPin
 }
 

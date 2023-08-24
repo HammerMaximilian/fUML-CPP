@@ -20,6 +20,8 @@ namespace fuml::semantics::loci
 			LocusPtr locus = nullptr;
 
 		public:
+			virtual ~Executor() = default;
+		
 			ParameterValueListPtr execute(
 					const BehaviorPtr&,
 					const Object_Ptr&,

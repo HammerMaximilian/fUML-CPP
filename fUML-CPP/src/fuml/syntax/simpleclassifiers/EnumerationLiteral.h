@@ -19,6 +19,8 @@ namespace fuml::syntax::simpleclassifiers
 			EnumerationPtr classifier = nullptr;
 
 		public:
+			virtual ~EnumerationLiteral() = default;
+		
 			void _setEnumeration(
 				const EnumerationPtr&);
 	}; // EnumerationLiteral

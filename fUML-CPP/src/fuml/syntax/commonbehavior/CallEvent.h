@@ -18,6 +18,8 @@ namespace fuml::syntax::commonbehavior
 			OperationPtr operation = nullptr;
 
 		public:
+			virtual ~CallEvent() = default;
+			
 			void setOperation(const OperationPtr&);
 	}; // CallEvent
 }

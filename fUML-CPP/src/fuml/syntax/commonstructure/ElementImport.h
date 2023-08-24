@@ -23,6 +23,8 @@ namespace fuml::syntax::commonstructure
 			NamespacePtr importingNamespace = nullptr;
 
 		public:
+			virtual ~ElementImport() = default;
+		
 			void setAlias(std::string);
 			void setVisibility(VisibilityKind);
 			void setImportedElement(

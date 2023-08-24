@@ -14,6 +14,9 @@ namespace fuml::syntax::activities
 {
 	class ActivityFinalNode : public fuml::syntax::activities::FinalNode
 	{
+		public:
+			virtual ~ActivityFinalNode = default;
+			
 	}; // ActivityFinalNode
 }
 

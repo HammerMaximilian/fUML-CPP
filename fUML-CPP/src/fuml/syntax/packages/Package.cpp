@@ -13,10 +13,10 @@
 #include <fuml/syntax/commonstructure/VisibilityKind.h>
 #include <fuml/syntax/packages/Package.h>
 
-void Package::setThisPtr(std::weak_ptr<Package> thisPackagePtr)
+void Package::setThisPackagePtr(std::weak_ptr<Package> thisPackagePtr)
 {
 	this->thisPackagePtr = thisPackagePtr;
-	Namespace::setThisPtr(thisPackagePtr);
+	Namespace::setThisNamespacePtr(thisPackagePtr);
 }
 
 void Package::addPackagedElement(

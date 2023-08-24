@@ -8,9 +8,9 @@
 #include <fuml/syntax/actions/StructuredActivityNode.h>
 #include <fuml/syntax/activities/ActivityEdge.h>
 
-void StructuredActivityNode::setThisPtr(std::weak_ptr<StructuredActivityNode> thisStructuredActivityNodePtr)
+void StructuredActivityNode::setThisStructuredActivityNodePtr(std::weak_ptr<StructuredActivityNode> thisStructuredActivityNodePtr)
 {
-	ExecutableNode::setThisPtr(thisStructuredActivityNodePtr);
+	ExecutableNode::setThisExecutableNodePtr(thisStructuredActivityNodePtr);
 	this->thisStructuredActivityNodePtr = thisStructuredActivityNodePtr;
 }
 

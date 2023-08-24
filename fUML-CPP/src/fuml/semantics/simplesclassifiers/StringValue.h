@@ -23,6 +23,8 @@ namespace fuml::semantics::simpleclassifiers
 			std::string value = "";
 
 		public:
+			virtual ~StringValue() = default;
+		
 			virtual ValueSpecificationPtr specify() override;
 			virtual bool equals(const ValuePtr&) override;
 			virtual ValuePtr copy() override;

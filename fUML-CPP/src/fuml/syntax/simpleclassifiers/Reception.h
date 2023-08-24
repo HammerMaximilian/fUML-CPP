@@ -18,6 +18,8 @@ namespace fuml::syntax::simpleclassifiers
 			SignalPtr signal = nullptr;
 
 		public:
+			virtual ~Reception() = default;
+		
 			void setSignal(
 				const SignalPtr&);
 	}; // Reception

@@ -18,6 +18,8 @@ namespace fuml::semantics::structuredclassifiers
 			Object_Ptr referent = nullptr;
 
 		public:
+			virtual ~Reference() = default;
+		
 			void startBehavior(
 					const Class_Ptr&,
 					const ParameterValueListPtr&);

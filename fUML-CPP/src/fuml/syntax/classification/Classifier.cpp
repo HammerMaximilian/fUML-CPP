@@ -14,10 +14,10 @@ Classifier::~Classifier()
 {
 }
 
-void Classifier::setThisPtr(std::weak_ptr<Classifier> thisClassifierPtr)
+void Classifier::setThisClassifierPtr(std::weak_ptr<Classifier> thisClassifierPtr)
 {
 	this->thisClassifierPtr = thisClassifierPtr;
-	Namespace::setThisPtr(thisClassifierPtr);
+	Namespace::setThisNamespacePtr(thisClassifierPtr);
 }
 
 void Classifier::addGeneralization(

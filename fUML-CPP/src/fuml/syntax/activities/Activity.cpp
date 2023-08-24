@@ -11,10 +11,10 @@
 #include <algorithm>
 #include <iterator>
 
-void Activity::setThisPtr(std::weak_ptr<Activity> thisActivityPtr)
+void Activity::setThisActivityPtr(std::weak_ptr<Activity> thisActivityPtr)
 {
 	this->thisActivityPtr = thisActivityPtr;
-	Class_::setThisPtr(thisActivityPtr);
+	Class_::setThisClass_Ptr(thisActivityPtr);
 }
 
 void Activity::setIsReadOnly(bool isReadOnly)

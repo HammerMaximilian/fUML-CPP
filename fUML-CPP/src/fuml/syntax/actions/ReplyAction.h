@@ -20,6 +20,8 @@ namespace fuml::syntax::actions
 			InputPinPtr returnInformation = nullptr;
 
 		public:
+			virtual ~ReplyAction() = default;
+		
 			void setReplyToCall(const TriggerPtr&);
 			void addReplyValue(const InputPinPtr&);
 			void setReturnInformation(const InputPinPtr&);

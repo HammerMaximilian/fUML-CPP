@@ -23,6 +23,8 @@ namespace fuml::semantics::simpleclassifiers
 			int value = 0;
 
 		public:
+			virtual ~IntegerValue() = default;
+		
 			virtual ValueSpecificationPtr specify() override;
 			virtual bool equals(const ValuePtr&) override;
 			virtual ValuePtr copy() override;

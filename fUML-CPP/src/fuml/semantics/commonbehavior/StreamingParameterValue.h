@@ -18,6 +18,8 @@ namespace fuml::semantics::commonbehavior
 			StreamingParameterListenerPtr listener;
 
 		public:
+			virtual ~StreamingParameterValue() = default;
+		
 			void post(const ValueListPtr&);
 			void register_(const StreamingParameterListenerPtr&);
 			bool isTerminated();

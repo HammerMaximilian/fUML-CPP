@@ -19,6 +19,8 @@ namespace fuml::syntax::values
 			std::string value = "";
 
 		public:
+			virtual ~LiteralString() = default;
+		
 			void setValue(std::string);
 	}; // LiteralString
 }

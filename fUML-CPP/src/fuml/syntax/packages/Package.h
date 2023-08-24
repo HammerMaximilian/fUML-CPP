@@ -26,7 +26,8 @@ namespace fuml::syntax::packages
 			std::weak_ptr<Package> thisPackagePtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<Package>);
+			virtual ~Package() = default;
+			void setThisPackagePtr(std::weak_ptr<Package>);
 
 			void addPackagedElement(const PackageableElementPtr&);
 			PackageableElementListPtr visibleMembers();

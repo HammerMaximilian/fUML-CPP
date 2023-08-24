@@ -20,6 +20,7 @@ namespace fuml::semantics::commonbehavior
 
 		public:
 			ObjectActivation_EventDispatchLoopExecution(const ObjectNodeActivationPtr&);
+			virtual ~ObjectActivation_EventDispatchLoopExecution() = default;
 
 			void _startObjectBehavior();
 			void _send(const ArrivalSignalPtr&);

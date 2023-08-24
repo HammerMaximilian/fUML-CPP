@@ -18,6 +18,8 @@ namespace fuml::syntax::actions
 			InputPinPtr object = nullptr;
 
 		public:
+			virtual ~StartObjectBehaviorAction() = default;
+		
 			void setObject(const InputPinPtr&);
 	}; // StartObjectBehaviorAction
 }

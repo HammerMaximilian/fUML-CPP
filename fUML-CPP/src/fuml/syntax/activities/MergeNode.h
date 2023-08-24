@@ -14,6 +14,9 @@ namespace fuml::syntax::activities
 {
 	class MergeNode : public ControlNode
 	{
+		public:
+			virtual ~MergeNode = default;
+			
 	}; // MergeNode
 }
 

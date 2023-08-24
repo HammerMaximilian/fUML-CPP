@@ -21,6 +21,8 @@ namespace fuml::syntax::actions
 			OutputPinListPtr result = std::make_shared<OutputPinList>();
 
 		public:
+			virtual ~ConditionalNode() = default;
+		
 			void setIsDeterminate(bool);
 			void setIsAssured(bool);
 			void addClause(

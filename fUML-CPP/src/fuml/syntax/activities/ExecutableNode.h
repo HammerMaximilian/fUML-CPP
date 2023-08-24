@@ -22,7 +22,7 @@ namespace fuml::syntax::activities
 
 		public:
 			virtual ~ExecutableNode() = 0;
-			virtual void setThisPtr(std::weak_ptr<ExecutableNode>);
+			void setThisExecutableNodePtr(std::weak_ptr<ExecutableNode>);
 
 			void addExceptionHandler(const ExceptionHandlerPtr&);
 	}; // ExecutableNode

@@ -27,7 +27,8 @@ namespace fuml::semantics::commonbehavior
 			ObjectActivation_EventDispatchLoopExecution behavior;
 
 		public:
-			void setThisPtr(std::weak_ptr<ObjectActivation>); // TODO: Hier "ObjectActivation_EventDispatchLoopExecution behavior" initialisieren und thisPtr als Konstruktor-Parameter übergeben
+			virtual ~ObjectActivtion() = default;
+			void setThisObjectActivationPtr(std::weak_ptr<ObjectActivation>); // TODO: Hier "ObjectActivation_EventDispatchLoopExecution behavior" initialisieren und thisPtr als Konstruktor-Parameter übergeben
 
 			void stop();
 			void register_(const EventAccepterPtr&);

@@ -27,7 +27,8 @@ namespace fuml::syntax::actions
 			std::weak_ptr<Clause> thisClausePtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<Clause>);
+			virtual ~Clause() = default;
+			void setThisClausePtr(std::weak_ptr<Clause>);
 
 			void addPredecessorClause(
 					const ClausePtr&);

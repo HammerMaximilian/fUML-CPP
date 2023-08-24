@@ -27,7 +27,7 @@ namespace fuml::syntax::commonstructure
 
 		public:
 			virtual ~Namespace() = 0;
-			virtual void setThisPtr(std::weak_ptr<Namespace>);
+			void setThisNamespacePtr(std::weak_ptr<Namespace>);
 
 			void addElementImport(
 				const ElementImportPtr&);

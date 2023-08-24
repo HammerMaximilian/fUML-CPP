@@ -24,6 +24,8 @@ namespace fuml::semantics::simpleclassifiers
 			UMLPrimitiveTypes::unlimitedNatural value = 0;
 
 		public:
+			virtual ~UnlimitedNaturalValue() = default;
+		
 			virtual ValueSpecificationPtr specify() override;
 			virtual bool equals(const ValuePtr&) override;
 			virtual ValuePtr copy() override;

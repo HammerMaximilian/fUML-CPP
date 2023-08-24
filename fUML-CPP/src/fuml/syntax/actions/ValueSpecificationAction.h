@@ -19,6 +19,8 @@ namespace fuml::syntax::actions
 			OutputPinPtr result = nullptr;
 
 		public:
+			virtual ~ValueSpecificationAction() = default;
+			
 			void setValue(const ValueSpecificationPtr&);
 			void setResult(const OutputPinPtr&);
 	}; // ValueSpecificationAction

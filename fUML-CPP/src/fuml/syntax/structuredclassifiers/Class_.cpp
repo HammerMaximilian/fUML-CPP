@@ -11,10 +11,10 @@
 #include <fuml/syntax/simpleclassifiers/Reception.h>
 #include <fuml/syntax/structuredclassifiers/Class_.h>
 
-void Class_::setThisPtr(std::weak_ptr<Class_> thisClass_Ptr)
+void Class_::setThisClass_Ptr(std::weak_ptr<Class_> thisClass_Ptr)
 {
 	this->thisClass_Ptr = thisClass_Ptr;
-	BehavioredClassifier::setThisPtr(thisClass_Ptr);
+	BehavioredClassifier::setThisBehavioredClassifierPtr(thisClass_Ptr);
 }
 
 void Class_::setIsActive(bool isActive)

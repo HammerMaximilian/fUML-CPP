@@ -18,6 +18,8 @@ namespace fuml::semantics::commonbehavior
 			CallEventExecutionPtr execution = nullptr;
 
 		public:
+			virtual ~CallEventOccurrence() = default;
+		
 			OperationPtr getOperation();
 			virtual bool match(const TriggerPtr&) override;
 			virtual ParameterValueListPtr getParameterValues(const EventPtr&) override;

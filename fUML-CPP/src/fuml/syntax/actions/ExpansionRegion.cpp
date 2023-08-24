@@ -8,9 +8,9 @@
 #include <fuml/syntax/actions/ExpansionNode.h>
 #include <fuml/syntax/actions/ExpansionRegion.h>
 
-void ExpansionRegion::setThisPtr(std::weak_ptr<ExpansionRegion> thisExpansionRegionPtr)
+void ExpansionRegion::setThisExpansionRegionPtr(std::weak_ptr<ExpansionRegion> thisExpansionRegionPtr)
 {
-	StructuredActivityNode::setThisPtr(thisExpansionRegionPtr);
+	StructuredActivityNode::setThisStructuredActivityNodePtr(thisExpansionRegionPtr);
 	this->thisExpansionRegionPtr = thisExpansionRegionPtr;
 }
 

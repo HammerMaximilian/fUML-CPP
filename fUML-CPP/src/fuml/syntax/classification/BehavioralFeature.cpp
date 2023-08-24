@@ -13,10 +13,10 @@ BehavioralFeature::~BehavioralFeature()
 {
 }
 
-void BehavioralFeature::setThisPtr(std::weak_ptr<BehavioralFeature> thisBehavioralFeaturePtr)
+void BehavioralFeature::setThisBehavioralFeaturePtr(std::weak_ptr<BehavioralFeature> thisBehavioralFeaturePtr)
 {
 	this->thisBehavioralFeaturePtr = thisBehavioralFeaturePtr;
-	Namespace::setThisPtr(thisBehavioralFeaturePtr);
+	Namespace::setThisNamespacePtr(thisBehavioralFeaturePtr);
 }
 
 void BehavioralFeature::setIsAbstract(bool isAbstract)

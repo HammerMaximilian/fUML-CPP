@@ -15,7 +15,7 @@ namespace fuml::syntax::commonbehavior
 	class MessageEvent : public Event
 	{
 		public:
-			~MessageEvent() = 0;
+			virtual ~MessageEvent() = 0;
 	}; // MessageEvent
 }
 

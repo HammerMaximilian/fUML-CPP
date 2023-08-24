@@ -21,6 +21,8 @@ namespace fuml::semantics::commonbehavior
 			ObjectActivationPtr objectActivation = nullptr;
 
 		public:
+			virtual ~ClassifierBehaviorInvocationEventAccepter() = default;
+		
 			void invokeBehvior(
 					const Class_Ptr&,
 					const ParameterValueListPtr&);

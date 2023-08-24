@@ -15,6 +15,8 @@ namespace fuml::semantics::structuredclassifiers
 	class RedefinitionBasedDispatchStrategy : public DispatchStrategy
 	{
 		public:
+			virtual ~RedefinitionBasedDispatchStrategy() = default;
+		
 			virtual BehaviorPtr getMethod(
 					const Object_Ptr&,
 					const OperationPtr&) override;

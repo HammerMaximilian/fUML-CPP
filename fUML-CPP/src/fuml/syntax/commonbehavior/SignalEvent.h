@@ -18,6 +18,8 @@ namespace fuml::syntax::commonbehavior
 			SignalPtr signal = nullptr;
 
 		public:
+			virtual ~SignalEvent() = default;
+			
 			void setSignal(
 				const SignalPtr&);
 	}; // SignalEvent

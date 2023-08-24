@@ -23,6 +23,8 @@ namespace fuml::semantics::loci
 			SemanticStrategyListPtr strategies = std::make_shared<SemanticStrategyList>();
 
 		public:
+			virtual ~ExecutionFactory() = default;
+		
 			ExecutionPtr createExecution(
 					const BehaviorPtr&,
 					const Object_Ptr&);

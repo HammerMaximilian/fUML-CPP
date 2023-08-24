@@ -21,6 +21,8 @@ namespace fuml::syntax::classification
 			ClassifierPtr general = nullptr;
 
 		public:
+			virtual ~Generalization() = default;
+			
 			void setIsSubstitutable(bool);
 			void setGeneral(const ClassifierPtr&);
 			void _setSpecific(const ClassifierPtr&);

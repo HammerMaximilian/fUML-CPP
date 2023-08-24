@@ -21,6 +21,8 @@ namespace fuml::syntax::commonstructure
 			std::string body = "";
 
 		public:
+			virtual ~Comment() = default;
+		
 			void setAnnotatedElement(
 				const ElementPtr&);
 			void setBody(std::string);

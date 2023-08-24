@@ -19,7 +19,7 @@ namespace fuml::syntax::classification
 			ClassifierListPtr featuringClassifier = std::make_shared<ClassifierList>();
 
 		public:
-			~Feature() = 0;
+			virtual ~Feature() = 0;
 
 			void _addFeaturingClassifier(
 					const ClassifierPtr&);

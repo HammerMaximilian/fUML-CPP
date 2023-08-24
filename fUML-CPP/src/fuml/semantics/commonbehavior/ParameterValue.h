@@ -21,6 +21,8 @@ namespace fuml::semantics::commonbehavior
 			ValueListPtr values = std::make_shared<ValueList>();
 
 		public:
+			virtual ~ParameterValue() = default;
+		
 			ParameterValuePtr copy();
 	}; // ParameterValue
 }

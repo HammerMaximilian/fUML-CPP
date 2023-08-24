@@ -14,10 +14,10 @@ Namespace::~Namespace()
 {
 }
 
-void Namespace::setThisPtr(std::weak_ptr<Namespace> thisNamespacePtr)
+void Namespace::setThisNamespacePtr(std::weak_ptr<Namespace> thisNamespacePtr)
 {
 	this->thisNamespacePtr = thisNamespacePtr;
-	Element::setThisPtr(thisNamespacePtr);
+	Element::setThisElementPtr(thisNamespacePtr);
 }
 
 void Namespace::addOwnedMember(

@@ -23,6 +23,8 @@ namespace fuml::syntax::classification
 			bool isReadOnly = false;
 
 		public:
+			virtual ~StructuralFeature() = default;
+			
 			void setIsReadOnly(bool);
 	}; // StructuralFeature
 }

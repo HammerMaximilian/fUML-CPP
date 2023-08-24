@@ -18,6 +18,8 @@ namespace fuml::syntax::values
 			bool value = false;
 
 		public:
+			virtual ~LiteralBoolean() = default;
+		
 			void setValue(bool);
 	}; // LiteralBoolean
 }

@@ -23,7 +23,8 @@ namespace fuml::syntax::classification
 			std::weak_ptr<InstanceSpecification> thisInstanceSpecificationPtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<InstanceSpecification>);
+			virtual ~InstanceSpecification() = default;
+			void setThisInstanceSpecificationPtr(std::weak_ptr<InstanceSpecification>);
 
 			void addClassifier(const ClassifierPtr&);
 			void addSlot(const SlotPtr&);

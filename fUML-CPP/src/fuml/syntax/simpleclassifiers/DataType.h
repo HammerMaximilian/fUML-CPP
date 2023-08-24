@@ -22,7 +22,8 @@ namespace fuml::syntax::simpleclassifiers
 			std::weak_ptr<DataType> thisDataTypePtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<DataType>);
+			virtual ~DataType() = default;
+			void setThisDataTypePtr(std::weak_ptr<DataType>);
 
 			void addOwnedAttribute(
 				const PropertyPtr&);

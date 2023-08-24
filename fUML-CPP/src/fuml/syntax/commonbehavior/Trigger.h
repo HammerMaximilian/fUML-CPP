@@ -18,6 +18,8 @@ namespace fuml::syntax::commonbehavior
 			EventPtr event = nullptr;
 
 		public:
+			virtual ~Trigger() = default;
+		
 			void setEvent(const EventPtr&);
 	}; // Trigger
 }

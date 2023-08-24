@@ -19,6 +19,8 @@ namespace fuml::syntax::actions
 			OutputPinPtr result = nullptr;
 
 		public:
+			virtual ~ReadExtentAction() = default;
+		
 			void setResult(const OutputPinPtr&);
 			void setClassifier(const ClassifierPtr&);
 	}; // ReadExtentAction

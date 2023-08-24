@@ -19,6 +19,8 @@ namespace fuml::syntax::actions
 			InputPinPtr destroyAt = nullptr;
 
 		public:
+			virtual ~LinkEndDestructionData() = default;
+		
 			void setIsDestroyDuplicates(bool);
 			void setDestroyAt(const InputPinPtr&);
 	}; // LinkEndDestructionData

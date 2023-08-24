@@ -12,10 +12,10 @@ ExecutableNode::~ExecutableNode()
 {
 }
 
-void ExecutableNode::setThisPtr(std::weak_ptr<ExecutableNode> thisExecutableNodePtr)
+void ExecutableNode::setThisExecutableNodePtr(std::weak_ptr<ExecutableNode> thisExecutableNodePtr)
 {
 	this->thisExecutableNodePtr = thisExecutableNodePtr;
-	Element::setThisPtr(thisExecutableNodePtr);
+	Element::setThisElementPtr(thisExecutableNodePtr);
 }
 
 void ExecutableNode::addExceptionHandler(const ExceptionHandlerPtr& handler)

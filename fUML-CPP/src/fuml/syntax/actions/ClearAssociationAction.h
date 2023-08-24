@@ -20,6 +20,8 @@ namespace fuml::syntax::actions
 			InputPinPtr object = nullptr;
 
 		public:
+			virtual ~ClearAssociationAction() = default;
+		
 			void setObject(const InputPinPtr&);
 			void setAssociation(const AssociationPtr&);
 	}; // ClearAssociationAction

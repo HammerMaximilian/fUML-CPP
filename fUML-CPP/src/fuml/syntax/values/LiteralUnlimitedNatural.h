@@ -19,6 +19,8 @@ namespace fuml::syntax::values
 			UMLPrimitiveTypes::unlimitedNatural value = 0;
 
 		public:
+			virtual ~LiteralUnlimitedNatural() = default;
+		
 			void setValue(UMLPrimitiveTypes::unlimitedNatural);
 	}; // LiteralUnlimitedNatural
 }

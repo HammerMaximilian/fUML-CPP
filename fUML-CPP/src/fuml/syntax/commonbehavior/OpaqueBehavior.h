@@ -21,6 +21,8 @@ namespace fuml::syntax::commonbehavior
 			std::shared_ptr<UMLPrimitiveTypes::stringList> language = std::make_shared<UMLPrimitiveTypes::stringList>();
 
 		public:
+			virtual ~OpaqueBehavior() = default;
+			
 			void addBody(std::string);
 			void addLanguage(std::string);
 	}; // OpaqueBehavior

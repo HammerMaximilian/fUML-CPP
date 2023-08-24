@@ -27,7 +27,8 @@ namespace fuml::syntax::actions
 			std::weak_ptr<StructuredActivityNode> thisStructuredActivityNodePtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<StructuredActivityNode>);
+			virtual ~StructuredActivityNode() = default;
+			void setThisStructuredActivityNodePtr(std::weak_ptr<StructuredActivityNode>);
 
 			void setMustIsolate(bool);
 			void addNode(

@@ -27,6 +27,8 @@ namespace fuml::semantics::simpleclassifiers
 			int position = 0;
 
 		public:
+			virtual ~FeatureValue() = default;
+		
 			bool hasEqualValues(
 					const FeatureValuePtr&);
 			FeatureValuePtr copy();

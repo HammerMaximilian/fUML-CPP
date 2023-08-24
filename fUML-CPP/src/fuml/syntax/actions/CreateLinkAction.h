@@ -18,6 +18,8 @@ namespace fuml::syntax::actions
 			LinkEndCreationDataListPtr endData = std::make_shared<LinkEndCreationDataList>();
 
 		public:
+			virtual ~CreateLinkAction() = default;
+		
 			void addEndData(const LinkEndCreationDataPtr&);
 	}; // CreateLinkAction
 }

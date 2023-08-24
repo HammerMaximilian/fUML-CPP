@@ -29,8 +29,8 @@ namespace fuml::syntax::classification
 			std::weak_ptr<BehavioralFeature> thisBehavioralFeaturePtr;
 
 		public:
-			~BehavioralFeature() = 0;
-			virtual void setThisPtr(std::weak_ptr<BehavioralFeature>);
+			virtual ~BehavioralFeature() = 0;
+			void setThisBehavioralFeaturePtr(std::weak_ptr<BehavioralFeature>);
 
 			void setIsAbstract(bool);
 			void addOwnedParameter(

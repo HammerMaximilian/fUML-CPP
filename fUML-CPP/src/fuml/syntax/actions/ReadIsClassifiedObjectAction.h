@@ -21,6 +21,8 @@ namespace fuml::syntax::actions
 			InputPinPtr object = nullptr;
 
 		public:
+			virtual ~ReadIsClassifiedObjectAction() = default;
+		
 			void setIsDirect(bool);
 			void setClassifier(const ClassifierPtr&);
 			void setResult(const OutputPinPtr&);

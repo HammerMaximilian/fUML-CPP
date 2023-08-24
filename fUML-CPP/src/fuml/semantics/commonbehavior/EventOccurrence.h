@@ -25,7 +25,7 @@ namespace fuml::semantics::commonbehavior
 
 		public:
 			virtual ~EventOccurrence() = 0;
-			virtual void setThisPtr(std::weak_ptr<EventOccurrence>); // TODO: Hier "EventOccurrence_SendingBehaviorExecutionPtr behavior" initialisieren und thisPtr als Konstruktor-Parameter übergeben
+			void setThisEventOccurrencePtr(std::weak_ptr<EventOccurrence>); // TODO: Hier "EventOccurrence_SendingBehaviorExecutionPtr behavior" initialisieren und thisPtr als Konstruktor-Parameter übergeben
 
 			void sendTo(const ReferencePtr&);
 			virtual bool match(const TriggerPtr&) = 0;

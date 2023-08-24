@@ -24,7 +24,8 @@ namespace fuml::syntax::actions
 			std::weak_ptr<ExpansionRegion> thisExpansionRegionPtr;
 
 		public:
-			virtual void setThisPtr(std::weak_ptr<ExpansionRegion>);
+			virtual ~ExpansionRegion() = default;
+			void setThisExpansionRegionPtr(std::weak_ptr<ExpansionRegion>);
 
 			void setMode(
 					ExpansionKind);

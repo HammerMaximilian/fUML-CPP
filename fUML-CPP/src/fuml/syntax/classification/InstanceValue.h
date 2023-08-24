@@ -18,6 +18,8 @@ namespace fuml::syntax::classification
 			InstanceSpecificationPtr instance = nullptr;
 
 		public:
+			virtual ~InstanceValue() = default;
+			
 			void setInstance(
 					const InstanceSpecificationPtr&);
 	}; // InstanceValue

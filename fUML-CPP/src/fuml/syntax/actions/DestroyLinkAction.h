@@ -18,6 +18,8 @@ namespace fuml::syntax::actions
 			LinkEndDestructionDataListPtr endData = std::make_shared<LinkEndDestructionDataList>();
 
 		public:
+			virtual ~DestroyLinkAction() = default;
+		
 			void addEndData(const LinkEndDestructionDataPtr&);
 	}; // DestroyLinkAction
 }

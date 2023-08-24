@@ -12,10 +12,10 @@ BehavioredClassifier::~BehavioredClassifier()
 {
 }
 
-void BehavioredClassifier::setThisPtr(std::weak_ptr<BehavioredClassifier> thisBehavioredClassifierPtr)
+void BehavioredClassifier::setThisBehavioredClassifierPtr(std::weak_ptr<BehavioredClassifier> thisBehavioredClassifierPtr)
 {
 	this->thisBehavioredClassifierPtr = thisBehavioredClassifierPtr;
-	Classifier::setThisPtr(thisBehavioredClassifierPtr);
+	Classifier::setThisClassifierPtr(thisBehavioredClassifierPtr);
 }
 
 void BehavioredClassifier::addOwnedBehavior(

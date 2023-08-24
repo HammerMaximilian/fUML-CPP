@@ -18,6 +18,8 @@ namespace fuml::syntax::values
 			int value = 0;
 
 		public:
+			virtual ~LiteralInteger() = default;
+		
 			void setValue(int);
 	}; // LiteralInteger
 }

@@ -44,6 +44,8 @@ namespace fuml::syntax::activities
 			ExecutableNodePtr protectedNode;
 
 		public:
+			virtual ~ExceptionHandler() = default;
+			
 			void setExceptionInput(const ObjectNodePtr&);
 			void addExceptionType(const ClassifierPtr&);
 			void setHandlerBody(const ExecutableNodePtr&);

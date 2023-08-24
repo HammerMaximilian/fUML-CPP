@@ -18,6 +18,8 @@ namespace fuml::semantics::commonbehavior
 			bool callerSuspended = false;
 
 		public:
+			virtual ~CallEventExecution() = default;
+		
 			bool isCallerSuspended();
 			void setCallerSuspended(bool callerSuspended);
 			void suspendCaller();

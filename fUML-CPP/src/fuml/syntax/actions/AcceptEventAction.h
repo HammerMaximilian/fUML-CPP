@@ -21,6 +21,8 @@ namespace fuml::syntax::actions
 			TriggerListPtr trigger = std::make_shared<TriggerList>();
 
 		public:
+			virtual ~AcceptEventAction() = default;
+		
 			void setIsUnmarshall(bool);
 			void addTrigger(
 					const TriggerPtr&);

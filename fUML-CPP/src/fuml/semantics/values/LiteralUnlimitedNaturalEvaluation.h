@@ -15,6 +15,8 @@ namespace fuml::semantics::values
 	class LiteralUnlimitedNaturalEvaluation : LiteralEvaluation
 	{
 		public:
+			virtual ~LiteralUnlimitedNaturalEvaluation() = default;
+		
 			virtual ValuePtr evaluate() override;
 	};  // LiteralUnlimitedNaturalEvaluation
 }

@@ -14,6 +14,9 @@ namespace fuml::semantics::loci
 {
 	class ExecutionFactoryL1 : public ExecutionFactory
 	{
+		public:
+			virtual ~ExecutionFactoryL1() = default;
+		
 	}; // ExecutionFactoryL1
 }
 
