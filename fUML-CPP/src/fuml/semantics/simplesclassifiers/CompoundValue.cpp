@@ -12,6 +12,10 @@
 #include <fuml/syntax/classification/Classifier.h>
 #include <fuml/syntax/classification/StructuralFeature.h>
 
+CompoundValue::~CompoundValue()
+{
+}
+
 bool CompoundValue::equals(
 		const ValuePtr& otherValue)
 {
