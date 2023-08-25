@@ -63,6 +63,7 @@ namespace fuml
 			class TokenSet;
 			class UnmarshallActionActivation;
 			class ValueSpecificationActionActivation;
+			class Values;
 			class WriteLinkActionActivation;
 			class WriteStructuralFeatureActionActivation;
 		}
@@ -278,13 +279,15 @@ using TestIdentityActionActivationPtr = std::shared_ptr<TestIdentityActionActiva
 using TokenSet = fuml::semantics::actions::TokenSet;
 using TokenSetPtr = std::shared_ptr<TokenSet>;
 using TokenSetList = std::vector<TokenSetPtr>;
+using TokenSetListPtr = std::shared_ptr<TokenSetList>;
 using UnmarshallActionActivation = fuml::semantics::actions::UnmarshallActionActivation;
 using UnmarshallActionActivationPtr = std::shared_ptr<UnmarshallActionActivation>;
 using ValueSpecificationActionActivation = fuml::semantics::actions::ValueSpecificationActionActivation;
 using ValueSpecificationActionActivationPtr = std::shared_ptr<ValueSpecificationActionActivation>;
-//using Values = fuml::semantics::actions::Values;
-//using ValuesPtr = std::shared_ptr<Values>;
-//using ValuesList = fuml::semantics::actions::ValuesList;
+using Values = fuml::semantics::actions::Values;
+using ValuesPtr = std::shared_ptr<Values>;
+using ValuesList = std::vector<ValuesPtr>;
+using ValuesListPtr = std::shared_ptr<ValuesList>;
 using WriteLinkActionActivation = fuml::semantics::actions::WriteLinkActionActivation;
 using WriteLinkActionActivationPtr = std::shared_ptr<WriteLinkActionActivation>;
 using WriteStructuralFeatureActionActivation = fuml::semantics::actions::WriteStructuralFeatureActionActivation;
