@@ -19,7 +19,7 @@ namespace fuml::semantics::activities
 
 			void propagateException(const ValuePtr&);
 			ExceptionHandlerListPtr getMatchingExceptionHandlers(const ValuePtr&);
-			void handle(
+			virtual void handle(
 					const ValuePtr&,
 					const ExceptionHandlerPtr&);
 

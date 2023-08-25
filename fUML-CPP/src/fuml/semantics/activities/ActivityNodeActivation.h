@@ -26,24 +26,24 @@ namespace fuml::semantics::activities
 		public:
 			virtual ~ActivityNodeActivation() = 0;
 
-			void initialize(const ActivityNodePtr&, const ActivityNodeActivationGroupPtr&);
+			virtual void initialize(const ActivityNodePtr&, const ActivityNodeActivationGroupPtr&);
 			virtual void run();
-			void receiveOffer();
+			virtual void receiveOffer();
 			virtual TokenListPtr takeOfferedTokens();
 			virtual void fire(const TokenListPtr&) = 0;
 			virtual void sendOffers(const TokenListPtr&);
 			virtual void terminate();
 			virtual bool isReady();
 			bool isRunning();
-			void addOutgoingEdge(const ActivityEdgeInstancePtr&);
+			virtual void addOutgoingEdge(const ActivityEdgeInstancePtr&);
 			void addIncomingEdge(const ActivityEdgeInstancePtr&);
-			void createNodeActivations();
-			void createEdgeInstances();
-			bool isSourceFor(const ActivityEdgeInstancePtr&);
+			virtual void createNodeActivations();
+			virtual void createEdgeInstances();
+			virtual bool isSourceFor(const ActivityEdgeInstancePtr&);
 			ActivityExecutionPtr getActivityExecution();
 			Object_Ptr getExecutionContext();
 			LocusPtr getExecutionLocus();
-			ActivityNodeActivationPtr getNodeActivation(const ActivityNode&);
+			virtual ActivityNodeActivationPtr getNodeActivation(const ActivityNodePtr&);
 			virtual void addToken(const TokenPtr&);
 			virtual int removeToken(const TokenPtr&);
 			void addTokens(const TokenListPtr&);
@@ -51,7 +51,7 @@ namespace fuml::semantics::activities
 			virtual void clearTokens();
 			TokenListPtr getTokens();
 			void suspend();
-			void resume();
+			virtual void resume();
 	}; // ActivityNodeActivation
 }
 

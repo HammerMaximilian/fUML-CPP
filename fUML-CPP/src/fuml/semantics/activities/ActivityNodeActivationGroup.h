@@ -37,14 +37,14 @@ namespace fuml::semantics::activities
 			void terminateAll();
 			void createNodeActivations(const ActivityNodeListPtr&);
 			ActivityNodeActivationPtr createNodeActivation(const ActivityNodePtr&);
-			ActivityNodeActivationPtr getNodeActivation(const ActivityNodePtr&);
+			virtual ActivityNodeActivationPtr getNodeActivation(const ActivityNodePtr&);
 			void createEdgeInstances(const ActivityEdgeListPtr&);
-			ActivityExecutionPtr getActivityExecution();
+			virtual ActivityExecutionPtr getActivityExecution();
 			ActivityParameterNodeActivationListPtr getOutputParameterNodeActivations();
 			bool hasSourceFor(const ActivityEdgeInstancePtr&);
 			bool isSuspended();
-			void suspend(const ActivityNodeActivationPtr&);
-			void resume(const ActivityNodeActivationPtr&);
+			virtual void suspend(const ActivityNodeActivationPtr&);
+			virtual void resume(const ActivityNodeActivationPtr&);
 
 	}; // ActivityNodeActivationGroup
 }
