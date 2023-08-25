@@ -32,7 +32,7 @@ namespace fuml::syntax::classification
 		public:
 			virtual ~Property() = default;
 			
-			void setIsReadOnly(bool);
+			virtual void setIsReadOnly(bool) override;
 			void setAggregation(
 				AggregationKind);
 			void _setAssociation(

@@ -15,7 +15,7 @@ namespace fuml::syntax::activities
 	class FlowFinalNode : public FinalNode
 	{
 		public:
-			virtual ~FlowFinalNode = default;
+			virtual ~FlowFinalNode() = default;
 			
 	}; // FlowFinalNode
 }

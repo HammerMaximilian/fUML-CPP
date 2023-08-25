@@ -15,7 +15,7 @@ namespace fuml::syntax::commonbehavior
 	class FunctionBehavior : public OpaqueBehavior
 	{
 		public:
-			virtual ~FunctionBehavior = default;
+			virtual ~FunctionBehavior() = default;
 			
 	}; // FunctionBehavior
 }

@@ -25,7 +25,7 @@ namespace fuml::syntax::commonbehavior
 
 			void addOwnedParameter(
 					const ParameterPtr&);
-			void _setContext(
+			virtual void _setContext(
 					const BehavioredClassifierPtr&);
 			void _setSpecification(
 					const BehavioralFeaturePtr&);

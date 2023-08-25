@@ -29,7 +29,7 @@ namespace fuml::syntax::actions
 			virtual ~Action() = 0;
 
 			void setIsLocallyReentrant(bool);
-			void _setContext(const ClassifierPtr&);
+			virtual void _setContext(const ClassifierPtr&);
 			void _setActivity(
 					const ActivityPtr&);
 

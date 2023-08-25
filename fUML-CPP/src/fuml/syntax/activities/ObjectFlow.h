@@ -15,7 +15,7 @@ namespace fuml::syntax::activities
 	class ObjectFlow : public ActivityEdge
 	{
 		public:
-			virtual ~ObjectFlow = default;
+			virtual ~ObjectFlow() = default;
 	}; // ObjectFlow
 }
 

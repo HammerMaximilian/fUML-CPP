@@ -32,16 +32,16 @@ namespace fuml::syntax::structuredclassifiers
 			void setThisClass_Ptr(std::weak_ptr<Class_>);
 
 			void setIsActive(bool);
-			void addGeneralization(
-				const GeneralizationPtr&);
+			virtual void addGeneralization(
+				const GeneralizationPtr&) override;
 			void addOwnedAttribute(
 				const PropertyPtr&);
 			void addOwnedOperation(
 				const OperationPtr&);
 			void addOwnedReception(
 				const ReceptionPtr&);
-			NamedElementListPtr inherit(
-				const NamedElementListPtr&);
+			virtual NamedElementListPtr inherit(
+				const NamedElementListPtr&) override;
 			void addNestedClassifier(
 				const ClassifierPtr&);
 	}; // Class

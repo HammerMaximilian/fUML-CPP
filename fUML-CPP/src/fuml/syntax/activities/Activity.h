@@ -36,8 +36,8 @@ namespace fuml::syntax::activities
 			void addGroup(const ActivityGroupPtr&);
 			void addEdge(
 					const ActivityEdgePtr&);
-			void _setContext(
-					const BehavioredClassifierPtr&);
+			virtual void _setContext(
+					const BehavioredClassifierPtr&) override;
 	}; // Activity
 }
 

@@ -24,7 +24,7 @@ namespace fuml::syntax::activities
 		public:
 			virtual ~ActivityNode() = 0;
 
-			void _setActivity(
+			virtual void _setActivity(
 					const ActivityPtr&);
 			void _setInStructuredNode(
 					const StructuredActivityNodePtr&);

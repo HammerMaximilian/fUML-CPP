@@ -15,7 +15,7 @@ namespace fuml::syntax::activities
 	class InitialNode : public ControlNode
 	{
 		public:
-			virtual ~InitialNode = default;
+			virtual ~InitialNode() = default;
 	}; // InitialNode
 }
 

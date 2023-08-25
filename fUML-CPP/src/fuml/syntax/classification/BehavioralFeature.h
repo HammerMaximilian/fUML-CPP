@@ -33,9 +33,9 @@ namespace fuml::syntax::classification
 			void setThisBehavioralFeaturePtr(std::weak_ptr<BehavioralFeature>);
 
 			void setIsAbstract(bool);
-			void addOwnedParameter(
+			virtual void addOwnedParameter(
 				const ParameterPtr&);
-			void addMethod(
+			virtual void addMethod(
 				const BehaviorPtr&);
 			void addRaisedException(const TypePtr&);
 	}; // BehavioralFeature

@@ -15,7 +15,7 @@ namespace fuml::syntax::activities
 	class JoinNode : public ControlNode
 	{
 		public:
-			virtual ~JoinNode = default;
+			virtual ~JoinNode() = default;
 			
 	}; // JoinNode
 }

@@ -15,7 +15,7 @@ namespace fuml::syntax::activities
 	class DataStoreNode : public CentralBufferNode
 	{
 		public:
-			virtual ~DataStoreNode = default;
+			virtual ~DataStoreNode() = default;
 			
 	}; // DataStoreNode
 }

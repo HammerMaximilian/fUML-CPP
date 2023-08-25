@@ -21,7 +21,7 @@ namespace fuml::syntax::actions
 		public:
 			virtual ~LinkAction() = 0;
 
-			void addEndData(const LinkEndDataPtr&);
+			virtual void addEndData(const LinkEndDataPtr&);
 			void addInputValue(const InputPinPtr&);
 	}; // LinkAction
 }

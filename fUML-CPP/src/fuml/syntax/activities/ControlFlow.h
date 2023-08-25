@@ -15,7 +15,7 @@ namespace fuml::syntax::activities
 	class ControlFlow : public ActivityEdge
 	{
 		public:
-			virtual ~ControlFlow = default;
+			virtual ~ControlFlow() = default;
 			
 	}; // ControlFlow
 }

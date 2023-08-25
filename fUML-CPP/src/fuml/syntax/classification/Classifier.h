@@ -30,10 +30,10 @@ namespace fuml::syntax::classification
 			virtual ~Classifier() = 0;
 			void setThisClassifierPtr(std::weak_ptr<Classifier>);
 
-			void addGeneralization(
+			virtual void addGeneralization(
 				const GeneralizationPtr&);
 			void setIsAbstract(bool);
-			NamedElementListPtr inherit(
+			virtual NamedElementListPtr inherit(
 				const NamedElementListPtr&);
 			NamedElementListPtr inheritableMembers(
 				const ClassifierPtr&);
