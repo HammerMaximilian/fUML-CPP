@@ -1,14 +1,14 @@
 /*
- * RealValue.h
+ * StringValue.h
  *
  *  Created on: 22.08.2023
  *      Author: maha6913
  */
 
-#ifndef FUML_SEMANTICS_SIMPLESCLASSIFIERS_REALVALUE_H_
-#define FUML_SEMANTICS_SIMPLESCLASSIFIERS_REALVALUE_H_
+#ifndef FUML_SEMANTICS_SIMPLECLASSIFIERS_STRINGVALUE_H_
+#define FUML_SEMANTICS_SIMPLECLASSIFIERS_STRINGVALUE_H_
 
-#include "PrimitiveValue.h"
+#include <fuml/semantics/simpleclassifiers/PrimitiveValue.h>
 
 namespace fuml::syntax::values
 {
@@ -17,13 +17,13 @@ namespace fuml::syntax::values
 
 namespace fuml::semantics::simpleclassifiers
 {
-	class RealValue : public PrimitiveValue
+	class StringValue : public PrimitiveValue
 	{
 		public:
-			float value = 0.0;
+			std::string value = "";
 
 		public:
-			virtual ~RealValue() = default;
+			virtual ~StringValue() = default;
 		
 			virtual ValueSpecificationPtr specify() override;
 			virtual bool equals(const ValuePtr&) override;
@@ -32,7 +32,7 @@ namespace fuml::semantics::simpleclassifiers
 
 		protected:
 			virtual ValuePtr new_() override;
-	}; // RealValue
+	}; // StringValue
 }
 
-#endif /* FUML_SEMANTICS_SIMPLESCLASSIFIERS_REALVALUE_H_ */
+#endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_STRINGVALUE_H_ */

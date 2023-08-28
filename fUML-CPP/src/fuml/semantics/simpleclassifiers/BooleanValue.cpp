@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include <fuml/semantics/simplesclassifiers/BooleanValue.h>
+#include <fuml/semantics/simpleclassifiers/BooleanValue.h>
 #include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
 #include <fuml/syntax/values/LiteralBoolean.h>
 

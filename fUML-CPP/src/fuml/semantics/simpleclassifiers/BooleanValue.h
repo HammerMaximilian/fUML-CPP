@@ -5,10 +5,10 @@
  *      Author: maha6913
  */
 
-#ifndef FUML_SEMANTICS_SIMPLESCLASSIFIERS_BOOLEANVALUE_H_
-#define FUML_SEMANTICS_SIMPLESCLASSIFIERS_BOOLEANVALUE_H_
+#ifndef FUML_SEMANTICS_SIMPLECLASSIFIERS_BOOLEANVALUE_H_
+#define FUML_SEMANTICS_SIMPLECLASSIFIERS_BOOLEANVALUE_H_
 
-#include "PrimitiveValue.h"
+#include <fuml/semantics/simpleclassifiers/PrimitiveValue.h>
 
 namespace fuml::syntax::values
 {
@@ -35,4 +35,4 @@ namespace fuml::semantics::simpleclassifiers
 	}; // BooleanValue
 }
 
-#endif /* FUML_SEMANTICS_SIMPLESCLASSIFIERS_BOOLEANVALUE_H_ */
+#endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_BOOLEANVALUE_H_ */

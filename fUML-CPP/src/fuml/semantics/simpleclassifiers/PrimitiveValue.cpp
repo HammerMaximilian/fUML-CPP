@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include <fuml/semantics/simplesclassifiers/PrimitiveValue.h>
+#include <fuml/semantics/simpleclassifiers/PrimitiveValue.h>
 #include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
 
 PrimitiveValue::~PrimitiveValue()

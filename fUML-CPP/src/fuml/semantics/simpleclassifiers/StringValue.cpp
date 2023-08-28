@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include <fuml/semantics/simplesclassifiers/StringValue.h>
+#include <fuml/semantics/simpleclassifiers/StringValue.h>
 #include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
 #include <fuml/syntax/values/LiteralString.h>
 

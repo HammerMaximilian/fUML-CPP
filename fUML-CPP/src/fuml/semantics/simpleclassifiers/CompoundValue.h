@@ -5,10 +5,10 @@
  *      Author: maha6913
  */
 
-#ifndef FUML_SEMANTICS_SIMPLESCLASSIFIERS_COMPOUNDVALUE_H_
-#define FUML_SEMANTICS_SIMPLESCLASSIFIERS_COMPOUNDVALUE_H_
+#ifndef FUML_SEMANTICS_SIMPLECLASSIFIERS_COMPOUNDVALUE_H_
+#define FUML_SEMANTICS_SIMPLECLASSIFIERS_COMPOUNDVALUE_H_
 
-#include <fuml/semantics/simplesclassifiers/StructuredValue.h>
+#include <fuml/semantics/simpleclassifiers/StructuredValue.h>
 
 namespace fuml::semantics::simpleclassifiers
 {
@@ -30,4 +30,4 @@ namespace fuml::semantics::simpleclassifiers
 	}; // CompoundValue
 }
 
-#endif /* FUML_SEMANTICS_SIMPLESCLASSIFIERS_COMPOUNDVALUE_H_ */
+#endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_COMPOUNDVALUE_H_ */

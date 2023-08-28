@@ -5,8 +5,8 @@
  *      Author: maha6913
  */
 
-#ifndef FUML_SEMANTICS_SIMPLESCLASSIFIERS_PRIMITIVEVALUE_H_
-#define FUML_SEMANTICS_SIMPLESCLASSIFIERS_PRIMITIVEVALUE_H_
+#ifndef FUML_SEMANTICS_SIMPLECLASSIFIERS_PRIMITIVEVALUE_H_
+#define FUML_SEMANTICS_SIMPLECLASSIFIERS_PRIMITIVEVALUE_H_
 
 #include <fuml/syntax/fwd.h>
 #include <fuml/semantics/values/Value.h>
@@ -26,4 +26,4 @@ namespace fuml::semantics::simpleclassifiers
 	}; // PrimitiveValue
 }
 
-#endif /* FUML_SEMANTICS_SIMPLESCLASSIFIERS_PRIMITIVEVALUE_H_ */
+#endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_PRIMITIVEVALUE_H_ */

@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include <fuml/semantics/simplesclassifiers/IntegerValue.h>
+#include <fuml/semantics/simpleclassifiers/IntegerValue.h>
 #include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
 #include "fuml/syntax/values/LiteralInteger.h"
 

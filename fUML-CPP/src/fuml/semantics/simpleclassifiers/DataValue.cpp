@@ -5,7 +5,7 @@
  *      Author: maha6913
  */
 
-#include <fuml/semantics/simplesclassifiers/DataValue.h>
+#include <fuml/semantics/simpleclassifiers/DataValue.h>
 #include <fuml/syntax/simpleclassifiers/DataType.h>
 
 ClassifierListPtr DataValue::getTypes()

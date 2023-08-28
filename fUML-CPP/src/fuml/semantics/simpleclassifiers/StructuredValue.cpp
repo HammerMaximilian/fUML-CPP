@@ -5,8 +5,8 @@
  *      Author: maha6913
  */
 
-#include <fuml/semantics/simplesclassifiers/FeatureValue.h>
-#include <fuml/semantics/simplesclassifiers/StructuredValue.h>
+#include <fuml/semantics/simpleclassifiers/FeatureValue.h>
+#include <fuml/semantics/simpleclassifiers/StructuredValue.h>
 #include <fuml/syntax/classification/Classifier.h>
 #include <fuml/syntax/classification/InstanceSpecification.h>
 #include <fuml/syntax/classification/InstanceValue.h>

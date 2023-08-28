@@ -5,10 +5,10 @@
  *      Author: maha6913
  */
 
-#ifndef FUML_SEMANTICS_SIMPLESCLASSIFIERS_INTEGERVALUE_H_
-#define FUML_SEMANTICS_SIMPLESCLASSIFIERS_INTEGERVALUE_H_
+#ifndef FUML_SEMANTICS_SIMPLECLASSIFIERS_INTEGERVALUE_H_
+#define FUML_SEMANTICS_SIMPLECLASSIFIERS_INTEGERVALUE_H_
 
-#include "PrimitiveValue.h"
+#include <fuml/semantics/simpleclassifiers/PrimitiveValue.h>
 
 namespace fuml::syntax::values
 {
@@ -35,4 +35,4 @@ namespace fuml::semantics::simpleclassifiers
 	}; // IntegerValue
 }
 
-#endif /* FUML_SEMANTICS_SIMPLESCLASSIFIERS_INTEGERVALUE_H_ */
+#endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_INTEGERVALUE_H_ */

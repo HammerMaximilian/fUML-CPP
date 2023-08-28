@@ -5,10 +5,10 @@
  *      Author: maha6913
  */
 
-#ifndef FUML_SEMANTICS_SIMPLESCLASSIFIERS_UNLIMITEDNATURALVALUE_H_
-#define FUML_SEMANTICS_SIMPLESCLASSIFIERS_UNLIMITEDNATURALVALUE_H_
+#ifndef FUML_SEMANTICS_SIMPLECLASSIFIERS_UNLIMITEDNATURALVALUE_H_
+#define FUML_SEMANTICS_SIMPLECLASSIFIERS_UNLIMITEDNATURALVALUE_H_
 
-#include "PrimitiveValue.h"
+#include <fuml/semantics/simpleclassifiers/PrimitiveValue.h>
 #include "UMLPrimitiveTypes/unlimitedNatural.h"
 
 namespace fuml::syntax::values
@@ -36,4 +36,4 @@ namespace fuml::semantics::simpleclassifiers
 	}; // UnlimitedNaturalValue
 }
 
-#endif /* FUML_SEMANTICS_SIMPLESCLASSIFIERS_UNLIMITEDNATURALVALUE_H_ */
+#endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_UNLIMITEDNATURALVALUE_H_ */

@@ -5,10 +5,10 @@
  *      Author: maha6913
  */
 
-#ifndef FUML_SEMANTICS_SIMPLESCLASSIFIERS_DATAVALUE_H_
-#define FUML_SEMANTICS_SIMPLESCLASSIFIERS_DATAVALUE_H_
+#ifndef FUML_SEMANTICS_SIMPLECLASSIFIERS_DATAVALUE_H_
+#define FUML_SEMANTICS_SIMPLECLASSIFIERS_DATAVALUE_H_
 
-#include <fuml/semantics/simplesclassifiers/CompoundValue.h>
+#include <fuml/semantics/simpleclassifiers/CompoundValue.h>
 
 namespace fuml::semantics::simpleclassifiers
 {
@@ -28,4 +28,4 @@ namespace fuml::semantics::simpleclassifiers
 	}; // DataValue
 }
 
-#endif /* FUML_SEMANTICS_SIMPLESCLASSIFIERS_DATAVALUE_H_ */
+#endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_DATAVALUE_H_ */

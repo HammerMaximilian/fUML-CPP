@@ -5,8 +5,8 @@
  *      Author: maha6913
  */
 
-#ifndef FUML_SEMANTICS_SIMPLESCLASSIFIERS_FEATUREVALUE_H_
-#define FUML_SEMANTICS_SIMPLESCLASSIFIERS_FEATUREVALUE_H_
+#ifndef FUML_SEMANTICS_SIMPLECLASSIFIERS_FEATUREVALUE_H_
+#define FUML_SEMANTICS_SIMPLECLASSIFIERS_FEATUREVALUE_H_
 
 #include <fuml/syntax/fwd.h>
 #include <fuml/semantics/fwd.h>
@@ -35,4 +35,4 @@ namespace fuml::semantics::simpleclassifiers
 	}; //FeatureValue
 }
 
-#endif /* FUML_SEMANTICS_SIMPLESCLASSIFIERS_FEATUREVALUE_H_ */
+#endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_FEATUREVALUE_H_ */

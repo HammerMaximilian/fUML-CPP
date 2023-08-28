@@ -5,8 +5,7 @@
  *      Author: maha6913
  */
 
-#include <fuml/semantics/simplesclassifiers/EnumerationValue.h>
-
+#include <fuml/semantics/simpleclassifiers/EnumerationValue.h>
 #include <fuml/syntax/classification/InstanceSpecification.h>
 #include <fuml/syntax/classification/InstanceValue.h>
 #include <fuml/syntax/simpleclassifiers/Enumeration.h>
