@@ -8,7 +8,7 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_DATASTORENODE_H_
 #define FUML_SYNTAX_ACTIVITIES_DATASTORENODE_H_
 
-#include <CentralBufferNode.h>
+#include <fuml/syntax/activities/CentralBufferNode.h>
 
 namespace fuml::syntax::activities
 {

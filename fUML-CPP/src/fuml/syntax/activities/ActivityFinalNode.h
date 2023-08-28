@@ -8,7 +8,7 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_ACTIVITYFINALNODE_H_
 #define FUML_SYNTAX_ACTIVITIES_ACTIVITYFINALNODE_H_
 
-#include <FinalNode.h>
+#include <fuml/syntax/activities/FinalNode.h>
 
 namespace fuml::syntax::activities
 {
