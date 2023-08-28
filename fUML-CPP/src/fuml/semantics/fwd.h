@@ -398,7 +398,8 @@ using InvocationEventOccurrence = fuml::semantics::commonbehavior::InvocationEve
 using InvocationEventOccurrencePtr = std::shared_ptr<InvocationEventOccurrence>;
 using ObjectActivation = fuml::semantics::commonbehavior::ObjectActivation;
 using ObjectActivationPtr = std::shared_ptr<ObjectActivation>;
-class ObjectActivation_EventDispatchLoopExecution;
+using ObjectActivation_EventDispatchLoopExecution = fuml::semantics::commonbehavior::ObjectActivation_EventDispatchLoopExecution;
+using ObjectActivation_EventDispatchLoopExecutionPtr = std::shared_ptr<ObjectActivation_EventDispatchLoopExecution>;
 using OpaqueBehaviorExecution = fuml::semantics::commonbehavior::OpaqueBehaviorExecution;
 using OpaqueBehaviorExecutionPtr = std::shared_ptr<OpaqueBehaviorExecution>;
 using OpaqueBehaviorExecutionList = std::vector<OpaqueBehaviorExecutionPtr>;

@@ -18,14 +18,18 @@ namespace fuml::semantics::structuredclassifiers
 			Class_ListPtr types = std::make_shared<Class_List>();
 			ObjectActivationPtr objectActivation = nullptr;
 
+		private:
+			std::weak_ptr<Object_> thisObject_Ptr;
+
 		public:
 			virtual ~Object_() = default;
+			void setThisObject_Ptr(std::weak_ptr<Object_>);
 		
 			void startBehavior(
 					const Class_Ptr&,
 					const ParameterValueListPtr&);
 			ExecutionPtr dispatch(const OperationPtr&);
-			void send(const EventOccurrence&);
+			void send(const EventOccurrencePtr&);
 			virtual void destroy() override;
 			void register_(const EventAccepterPtr&);
 			void unregister(const EventAccepterPtr&);

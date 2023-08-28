@@ -14,7 +14,7 @@
 
 namespace fuml::semantics::commonbehavior
 {
-	class ObjectActivtion : public utils::FumlObject
+	class ObjectActivation : public utils::FumlObject
 	{
 		public:
 			ClassifierBehaviorInvocationEventAccepterListPtr classifierBehaviorInvocations = std::make_shared<ClassifierBehaviorInvocationEventAccepterList>();
@@ -24,7 +24,7 @@ namespace fuml::semantics::commonbehavior
 
 		private:
 			std::weak_ptr<ObjectActivation> thisObjectActivationPtr;
-			ObjectActivation_EventDispatchLoopExecution behavior;
+			ObjectActivation_EventDispatchLoopExecutionPtr behavior;
 
 		public:
 			virtual ~ObjectActivtion() = default;

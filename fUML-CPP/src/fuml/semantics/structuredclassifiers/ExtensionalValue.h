@@ -18,8 +18,12 @@ namespace fuml::semantics::structuredclassifiers
 			std::string identifier = "";
 			LocusPtr locus = nullptr;
 
+		private:
+			std::weak_ptr<ExtensionalValue> thisExtensionalValuePtr;
+
 		public:
 			virtual ~ExtensionalValue() = 0;
+			void setThisExtensionalValuePtr(std::weak_ptr<ExtensionalValue>);
 
 			virtual void destroy();
 			virtual ValuePtr copy() override;

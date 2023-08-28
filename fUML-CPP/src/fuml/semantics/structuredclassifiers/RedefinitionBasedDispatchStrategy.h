@@ -20,6 +20,9 @@ namespace fuml::semantics::structuredclassifiers
 			virtual BehaviorPtr getMethod(
 					const Object_Ptr&,
 					const OperationPtr&) override;
+			bool operationsMatch(
+					const OperationPtr&,
+					const OperationPtr&);
 	}; // RedefinitionBasedDispatchStrategy
 }
 

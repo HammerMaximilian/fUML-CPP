@@ -23,7 +23,7 @@ namespace fuml::semantics::structuredclassifiers
 			void startBehavior(
 					const Class_Ptr&,
 					const ParameterValueListPtr&);
-			ExecutorPtr dispatch(const OperationPtr&);
+			ExecutionPtr dispatch(const OperationPtr&);
 			void send(const EventOccurrencePtr&);
 			void destroy();
 			virtual bool equals(const ValuePtr&) override;
@@ -34,7 +34,7 @@ namespace fuml::semantics::structuredclassifiers
 			virtual void setFeatureValue(
 					const StructuralFeaturePtr&,
 					const ValueListPtr&,
-					int position) override;
+					int) override;
 			virtual FeatureValueListPtr getFeatureValues() override;
 			virtual std::string toString() override;
 
