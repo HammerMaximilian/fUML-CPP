@@ -22,7 +22,7 @@ namespace fuml::semantics::commonbehavior
 
 		public:
 			static bool notStarted();
-			static void start();
+			static void start(const ExecutionPtr&);
 			static bool step();
 			static void enqueue(const ExecutionPtr&);
 

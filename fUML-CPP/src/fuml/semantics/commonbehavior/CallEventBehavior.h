@@ -17,8 +17,12 @@ namespace fuml::semantics::commonbehavior
 		public:
 			OperationPtr operation = nullptr;
 
+		private:
+			std::weak_ptr<CallEventBehavior> thisCallEventBehaviorPtr;
+
 		public:
 			virtual ~CallEventBehavior() = default;
+			void setThisCallEventBehavior(std::weak_ptr<CallEventBehavior>);
 		
 			void setOperation (const OperationPtr&);
 	}; // CallEventBehavior

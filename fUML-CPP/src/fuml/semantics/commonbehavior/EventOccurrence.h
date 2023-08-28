@@ -28,12 +28,10 @@ namespace fuml::semantics::commonbehavior
 			void setThisEventOccurrencePtr(std::weak_ptr<EventOccurrence>); // TODO: Hier "EventOccurrence_SendingBehaviorExecutionPtr behavior" initialisieren und thisPtr als Konstruktor-Parameter übergeben
 
 			void sendTo(const ReferencePtr&);
+			void doSend();
 			virtual bool match(const TriggerPtr&) = 0;
 			bool matchAny(const TriggerListPtr&);
 			virtual ParameterValueListPtr getParameterValues(const EventPtr&) = 0;
-
-		protected:
-			void doSend();
 
 		private:
 			void _startObjectBehavior();

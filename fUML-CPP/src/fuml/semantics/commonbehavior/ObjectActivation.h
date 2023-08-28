@@ -18,7 +18,7 @@ namespace fuml::semantics::commonbehavior
 	{
 		public:
 			ClassifierBehaviorInvocationEventAccepterListPtr classifierBehaviorInvocations = std::make_shared<ClassifierBehaviorInvocationEventAccepterList>();
-			EventAccepterListPtr waitingEventAccepter = std::make_shared<EventAccepterList>();
+			EventAccepterListPtr waitingEventAccepters = std::make_shared<EventAccepterList>();
 			EventOccurrenceListPtr eventPool = std::make_shared<EventOccurrenceList>();
 			Object_Ptr object = nullptr;
 

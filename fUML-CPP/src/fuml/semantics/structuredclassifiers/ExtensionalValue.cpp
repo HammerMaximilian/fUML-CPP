@@ -9,6 +9,10 @@
 
 #include <fuml/semantics/loci/Locus.h>
 
+ExtensionalValue::~ExtensionalValue()
+{
+}
+
 void ExtensionalValue::setThisExtensionalValuePtr(
 		std::weak_ptr<ExtensionalValue> thisExtensionalValuePtr)
 {

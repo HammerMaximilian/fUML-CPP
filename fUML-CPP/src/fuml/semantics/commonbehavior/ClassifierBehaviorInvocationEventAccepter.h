@@ -20,10 +20,14 @@ namespace fuml::semantics::commonbehavior
 			Class_Ptr classifier = nullptr;
 			ObjectActivationPtr objectActivation = nullptr;
 
+		private:
+			std::weak_ptr<ClassifierBehaviorInvocationEventAccepter> thisClassifierBehaviorInvocationEventAccepterPtr;
+
 		public:
 			virtual ~ClassifierBehaviorInvocationEventAccepter() = default;
+			void setThisClassifierBehaviorInvocationEventAccepterPtr(std::weak_ptr<ClassifierBehaviorInvocationEventAccepter>);
 		
-			void invokeBehvior(
+			void invokeBehavior(
 					const Class_Ptr&,
 					const ParameterValueListPtr&);
 			virtual bool match(const EventOccurrencePtr&) override;
