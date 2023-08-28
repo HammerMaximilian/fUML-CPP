@@ -15,6 +15,8 @@ namespace fuml::semantics::activities
 	class ActivityFinalNodeActivation : public ControlNodeActivation
 	{
 		public:
+			virtual ~ActivityFinalNodeActivation() = default;
+
 			virtual void fire(const TokenListPtr&) override;
 	}; // ActivityFinalNodeActivation
 }

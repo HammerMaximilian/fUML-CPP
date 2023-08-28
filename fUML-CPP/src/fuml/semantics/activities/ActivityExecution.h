@@ -18,8 +18,12 @@ namespace fuml::semantics::activities
 			ActivityNodeActivationGroupPtr activationGroup = nullptr;
 			bool isStreaming;
 
+		private:
+			std::weak_ptr<ActivityExecution> thisActivityExecutionPtr;
+
 		public:
 			virtual ~ActivityExecution() = default;
+			void setThisActivityExecutionPtr(std::weak_ptr<ActivityExecution>);
 
 			virtual void execute() override;
 			void complete();

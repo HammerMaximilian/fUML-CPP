@@ -17,8 +17,12 @@ namespace fuml::semantics::activities
 		public:
 			ValuePtr value = nullptr;
 
+		private:
+			std::weak_ptr<ObjectToken> thisObjectTokenPtr;
+
 		public:
 			virtual ~ObjectToken() = default;
+			void setThisObjectTokenPtr(std::weak_ptr<ObjectToken>);
 
 			virtual bool equals(const TokenPtr&) override;
 			virtual TokenPtr copy() override;

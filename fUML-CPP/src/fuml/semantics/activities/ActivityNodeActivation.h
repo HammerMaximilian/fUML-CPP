@@ -23,8 +23,12 @@ namespace fuml::semantics::activities
 			bool running = false;
 			TokenListPtr heldTokens = std::make_shared<TokenList>();
 
+		private:
+			std::weak_ptr<ActivityNodeActivation> thisActivityNodeActivationPtr;
+
 		public:
 			virtual ~ActivityNodeActivation() = 0;
+			void setThisActivityNodeActivation(std::weak_ptr<ActivityNodeActivation>);
 
 			virtual void initialize(const ActivityNodePtr&, const ActivityNodeActivationGroupPtr&);
 			virtual void run();

@@ -18,8 +18,12 @@ namespace fuml::semantics::activities
 		public:
 			ActivityNodeActivationPtr holder = nullptr;
 
+		private:
+			std::weak_ptr<Token> thisTokenPtr;
+
 		public:
 			virtual ~Token() = 0;
+			void setThisTokenPtr(std::weak_ptr<Token>);
 
 			TokenPtr transfer(const ActivityNodeActivationPtr& holder);
 			virtual void withdraw();
