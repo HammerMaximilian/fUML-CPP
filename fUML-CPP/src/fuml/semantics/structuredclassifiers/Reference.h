@@ -8,7 +8,7 @@
 #ifndef FUML_SEMANTICS_STRUCTUREDCLASSIFIERS_REFERENCE_H_
 #define FUML_SEMANTICS_STRUCTUREDCLASSIFIERS_REFERENCE_H_
 
-#include <fuml/semantics/simplesclassifiers/StructuredValue.h>
+#include <fuml/semantics/simpleclassifiers/StructuredValue.h>
 
 namespace fuml::semantics::structuredclassifiers
 {

@@ -12,7 +12,7 @@
 
 namespace fuml::semantics::classification
 {
-	class InstanceValueEvaluation : Evaluation
+	class InstanceValueEvaluation : public Evaluation
 	{
 		public:
 			virtual ~InstanceValueEvaluation() = default;

@@ -23,7 +23,7 @@ namespace fuml::semantics::commonbehavior
 			virtual ~Execution() = 0;
 
 			virtual void execute() = 0;
-			void terminate();
+			virtual void terminate();
 			virtual ValuePtr copy() override;
 			virtual ValuePtr new_() = 0;
 			void setParameterValue(const ParameterValuePtr&);

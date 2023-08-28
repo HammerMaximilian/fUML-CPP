@@ -22,12 +22,16 @@ namespace fuml::semantics::loci
 			ExecutionFactoryPtr factory = nullptr;
 			ExtensionalValueListPtr extensionalValues = std::make_shared<ExtensionalValueList>();
 
+		private:
+			std::weak_ptr<Locus> thisLocusPtr;
+
 		public:
 			virtual ~Locus() = default;
+			void setThisLocusPtr(std::weak_ptr<Locus>);
 		
 			void setExecutor(const ExecutorPtr&);
 			void setFactory(const ExecutionFactoryPtr&);
-			ExtensionalValueListPtr getExtent(const ClassifierPtr);
+			ExtensionalValueListPtr getExtent(const ClassifierPtr&);
 			void add(const ExtensionalValuePtr&);
 			std::string makeIdentifier(const ExtensionalValuePtr&);
 			void remove(const ExtensionalValuePtr&);

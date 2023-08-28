@@ -8,7 +8,7 @@
 #ifndef FUML_SEMANTICS_STRUCTUREDCLASSIFIERS_EXTENSIONALVALUE_H_
 #define FUML_SEMANTICS_STRUCTUREDCLASSIFIERS_EXTENSIONALVALUE_H_
 
-#include <fuml/semantics/simplesclassifiers/CompoundValue.h>
+#include <fuml/semantics/simpleclassifiers/CompoundValue.h>
 
 namespace fuml::semantics::structuredclassifiers
 {

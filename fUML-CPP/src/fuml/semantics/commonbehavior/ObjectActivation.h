@@ -27,7 +27,7 @@ namespace fuml::semantics::commonbehavior
 			ObjectActivation_EventDispatchLoopExecutionPtr behavior;
 
 		public:
-			virtual ~ObjectActivtion() = default;
+			virtual ~ObjectActivation() = default;
 			void setThisObjectActivationPtr(std::weak_ptr<ObjectActivation>); // TODO: Hier "ObjectActivation_EventDispatchLoopExecution behavior" initialisieren und thisPtr als Konstruktor-Parameter übergeben
 
 			void stop();
@@ -43,7 +43,7 @@ namespace fuml::semantics::commonbehavior
 			void _startObjectBehavior();
 			static void _endIsolation();
 			static void _beginIsolation();
-	}; // ObjectActivtion
+	}; // ObjectActivation
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_OBJECTACTIVATION_H_ */

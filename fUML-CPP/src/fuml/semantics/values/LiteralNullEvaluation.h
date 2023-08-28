@@ -12,7 +12,7 @@
 
 namespace fuml::semantics::values
 {
-	class LiteralNullEvaluation : LiteralEvaluation
+	class LiteralNullEvaluation : public LiteralEvaluation
 	{
 		public:
 			virtual ~LiteralNullEvaluation() = default;

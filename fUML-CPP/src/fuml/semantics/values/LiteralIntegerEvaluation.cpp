@@ -5,7 +5,7 @@
  *      Author: Maximilian
  */
 
-#include <fuml/semantics/simplesclassifiers/IntegerValue.h>
+#include <fuml/semantics/simpleclassifiers/IntegerValue.h>
 #include <fuml/semantics/values/LiteralIntegerEvaluation.h>
 #include <fuml/syntax/values/LiteralInteger.h>
 

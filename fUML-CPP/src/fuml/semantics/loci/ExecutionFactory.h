@@ -35,10 +35,10 @@ namespace fuml::semantics::loci
 			void addPrimitiveBehaviorPrototype(
 					const OpaqueBehaviorExecutionPtr&);
 			void addBuiltInType(const PrimitiveTypePtr&);
-			PrimitiveTypePtr getBuiltInType(std::string name);
+			PrimitiveTypePtr getBuiltInType(std::string);
 			void setStrategy(const SemanticStrategyPtr&);
-			SemanticStrategyPtr getStrategy(std::string name);
-			int getStrategyIndex(std::string name);
+			SemanticStrategyPtr getStrategy(std::string);
+			int getStrategyIndex(std::string);
 
 	}; // ExecutionFactory
 }

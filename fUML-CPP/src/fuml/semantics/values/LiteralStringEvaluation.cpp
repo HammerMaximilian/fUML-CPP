@@ -5,7 +5,7 @@
  *      Author: Maximilian
  */
 
-#include <fuml/semantics/simplesclassifiers/StringValue.h>
+#include <fuml/semantics/simpleclassifiers/StringValue.h>
 #include <fuml/semantics/values/LiteralStringEvaluation.h>
 #include <fuml/syntax/values/LiteralString.h>
 

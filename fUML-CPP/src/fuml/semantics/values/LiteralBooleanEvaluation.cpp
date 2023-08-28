@@ -5,7 +5,7 @@
  *      Author: Maximilian
  */
 
-#include <fuml/semantics/simplesclassifiers/BooleanValue.h>
+#include <fuml/semantics/simpleclassifiers/BooleanValue.h>
 #include <fuml/semantics/values/LiteralBooleanEvaluation.h>
 #include <fuml/syntax/values/LiteralBoolean.h>
 
