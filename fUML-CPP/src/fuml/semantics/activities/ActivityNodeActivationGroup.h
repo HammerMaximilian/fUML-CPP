@@ -23,8 +23,12 @@ namespace fuml::semantics::activities
 			StructuredActivityNodeActivationPtr containingNodeActivation = nullptr;
 			ActivityNodeActivationListPtr suspendedActivations = std::make_shared<ActivityNodeActivationList>();
 
+		private:
+			std::weak_ptr<ActivityNodeActivationGroup> thisActivityNodeActivationGroupPtr;
+
 		public:
 			virtual ~ActivityNodeActivationGroup() = default;
+			void setThisActivityNodeActivationGroupPtr(std::weak_ptr<ActivityNodeActivationGroup>);
 
 			void run(const ActivityNodeActivationListPtr&);
 			bool checkIncomingEdges(
