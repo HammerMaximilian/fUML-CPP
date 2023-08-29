@@ -18,8 +18,12 @@ namespace fuml::semantics::actions
 			bool firing = false;
 			PinActivationListPtr pinActivations = std::make_shared<PinActivationList>();
 
+		private:
+			std::weak_ptr<ActionActivation> thisActionActivationPtr;
+
 		public:
 			virtual ~ActionActivation() = 0;
+			void setThisActionActivationPtr(std::weak_ptr<ActionActivation>);
 
 			virtual void initialize(
 					const ActivityNodePtr&,
@@ -50,7 +54,7 @@ namespace fuml::semantics::actions
 			virtual bool isSourceFor(const ActivityEdgeInstancePtr&) override;
 			bool valueParticipatesInLink(
 					const ValuePtr&,
-					const Link&);
+					const LinkPtr&);
 			AssociationPtr getAssociation(const StructuralFeaturePtr&);
 			ValueListPtr getValues(
 					const ValuePtr&,

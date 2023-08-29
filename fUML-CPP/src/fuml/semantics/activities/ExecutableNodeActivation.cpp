@@ -19,6 +19,10 @@
 #include <fuml/syntax/activities/ExecutableNode.h>
 #include <fuml/syntax/activities/ObjectNode.h>
 
+ExecutableNodeActivation::~ExecutableNodeActivation()
+{
+}
+
 void ExecutableNodeActivation::propagateException(
 		const ValuePtr& exception)
 {
