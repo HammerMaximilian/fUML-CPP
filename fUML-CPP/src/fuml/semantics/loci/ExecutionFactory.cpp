@@ -474,7 +474,7 @@ void ExecutionFactory::setStrategy(
 	// Set the strategy for a semantic variation point. Any existing
 	// strategy for the same SVP is replaced.
 
-	int i = this->getStrategyIndex(strategy->getName());
+	unsigned int i = this->getStrategyIndex(strategy->getName());
 
 	if (i <= this->strategies->size()) {
 		this->strategies->erase(this->strategies->begin() + (i - 1));
@@ -488,7 +488,7 @@ SemanticStrategyPtr ExecutionFactory::getStrategy(
 {
 	// Get the strategy with the given name.
 
-	int i = this->getStrategyIndex(name);
+	unsigned int i = this->getStrategyIndex(name);
 
 	SemanticStrategyPtr strategy = nullptr;
 	if (i <= this->strategies->size()) {

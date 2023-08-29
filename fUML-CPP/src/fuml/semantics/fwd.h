@@ -182,7 +182,7 @@ namespace fuml
 /*
  * Actions
  */
-using AcceptCallActionActivation = fuml::semantics::actions::AcceptEventActionActivation;
+using AcceptCallActionActivation = fuml::semantics::actions::AcceptCallActionActivation;
 using AcceptCallActionActivationPtr = std::shared_ptr<AcceptCallActionActivation>;
 using AcceptEventActionActivation = fuml::semantics::actions::AcceptEventActionActivation;
 using AcceptEventActionActivationPtr = std::shared_ptr<AcceptEventActionActivation>;
