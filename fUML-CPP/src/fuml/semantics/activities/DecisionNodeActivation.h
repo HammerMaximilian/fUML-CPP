@@ -22,13 +22,13 @@ namespace fuml::semantics::activities
 
 			virtual void fire(const TokenListPtr&) override;
 			ValueListPtr getDecisionValues(const TokenListPtr&);
-			ValueListPtr executeDecisionInputBehavior(
+			ValuePtr executeDecisionInputBehavior(
 					const ValuePtr&,
 					const ValuePtr&);
 			virtual void terminate() override;
 			virtual bool isReady() override;
 			virtual TokenListPtr takeOfferedTokens() override;
-			ValueListPtr getDecisionInputFlowValue();
+			ValuePtr getDecisionInputFlowValue();
 			ActivityEdgeInstancePtr getDecisionInputFlowInstance();
 			bool test(
 					const ValueSpecificationPtr&,
