@@ -16,7 +16,7 @@ namespace fuml::semantics::actions
 	class Values : public utils::FumlObject
 	{
 		public:
-			ValuesListPtr values = std::make_shared<ValuesList>();
+			ValueListPtr values = std::make_shared<ValueList>();
 
 		public:
 			virtual ~Values() = default;

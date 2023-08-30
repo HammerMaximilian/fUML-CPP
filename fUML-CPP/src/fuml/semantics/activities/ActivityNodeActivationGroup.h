@@ -34,7 +34,7 @@ namespace fuml::semantics::activities
 			bool checkIncomingEdges(
 					const ActivityEdgeInstanceListPtr&,
 					const ActivityNodeActivationListPtr&);
-			void runNode(const ActivityNodeListPtr&);
+			void runNodes(const ActivityNodeListPtr&);
 			void activate(
 					const ActivityNodeListPtr&,
 					const ActivityEdgeListPtr&);

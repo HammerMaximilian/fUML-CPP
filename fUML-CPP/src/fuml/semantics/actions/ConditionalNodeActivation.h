@@ -19,8 +19,12 @@ namespace fuml::semantics::actions
 			ClauseListPtr selectedClauses = std::make_shared<ClauseList>();
 			ClausePtr selectedClause = nullptr;
 
+		private:
+			std::weak_ptr<ConditionalNodeActivation> thisConditionalNodeActivationPtr;
+
 		public:
 			virtual ~ConditionalNodeActivation() = default;
+			void setThisConditionalNodeActivationPtr(std::weak_ptr<ConditionalNodeActivation>);
 
 			virtual void doStructuredActivity() override;
 			void completeBody();

@@ -24,7 +24,7 @@ namespace fuml::semantics::actions
 					bool);
 			ValuePtr getCompositeValue(
 					const ReferencePtr&,
-					const Link&);
+					const LinkPtr&);
 
 	}; // DestroyObjectActionActivation
 }

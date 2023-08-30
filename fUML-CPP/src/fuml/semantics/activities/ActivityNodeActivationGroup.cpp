@@ -124,7 +124,7 @@ bool ActivityNodeActivationGroup::checkIncomingEdges(
 	return notFound;
 } // checkIncomingEdges
 
-void ActivityNodeActivationGroup::runNode(
+void ActivityNodeActivationGroup::runNodes(
 		const ActivityNodeListPtr& nodes)
 {
 	// Run the node activations associated with the given nodes in this

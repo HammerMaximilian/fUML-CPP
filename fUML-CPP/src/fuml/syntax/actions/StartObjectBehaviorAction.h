@@ -8,11 +8,11 @@
 #ifndef FUML_SYNTAX_ACTIONS_STARTOBJECTBEHAVIORACTION_H_
 #define FUML_SYNTAX_ACTIONS_STARTOBJECTBEHAVIORACTION_H_
 
-#include <fuml/syntax/actions/Action.h>
+#include <fuml/syntax/actions/InvocationAction.h>
 
 namespace fuml::syntax::actions
 {
-	class StartObjectBehaviorAction : public Action
+	class StartObjectBehaviorAction : public InvocationAction
 	{
 		public:
 			InputPinPtr object = nullptr;

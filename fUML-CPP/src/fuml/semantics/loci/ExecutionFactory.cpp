@@ -178,7 +178,7 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(
 
 	// Formerly Level L1
 
-	if (std::dynamic_pointer_cast<LiteralBoolean>(element)) {
+	/*if (std::dynamic_pointer_cast<LiteralBoolean>(element)) {
 		visitor.reset(new LiteralBooleanEvaluation());
 	}
 
@@ -398,7 +398,7 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(
 
 	else if (std::dynamic_pointer_cast<UnmarshallAction>(element)) {
 		visitor.reset(new UnmarshallActionActivation());
-	}
+	}*/
 
 	return visitor;
 } // instantiateVisitor

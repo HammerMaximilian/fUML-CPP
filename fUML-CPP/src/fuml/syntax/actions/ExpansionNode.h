@@ -13,7 +13,7 @@
 
 namespace fuml::syntax::actions
 {
-	class ExpansionNode : ObjectNode
+	class ExpansionNode : public ObjectNode
 	{
 		public:
 			ExpansionRegionPtr regionAsOutput = nullptr;

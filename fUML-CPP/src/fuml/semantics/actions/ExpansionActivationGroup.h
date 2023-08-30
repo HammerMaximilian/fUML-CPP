@@ -19,9 +19,14 @@ namespace fuml::semantics::actions
 			OutputPinActivationListPtr groupInputs = std::make_shared<OutputPinActivationList>();
 			ExpansionRegionActivationPtr regionActivation = nullptr;
 			OutputPinActivationListPtr groupOutputs = std::make_shared<OutputPinActivationList>();
+			int index = 0;
+
+		private:
+			std::weak_ptr<ExpansionActivationGroup> thisExpansionActivationGroupPtr;
 
 		public:
 			virtual ~ExpansionActivationGroup() = default;
+			void setThisExpansionActivationGroupPtr(std::weak_ptr<ExpansionActivationGroup>);
 
 			virtual ActivityNodeActivationPtr getNodeActivation(const ActivityNodePtr&) override;
 			virtual ActivityExecutionPtr getActivityExecution() override;

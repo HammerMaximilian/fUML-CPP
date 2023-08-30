@@ -20,7 +20,7 @@ namespace fuml::semantics::actions
 			int position(
 					const ValuePtr&,
 					const ValueListPtr&,
-					int startAt);
+					int);
 
 	}; // WriteStructuralFeatureActionActivation
 }

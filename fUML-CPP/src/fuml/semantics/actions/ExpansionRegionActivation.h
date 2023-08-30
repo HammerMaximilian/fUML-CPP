@@ -20,8 +20,12 @@ namespace fuml::semantics::actions
 			TokenSetListPtr inputExpansionTokens = std::make_shared<TokenSetList>();
 			int next = 0;
 
+		private:
+			std::weak_ptr<ExpansionRegionActivation> thisExpansionRegionActivationPtr;
+
 		public:
 			virtual ~ExpansionRegionActivation() = default;
+			void setThisExpansionRegionActivation(std::weak_ptr<ExpansionRegionActivation>);
 
 			virtual TokenListPtr takeOfferedTokens() override;
 			virtual void doAction() override;

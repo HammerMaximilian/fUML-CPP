@@ -15,6 +15,9 @@ namespace fuml::semantics::actions
 	class ReduceActionActivation : public ActionActivation
 	{
 		public:
+			ExecutionPtr currentExecution = nullptr;
+
+		public:
 			virtual ~ReduceActionActivation() = default;
 
 			virtual void doAction() override;

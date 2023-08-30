@@ -18,8 +18,12 @@ namespace fuml::semantics::actions
 			ValuesListPtr bodyOutputLists = std::make_shared<ValuesList>();
 			bool isTerminateAll = false;
 
+		private:
+			std::weak_ptr<LoopNodeActivation> thisLoopNodeActivationPtr;
+
 		public:
 			virtual ~LoopNodeActivation() = default;
+			void setThisLoopNodeActivationPtr(std::weak_ptr<LoopNodeActivation>);
 
 			virtual void doStructuredActivity() override;
 			void doLoop(bool);
