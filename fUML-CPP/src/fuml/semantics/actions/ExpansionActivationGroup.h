@@ -32,7 +32,8 @@ namespace fuml::semantics::actions
 			virtual ActivityExecutionPtr getActivityExecution() override;
 			virtual void suspend(const ActivityNodeActivationPtr&) override;
 			virtual void resume(const ActivityNodeActivationPtr&) override;
-	}; // ExpansionActivationGroup
+	};
+// ExpansionActivationGroup
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_EXPANSIONACTIVATIONGROUP_H_ */

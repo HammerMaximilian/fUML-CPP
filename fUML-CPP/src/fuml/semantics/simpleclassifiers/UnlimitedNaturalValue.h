@@ -9,12 +9,7 @@
 #define FUML_SEMANTICS_SIMPLECLASSIFIERS_UNLIMITEDNATURALVALUE_H_
 
 #include <fuml/semantics/simpleclassifiers/PrimitiveValue.h>
-#include "UMLPrimitiveTypes/unlimitedNatural.h"
-
-namespace fuml::syntax::values
-{
-	class ValueSpecification;
-}
+#include <UMLPrimitiveTypes/unlimitedNatural.h>
 
 namespace fuml::semantics::simpleclassifiers
 {
@@ -25,7 +20,7 @@ namespace fuml::semantics::simpleclassifiers
 
 		public:
 			virtual ~UnlimitedNaturalValue() = default;
-		
+
 			virtual ValueSpecificationPtr specify() override;
 			virtual bool equals(const ValuePtr&) override;
 			virtual ValuePtr copy() override;
@@ -33,7 +28,8 @@ namespace fuml::semantics::simpleclassifiers
 
 		protected:
 			virtual ValuePtr new_() override;
-	}; // UnlimitedNaturalValue
+	};
+// UnlimitedNaturalValue
 }
 
 #endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_UNLIMITEDNATURALVALUE_H_ */

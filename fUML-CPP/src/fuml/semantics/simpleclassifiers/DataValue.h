@@ -19,13 +19,14 @@ namespace fuml::semantics::simpleclassifiers
 
 		public:
 			virtual ~DataValue() = default;
-		
+
 			virtual ClassifierListPtr getTypes() override;
 			virtual ValuePtr copy() override;
 
 		protected:
 			virtual ValuePtr new_() override;
-	}; // DataValue
+	};
+// DataValue
 }
 
 #endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_DATAVALUE_H_ */

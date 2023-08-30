@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void doAction();
 
-	}; // SendSignalActionActivation
+	};
+// SendSignalActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_SENDSIGNALACTIONACTIVATION_H_ */

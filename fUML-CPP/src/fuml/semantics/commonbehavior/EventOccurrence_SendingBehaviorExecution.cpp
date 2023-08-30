@@ -12,14 +12,13 @@
 #include <fuml/semantics/structuredclassifiers/Reference.h>
 #include <sstream>
 
-EventOccurrence_SendingBehaviorExecution::EventOccurrence_SendingBehaviorExecution(
-		const EventOccurrencePtr& self)
+EventOccurrence_SendingBehaviorExecution::EventOccurrence_SendingBehaviorExecution(const EventOccurrencePtr& self)
 {
 	this->self = self;
 }
 
 void EventOccurrence_SendingBehaviorExecution::setThisEventOccurrence_SendingBehaviorExecution(
-		std::weak_ptr<EventOccurrence_SendingBehaviorExecution> thisEventOccurrence_SendingBehaviorExecutionPtr)
+	std::weak_ptr<EventOccurrence_SendingBehaviorExecution> thisEventOccurrence_SendingBehaviorExecutionPtr)
 {
 	this->thisEventOccurrence_SendingBehaviorExecutionPtr = thisEventOccurrence_SendingBehaviorExecutionPtr;
 	Object_::setThisObject_Ptr(thisEventOccurrence_SendingBehaviorExecutionPtr);

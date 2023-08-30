@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void doAction() override;
 
-	}; // ReadLinkActionActivation
+	};
+// ReadLinkActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_READLINKACTIONACTIVATION_H_ */

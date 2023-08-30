@@ -23,7 +23,8 @@ namespace fuml::semantics::actions
 			virtual void fire(const TokenListPtr&) override;
 			virtual TokenListPtr takeOfferedTokens() override;
 
-	}; // PinActivation
+	};
+// PinActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_PINACTIVATION_H_ */

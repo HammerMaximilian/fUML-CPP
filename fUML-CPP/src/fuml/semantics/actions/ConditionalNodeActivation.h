@@ -34,7 +34,8 @@ namespace fuml::semantics::actions
 			void selectBody(const ClausePtr&);
 			virtual void resume() override;
 
-	}; // ConditionalNodeActivation
+	};
+// ConditionalNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_CONDITIONALNODEACTIVATION_H_ */

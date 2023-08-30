@@ -6,6 +6,7 @@
  */
 
 #include <fuml/semantics/simpleclassifiers/PrimitiveValue.h>
+
 #include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
 
 PrimitiveValue::~PrimitiveValue()

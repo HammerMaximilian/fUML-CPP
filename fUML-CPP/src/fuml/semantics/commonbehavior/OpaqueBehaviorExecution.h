@@ -18,10 +18,9 @@ namespace fuml::semantics::commonbehavior
 			virtual ~OpaqueBehaviorExecution() = 0;
 
 			virtual void execute() override;
-			virtual void doBody(
-					const ParameterValueListPtr&,
-					const ParameterValueListPtr&) = 0;
-	}; // OpaqueBehaviorExecution
+			virtual void doBody(const ParameterValueListPtr&, const ParameterValueListPtr&) = 0;
+	};
+// OpaqueBehaviorExecution
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_OPAQUEBEHAVIOREXECUTION_H_ */

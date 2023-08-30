@@ -14,12 +14,11 @@ ControlNodeActivation::~ControlNodeActivation()
 {
 }
 
-void ControlNodeActivation::fire(const TokenListPtr &incomingTokens)
+void ControlNodeActivation::fire(const TokenListPtr& incomingTokens)
 {
 	// By default, offer all tokens on all outgoing edges.
 
-	utils::Debug::println(this->node != nullptr,
-			"[fire] Control node " + this->node->name + "...");
+	utils::Debug::println(this->node != nullptr, "[fire] Control node " + this->node->name + "...");
 
 	this->sendOffers(incomingTokens);
 } // fire

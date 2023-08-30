@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void doAction() override;
 
-	}; // UnmarshallActionActivation
+	};
+// UnmarshallActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_UNMARSHALLACTIONACTIVATION_H_ */

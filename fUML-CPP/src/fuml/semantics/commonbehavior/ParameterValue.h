@@ -22,9 +22,10 @@ namespace fuml::semantics::commonbehavior
 
 		public:
 			virtual ~ParameterValue() = default;
-		
+
 			ParameterValuePtr copy();
-	}; // ParameterValue
+	};
+// ParameterValue
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_PARAMETERVALUE_H_ */

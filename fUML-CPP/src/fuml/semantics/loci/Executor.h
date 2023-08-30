@@ -10,7 +10,7 @@
 
 #include <fuml/semantics/fwd.h>
 #include <fuml/syntax/fwd.h>
-#include "utils/FumlObject.h"
+#include <utils/FumlObject.h>
 
 namespace fuml::semantics::loci
 {
@@ -21,16 +21,12 @@ namespace fuml::semantics::loci
 
 		public:
 			virtual ~Executor() = default;
-		
-			ParameterValueListPtr execute(
-					const BehaviorPtr&,
-					const Object_Ptr&,
-					const ParameterValueListPtr&);
+
+			ParameterValueListPtr execute(const BehaviorPtr&, const Object_Ptr&, const ParameterValueListPtr&);
 			ValuePtr evaluate(const ValueSpecificationPtr&);
-			ReferencePtr start(
-					const Class_Ptr&,
-					const ParameterValueListPtr&);
-	}; // Executor
+			ReferencePtr start(const Class_Ptr&, const ParameterValueListPtr&);
+	};
+// Executor
 }
 
 #endif /* FUML_SEMANTICS_LOCI_EXECUTOR_H_ */

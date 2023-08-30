@@ -13,8 +13,7 @@ ExtensionalValue::~ExtensionalValue()
 {
 }
 
-void ExtensionalValue::setThisExtensionalValuePtr(
-		std::weak_ptr<ExtensionalValue> thisExtensionalValuePtr)
+void ExtensionalValue::setThisExtensionalValuePtr(std::weak_ptr<ExtensionalValue> thisExtensionalValuePtr)
 {
 	this->thisExtensionalValuePtr = thisExtensionalValuePtr;
 }
@@ -24,7 +23,8 @@ void ExtensionalValue::destroy()
 	// Remove this value from its locus (if it has not already been
 	// destroyed).
 
-	if (this->locus != nullptr) {
+	if (this->locus != nullptr)
+	{
 		this->locus->remove(this->thisExtensionalValuePtr.lock());
 	}
 } // destroy
@@ -37,9 +37,12 @@ ValuePtr ExtensionalValue::copy()
 	ExtensionalValuePtr newValue = std::dynamic_pointer_cast<ExtensionalValue>(CompoundValue::copy());
 	newValue->setThisExtensionalValuePtr(newValue);
 
-	if (this->locus != nullptr) {
+	if (this->locus != nullptr)
+	{
 		this->locus->add(newValue);
-	} else {
+	}
+	else
+	{
 		this->identifier = "";
 	}
 

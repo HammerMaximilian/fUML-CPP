@@ -7,16 +7,14 @@
 
 #include <fuml/semantics/commonbehavior/InvocationEventOccurrence.h>
 
-bool InvocationEventOccurrence::match(
-		const TriggerPtr&)
+bool InvocationEventOccurrence::match(const TriggerPtr&)
 {
 	// An invocation event occurrence does not match any triggers.
 
 	return false;
 } // match
 
-ParameterValueListPtr InvocationEventOccurrence::getParameterValues(
-		const EventPtr&)
+ParameterValueListPtr InvocationEventOccurrence::getParameterValues(const EventPtr&)
 {
 	// An invocation event occurrence does not have any associated data.
 

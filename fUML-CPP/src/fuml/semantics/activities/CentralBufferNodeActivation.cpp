@@ -10,8 +10,7 @@
 #include <fuml/Debug.h>
 #include <fuml/syntax/activities/ActivityNode.h>
 
-void CentralBufferNodeActivation::fire(
-		const TokenListPtr& incomingTokens)
+void CentralBufferNodeActivation::fire(const TokenListPtr& incomingTokens)
 {
 	// Add all incoming tokens to the central buffer node.
 	// Offer any tokens that have not yet been offered.

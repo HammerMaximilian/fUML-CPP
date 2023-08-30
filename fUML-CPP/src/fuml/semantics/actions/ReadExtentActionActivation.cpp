@@ -7,10 +7,10 @@
 
 #include <fuml/semantics/actions/ReadExtentActionActivation.h>
 
-#include <fuml/syntax/actions/ReadExtentAction.h>
 #include <fuml/semantics/loci/Locus.h>
-#include <fuml/semantics/structuredclassifiers/Reference.h>
 #include <fuml/semantics/structuredclassifiers/Object_.h>
+#include <fuml/semantics/structuredclassifiers/Reference.h>
+#include <fuml/syntax/actions/ReadExtentAction.h>
 
 void ReadExtentActionActivation::doAction()
 {
@@ -19,11 +19,11 @@ void ReadExtentActionActivation::doAction()
 	// Place references to the resulting set of objects on the result pin.
 
 	ReadExtentActionPtr action = std::dynamic_pointer_cast<ReadExtentAction>(this->node);
-	ExtensionalValueListPtr objects = this->getExecutionLocus()->getExtent(
-			action->classifier);
+	ExtensionalValueListPtr objects = this->getExecutionLocus()->getExtent(action->classifier);
 
 	ValueListPtr references(new ValueList());
-	for (const ValuePtr& object : *objects) {
+	for (const ValuePtr& object : *objects)
+	{
 		ReferencePtr reference(new Reference());
 		reference->referent = std::dynamic_pointer_cast<Object_>(object);
 		references->push_back(reference);

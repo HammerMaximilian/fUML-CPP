@@ -5,8 +5,9 @@
  *      Author: maha6913
  */
 
-#include <fuml/semantics/simpleclassifiers/FeatureValue.h>
 #include <fuml/semantics/simpleclassifiers/StructuredValue.h>
+
+#include <fuml/semantics/simpleclassifiers/FeatureValue.h>
 #include <fuml/syntax/classification/Classifier.h>
 #include <fuml/syntax/classification/InstanceSpecification.h>
 #include <fuml/syntax/classification/InstanceValue.h>
@@ -51,8 +52,7 @@ ValueSpecificationPtr StructuredValue::specify()
 	return instanceValue;
 }
 
-StructuralFeatureListPtr StructuredValue::getMemberFeatures(
-	const ClassifierPtr& type)
+StructuralFeatureListPtr StructuredValue::getMemberFeatures(const ClassifierPtr& type)
 {
 	// Return the features for this structured value that are members of the
 	// given type. (That is, they are owned or inherited by the given type,
@@ -61,17 +61,21 @@ StructuralFeatureListPtr StructuredValue::getMemberFeatures(
 	StructuralFeatureListPtr features = this->getStructuralFeatures();
 	StructuralFeatureListPtr memberFeatures(new StructuralFeatureList());
 
-	if (type != nullptr) {
+	if (type != nullptr)
+	{
 		const NamedElementListPtr& members = type->member;
-		for (const StructuralFeaturePtr& feature : *features) {
+		for (const StructuralFeaturePtr& feature : *features)
+		{
 			bool isMember = false;
 			unsigned int k = 1;
-			while (k <= members->size() && !isMember) {
-				const NamedElementPtr& member = members->at(k-1);
+			while (k <= members->size() && !isMember)
+			{
+				const NamedElementPtr& member = members->at(k - 1);
 				isMember = feature == member;
 				k = k + 1;
 			}
-			if (isMember) {
+			if (isMember)
+			{
 				memberFeatures->push_back(feature);
 			}
 		}
@@ -102,8 +106,7 @@ StructuralFeatureListPtr StructuredValue::getStructuralFeatures()
 	return features;
 }
 
-StructuralFeatureListPtr StructuredValue::getStructuralFeaturesForType(
-	const ClassifierPtr& type)
+StructuralFeatureListPtr StructuredValue::getStructuralFeaturesForType(const ClassifierPtr& type)
 {
 	// Get all structural features of the given type and all of its
 	// supertypes (including private features that are not inherited).
@@ -163,10 +166,7 @@ void StructuredValue::addFeatureValues(const FeatureValueListPtr& oldFeatureValu
 	{
 		if (!this->checkForAssociationEnd(feature))
 		{
-			this->setFeatureValue(
-					feature,
-					this->getValues(feature, oldFeatureValues),
-					0);
+			this->setFeatureValue(feature, this->getValues(feature, oldFeatureValues), 0);
 		}
 	}
 }
@@ -175,15 +175,14 @@ bool StructuredValue::checkForAssociationEnd(const StructuralFeaturePtr& feature
 {
 	bool isAssociationEnd = false;
 	PropertyPtr property = std::dynamic_pointer_cast<Property>(feature);
-	if (property) {
+	if (property)
+	{
 		isAssociationEnd = (property->association != nullptr);
 	}
 	return isAssociationEnd;
 }
 
-ValueListPtr StructuredValue::getValues(
-	const NamedElementPtr& feature,
-	const FeatureValueListPtr& featureValues)
+ValueListPtr StructuredValue::getValues(const NamedElementPtr& feature, const FeatureValueListPtr& featureValues)
 {
 	// Return the values from the feature value in the given list for the
 	// given feature. If there is no such feature value, return an empty
@@ -193,18 +192,23 @@ ValueListPtr StructuredValue::getValues(
 
 	unsigned int i = 1;
 	unsigned int featureValuesSize = featureValues->size();
-	while (foundFeatureValue == nullptr && i <= featureValuesSize) {
-		const FeatureValuePtr& featureValue = featureValues->at(i-1);
-		if (featureValue->feature == feature) {
+	while (foundFeatureValue == nullptr && i <= featureValuesSize)
+	{
+		const FeatureValuePtr& featureValue = featureValues->at(i - 1);
+		if (featureValue->feature == feature)
+		{
 			foundFeatureValue = featureValue;
 		}
 		i = i + 1;
 	}
 
 	ValueListPtr values;
-	if (foundFeatureValue == nullptr) {
+	if (foundFeatureValue == nullptr)
+	{
 		values.reset(new ValueList());
-	} else {
+	}
+	else
+	{
 		values = foundFeatureValue->values;
 	}
 

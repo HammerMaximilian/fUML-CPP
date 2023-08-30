@@ -29,7 +29,8 @@ namespace fuml::semantics::structuredclassifiers
 			virtual ValuePtr copy() override;
 			virtual std::string toString() override;
 
-	}; // ExtensionalValue
+	};
+// ExtensionalValue
 }
 
 #endif /* FUML_SEMANTICS_STRUCTUREDCLASSIFIERS_EXTENSIONALVALUE_H_ */

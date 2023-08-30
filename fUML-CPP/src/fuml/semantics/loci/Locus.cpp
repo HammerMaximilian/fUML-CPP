@@ -36,8 +36,7 @@ void Locus::setFactory(const ExecutionFactoryPtr& factory)
 	this->factory->locus = this->thisLocusPtr.lock();
 } // setFactory
 
-ExtensionalValueListPtr Locus::getExtent(
-		const ClassifierPtr& classifier)
+ExtensionalValueListPtr Locus::getExtent(const ClassifierPtr& classifier)
 {
 	// Return the set of extensional values at this locus which have the
 	// given classifier as a type.
@@ -52,12 +51,14 @@ ExtensionalValueListPtr Locus::getExtent(
 		bool conforms = false;
 		unsigned int j = 1;
 		unsigned int typesSize = types->size();
-		while (!conforms && j <= typesSize) {
+		while (!conforms && j <= typesSize)
+		{
 			conforms = this->conforms(types->at(j - 1), classifier);
 			j = j + 1;
 		}
 
-		if (conforms) {
+		if (conforms)
+		{
 			extent->push_back(value);
 		}
 	}
@@ -75,8 +76,7 @@ void Locus::add(const ExtensionalValuePtr& value)
 
 } // add
 
-std::string Locus::makeIdentifier(
-		const ExtensionalValuePtr& value)
+std::string Locus::makeIdentifier(const ExtensionalValuePtr& value)
 {
 	// Return an identifier for the given (newly created) extensional value.
 
@@ -100,8 +100,10 @@ void Locus::remove(const ExtensionalValuePtr& value)
 	bool notFound = true;
 	unsigned int i = 1;
 	unsigned int extensionalValuesSize = extensionalValues->size();
-	while (notFound && i <= extensionalValuesSize) {
-		if (this->extensionalValues->at(i - 1) == value) {
+	while (notFound && i <= extensionalValuesSize)
+	{
+		if (this->extensionalValues->at(i - 1) == value)
+		{
 			this->extensionalValues->erase(this->extensionalValues->begin() + (i - 1));
 			notFound = false;
 		}
@@ -120,7 +122,8 @@ Object_Ptr Locus::instantiate(const Class_Ptr& type)
 	if (behavior)
 	{
 		object = this->factory->createExecution(behavior, nullptr);
-	} else
+	}
+	else
 	{
 		object.reset(new Object_());
 		object->setThisObject_Ptr(object);
@@ -133,8 +136,7 @@ Object_Ptr Locus::instantiate(const Class_Ptr& type)
 	return object;
 } // instantiate
 
-bool Locus::conforms(const ClassifierPtr& type,
-		const ClassifierPtr& classifier)
+bool Locus::conforms(const ClassifierPtr& type, const ClassifierPtr& classifier)
 {
 	// Test if a type conforms to a given classifier, that is, the type is
 	// equal to or a descendant of the classifier.
@@ -144,13 +146,14 @@ bool Locus::conforms(const ClassifierPtr& type,
 	if (type == classifier)
 	{
 		doesConform = true;
-	} else
+	}
+	else
 	{
 		unsigned int i = 1;
 		unsigned int generalsSize = type->general->size();
-		while (!doesConform && i <= generalsSize) {
-			doesConform = this->conforms(type->general->at(i - 1),
-					classifier);
+		while (!doesConform && i <= generalsSize)
+		{
+			doesConform = this->conforms(type->general->at(i - 1), classifier);
 			i = i + 1;
 		}
 	}

@@ -18,7 +18,8 @@ namespace fuml::semantics::activities
 			virtual ~ActivityFinalNodeActivation() = default;
 
 			virtual void fire(const TokenListPtr&) override;
-	}; // ActivityFinalNodeActivation
+	};
+// ActivityFinalNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_ACTIVITYFINALNODEACTIVATION_H_ */

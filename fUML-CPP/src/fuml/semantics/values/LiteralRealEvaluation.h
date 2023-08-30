@@ -16,9 +16,10 @@ namespace fuml::semantics::values
 	{
 		public:
 			virtual ~LiteralRealEvaluation() = default;
-		
+
 			virtual ValuePtr evaluate() override;
-	};  // LiteralRealEvaluation
+	};
+// LiteralRealEvaluation
 }
 
 #endif /* FUML_SEMANTICS_VALUES_LITERALREALEVALUATION_H_ */

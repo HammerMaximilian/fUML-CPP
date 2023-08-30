@@ -19,7 +19,8 @@ namespace fuml::semantics::loci
 
 			virtual std::string getName() override;
 			virtual int choose(int) = 0;
-	}; // ChoiceStrategy
+	};
+// ChoiceStrategy
 }
 
 #endif /* FUML_SEMANTICS_LOCI_CHOICESTRATEGY_H_ */

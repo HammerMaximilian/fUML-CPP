@@ -9,7 +9,7 @@
 #define FUML_SEMANTICS_LOCI_SEMANTICVISITOR_H_
 
 #include <fuml/semantics/fwd.h>
-#include "utils/FumlObject.h"
+#include <utils/FumlObject.h>
 
 namespace fuml::semantics::loci
 {
@@ -20,7 +20,8 @@ namespace fuml::semantics::loci
 
 			static void _beginIsolation();
 			static void _endIsolation();
-	}; // SemanticVisitor
+	};
+// SemanticVisitor
 }
 
 #endif /* FUML_SEMANTICS_LOCI_SEMANTICVISITOR_H_ */

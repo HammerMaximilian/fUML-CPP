@@ -19,13 +19,14 @@ namespace fuml::semantics::simpleclassifiers
 
 		public:
 			virtual ~SignalInstance() = default;
-		
+
 			virtual ClassifierListPtr getTypes() override;
 			virtual ValuePtr copy() override;
 
 		protected:
 			virtual ValuePtr new_() override;
-	}; // SignalInstance
+	};
+// SignalInstance
 }
 
 #endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_SIGNALINSTANCE_H_ */

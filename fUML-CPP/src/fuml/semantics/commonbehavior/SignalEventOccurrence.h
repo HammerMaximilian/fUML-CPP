@@ -19,10 +19,11 @@ namespace fuml::semantics::commonbehavior
 
 		public:
 			virtual ~SignalEventOccurrence() = default;
-		
+
 			virtual bool match(const TriggerPtr&) override;
 			virtual ParameterValueListPtr getParameterValues(const EventPtr&) override;
-	}; // SignalEventOccurrence
+	};
+// SignalEventOccurrence
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_SIGNALEVENTOCCURRENCE_H_ */

@@ -7,18 +7,18 @@
 
 #include <fuml/semantics/actions/ExpansionRegionActivation.h>
 
+#include <fuml/Debug.h>
+#include <fuml/semantics/actions/ExpansionActivationGroup.h>
+#include <fuml/semantics/actions/ExpansionNodeActivation.h>
+#include <fuml/semantics/actions/OutputPinActivation.h>
+#include <fuml/semantics/actions/TokenSet.h>
+#include <fuml/semantics/activities/Token.h>
+#include <fuml/semantics/values/Value.h>
 #include <fuml/syntax/actions/ExpansionRegion.h>
 #include <fuml/syntax/actions/InputPin.h>
-#include <fuml/semantics/activities/Token.h>
-#include <fuml/semantics/actions/TokenSet.h>
-#include <fuml/semantics/actions/ExpansionNodeActivation.h>
-#include <fuml/semantics/actions/ExpansionActivationGroup.h>
-#include <fuml/semantics/actions/OutputPinActivation.h>
-#include <fuml/semantics/values/Value.h>
-#include <fuml/Debug.h>
 
 void ExpansionRegionActivation::setThisExpansionRegionActivation(
-		std::weak_ptr<ExpansionRegionActivation> thisExpansionRegionActivationPtr)
+	std::weak_ptr<ExpansionRegionActivation> thisExpansionRegionActivationPtr)
 {
 	this->thisExpansionRegionActivationPtr = thisExpansionRegionActivationPtr;
 	ActionActivation::setThisActionActivationPtr(thisExpansionRegionActivationPtr);
@@ -32,13 +32,13 @@ TokenListPtr ExpansionRegionActivation::takeOfferedTokens()
 	ActionActivation::takeOfferedTokens();
 
 	ExpansionRegionPtr region = std::dynamic_pointer_cast<ExpansionRegion>(this->node);
-	const InputPinListPtr &inputPins = region->input;
-	const ExpansionNodeListPtr &inputElements = region->inputElement;
+	const InputPinListPtr& inputPins = region->input;
+	const ExpansionNodeListPtr& inputElements = region->inputElement;
 
 	this->inputTokens->clear();
 	this->inputExpansionTokens->clear();
 
-	for (const InputPinPtr &inputPin : *inputPins)
+	for (const InputPinPtr& inputPin : *inputPins)
 	{
 		TokenSetPtr tokenSet(new TokenSet());
 		tokenSet->tokens = this->getPinActivation(inputPin)->takeTokens();
@@ -47,12 +47,10 @@ TokenListPtr ExpansionRegionActivation::takeOfferedTokens()
 
 	int n = this->numberOfValues();
 
-	for (const ExpansionNodePtr &inputElement : *inputElements)
+	for (const ExpansionNodePtr& inputElement : *inputElements)
 	{
-		ExpansionNodeActivationPtr expansionNodeActivation =
-				this->getExpansionNodeActivation(inputElement);
-		expansionNodeActivation->fire(
-				expansionNodeActivation->takeOfferedTokens());
+		ExpansionNodeActivationPtr expansionNodeActivation = this->getExpansionNodeActivation(inputElement);
+		expansionNodeActivation->fire(expansionNodeActivation->takeOfferedTokens());
 		TokenListPtr tokens = expansionNodeActivation->takeTokens();
 		TokenSetPtr tokenSet(new TokenSet());
 		int j = 1;
@@ -148,15 +146,13 @@ void ExpansionRegionActivation::doStructuredActivity()
 
 	if (region->mode == ExpansionKind::iterative)
 	{
-		utils::Debug::println(
-				"[doStructuredActivity] Expansion mode = iterative");
+		utils::Debug::println("[doStructuredActivity] Expansion mode = iterative");
 		this->next = 1;
 		this->runIterative();
 	}
 	else if (region->mode == ExpansionKind::parallel)
 	{
-		utils::Debug::println(
-				"[doStructuredActivity] Expansion mode = parallel");
+		utils::Debug::println("[doStructuredActivity] Expansion mode = parallel");
 		this->runParallel();
 	}
 
@@ -171,7 +167,7 @@ void ExpansionRegionActivation::runIterative()
 	const ExpansionActivationGroupListPtr& activationGroups = this->activationGroups;
 
 	const unsigned int activationGroupsSize = activationGroups->size();
-	while ((unsigned int)this->next <= activationGroupsSize && !this->isSuspended())
+	while ((unsigned int) this->next <= activationGroupsSize && !this->isSuspended())
 	{
 		ExpansionActivationGroupPtr activationGroup = activationGroups->at(this->next - 1);
 		this->runGroup(activationGroup);
@@ -200,8 +196,7 @@ void ExpansionRegionActivation::doOutput()
 	const ExpansionNodeListPtr& outputElements = region->outputElement;
 
 	utils::Debug::println(
-			"[doOutput] Expansion region " + region->name + " is "
-					+ (this->isSuspended() ? "suspended." : "completed."));
+		"[doOutput] Expansion region " + region->name + " is " + (this->isSuspended() ? "suspended." : "completed."));
 
 	if (!this->isSuspended())
 	{
@@ -213,8 +208,7 @@ void ExpansionRegionActivation::doOutput()
 			{
 				const OutputPinActivationPtr& groupOutput = groupOutputs->at(j);
 				const ExpansionNodePtr& outputElement = outputElements->at(j);
-				this->getExpansionNodeActivation(outputElement)->addTokens(
-						groupOutput->takeTokens());
+				this->getExpansionNodeActivation(outputElement)->addTokens(groupOutput->takeTokens());
 			}
 		}
 	}
@@ -268,11 +262,9 @@ void ExpansionRegionActivation::runGroup(const ExpansionActivationGroupPtr& acti
 	if (this->isRunning())
 	{
 		utils::Debug::println(
-				"[runGroup] groupInput[0] = "
-						+ std::to_string(
-								this->inputExpansionTokens->at(0)->tokens->at(
-								activationGroup->index - 1)->getValue()
-								->hashCode()));
+			"[runGroup] groupInput[0] = "
+				+ std::to_string(
+					this->inputExpansionTokens->at(0)->tokens->at(activationGroup->index - 1)->getValue()->hashCode()));
 
 		const TokenSetListPtr& inputTokens = this->inputTokens;
 		const unsigned int inputTokensSize = inputTokens->size();
@@ -292,10 +284,9 @@ void ExpansionRegionActivation::runGroup(const ExpansionActivationGroupPtr& acti
 			const TokenSetPtr& tokenSet = inputExpansionTokens->at(j);
 			const OutputPinActivationPtr& groupInput = activationGroup->groupInputs->at(j);
 			groupInput->clearTokens();
-			if (tokenSet->tokens->size() >= (unsigned int)activationGroup->index)
+			if (tokenSet->tokens->size() >= (unsigned int) activationGroup->index)
 			{
-				groupInput->addToken(
-						tokenSet->tokens->at(activationGroup->index - 1));
+				groupInput->addToken(tokenSet->tokens->at(activationGroup->index - 1));
 			}
 			groupInput->sendUnofferedTokens();
 		}
@@ -306,8 +297,7 @@ void ExpansionRegionActivation::runGroup(const ExpansionActivationGroupPtr& acti
 	}
 } // runGroup
 
-void ExpansionRegionActivation::terminateGroup(
-		const ExpansionActivationGroupPtr& activationGroup)
+void ExpansionRegionActivation::terminateGroup(const ExpansionActivationGroupPtr& activationGroup)
 {
 	// Terminate the given activation group, after preserving any group
 	// outputs.
@@ -323,8 +313,7 @@ void ExpansionRegionActivation::terminateGroup(
 	}
 } // terminateGroup
 
-ExpansionNodeActivationPtr ExpansionRegionActivation::getExpansionNodeActivation(
-		const ExpansionNodePtr&)
+ExpansionNodeActivationPtr ExpansionRegionActivation::getExpansionNodeActivation(const ExpansionNodePtr&)
 {
 	// Return the expansion node activation corresponding to the given
 	// expansion node, in the context of the activity node activation group
@@ -346,13 +335,12 @@ int ExpansionRegionActivation::numberOfValues()
 	ExpansionRegionPtr region = std::dynamic_pointer_cast<ExpansionRegion>(this->node);
 	ExpansionNodeListPtr inputElements = region->inputElement;
 
-	unsigned int n =this->getExpansionNodeActivation(inputElements->at(0))->countOfferedValues();
+	unsigned int n = this->getExpansionNodeActivation(inputElements->at(0))->countOfferedValues();
 	unsigned int i = 2;
 	const unsigned int inputElementsSize = inputElements->size();
 	while (i <= inputElementsSize)
 	{
-		unsigned int count =
-				this->getExpansionNodeActivation(inputElements->at(i - 1))->countOfferedValues();
+		unsigned int count = this->getExpansionNodeActivation(inputElements->at(i - 1))->countOfferedValues();
 		if (count < n)
 		{
 			n = count;
@@ -371,7 +359,8 @@ bool ExpansionRegionActivation::isSuspended()
 	for (const ActivityNodeActivationGroupPtr& group : *(this->activationGroups))
 	{
 		suspended = group->isSuspended();
-		if(suspended) break;
+		if (suspended)
+			break;
 	}
 
 	return suspended;

@@ -5,8 +5,9 @@
  *      Author: maha6913
  */
 
-#include <fuml/semantics/simpleclassifiers/IntegerValue.h>
 #include <fuml/semantics/simpleclassifiers/RealValue.h>
+
+#include <fuml/semantics/simpleclassifiers/IntegerValue.h>
 #include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
 #include <fuml/syntax/values/LiteralReal.h>
 
@@ -30,7 +31,8 @@ bool RealValue::equals(const ValuePtr& otherValue)
 
 	bool isEqual = false;
 	RealValuePtr realValue = std::dynamic_pointer_cast<RealValue>(otherValue);
-	if (realValue) {
+	if (realValue)
+	{
 		isEqual = (realValue->value == this->value);
 	}
 
@@ -51,31 +53,41 @@ std::string RealValue::toString()
 {
 	std::string stringValue = "";
 
-	if (this->value == 0) {
+	if (this->value == 0)
+	{
 		stringValue = "0";
-	} else {
+	}
+	else
+	{
 		float positiveValue = this->value;
 
-		if (positiveValue < 0) {
+		if (positiveValue < 0)
+		{
 			positiveValue = -positiveValue;
 		}
 
 		int exponent = 0;
 
-		if (positiveValue < .1) {
-			while (positiveValue < .1) {
+		if (positiveValue < .1)
+		{
+			while (positiveValue < .1)
+			{
 				positiveValue = positiveValue * 10;
 				exponent = exponent - 1;
 			}
-		} else if (positiveValue >= 1) {
-			while (positiveValue >= 1) {
+		}
+		else if (positiveValue >= 1)
+		{
+			while (positiveValue >= 1)
+			{
 				positiveValue = positiveValue / 10;
 				exponent = exponent + 1;
 			}
 		}
 
 		// This gives 9 significant digits in the mantissa.
-		for (int i = 0; i < 9; i++) {
+		for (int i = 0; i < 9; i++)
+		{
 			positiveValue = positiveValue * 10;
 		}
 
@@ -85,7 +97,8 @@ std::string RealValue::toString()
 		integerValue->value = exponent;
 		stringValue = stringValue + "E" + integerValue->toString();
 
-		if (this->value < 0) {
+		if (this->value < 0)
+		{
 			stringValue = "-" + stringValue;
 		}
 	}

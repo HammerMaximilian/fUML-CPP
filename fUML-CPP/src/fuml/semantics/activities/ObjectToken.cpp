@@ -7,8 +7,7 @@
 
 #include <fuml/semantics/activities/ObjectToken.h>
 
-void ObjectToken::setThisObjectTokenPtr(
-		std::weak_ptr<ObjectToken> thisObjectTokenPtr)
+void ObjectToken::setThisObjectTokenPtr(std::weak_ptr<ObjectToken> thisObjectTokenPtr)
 {
 	this->thisObjectTokenPtr = thisObjectTokenPtr;
 	Token::setThisTokenPtr(thisObjectTokenPtr);

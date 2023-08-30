@@ -17,7 +17,8 @@ namespace fuml::semantics::actions
 		public:
 			virtual ~OutputPinActivation() = default;
 
-	}; // OutputPinActivation
+	};
+// OutputPinActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_OUTPUTPINACTIVATION_H_ */

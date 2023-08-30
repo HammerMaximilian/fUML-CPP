@@ -6,6 +6,7 @@
  */
 
 #include <fuml/semantics/simpleclassifiers/EnumerationValue.h>
+
 #include <fuml/syntax/classification/InstanceSpecification.h>
 #include <fuml/syntax/classification/InstanceValue.h>
 #include <fuml/syntax/simpleclassifiers/Enumeration.h>
@@ -33,7 +34,8 @@ bool EnumerationValue::equals(const ValuePtr& otherValue)
 
 	bool isEqual = false;
 	EnumerationValuePtr enumerationValue = std::dynamic_pointer_cast<EnumerationValue>(otherValue);
-	if (enumerationValue) {
+	if (enumerationValue)
+	{
 		isEqual = (enumerationValue->literal == this->literal);
 	}
 

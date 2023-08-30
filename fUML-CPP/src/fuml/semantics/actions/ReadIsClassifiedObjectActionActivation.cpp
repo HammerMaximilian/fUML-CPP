@@ -7,8 +7,8 @@
 
 #include <fuml/semantics/actions/ReadIsClassifiedObjectActionActivation.h>
 
-#include <fuml/syntax/actions/ReadIsClassifiedObjectAction.h>
 #include <fuml/semantics/simpleclassifiers/BooleanValue.h>
+#include <fuml/syntax/actions/ReadIsClassifiedObjectAction.h>
 
 void ReadIsClassifiedObjectActionActivation::doAction()
 {
@@ -27,9 +27,12 @@ void ReadIsClassifiedObjectActionActivation::doAction()
 	const ValuePtr& input = this->takeTokens(action->object)->at(0);
 
 	bool result = false;
-	if (action->isDirect) {
+	if (action->isDirect)
+	{
 		result = input->hasType(action->classifier);
-	} else {
+	}
+	else
+	{
 		result = input->isInstanceOf(action->classifier);
 	}
 

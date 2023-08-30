@@ -19,13 +19,12 @@ ActivityNodeActivation::~ActivityNodeActivation()
 }
 
 void fuml::semantics::activities::ActivityNodeActivation::setThisActivityNodeActivation(
-		std::weak_ptr<ActivityNodeActivation> thisActivityNodeActivationPtr)
+	std::weak_ptr<ActivityNodeActivation> thisActivityNodeActivationPtr)
 {
 	this->thisActivityNodeActivationPtr = thisActivityNodeActivationPtr;
 }
 
-void ActivityNodeActivation::initialize(const ActivityNodePtr &node,
-		const ActivityNodeActivationGroupPtr &group)
+void ActivityNodeActivation::initialize(const ActivityNodePtr& node, const ActivityNodeActivationGroupPtr& group)
 {
 	// Initialize this node activation.
 
@@ -39,10 +38,9 @@ void ActivityNodeActivation::run()
 	// Run the activation of this node.
 
 	utils::Debug::println(
-			this->node == nullptr ?
-					"[run] Anonymous activation of type "
-							+ std::string(typeid(*this).name()) :
-					"[run] node = " + this->node->name);
+		this->node == nullptr ?
+			"[run] Anonymous activation of type " + std::string(typeid(*this).name()) :
+			"[run] node = " + this->node->name);
 
 	this->running = true;
 } // run
@@ -52,10 +50,7 @@ void ActivityNodeActivation::receiveOffer()
 	// Receive an offer from an incoming edge.
 	// Check if all prerequisites have been satisfied. If so, fire.
 
-	utils::Debug::println(
-			"[receiveOffer] "
-					+ (this->node == nullptr ?
-							"..." : "node = " + this->node->name));
+	utils::Debug::println("[receiveOffer] " + (this->node == nullptr ? "..." : "node = " + this->node->name));
 
 	_beginIsolation();
 
@@ -82,10 +77,10 @@ TokenListPtr ActivityNodeActivation::takeOfferedTokens()
 
 	TokenListPtr allTokens(new TokenList());
 	ActivityEdgeInstanceListPtr incomingEdges = this->incomingEdges;
-	for (const ActivityEdgeInstancePtr &incomingEdge : *incomingEdges)
+	for (const ActivityEdgeInstancePtr& incomingEdge : *incomingEdges)
 	{
 		TokenListPtr tokens = incomingEdge->takeOfferedTokens();
-		for (const TokenPtr &token : *tokens)
+		for (const TokenPtr& token : *tokens)
 		{
 			allTokens->push_back(token);
 		}
@@ -94,7 +89,7 @@ TokenListPtr ActivityNodeActivation::takeOfferedTokens()
 	return allTokens;
 } // takeOfferedTokens
 
-void ActivityNodeActivation::sendOffers(const TokenListPtr &tokens)
+void ActivityNodeActivation::sendOffers(const TokenListPtr& tokens)
 {
 	// Send offers for the given set of tokens over all outgoing edges (if
 	// there are any tokens actually being offered).
@@ -103,8 +98,8 @@ void ActivityNodeActivation::sendOffers(const TokenListPtr &tokens)
 	{
 
 		// *** Send all outgoing offers concurrently. ***
-		const ActivityEdgeInstanceListPtr &outgoingEdges = this->outgoingEdges;
-		for (const ActivityEdgeInstancePtr &outgoingEdge : *outgoingEdges)
+		const ActivityEdgeInstanceListPtr& outgoingEdges = this->outgoingEdges;
+		for (const ActivityEdgeInstancePtr& outgoingEdge : *outgoingEdges)
 		{
 			outgoingEdge->sendOffer(tokens);
 		}
@@ -116,10 +111,9 @@ void ActivityNodeActivation::terminate()
 	// Terminate the activation of this node.
 
 	utils::Debug::println(this->running,
-			this->node == nullptr ?
-					"[terminate] Anonymous activation of type "
-							+ std::string(typeid(*this).name()) :
-					"[terminate] node = " + this->node->name);
+		this->node == nullptr ?
+			"[terminate] Anonymous activation of type " + std::string(typeid(*this).name()) :
+			"[terminate] node = " + this->node->name);
 
 	this->running = false;
 } // terminate
@@ -139,8 +133,7 @@ bool ActivityNodeActivation::isRunning()
 	return this->running;
 } // isRunning
 
-void ActivityNodeActivation::addOutgoingEdge(
-		const ActivityEdgeInstancePtr &edge)
+void ActivityNodeActivation::addOutgoingEdge(const ActivityEdgeInstancePtr& edge)
 {
 	// Add an activity edge instance as an outgoing edge of this activity
 	// node activation.
@@ -149,8 +142,7 @@ void ActivityNodeActivation::addOutgoingEdge(
 	this->outgoingEdges->push_back(edge);
 } // addOutgoingEdge
 
-void ActivityNodeActivation::addIncomingEdge(
-		const ActivityEdgeInstancePtr &edge)
+void ActivityNodeActivation::addIncomingEdge(const ActivityEdgeInstancePtr& edge)
 {
 	// Add an activity edge instance as an incoming edge of this activity
 	// node activation.
@@ -177,8 +169,7 @@ void ActivityNodeActivation::createEdgeInstances()
 	return;
 } // createEdgeInstances
 
-bool ActivityNodeActivation::isSourceFor(
-		const ActivityEdgeInstancePtr &edgeInstance)
+bool ActivityNodeActivation::isSourceFor(const ActivityEdgeInstancePtr& edgeInstance)
 {
 	// Check if this node activation is the effective source for the given
 	// edge instance.
@@ -208,8 +199,7 @@ LocusPtr ActivityNodeActivation::getExecutionLocus()
 	return this->getActivityExecution()->locus;
 } // getExecutionLocus
 
-ActivityNodeActivationPtr ActivityNodeActivation::getNodeActivation(
-		const ActivityNodePtr&)
+ActivityNodeActivationPtr ActivityNodeActivation::getNodeActivation(const ActivityNodePtr&)
 {
 	// Get the activity node activation corresponding to the given activity
 	// node, in the context of this activity node activation.
@@ -225,21 +215,17 @@ ActivityNodeActivationPtr ActivityNodeActivation::getNodeActivation(
 	return activation;
 } // getNodeActivation
 
-void ActivityNodeActivation::addToken(const TokenPtr &token)
+void ActivityNodeActivation::addToken(const TokenPtr& token)
 {
 	// Transfer the given token to be held by this node.
 
-	utils::Debug::println(
-			"[addToken] "
-					+ (this->node == nullptr ?
-							"..." : "node = " + this->node->name));
+	utils::Debug::println("[addToken] " + (this->node == nullptr ? "..." : "node = " + this->node->name));
 
-	TokenPtr transferredToken = token->transfer(
-			this->thisActivityNodeActivationPtr.lock());
+	TokenPtr transferredToken = token->transfer(this->thisActivityNodeActivationPtr.lock());
 	this->heldTokens->push_back(transferredToken);
 } // addToken
 
-int ActivityNodeActivation::removeToken(const TokenPtr &token)
+int ActivityNodeActivation::removeToken(const TokenPtr& token)
 {
 	// Remove the given token, if it is held by this node activation.
 	// Return the position (counting from 1) of the removed token (0 if
@@ -252,10 +238,7 @@ int ActivityNodeActivation::removeToken(const TokenPtr &token)
 	{
 		if (this->heldTokens->at(i - 1) == token)
 		{
-			utils::Debug::println(
-					"[removeToken] "
-							+ (this->node == nullptr ?
-									"..." : "node = " + this->node->name));
+			utils::Debug::println("[removeToken] " + (this->node == nullptr ? "..." : "node = " + this->node->name));
 			this->heldTokens->erase(this->heldTokens->begin() + (i - 1));
 			notFound = false;
 		}
@@ -274,11 +257,11 @@ int ActivityNodeActivation::removeToken(const TokenPtr &token)
 	return i;
 } // removeToken
 
-void ActivityNodeActivation::addTokens(const TokenListPtr &tokens)
+void ActivityNodeActivation::addTokens(const TokenListPtr& tokens)
 {
 	// Transfer the given tokens to be the held tokens for this node.
 
-	for (const TokenPtr &token : *tokens)
+	for (const TokenPtr& token : *tokens)
 	{
 		this->addToken(token);
 	}
@@ -309,8 +292,8 @@ TokenListPtr ActivityNodeActivation::getTokens()
 	// Get the tokens held by this node activation.
 
 	TokenListPtr tokens(new TokenList());
-	const TokenListPtr &heldTokens = this->heldTokens;
-	for (const TokenPtr &heldToken : *heldTokens)
+	const TokenListPtr& heldTokens = this->heldTokens;
+	for (const TokenPtr& heldToken : *heldTokens)
 	{
 		tokens->push_back(heldToken);
 	}

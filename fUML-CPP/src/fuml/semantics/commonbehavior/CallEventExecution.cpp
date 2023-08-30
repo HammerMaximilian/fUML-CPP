@@ -17,7 +17,7 @@
 #include <fuml/syntax/classification/Parameter.h>
 
 void fuml::semantics::commonbehavior::CallEventExecution::setThisCallEventExecutionPtr(
-		std::weak_ptr<CallEventExecution> thisCallEventExecutionPtr)
+	std::weak_ptr<CallEventExecution> thisCallEventExecutionPtr)
 {
 	this->thisCallEventExecutionPtr = thisCallEventExecutionPtr;
 	Object_::setThisObject_Ptr(thisCallEventExecutionPtr);
@@ -31,8 +31,8 @@ bool CallEventExecution::isCallerSuspended()
 	_beginIsolation();
 	bool isSuspended = this->callerSuspended;
 	utils::Debug::println(
-			"[isCallerSuspended] operation = " + this->getOperation()->name
-					+ ", callerSuspended = " + std::to_string(isSuspended));
+		"[isCallerSuspended] operation = " + this->getOperation()->name + ", callerSuspended = "
+			+ std::to_string(isSuspended));
 	_endIsolation();
 
 	return isSuspended;
@@ -46,8 +46,8 @@ void CallEventExecution::setCallerSuspended(bool callerSuspended)
 	_beginIsolation();
 	this->callerSuspended = callerSuspended;
 	utils::Debug::println(
-			"[setCallerSuspended] operation = " + this->getOperation()->name
-					+ ", callerSuspended = " + std::to_string(callerSuspended));
+		"[setCallerSuspended] operation = " + this->getOperation()->name + ", callerSuspended = "
+			+ std::to_string(callerSuspended));
 	_endIsolation();
 } // setCallerSuspended
 
@@ -117,11 +117,10 @@ ParameterValueListPtr CallEventExecution::getInputParameterValues()
 	// Return input parameter values for this execution
 
 	ParameterValueListPtr parameterValues(new ParameterValueList());
-	for (const ParameterValuePtr &parameterValue : *(this->parameterValues))
+	for (const ParameterValuePtr& parameterValue : *(this->parameterValues))
 	{
 		if (parameterValue->parameter->direction == ParameterDirectionKind::in
-				|| parameterValue->parameter->direction
-						== ParameterDirectionKind::inout)
+			|| parameterValue->parameter->direction == ParameterDirectionKind::inout)
 		{
 			parameterValues->push_back(parameterValue);
 		}
@@ -129,18 +128,16 @@ ParameterValueListPtr CallEventExecution::getInputParameterValues()
 	return parameterValues;
 } // getInputParameterValues
 
-void CallEventExecution::setOutputParameterValues(
-		const ParameterValueListPtr &parameterValues)
+void CallEventExecution::setOutputParameterValues(const ParameterValueListPtr& parameterValues)
 {
 	// Set the output parameter values for this execution.
 
-	const ParameterListPtr &parameters = this->getBehavior()->ownedParameter;
+	const ParameterListPtr& parameters = this->getBehavior()->ownedParameter;
 	unsigned int j = 1;
-	for (const ParameterPtr &parameter : *parameters)
+	for (const ParameterPtr& parameter : *parameters)
 	{
-		if (parameter->direction == ParameterDirectionKind::inout
-				|| parameter->direction == ParameterDirectionKind::out
-				|| parameter->direction == ParameterDirectionKind::return_)
+		if (parameter->direction == ParameterDirectionKind::inout || parameter->direction == ParameterDirectionKind::out
+			|| parameter->direction == ParameterDirectionKind::return_)
 		{
 			ParameterValuePtr parameterValue = parameterValues->at(j - 1);
 			parameterValue->parameter = parameter;
@@ -171,9 +168,9 @@ ValuePtr CallEventExecution::copy()
 
 void CallEventExecution::wait_()
 {
-	 // Wait for an indeterminate amount of time to allow other concurrent
-	 // executions to proceed.
-	 // [There is no further formal specification for this operation.]
+	// Wait for an indeterminate amount of time to allow other concurrent
+	// executions to proceed.
+	// [There is no further formal specification for this operation.]
 
-	 utils::Debug::println(!ExecutionQueue::step(), "[wait] Stuck!");
+	utils::Debug::println(!ExecutionQueue::step(), "[wait] Stuck!");
 } // wait_

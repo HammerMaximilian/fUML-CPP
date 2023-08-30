@@ -16,8 +16,9 @@ namespace fuml::semantics::loci
 	{
 		public:
 			virtual ~ExecutionFactoryL2() = default;
-		
-	}; // ExecutionFactoryL2
+
+	};
+// ExecutionFactoryL2
 }
 
 #endif /* FUML_SEMANTICS_LOCI_EXECUTIONFACTORYL2_H_ */

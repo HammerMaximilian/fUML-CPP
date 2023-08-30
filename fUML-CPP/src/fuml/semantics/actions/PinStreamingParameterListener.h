@@ -23,7 +23,8 @@ namespace fuml::semantics::actions
 			virtual void post(const ValueListPtr&) override;
 			virtual bool isTerminated() override;
 
-	}; // PinStreamingParameterListener
+	};
+// PinStreamingParameterListener
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_PINSTREAMINGPARAMETERLISTENER_H_ */

@@ -22,8 +22,8 @@ void fuml::semantics::commonbehavior::ClassifierBehaviorInvocationEventAccepter:
 	this->thisClassifierBehaviorInvocationEventAccepterPtr = thisClassifierBehaviorInvocationEventAccepterPtr;
 }
 
-void ClassifierBehaviorInvocationEventAccepter::invokeBehavior(
-		const Class_Ptr& classifier, const ParameterValueListPtr& inputs)
+void ClassifierBehaviorInvocationEventAccepter::invokeBehavior(const Class_Ptr& classifier,
+	const ParameterValueListPtr& inputs)
 {
 	// Set the classifier for this classifier behavior invocation event accepter
 	// to the given class.
@@ -45,14 +45,16 @@ void ClassifierBehaviorInvocationEventAccepter::invokeBehavior(
 	if (behavior)
 	{
 		this->execution = std::dynamic_pointer_cast<Execution>(object);
-	} else
+	}
+	else
 	{
-		this->execution = object->locus->factory->createExecution(
-				classifier->classifierBehavior, object);
+		this->execution = object->locus->factory->createExecution(classifier->classifierBehavior, object);
 	}
 
-	if (inputs != nullptr) {
-		for (const ParameterValuePtr& input : *inputs) {
+	if (inputs != nullptr)
+	{
+		for (const ParameterValuePtr& input : *inputs)
+		{
 			this->execution->setParameterValue(input);
 		}
 	}
@@ -60,31 +62,33 @@ void ClassifierBehaviorInvocationEventAccepter::invokeBehavior(
 	this->objectActivation->register_(this->thisClassifierBehaviorInvocationEventAccepterPtr.lock());
 } // invokeBehvior
 
-bool ClassifierBehaviorInvocationEventAccepter::match(
-		const EventOccurrencePtr& eventOccurrence)
+bool ClassifierBehaviorInvocationEventAccepter::match(const EventOccurrencePtr& eventOccurrence)
 {
 	// Return true if the given event occurrence is an invocation event
 	// occurrence for the execution of this classifier behavior invocation
 	// event accepter.
 
 	bool matches = false;
-	InvocationEventOccurrencePtr invocationEventOccurrence = std::dynamic_pointer_cast<InvocationEventOccurrence>(eventOccurrence);
+	InvocationEventOccurrencePtr invocationEventOccurrence = std::dynamic_pointer_cast<InvocationEventOccurrence>(
+		eventOccurrence);
 
-	if (invocationEventOccurrence) {
+	if (invocationEventOccurrence)
+	{
 		matches = (invocationEventOccurrence->execution == this->execution);
 	}
 	return matches;
 } // match
 
-void ClassifierBehaviorInvocationEventAccepter::accept(
-		const EventOccurrencePtr& eventOccurrence)
+void ClassifierBehaviorInvocationEventAccepter::accept(const EventOccurrencePtr& eventOccurrence)
 {
 	// Accept an invocation event occurrence. Execute the execution of this
 	// classifier behavior invocation event accepter.
 
-	InvocationEventOccurrencePtr invocationEventOccurrence = std::dynamic_pointer_cast<InvocationEventOccurrence>(eventOccurrence);
+	InvocationEventOccurrencePtr invocationEventOccurrence = std::dynamic_pointer_cast<InvocationEventOccurrence>(
+		eventOccurrence);
 
-	if (invocationEventOccurrence) {
+	if (invocationEventOccurrence)
+	{
 		this->execution->execute();
 	}
 } // accept
@@ -97,7 +101,8 @@ void ClassifierBehaviorInvocationEventAccepter::terminate()
 
 	this->execution->terminate();
 
-	if (this->execution != this->objectActivation->object) {
+	if (this->execution != this->objectActivation->object)
+	{
 		this->execution->destroy();
 	}
 } // terminate

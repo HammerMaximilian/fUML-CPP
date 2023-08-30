@@ -13,8 +13,7 @@ WriteStructuralFeatureActionActivation::~WriteStructuralFeatureActionActivation(
 {
 }
 
-int WriteStructuralFeatureActionActivation::position(
-		const ValuePtr& value, const ValueListPtr& list, int startAt)
+int WriteStructuralFeatureActionActivation::position(const ValuePtr& value, const ValueListPtr& list, int startAt)
 {
 	// Return the position (counting from 1) of the first occurance of the
 	// given value in the given list at or after the starting index, or 0 if
@@ -22,13 +21,16 @@ int WriteStructuralFeatureActionActivation::position(
 
 	bool found = false;
 	int i = startAt;
-	for (const ValuePtr& listValue : *list) {
+	for (const ValuePtr& listValue : *list)
+	{
 		found = listValue->equals(value);
 
-		if(found) break;
+		if (found)
+			break;
 	}
 
-	if (!found) {
+	if (!found)
+	{
 		i = 1;
 	}
 

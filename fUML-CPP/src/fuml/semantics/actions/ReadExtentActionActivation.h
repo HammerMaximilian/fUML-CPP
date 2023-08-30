@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void doAction() override;
 
-	}; // ReadExtentActionActivation
+	};
+// ReadExtentActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_READEXTENTACTIONACTIVATION_H_ */

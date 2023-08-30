@@ -7,14 +7,13 @@
 
 #include <fuml/semantics/actions/ExpansionNodeActivation.h>
 
-#include <fuml/syntax/actions/ExpansionNode.h>
-#include <fuml/syntax/actions/ExpansionRegion.h>
 #include <fuml/Debug.h>
 #include <fuml/semantics/actions/ExpansionRegionActivation.h>
 #include <fuml/semantics/activities/ActivityNodeActivationGroup.h>
+#include <fuml/syntax/actions/ExpansionNode.h>
+#include <fuml/syntax/actions/ExpansionRegion.h>
 
-void ExpansionNodeActivation::fire(
-		const TokenListPtr& incomingTokens)
+void ExpansionNodeActivation::fire(const TokenListPtr& incomingTokens)
 {
 	// Take tokens from all incoming edges.
 
@@ -46,11 +45,11 @@ ExpansionRegionActivationPtr ExpansionNodeActivation::getExpansionRegionActivati
 	ExpansionNodePtr node = std::dynamic_pointer_cast<ExpansionNode>(this->node);
 
 	ExpansionRegionPtr region = node->regionAsInput;
-	if (region == nullptr) {
+	if (region == nullptr)
+	{
 		region = node->regionAsOutput;
 	}
 
-	return std::dynamic_pointer_cast<ExpansionRegionActivation>(this->group
-			->getNodeActivation(region));
+	return std::dynamic_pointer_cast<ExpansionRegionActivation>(this->group->getNodeActivation(region));
 
 } // getExpansionRegionActivation

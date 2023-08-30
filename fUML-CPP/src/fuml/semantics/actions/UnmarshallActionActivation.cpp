@@ -7,8 +7,8 @@
 
 #include <fuml/semantics/actions/UnmarshallActionActivation.h>
 
-#include <fuml/syntax/actions/UnmarshallAction.h>
 #include <fuml/semantics/simpleclassifiers/StructuredValue.h>
+#include <fuml/syntax/actions/UnmarshallAction.h>
 
 void UnmarshallActionActivation::doAction()
 {
@@ -25,10 +25,12 @@ void UnmarshallActionActivation::doAction()
 
 	StructuredValuePtr structuredValue = std::dynamic_pointer_cast<StructuredValue>(value);
 
-	if (structuredValue) {
+	if (structuredValue)
+	{
 		StructuralFeatureListPtr features = structuredValue->getMemberFeatures(unmarshallType);
 		unsigned int featuresSize = features->size();
-		for (unsigned int i=0; i < featuresSize; i++) {
+		for (unsigned int i = 0; i < featuresSize; i++)
+		{
 			const StructuralFeaturePtr& feature = features->at(i);
 			const OutputPinPtr& resultPin = resultPins->at(i);
 			this->putTokens(resultPin, this->getValues(value, feature));

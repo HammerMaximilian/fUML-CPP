@@ -21,9 +21,7 @@ void ClauseActivation::receiveControl()
 	// running and run the body of this clause.
 	// If the test fails, then pass control to successor clauses.
 
-	utils::Debug::println(
-			"[receiveControl] clauseActivation = "
-					+ std::to_string(this->hashCode()));
+	utils::Debug::println("[receiveControl] clauseActivation = " + std::to_string(this->hashCode()));
 
 	if (this->isReady())
 	{
@@ -48,7 +46,7 @@ void ClauseActivation::receiveControl()
 				ClauseActivationListPtr successors = this->getSuccessors();
 
 				// *** Give control to all successors concurrently. ***
-				for (const ClauseActivationPtr &successor : *successors)
+				for (const ClauseActivationPtr& successor : *successors)
 				{
 					successor->receiveControl();
 				}
@@ -64,7 +62,7 @@ bool ClauseActivation::isReady()
 	ClauseActivationListPtr predecessors = this->getPredecessors();
 
 	bool ready = true;
-	for (const ClauseActivationPtr &predecessor : *predecessors)
+	for (const ClauseActivationPtr& predecessor : *predecessors)
 	{
 		BooleanValuePtr decisionValue = predecessor->getDecision();
 
@@ -105,14 +103,12 @@ BooleanValuePtr ClauseActivation::getDecision()
 	// Get the value (if any) on the decider pin of the clause for this
 	// clause activation.
 
-	ValueListPtr deciderValues = this->conditionalNodeActivation->getPinValues(
-			this->clause->decider);
+	ValueListPtr deciderValues = this->conditionalNodeActivation->getPinValues(this->clause->decider);
 
 	BooleanValuePtr deciderValue = nullptr;
 	if (deciderValues->size() > 0)
 	{
-		deciderValue = std::dynamic_pointer_cast<BooleanValue>(
-				deciderValues->at(0));
+		deciderValue = std::dynamic_pointer_cast<BooleanValue>(deciderValues->at(0));
 	}
 
 	return deciderValue;
@@ -126,11 +122,9 @@ ClauseActivationListPtr ClauseActivation::getPredecessors()
 	ClauseActivationListPtr predecessors(new ClauseActivationList());
 
 	ClauseListPtr predecessorClauses = this->clause->predecessorClause;
-	for (const ClausePtr &predecessorClause : *predecessorClauses)
+	for (const ClausePtr& predecessorClause : *predecessorClauses)
 	{
-		predecessors->push_back(
-				this->conditionalNodeActivation->getClauseActivation(
-						predecessorClause));
+		predecessors->push_back(this->conditionalNodeActivation->getClauseActivation(predecessorClause));
 	}
 
 	return predecessors;
@@ -144,11 +138,9 @@ ClauseActivationListPtr ClauseActivation::getSuccessors()
 	ClauseActivationListPtr successors(new ClauseActivationList());
 
 	ClauseListPtr successorClauses = this->clause->successorClause;
-	for (const ClausePtr &successorClause : *successorClauses)
+	for (const ClausePtr& successorClause : *successorClauses)
 	{
-		successors->push_back(
-				this->conditionalNodeActivation->getClauseActivation(
-						successorClause));
+		successors->push_back(this->conditionalNodeActivation->getClauseActivation(successorClause));
 	}
 
 	return successors;

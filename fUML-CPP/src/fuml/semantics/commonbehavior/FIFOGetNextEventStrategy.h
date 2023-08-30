@@ -16,9 +16,10 @@ namespace fuml::semantics::commonbehavior
 	{
 		public:
 			virtual ~FIFOGetNextEventStrategy() = default;
-		
+
 			virtual EventOccurrencePtr getNextEvent(const ObjectActivationPtr&) override;
-	}; // FIFOGetNextEventStrategy
+	};
+// FIFOGetNextEventStrategy
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_FIFOGETNEXTEVENTSTRATEGY_H_ */

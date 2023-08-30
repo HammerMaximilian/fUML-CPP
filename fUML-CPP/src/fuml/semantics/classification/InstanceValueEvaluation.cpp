@@ -51,7 +51,8 @@ ValuePtr InstanceValueEvaluation::evaluate()
 		enumerationValue->type = std::dynamic_pointer_cast<Enumeration>(myType);
 		enumerationValue->literal = enumerationLiteral;
 		value = enumerationValue;
-	} else
+	}
+	else
 	{
 		StructuredValuePtr structuredValue = nullptr;
 		DataTypePtr dataType = std::dynamic_pointer_cast<DataType>(myType);
@@ -61,17 +62,20 @@ ValuePtr InstanceValueEvaluation::evaluate()
 			DataValuePtr dataValue(new DataValue());
 			dataValue->type = dataType;
 			structuredValue = dataValue;
-		} else
+		}
+		else
 		{
 			Object_Ptr object = nullptr;
 			BehaviorPtr behavior = std::dynamic_pointer_cast<Behavior>(myType);
 			if (behavior)
 			{
 				object = this->locus->factory->createExecution(behavior, nullptr);
-			} else
+			}
+			else
 			{
 				object.reset(new Object_());
-				for (const ClassifierPtr& type : *types) {
+				for (const ClassifierPtr& type : *types)
+				{
 					object->types->push_back(std::dynamic_pointer_cast<Class_>(type));
 				}
 			}
@@ -90,7 +94,8 @@ ValuePtr InstanceValueEvaluation::evaluate()
 		{
 			ValueListPtr values(new ValueList());
 			const ValueSpecificationListPtr& slotValues = slot->value;
-			for (const ValueSpecificationPtr& slotValue : *slotValues) {
+			for (const ValueSpecificationPtr& slotValue : *slotValues)
+			{
 				values->push_back(this->locus->executor->evaluate(slotValue));
 			}
 			structuredValue->setFeatureValue(slot->definingFeature, values, 0);

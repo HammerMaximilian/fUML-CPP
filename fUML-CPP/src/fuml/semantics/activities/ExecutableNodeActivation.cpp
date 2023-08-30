@@ -23,8 +23,7 @@ ExecutableNodeActivation::~ExecutableNodeActivation()
 {
 }
 
-void ExecutableNodeActivation::propagateException(
-		const ValuePtr& exception)
+void ExecutableNodeActivation::propagateException(const ValuePtr& exception)
 {
 	// If there is no matching exception handler for the given exception, then propagate
 	// the exception to either the containing node activation or the activity execution, as
@@ -32,27 +31,31 @@ void ExecutableNodeActivation::propagateException(
 	// If there is a matching exception handler, then use it to catch the exception.
 	// (If there is more than one matching handler, then choose one non-deterministically.)
 
-	ExceptionHandlerListPtr matchingExceptionHandlers =
-			this->getMatchingExceptionHandlers(exception);
+	ExceptionHandlerListPtr matchingExceptionHandlers = this->getMatchingExceptionHandlers(exception);
 
-	if (matchingExceptionHandlers->size() == 0) {
+	if (matchingExceptionHandlers->size() == 0)
+	{
 		this->terminate();
-		if (this->group->containingNodeActivation != nullptr) {
+		if (this->group->containingNodeActivation != nullptr)
+		{
 			this->group->containingNodeActivation->propagateException(exception);
-		} else {
+		}
+		else
+		{
 			this->group->activityExecution->propagateException(exception);
 		}
-	} else {
-		ChoiceStrategyPtr strategy = std::dynamic_pointer_cast<ChoiceStrategy>(this->getExecutionLocus()->
-				factory->getStrategy("choice"));
+	}
+	else
+	{
+		ChoiceStrategyPtr strategy = std::dynamic_pointer_cast<ChoiceStrategy>(
+			this->getExecutionLocus()->factory->getStrategy("choice"));
 		ExceptionHandlerPtr handler = matchingExceptionHandlers->at(
-				strategy->choose(matchingExceptionHandlers->size()) - 1);
+			strategy->choose(matchingExceptionHandlers->size()) - 1);
 		this->handle(exception, handler);
 	}
 } // propagateException
 
-ExceptionHandlerListPtr ExecutableNodeActivation::getMatchingExceptionHandlers(
-		const ValuePtr& exception)
+ExceptionHandlerListPtr ExecutableNodeActivation::getMatchingExceptionHandlers(const ValuePtr& exception)
 {
 	// Return the set of exception handlers that have an exception type
 	// for which the given exception is an instance.
@@ -65,8 +68,10 @@ ExceptionHandlerListPtr ExecutableNodeActivation::getMatchingExceptionHandlers(
 		bool noMatch = true;
 		unsigned int j = 1;
 		unsigned int exceptionTypeSize = handler->exceptionType->size();
-		while (noMatch && j <= exceptionTypeSize) {
-			if (exception->isInstanceOf(handler->exceptionType->at(j - 1))) {
+		while (noMatch && j <= exceptionTypeSize)
+		{
+			if (exception->isInstanceOf(handler->exceptionType->at(j - 1)))
+			{
 				matchingHandlers->push_back(handler);
 				noMatch = false;
 			}
@@ -78,18 +83,17 @@ ExceptionHandlerListPtr ExecutableNodeActivation::getMatchingExceptionHandlers(
 	return matchingHandlers;
 } // getMatchingExceptionHandlers
 
-void ExecutableNodeActivation::handle(
-		const ValuePtr& exception, const ExceptionHandlerPtr& handler)
+void ExecutableNodeActivation::handle(const ValuePtr& exception, const ExceptionHandlerPtr& handler)
 {
 	// Offer the given exception to the body of the given exception handler
 	// on its exception input node.
 
-	utils::Debug::println("[handle] action = " + this->node->name + ", exception = " + std::to_string(exception->hashCode()));
+	utils::Debug::println(
+		"[handle] action = " + this->node->name + ", exception = " + std::to_string(exception->hashCode()));
 
-	ActivityNodeActivationPtr handlerBodyActivation =
-			this->group->getNodeActivation(handler->handlerBody);
-	ActivityNodeActivationPtr inputActivation =
-			handlerBodyActivation->group->getNodeActivation(handler->exceptionInput);
+	ActivityNodeActivationPtr handlerBodyActivation = this->group->getNodeActivation(handler->handlerBody);
+	ActivityNodeActivationPtr inputActivation = handlerBodyActivation->group->getNodeActivation(
+		handler->exceptionInput);
 
 	ObjectTokenPtr token(new ObjectToken());
 	token->value = exception;

@@ -14,41 +14,38 @@
 #include <fuml/semantics/structuredclassifiers/DispatchStrategy.h>
 #include <fuml/syntax/structuredclassifiers/Class_.h>
 
-void Object_::setThisObject_Ptr(
-		std::weak_ptr<Object_> thisObject_Ptr)
+void Object_::setThisObject_Ptr(std::weak_ptr<Object_> thisObject_Ptr)
 {
 	this->thisObject_Ptr = thisObject_Ptr;
 	ExtensionalValue::setThisExtensionalValuePtr(thisObject_Ptr);
 }
 
-void Object_::startBehavior(
-		const Class_Ptr& classifier, const ParameterValueListPtr& inputs)
+void Object_::startBehavior(const Class_Ptr& classifier, const ParameterValueListPtr& inputs)
 {
 	// Create an object activation for this object (if one does not already
 	// exist) and start its behavior(s).
 
-	if (this->objectActivation == nullptr) {
+	if (this->objectActivation == nullptr)
+	{
 		this->objectActivation.reset(new ObjectActivation());
 		this->objectActivation->object = thisObject_Ptr.lock();
 	}
 
-
 	this->objectActivation->startBehavior(classifier, inputs);
 } // startBehavior
 
-ExecutionPtr Object_::dispatch(
-		const OperationPtr& operation)
+ExecutionPtr Object_::dispatch(const OperationPtr& operation)
 {
 	// Dispatch the given operation to a method execution, using a dispatch
 	// strategy.
 
-	DispatchStrategyPtr dispatchStrategy = std::dynamic_pointer_cast<DispatchStrategy>(this->locus->factory->getStrategy("dispatch"));
+	DispatchStrategyPtr dispatchStrategy = std::dynamic_pointer_cast<DispatchStrategy>(
+		this->locus->factory->getStrategy("dispatch"));
 
 	return dispatchStrategy->dispatch(this->thisObject_Ptr.lock(), operation);
 } // dispatch
 
-void Object_::send(
-		const EventOccurrencePtr& eventOccurrence)
+void Object_::send(const EventOccurrencePtr& eventOccurrence)
 {
 	// If the object is active, add the given event occurrence to the event
 	// pool and signal that a new event occurrence has arrived.
@@ -79,8 +76,7 @@ void Object_::destroy()
 
 } // destroy
 
-void Object_::register_(
-		const EventAccepterPtr& accepter)
+void Object_::register_(const EventAccepterPtr& accepter)
 {
 	// Register the given accept event accepter to wait for a dispatched
 	// signal event.
@@ -91,8 +87,7 @@ void Object_::register_(
 	}
 } // register_
 
-void Object_::unregister(
-		const EventAccepterPtr& accepter)
+void Object_::unregister(const EventAccepterPtr& accepter)
 {
 	// Remove the given event accepter for the list of waiting event
 	// accepters.
@@ -114,7 +109,8 @@ ValuePtr Object_::copy()
 	newObject->setThisObject_Ptr(newObject);
 
 	Class_ListPtr types = this->types;
-	for (const Class_Ptr& type : *types) {
+	for (const Class_Ptr& type : *types)
+	{
 		newObject->types->push_back(type);
 	}
 
@@ -133,9 +129,10 @@ ClassifierListPtr Object_::getTypes()
 {
 	// Return the types of this object.
 
-	ClassifierListPtr types (new ClassifierList());
+	ClassifierListPtr types(new ClassifierList());
 	Class_ListPtr myTypes = this->types;
-	for (const Class_Ptr& type : *myTypes) {
+	for (const Class_Ptr& type : *myTypes)
+	{
 		types->push_back(type);
 	}
 

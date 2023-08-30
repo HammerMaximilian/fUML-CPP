@@ -7,12 +7,12 @@
 
 #include <fuml/semantics/activities/ActivityEdgeInstance.h>
 
-#include <fuml/semantics/activities/Token.h>
-#include <fuml/semantics/activities/Offer.h>
 #include <fuml/semantics/activities/ActivityNodeActivation.h>
+#include <fuml/semantics/activities/Offer.h>
+#include <fuml/semantics/activities/Token.h>
 #include <fuml/syntax/activities/ActivityEdge.h>
 
-void ActivityEdgeInstance::sendOffer(const TokenListPtr &tokens)
+void ActivityEdgeInstance::sendOffer(const TokenListPtr& tokens)
 {
 	// Send an offer from the source to the target.
 	// Keep the offered tokens until taken by the target.
@@ -21,7 +21,7 @@ void ActivityEdgeInstance::sendOffer(const TokenListPtr &tokens)
 
 	OfferPtr offer(new Offer());
 
-	for (const TokenPtr &token : *tokens)
+	for (const TokenPtr& token : *tokens)
 	{
 		offer->offeredTokens->push_back(token);
 	}
@@ -36,8 +36,8 @@ int ActivityEdgeInstance::countOfferedValues()
 	// Return the number of values being offered in object tokens.
 
 	int count = 0;
-	const OfferListPtr &offers = this->offers;
-	for (const OfferPtr &offer : *offers)
+	const OfferListPtr& offers = this->offers;
+	for (const OfferPtr& offer : *offers)
 	{
 		count = count + offer->countOfferedValues();
 	}
@@ -50,12 +50,12 @@ TokenListPtr ActivityEdgeInstance::takeOfferedTokens()
 	// Take all the offered tokens and return them.
 
 	TokenListPtr tokens(new TokenList());
-	const OfferListPtr &offers = this->offers;
+	const OfferListPtr& offers = this->offers;
 
 	while (offers->size() > 0)
 	{
 		TokenListPtr offeredTokens = offers->at(0)->getOfferedTokens();
-		for (const TokenPtr &offeredToken : *offeredTokens)
+		for (const TokenPtr& offeredToken : *offeredTokens)
 		{
 			tokens->push_back(offeredToken);
 		}
@@ -72,16 +72,16 @@ TokenListPtr ActivityEdgeInstance::takeOfferedTokens(int maxCount)
 
 	TokenListPtr tokens(new TokenList());
 	int remainingCount = maxCount;
-	const OfferListPtr &offers = this->offers;
+	const OfferListPtr& offers = this->offers;
 
 	while (offers->size() > 0 && remainingCount > 0)
 	{
-		const OfferPtr &offer = offers->at(0);
+		const OfferPtr& offer = offers->at(0);
 		TokenListPtr offeredTokens = offer->getOfferedTokens();
 		int count = offer->countOfferedValues();
 		if (count <= remainingCount)
 		{
-			for (const TokenPtr &offeredToken : *offeredTokens)
+			for (const TokenPtr& offeredToken : *offeredTokens)
 			{
 				tokens->push_back(offeredToken);
 			}
@@ -90,7 +90,7 @@ TokenListPtr ActivityEdgeInstance::takeOfferedTokens(int maxCount)
 		}
 		else
 		{
-			for (const TokenPtr &token : *offeredTokens)
+			for (const TokenPtr& token : *offeredTokens)
 			{
 				if (token->getValue() != nullptr)
 				{
@@ -111,12 +111,12 @@ TokenListPtr ActivityEdgeInstance::getOfferedTokens()
 	// offered).
 
 	TokenListPtr tokens(new TokenList());
-	const OfferListPtr &offers = this->offers;
+	const OfferListPtr& offers = this->offers;
 
-	for (const OfferPtr &offer : *offers)
+	for (const OfferPtr& offer : *offers)
 	{
 		TokenListPtr offeredTokens = offer->getOfferedTokens();
-		for (const TokenPtr &token : *offeredTokens)
+		for (const TokenPtr& token : *offeredTokens)
 		{
 			tokens->push_back(token);
 		}

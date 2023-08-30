@@ -16,9 +16,10 @@ namespace fuml::semantics::values
 	{
 		public:
 			virtual ~LiteralBooleanEvaluation() = default;
-		
+
 			virtual ValuePtr evaluate() override;
-	}; // LiteralBooleanEvaluation
+	};
+// LiteralBooleanEvaluation
 }
 
 #endif /* FUML_SEMANTICS_VALUES_LITERALBOOLEANEVALUATION_H_ */

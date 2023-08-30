@@ -25,9 +25,7 @@ namespace fuml::semantics::actions
 			virtual ~ActionActivation() = 0;
 			void setThisActionActivationPtr(std::weak_ptr<ActionActivation>);
 
-			virtual void initialize(
-					const ActivityNodePtr&,
-					const ActivityNodeActivationGroupPtr&) override;
+			virtual void initialize(const ActivityNodePtr&, const ActivityNodeActivationGroupPtr&) override;
 			virtual void run() override;
 			virtual TokenListPtr takeOfferedTokens() override;
 			virtual void fire(const TokenListPtr&) override;
@@ -43,41 +41,24 @@ namespace fuml::semantics::actions
 			virtual void addOutgoingEdge(const ActivityEdgeInstancePtr&) override;
 			void addPinActivation(const PinActivationPtr&);
 			PinActivationPtr getPinActivation(const PinPtr&);
-			void putToken(
-					const OutputPinPtr&,
-					const ValuePtr&);
-			void putTokens(
-					const OutputPinPtr&,
-					const ValueListPtr&);
+			void putToken(const OutputPinPtr&, const ValuePtr&);
+			void putTokens(const OutputPinPtr&, const ValueListPtr&);
 			ValueListPtr getTokens(const InputPinPtr&);
 			ValueListPtr takeTokens(const InputPinPtr&);
 			virtual bool isSourceFor(const ActivityEdgeInstancePtr&) override;
-			bool valueParticipatesInLink(
-					const ValuePtr&,
-					const LinkPtr&);
+			bool valueParticipatesInLink(const ValuePtr&, const LinkPtr&);
 			AssociationPtr getAssociation(const StructuralFeaturePtr&);
-			ValueListPtr getValues(
-					const ValuePtr&,
-					const StructuralFeaturePtr&);
-			LinkListPtr getMatchingLinks(
-					const AssociationPtr&,
-					const StructuralFeaturePtr&,
-					const ValuePtr&);
-			LinkListPtr getMatchingLinksForEndValue(
-					const AssociationPtr&,
-					const StructuralFeaturePtr&,
-					const ValuePtr&,
-					const ValuePtr&);
-			PropertyPtr getOppositeEnd(
-					const AssociationPtr&,
-					const StructuralFeaturePtr&);
+			ValueListPtr getValues(const ValuePtr&, const StructuralFeaturePtr&);
+			LinkListPtr getMatchingLinks(const AssociationPtr&, const StructuralFeaturePtr&, const ValuePtr&);
+			LinkListPtr getMatchingLinksForEndValue(const AssociationPtr&, const StructuralFeaturePtr&, const ValuePtr&,
+				const ValuePtr&);
+			PropertyPtr getOppositeEnd(const AssociationPtr&, const StructuralFeaturePtr&);
 			BooleanValuePtr makeBooleanValue(bool);
-			virtual void handle(
-					const ValuePtr&,
-					const ExceptionHandlerPtr&) override;
+			virtual void handle(const ValuePtr&, const ExceptionHandlerPtr&) override;
 			void transferOutputs(const ActionPtr&);
 
-	}; // ActionActivation
+	};
+// ActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_ACTIONACTIVATION_H_ */

@@ -17,12 +17,10 @@ namespace fuml::semantics::actions
 		public:
 			virtual ~WriteStructuralFeatureActionActivation() = 0;
 
-			int position(
-					const ValuePtr&,
-					const ValueListPtr&,
-					int);
+			int position(const ValuePtr&, const ValueListPtr&, int);
 
-	}; // WriteStructuralFeatureActionActivation
+	};
+// WriteStructuralFeatureActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_WRITESTRUCTURALFEATUREACTIONACTIVATION_H_ */

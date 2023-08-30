@@ -19,11 +19,12 @@ namespace fuml::semantics::commonbehavior
 
 		public:
 			virtual ~StreamingParameterValue() = default;
-		
+
 			void post(const ValueListPtr&);
 			void register_(const StreamingParameterListenerPtr&);
 			bool isTerminated();
-	}; // StreamingParameterValue
+	};
+// StreamingParameterValue
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_STREAMINGPARAMETERVALUE_H_ */

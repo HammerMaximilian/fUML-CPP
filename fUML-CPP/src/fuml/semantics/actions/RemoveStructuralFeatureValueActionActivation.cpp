@@ -7,14 +7,14 @@
 
 #include <fuml/semantics/actions/RemoveStructuralFeatureValueActionActivation.h>
 
-#include <fuml/syntax/actions/RemoveStructuralFeatureValueAction.h>
-#include <fuml/semantics/simpleclassifiers/UnlimitedNaturalValue.h>
+#include <fuml/semantics/loci/ChoiceStrategy.h>
+#include <fuml/semantics/loci/ExecutionFactory.h>
+#include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/simpleclassifiers/FeatureValue.h>
+#include <fuml/semantics/simpleclassifiers/UnlimitedNaturalValue.h>
 #include <fuml/semantics/structuredclassifiers/Link.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/semantics/loci/Locus.h>
-#include <fuml/semantics/loci/ExecutionFactory.h>
-#include <fuml/semantics/loci/ChoiceStrategy.h>
+#include <fuml/syntax/actions/RemoveStructuralFeatureValueAction.h>
 #include <UMLPrimitiveTypes/intList.h>
 
 void RemoveStructuralFeatureValueActionActivation::doAction()
@@ -32,9 +32,9 @@ void RemoveStructuralFeatureValueActionActivation::doAction()
 	// If isRemoveDuplicates is false, and there is a removeAt input pin
 	// remove the feature value at that position.
 
-	RemoveStructuralFeatureValueActionPtr action = std::dynamic_pointer_cast<
-			RemoveStructuralFeatureValueAction>(this->node);
-	const StructuralFeaturePtr &feature = action->structuralFeature;
+	RemoveStructuralFeatureValueActionPtr action = std::dynamic_pointer_cast<RemoveStructuralFeatureValueAction>(
+		this->node);
+	const StructuralFeaturePtr& feature = action->structuralFeature;
 	AssociationPtr association = this->getAssociation(feature);
 
 	ValuePtr value = this->takeTokens(action->object)->at(0);
@@ -49,18 +49,16 @@ void RemoveStructuralFeatureValueActionActivation::doAction()
 	int removeAt = 0;
 	if (action->removeAt != nullptr)
 	{
-		removeAt = std::dynamic_pointer_cast<UnlimitedNaturalValue>(
-				this->takeTokens(action->removeAt)->at(0))->value;
+		removeAt = std::dynamic_pointer_cast<UnlimitedNaturalValue>(this->takeTokens(action->removeAt)->at(0))->value;
 	}
 
 	if (association != nullptr)
 	{
-		LinkListPtr links = this->getMatchingLinksForEndValue(association,
-				feature, value, inputValue);
+		LinkListPtr links = this->getMatchingLinksForEndValue(association, feature, value, inputValue);
 
 		if (action->isRemoveDuplicates)
 		{
-			for (const LinkPtr &link : *links)
+			for (const LinkPtr& link : *links)
 			{
 				link->destroy();
 			}
@@ -73,8 +71,7 @@ void RemoveStructuralFeatureValueActionActivation::doAction()
 			if (links->size() > 0)
 			{
 				int i = std::dynamic_pointer_cast<ChoiceStrategy>(
-						this->getExecutionLocus()->factory->getStrategy(
-								"choice"))->choose(links->size());
+					this->getExecutionLocus()->factory->getStrategy("choice"))->choose(links->size());
 				links->at(i - 1)->destroy();
 			}
 
@@ -82,7 +79,7 @@ void RemoveStructuralFeatureValueActionActivation::doAction()
 		else
 		{
 			bool notFound = true;
-			for (const LinkPtr &link : *links)
+			for (const LinkPtr& link : *links)
 			{
 				if (link->getFeatureValue(feature)->position == removeAt)
 				{
@@ -97,14 +94,12 @@ void RemoveStructuralFeatureValueActionActivation::doAction()
 	}
 	else
 	{
-		StructuredValuePtr structuredValue = std::dynamic_pointer_cast<
-				StructuredValue>(value);
+		StructuredValuePtr structuredValue = std::dynamic_pointer_cast<StructuredValue>(value);
 
 		if (structuredValue)
 		{
 
-			ReferencePtr reference = std::dynamic_pointer_cast<Reference>(
-					value);
+			ReferencePtr reference = std::dynamic_pointer_cast<Reference>(value);
 
 			// If the value is a data value, then it must be copied before
 			// any change is made.
@@ -113,8 +108,7 @@ void RemoveStructuralFeatureValueActionActivation::doAction()
 				value = value->copy();
 			}
 
-			FeatureValuePtr featureValue = structuredValue->getFeatureValue(
-					action->structuralFeature);
+			FeatureValuePtr featureValue = structuredValue->getFeatureValue(action->structuralFeature);
 
 			if (action->isRemoveDuplicates)
 			{
@@ -140,16 +134,14 @@ void RemoveStructuralFeatureValueActionActivation::doAction()
 				{
 					// *** Nondeterministically choose which value to remove.
 					// ***
-					int k =
-							std::dynamic_pointer_cast<ChoiceStrategy>(this->getExecutionLocus()->factory->getStrategy(
-									"choice"))->choose(positions.size());
-					featureValue->values->erase(featureValue->values->begin() +
-							positions.at(k - 1) - 1);
+					int k = std::dynamic_pointer_cast<ChoiceStrategy>(
+						this->getExecutionLocus()->factory->getStrategy("choice"))->choose(positions.size());
+					featureValue->values->erase(featureValue->values->begin() + positions.at(k - 1) - 1);
 				}
 			}
 			else
 			{
-				if (featureValue->values->size() >= (unsigned int)removeAt)
+				if (featureValue->values->size() >= (unsigned int) removeAt)
 				{
 					featureValue->values->erase(featureValue->values->begin() + (removeAt - 1));
 				}

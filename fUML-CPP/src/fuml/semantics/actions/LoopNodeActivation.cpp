@@ -7,16 +7,16 @@
 
 #include <fuml/semantics/actions/LoopNodeActivation.h>
 
+#include <fuml/Debug.h>
+#include <fuml/semantics/actions/OutputPinActivation.h>
+#include <fuml/semantics/actions/Values.h>
+#include <fuml/semantics/activities/ActivityNodeActivationGroup.h>
+#include <fuml/semantics/simpleclassifiers/BooleanValue.h>
 #include <fuml/syntax/actions/LoopNode.h>
 #include <fuml/syntax/actions/OutputPin.h>
-#include <fuml/semantics/actions/Values.h>
-#include <fuml/semantics/actions/OutputPinActivation.h>
-#include <fuml/semantics/simpleclassifiers/BooleanValue.h>
-#include <fuml/semantics/activities/ActivityNodeActivationGroup.h>
-#include <fuml/Debug.h>
 
 void fuml::semantics::actions::LoopNodeActivation::setThisLoopNodeActivationPtr(
-		std::weak_ptr<LoopNodeActivation> thisLoopNodeActivationPtr)
+	std::weak_ptr<LoopNodeActivation> thisLoopNodeActivationPtr)
 {
 	this->thisLoopNodeActivationPtr = thisLoopNodeActivationPtr;
 	StructuredActivityNodeActivation::setThisStructuredActivityNodeActivationPtr(thisLoopNodeActivationPtr);
@@ -39,10 +39,10 @@ void LoopNodeActivation::doStructuredActivity()
 	// consumed when running the test for the last time.]
 
 	LoopNodePtr loopNode = std::dynamic_pointer_cast<LoopNode>(this->node);
-	const InputPinListPtr &loopVariableInputs = loopNode->loopVariableInput;
+	const InputPinListPtr& loopVariableInputs = loopNode->loopVariableInput;
 
 	this->bodyOutputLists->clear();
-	for (const InputPinPtr &loopVariableInput : *loopVariableInputs)
+	for (const InputPinPtr& loopVariableInput : *loopVariableInputs)
 	{
 		ValuesPtr bodyOutputList(new Values());
 		bodyOutputList->values = this->takeTokens(loopVariableInput);
@@ -63,8 +63,8 @@ void LoopNodeActivation::doLoop(bool continuing)
 	// loop variables.
 
 	LoopNodePtr loopNode = std::dynamic_pointer_cast<LoopNode>(this->node);
-	const OutputPinListPtr &loopVariables = loopNode->loopVariable;
-	const OutputPinListPtr &resultPins = loopNode->result;
+	const OutputPinListPtr& loopVariables = loopNode->loopVariable;
+	const OutputPinListPtr& resultPins = loopNode->result;
 
 	while (continuing)
 	{
@@ -77,14 +77,13 @@ void LoopNodeActivation::doLoop(bool continuing)
 			const ValuesPtr& bodyOutputList = bodyOutputLists->at(i);
 			const ValueListPtr& values = bodyOutputList->values;
 			this->putPinValues(loopVariable, values);
-			std::dynamic_pointer_cast<OutputPinActivation>(this->activationGroup->getNodeActivation(
-					loopVariable))->sendUnofferedTokens();
+			std::dynamic_pointer_cast<OutputPinActivation>(this->activationGroup->getNodeActivation(loopVariable))
+				->sendUnofferedTokens();
 		}
 
 		// Run all the non-executable, non-pin nodes in the conditional
 		// node.
-		const ActivityNodeActivationListPtr& nodeActivations =
-				this->activationGroup->nodeActivations;
+		const ActivityNodeActivationListPtr& nodeActivations = this->activationGroup->nodeActivations;
 		ActivityNodeActivationListPtr nonExecutableNodeActivations(new ActivityNodeActivationList());
 		for (const ActivityNodeActivationPtr& nodeActivation : *nodeActivations)
 		{
@@ -163,8 +162,7 @@ bool LoopNodeActivation::runTest()
 	}
 
 	std::string testFailed = (decision ? "Test succeeded." : "Test failed.");
-	utils::Debug::println(
-			"[runTest] " + testFailed);
+	utils::Debug::println("[runTest] " + testFailed);
 
 	return decision;
 } // runTest
@@ -178,8 +176,7 @@ void LoopNodeActivation::runBody()
 
 	LoopNodePtr loopNode = std::dynamic_pointer_cast<LoopNode>(this->node);
 
-	this->activationGroup->runNodes(
-			this->makeActivityNodeList(loopNode->bodyPart));
+	this->activationGroup->runNodes(this->makeActivityNodeList(loopNode->bodyPart));
 
 	if (!this->isTerminateAll & !this->isSuspended())
 	{

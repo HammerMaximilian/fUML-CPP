@@ -8,10 +8,10 @@
 #include <fuml/semantics/actions/InputPinActivation.h>
 
 #include <fuml/Debug.h>
-#include <fuml/syntax/actions/InputPin.h>
+#include <fuml/semantics/actions/CallActionActivation.h>
 #include <fuml/semantics/activities/Token.h>
 #include <fuml/semantics/commonbehavior/StreamingParameterValue.h>
-#include <fuml/semantics/actions/CallActionActivation.h>
+#include <fuml/syntax/actions/InputPin.h>
 
 void InputPinActivation::receiveOffer()
 {
@@ -22,9 +22,12 @@ void InputPinActivation::receiveOffer()
 	// to the action activation. (When all input pins are ready, the
 	// action will fire them.)
 
-	if (this->isStreaming()) {
+	if (this->isStreaming())
+	{
 		ActivityNodeActivation::receiveOffer();
-	} else {
+	}
+	else
+	{
 		this->actionActivation->receiveOffer();
 	}
 } // receiveOffer
@@ -39,19 +42,25 @@ void InputPinActivation::fire(const TokenListPtr& incomingTokens)
 
 	PinActivation::fire(incomingTokens);
 
-	if (this->isStreaming() && incomingTokens->size() > 0) {
+	if (this->isStreaming() && incomingTokens->size() > 0)
+	{
 		ValueListPtr values(new ValueList());
-		for (const TokenPtr& token : *incomingTokens) {
+		for (const TokenPtr& token : *incomingTokens)
+		{
 			ValuePtr value = token->getValue();
-			if (value != nullptr) {
+			if (value != nullptr)
+			{
 				values->push_back(value);
 			}
 		}
 		this->streamingParameterValue->post(values);
 
-		if (this->streamingIsTerminated()) {
-			CallActionActivationPtr callActionActivation = std::dynamic_pointer_cast<CallActionActivation>(this->actionActivation);
-			if (callActionActivation) {
+		if (this->streamingIsTerminated())
+		{
+			CallActionActivationPtr callActionActivation = std::dynamic_pointer_cast<CallActionActivation>(
+				this->actionActivation);
+			if (callActionActivation)
+			{
 				callActionActivation->completeStreamingCall();
 			}
 		}
@@ -68,10 +77,13 @@ bool InputPinActivation::isReady()
 	// multiplicity is zero or if there is at least one offered value.
 
 	bool ready = ActivityNodeActivation::isReady();
-	if (ready) {
+	if (ready)
+	{
 		int minimum = std::dynamic_pointer_cast<Pin>(this->node)->lower;
-		if (this->isStreaming()) {
-			if (minimum > 0) {
+		if (this->isStreaming())
+		{
+			if (minimum > 0)
+			{
 				minimum = 1;
 			}
 		}
@@ -88,9 +100,8 @@ bool InputPinActivation::isReadyForStreaming()
 	// ready if it has a lower multiplicity bound of zero, or if
 	// there is at least one offered value.
 
-	return ActivityNodeActivation::isReady() &&
-			(std::dynamic_pointer_cast<Pin>(this->node)->lower == 0 ||
-			 getTotalValueCount() >= 1);
+	return ActivityNodeActivation::isReady()
+		&& (std::dynamic_pointer_cast<Pin>(this->node)->lower == 0 || getTotalValueCount() >= 1);
 } // isReadyForStreaming
 
 bool InputPinActivation::isStreaming()

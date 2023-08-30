@@ -7,7 +7,7 @@
 
 #include <fuml/semantics/values/Value.h>
 
-#include "fuml/syntax/classification/Classifier.h"
+#include <fuml/syntax/classification/Classifier.h>
 
 Value::~Value()
 {
@@ -26,18 +26,18 @@ bool Value::equals(const ValuePtr& otherValue)
 	bool isEqual = true;
 
 	unsigned int myTypesSize = myTypes->size(), otherTypesSize = otherTypes->size();
-	if(myTypesSize != otherTypesSize)
+	if (myTypesSize != otherTypesSize)
 	{
 		isEqual = false;
 	}
 	else
 	{
 		unsigned int i = 1;
-		while(isEqual && i <= myTypesSize)
+		while (isEqual && i <= myTypesSize)
 		{
 			bool matched = false;
 			unsigned int j = 1;
-			while(!matched && j <= otherTypesSize)
+			while (!matched && j <= otherTypesSize)
 			{
 				matched = (otherTypes->at(j - 1) == myTypes->at(i - 1));
 				j = j + 1;
@@ -69,7 +69,8 @@ bool Value::hasType(const ClassifierPtr& type)
 	bool found = false;
 	unsigned int i = 1;
 	unsigned int typesSize = types->size();
-	while (!found && i <= typesSize) {
+	while (!found && i <= typesSize)
+	{
 		found = (types->at(i - 1) == type);
 		i = i + 1;
 	}
@@ -87,16 +88,16 @@ bool Value::isInstanceOf(const ClassifierPtr& classifier)
 	bool isInstance = this->hasType(classifier);
 	unsigned int i = 1;
 	unsigned int typesSize = types->size();
-	while (!isInstance && i <= typesSize) {
-		isInstance = this->checkAllParents(types->at(i-1), classifier);
+	while (!isInstance && i <= typesSize)
+	{
+		isInstance = this->checkAllParents(types->at(i - 1), classifier);
 		i = i + 1;
 	}
 
 	return isInstance;
 }
 
-bool Value::checkAllParents(const ClassifierPtr& type,
-		const ClassifierPtr& classifier)
+bool Value::checkAllParents(const ClassifierPtr& type, const ClassifierPtr& classifier)
 {
 	// Check if the given classifier matches any of the direct or indirect
 	// ancestors of a given type.
@@ -105,11 +106,15 @@ bool Value::checkAllParents(const ClassifierPtr& type,
 	bool matched = false;
 	unsigned int i = 1;
 	unsigned int directParentsSize = directParents->size();
-	while (!matched && i <= directParentsSize) {
+	while (!matched && i <= directParentsSize)
+	{
 		ClassifierPtr directParent = directParents->at(i - 1);
-		if (directParent == classifier) {
+		if (directParent == classifier)
+		{
 			matched = true;
-		} else {
+		}
+		else
+		{
 			matched = this->checkAllParents(directParent, classifier);
 		}
 		i = i + 1;

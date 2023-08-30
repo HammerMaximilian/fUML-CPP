@@ -8,14 +8,14 @@
 #include <fuml/semantics/actions/DestroyLinkActionActivation.h>
 
 #include <fuml/Debug.h>
+#include <fuml/semantics/loci/ChoiceStrategy.h>
+#include <fuml/semantics/loci/ExecutionFactory.h>
+#include <fuml/semantics/loci/Locus.h>
+#include <fuml/semantics/structuredclassifiers/Link.h>
 #include <fuml/syntax/actions/DestroyLinkAction.h>
 #include <fuml/syntax/actions/LinkEndDestructionData.h>
 #include <fuml/syntax/classification/Property.h>
 #include <fuml/syntax/structuredclassifiers/Association.h>
-#include <fuml/semantics/structuredclassifiers/Link.h>
-#include <fuml/semantics/loci/Locus.h>
-#include <fuml/semantics/loci/ExecutionFactory.h>
-#include <fuml/semantics/loci/ChoiceStrategy.h>
 
 void DestroyLinkActionActivation::doAction()
 {
@@ -39,26 +39,28 @@ void DestroyLinkActionActivation::doAction()
 	utils::Debug::println("[doAction] end data size = " + std::to_string(destructionDataList->size()));
 
 	bool destroyOnlyOne = false;
-	for(const LinkEndDestructionDataPtr& endData : *destructionDataList) {
-		destroyOnlyOne = !endData->end->isUnique
-						&& !endData->end->isOrdered
-						&& !endData->isDestroyDuplicates;
-		if(destroyOnlyOne) break;
+	for (const LinkEndDestructionDataPtr& endData : *destructionDataList)
+	{
+		destroyOnlyOne = !endData->end->isUnique && !endData->end->isOrdered && !endData->isDestroyDuplicates;
+		if (destroyOnlyOne)
+			break;
 	}
 
 	LinkEndDataListPtr endDataList(new LinkEndDataList());
-	for (const LinkEndDestructionDataPtr& endData : *destructionDataList) {
+	for (const LinkEndDestructionDataPtr& endData : *destructionDataList)
+	{
 		utils::Debug::println("[doAction] Matching end = " + endData->end->name);
 		endDataList->push_back(endData);
 	}
 
-	ExtensionalValueListPtr extent = this->getExecutionLocus()->getExtent(
-			this->getAssociation());
+	ExtensionalValueListPtr extent = this->getExecutionLocus()->getExtent(this->getAssociation());
 	ExtensionalValueListPtr matchingLinks(new ExtensionalValueList());
 
-	for (const ExtensionalValuePtr& value : *extent) {
+	for (const ExtensionalValuePtr& value : *extent)
+	{
 		LinkPtr link = std::dynamic_pointer_cast<Link>(value);
-		if (this->linkMatchesEndData(link, endDataList)) {
+		if (this->linkMatchesEndData(link, endDataList))
+		{
 			matchingLinks->push_back(link);
 		}
 	}
@@ -66,27 +68,32 @@ void DestroyLinkActionActivation::doAction()
 	// Now that matching is done, ensure that all tokens on end data input
 	// pins
 	// are consumed.
-	for (const LinkEndDestructionDataPtr& endData : *destructionDataList) {
+	for (const LinkEndDestructionDataPtr& endData : *destructionDataList)
+	{
 		const PropertyPtr& end = endData->end;
-		if (!endData->isDestroyDuplicates
-			&& !end->isUnique
-			&& end->isOrdered) {
+		if (!endData->isDestroyDuplicates && !end->isUnique && end->isOrdered)
+		{
 			this->takeTokens(endData->destroyAt);
 		}
 		utils::Debug::println("[doAction] Consuming tokens for end " + end->name);
 		this->takeTokens(endData->value);
 	}
 
-	if (destroyOnlyOne) {
+	if (destroyOnlyOne)
+	{
 		// *** If there is more than one matching link,
 		// non-deterministically choose one. ***
-		if (matchingLinks->size() > 0) {
-			int i = std::dynamic_pointer_cast<ChoiceStrategy>(this->getExecutionLocus()->factory
-					->getStrategy("choice"))->choose(matchingLinks->size());
+		if (matchingLinks->size() > 0)
+		{
+			int i = std::dynamic_pointer_cast<ChoiceStrategy>(this->getExecutionLocus()->factory->getStrategy("choice"))
+				->choose(matchingLinks->size());
 			matchingLinks->at(i - 1)->destroy();
 		}
-	} else {
-		for (const ExtensionalValuePtr& matchingLink : *matchingLinks) {
+	}
+	else
+	{
+		for (const ExtensionalValuePtr& matchingLink : *matchingLinks)
+		{
 			matchingLink->destroy();
 		}
 	}

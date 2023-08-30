@@ -8,23 +8,22 @@
 #include <fuml/semantics/actions/AcceptEventActionActivation.h>
 
 #include <fuml/Debug.h>
+#include <fuml/semantics/actions/AcceptEventActionEventAccepter.h>
+#include <fuml/semantics/commonbehavior/ParameterValue.h>
+#include <fuml/semantics/commonbehavior/SignalEventOccurrence.h>
+#include <fuml/semantics/simpleclassifiers/SignalInstance.h>
+#include <fuml/semantics/structuredclassifiers/Object_.h>
 #include <fuml/syntax/actions/AcceptEventAction.h>
 #include <fuml/syntax/commonbehavior/Trigger.h>
-#include <fuml/semantics/actions/AcceptEventActionEventAccepter.h>
-#include <fuml/semantics/structuredclassifiers/Object_.h>
-#include <fuml/semantics/commonbehavior/SignalEventOccurrence.h>
-#include <fuml/semantics/commonbehavior/ParameterValue.h>
-#include <fuml/semantics/simpleclassifiers/SignalInstance.h>
 
 void AcceptEventActionActivation::setThisAcceptEventActionActivationPtr(
-		std::weak_ptr<AcceptEventActionActivation> thisAcceptEventActionActivationPtr)
+	std::weak_ptr<AcceptEventActionActivation> thisAcceptEventActionActivationPtr)
 {
 	this->thisAcceptEventActionActivationPtr = thisAcceptEventActionActivationPtr;
 	ActionActivation::setThisActionActivationPtr(thisAcceptEventActionActivationPtr);
 }
 
-void AcceptEventActionActivation::initialize(
-		const ActivityNodePtr& node, const ActivityNodeActivationGroupPtr& group)
+void AcceptEventActionActivation::initialize(const ActivityNodePtr& node, const ActivityNodeActivationGroupPtr& group)
 {
 	// Initialize this accept event action activation to be not waiting for an event.
 
@@ -44,8 +43,7 @@ void AcceptEventActionActivation::run()
 	this->waiting = false;
 } // run
 
-void AcceptEventActionActivation::fire(
-		const TokenListPtr&)
+void AcceptEventActionActivation::fire(const TokenListPtr&)
 {
 	// Register the event accepter for this accept event action activation
 	// with the context object of the enclosing activity execution
@@ -66,9 +64,12 @@ bool AcceptEventActionActivation::isReady()
 	// already waiting for an event.
 
 	bool ready;
-	if (this->waiting) {
+	if (this->waiting)
+	{
 		ready = false;
-	} else {
+	}
+	else
+	{
 		ready = ActionActivation::isReady();
 	}
 
@@ -99,25 +100,34 @@ void AcceptEventActionActivation::accept(const EventOccurrencePtr& eventOccurren
 	AcceptEventActionPtr action = std::dynamic_pointer_cast<AcceptEventAction>(this->node);
 	const OutputPinListPtr& resultPins = action->result;
 
-	utils::Debug::println("[accept] action = " + action->name + ", eventOccurrence = " + std::to_string(eventOccurrence->hashCode()));
+	utils::Debug::println(
+		"[accept] action = " + action->name + ", eventOccurrence = " + std::to_string(eventOccurrence->hashCode()));
 
-	if (this->running) {
-		if (!action->isUnmarshall) {
-			SignalEventOccurrencePtr signalEventOccurrence = std::dynamic_pointer_cast<SignalEventOccurrence>(eventOccurrence);
-			if (signalEventOccurrence) {
+	if (this->running)
+	{
+		if (!action->isUnmarshall)
+		{
+			SignalEventOccurrencePtr signalEventOccurrence = std::dynamic_pointer_cast<SignalEventOccurrence>(
+				eventOccurrence);
+			if (signalEventOccurrence)
+			{
 				SignalInstancePtr signalInstance = signalEventOccurrence->signalInstance;
-				utils::Debug::println("[accept] isUnmarshall = false, signalInstance = " + std::to_string(signalInstance->hashCode()));
+				utils::Debug::println(
+					"[accept] isUnmarshall = false, signalInstance = " + std::to_string(signalInstance->hashCode()));
 				ValueListPtr result(new ValueList());
 				result->push_back(signalInstance);
-				if (resultPins->size() > 0) {
+				if (resultPins->size() > 0)
+				{
 					this->putTokens(resultPins->at(0), result);
 				}
 			}
-		} else {
-			ParameterValueListPtr parameterValues =
-					eventOccurrence->getParameterValues(action->trigger->at(0)->event);
+		}
+		else
+		{
+			ParameterValueListPtr parameterValues = eventOccurrence->getParameterValues(action->trigger->at(0)->event);
 			unsigned int parameterValuesSize = parameterValues->size();
-			for (unsigned int i = 0; i < parameterValuesSize; i++) {
+			for (unsigned int i = 0; i < parameterValuesSize; i++)
+			{
 				const ParameterValuePtr& parameterValue = parameterValues->at(i);
 				const OutputPinPtr& resultPin = resultPins->at(i);
 				this->putTokens(resultPin, parameterValue->values);
@@ -135,8 +145,7 @@ void AcceptEventActionActivation::accept(const EventOccurrencePtr& eventOccurren
 	}
 } // accept
 
-bool AcceptEventActionActivation::match(
-		const EventOccurrencePtr& eventOccurrence)
+bool AcceptEventActionActivation::match(const EventOccurrencePtr& eventOccurrence)
 {
 	// Return true if the given event occurrence matches a trigger of the
 	// accept event action of this activation.
@@ -153,7 +162,8 @@ void AcceptEventActionActivation::terminate()
 
 	ActionActivation::terminate();
 
-	if (this->waiting) {
+	if (this->waiting)
+	{
 		this->getExecutionContext()->unregister(this->eventAccepter);
 		this->waiting = false;
 	}

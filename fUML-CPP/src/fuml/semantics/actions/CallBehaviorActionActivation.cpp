@@ -7,11 +7,11 @@
 
 #include <fuml/semantics/actions/CallBehaviorActionActivation.h>
 
+#include <fuml/semantics/loci/ExecutionFactory.h>
+#include <fuml/semantics/loci/Locus.h>
+#include <fuml/semantics/structuredclassifiers/Object_.h>
 #include <fuml/syntax/actions/CallBehaviorAction.h>
 #include <fuml/syntax/commonbehavior/Behavior.h>
-#include <fuml/semantics/structuredclassifiers/Object_.h>
-#include <fuml/semantics/loci/Locus.h>
-#include <fuml/semantics/loci/ExecutionFactory.h>
 
 ExecutionPtr CallBehaviorActionActivation::getCallExecution()
 {
@@ -26,9 +26,12 @@ ExecutionPtr CallBehaviorActionActivation::getCallExecution()
 	const BehaviorPtr& behavior = std::dynamic_pointer_cast<CallBehaviorAction>(this->node)->behavior;
 
 	Object_Ptr context;
-	if (behavior->context == nullptr) {
+	if (behavior->context == nullptr)
+	{
 		context = nullptr;
-	} else {
+	}
+	else
+	{
 		context = this->getExecutionContext();
 	}
 

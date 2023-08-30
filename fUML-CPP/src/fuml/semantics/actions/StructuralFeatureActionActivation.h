@@ -16,7 +16,8 @@ namespace fuml::semantics::actions
 	{
 		public:
 			virtual ~StructuralFeatureActionActivation() = 0;
-	}; // StructuralFeatureActionActivation
+	};
+// StructuralFeatureActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_STRUCTURALFEATUREACTIONACTIVATION_H_ */

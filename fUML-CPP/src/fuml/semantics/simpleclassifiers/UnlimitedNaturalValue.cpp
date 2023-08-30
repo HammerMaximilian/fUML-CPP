@@ -5,8 +5,9 @@
  *      Author: maha6913
  */
 
-#include <fuml/semantics/simpleclassifiers/IntegerValue.h>
 #include <fuml/semantics/simpleclassifiers/UnlimitedNaturalValue.h>
+
+#include <fuml/semantics/simpleclassifiers/IntegerValue.h>
 #include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
 #include <fuml/syntax/values/LiteralUnlimitedNatural.h>
 
@@ -30,7 +31,8 @@ bool UnlimitedNaturalValue::equals(const ValuePtr& otherValue)
 
 	bool isEqual = false;
 	UnlimitedNaturalValuePtr unlimitedNaturalValue = std::dynamic_pointer_cast<UnlimitedNaturalValue>(otherValue);
-	if (unlimitedNaturalValue) {
+	if (unlimitedNaturalValue)
+	{
 		isEqual = (unlimitedNaturalValue->value == this->value);
 	}
 
@@ -51,7 +53,8 @@ std::string UnlimitedNaturalValue::toString()
 {
 	std::string stringValue = "*";
 
-	if (this->value >= 0) {
+	if (this->value >= 0)
+	{
 		IntegerValuePtr integerValue(new IntegerValue());
 		integerValue->value = this->value;
 		stringValue = integerValue->toString();

@@ -9,8 +9,7 @@
 
 #include <fuml/semantics/activities/ControlToken.h>
 
-void InitialNodeActivation::fire(
-		const TokenListPtr& incomingTokens)
+void InitialNodeActivation::fire(const TokenListPtr& incomingTokens)
 {
 	// Create a single token and send offers for it.
 

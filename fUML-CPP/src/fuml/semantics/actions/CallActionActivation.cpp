@@ -21,8 +21,7 @@ CallActionActivation::~CallActionActivation()
 {
 }
 
-void CallActionActivation::initialize(const ActivityNodePtr &node,
-		const ActivityNodeActivationGroupPtr &group)
+void CallActionActivation::initialize(const ActivityNodePtr& node, const ActivityNodeActivationGroupPtr& group)
 {
 	// Initialize this call action activation to be not streaming.
 
@@ -41,18 +40,17 @@ bool CallActionActivation::isReady()
 
 	bool ready = this->isControlReady();
 
-	CallActionPtr callAction = std::dynamic_pointer_cast<CallAction>(
-			this->node);
+	CallActionPtr callAction = std::dynamic_pointer_cast<CallAction>(this->node);
 	InputPinListPtr argumentPins = callAction->argument;
 
 	if (ready && argumentPins->size() > 0)
 	{
 		ParameterListPtr parameters = this->getParameters();
 		ParameterListPtr inputParameters(new ParameterList());
-		for (const ParameterPtr &parameter : *parameters)
+		for (const ParameterPtr& parameter : *parameters)
 		{
 			if (parameter->direction == ParameterDirectionKind::in
-					|| parameter->direction == ParameterDirectionKind::inout)
+				|| parameter->direction == ParameterDirectionKind::inout)
 			{
 				inputParameters->push_back(parameter);
 			}
@@ -64,9 +62,9 @@ bool CallActionActivation::isReady()
 		unsigned int inputParametersSize = inputParameters->size();
 		while (ready && j <= argumentPinsSize)
 		{
-			const InputPinPtr &argumentPin = argumentPins->at(j - 1);
-			InputPinActivationPtr pinActivation = std::dynamic_pointer_cast<
-					InputPinActivation>(this->getPinActivation(argumentPin));
+			const InputPinPtr& argumentPin = argumentPins->at(j - 1);
+			InputPinActivationPtr pinActivation = std::dynamic_pointer_cast<InputPinActivation>(
+				this->getPinActivation(argumentPin));
 			if (j > inputParametersSize)
 			{
 				ready = pinActivation->isReady();
@@ -119,39 +117,34 @@ void CallActionActivation::doAction()
 	{
 		this->callExecutions->push_back(callExecution);
 
-		CallActionPtr callAction = std::dynamic_pointer_cast<CallAction>(
-				this->node);
+		CallActionPtr callAction = std::dynamic_pointer_cast<CallAction>(this->node);
 		InputPinListPtr argumentPins = callAction->argument;
 		OutputPinListPtr resultPins = callAction->result;
 
 		// Must get parameters from call execution behavior, to ensure the correct
 		// parameters are used for an operation method.
-		const ParameterListPtr &parameters =
-				callExecution->getBehavior()->ownedParameter;
+		const ParameterListPtr& parameters = callExecution->getBehavior()->ownedParameter;
 
 		unsigned int pinNumber = 1;
 		unsigned int outputPinNumber = 1;
 		InputPinActivationPtr streamingPinActivation = nullptr;
 		this->nonStreamingOutputPins->clear();
 		this->nonStreamingOutputParameters->clear();
-		for (const ParameterPtr &parameter : *parameters)
+		for (const ParameterPtr& parameter : *parameters)
 		{
 			if (parameter->direction == ParameterDirectionKind::in
-					|| parameter->direction == ParameterDirectionKind::inout)
+				|| parameter->direction == ParameterDirectionKind::inout)
 			{
-				const InputPinPtr &argumentPin = argumentPins->at(
-						pinNumber - 1);
+				const InputPinPtr& argumentPin = argumentPins->at(pinNumber - 1);
 				ParameterValuePtr parameterValue;
 				if (parameter->isStream)
 				{
 					parameterValue.reset(new StreamingParameterValue());
 					parameterValue->values = this->getTokens(argumentPin);
-					streamingPinActivation = std::dynamic_pointer_cast<
-							InputPinActivation>(
-							this->getPinActivation(argumentPin));
-					streamingPinActivation->streamingParameterValue =
-							std::dynamic_pointer_cast<StreamingParameterValue>(
-									parameterValue);
+					streamingPinActivation = std::dynamic_pointer_cast<InputPinActivation>(
+						this->getPinActivation(argumentPin));
+					streamingPinActivation->streamingParameterValue = std::dynamic_pointer_cast<StreamingParameterValue>(
+						parameterValue);
 				}
 				else
 				{
@@ -163,8 +156,8 @@ void CallActionActivation::doAction()
 				pinNumber = pinNumber + 1;
 			}
 			if (parameter->direction == ParameterDirectionKind::out
-					|| parameter->direction == ParameterDirectionKind::inout
-					|| parameter->direction == ParameterDirectionKind::return_)
+				|| parameter->direction == ParameterDirectionKind::inout
+				|| parameter->direction == ParameterDirectionKind::return_)
 			{
 				OutputPinPtr resultPin = resultPins->at(outputPinNumber - 1);
 				if (!parameter->isStream)
@@ -174,15 +167,11 @@ void CallActionActivation::doAction()
 				}
 				else
 				{
-					ParameterValuePtr parameterValue(
-							new StreamingParameterValue());
+					ParameterValuePtr parameterValue(new StreamingParameterValue());
 					parameterValue->parameter = parameter;
-					PinStreamingParameterListenerPtr listener(
-							new PinStreamingParameterListener());
-					listener->nodeActivation = this->getPinActivation(
-							resultPin);
-					std::dynamic_pointer_cast<StreamingParameterValue>(
-							parameterValue)->register_(listener);
+					PinStreamingParameterListenerPtr listener(new PinStreamingParameterListener());
+					listener->nodeActivation = this->getPinActivation(resultPin);
+					std::dynamic_pointer_cast<StreamingParameterValue>(parameterValue)->register_(listener);
 
 					// Note: Add a new parameter value, so that there will
 					// be two separate input and output parameter values for a
@@ -201,8 +190,7 @@ void CallActionActivation::doAction()
 		}
 		else
 		{
-			this->isStreaming =
-					!streamingPinActivation->streamingIsTerminated();
+			this->isStreaming = !streamingPinActivation->streamingIsTerminated();
 		}
 
 		if (!this->isStreaming)
@@ -230,7 +218,7 @@ TokenListPtr CallActionActivation::completeAction()
 	return incomingTokens;
 } // completeAction
 
-void CallActionActivation::completeCall(const ExecutionPtr &callExecution)
+void CallActionActivation::completeCall(const ExecutionPtr& callExecution)
 {
 	// If the call execution raised an exception, then propagate it. Otherwise,
 	// copy the values of the non-streaming output parameters of the call execution
@@ -243,19 +231,18 @@ void CallActionActivation::completeCall(const ExecutionPtr &callExecution)
 	}
 	else
 	{
-		const OutputPinListPtr &resultPins = this->nonStreamingOutputPins;
-		const ParameterListPtr &parameters = this->nonStreamingOutputParameters;
+		const OutputPinListPtr& resultPins = this->nonStreamingOutputPins;
+		const ParameterListPtr& parameters = this->nonStreamingOutputParameters;
 
-		ParameterValueListPtr outputParameterValues =
-				callExecution->getOutputParameterValues();
+		ParameterValueListPtr outputParameterValues = callExecution->getOutputParameterValues();
 
 		unsigned int resultPinsSize = resultPins->size();
 
 		for (unsigned int i = 0; i < resultPinsSize; i++)
 		{
-			const OutputPinPtr &resultPin = resultPins->at(i);
-			const ParameterPtr &parameter = parameters->at(i);
-			for (const ParameterValuePtr &outputParameterValue : *outputParameterValues)
+			const OutputPinPtr& resultPin = resultPins->at(i);
+			const ParameterPtr& parameter = parameters->at(i);
+			for (const ParameterValuePtr& outputParameterValue : *outputParameterValues)
 			{
 				if (outputParameterValue->parameter == parameter)
 				{
@@ -301,7 +288,7 @@ void CallActionActivation::terminate()
 	}
 	else
 	{
-		for (const ExecutionPtr &execution : *(this->callExecutions))
+		for (const ExecutionPtr& execution : *(this->callExecutions))
 		{
 			execution->terminate();
 		}
@@ -310,11 +297,11 @@ void CallActionActivation::terminate()
 	ActionActivation::terminate();
 }
 
-void CallActionActivation::removeCallExecution(const ExecutionPtr &execution)
+void CallActionActivation::removeCallExecution(const ExecutionPtr& execution)
 {
 	// Remove the given execution from the current list of call executions.
 
-	const ExecutionListPtr &callExecutions = this->callExecutions;
+	const ExecutionListPtr& callExecutions = this->callExecutions;
 	ExecutionList::iterator it = callExecutions->begin();
 	ExecutionList::iterator endIt = callExecutions->end();
 

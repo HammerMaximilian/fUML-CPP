@@ -7,16 +7,16 @@
 
 #include <fuml/semantics/actions/AddStructuralFeatureValueActionActivation.h>
 
+#include <fuml/semantics/loci/ChoiceStrategy.h>
+#include <fuml/semantics/loci/ExecutionFactory.h>
+#include <fuml/semantics/loci/Locus.h>
+#include <fuml/semantics/simpleclassifiers/FeatureValue.h>
+#include <fuml/semantics/simpleclassifiers/UnlimitedNaturalValue.h>
+#include <fuml/semantics/structuredclassifiers/Link.h>
+#include <fuml/semantics/structuredclassifiers/Reference.h>
 #include <fuml/syntax/actions/AddStructuralFeatureValueAction.h>
 #include <fuml/syntax/classification/Property.h>
 #include <fuml/syntax/structuredclassifiers/Association.h>
-#include <fuml/semantics/simpleclassifiers/UnlimitedNaturalValue.h>
-#include <fuml/semantics/simpleclassifiers/FeatureValue.h>
-#include <fuml/semantics/structuredclassifiers/Link.h>
-#include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/semantics/loci/Locus.h>
-#include <fuml/semantics/loci/ExecutionFactory.h>
-#include <fuml/semantics/loci/ChoiceStrategy.h>
 
 void AddStructuralFeatureValueActionActivation::doAction()
 {
@@ -30,8 +30,7 @@ void AddStructuralFeatureValueActionActivation::doAction()
 	// If isReplaceAll is false and there is an insertAt pin, insert the
 	// value at the appropriate position.
 
-	AddStructuralFeatureValueActionPtr action = std::dynamic_pointer_cast<
-			AddStructuralFeatureValueAction>(this->node);
+	AddStructuralFeatureValueActionPtr action = std::dynamic_pointer_cast<AddStructuralFeatureValueAction>(this->node);
 	StructuralFeaturePtr feature = action->structuralFeature;
 	AssociationPtr association = this->getAssociation(feature);
 
@@ -44,8 +43,7 @@ void AddStructuralFeatureValueActionActivation::doAction()
 	int insertAt = 0;
 	if (action->insertAt != nullptr)
 	{
-		insertAt = (std::dynamic_pointer_cast<UnlimitedNaturalValue>(
-				this->takeTokens(action->insertAt)->at(0)))->value;
+		insertAt = (std::dynamic_pointer_cast<UnlimitedNaturalValue>(this->takeTokens(action->insertAt)->at(0)))->value;
 	}
 
 	if (association != nullptr)
@@ -56,13 +54,12 @@ void AddStructuralFeatureValueActionActivation::doAction()
 		int position = 0;
 		if (oppositeEnd->isOrdered)
 		{
-			position = this->getMatchingLinks(association, oppositeEnd,
-					inputValue)->size() + 1;
+			position = this->getMatchingLinks(association, oppositeEnd, inputValue)->size() + 1;
 		}
 
 		if (action->isReplaceAll)
 		{
-			for (const LinkPtr &link : *links)
+			for (const LinkPtr& link : *links)
 			{
 				link->destroy();
 			}
@@ -70,7 +67,7 @@ void AddStructuralFeatureValueActionActivation::doAction()
 		else if (feature->isUnique)
 		{
 			bool destroyed = false;
-			for (const LinkPtr &link : *links)
+			for (const LinkPtr& link : *links)
 			{
 				FeatureValuePtr featureValue = link->getFeatureValue(feature);
 				if (featureValue->values->at(0)->equals(inputValue))
@@ -123,10 +120,9 @@ void AddStructuralFeatureValueActionActivation::doAction()
 					// *** If there is no insertAt pin, then the structural
 					// feature must be unordered, and the insertion position is
 					// immaterial. ***
-					insertAt =
-							(std::dynamic_pointer_cast<ChoiceStrategy>(this->getExecutionLocus()->factory->getStrategy(
-									"choice")))->choose(
-									featureValue->values->size());
+					insertAt = (std::dynamic_pointer_cast<ChoiceStrategy>(
+						this->getExecutionLocus()->factory->getStrategy("choice")))->choose(
+						featureValue->values->size());
 				}
 
 				if (feature->isUnique)

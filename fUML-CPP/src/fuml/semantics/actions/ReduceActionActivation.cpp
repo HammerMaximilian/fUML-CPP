@@ -7,15 +7,15 @@
 
 #include <fuml/semantics/actions/ReduceActionActivation.h>
 
-#include <fuml/syntax/actions/ReduceAction.h>
-#include <fuml/syntax/commonbehavior/Behavior.h>
-#include <fuml/syntax/classification/Parameter.h>
-#include <fuml/semantics/commonbehavior/ParameterValue.h>
 #include <fuml/semantics/commonbehavior/Execution.h>
-#include <fuml/semantics/loci/Locus.h>
+#include <fuml/semantics/commonbehavior/ParameterValue.h>
 #include <fuml/semantics/loci/ExecutionFactory.h>
-#include <fuml/semantics/values/Value.h>
+#include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/Object_.h>
+#include <fuml/semantics/values/Value.h>
+#include <fuml/syntax/actions/ReduceAction.h>
+#include <fuml/syntax/classification/Parameter.h>
+#include <fuml/syntax/commonbehavior/Behavior.h>
 
 void ReduceActionActivation::doAction()
 {
@@ -33,21 +33,29 @@ void ReduceActionActivation::doAction()
 
 	ValueListPtr values = this->takeTokens(action->collection);
 
-	if (values->size() > 0) {
+	if (values->size() > 0)
+	{
 		const ParameterListPtr& parameters = action->reducer->ownedParameter;
 		ParameterPtr input1 = nullptr;
 		ParameterPtr input2 = nullptr;
 		ParameterPtr output = nullptr;
 
-		for (const ParameterPtr& parameter : *parameters) {
-			if (parameter->direction == ParameterDirectionKind::in) {
-				if (input1 == nullptr) {
+		for (const ParameterPtr& parameter : *parameters)
+		{
+			if (parameter->direction == ParameterDirectionKind::in)
+			{
+				if (input1 == nullptr)
+				{
 					input1 = parameter;
-				} else {
+				}
+				else
+				{
 					input2 = parameter;
 				}
-			} else if (parameter->direction == ParameterDirectionKind::out
-						|| parameter->direction == ParameterDirectionKind::return_) {
+			}
+			else if (parameter->direction == ParameterDirectionKind::out
+				|| parameter->direction == ParameterDirectionKind::return_)
+			{
 				output = parameter;
 			}
 		}
@@ -59,9 +67,10 @@ void ReduceActionActivation::doAction()
 
 		unsigned int i = 2;
 		unsigned int valuesSize = values->size();
-		while (i <= valuesSize) {
-			this->currentExecution = this->getExecutionLocus()->factory
-					->createExecution(action->reducer, this->getExecutionContext());
+		while (i <= valuesSize)
+		{
+			this->currentExecution = this->getExecutionLocus()->factory->createExecution(action->reducer,
+				this->getExecutionContext());
 
 			this->currentExecution->setParameterValue(parameterValue1);
 
@@ -77,7 +86,8 @@ void ReduceActionActivation::doAction()
 
 			i = i + 1;
 
-			if (parameterValue1->values->empty() && i <= values->size()) {
+			if (parameterValue1->values->empty() && i <= values->size())
+			{
 				parameterValue1->values->push_back(values->at(i - 1));
 				i = i + 1;
 			}
@@ -92,7 +102,8 @@ void ReduceActionActivation::terminate()
 {
 	// If there is a current execution, terminate it. Then terminate self.
 
-	if (this->currentExecution != nullptr) {
+	if (this->currentExecution != nullptr)
+	{
 		this->currentExecution->terminate();
 	}
 

@@ -6,9 +6,10 @@
  */
 
 #include <fuml/semantics/commonbehavior/Execution.h>
+
 #include <fuml/semantics/commonbehavior/ParameterValue.h>
-#include <fuml/syntax/classification/ParameterDirectionKind.h>
 #include <fuml/syntax/classification/Parameter.h>
+#include <fuml/syntax/classification/ParameterDirectionKind.h>
 #include <fuml/syntax/commonbehavior/Behavior.h>
 
 Execution::~Execution()
@@ -32,15 +33,15 @@ ValuePtr Execution::copy()
 	newValue->context = this->context;
 
 	const ParameterValueListPtr& parameterValues = this->parameterValues;
-	for (const ParameterValuePtr& parameterValue : *parameterValues) {
+	for (const ParameterValuePtr& parameterValue : *parameterValues)
+	{
 		newValue->parameterValues->push_back(parameterValue->copy());
 	}
 
 	return newValue;
 } // copy
 
-void Execution::setParameterValue(
-		const ParameterValuePtr& parameterValue)
+void Execution::setParameterValue(const ParameterValuePtr& parameterValue)
 {
 	// Set the given parameter value for this execution.
 	// If a parameter value already existed for the parameter of the given
@@ -52,15 +53,17 @@ void Execution::setParameterValue(
 
 	ParameterValuePtr existingParameterValue = this->getParameterValue(parameterValue->parameter);
 
-	if (existingParameterValue == nullptr) {
+	if (existingParameterValue == nullptr)
+	{
 		this->parameterValues->push_back(parameterValue);
-	} else {
+	}
+	else
+	{
 		existingParameterValue->values = parameterValue->values;
 	}
 } // setParameterValue
 
-ParameterValuePtr Execution::getParameterValue(
-		const ParameterPtr& parameter)
+ParameterValuePtr Execution::getParameterValue(const ParameterPtr& parameter)
 {
 	// Get the parameter value of this execution corresponding to the given
 	// parameter (if any).
@@ -68,8 +71,10 @@ ParameterValuePtr Execution::getParameterValue(
 	ParameterValuePtr parameterValue = nullptr;
 	unsigned int i = 1;
 	unsigned int parameterValuesSize = this->parameterValues->size();
-	while (parameterValue == nullptr && i <= parameterValuesSize) {
-		if (this->parameterValues->at(i - 1)->parameter == parameter) {
+	while (parameterValue == nullptr && i <= parameterValuesSize)
+	{
+		if (this->parameterValues->at(i - 1)->parameter == parameter)
+		{
 			parameterValue = this->parameterValues->at(i - 1);
 		}
 		i = i + 1;
@@ -85,11 +90,13 @@ ParameterValueListPtr Execution::getOutputParameterValues()
 
 	ParameterValueListPtr outputs(new ParameterValueList());
 	const ParameterValueListPtr& parameterValues = this->parameterValues;
-	for (const ParameterValuePtr& parameterValue : *parameterValues) {
+	for (const ParameterValuePtr& parameterValue : *parameterValues)
+	{
 		ParameterPtr parameter = parameterValue->parameter;
 		if ((parameter->direction == ParameterDirectionKind::inout)
-				|| (parameter->direction == ParameterDirectionKind::out)
-				|| (parameter->direction == ParameterDirectionKind::return_)) {
+			|| (parameter->direction == ParameterDirectionKind::out)
+			|| (parameter->direction == ParameterDirectionKind::return_))
+		{
 			outputs->push_back(parameterValue);
 		}
 	}
@@ -112,8 +119,7 @@ void Execution::destroy()
 	Object_::destroy();
 } // destroy
 
-void Execution::propagateException(
-		const ValuePtr& exception)
+void Execution::propagateException(const ValuePtr& exception)
 {
 	// Set the propagated exception for this execution to the given exception,
 	// then terminate the execution.

@@ -11,13 +11,13 @@
 #include <fuml/semantics/commonbehavior/ObjectActivation.h>
 
 ObjectActivation_EventDispatchLoopExecution::ObjectActivation_EventDispatchLoopExecution(
-		const ObjectActivationPtr& self)
+	const ObjectActivationPtr& self)
 {
 	this->self = self;
 }
 
 void ObjectActivation_EventDispatchLoopExecution::setThisObjectActivation_EventDispatchLoopExecutionPtr(
-		std::weak_ptr<ObjectActivation_EventDispatchLoopExecution> thisObjectActivation_EventDispatchLoopExecutionPtr)
+	std::weak_ptr<ObjectActivation_EventDispatchLoopExecution> thisObjectActivation_EventDispatchLoopExecutionPtr)
 {
 	this->thisObjectActivation_EventDispatchLoopExecutionPtr = thisObjectActivation_EventDispatchLoopExecutionPtr;
 	Object_::setThisObject_Ptr(thisObjectActivation_EventDispatchLoopExecutionPtr);
@@ -36,7 +36,8 @@ void ObjectActivation_EventDispatchLoopExecution::_send(const ArrivalSignalPtr&)
 	// *** This should send an ArrivalSignal to the EventDispatchLoop. ***
 
 	this->signalCount = this->signalCount + 1;
-	if (this->signalCount == 1) {
+	if (this->signalCount == 1)
+	{
 		ExecutionQueue::enqueue(this->thisObjectActivation_EventDispatchLoopExecutionPtr.lock());
 	}
 } // _send
@@ -45,14 +46,16 @@ void ObjectActivation_EventDispatchLoopExecution::execute()
 {
 	this->self->dispatchNextEvent();
 	signalCount = signalCount - 1;
-	if (this->signalCount > 0) {
+	if (this->signalCount > 0)
+	{
 		ExecutionQueue::enqueue(this->thisObjectActivation_EventDispatchLoopExecutionPtr.lock());
 	}
 } // execute
 
 ValuePtr ObjectActivation_EventDispatchLoopExecution::new_()
 {
-	ObjectActivation_EventDispatchLoopExecutionPtr newValue(new ObjectActivation_EventDispatchLoopExecution(this->self));
+	ObjectActivation_EventDispatchLoopExecutionPtr newValue(
+		new ObjectActivation_EventDispatchLoopExecution(this->self));
 	newValue->setThisObjectActivation_EventDispatchLoopExecutionPtr(newValue);
 	return newValue;
 } // new_

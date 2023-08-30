@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void doAction() override;
 
-	}; // ReadIsClassifiedObjectActionActivation
+	};
+// ReadIsClassifiedObjectActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_READISCLASSIFIEDOBJECTACTIONACTIVATION_H_ */

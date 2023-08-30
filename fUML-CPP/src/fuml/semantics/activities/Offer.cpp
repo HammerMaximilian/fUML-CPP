@@ -19,8 +19,10 @@ int Offer::countOfferedValues()
 
 	int count = 0;
 	const TokenListPtr& offeredTokens = this->offeredTokens;
-	for (const TokenPtr& offeredToken : *offeredTokens) {
-		if (offeredToken->getValue() != nullptr) {
+	for (const TokenPtr& offeredToken : *offeredTokens)
+	{
+		if (offeredToken->getValue() != nullptr)
+		{
 			count = count + 1;
 		}
 	}
@@ -36,7 +38,8 @@ TokenListPtr Offer::getOfferedTokens()
 
 	TokenListPtr tokens(new TokenList());
 	const TokenListPtr& offeredTokens = this->offeredTokens;
-	for (const TokenPtr& offeredToken : *offeredTokens) {
+	for (const TokenPtr& offeredToken : *offeredTokens)
+	{
 		tokens->push_back(offeredToken);
 	}
 
@@ -50,10 +53,14 @@ void Offer::removeOfferedValues(int count)
 
 	int n = count;
 	int i = 1;
-	while (n > 0) {
-		if (this->offeredTokens->at(i - 1)->getValue() != nullptr) {
+	while (n > 0)
+	{
+		if (this->offeredTokens->at(i - 1)->getValue() != nullptr)
+		{
 			this->offeredTokens->erase(this->offeredTokens->begin() + (i - 1));
-		} else {
+		}
+		else
+		{
 			i = i + 1;
 		}
 		n = n - 1;
@@ -67,8 +74,10 @@ void Offer::removeWithdrawnTokens()
 	const TokenListPtr& offeredTokens = this->offeredTokens;
 	unsigned int i = 1;
 	unsigned offeredTokensSize = offeredTokens->size();
-	while (i <= offeredTokensSize) {
-		if (offeredTokens->at(i - 1)->isWithdrawn()) {
+	while (i <= offeredTokensSize)
+	{
+		if (offeredTokens->at(i - 1)->isWithdrawn())
+		{
 			offeredTokens->erase(offeredTokens->begin() + (i - 1));
 			i = i - 1;
 		}

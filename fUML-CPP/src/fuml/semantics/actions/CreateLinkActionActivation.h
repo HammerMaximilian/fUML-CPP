@@ -18,7 +18,8 @@ namespace fuml::semantics::actions
 			virtual ~CreateLinkActionActivation() = default;
 
 			virtual void doAction() override;
-	}; // CreateLinkActionActivation
+	};
+// CreateLinkActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_CREATELINKACTIONACTIVATION_H_ */

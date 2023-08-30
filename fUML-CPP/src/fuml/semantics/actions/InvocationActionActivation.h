@@ -16,7 +16,8 @@ namespace fuml::semantics::actions
 	{
 		public:
 			virtual ~InvocationActionActivation() = 0;
-	}; // InvocationActionActivation
+	};
+// InvocationActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_INVOCATIONACTIONACTIVATION_H_ */

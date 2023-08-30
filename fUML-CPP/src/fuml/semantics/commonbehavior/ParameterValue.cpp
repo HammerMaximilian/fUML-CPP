@@ -6,6 +6,7 @@
  */
 
 #include <fuml/semantics/commonbehavior/ParameterValue.h>
+
 #include <fuml/semantics/values/Value.h>
 
 ParameterValuePtr ParameterValue::copy()
@@ -18,7 +19,8 @@ ParameterValuePtr ParameterValue::copy()
 	newValue->parameter = this->parameter;
 
 	const ValueListPtr& values = this->values;
-	for (const ValuePtr& value : *values) {
+	for (const ValuePtr& value : *values)
+	{
 		newValue->values->push_back(value->copy());
 	}
 

@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void doAction() override;
 
-	}; // RemoveStructuralFeatureValueActionActivation
+	};
+// RemoveStructuralFeatureValueActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_REMOVESTRUCTURALFEATUREVALUEACTIONACTIVATION_H_ */

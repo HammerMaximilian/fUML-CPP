@@ -32,7 +32,8 @@ namespace fuml::semantics::commonbehavior
 			BehaviorPtr getBehavior();
 			virtual void destroy() override;
 			void propagateException(const ValuePtr&);
-	}; // Execution
+	};
+// Execution
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_EXECUTION_H_ */

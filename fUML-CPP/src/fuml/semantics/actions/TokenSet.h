@@ -20,7 +20,8 @@ namespace fuml::semantics::actions
 
 		public:
 			virtual ~TokenSet() = default;
-	}; // TokenSet
+	};
+// TokenSet
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_TOKENSET_H_ */

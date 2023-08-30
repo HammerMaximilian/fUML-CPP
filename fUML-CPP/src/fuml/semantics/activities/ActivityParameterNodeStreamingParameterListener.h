@@ -23,7 +23,8 @@ namespace fuml::semantics::activities
 			virtual void post(const ValueListPtr&) override;
 			virtual bool isTerminated() override;
 
-	}; // ActivityParameterNodeStreamingParameterListener
+	};
+// ActivityParameterNodeStreamingParameterListener
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_ACTIVITYPARAMETERNODESTREAMINGPARAMETERLISTENER_H_ */

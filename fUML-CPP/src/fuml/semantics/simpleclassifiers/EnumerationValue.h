@@ -20,7 +20,7 @@ namespace fuml::semantics::simpleclassifiers
 
 		public:
 			virtual ~EnumerationValue() = default;
-		
+
 			virtual ValueSpecificationPtr specify() override;
 			virtual bool equals(const ValuePtr&) override;
 			virtual ValuePtr copy() override;
@@ -29,7 +29,8 @@ namespace fuml::semantics::simpleclassifiers
 
 		protected:
 			virtual ValuePtr new_() override;
-	}; // EnumerationValue
+	};
+// EnumerationValue
 }
 
 #endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_ENUMERATIONVALUE_H_ */

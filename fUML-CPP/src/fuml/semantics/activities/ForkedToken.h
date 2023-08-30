@@ -32,7 +32,8 @@ namespace fuml::semantics::activities
 			virtual bool equals(const TokenPtr&) override;
 			virtual ValuePtr getValue() override;
 
-	}; // ForkedToken
+	};
+// ForkedToken
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_FORKEDTOKEN_H_ */

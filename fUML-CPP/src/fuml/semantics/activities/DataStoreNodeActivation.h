@@ -20,7 +20,8 @@ namespace fuml::semantics::activities
 			virtual void addToken(const TokenPtr&) override;
 			virtual int removeToken(const TokenPtr&) override;
 
-	}; // DataStoreNodeActivation
+	};
+// DataStoreNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_DATASTORENODEACTIVATION_H_ */

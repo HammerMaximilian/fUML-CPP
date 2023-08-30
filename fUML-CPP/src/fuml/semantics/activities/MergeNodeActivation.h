@@ -17,7 +17,8 @@ namespace fuml::semantics::activities
 		public:
 			virtual ~MergeNodeActivation() = default;
 
-	}; // MergeNodeActivation
+	};
+// MergeNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_MERGENODEACTIVATION_H_ */

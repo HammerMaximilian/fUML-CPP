@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void accept(const EventOccurrencePtr&) override;
 
-	}; // AcceptCallActionActivation
+	};
+// AcceptCallActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_ACCEPTCALLACTIONACTIVATION_H_ */

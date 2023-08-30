@@ -16,7 +16,8 @@ bool JoinNodeActivation::isReady()
 	bool ready = true;
 	unsigned int i = 1;
 	unsigned int incomingEdgesSize = this->incomingEdges->size();
-	while (ready && i <= incomingEdgesSize) {
+	while (ready && i <= incomingEdgesSize)
+	{
 		ready = this->incomingEdges->at(i - 1)->hasOffer();
 		i = i + 1;
 	}

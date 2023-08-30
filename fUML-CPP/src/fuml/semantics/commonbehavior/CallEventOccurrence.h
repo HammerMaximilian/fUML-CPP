@@ -19,13 +19,14 @@ namespace fuml::semantics::commonbehavior
 
 		public:
 			virtual ~CallEventOccurrence() = default;
-		
+
 			OperationPtr getOperation();
 			virtual bool match(const TriggerPtr&) override;
 			virtual ParameterValueListPtr getParameterValues(const EventPtr&) override;
 			void setOutputParameterValues(const ParameterValueListPtr&);
 			void returnFromCall();
-	}; // CallEventOccurrence
+	};
+// CallEventOccurrence
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_CALLEVENTOCCURRENCE_H_ */

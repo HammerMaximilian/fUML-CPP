@@ -19,7 +19,8 @@ namespace fuml::semantics::commonbehavior
 
 			virtual std::string getName() override;
 			virtual EventOccurrencePtr getNextEvent(const ObjectActivationPtr&) = 0;
-	}; // GetNextEventStrategy
+	};
+// GetNextEventStrategy
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_GETNEXTEVENTSTRATEGY_H_ */

@@ -23,19 +23,16 @@ std::string DispatchStrategy::getName()
 	return "dispatch";
 } // getName
 
-ExecutionPtr DispatchStrategy::dispatch(
-		const Object_Ptr &object, const OperationPtr &operation)
+ExecutionPtr DispatchStrategy::dispatch(const Object_Ptr& object, const OperationPtr& operation)
 {
 	// Get the behavior for the given operation as determined by the type(s)
 	// of the given object, compile the behavior at the locus of the object,
 	// and return the resulting execution object.
 
-
 	return object->locus->factory->createExecution(this->getMethod(object, operation), object);
 } // dispatch
 
-BehaviorPtr DispatchStrategy::getMethod(
-		const Object_Ptr &object, const OperationPtr &operation)
+BehaviorPtr DispatchStrategy::getMethod(const Object_Ptr& object, const OperationPtr& operation)
 {
 	// Get the method that corresponds to the given operation for the given object.
 	// By default, the operation is treated as being called via a call event occurrence,

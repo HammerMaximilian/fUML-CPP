@@ -11,8 +11,7 @@
 #include <fuml/syntax/classification/Operation.h>
 #include <fuml/syntax/structuredclassifiers/Class_.h>
 
-BehaviorPtr RedefinitionBasedDispatchStrategy::getMethod(
-		const Object_Ptr &object, const OperationPtr &memberOperation)
+BehaviorPtr RedefinitionBasedDispatchStrategy::getMethod(const Object_Ptr& object, const OperationPtr& memberOperation)
 {
 	// Find the member operation of a type of the given object that
 	// is the same as or a redefinition of the given operation. Then
@@ -60,7 +59,7 @@ BehaviorPtr RedefinitionBasedDispatchStrategy::getMethod(
 }
 
 bool fuml::semantics::structuredclassifiers::RedefinitionBasedDispatchStrategy::operationsMatch(
-		const OperationPtr &ownedOperation, const OperationPtr &baseOperation)
+	const OperationPtr& ownedOperation, const OperationPtr& baseOperation)
 {
 	// Check if the owned operation is equal to or a redefinition (directly
 	// or indirectly) of the base operation.
@@ -74,10 +73,9 @@ bool fuml::semantics::structuredclassifiers::RedefinitionBasedDispatchStrategy::
 	{
 		unsigned int i = 1;
 		unsigned int redefinedOperationSize = ownedOperation->redefinedOperation->size();
-		while (!matches && i <= redefinedOperationSize) {
-			matches = this->operationsMatch(
-					ownedOperation->redefinedOperation->at(i - 1),
-					baseOperation);
+		while (!matches && i <= redefinedOperationSize)
+		{
+			matches = this->operationsMatch(ownedOperation->redefinedOperation->at(i - 1), baseOperation);
 			i = i + 1;
 		}
 	}

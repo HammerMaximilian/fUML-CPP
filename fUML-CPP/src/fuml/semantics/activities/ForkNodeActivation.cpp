@@ -18,14 +18,15 @@ void ForkNodeActivation::fire(const TokenListPtr& incomingTokens)
 	// Create forked tokens for all incoming tokens and offer them on all
 	// outgoing edges.
 
-	utils::Debug::println(this->node == nullptr ? "[fire] Anonymous fork node.":
-			"[fire] Fork node " + this->node->name + "...");
+	utils::Debug::println(
+		this->node == nullptr ? "[fire] Anonymous fork node." : "[fire] Fork node " + this->node->name + "...");
 
 	const ActivityEdgeInstanceListPtr& outgoingEdges = this->outgoingEdges;
 	int outgoingEdgeCount = outgoingEdges->size();
 
 	TokenListPtr forkedTokens(new TokenList());
-	for (const TokenPtr& token : *incomingTokens) {
+	for (const TokenPtr& token : *incomingTokens)
+	{
 		ForkedTokenPtr forkedToken(new ForkedToken());
 		forkedToken->baseToken = token;
 		forkedToken->remainingOffersCount = outgoingEdgeCount;

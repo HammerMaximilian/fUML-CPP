@@ -22,7 +22,8 @@ namespace fuml::semantics::actions
 
 			virtual void accept(const EventOccurrencePtr&);
 			virtual bool match(const EventOccurrencePtr&);
-	}; // AcceptEventActionEventAccepter
+	};
+// AcceptEventActionEventAccepter
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_ACCEPTEVENTACTIONEVENTACCEPTER_H_ */

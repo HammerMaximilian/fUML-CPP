@@ -15,7 +15,7 @@ ObjectNodeActivation::~ObjectNodeActivation()
 }
 
 void fuml::semantics::activities::ObjectNodeActivation::setThisObjectNodeActivation(
-		std::weak_ptr<ObjectNodeActivation> thisObjectNodeActivationPtr)
+	std::weak_ptr<ObjectNodeActivation> thisObjectNodeActivationPtr)
 {
 	this->thisObjectNodeActivationPtr = thisObjectNodeActivationPtr;
 	ActivityNodeActivation::setThisActivityNodeActivation(thisObjectNodeActivationPtr);
@@ -29,14 +29,14 @@ void ObjectNodeActivation::run()
 	this->offeredTokenCount = 0;
 } // run
 
-void ObjectNodeActivation::sendOffers(
-		const TokenListPtr& tokens)
+void ObjectNodeActivation::sendOffers(const TokenListPtr& tokens)
 {
 	// If the set of tokens to be sent is empty, then offer a null token
 	// instead.
 	// Otherwise, offer the given tokens as usual.
 
-	if (tokens->size() == 0) {
+	if (tokens->size() == 0)
+	{
 		ObjectTokenPtr token(new ObjectToken());
 		token->holder = this->thisObjectNodeActivationPtr.lock();
 		tokens->push_back(token);
@@ -53,28 +53,30 @@ void ObjectNodeActivation::terminate()
 	this->clearTokens();
 } // terminate
 
-void ObjectNodeActivation::addToken(
-		const TokenPtr& token)
+void ObjectNodeActivation::addToken(const TokenPtr& token)
 {
 	// Transfer the given token to be held by this node only if it is a
 	// non-null object token.
 	// If it is a control token or a null token, consume it without holding
 	// it.
 
-	if (token->getValue() == nullptr) {
+	if (token->getValue() == nullptr)
+	{
 		token->withdraw();
-	} else {
+	}
+	else
+	{
 		ActivityNodeActivation::addToken(token);
 	}
 } // addToken
 
-int ObjectNodeActivation::removeToken(
-		const TokenPtr& token)
+int ObjectNodeActivation::removeToken(const TokenPtr& token)
 {
 	// Remove the given token, if it is held by this node activation.
 
 	int i = ActivityNodeActivation::removeToken(token);
-	if (i > 0 && i <= this->offeredTokenCount) {
+	if (i > 0 && i <= this->offeredTokenCount)
+	{
 		this->offeredTokenCount = this->offeredTokenCount - 1;
 	}
 
@@ -97,9 +99,9 @@ int ObjectNodeActivation::countOfferedValues()
 	unsigned int totalValueCount = 0;
 	unsigned int i = 1;
 	unsigned int incomingEdgesSize = this->incomingEdges->size();
-	while (i <= incomingEdgesSize) {
-		totalValueCount = totalValueCount
-				+ this->incomingEdges->at(i - 1)->countOfferedValues();
+	while (i <= incomingEdgesSize)
+	{
+		totalValueCount = totalValueCount + this->incomingEdges->at(i - 1)->countOfferedValues();
 		i = i + 1;
 	}
 
@@ -122,7 +124,8 @@ int ObjectNodeActivation::countUnofferedTokens()
 	// Return the number of unoffered tokens that are to be offered next.
 	// (By default, this is all unoffered tokens.)
 
-	if (this->heldTokens->size() == 0) {
+	if (this->heldTokens->size() == 0)
+	{
 		this->offeredTokenCount = 0;
 	}
 
@@ -140,8 +143,9 @@ TokenListPtr ObjectNodeActivation::getUnofferedTokens()
 
 	unsigned int i = 1;
 	unsigned int unofferedTokensCount = this->countUnofferedTokens();
-	while (i <= unofferedTokensCount) {
-		tokens->push_back(this->heldTokens->at(this->offeredTokenCount + i- 1));
+	while (i <= unofferedTokensCount)
+	{
+		tokens->push_back(this->heldTokens->at(this->offeredTokenCount + i - 1));
 		i = i + 1;
 	}
 
@@ -154,7 +158,8 @@ TokenListPtr ObjectNodeActivation::takeUnofferedTokens()
 	// activation and return them.
 
 	TokenListPtr tokens = this->getUnofferedTokens();
-	for (const TokenPtr& token : *tokens) {
+	for (const TokenPtr& token : *tokens)
+	{
 		token->withdraw();
 	}
 	return tokens;

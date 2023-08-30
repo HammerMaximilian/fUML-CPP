@@ -10,11 +10,6 @@
 
 #include <fuml/semantics/simpleclassifiers/PrimitiveValue.h>
 
-namespace fuml::syntax::values
-{
-	class ValueSpecification;
-}
-
 namespace fuml::semantics::simpleclassifiers
 {
 	class BooleanValue : public PrimitiveValue
@@ -24,7 +19,7 @@ namespace fuml::semantics::simpleclassifiers
 
 		public:
 			virtual ~BooleanValue() = default;
-		
+
 			virtual ValueSpecificationPtr specify() override;
 			virtual bool equals(const ValuePtr&) override;
 			virtual ValuePtr copy() override;
@@ -32,7 +27,8 @@ namespace fuml::semantics::simpleclassifiers
 
 		protected:
 			virtual ValuePtr new_() override;
-	}; // BooleanValue
+	};
+// BooleanValue
 }
 
 #endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_BOOLEANVALUE_H_ */

@@ -24,10 +24,8 @@ namespace fuml::semantics::structuredclassifiers
 		public:
 			virtual ~Object_() = default;
 			void setThisObject_Ptr(std::weak_ptr<Object_>);
-		
-			void startBehavior(
-					const Class_Ptr&,
-					const ParameterValueListPtr&);
+
+			void startBehavior(const Class_Ptr&, const ParameterValueListPtr&);
 			ExecutionPtr dispatch(const OperationPtr&);
 			void send(const EventOccurrencePtr&);
 			virtual void destroy() override;
@@ -40,6 +38,7 @@ namespace fuml::semantics::structuredclassifiers
 		protected:
 			virtual ValuePtr new_();
 	};
+// Object_
 }
 
 #endif /* FUML_SEMANTICS_STRUCTUREDCLASSIFIERS_OBJECT__H_ */

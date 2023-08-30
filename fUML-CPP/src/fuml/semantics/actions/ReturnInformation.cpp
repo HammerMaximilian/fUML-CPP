@@ -18,8 +18,7 @@ OperationPtr ReturnInformation::getOperation()
 	return this->callEventOccurrence->getOperation();
 } // getOperation
 
-void ReturnInformation::reply(
-		const ParameterValueListPtr& outputParameterValues)
+void ReturnInformation::reply(const ParameterValueListPtr& outputParameterValues)
 {
 	// Reply to the call by setting the output parameters and
 	// releasing the caller.
@@ -51,7 +50,8 @@ bool ReturnInformation::equals(const ValuePtr& otherValue)
 
 	ReturnInformationPtr otherReturnInformation = std::dynamic_pointer_cast<ReturnInformation>(otherValue);
 
-	if (otherReturnInformation) {
+	if (otherReturnInformation)
+	{
 		isEqual = (otherReturnInformation->callEventOccurrence == this->callEventOccurrence);
 	}
 
@@ -74,7 +74,8 @@ std::string ReturnInformation::toString()
 
 	std::string s = "ReturnInformation";
 	std::string name = callEventOccurrence->getOperation()->name;
-	if (name != "") {
+	if (name != "")
+	{
 		s = s + "(" + name + ")";
 	}
 	return s;

@@ -16,7 +16,8 @@ namespace fuml::semantics::actions
 	{
 		public:
 			virtual ~WriteLinkActionActivation() = 0;
-	}; // WriteLinkActionActivation
+	};
+// WriteLinkActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_WRITELINKACTIONACTIVATION_H_ */

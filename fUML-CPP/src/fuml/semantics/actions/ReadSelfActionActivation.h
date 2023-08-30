@@ -17,9 +17,10 @@ namespace fuml::semantics::actions
 		public:
 			virtual ~ReadSelfActionActivation() = default;
 
-			virtual void doAction()  override;
+			virtual void doAction() override;
 
-	}; // ReadSelfActionActivation
+	};
+// ReadSelfActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_READSELFACTIONACTIVATION_H_ */

@@ -8,9 +8,9 @@
 #ifndef FUML_SEMANTICS_VALUES_VALUE_H_
 #define FUML_SEMANTICS_VALUES_VALUE_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/semantics/fwd.h>
 #include <fuml/semantics/loci/SemanticVisitor.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::semantics::values
 {
@@ -25,13 +25,13 @@ namespace fuml::semantics::values
 			virtual ClassifierListPtr getTypes() = 0;
 			bool hasType(const ClassifierPtr&);
 			bool isInstanceOf(const ClassifierPtr&);
-			bool checkAllParents(const ClassifierPtr&,
-					const ClassifierPtr&);
+			bool checkAllParents(const ClassifierPtr&, const ClassifierPtr&);
 			virtual std::string toString() = 0;
 
 		protected:
 			virtual ValuePtr new_() = 0;
-	}; // Value
+	};
+// Value
 }
 
 #endif /* FUML_SEMANTICS_VALUES_VALUE_H_ */

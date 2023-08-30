@@ -9,21 +9,20 @@
 
 #include <fuml/semantics/commonbehavior/StreamingParameterListener.h>
 
-void StreamingParameterValue::post(
-		const ValueListPtr& values)
+void StreamingParameterValue::post(const ValueListPtr& values)
 {
 	// Post the given values to the listener, if there is at
 	// least one value.
 
 	this->values = values;
 
-	if (this->listener != nullptr && values->size() > 0) {
+	if (this->listener != nullptr && values->size() > 0)
+	{
 		listener->post(values);
 	}
 } // post
 
-void StreamingParameterValue::register_(
-		const StreamingParameterListenerPtr& listener)
+void StreamingParameterValue::register_(const StreamingParameterListenerPtr& listener)
 {
 	// Register a listener for this streaming parameter value.
 
@@ -36,7 +35,8 @@ bool StreamingParameterValue::isTerminated()
 	// or it has a listener that has terminated.
 
 	bool isTerminated = true;
-	if (this->listener != nullptr) {
+	if (this->listener != nullptr)
+	{
 		isTerminated = this->listener->isTerminated();
 	}
 	return isTerminated;

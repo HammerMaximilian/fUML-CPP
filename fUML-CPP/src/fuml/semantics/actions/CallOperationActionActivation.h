@@ -21,7 +21,8 @@ namespace fuml::semantics::actions
 			virtual ExecutionPtr getCallExecution() override;
 			virtual ParameterListPtr getParameters() override;
 
-	}; // CallOperationActionActivation
+	};
+// CallOperationActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_CALLOPERATIONACTIONACTIVATION_H_ */

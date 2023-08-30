@@ -19,7 +19,8 @@ namespace fuml::semantics::activities
 
 			virtual void fire(const TokenListPtr&) override;
 
-	}; // CentralBufferNodeActivation
+	};
+// CentralBufferNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_CENTRALBUFFERNODEACTIVATION_H_ */

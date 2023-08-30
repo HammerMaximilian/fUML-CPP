@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void doAction() override;
 
-	}; // TestIdentityActionActivation
+	};
+// TestIdentityActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_TESTIDENTITYACTIONACTIVATION_H_ */

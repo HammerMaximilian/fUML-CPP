@@ -10,11 +10,6 @@
 
 #include <fuml/semantics/simpleclassifiers/PrimitiveValue.h>
 
-namespace fuml::syntax::values
-{
-	class ValueSpecification;
-}
-
 namespace fuml::semantics::simpleclassifiers
 {
 	class RealValue : public PrimitiveValue
@@ -24,7 +19,7 @@ namespace fuml::semantics::simpleclassifiers
 
 		public:
 			virtual ~RealValue() = default;
-		
+
 			virtual ValueSpecificationPtr specify() override;
 			virtual bool equals(const ValuePtr&) override;
 			virtual ValuePtr copy() override;
@@ -32,7 +27,8 @@ namespace fuml::semantics::simpleclassifiers
 
 		protected:
 			virtual ValuePtr new_() override;
-	}; // RealValue
+	};
+// RealValue
 }
 
 #endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_REALVALUE_H_ */

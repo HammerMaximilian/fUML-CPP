@@ -20,7 +20,8 @@ namespace fuml::semantics::activities
 			virtual void fire(const TokenListPtr&) override;
 			virtual void terminate() override;
 
-	}; // ForkNodeActivation
+	};
+// ForkNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_FORKNODEACTIVATION_H_ */

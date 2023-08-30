@@ -28,7 +28,8 @@ namespace fuml::semantics::actions
 			bool streamingIsTerminated();
 			int getTotalValueCount();
 
-	}; // InputPinActivation
+	};
+// InputPinActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_INPUTPINACTIVATION_H_ */

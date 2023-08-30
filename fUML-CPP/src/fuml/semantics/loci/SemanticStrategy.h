@@ -9,7 +9,7 @@
 #define FUML_SEMANTICS_LOCI_SEMANTICSTRATEGY_H_
 
 #include <fuml/semantics/fwd.h>
-#include "utils/FumlObject.h"
+#include <utils/FumlObject.h>
 
 namespace fuml::semantics::loci
 {
@@ -19,7 +19,8 @@ namespace fuml::semantics::loci
 			virtual ~SemanticStrategy() = 0;
 
 			virtual std::string getName() = 0;
-	}; // SemanticStrategy
+	};
+// SemanticStrategy
 }
 
 #endif /* FUML_SEMANTICS_LOCI_SEMANTICSTRATEGY_H_ */

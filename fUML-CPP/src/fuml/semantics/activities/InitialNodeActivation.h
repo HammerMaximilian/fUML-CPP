@@ -19,7 +19,8 @@ namespace fuml::semantics::activities
 
 			virtual void fire(const TokenListPtr&) override;
 
-	}; // InitialNodeActivation
+	};
+// InitialNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_INITIALNODEACTIVATION_H_ */

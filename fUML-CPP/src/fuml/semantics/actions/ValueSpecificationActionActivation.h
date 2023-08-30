@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void doAction() override;
 
-	}; // ValueSpecificationActionActivation
+	};
+// ValueSpecificationActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_VALUESPECIFICATIONACTIONACTIVATION_H_ */

@@ -7,9 +7,9 @@
 
 #include <fuml/semantics/actions/ValueSpecificationActionActivation.h>
 
-#include <fuml/syntax/actions/ValueSpecificationAction.h>
-#include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/loci/Executor.h>
+#include <fuml/semantics/loci/Locus.h>
+#include <fuml/syntax/actions/ValueSpecificationAction.h>
 
 void ValueSpecificationActionActivation::doAction()
 {

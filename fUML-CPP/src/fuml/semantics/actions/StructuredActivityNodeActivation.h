@@ -30,9 +30,7 @@ namespace fuml::semantics::actions
 			virtual ActivityNodeActivationPtr getNodeActivation(const ActivityNodePtr&) override;
 			ActivityNodeListPtr makeActivityNodeList(const ExecutableNodeListPtr&);
 			ValueListPtr getPinValues(const OutputPinPtr&);
-			void putPinValues(
-					const OutputPinPtr&,
-					const ValueListPtr&);
+			void putPinValues(const OutputPinPtr&, const ValueListPtr&);
 			virtual void createNodeActivations() override;
 			virtual void createEdgeInstances() override;
 			virtual bool isSourceFor(const ActivityEdgeInstancePtr&) override;
@@ -41,7 +39,8 @@ namespace fuml::semantics::actions
 			virtual TokenListPtr completeAction() override;
 			virtual void resume() override;
 
-	}; // StructuredActivityNodeActivation
+	};
+// StructuredActivityNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_STRUCTUREDACTIVITYNODEACTIVATION_H_ */

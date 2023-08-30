@@ -17,8 +17,7 @@
 #include <fuml/syntax/activities/ActivityParameterNode.h>
 #include <fuml/syntax/classification/Parameter.h>
 
-void ActivityExecution::setThisActivityExecutionPtr(
-		std::weak_ptr<ActivityExecution> thisActivityExecutionPtr)
+void ActivityExecution::setThisActivityExecutionPtr(std::weak_ptr<ActivityExecution> thisActivityExecutionPtr)
 {
 	this->thisActivityExecutionPtr = thisActivityExecutionPtr;
 	Object_::setThisObject_Ptr(thisActivityExecutionPtr);
@@ -41,12 +40,11 @@ void ActivityExecution::execute()
 	unsigned int i = 1;
 	const ParameterListPtr& parameters = activity->ownedParameter;
 	unsigned int parametersSize = parameters->size();
-	while (i <= parametersSize && !this->isStreaming) {
+	while (i <= parametersSize && !this->isStreaming)
+	{
 		ParameterPtr parameter = parameters->at(i - 1);
-		this->isStreaming =
-				(parameter->direction == ParameterDirectionKind::in ||
-				 parameter->direction == ParameterDirectionKind::inout) &&
-				parameter->isStream;
+		this->isStreaming = (parameter->direction == ParameterDirectionKind::in
+			|| parameter->direction == ParameterDirectionKind::inout) && parameter->isStream;
 		i = i + 1;
 	}
 
@@ -56,7 +54,8 @@ void ActivityExecution::execute()
 	this->activationGroup->activityExecution = this->thisActivityExecutionPtr.lock();
 	this->activationGroup->activate(activity->node, activity->edge);
 
-	if (!this->isStreaming) {
+	if (!this->isStreaming)
+	{
 		this->complete();
 	}
 } // execute
@@ -70,20 +69,24 @@ void ActivityExecution::complete()
 
 	ActivityParameterNodeActivationListPtr outputActivations = this->activationGroup->getOutputParameterNodeActivations();
 
-	for (const ActivityParameterNodeActivationPtr& outputActivation : *outputActivations) {
+	for (const ActivityParameterNodeActivationPtr& outputActivation : *outputActivations)
+	{
 		ParameterPtr parameter = std::dynamic_pointer_cast<ActivityParameterNode>(outputActivation->node)->parameter;
 
-		if (!parameter->isStream) {
+		if (!parameter->isStream)
+		{
 			ParameterValuePtr parameterValue(new ParameterValue());
 			parameterValue->parameter = parameter;
 
 			TokenListPtr tokens = outputActivation->getTokens();
-			for (const TokenPtr& token : *tokens) {
+			for (const TokenPtr& token : *tokens)
+			{
 				const ValuePtr& value = std::dynamic_pointer_cast<ObjectToken>(token)->value;
-				if (value != nullptr) {
+				if (value != nullptr)
+				{
 					parameterValue->values->push_back(value);
-					utils::Debug::println("[event] Output activity=" + activity->name
-							+ " parameter=" + parameterValue->parameter->name
+					utils::Debug::println(
+						"[event] Output activity=" + activity->name + " parameter=" + parameterValue->parameter->name
 							+ " value=" + std::to_string(value->hashCode()));
 				}
 			}
@@ -119,11 +122,13 @@ void ActivityExecution::terminate()
 	// then this is sufficient to result in the activity execution ultimately
 	// completing. Otherwise, explicitly complete the execution.
 
-	if (this->activationGroup != nullptr) {
+	if (this->activationGroup != nullptr)
+	{
 		this->activationGroup->terminateAll();
 	}
 
-	if (this->isStreaming) {
+	if (this->isStreaming)
+	{
 		this->complete();
 	}
 } // terminate

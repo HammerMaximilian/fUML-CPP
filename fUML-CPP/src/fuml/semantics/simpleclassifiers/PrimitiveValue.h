@@ -8,8 +8,8 @@
 #ifndef FUML_SEMANTICS_SIMPLECLASSIFIERS_PRIMITIVEVALUE_H_
 #define FUML_SEMANTICS_SIMPLECLASSIFIERS_PRIMITIVEVALUE_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/semantics/values/Value.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::semantics::simpleclassifiers
 {
@@ -23,7 +23,8 @@ namespace fuml::semantics::simpleclassifiers
 
 			virtual ValuePtr copy() override;
 			virtual ClassifierListPtr getTypes() override;
-	}; // PrimitiveValue
+	};
+// PrimitiveValue
 }
 
 #endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_PRIMITIVEVALUE_H_ */

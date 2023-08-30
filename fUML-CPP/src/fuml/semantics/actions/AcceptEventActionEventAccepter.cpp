@@ -9,16 +9,14 @@
 
 #include <fuml/semantics/actions/AcceptEventActionActivation.h>
 
-void AcceptEventActionEventAccepter::accept(
-		const EventOccurrencePtr& eventOccurrence)
+void AcceptEventActionEventAccepter::accept(const EventOccurrencePtr& eventOccurrence)
 {
 	// Accept an event occurrence and forward it to the action activation.
 
 	this->actionActivation->accept(eventOccurrence);
 } // accept
 
-bool  AcceptEventActionEventAccepter::match(
-		const EventOccurrencePtr& eventOccurrence)
+bool AcceptEventActionEventAccepter::match(const EventOccurrencePtr& eventOccurrence)
 {
 	// Return true if the given event occurrence matches a trigger of the accept event
 	// action of the action activation.

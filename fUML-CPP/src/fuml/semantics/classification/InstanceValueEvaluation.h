@@ -18,7 +18,8 @@ namespace fuml::semantics::classification
 			virtual ~InstanceValueEvaluation() = default;
 
 			virtual ValuePtr evaluate() override;
-	}; //
+	};
+// InstanceValueEvaluation
 }
 
 #endif /* FUML_SEMANTICS_CLASSIFICATION_INSTANCEVALUEEVALUATION_H_ */

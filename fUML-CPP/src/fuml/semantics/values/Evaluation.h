@@ -8,9 +8,9 @@
 #ifndef FUML_SEMANTICS_VALUES_EVALUATION_H_
 #define FUML_SEMANTICS_VALUES_EVALUATION_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/semantics/fwd.h>
 #include <fuml/semantics/loci/SemanticVisitor.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::semantics::values
 {
@@ -24,7 +24,8 @@ namespace fuml::semantics::values
 			virtual ~Evaluation() = 0;
 
 			virtual ValuePtr evaluate() = 0;
-	}; // Evaluation
+	};
+// Evaluation
 }
 
 #endif /* FUML_SEMANTICS_VALUES_EVALUATION_H_ */

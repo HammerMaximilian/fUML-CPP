@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void doAction() override;
 
-	}; // ClearAssociationActionActivation
+	};
+// ClearAssociationActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_CLEARASSOCIATIONACTIONACTIVATION_H_ */

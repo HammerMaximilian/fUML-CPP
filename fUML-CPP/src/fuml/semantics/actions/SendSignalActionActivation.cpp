@@ -7,12 +7,12 @@
 
 #include <fuml/semantics/actions/SendSignalActionActivation.h>
 
-#include <fuml/syntax/actions/SendSignalAction.h>
-#include <fuml/syntax/simpleclassifiers/Signal.h>
-#include <fuml/syntax/classification/Property.h>
-#include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/semantics/simpleclassifiers/SignalInstance.h>
 #include <fuml/semantics/commonbehavior/SignalEventOccurrence.h>
+#include <fuml/semantics/simpleclassifiers/SignalInstance.h>
+#include <fuml/semantics/structuredclassifiers/Reference.h>
+#include <fuml/syntax/actions/SendSignalAction.h>
+#include <fuml/syntax/classification/Property.h>
+#include <fuml/syntax/simpleclassifiers/Signal.h>
 
 void SendSignalActionActivation::doAction()
 {
@@ -26,7 +26,8 @@ void SendSignalActionActivation::doAction()
 
 	ReferencePtr reference = std::dynamic_pointer_cast<Reference>(target);
 
-	if (reference) {
+	if (reference)
+	{
 		const SignalPtr& signal = action->signal;
 
 		SignalInstancePtr signalInstance(new SignalInstance());
@@ -35,7 +36,8 @@ void SendSignalActionActivation::doAction()
 		const PropertyListPtr& attributes = signal->ownedAttribute;
 		const InputPinListPtr& argumentPins = action->argument;
 		unsigned int attributesSize = attributes->size();
-		for (unsigned int i = 0; i < attributesSize; i++) {
+		for (unsigned int i = 0; i < attributesSize; i++)
+		{
 			const PropertyPtr& attribute = attributes->at(i);
 			const InputPinPtr& argumentPin = argumentPins->at(i);
 			ValueListPtr values = this->takeTokens(argumentPin);

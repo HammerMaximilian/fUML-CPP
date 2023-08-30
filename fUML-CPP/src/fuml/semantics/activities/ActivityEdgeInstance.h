@@ -32,7 +32,8 @@ namespace fuml::semantics::activities
 			TokenListPtr takeOfferedTokens(int);
 			TokenListPtr getOfferedTokens();
 			bool hasOffer();
-	}; // ActivityEdgeInstance
+	};
+// ActivityEdgeInstance
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_ACTIVITYEDGEINSTANCE_H_ */

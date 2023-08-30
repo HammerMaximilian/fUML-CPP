@@ -23,9 +23,7 @@ namespace fuml::semantics::actions
 		public:
 			virtual ~CallActionActivation() = 0;
 
-			virtual void initialize(
-					const ActivityNodePtr&,
-					const ActivityNodeActivationGroupPtr&) override;
+			virtual void initialize(const ActivityNodePtr&, const ActivityNodeActivationGroupPtr&) override;
 			virtual bool isReady() override;
 			virtual void doAction() override;
 			virtual TokenListPtr completeAction() override;
@@ -37,7 +35,8 @@ namespace fuml::semantics::actions
 			virtual void terminate() override;
 			void removeCallExecution(const ExecutionPtr&);
 
-	}; // CallActionActivation
+	};
+// CallActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_CALLACTIONACTIVATION_H_ */

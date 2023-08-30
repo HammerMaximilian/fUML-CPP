@@ -8,8 +8,8 @@
 #ifndef FUML_SEMANTICS_VALUES_LITERALEVALUATION_H_
 #define FUML_SEMANTICS_VALUES_LITERALEVALUATION_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/semantics/values/Evaluation.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::semantics::values
 {
@@ -19,7 +19,8 @@ namespace fuml::semantics::values
 			virtual ~LiteralEvaluation() = 0;
 
 			PrimitiveTypePtr getType(std::string);
-	}; // LiteralEvaluation
+	};
+// LiteralEvaluation
 }
 
 #endif /* FUML_SEMANTICS_VALUES_LITERALEVALUATION_H_ */

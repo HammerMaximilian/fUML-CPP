@@ -31,7 +31,8 @@ namespace fuml::semantics::activities
 			virtual ValuePtr new_() override;
 			virtual void terminate() override;
 
-	}; // ActivityExecution
+	};
+// ActivityExecution
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_ACTIVITYEXECUTION_H_ */

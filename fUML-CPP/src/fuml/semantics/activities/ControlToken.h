@@ -22,7 +22,8 @@ namespace fuml::semantics::activities
 			virtual bool isControl() override;
 			virtual ValuePtr getValue() override;
 
-	}; // ControlToken
+	};
+// ControlToken
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_CONTROLTOKEN_H_ */

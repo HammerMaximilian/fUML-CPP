@@ -6,8 +6,9 @@
  */
 
 #include <fuml/semantics/simpleclassifiers/IntegerValue.h>
+
 #include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
-#include "fuml/syntax/values/LiteralInteger.h"
+#include <fuml/syntax/values/LiteralInteger.h>
 
 ValueSpecificationPtr IntegerValue::specify()
 {
@@ -29,7 +30,8 @@ bool IntegerValue::equals(const ValuePtr& otherValue)
 
 	bool isEqual = false;
 	IntegerValuePtr integerValue = std::dynamic_pointer_cast<IntegerValue>(otherValue);
-	if (integerValue) {
+	if (integerValue)
+	{
 		isEqual = (integerValue->value == this->value);
 	}
 
@@ -50,44 +52,70 @@ std::string IntegerValue::toString()
 {
 	std::string stringValue = "";
 
-	if (this->value == 0) {
+	if (this->value == 0)
+	{
 		stringValue = "0";
-	} else {
+	}
+	else
+	{
 		int positiveValue = this->value;
 
-		if (positiveValue < 0) {
+		if (positiveValue < 0)
+		{
 			positiveValue = -positiveValue;
 		}
 
-		do {
+		do
+		{
 			int digit = positiveValue % 10;
 
-			if (digit == 0) {
+			if (digit == 0)
+			{
 				stringValue = "0" + stringValue;
-			} else if (digit == 1) {
+			}
+			else if (digit == 1)
+			{
 				stringValue = "1" + stringValue;
-			} else if (digit == 2) {
+			}
+			else if (digit == 2)
+			{
 				stringValue = "2" + stringValue;
-			} else if (digit == 3) {
+			}
+			else if (digit == 3)
+			{
 				stringValue = "3" + stringValue;
-			} else if (digit == 4) {
+			}
+			else if (digit == 4)
+			{
 				stringValue = "4" + stringValue;
-			} else if (digit == 5) {
+			}
+			else if (digit == 5)
+			{
 				stringValue = "5" + stringValue;
-			} else if (digit == 6) {
+			}
+			else if (digit == 6)
+			{
 				stringValue = "6" + stringValue;
-			} else if (digit == 7) {
+			}
+			else if (digit == 7)
+			{
 				stringValue = "7" + stringValue;
-			} else if (digit == 8) {
+			}
+			else if (digit == 8)
+			{
 				stringValue = "8" + stringValue;
-			} else if (digit == 9) {
+			}
+			else if (digit == 9)
+			{
 				stringValue = "9" + stringValue;
 			}
 
 			positiveValue = positiveValue / 10;
-		} while (positiveValue > 0);
+		}
+		while (positiveValue > 0);
 
-		if (this->value < 0) {
+		if (this->value < 0)
+		{
 			stringValue = "-" + stringValue;
 		}
 	}

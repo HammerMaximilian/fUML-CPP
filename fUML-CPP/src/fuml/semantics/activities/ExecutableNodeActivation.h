@@ -19,11 +19,10 @@ namespace fuml::semantics::activities
 
 			void propagateException(const ValuePtr&);
 			ExceptionHandlerListPtr getMatchingExceptionHandlers(const ValuePtr&);
-			virtual void handle(
-					const ValuePtr&,
-					const ExceptionHandlerPtr&);
+			virtual void handle(const ValuePtr&, const ExceptionHandlerPtr&);
 
-	}; // ExecutableNodeActivation
+	};
+// ExecutableNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_EXECUTABLENODEACTIVATION_H_ */

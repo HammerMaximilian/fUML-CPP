@@ -11,14 +11,14 @@
 #include <fuml/semantics/activities/Token.h>
 #include <fuml/syntax/activities/ActivityNode.h>
 
-void FlowFinalNodeActivation::fire(
-		const TokenListPtr& incomingTokens)
+void FlowFinalNodeActivation::fire(const TokenListPtr& incomingTokens)
 {
 	// Consume all incoming tokens.
 
 	utils::Debug::println("[fire] Flow final node " + this->node->name + "...");
 
-	for (const TokenPtr& token : *incomingTokens) {
+	for (const TokenPtr& token : *incomingTokens)
+	{
 		token->withdraw();
 	}
 } // fire

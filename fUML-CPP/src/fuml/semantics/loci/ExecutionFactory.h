@@ -10,7 +10,7 @@
 
 #include <fuml/semantics/fwd.h>
 #include <fuml/syntax/fwd.h>
-#include "utils/FumlObject.h"
+#include <utils/FumlObject.h>
 
 namespace fuml::semantics::loci
 {
@@ -24,23 +24,20 @@ namespace fuml::semantics::loci
 
 		public:
 			virtual ~ExecutionFactory() = default;
-		
-			ExecutionPtr createExecution(
-					const BehaviorPtr&,
-					const Object_Ptr&);
+
+			ExecutionPtr createExecution(const BehaviorPtr&, const Object_Ptr&);
 			EvaluationPtr createEvaluation(const ValueSpecificationPtr&);
 			SemanticVisitorPtr instantiateVisitor(const ElementPtr&);
-			OpaqueBehaviorExecutionPtr instantiateOpaqueBehaviorExecution(
-					const OpaqueBehaviorPtr&);
-			void addPrimitiveBehaviorPrototype(
-					const OpaqueBehaviorExecutionPtr&);
+			OpaqueBehaviorExecutionPtr instantiateOpaqueBehaviorExecution(const OpaqueBehaviorPtr&);
+			void addPrimitiveBehaviorPrototype(const OpaqueBehaviorExecutionPtr&);
 			void addBuiltInType(const PrimitiveTypePtr&);
 			PrimitiveTypePtr getBuiltInType(std::string);
 			void setStrategy(const SemanticStrategyPtr&);
 			SemanticStrategyPtr getStrategy(std::string);
 			int getStrategyIndex(std::string);
 
-	}; // ExecutionFactory
+	};
+// ExecutionFactory
 }
 
 #endif /* FUML_SEMANTICS_LOCI_EXECUTIONFACTORY_H_ */

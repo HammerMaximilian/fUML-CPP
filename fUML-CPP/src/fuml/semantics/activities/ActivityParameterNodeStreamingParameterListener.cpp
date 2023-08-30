@@ -11,8 +11,7 @@
 #include <fuml/semantics/activities/ActivityParameterNodeActivation.h>
 #include <fuml/syntax/activities/ActivityNode.h>
 
-void ActivityParameterNodeStreamingParameterListener::post(
-		const ValueListPtr& values)
+void ActivityParameterNodeStreamingParameterListener::post(const ValueListPtr& values)
 {
 	// Fire the activity parameter node activation.
 	// (Note that the values do not have to be passed to the node activation,

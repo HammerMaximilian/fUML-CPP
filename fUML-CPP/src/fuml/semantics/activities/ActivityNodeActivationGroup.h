@@ -31,13 +31,9 @@ namespace fuml::semantics::activities
 			void setThisActivityNodeActivationGroupPtr(std::weak_ptr<ActivityNodeActivationGroup>);
 
 			void run(const ActivityNodeActivationListPtr&);
-			bool checkIncomingEdges(
-					const ActivityEdgeInstanceListPtr&,
-					const ActivityNodeActivationListPtr&);
+			bool checkIncomingEdges(const ActivityEdgeInstanceListPtr&, const ActivityNodeActivationListPtr&);
 			void runNodes(const ActivityNodeListPtr&);
-			void activate(
-					const ActivityNodeListPtr&,
-					const ActivityEdgeListPtr&);
+			void activate(const ActivityNodeListPtr&, const ActivityEdgeListPtr&);
 			void terminateAll();
 			void createNodeActivations(const ActivityNodeListPtr&);
 			ActivityNodeActivationPtr createNodeActivation(const ActivityNodePtr&);
@@ -50,7 +46,8 @@ namespace fuml::semantics::activities
 			virtual void suspend(const ActivityNodeActivationPtr&);
 			virtual void resume(const ActivityNodeActivationPtr&);
 
-	}; // ActivityNodeActivationGroup
+	};
+// ActivityNodeActivationGroup
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_ACTIVITYNODEACTIVATIONGROUP_H_ */

@@ -20,7 +20,8 @@ namespace fuml::semantics::actions
 
 		public:
 			virtual ~Values() = default;
-	}; // Values
+	};
+// Values
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_VALUES_H_ */

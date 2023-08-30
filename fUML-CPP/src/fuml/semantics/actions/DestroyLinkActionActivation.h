@@ -18,8 +18,8 @@ namespace fuml::semantics::actions
 			virtual ~DestroyLinkActionActivation() = default;
 
 			virtual void doAction() override;
-	}; // DestroyLinkActionActivation
+	};
+// DestroyLinkActionActivation
 }
-
 
 #endif /* FUML_SEMANTICS_ACTIONS_DESTROYLINKACTIONACTIVATION_H_ */

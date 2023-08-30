@@ -6,6 +6,7 @@
  */
 
 #include <fuml/semantics/commonbehavior/ExecutionQueue.h>
+
 #include <fuml/Debug.h>
 #include <fuml/semantics/commonbehavior/Execution.h>
 
@@ -16,7 +17,7 @@ bool ExecutionQueue::notStarted()
 	return ExecutionQueue::executionQueue == nullptr;
 }
 
-void ExecutionQueue::start(const ExecutionPtr &execution)
+void ExecutionQueue::start(const ExecutionPtr& execution)
 {
 	executionQueue.reset(new ExecutionQueue());
 	executionQueue->add(execution);
@@ -29,7 +30,7 @@ bool ExecutionQueue::step()
 	return executionQueue->runNext();
 }
 
-void ExecutionQueue::enqueue(const ExecutionPtr &execution)
+void ExecutionQueue::enqueue(const ExecutionPtr& execution)
 {
 	if (notStarted())
 	{
@@ -44,8 +45,7 @@ void ExecutionQueue::enqueue(const ExecutionPtr &execution)
 
 void ExecutionQueue::run()
 {
-	while (this->runNext())
-		;
+	while (this->runNext());
 }
 
 bool ExecutionQueue::runNext()
@@ -60,15 +60,14 @@ bool ExecutionQueue::runNext()
 		this->queue->erase(this->queue->begin());
 		if (execution->context->getTypes()->size() > 0)
 		{
-			utils::Debug::println(
-					"[runNext] execution = " + execution->toString());
+			utils::Debug::println("[runNext] execution = " + execution->toString());
 			execution->execute();
 		}
 		return true;
 	}
 }
 
-void ExecutionQueue::add(const ExecutionPtr &execution)
+void ExecutionQueue::add(const ExecutionPtr& execution)
 {
 	this->queue->push_back(execution);
 }

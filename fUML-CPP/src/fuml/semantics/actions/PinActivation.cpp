@@ -8,20 +8,18 @@
 #include <fuml/semantics/actions/PinActivation.h>
 
 #include <fuml/Debug.h>
-#include <fuml/syntax/actions/Pin.h>
 #include <fuml/semantics/activities/ActivityEdgeInstance.h>
+#include <fuml/syntax/actions/Pin.h>
 
 PinActivation::~PinActivation()
 {
 }
 
-void PinActivation::fire(const TokenListPtr &incomingTokens)
+void PinActivation::fire(const TokenListPtr& incomingTokens)
 {
 	// Add all incoming tokens to the pin.
 
-	utils::Debug::println(
-			"[fire] Pin "
-					+ (this->node == nullptr ? "" : this->node->name + "..."));
+	utils::Debug::println("[fire] Pin " + (this->node == nullptr ? "" : this->node->name + "..."));
 
 	this->addTokens(incomingTokens);
 } // fire
@@ -46,8 +44,8 @@ TokenListPtr PinActivation::takeOfferedTokens()
 	// Note: upper < 0 indicates an unbounded upper multiplicity.
 	if (upper < 0 || count < upper)
 	{
-		const ActivityEdgeInstanceListPtr &incomingEdges = this->incomingEdges;
-		for (const ActivityEdgeInstancePtr &edge : *incomingEdges)
+		const ActivityEdgeInstanceListPtr& incomingEdges = this->incomingEdges;
+		for (const ActivityEdgeInstancePtr& edge : *incomingEdges)
 		{
 			int incomingCount = edge->countOfferedValues();
 			TokenListPtr incomingTokens(new TokenList());
@@ -61,7 +59,7 @@ TokenListPtr PinActivation::takeOfferedTokens()
 				incomingTokens = edge->takeOfferedTokens(upper - count);
 				count = upper;
 			}
-			for (const TokenPtr &token : *incomingTokens)
+			for (const TokenPtr& token : *incomingTokens)
 			{
 				tokens->push_back(token);
 			}

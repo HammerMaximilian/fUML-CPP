@@ -37,8 +37,8 @@ namespace fuml::semantics::actions
 			virtual void resume() override;
 			void continueLoop();
 
-
-	}; // LoopNodeActivation
+	};
+// LoopNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_LOOPNODEACTIVATION_H_ */

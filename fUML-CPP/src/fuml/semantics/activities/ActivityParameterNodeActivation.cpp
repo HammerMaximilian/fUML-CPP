@@ -17,7 +17,7 @@
 #include <fuml/syntax/commonbehavior/Behavior.h>
 
 void ActivityParameterNodeActivation::setThisActivityParameterNodeActivation(
-		std::weak_ptr<ActivityParameterNodeActivation> thisActivityParameterNodeActivationPtr)
+	std::weak_ptr<ActivityParameterNodeActivation> thisActivityParameterNodeActivationPtr)
 {
 	this->thisActivityParameterNodeActivationPtr = thisActivityParameterNodeActivationPtr;
 	ObjectNodeActivation::setThisObjectNodeActivation(thisActivityParameterNodeActivationPtr);
@@ -33,17 +33,19 @@ void ActivityParameterNodeActivation::run()
 
 	ParameterPtr parameter = std::dynamic_pointer_cast<ActivityParameterNode>(this->node)->parameter;
 	ParameterValuePtr parameterValue = this->getActivityExecution()->getParameterValue(parameter);
-	StreamingParameterValuePtr streamingParameterValue = std::dynamic_pointer_cast<StreamingParameterValue>(parameterValue);
-	if (this->node->incoming->size() == 0 && streamingParameterValue) {
-		ActivityParameterNodeStreamingParameterListenerPtr listener(new ActivityParameterNodeStreamingParameterListener());
+	StreamingParameterValuePtr streamingParameterValue = std::dynamic_pointer_cast<StreamingParameterValue>(
+		parameterValue);
+	if (this->node->incoming->size() == 0 && streamingParameterValue)
+	{
+		ActivityParameterNodeStreamingParameterListenerPtr listener(
+			new ActivityParameterNodeStreamingParameterListener());
 		listener->nodeActivation = this->thisActivityParameterNodeActivationPtr.lock();
 		streamingParameterValue->register_(listener);
 		utils::Debug::println("[run] Registering for streaming parameter " + parameter->name + ".");
 	}
 } // run
 
-void ActivityParameterNodeActivation::fire(
-		const TokenListPtr& incomingTokens)
+void ActivityParameterNodeActivation::fire(const TokenListPtr& incomingTokens)
 {
 	// If there are no incoming edges, this is an activation of an input
 	// activity parameter node.
@@ -61,12 +63,17 @@ void ActivityParameterNodeActivation::fire(
 	ParameterPtr parameter = std::dynamic_pointer_cast<ActivityParameterNode>(this->node)->parameter;
 	ParameterValuePtr parameterValue = this->getActivityExecution()->getParameterValue(parameter);
 
-	if (this->node->incoming->size() == 0) {
+	if (this->node->incoming->size() == 0)
+	{
 		utils::Debug::println("[fire] Input activity parameter node " + this->node->name + "...");
-		if (parameterValue != nullptr) {
-			utils::Debug::println("[fire] Parameter has " + std::to_string(parameterValue->values->size()) + " value(s).");
+		if (parameterValue != nullptr)
+		{
+			utils::Debug::println(
+				"[fire] Parameter has " + std::to_string(parameterValue->values->size()) + " value(s).");
 			const ValueListPtr& values = parameterValue->values;
-			for (const ValuePtr& value : *values) {;
+			for (const ValuePtr& value : *values)
+			{
+				;
 				ObjectTokenPtr token(new ObjectToken());
 				token->value = value;
 				this->addToken(token);
@@ -75,22 +82,27 @@ void ActivityParameterNodeActivation::fire(
 		}
 	}
 
-	else {
+	else
+	{
 		utils::Debug::println("[fire] Output activity parameter node " + this->node->name + "...");
 
 		this->addTokens(incomingTokens);
 
-		StreamingParameterValuePtr streamingParameterValue = std::dynamic_pointer_cast<StreamingParameterValue>(parameterValue);
+		StreamingParameterValuePtr streamingParameterValue = std::dynamic_pointer_cast<StreamingParameterValue>(
+			parameterValue);
 
-		if (streamingParameterValue) {
+		if (streamingParameterValue)
+		{
 			ValueListPtr values(new ValueList());
-			for (const TokenPtr& token : *incomingTokens) {
+			for (const TokenPtr& token : *incomingTokens)
+			{
 				ValuePtr value = token->getValue();
-				if (value != nullptr) {
+				if (value != nullptr)
+				{
 					values->push_back(value);
-					utils::Debug::println("[event] Post activity=" + this->getActivityExecution()->getBehavior()->name
-							+ " parameter=" + parameterValue->parameter->name
-							+ " value=" + std::to_string(value->hashCode()));
+					utils::Debug::println(
+						"[event] Post activity=" + this->getActivityExecution()->getBehavior()->name + " parameter="
+							+ parameterValue->parameter->name + " value=" + std::to_string(value->hashCode()));
 				}
 			}
 			streamingParameterValue->post(values);
@@ -104,7 +116,8 @@ void ActivityParameterNodeActivation::clearTokens()
 {
 	// Clear all held tokens only if this is an input parameter node.
 
-	if (this->node->incoming->size() == 0) {
+	if (this->node->incoming->size() == 0)
+	{
 		ObjectNodeActivation::clearTokens();
 	}
 } // clearTokens

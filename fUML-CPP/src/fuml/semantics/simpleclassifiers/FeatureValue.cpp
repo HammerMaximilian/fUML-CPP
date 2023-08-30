@@ -6,8 +6,9 @@
  */
 
 #include <fuml/semantics/simpleclassifiers/FeatureValue.h>
-#include <fuml/syntax/classification/StructuralFeature.h>
+
 #include <fuml/semantics/values/Value.h>
+#include <fuml/syntax/classification/StructuralFeature.h>
 
 bool FeatureValue::hasEqualValues(const FeatureValuePtr& other)
 {
@@ -29,8 +30,7 @@ bool FeatureValue::hasEqualValues(const FeatureValuePtr& other)
 			unsigned int i = 1;
 			while (equal && i <= this->values->size())
 			{
-				equal = this->values->at(i - 1)->equals(
-						other->values->at(i - 1));
+				equal = this->values->at(i - 1)->equals(other->values->at(i - 1));
 				i = i + 1;
 			}
 		}
@@ -54,8 +54,7 @@ bool FeatureValue::hasEqualValues(const FeatureValuePtr& other)
 				unsigned int j = 1;
 				while (!matched && j <= otherFeatureValues->values->size())
 				{
-					if (this->values->at(i - 1)->equals(
-							otherFeatureValues->values->at(j - 1)))
+					if (this->values->at(i - 1)->equals(otherFeatureValues->values->at(j - 1)))
 					{
 						matched = true;
 						otherFeatureValues->values->erase(otherFeatureValues->values->begin() + (j - 1));

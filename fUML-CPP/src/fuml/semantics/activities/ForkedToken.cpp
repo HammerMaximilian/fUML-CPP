@@ -7,8 +7,7 @@
 
 #include <fuml/semantics/activities/ForkedToken.h>
 
-void ForkedToken::setThisForkedTokenPtr(
-		std::weak_ptr<ForkedToken> thisForkedTokenPtr)
+void ForkedToken::setThisForkedTokenPtr(std::weak_ptr<ForkedToken> thisForkedTokenPtr)
 {
 	this->thisForkedTokenPtr = thisForkedTokenPtr;
 	Token::setThisTokenPtr(thisForkedTokenPtr);
@@ -28,7 +27,8 @@ void ForkedToken::withdraw()
 	// When the remaining number of offers is zero, then remove this token
 	// from its holder.
 
-	if (!this->baseTokenIsWithdrawn && !this->baseToken->isWithdrawn()) {
+	if (!this->baseTokenIsWithdrawn && !this->baseToken->isWithdrawn())
+	{
 		this->baseToken->withdraw();
 
 		// NOTE: This keeps a base token that is a forked token from being
@@ -37,11 +37,13 @@ void ForkedToken::withdraw()
 		this->baseTokenIsWithdrawn = true;
 	}
 
-	if (this->remainingOffersCount > 0) {
+	if (this->remainingOffersCount > 0)
+	{
 		this->remainingOffersCount = this->remainingOffersCount - 1;
 	}
 
-	if (this->remainingOffersCount == 0) {
+	if (this->remainingOffersCount == 0)
+	{
 		Token::withdraw();
 	}
 }

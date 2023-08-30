@@ -7,14 +7,13 @@
 
 #include <fuml/semantics/actions/ExpansionActivationGroup.h>
 
-#include <fuml/syntax/actions/ExpansionRegion.h>
-#include <fuml/syntax/actions/InputPin.h>
-#include <fuml/syntax/actions/ExpansionNode.h>
 #include <fuml/semantics/actions/ExpansionRegionActivation.h>
 #include <fuml/semantics/actions/OutputPinActivation.h>
+#include <fuml/syntax/actions/ExpansionNode.h>
+#include <fuml/syntax/actions/ExpansionRegion.h>
+#include <fuml/syntax/actions/InputPin.h>
 
-ActivityNodeActivationPtr ExpansionActivationGroup::getNodeActivation(
-		const ActivityNodePtr& node)
+ActivityNodeActivationPtr ExpansionActivationGroup::getNodeActivation(const ActivityNodePtr& node)
 {
 	// If the given node is an input pin of the expansion region, then
 	// return the corresponding region-input output-pin activation.
@@ -33,8 +32,10 @@ ActivityNodeActivationPtr ExpansionActivationGroup::getNodeActivation(
 
 	unsigned int i = 1;
 	unsigned int regionInputSize = inputs->size();
-	while (activation == nullptr && i <= regionInputSize) {
-		if (node == region->input->at(i - 1)) {
+	while (activation == nullptr && i <= regionInputSize)
+	{
+		if (node == region->input->at(i - 1))
+		{
 			activation = this->regionInputs->at(i - 1);
 		}
 		i = i + 1;
@@ -42,8 +43,10 @@ ActivityNodeActivationPtr ExpansionActivationGroup::getNodeActivation(
 
 	unsigned int j = 1;
 	unsigned int regionInputElementsSize = region->inputElement->size();
-	while (activation == nullptr && j <= regionInputElementsSize) {
-		if (node == region->inputElement->at(j - 1)) {
+	while (activation == nullptr && j <= regionInputElementsSize)
+	{
+		if (node == region->inputElement->at(j - 1))
+		{
 			activation = this->groupInputs->at(j - 1);
 		}
 		j = j + 1;
@@ -51,14 +54,17 @@ ActivityNodeActivationPtr ExpansionActivationGroup::getNodeActivation(
 
 	unsigned int k = 1;
 	unsigned int regionOutputElementsSize = region->outputElement->size();
-	while (activation == nullptr && k <= regionOutputElementsSize) {
-		if (node == region->outputElement->at(k - 1)) {
+	while (activation == nullptr && k <= regionOutputElementsSize)
+	{
+		if (node == region->outputElement->at(k - 1))
+		{
 			activation = this->groupOutputs->at(k - 1);
 		}
 		k = k + 1;
 	}
 
-	if (activation == nullptr) {
+	if (activation == nullptr)
+	{
 		activation = ActivityNodeActivationGroup::getNodeActivation(node);
 	}
 
@@ -73,35 +79,35 @@ ActivityExecutionPtr ExpansionActivationGroup::getActivityExecution()
 	return this->regionActivation->getActivityExecution();
 } // getActivityExecution
 
-void ExpansionActivationGroup::suspend(
-		const ActivityNodeActivationPtr& activation)
+void ExpansionActivationGroup::suspend(const ActivityNodeActivationPtr& activation)
 {
 	// Suspend the given activation in this activation group. If this is
 	// the only suspended activation, then suspend the associated region
 	// activation.
 
-	if (!this->isSuspended()) {
+	if (!this->isSuspended())
+	{
 		this->regionActivation->suspend();
 	}
 	ActivityNodeActivationGroup::suspend(activation);
 } // suspend
 
 void ExpansionActivationGroup::setThisExpansionActivationGroupPtr(
-		std::weak_ptr<ExpansionActivationGroup> thisExpansionActivationGroupPtr)
+	std::weak_ptr<ExpansionActivationGroup> thisExpansionActivationGroupPtr)
 {
 	this->thisExpansionActivationGroupPtr = thisExpansionActivationGroupPtr;
 	ActivityNodeActivationGroup::setThisActivityNodeActivationGroupPtr(thisExpansionActivationGroupPtr);
 }
 
-void ExpansionActivationGroup::resume(
-		const ActivityNodeActivationPtr& activation)
+void ExpansionActivationGroup::resume(const ActivityNodeActivationPtr& activation)
 {
 	// Resume the given activation in this activation group. If this is the
 	// last suspended activation, then resume the associated region
 	// activation.
 
 	ActivityNodeActivationGroup::resume(activation);
-	if (!this->isSuspended()) {
+	if (!this->isSuspended())
+	{
 		this->regionActivation->resume(this->thisExpansionActivationGroupPtr.lock());
 	}
 } // resume

@@ -18,15 +18,11 @@ namespace fuml::semantics::actions
 			virtual ~DestroyObjectActionActivation() = default;
 
 			virtual void doAction() override;
-			void destroyObject(
-					const ValuePtr&,
-					bool,
-					bool);
-			ValuePtr getCompositeValue(
-					const ReferencePtr&,
-					const LinkPtr&);
+			void destroyObject(const ValuePtr&, bool, bool);
+			ValuePtr getCompositeValue(const ReferencePtr&, const LinkPtr&);
 
-	}; // DestroyObjectActionActivation
+	};
+// DestroyObjectActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_DESTROYOBJECTACTIONACTIVATION_H_ */

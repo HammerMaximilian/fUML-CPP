@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void doAction();
 
-	}; // ReplyActionActivation
+	};
+// ReplyActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_REPLYACTIONACTIVATION_H_ */

@@ -7,12 +7,12 @@
 
 #include <fuml/semantics/actions/ReclassifyObjectActionActivation.h>
 
+#include <fuml/semantics/simpleclassifiers/FeatureValue.h>
+#include <fuml/semantics/structuredclassifiers/Link.h>
+#include <fuml/semantics/structuredclassifiers/Object_.h>
+#include <fuml/semantics/structuredclassifiers/Reference.h>
 #include <fuml/syntax/actions/ReclassifyObjectAction.h>
 #include <fuml/syntax/structuredclassifiers/Class_.h>
-#include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/semantics/structuredclassifiers/Object_.h>
-#include <fuml/semantics/structuredclassifiers/Link.h>
-#include <fuml/semantics/simpleclassifiers/FeatureValue.h>
 
 void ReclassifyObjectActionActivation::doAction()
 {
@@ -38,47 +38,59 @@ void ReclassifyObjectActionActivation::doAction()
 
 	ReferencePtr reference = std::dynamic_pointer_cast<Reference>(input);
 
-	if (reference) {
+	if (reference)
+	{
 		const Object_Ptr& object = reference->referent;
 		StructuralFeatureListPtr oldFeatures = object->getStructuralFeatures();
 
 		unsigned int i = 1;
-		while (i <= object->types->size()) {
+		while (i <= object->types->size())
+		{
 			const Class_Ptr& type = object->types->at(i - 1);
 
 			bool toBeRemoved = true;
 			unsigned int j = 1;
-			while (toBeRemoved && j <= newClassifiers->size()) {
+			while (toBeRemoved && j <= newClassifiers->size())
+			{
 				toBeRemoved = (type != newClassifiers->at(j - 1));
 				j = j + 1;
 			}
 
-			if (toBeRemoved & !action->isReplaceAll) {
+			if (toBeRemoved & !action->isReplaceAll)
+			{
 				bool notInOld = true;
 				unsigned int k = 1;
-				while (notInOld && k <= oldClassifiers->size()) {
+				while (notInOld && k <= oldClassifiers->size())
+				{
 					notInOld = (type != oldClassifiers->at(k - 1));
 					k = k + 1;
 				}
 				toBeRemoved = !notInOld;
 			}
 
-			if (toBeRemoved) {
+			if (toBeRemoved)
+			{
 				object->types->erase(object->types->begin() + (i - 1));
-			} else {
+			}
+			else
+			{
 				i = i + 1;
 			}
 		}
 
-		for (const ClassifierPtr& classifier : *newClassifiers) {
+		for (const ClassifierPtr& classifier : *newClassifiers)
+		{
 			bool toBeAdded = true;
 
-			for (const Class_Ptr& type : *(object->types)) {
+			for (const Class_Ptr& type : *(object->types))
+			{
 				toBeAdded = (classifier != type);
-				if(!toBeAdded) break;
+				if (!toBeAdded)
+					break;
 			}
 
-			if (toBeAdded) {
+			if (toBeAdded)
+			{
 				object->types->push_back(std::dynamic_pointer_cast<Class_>(classifier));
 			}
 		}
@@ -90,12 +102,17 @@ void ReclassifyObjectActionActivation::doAction()
 		// Destroy links involving association ends that were previously features
 		// but no longer have feature values after the reclassification.
 		StructuralFeatureListPtr newFeatures = object->getStructuralFeatures();
-		for (const StructuralFeaturePtr& feature : *(oldFeatures)) {;
+		for (const StructuralFeaturePtr& feature : *(oldFeatures))
+		{
+			;
 			AssociationPtr association = this->getAssociation(feature);
-			if (association != nullptr) {
-				if (this->checkForMissingFeature(newFeatures, feature)) {
+			if (association != nullptr)
+			{
+				if (this->checkForMissingFeature(newFeatures, feature))
+				{
 					LinkListPtr links = this->getMatchingLinks(association, feature, input);
-					for (const LinkPtr& link : *links) {
+					for (const LinkPtr& link : *links)
+					{
 						link->destroy();
 					}
 				}
@@ -104,14 +121,16 @@ void ReclassifyObjectActionActivation::doAction()
 	}
 } // doAction
 
-bool ReclassifyObjectActionActivation::checkForMissingFeature(
-		const StructuralFeatureListPtr& features, const StructuralFeaturePtr& feature)
+bool ReclassifyObjectActionActivation::checkForMissingFeature(const StructuralFeatureListPtr& features,
+	const StructuralFeaturePtr& feature)
 {
 	bool isMissing = true;
 
-	for (const StructuralFeaturePtr& containedFeature : *features) {
+	for (const StructuralFeaturePtr& containedFeature : *features)
+	{
 		isMissing = containedFeature != feature;
-		if(!isMissing) break;
+		if (!isMissing)
+			break;
 	}
 
 	return isMissing;

@@ -18,10 +18,9 @@ namespace fuml::semantics::actions
 			virtual ~ReclassifyObjectActionActivation() = default;
 
 			virtual void doAction() override;
-			bool checkForMissingFeature(
-					const StructuralFeatureListPtr&,
-					const StructuralFeaturePtr&);
-	}; // ReclassifyObjectActionActivation
+			bool checkForMissingFeature(const StructuralFeatureListPtr&, const StructuralFeaturePtr&);
+	};
+// ReclassifyObjectActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_RECLASSIFYOBJECTACTIONACTIVATION_H_ */

@@ -7,15 +7,12 @@
 
 #include <fuml/semantics/actions/StartObjectBehaviorActionActivation.h>
 
-#include <fuml/syntax/actions/StartObjectBehaviorAction.h>
-#include <fuml/syntax/actions/InputPin.h>
-#include <fuml/syntax/commonbehavior/Behavior.h>
-#include <fuml/syntax/classification/Parameter.h>
-#include <fuml/semantics/structuredclassifiers/Reference.h>
 #include <fuml/semantics/commonbehavior/ParameterValue.h>
-
-#ifndef DCast
-#define DCast(type,object) std::dynamic_pointer_cast<type>(object)
+#include <fuml/semantics/structuredclassifiers/Reference.h>
+#include <fuml/syntax/actions/InputPin.h>
+#include <fuml/syntax/actions/StartObjectBehaviorAction.h>
+#include <fuml/syntax/classification/Parameter.h>
+#include <fuml/syntax/commonbehavior/Behavior.h>
 
 void StartObjectBehaviorActionActivation::doAction()
 {
@@ -31,31 +28,39 @@ void StartObjectBehaviorActionActivation::doAction()
 
 	const ValuePtr& object = this->takeTokens(action->object)->at(0);
 
-	ReferencePtr reference = DCast(Reference, object);
+	ReferencePtr reference = std::dynamic_pointer_cast<Reference>(object);
 
-	if (reference) {
-		Class_Ptr type = DCast(Class_, action->object->type);
+	if (reference)
+	{
+		Class_Ptr type = std::dynamic_pointer_cast<Class_>(action->object->type);
 		const InputPinListPtr& argumentPins = action->argument;
 
 		ParameterValueListPtr inputs(new ParameterValueList());
 
-		if (type != nullptr) {
-			BehaviorPtr behavior = DCast(Behavior, type);
+		if (type != nullptr)
+		{
+			BehaviorPtr behavior = std::dynamic_pointer_cast<Behavior>(type);
 
-			if (behavior) {
+			if (behavior)
+			{
 				//
-			} else {
+			}
+			else
+			{
 				behavior = type->classifierBehavior;
 			}
 
-			if (behavior != nullptr) {
+			if (behavior != nullptr)
+			{
 				const ParameterListPtr& parameters = behavior->ownedParameter;
 
 				int pinNumber = 1;
-				for(const ParameterPtr& parameter : *parameters) {
+				for (const ParameterPtr& parameter : *parameters)
+				{
 					int j = pinNumber;
 					if (parameter->direction == ParameterDirectionKind::in
-						|| parameter->direction == ParameterDirectionKind::inout) {
+						|| parameter->direction == ParameterDirectionKind::inout)
+					{
 						ParameterValuePtr parameterValue(new ParameterValue());
 						parameterValue->parameter = parameter;
 						parameterValue->values = this->takeTokens(argumentPins->at(j - 1));
@@ -70,5 +75,3 @@ void StartObjectBehaviorActionActivation::doAction()
 		reference->startBehavior(type, inputs);
 	}
 } // doAction
-#undef DCast
-#endif

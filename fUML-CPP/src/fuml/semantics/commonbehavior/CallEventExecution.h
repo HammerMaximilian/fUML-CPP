@@ -23,7 +23,7 @@ namespace fuml::semantics::commonbehavior
 		public:
 			virtual ~CallEventExecution() = default;
 			void setThisCallEventExecutionPtr(std::weak_ptr<CallEventExecution>);
-		
+
 			bool isCallerSuspended();
 			void setCallerSuspended(bool);
 			void suspendCaller();
@@ -37,7 +37,8 @@ namespace fuml::semantics::commonbehavior
 			virtual ValuePtr new_() override;
 			virtual ValuePtr copy() override;
 			void wait_();
-	}; // CallEventExecution
+	};
+// CallEventExecution
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_CALLEVENTEXECUTION_H_ */

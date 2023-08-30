@@ -9,11 +9,10 @@
 
 #include <fuml/Debug.h>
 #include <fuml/semantics/actions/PinActivation.h>
-#include <fuml/syntax/activities/ActivityNode.h>
 #include <fuml/semantics/activities/ObjectToken.h>
+#include <fuml/syntax/activities/ActivityNode.h>
 
-void PinStreamingParameterListener::post(
-		const ValueListPtr& values)
+void PinStreamingParameterListener::post(const ValueListPtr& values)
 {
 	// Fire the pin activation passing the posted values as incoming tokens,
 	// then have the pin activation immediately offer these tokens (since
@@ -23,7 +22,8 @@ void PinStreamingParameterListener::post(
 	utils::Debug::println("[post] Posting to node " + this->nodeActivation->node->name);
 
 	TokenListPtr tokens(new TokenList());
-	for (const ValuePtr& value : *values) {
+	for (const ValuePtr& value : *values)
+	{
 		ObjectTokenPtr token(new ObjectToken());
 		token->setThisObjectTokenPtr(token);
 		token->value = value;

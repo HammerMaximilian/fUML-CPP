@@ -19,7 +19,8 @@ namespace fuml::semantics::activities
 
 			virtual void fire(const TokenListPtr&) override;
 
-	}; // FlowFinalNodeActivation
+	};
+// FlowFinalNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_FLOWFINALNODEACTIVATION_H_ */

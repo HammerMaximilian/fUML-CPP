@@ -20,14 +20,12 @@ void ClearAssociationActionActivation::doAction()
 	// Read the object input pin. Destroy all links in which the object
 	// participates.
 
-	ClearAssociationActionPtr action = std::dynamic_pointer_cast<
-			ClearAssociationAction>(this->node);
+	ClearAssociationActionPtr action = std::dynamic_pointer_cast<ClearAssociationAction>(this->node);
 
-	ExtensionalValueListPtr extent = this->getExecutionLocus()->getExtent(
-			action->association);
+	ExtensionalValueListPtr extent = this->getExecutionLocus()->getExtent(action->association);
 	ValuePtr objectValue = this->takeTokens(action->object)->at(0);
 
-	for (const ExtensionalValuePtr &extensionalValue : *extent)
+	for (const ExtensionalValuePtr& extensionalValue : *extent)
 	{
 		LinkPtr link = std::dynamic_pointer_cast<Link>(extensionalValue);
 		if (this->valueParticipatesInLink(objectValue, link))

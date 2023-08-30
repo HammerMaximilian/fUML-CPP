@@ -6,6 +6,7 @@
  */
 
 #include <fuml/semantics/simpleclassifiers/StringValue.h>
+
 #include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
 #include <fuml/syntax/values/LiteralString.h>
 
@@ -29,7 +30,8 @@ bool StringValue::equals(const ValuePtr& otherValue)
 
 	bool isEqual = false;
 	StringValuePtr stringValue = std::dynamic_pointer_cast<StringValue>(otherValue);
-	if (stringValue) {
+	if (stringValue)
+	{
 		isEqual = (stringValue->value == this->value);
 	}
 

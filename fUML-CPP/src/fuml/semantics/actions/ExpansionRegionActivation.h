@@ -42,7 +42,8 @@ namespace fuml::semantics::actions
 			bool isSuspended();
 			void resume(const ExpansionActivationGroupPtr&);
 
-	}; // ExpansionRegionActivation
+	};
+// ExpansionRegionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_EXPANSIONREGIONACTIVATION_H_ */

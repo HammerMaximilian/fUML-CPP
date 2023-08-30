@@ -8,17 +8,17 @@
 #include <fuml/semantics/actions/ConditionalNodeActivation.h>
 
 #include <fuml/Debug.h>
+#include <fuml/semantics/actions/ClauseActivation.h>
+#include <fuml/semantics/activities/ActivityNodeActivationGroup.h>
+#include <fuml/semantics/loci/ChoiceStrategy.h>
+#include <fuml/semantics/loci/ExecutionFactory.h>
+#include <fuml/semantics/loci/Locus.h>
+#include <fuml/syntax/actions/Clause.h>
 #include <fuml/syntax/actions/ConditionalNode.h>
 #include <fuml/syntax/actions/OutputPin.h>
-#include <fuml/semantics/activities/ActivityNodeActivationGroup.h>
-#include <fuml/syntax/actions/Clause.h>
-#include <fuml/semantics/actions/ClauseActivation.h>
-#include <fuml/semantics/loci/Locus.h>
-#include <fuml/semantics/loci/ExecutionFactory.h>
-#include <fuml/semantics/loci/ChoiceStrategy.h>
 
 void ConditionalNodeActivation::setThisConditionalNodeActivationPtr(
-		std::weak_ptr<ConditionalNodeActivation> thisConditionalNodeActivationPtr)
+	std::weak_ptr<ConditionalNodeActivation> thisConditionalNodeActivationPtr)
 {
 	this->thisConditionalNodeActivationPtr = thisConditionalNodeActivationPtr;
 	StructuredActivityNodeActivation::setThisStructuredActivityNodeActivationPtr(thisConditionalNodeActivationPtr);
@@ -37,11 +37,13 @@ void ConditionalNodeActivation::doStructuredActivity()
 
 	const ActivityNodeActivationListPtr& nodeActivations = this->activationGroup->nodeActivations;
 	ActivityNodeActivationListPtr nonExecutableNodeActivations(new ActivityNodeActivationList());
-	for (const ActivityNodeActivationPtr& nodeActivation : *nodeActivations) {
+	for (const ActivityNodeActivationPtr& nodeActivation : *nodeActivations)
+	{
 		ExecutableNodePtr executableNode = std::dynamic_pointer_cast<ExecutableNode>(nodeActivation->node);
 		PinPtr pin = std::dynamic_pointer_cast<Pin>(nodeActivation->node);
 
-		if (!(executableNode || pin)) {
+		if (!(executableNode || pin))
+		{
 			nonExecutableNodeActivations->push_back(nodeActivation);
 		}
 	}
@@ -50,7 +52,8 @@ void ConditionalNodeActivation::doStructuredActivity()
 
 	this->clauseActivations->clear();
 	const ClauseListPtr& clauses = node->clause;
-	for (const ClausePtr& clause : *clauses) {
+	for (const ClausePtr& clause : *clauses)
+	{
 		ClauseActivationPtr clauseActivation(new ClauseActivation());
 		clauseActivation->clause = clause;
 		clauseActivation->conditionalNodeActivation = this->thisConditionalNodeActivationPtr.lock();
@@ -61,9 +64,13 @@ void ConditionalNodeActivation::doStructuredActivity()
 
 	ClauseActivationListPtr readyClauseActivations(new ClauseActivationList());
 	unsigned int i = 0;
-	for (const ClauseActivationPtr& clauseActivation : *(this->clauseActivations)) {
-		utils::Debug::println("[doStructuredActivity] clauseActivations[" + std::to_string(i) + "] = " + std::to_string(clauseActivation->hashCode()));
-		if (clauseActivation->isReady()) {
+	for (const ClauseActivationPtr& clauseActivation : *(this->clauseActivations))
+	{
+		utils::Debug::println(
+			"[doStructuredActivity] clauseActivations[" + std::to_string(i) + "] = "
+				+ std::to_string(clauseActivation->hashCode()));
+		if (clauseActivation->isReady())
+		{
 			utils::Debug::println("[doStructuredActivity] Clause activation is ready.");
 			readyClauseActivations->push_back(clauseActivation);
 		}
@@ -71,27 +78,36 @@ void ConditionalNodeActivation::doStructuredActivity()
 	}
 
 	// *** Give control to all ready clauses concurrently. ***
-	for (const ClauseActivationPtr& clauseActivation : *readyClauseActivations) {
-		utils::Debug::println("[doStructuredActivity] Giving control to " + std::to_string(clauseActivation->hashCode()) + "...");
+	for (const ClauseActivationPtr& clauseActivation : *readyClauseActivations)
+	{
+		utils::Debug::println(
+			"[doStructuredActivity] Giving control to " + std::to_string(clauseActivation->hashCode()) + "...");
 		clauseActivation->receiveControl();
 	}
 
 	this->selectedClause = nullptr;
-	if (this->selectedClauses->size() > 0 && this->isRunning()) {
-		utils::Debug::println("[doStructuredActivity] " + std::to_string(this->selectedClauses->size()) + " clause(s) selected.");
+	if (this->selectedClauses->size() > 0 && this->isRunning())
+	{
+		utils::Debug::println(
+			"[doStructuredActivity] " + std::to_string(this->selectedClauses->size()) + " clause(s) selected.");
 
 		// *** If multiple clauses are selected, choose one
 		// non-deterministically. ***
-		int i = std::dynamic_pointer_cast<ChoiceStrategy>(this->getExecutionLocus()->factory
-				->getStrategy("choice"))->choose(this->selectedClauses->size());
+		int i = std::dynamic_pointer_cast<ChoiceStrategy>(this->getExecutionLocus()->factory->getStrategy("choice"))
+			->choose(this->selectedClauses->size());
 		this->selectedClause = this->selectedClauses->at(i - 1);
 
-		utils::Debug::println("[doStructuredActivity] Running selectedClauses[" + std::to_string(i) + "] = " + std::to_string(this->selectedClause->hashCode()));
+		utils::Debug::println(
+			"[doStructuredActivity] Running selectedClauses[" + std::to_string(i) + "] = "
+				+ std::to_string(this->selectedClause->hashCode()));
 
-		for (const ClausePtr& clause : *clauses) {
-			if (clause != selectedClause) {
+		for (const ClausePtr& clause : *clauses)
+		{
+			if (clause != selectedClause)
+			{
 				ExecutableNodeListPtr testNodes = clause->test;
-				for (const ExecutableNodePtr& testNode : *testNodes) {
+				for (const ExecutableNodePtr& testNode : *testNodes)
+				{
 					this->activationGroup->getNodeActivation(testNode)->terminate();
 				}
 			}
@@ -107,12 +123,14 @@ void ConditionalNodeActivation::completeBody()
 	// copying the outputs of the selected clause (if any) to the output
 	// pins of the node and terminating the activation of all nested nodes.
 
-	if (this->selectedClause != nullptr) {
+	if (this->selectedClause != nullptr)
+	{
 		ConditionalNodePtr node = std::dynamic_pointer_cast<ConditionalNode>(this->node);
 		OutputPinListPtr resultPins = node->result;
 		OutputPinListPtr bodyOutputPins = this->selectedClause->bodyOutput;
 		unsigned int resultPinsSize = resultPins->size();
-		for (unsigned int k = 0; k < resultPinsSize; k++) {
+		for (unsigned int k = 0; k < resultPinsSize; k++)
+		{
 			OutputPinPtr resultPin = resultPins->at(k);
 			OutputPinPtr bodyOutputPin = bodyOutputPins->at(k);
 			this->putTokens(resultPin, this->getPinValues(bodyOutputPin));
@@ -125,20 +143,22 @@ TokenListPtr ConditionalNodeActivation::completeAction()
 {
 	// Only complete the conditional node if it is not suspended.
 
-	if (!this->isSuspended()) {
+	if (!this->isSuspended())
+	{
 		completeBody();
 	}
 	return StructuredActivityNodeActivation::completeAction();
 } // completeAction
 
-ClauseActivationPtr ConditionalNodeActivation::getClauseActivation(
-		const ClausePtr& clause)
+ClauseActivationPtr ConditionalNodeActivation::getClauseActivation(const ClausePtr& clause)
 {
 	// Get the clause activation corresponding to the given clause.
 
 	ClauseActivationPtr selectedClauseActivation = nullptr;
-	for(const ClauseActivationPtr& clauseActivation : *(this->clauseActivations)) {
-		if (clauseActivation->clause == clause) {
+	for (const ClauseActivationPtr& clauseActivation : *(this->clauseActivations))
+	{
+		if (clauseActivation->clause == clause)
+		{
 			selectedClauseActivation = clauseActivation;
 			break;
 		}
@@ -147,18 +167,17 @@ ClauseActivationPtr ConditionalNodeActivation::getClauseActivation(
 	return selectedClauseActivation;
 } // getClauseActivation
 
-void ConditionalNodeActivation::runTest(
-		const ClausePtr& clause)
+void ConditionalNodeActivation::runTest(const ClausePtr& clause)
 {
 	// Run the test for the given clause.
 
-	if (this->isRunning()) {
+	if (this->isRunning())
+	{
 		this->activationGroup->runNodes(this->makeActivityNodeList(clause->test));
 	}
 } // runTest
 
-void ConditionalNodeActivation::selectBody(
-		const ClausePtr& clause)
+void ConditionalNodeActivation::selectBody(const ClausePtr& clause)
 {
 	// Add the clause to the list of selected clauses.
 

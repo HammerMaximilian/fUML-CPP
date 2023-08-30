@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void doAction();
 
-	}; // StartObjectBehaviorActionActivation
+	};
+// StartObjectBehaviorActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_STARTOBJECTBEHAVIORACTIONACTIVATION_H_ */

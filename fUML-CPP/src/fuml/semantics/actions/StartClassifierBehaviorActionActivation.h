@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void doAction();
 
-	}; // StartClassifierBehaviorActionActivation
+	};
+// StartClassifierBehaviorActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_STARTCLASSIFIERBEHAVIORACTIONACTIVATION_H_ */

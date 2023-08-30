@@ -23,9 +23,10 @@ namespace fuml::semantics::commonbehavior
 		public:
 			virtual ~CallEventBehavior() = default;
 			void setThisCallEventBehavior(std::weak_ptr<CallEventBehavior>);
-		
-			void setOperation (const OperationPtr&);
-	}; // CallEventBehavior
+
+			void setOperation(const OperationPtr&);
+	};
+// CallEventBehavior
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_CALLEVENTBEHAVIOR_H_ */

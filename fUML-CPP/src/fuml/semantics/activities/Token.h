@@ -32,7 +32,8 @@ namespace fuml::semantics::activities
 			bool isWithdrawn();
 			virtual bool isControl() = 0;
 			virtual ValuePtr getValue() = 0;
-	}; // Token
+	};
+// Token
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_TOKEN_H_ */

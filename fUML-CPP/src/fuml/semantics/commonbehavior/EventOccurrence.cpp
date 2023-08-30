@@ -14,14 +14,13 @@ EventOccurrence::~EventOccurrence()
 {
 }
 
-void EventOccurrence::setThisEventOccurrencePtr(
-		std::weak_ptr<EventOccurrence> thisEventOccurrencePtr)
+void EventOccurrence::setThisEventOccurrencePtr(std::weak_ptr<EventOccurrence> thisEventOccurrencePtr)
 {
 	this->thisEventOccurrencePtr = thisEventOccurrencePtr;
+	this->behavior.reset(new EventOccurrence_SendingBehaviorExecution(this->thisEventOccurrencePtr.lock()));
 }
 
-void EventOccurrence::sendTo(
-		const ReferencePtr& target)
+void EventOccurrence::sendTo(const ReferencePtr& target)
 {
 	// Set the target reference and start the SendingBehavior, which
 	// will send this event occurrence to the target.
@@ -30,8 +29,7 @@ void EventOccurrence::sendTo(
 	this->_startObjectBehavior();
 } // sendTo
 
-bool EventOccurrence::matchAny(
-		const TriggerListPtr& triggers)
+bool EventOccurrence::matchAny(const TriggerListPtr& triggers)
 {
 	// Check that at least one of the given triggers is matched by this
 	// event occurrence.
@@ -39,8 +37,10 @@ bool EventOccurrence::matchAny(
 	bool matches = false;
 	unsigned int i = 1;
 	unsigned int triggersSize = triggers->size();
-	while(!matches && i <= triggersSize) {
-		if(this->match(triggers->at(i-1))) {
+	while (!matches && i <= triggersSize)
+	{
+		if (this->match(triggers->at(i - 1)))
+		{
 			matches = true;
 		}
 		i = i + 1;

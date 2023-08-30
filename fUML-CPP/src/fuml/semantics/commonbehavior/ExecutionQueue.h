@@ -30,7 +30,8 @@ namespace fuml::semantics::commonbehavior
 			void run();
 			bool runNext();
 			void add(const ExecutionPtr&);
-	}; // ExecutionQueue
+	};
+// ExecutionQueue
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_EXECUTIONQUEUE_H_ */

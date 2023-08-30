@@ -23,21 +23,18 @@ namespace fuml::semantics::structuredclassifiers
 		public:
 			virtual ~Link() = default;
 			void setThisLinkPtr(std::weak_ptr<Link>);
-		
+
 			virtual void destroy() override;
 			virtual ValuePtr copy() override;
 			virtual ClassifierListPtr getTypes() override;
-			bool isMatchingLink(
-					const ExtensionalValuePtr&,
-					const PropertyPtr&);
-			FeatureValueListPtr getOtherFeatureValues(
-					const ExtensionalValueListPtr&,
-					const PropertyPtr&);
+			bool isMatchingLink(const ExtensionalValuePtr&, const PropertyPtr&);
+			FeatureValueListPtr getOtherFeatureValues(const ExtensionalValueListPtr&, const PropertyPtr&);
 			void addTo(const LocusPtr&);
 
 		protected:
 			virtual ValuePtr new_() override;
 	};
+// Link
 }
 
 #endif /* FUML_SEMANTICS_STRUCTUREDCLASSIFIERS_LINK_H_ */

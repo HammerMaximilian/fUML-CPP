@@ -34,8 +34,8 @@ namespace fuml::semantics::actions
 			bool match(const EventOccurrencePtr&);
 			virtual void terminate() override;
 
-
-	}; // AcceptEventActionActivation
+	};
+// AcceptEventActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_ACCEPTEVENTACTIONACTIVATION_H_ */

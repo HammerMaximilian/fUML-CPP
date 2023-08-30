@@ -7,14 +7,14 @@
 
 #include <fuml/semantics/actions/CreateLinkActionActivation.h>
 
-#include <fuml/syntax/actions/CreateLinkAction.h>
-#include <fuml/syntax/actions/LinkEndCreationData.h>
-#include <fuml/syntax/structuredclassifiers/Association.h>
-#include <fuml/syntax/classification/Property.h>
-#include <fuml/semantics/structuredclassifiers/Link.h>
+#include <fuml/semantics/actions/LinkActionActivation.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/simpleclassifiers/UnlimitedNaturalValue.h>
-#include <fuml/semantics/actions/LinkActionActivation.h>
+#include <fuml/semantics/structuredclassifiers/Link.h>
+#include <fuml/syntax/actions/CreateLinkAction.h>
+#include <fuml/syntax/actions/LinkEndCreationData.h>
+#include <fuml/syntax/classification/Property.h>
+#include <fuml/syntax/structuredclassifiers/Association.h>
 
 void CreateLinkActionActivation::doAction()
 {
@@ -32,32 +32,40 @@ void CreateLinkActionActivation::doAction()
 	const LinkEndCreationDataListPtr& endDataList = action->endData;
 
 	AssociationPtr linkAssociation = this->getAssociation();
-	ExtensionalValueListPtr extent = this->getExecutionLocus()->getExtent(
-			linkAssociation);
+	ExtensionalValueListPtr extent = this->getExecutionLocus()->getExtent(linkAssociation);
 
 	bool unique = false;
-	for (const LinkEndCreationDataPtr& linkEndCreationData : *endDataList) {
-		if (linkEndCreationData->end->isUnique) {
+	for (const LinkEndCreationDataPtr& linkEndCreationData : *endDataList)
+	{
+		if (linkEndCreationData->end->isUnique)
+		{
 			unique = true;
 		}
 	}
 
-	for (const ExtensionalValuePtr& value : *extent) {
+	for (const ExtensionalValuePtr& value : *extent)
+	{
 
 		LinkPtr link = std::dynamic_pointer_cast<Link>(value);
 
 		bool match = true;
 		bool destroy = false;
-		for (const LinkEndCreationDataPtr& endData : *endDataList) {
-			if (this->endMatchesEndData(link, endData)) {
-				if (endData->isReplaceAll) {
+		for (const LinkEndCreationDataPtr& endData : *endDataList)
+		{
+			if (this->endMatchesEndData(link, endData))
+			{
+				if (endData->isReplaceAll)
+				{
 					destroy = true;
 				}
-			} else {
+			}
+			else
+			{
 				match = false;
 			}
 		}
-		if (destroy || (unique && match)) {
+		if (destroy || (unique && match))
+		{
 			link->destroy();
 		}
 	}
@@ -66,15 +74,16 @@ void CreateLinkActionActivation::doAction()
 	newLink->setThisLinkPtr(newLink);
 	newLink->type = linkAssociation;
 
-	for (const LinkEndCreationDataPtr& endData : *endDataList) {
+	for (const LinkEndCreationDataPtr& endData : *endDataList)
+	{
 		int insertAt = 0;
-		if (endData->insertAt != nullptr) {
-			insertAt = std::dynamic_pointer_cast<UnlimitedNaturalValue>(this
-					->takeTokens(endData->insertAt)->at(0))->value;
+		if (endData->insertAt != nullptr)
+		{
+			insertAt = std::dynamic_pointer_cast<UnlimitedNaturalValue>(this->takeTokens(endData->insertAt)->at(0))
+				->value;
 		}
 
-		newLink->setFeatureValue(endData->end,
-				this->takeTokens(endData->value), insertAt);
+		newLink->setFeatureValue(endData->end, this->takeTokens(endData->value), insertAt);
 	}
 
 	newLink->addTo(this->getExecutionLocus());

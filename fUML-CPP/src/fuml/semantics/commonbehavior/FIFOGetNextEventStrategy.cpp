@@ -10,8 +10,7 @@
 #include <fuml/semantics/commonbehavior/EventOccurrence.h>
 #include <fuml/semantics/commonbehavior/ObjectActivation.h>
 
-EventOccurrencePtr FIFOGetNextEventStrategy::getNextEvent(
-		const ObjectActivationPtr& objectActivation)
+EventOccurrencePtr FIFOGetNextEventStrategy::getNextEvent(const ObjectActivationPtr& objectActivation)
 {
 	// Get the first event from the given event pool. The event is removed
 	// from the pool.

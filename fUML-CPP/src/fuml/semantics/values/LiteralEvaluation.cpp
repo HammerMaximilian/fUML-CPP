@@ -18,10 +18,10 @@ PrimitiveTypePtr LiteralEvaluation::getType(std::string builtInTypeName)
 	// Get the type of the specification. If that is null, then use the
 	// built-in type of the given name.
 
-	PrimitiveTypePtr type =
-			std::dynamic_pointer_cast<PrimitiveType>(this->specification->type);
+	PrimitiveTypePtr type = std::dynamic_pointer_cast<PrimitiveType>(this->specification->type);
 
-	if (type == nullptr) {
+	if (type == nullptr)
+	{
 		//type = this->locus->factory->getBuiltInType(builtInTypeName);
 	}
 

@@ -6,6 +6,7 @@
  */
 
 #include <fuml/semantics/simpleclassifiers/CompoundValue.h>
+
 #include <fuml/semantics/simpleclassifiers/FeatureValue.h>
 #include <fuml/semantics/structuredclassifiers/Object_.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
@@ -16,8 +17,7 @@ CompoundValue::~CompoundValue()
 {
 }
 
-bool CompoundValue::equals(
-		const ValuePtr& otherValue)
+bool CompoundValue::equals(const ValuePtr& otherValue)
 {
 	// Test if this data value is equal to the otherValue.
 	// To be equal, the otherValue must also be a compund value with the
@@ -31,7 +31,7 @@ bool CompoundValue::equals(
 	{
 
 		isEqual = (Value::equals(otherValue))
-					&& (otherCompoundValue->featureValues->size() == this->featureValues->size());
+			&& (otherCompoundValue->featureValues->size() == this->featureValues->size());
 
 		unsigned int i = 1;
 		unsigned int featureValuesSize = this->featureValues->size();
@@ -70,15 +70,15 @@ ValuePtr CompoundValue::copy()
 	CompoundValuePtr newValue = std::dynamic_pointer_cast<CompoundValue>(Value::copy());
 
 	FeatureValueListPtr featureValues = this->featureValues;
-	for (const FeatureValuePtr& featureValue : *featureValues) {
+	for (const FeatureValuePtr& featureValue : *featureValues)
+	{
 		newValue->featureValues->push_back(featureValue->copy());
 	}
 
 	return newValue;
 } //copy
 
-FeatureValuePtr CompoundValue::getFeatureValue(
-		const StructuralFeaturePtr& feature)
+FeatureValuePtr CompoundValue::getFeatureValue(const StructuralFeaturePtr& feature)
 {
 	// Get the value(s) of the member of featureValues for the given
 	// feature.
@@ -86,9 +86,11 @@ FeatureValuePtr CompoundValue::getFeatureValue(
 	FeatureValuePtr featureValue = nullptr;
 	unsigned int i = 1;
 	unsigned int featureValuesSize = this->featureValues->size();
-	while (featureValue == nullptr && i <= featureValuesSize) {
+	while (featureValue == nullptr && i <= featureValuesSize)
+	{
 		FeatureValuePtr thisFeatureValue = this->featureValues->at(i - 1);
-		if (thisFeatureValue->feature == feature) {
+		if (thisFeatureValue->feature == feature)
+		{
 			featureValue = thisFeatureValue;
 		}
 		i = i + 1;
@@ -97,15 +99,15 @@ FeatureValuePtr CompoundValue::getFeatureValue(
 	return featureValue;
 } // getFeatureValue
 
-void CompoundValue::setFeatureValue(
-		const StructuralFeaturePtr& feature, const ValueListPtr& values, int position)
+void CompoundValue::setFeatureValue(const StructuralFeaturePtr& feature, const ValueListPtr& values, int position)
 {
 	// Set the value(s) of the member of featureValues for the given
 	// feature.
 
 	FeatureValuePtr featureValue = this->getFeatureValue(feature);
 
-	if (featureValue == nullptr) {
+	if (featureValue == nullptr)
+	{
 		featureValue.reset(new FeatureValue());
 		this->featureValues->push_back(featureValue);
 	}
@@ -142,27 +144,32 @@ std::string CompoundValue::toString()
 
 	for (const FeatureValuePtr& featureValue : *(this->featureValues))
 	{
-		buffer = buffer + "\n\t\t" + featureValue->feature->name + "["
-				+ std::to_string(featureValue->position) + "]  =";
+		buffer = buffer + "\n\t\t" + featureValue->feature->name + "[" + std::to_string(featureValue->position)
+			+ "]  =";
 
 		for (const ValuePtr& value : *(featureValue->values))
 		{
 			ReferencePtr reference = std::dynamic_pointer_cast<Reference>(value);
-			if (reference) {
+			if (reference)
+			{
 				Object_Ptr object = reference->referent;
 				buffer = buffer + " Reference to " + object->identifier + "(";
 				types = object->getTypes();
 				unsigned int n = 1;
 				unsigned int typesSize = types->size();
-				while (n <= typesSize) {
-					if (n != 1) {
+				while (n <= typesSize)
+				{
+					if (n != 1)
+					{
 						buffer = buffer + " ";
 					}
 					buffer = buffer + types->at(n - 1)->name;
 					n = n + 1;
 				}
 				buffer = buffer + ")";
-			} else {
+			}
+			else
+			{
 				buffer = buffer + " " + value->toString();
 			}
 		}
@@ -170,7 +177,4 @@ std::string CompoundValue::toString()
 
 	return buffer + ")";
 } // toString
-
-
-
 

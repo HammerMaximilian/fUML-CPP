@@ -22,7 +22,8 @@ namespace fuml::semantics::actions
 			virtual bool isReady() override;
 			ExpansionRegionActivationPtr getExpansionRegionActivation();
 
-	}; // ExpansionNodeActivation
+	};
+// ExpansionNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_EXPANSIONNODEACTIVATION_H_ */

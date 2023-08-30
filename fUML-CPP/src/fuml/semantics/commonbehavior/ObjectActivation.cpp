@@ -21,10 +21,10 @@
 #include <fuml/syntax/structuredclassifiers/Class_.h>
 #include <UMLPrimitiveTypes/intList.h>
 
-void ObjectActivation::setThisObjectActivationPtr(
-		std::weak_ptr<ObjectActivation> thisObjectActivationPtr)
+void ObjectActivation::setThisObjectActivationPtr(std::weak_ptr<ObjectActivation> thisObjectActivationPtr)
 {
 	this->thisObjectActivationPtr = thisObjectActivationPtr;
+	this->behavior.reset(new ObjectActivation_EventDispatchLoopExecution(this->thisObjectActivationPtr.lock()));
 }
 
 void ObjectActivation::stop()
@@ -32,16 +32,15 @@ void ObjectActivation::stop()
 	// Stop this object activation by terminating all classifier behavior
 	// executions.
 
-	const ClassifierBehaviorInvocationEventAccepterListPtr &classifierBehaviorInvocations =
-			this->classifierBehaviorInvocations;
-	for (const ClassifierBehaviorInvocationEventAccepterPtr &classifierBehaviorInvocation : *classifierBehaviorInvocations)
+	const ClassifierBehaviorInvocationEventAccepterListPtr& classifierBehaviorInvocations = this
+		->classifierBehaviorInvocations;
+	for (const ClassifierBehaviorInvocationEventAccepterPtr& classifierBehaviorInvocation : *classifierBehaviorInvocations)
 	{
 		classifierBehaviorInvocation->terminate();
 	}
 } // stop
 
-void ObjectActivation::register_(
-		const EventAccepterPtr &accepter)
+void ObjectActivation::register_(const EventAccepterPtr& accepter)
 {
 	// Register the given event accepter to wait for a dispatched signal
 	// event.
@@ -52,8 +51,7 @@ void ObjectActivation::register_(
 	this->waitingEventAccepters->push_back(accepter);
 } // register_
 
-void ObjectActivation::unregister(
-		const EventAccepterPtr &accepter)
+void ObjectActivation::unregister(const EventAccepterPtr& accepter)
 {
 	// Remove the given event accepter for the list of waiting event
 	// accepters.
@@ -63,14 +61,12 @@ void ObjectActivation::unregister(
 
 	bool notFound = true;
 	unsigned int i = 1;
-	unsigned int waitingEventAcceptersSize =
-			this->waitingEventAccepters->size();
+	unsigned int waitingEventAcceptersSize = this->waitingEventAccepters->size();
 	while (notFound && i <= waitingEventAcceptersSize)
 	{
 		if (this->waitingEventAccepters->at(i - 1) == accepter)
 		{
-			this->waitingEventAccepters->erase(
-					this->waitingEventAccepters->begin() + (i - 1));
+			this->waitingEventAccepters->erase(this->waitingEventAccepters->begin() + (i - 1));
 			notFound = false;
 		}
 		i = i + 1;
@@ -89,15 +85,12 @@ void ObjectActivation::dispatchNextEvent()
 	{
 		EventOccurrencePtr eventOccurrence = this->getNextEvent();
 
-		utils::Debug::println(
-				"[dispatchNextEvent] eventOccurrence = "
-						+ eventOccurrence->hashCode());
+		utils::Debug::println("[dispatchNextEvent] eventOccurrence = " + eventOccurrence->hashCode());
 
 		UMLPrimitiveTypes::intList matchingEventAccepterIndexes;
-		const EventAccepterListPtr &waitingEventAccepters =
-				this->waitingEventAccepters;
+		const EventAccepterListPtr& waitingEventAccepters = this->waitingEventAccepters;
 		unsigned int i = 0;
-		for (const EventAccepterPtr &eventAccepter : *waitingEventAccepters)
+		for (const EventAccepterPtr& eventAccepter : *waitingEventAccepters)
 		{
 			if (eventAccepter->match(eventOccurrence))
 			{
@@ -109,15 +102,11 @@ void ObjectActivation::dispatchNextEvent()
 		if (matchingEventAccepterIndexes.size() > 0)
 		{
 			// *** Choose one matching event accepter non-deterministically. ***
-			int j =
-					std::dynamic_pointer_cast<ChoiceStrategy>(
-							this->object->locus->factory->getStrategy("choice"))->choose(
-							matchingEventAccepterIndexes.size());
+			int j = std::dynamic_pointer_cast<ChoiceStrategy>(this->object->locus->factory->getStrategy("choice"))
+				->choose(matchingEventAccepterIndexes.size());
 			int k = matchingEventAccepterIndexes.at(j - 1);
-			EventAccepterPtr selectedEventAccepter =
-					this->waitingEventAccepters->at(k);
-			this->waitingEventAccepters->erase(
-					this->waitingEventAccepters->begin() + k);
+			EventAccepterPtr selectedEventAccepter = this->waitingEventAccepters->at(k);
+			this->waitingEventAccepters->erase(this->waitingEventAccepters->begin() + k);
 			selectedEventAccepter->accept(eventOccurrence);
 		}
 	}
@@ -128,13 +117,11 @@ EventOccurrencePtr ObjectActivation::getNextEvent()
 	// Get the next event from the event pool, using a get next event
 	// strategy.
 
-	return std::dynamic_pointer_cast<GetNextEventStrategy>(
-			this->object->locus->factory->getStrategy("getNextEvent"))->getNextEvent(
-			this->thisObjectActivationPtr.lock());
+	return std::dynamic_pointer_cast<GetNextEventStrategy>(this->object->locus->factory->getStrategy("getNextEvent"))
+		->getNextEvent(this->thisObjectActivationPtr.lock());
 } // getNextEvent
 
-void ObjectActivation::send(
-		const EventOccurrencePtr &eventOccurrence)
+void ObjectActivation::send(const EventOccurrencePtr& eventOccurrence)
 {
 	// Add an event occurrence to the event pool and signal that a
 	// new event occurrence has arrived.
@@ -143,8 +130,7 @@ void ObjectActivation::send(
 	_send(ArrivalSignalPtr(new ArrivalSignal()));
 } // send
 
-void ObjectActivation::startBehavior(
-		const Class_Ptr &classifier, const ParameterValueListPtr &inputs)
+void ObjectActivation::startBehavior(const Class_Ptr& classifier, const ParameterValueListPtr& inputs)
 {
 	// Start the event dispatch loop for this object activation (if it has
 	// not already been started).
@@ -163,49 +149,39 @@ void ObjectActivation::startBehavior(
 
 	if (classifier == nullptr)
 	{
-		utils::Debug::println(
-				"[startBehavior] Starting behavior for all classifiers...");
+		utils::Debug::println("[startBehavior] Starting behavior for all classifiers...");
 		// *** Start all classifier behaviors concurrently. ***
 		Class_ListPtr types = this->object->types;
-		for (const Class_Ptr &type : *types)
+		for (const Class_Ptr& type : *types)
 		{
 			BehaviorPtr behavior = std::dynamic_pointer_cast<Behavior>(type);
 			if (behavior || type->classifierBehavior != nullptr)
 			{
-				this->startBehavior(type,
-						ParameterValueListPtr(new ParameterValueList()));
+				this->startBehavior(type, ParameterValueListPtr(new ParameterValueList()));
 			}
 		}
 	}
 	else
 	{
-		utils::Debug::println(
-				"[startBehavior] Starting behavior for " + classifier->name
-						+ "...");
+		utils::Debug::println("[startBehavior] Starting behavior for " + classifier->name + "...");
 
 		_beginIsolation();
 		bool notYetStarted = true;
 		unsigned int i = 1;
-		unsigned int classifierBehaviorInvocationsSize =
-				this->classifierBehaviorInvocations->size();
+		unsigned int classifierBehaviorInvocationsSize = this->classifierBehaviorInvocations->size();
 		while (notYetStarted && i <= classifierBehaviorInvocationsSize)
 		{
-			notYetStarted =
-					(this->classifierBehaviorInvocations->at(i - 1)->classifier
-							!= classifier);
+			notYetStarted = (this->classifierBehaviorInvocations->at(i - 1)->classifier != classifier);
 			i = i + 1;
 		}
 
 		if (notYetStarted)
 		{
-			ClassifierBehaviorInvocationEventAccepterPtr newInvocation(
-					new ClassifierBehaviorInvocationEventAccepter());
-			newInvocation->objectActivation =
-					this->thisObjectActivationPtr.lock();
+			ClassifierBehaviorInvocationEventAccepterPtr newInvocation(new ClassifierBehaviorInvocationEventAccepter());
+			newInvocation->objectActivation = this->thisObjectActivationPtr.lock();
 			this->classifierBehaviorInvocations->push_back(newInvocation);
 			newInvocation->invokeBehavior(classifier, inputs);
-			InvocationEventOccurrencePtr eventOccurrence(
-					new InvocationEventOccurrence());
+			InvocationEventOccurrencePtr eventOccurrence(new InvocationEventOccurrence());
 			eventOccurrence->execution = newInvocation->execution;
 			this->eventPool->push_back(eventOccurrence);
 			_send(ArrivalSignalPtr(new ArrivalSignal()));
@@ -214,8 +190,7 @@ void ObjectActivation::startBehavior(
 	}
 } // startBehavior
 
-void ObjectActivation::_send(
-		const ArrivalSignalPtr &signal_)
+void ObjectActivation::_send(const ArrivalSignalPtr& signal_)
 {
 	this->behavior->_send(signal_);
 } // _send

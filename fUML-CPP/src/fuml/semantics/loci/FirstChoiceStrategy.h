@@ -16,9 +16,10 @@ namespace fuml::semantics::loci
 	{
 		public:
 			virtual ~FirstChoiceStrategy() = default;
-		
+
 			virtual int choose(int) override;
-	}; // ChoiceStrategy
+	};
+// ChoiceStrategy
 }
 
 #endif /* FUML_SEMANTICS_LOCI_FIRSTCHOICESTRATEGY_H_ */

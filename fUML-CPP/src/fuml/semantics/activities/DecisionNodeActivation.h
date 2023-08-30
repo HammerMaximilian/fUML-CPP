@@ -22,21 +22,18 @@ namespace fuml::semantics::activities
 
 			virtual void fire(const TokenListPtr&) override;
 			ValueListPtr getDecisionValues(const TokenListPtr&);
-			ValuePtr executeDecisionInputBehavior(
-					const ValuePtr&,
-					const ValuePtr&);
+			ValuePtr executeDecisionInputBehavior(const ValuePtr&, const ValuePtr&);
 			virtual void terminate() override;
 			virtual bool isReady() override;
 			virtual TokenListPtr takeOfferedTokens() override;
 			ValuePtr getDecisionInputFlowValue();
 			ActivityEdgeInstancePtr getDecisionInputFlowInstance();
-			bool test(
-					const ValueSpecificationPtr&,
-					const ValuePtr&);
+			bool test(const ValueSpecificationPtr&, const ValuePtr&);
 			TokenListPtr removeJoinedControlTokens(const TokenListPtr&);
 			bool hasObjectFlowInput();
 
-	}; // DecisionNodeActivation
+	};
+// DecisionNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_DECISIONNODEACTIVATION_H_ */

@@ -9,8 +9,7 @@
 
 #include <fuml/semantics/structuredclassifiers/Object_.h>
 
-void Reference::startBehavior(
-		const Class_Ptr& classifier, const ParameterValueListPtr& inputs)
+void Reference::startBehavior(const Class_Ptr& classifier, const ParameterValueListPtr& inputs)
 {
 	// Asynchronously start the behavior of the given classifier for the
 	// referent object.
@@ -18,16 +17,14 @@ void Reference::startBehavior(
 	this->referent->startBehavior(classifier, inputs);
 } // startBehavior
 
-ExecutionPtr Reference::dispatch(
-		const OperationPtr& operation)
+ExecutionPtr Reference::dispatch(const OperationPtr& operation)
 {
 	// Dispatch the given operation to the referent object.
 
 	return this->referent->dispatch(operation);
 } // dispatch
 
-void Reference::send(
-		const EventOccurrencePtr& eventOccurrence)
+void Reference::send(const EventOccurrencePtr& eventOccurrence)
 {
 	// Send the given event occurrence to the referent object.
 
@@ -41,8 +38,7 @@ void Reference::destroy()
 	this->referent->destroy();
 } // destroy
 
-bool Reference::equals(
-		const ValuePtr& otherValue)
+bool Reference::equals(const ValuePtr& otherValue)
 {
 	// Test if this reference is equal to the otherValue.
 	// To be equal, the otherValue must also be a reference, with the same
@@ -50,10 +46,14 @@ bool Reference::equals(
 
 	bool isEqual = false;
 	ReferencePtr reference = std::dynamic_pointer_cast<Reference>(otherValue);
-	if (reference) {
-		if (this->referent == nullptr) {
+	if (reference)
+	{
+		if (this->referent == nullptr)
+		{
 			isEqual = (reference->referent == nullptr);
-		} else {
+		}
+		else
+		{
 			isEqual = this->referent->equals(reference->referent);
 		}
 	}
@@ -79,8 +79,7 @@ ClassifierListPtr Reference::getTypes()
 	return this->referent->getTypes();
 } // getTypes
 
-FeatureValuePtr Reference::getFeatureValue(
-		const StructuralFeaturePtr& feature)
+FeatureValuePtr Reference::getFeatureValue(const StructuralFeaturePtr& feature)
 {
 	// Get the feature value associated with the given feature in the
 	// referent object.
@@ -88,8 +87,7 @@ FeatureValuePtr Reference::getFeatureValue(
 	return this->referent->getFeatureValue(feature);
 } // getFeatureValue
 
-void Reference::setFeatureValue(
-		const StructuralFeaturePtr& feature, const ValueListPtr& values, int position)
+void Reference::setFeatureValue(const StructuralFeaturePtr& feature, const ValueListPtr& values, int position)
 {
 	// Set the values associated with the given feature in the referent
 	// object.

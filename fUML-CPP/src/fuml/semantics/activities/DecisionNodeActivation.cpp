@@ -8,21 +8,20 @@
 #include <fuml/semantics/activities/DecisionNodeActivation.h>
 
 #include <fuml/Debug.h>
+#include <fuml/semantics/activities/ActivityEdgeInstance.h>
+#include <fuml/semantics/activities/Token.h>
+#include <fuml/semantics/commonbehavior/Execution.h>
+#include <fuml/semantics/commonbehavior/ParameterValue.h>
+#include <fuml/semantics/loci/ExecutionFactory.h>
+#include <fuml/semantics/loci/Executor.h>
+#include <fuml/semantics/loci/Locus.h>
+#include <fuml/semantics/values/Value.h>
 #include <fuml/syntax/activities/DecisionNode.h>
 #include <fuml/syntax/activities/ObjectFlow.h>
 #include <fuml/syntax/classification/Parameter.h>
 #include <fuml/syntax/commonbehavior/Behavior.h>
-#include <fuml/semantics/activities/ActivityEdgeInstance.h>
-#include <fuml/semantics/activities/Token.h>
-#include <fuml/semantics/commonbehavior/ParameterValue.h>
-#include <fuml/semantics/commonbehavior/Execution.h>
-#include <fuml/semantics/values/Value.h>
-#include <fuml/semantics/loci/Locus.h>
-#include <fuml/semantics/loci/ExecutionFactory.h>
-#include <fuml/semantics/loci/Executor.h>
 
-void DecisionNodeActivation::fire(
-		const TokenListPtr& incomingTokens)
+void DecisionNodeActivation::fire(const TokenListPtr& incomingTokens)
 {
 	// Get the decision values and test them on each guard.
 	// Forward the offer over the edges for which the test succeeds.
@@ -33,21 +32,26 @@ void DecisionNodeActivation::fire(
 	ValueListPtr decisionValues = this->getDecisionValues(incomingTokens);
 
 	const ActivityEdgeInstanceListPtr& outgoingEdges = this->outgoingEdges;
-	for (const ActivityEdgeInstancePtr& edgeInstance : *outgoingEdges) {
+	for (const ActivityEdgeInstancePtr& edgeInstance : *outgoingEdges)
+	{
 
 		ValueSpecificationPtr guard = edgeInstance->edge->guard;
 
 		TokenListPtr offeredTokens(new TokenList());
-		for (unsigned int j = 0; j < incomingTokens->size(); j++) {
+		for (unsigned int j = 0; j < incomingTokens->size(); j++)
+		{
 			const TokenPtr& incomingToken = incomingTokens->at(j);
 			const ValuePtr& decisionValue = decisionValues->at(j);
-			if (this->test(guard, decisionValue)) {
+			if (this->test(guard, decisionValue))
+			{
 				offeredTokens->push_back(incomingToken);
 			}
 		}
 
-		if (offeredTokens->size() > 0) {
-			for (const TokenPtr& removedControlToken : *removedControlTokens) {
+		if (offeredTokens->size() > 0)
+		{
+			for (const TokenPtr& removedControlToken : *removedControlTokens)
+			{
 				offeredTokens->push_back(removedControlToken);
 			}
 			edgeInstance->sendOffer(offeredTokens);
@@ -55,8 +59,7 @@ void DecisionNodeActivation::fire(
 	}
 } // fire
 
-ValueListPtr DecisionNodeActivation::getDecisionValues(
-		const TokenListPtr& incomingTokens)
+ValueListPtr DecisionNodeActivation::getDecisionValues(const TokenListPtr& incomingTokens)
 {
 	// If there is neither a decision input flow nor a decision input
 	// behavior, then return the set of values from the incoming tokens.
@@ -76,21 +79,25 @@ ValueListPtr DecisionNodeActivation::getDecisionValues(
 	ValuePtr decisionInputValue = this->getDecisionInputFlowValue();
 
 	ValueListPtr decisionValues(new ValueList());
-	for (const TokenPtr& incomingToken : *incomingTokens) {
+	for (const TokenPtr& incomingToken : *incomingTokens)
+	{
 		ValuePtr value = this->executeDecisionInputBehavior(incomingToken->getValue(), decisionInputValue);
 		decisionValues->push_back(value);
 	}
 
 	unsigned int i = 0;
-	for (const ValuePtr& decisionValue : *decisionValues) {
-		utils::Debug::println("[getDecisionValues] decisionValues[" + std::to_string(i++) + "] = " + std::to_string(decisionValue->hashCode()));
+	for (const ValuePtr& decisionValue : *decisionValues)
+	{
+		utils::Debug::println(
+			"[getDecisionValues] decisionValues[" + std::to_string(i++) + "] = "
+				+ std::to_string(decisionValue->hashCode()));
 	}
 
 	return decisionValues;
 } // getDecisionValues
 
-ValuePtr DecisionNodeActivation::executeDecisionInputBehavior(
-		const ValuePtr& inputValue, const ValuePtr& decisionInputValue)
+ValuePtr DecisionNodeActivation::executeDecisionInputBehavior(const ValuePtr& inputValue,
+	const ValuePtr& decisionInputValue)
 {
 	// Create the decision input execution from the decision input behavior.
 	// If the behavior has input parameter(s), set the input parameter(s) of
@@ -107,35 +114,45 @@ ValuePtr DecisionNodeActivation::executeDecisionInputBehavior(
 
 	ValuePtr decisionInputResult = nullptr;
 
-	if (decisionInputBehavior == nullptr) {
+	if (decisionInputBehavior == nullptr)
+	{
 
-		if (decisionInputValue != nullptr) {
+		if (decisionInputValue != nullptr)
+		{
 			decisionInputResult = decisionInputValue;
-		} else {
+		}
+		else
+		{
 			decisionInputResult = inputValue;
 		}
 
-	} else {
+	}
+	else
+	{
 
-		this->decisionInputExecution = this->getExecutionLocus()->factory
-				->createExecution(decisionInputBehavior, this->getExecutionContext());
+		this->decisionInputExecution = this->getExecutionLocus()->factory->createExecution(decisionInputBehavior,
+			this->getExecutionContext());
 
 		unsigned int i = 1;
 		unsigned int j = 0;
 		const ParameterListPtr& decisionInputBehaviorOwnedParameter = decisionInputBehavior->ownedParameter;
 		unsigned int decisionInputBehaviorOwnedParameterSize = decisionInputBehaviorOwnedParameter->size();
-		while ((j == 0 || (j == 1 && decisionInputValue != nullptr))
-				&& i <= decisionInputBehaviorOwnedParameterSize) {
+		while ((j == 0 || (j == 1 && decisionInputValue != nullptr)) && i <= decisionInputBehaviorOwnedParameterSize)
+		{
 			const ParameterPtr& parameter = decisionInputBehaviorOwnedParameter->at(i - 1);
 			if (parameter->direction == ParameterDirectionKind::in
-				|| parameter->direction == ParameterDirectionKind::inout) {
+				|| parameter->direction == ParameterDirectionKind::inout)
+			{
 				ParameterValuePtr inputParameterValue(new ParameterValue());
 				inputParameterValue->parameter = parameter;
 
 				j = j + 1;
-				if (j == 1 && inputValue != nullptr) {
+				if (j == 1 && inputValue != nullptr)
+				{
 					inputParameterValue->values->push_back(inputValue);
-				} else {
+				}
+				else
+				{
 					inputParameterValue->values->push_back(decisionInputValue);
 				}
 
@@ -161,7 +178,8 @@ void DecisionNodeActivation::terminate()
 	// Terminate the decision input execution, if any, and then terminate
 	// this activation.
 
-	if (this->decisionInputExecution != nullptr) {
+	if (this->decisionInputExecution != nullptr)
+	{
 		this->decisionInputExecution->terminate();
 	}
 
@@ -175,9 +193,11 @@ bool DecisionNodeActivation::isReady()
 	// input flow.]
 
 	bool ready = true;
-	for (const ActivityEdgeInstancePtr& incomingEdge : *(this->incomingEdges)) {
+	for (const ActivityEdgeInstancePtr& incomingEdge : *(this->incomingEdges))
+	{
 		ready = incomingEdge->hasOffer();
-		if(!ready) break;
+		if (!ready)
+			break;
 	}
 
 	return ready;
@@ -193,10 +213,13 @@ TokenListPtr DecisionNodeActivation::takeOfferedTokens()
 	TokenListPtr allTokens(new TokenList());
 	const ActivityEdgeInstanceListPtr& incomingEdges = this->incomingEdges;
 
-	for (const ActivityEdgeInstancePtr& edgeInstance : *incomingEdges) {
-		if (edgeInstance->edge != decisionInputFlow) {
+	for (const ActivityEdgeInstancePtr& edgeInstance : *incomingEdges)
+	{
+		if (edgeInstance->edge != decisionInputFlow)
+		{
 			TokenListPtr tokens = edgeInstance->takeOfferedTokens();
-			for (const TokenPtr& token : *tokens) {
+			for (const TokenPtr& token : *tokens)
+			{
 				allTokens->push_back(token);
 			}
 		}
@@ -213,9 +236,11 @@ ValuePtr DecisionNodeActivation::getDecisionInputFlowValue()
 	ActivityEdgeInstancePtr decisionInputFlowInstance = this->getDecisionInputFlowInstance();
 
 	ValuePtr value = nullptr;
-	if (decisionInputFlowInstance != nullptr) {
+	if (decisionInputFlowInstance != nullptr)
+	{
 		TokenListPtr tokens = decisionInputFlowInstance->takeOfferedTokens();
-		if (tokens->size() > 0) {
+		if (tokens->size() > 0)
+		{
 			value = tokens->at(0)->getValue();
 		}
 	}
@@ -230,9 +255,12 @@ ActivityEdgeInstancePtr DecisionNodeActivation::getDecisionInputFlowInstance()
 	ActivityEdgePtr decisionInputFlow = std::dynamic_pointer_cast<DecisionNode>(this->node)->decisionInputFlow;
 
 	ActivityEdgeInstancePtr edgeInstance = nullptr;
-	if (decisionInputFlow != nullptr) {
-		for (const ActivityEdgeInstancePtr& incomingEdge : *(this->incomingEdges)) {
-			if (incomingEdge->edge == decisionInputFlow) {
+	if (decisionInputFlow != nullptr)
+	{
+		for (const ActivityEdgeInstancePtr& incomingEdge : *(this->incomingEdges))
+		{
+			if (incomingEdge->edge == decisionInputFlow)
+			{
 				edgeInstance = incomingEdge;
 				break;
 			}
@@ -242,14 +270,14 @@ ActivityEdgeInstancePtr DecisionNodeActivation::getDecisionInputFlowInstance()
 	return edgeInstance;
 }
 
-bool DecisionNodeActivation::test(
-		const ValueSpecificationPtr& guard, const ValuePtr& value)
+bool DecisionNodeActivation::test(const ValueSpecificationPtr& guard, const ValuePtr& value)
 {
 	// Test if the given value matches the guard. If there is no guard,
 	// return true.
 
 	bool guardResult = true;
-	if (guard != nullptr) {
+	if (guard != nullptr)
+	{
 		ValuePtr guardValue = this->getExecutionLocus()->executor->evaluate(guard);
 		guardResult = guardValue->equals(value);
 	}
@@ -257,8 +285,7 @@ bool DecisionNodeActivation::test(
 	return guardResult;
 } // test
 
-TokenListPtr DecisionNodeActivation::removeJoinedControlTokens(
-		const TokenListPtr& incomingTokens)
+TokenListPtr DecisionNodeActivation::removeJoinedControlTokens(const TokenListPtr& incomingTokens)
 {
 	// If the primary incoming edge is an object flow, then remove any
 	// control tokens from the incoming tokens and return them.
@@ -267,13 +294,16 @@ TokenListPtr DecisionNodeActivation::removeJoinedControlTokens(
 
 	TokenListPtr removedControlTokens(new TokenList());
 
-	if (this->hasObjectFlowInput()) {
+	if (this->hasObjectFlowInput())
+	{
 		TokenList::iterator it = incomingTokens->begin();
 		TokenList::iterator itEnd = incomingTokens->end();
 
-		for(; it != itEnd; it++) {
+		for (; it != itEnd; it++)
+		{
 			TokenPtr token = *it;
-			if (token->isControl()) {
+			if (token->isControl())
+			{
 				removedControlTokens->push_back(token);
 				it = incomingTokens->erase(it);
 			}
@@ -290,10 +320,12 @@ bool DecisionNodeActivation::hasObjectFlowInput()
 	ActivityEdgePtr decisionInputFlow = std::dynamic_pointer_cast<DecisionNode>(this->node)->decisionInputFlow;
 
 	bool isObjectFlow = false;
-	for (const ActivityEdgeInstancePtr& incomingEdge : *(this->incomingEdges)) {
+	for (const ActivityEdgeInstancePtr& incomingEdge : *(this->incomingEdges))
+	{
 		const ActivityEdgePtr& edge = incomingEdge->edge;
 		isObjectFlow = (edge != decisionInputFlow) && (std::dynamic_pointer_cast<ObjectFlow>(edge) != nullptr);
-		if(isObjectFlow) break;
+		if (isObjectFlow)
+			break;
 	}
 
 	return isObjectFlow;

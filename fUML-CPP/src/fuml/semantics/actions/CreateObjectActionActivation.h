@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void doAction() override;
 
-	}; // CreateObjectActionActivation
+	};
+// CreateObjectActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_CREATEOBJECTACTIONACTIVATION_H_ */

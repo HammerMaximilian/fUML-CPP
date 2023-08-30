@@ -31,7 +31,8 @@ namespace fuml::semantics::actions
 			ClauseActivationListPtr getPredecessors();
 			ClauseActivationListPtr getSuccessors();
 
-	}; // ClauseActivation
+	};
+// ClauseActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_CLAUSEACTIVATION_H_ */

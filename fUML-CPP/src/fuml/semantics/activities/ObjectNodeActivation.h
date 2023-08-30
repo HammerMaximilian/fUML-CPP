@@ -36,8 +36,8 @@ namespace fuml::semantics::activities
 			TokenListPtr getUnofferedTokens();
 			TokenListPtr takeUnofferedTokens();
 
-
-	}; // ObjectNodeActivation
+	};
+// ObjectNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_OBJECTNODEACTIVATION_H_ */

@@ -23,13 +23,15 @@ namespace fuml::semantics::commonbehavior
 		public:
 			EventOccurrence_SendingBehaviorExecution(const EventOccurrencePtr&);
 			virtual ~EventOccurrence_SendingBehaviorExecution() = default;
-			void setThisEventOccurrence_SendingBehaviorExecution(std::weak_ptr<EventOccurrence_SendingBehaviorExecution>);
+			void setThisEventOccurrence_SendingBehaviorExecution(
+				std::weak_ptr<EventOccurrence_SendingBehaviorExecution>);
 
 			void _startObjectBehavior();
 			virtual void execute() override;
 			virtual ValuePtr new_() override;
 			virtual std::string toString() override;
-	}; // EventOccurrence_SendingBehaviorExecution
+	};
+// EventOccurrence_SendingBehaviorExecution
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_EVENTOCCURRENCE_SENDINGBEHAVIOREXECUTION_H_ */

@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void doAction() override;
 
-	}; // RaiseExceptionActionActivation
+	};
+// RaiseExceptionActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_RAISEEXCEPTIONACTIONACTIVATION_H_ */

@@ -18,22 +18,21 @@ OperationPtr CallEventOccurrence::getOperation()
 	return this->execution->getOperation();
 } // getOperation
 
-bool CallEventOccurrence::match(
-		const TriggerPtr& trigger)
+bool CallEventOccurrence::match(const TriggerPtr& trigger)
 {
 	// Match a trigger if it references a call event whose operation is the
 	// operation of this call event occurrence.
 
 	bool matches = false;
 	CallEventPtr callEvent = std::dynamic_pointer_cast<CallEvent>(trigger->event);
-	if (callEvent) {
+	if (callEvent)
+	{
 		matches = (callEvent->operation == this->getOperation());
 	}
 	return matches;
 } // match
 
-ParameterValueListPtr CallEventOccurrence::getParameterValues(
-		const EventPtr&)
+ParameterValueListPtr CallEventOccurrence::getParameterValues(const EventPtr&)
 {
 	// Return the input parameter values from the call event execution for
 	// this call event occurrence, which correspond to the values of the
@@ -42,8 +41,7 @@ ParameterValueListPtr CallEventOccurrence::getParameterValues(
 	return this->execution->getInputParameterValues();
 } // getParameterValues
 
-void CallEventOccurrence::setOutputParameterValues(
-		const ParameterValueListPtr& parameterValues)
+void CallEventOccurrence::setOutputParameterValues(const ParameterValueListPtr& parameterValues)
 {
 	// Set the output parameter values of the call event execution for
 	// this call event occurrence, which correspond to the values of the

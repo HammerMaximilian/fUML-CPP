@@ -23,7 +23,8 @@ namespace fuml::semantics::actions
 			virtual void doAction() override;
 			virtual void terminate() override;
 
-	}; // ReduceActionActivation
+	};
+// ReduceActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_REDUCEACTIONACTIVATION_H_ */

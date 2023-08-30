@@ -17,7 +17,8 @@ namespace fuml::semantics::commonbehavior
 	class ObjectActivation : public utils::FumlObject
 	{
 		public:
-			ClassifierBehaviorInvocationEventAccepterListPtr classifierBehaviorInvocations = std::make_shared<ClassifierBehaviorInvocationEventAccepterList>();
+			ClassifierBehaviorInvocationEventAccepterListPtr classifierBehaviorInvocations =
+				std::make_shared<ClassifierBehaviorInvocationEventAccepterList>();
 			EventAccepterListPtr waitingEventAccepters = std::make_shared<EventAccepterList>();
 			EventOccurrenceListPtr eventPool = std::make_shared<EventOccurrenceList>();
 			Object_Ptr object = nullptr;
@@ -28,22 +29,21 @@ namespace fuml::semantics::commonbehavior
 
 		public:
 			virtual ~ObjectActivation() = default;
-			void setThisObjectActivationPtr(std::weak_ptr<ObjectActivation>); // TODO: Hier "ObjectActivation_EventDispatchLoopExecution behavior" initialisieren und thisPtr als Konstruktor-Parameter übergeben
+			void setThisObjectActivationPtr(std::weak_ptr<ObjectActivation>);
 
 			void stop();
 			void register_(const EventAccepterPtr&);
 			void unregister(const EventAccepterPtr&);
 			void dispatchNextEvent();
 			EventOccurrencePtr getNextEvent();
-			void send (const EventOccurrencePtr&);
-			void startBehavior(
-					const Class_Ptr&,
-					const ParameterValueListPtr&);
+			void send(const EventOccurrencePtr&);
+			void startBehavior(const Class_Ptr&, const ParameterValueListPtr&);
 			void _send(const ArrivalSignalPtr&);
 			void _startObjectBehavior();
 			static void _endIsolation();
 			static void _beginIsolation();
-	}; // ObjectActivation
+	};
+// ObjectActivation
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_OBJECTACTIVATION_H_ */

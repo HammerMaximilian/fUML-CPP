@@ -16,8 +16,8 @@
 #include <fuml/syntax/structuredclassifiers/Class_.h>
 #include <fuml/syntax/values/ValueSpecification.h>
 
-ParameterValueListPtr Executor::execute(
-		const BehaviorPtr& behavior, const Object_Ptr& context, const ParameterValueListPtr& inputs)
+ParameterValueListPtr Executor::execute(const BehaviorPtr& behavior, const Object_Ptr& context,
+	const ParameterValueListPtr& inputs)
 {
 	// Execute the given behavior with the given input values in the given
 	// context, producing the given output values.
@@ -41,8 +41,7 @@ ParameterValueListPtr Executor::execute(
 	return outputValues;
 } // execute
 
-ValuePtr Executor::evaluate(
-		const ValueSpecificationPtr& specification)
+ValuePtr Executor::evaluate(const ValueSpecificationPtr& specification)
 {
 	// Evaluate the given value specification, returning the specified
 	// value.
@@ -50,8 +49,7 @@ ValuePtr Executor::evaluate(
 	return this->locus->factory->createEvaluation(specification)->evaluate();
 } // evaluate
 
-ReferencePtr Executor::start(const Class_Ptr& type,
-		const ParameterValueListPtr& inputs)
+ReferencePtr Executor::start(const Class_Ptr& type, const ParameterValueListPtr& inputs)
 {
 	// Instantiate the given class and start any behavior of the resulting
 	// object.

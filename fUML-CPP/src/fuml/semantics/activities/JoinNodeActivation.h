@@ -19,7 +19,8 @@ namespace fuml::semantics::activities
 
 			virtual bool isReady() override;
 
-	}; // JoinNodeActivation
+	};
+// JoinNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_JOINNODEACTIVATION_H_ */

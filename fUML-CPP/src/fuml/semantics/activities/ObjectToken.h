@@ -28,7 +28,8 @@ namespace fuml::semantics::activities
 			virtual TokenPtr copy() override;
 			virtual bool isControl() override;
 			virtual ValuePtr getValue() override;
-	}; // ObjectToken
+	};
+// ObjectToken
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_OBJECTTOKEN_H_ */

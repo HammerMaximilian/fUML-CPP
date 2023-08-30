@@ -7,11 +7,11 @@
 
 #include <fuml/semantics/actions/StartClassifierBehaviorActionActivation.h>
 
-#include <fuml/syntax/actions/StartClassifierBehaviorAction.h>
-#include <fuml/syntax/actions/InputPin.h>
-#include <fuml/syntax/structuredclassifiers/Class_.h>
-#include <fuml/semantics/structuredclassifiers/Reference.h>
 #include <fuml/semantics/commonbehavior/ParameterValue.h>
+#include <fuml/semantics/structuredclassifiers/Reference.h>
+#include <fuml/syntax/actions/InputPin.h>
+#include <fuml/syntax/actions/StartClassifierBehaviorAction.h>
+#include <fuml/syntax/structuredclassifiers/Class_.h>
 
 void StartClassifierBehaviorActionActivation::doAction()
 {
@@ -29,9 +29,9 @@ void StartClassifierBehaviorActionActivation::doAction()
 
 	ReferencePtr reference = std::dynamic_pointer_cast<Reference>(object);
 
-	if (reference) {
-		reference->startBehavior(
-				std::dynamic_pointer_cast<Class_>(action->object->type),
-				ParameterValueListPtr(new ParameterValueList()));
+	if (reference)
+	{
+		reference->startBehavior(std::dynamic_pointer_cast<Class_>(action->object->type),
+			ParameterValueListPtr(new ParameterValueList()));
 	}
 } // doAction

@@ -24,14 +24,16 @@ namespace fuml::semantics::commonbehavior
 		public:
 			ObjectActivation_EventDispatchLoopExecution(const ObjectActivationPtr&);
 			virtual ~ObjectActivation_EventDispatchLoopExecution() = default;
-			void setThisObjectActivation_EventDispatchLoopExecutionPtr(std::weak_ptr<ObjectActivation_EventDispatchLoopExecution>);
+			void setThisObjectActivation_EventDispatchLoopExecutionPtr(
+				std::weak_ptr<ObjectActivation_EventDispatchLoopExecution>);
 
 			void _startObjectBehavior();
 			void _send(const ArrivalSignalPtr&);
 			virtual void execute() override;
 			virtual ValuePtr new_() override;
 			virtual std::string toString() override;
-	}; //
+	};
+// ObjectActivation_EventDispatchLoopExecution
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_OBJECTACTIVATION_EVENTDISPATCHLOOPEXECUTION_H_ */

@@ -8,14 +8,9 @@
 #ifndef FUML_SEMANTICS_SIMPLECLASSIFIERS_FEATUREVALUE_H_
 #define FUML_SEMANTICS_SIMPLECLASSIFIERS_FEATUREVALUE_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/semantics/fwd.h>
-#include "utils/FumlObject.h"
-
-namespace fuml::syntax::classification
-{
-	class StructuralFeature;
-}
+#include <fuml/syntax/fwd.h>
+#include <utils/FumlObject.h>
 
 namespace fuml::semantics::simpleclassifiers
 {
@@ -28,11 +23,11 @@ namespace fuml::semantics::simpleclassifiers
 
 		public:
 			virtual ~FeatureValue() = default;
-		
-			bool hasEqualValues(
-					const FeatureValuePtr&);
+
+			bool hasEqualValues(const FeatureValuePtr&);
 			FeatureValuePtr copy();
-	}; //FeatureValue
+	};
+//FeatureValue
 }
 
 #endif /* FUML_SEMANTICS_SIMPLECLASSIFIERS_FEATUREVALUE_H_ */

@@ -7,9 +7,9 @@
 
 #include <fuml/semantics/actions/ReadSelfActionActivation.h>
 
-#include <fuml/syntax/actions/ReadSelfAction.h>
-#include <fuml/syntax/actions/OutputPin.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
+#include <fuml/syntax/actions/OutputPin.h>
+#include <fuml/syntax/actions/ReadSelfAction.h>
 
 void ReadSelfActionActivation::doAction()
 {

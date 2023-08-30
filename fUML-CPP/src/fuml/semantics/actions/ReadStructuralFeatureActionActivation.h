@@ -19,7 +19,8 @@ namespace fuml::semantics::actions
 
 			virtual void doAction() override;
 
-	}; // ReadStructuralFeatureActionActivation
+	};
+// ReadStructuralFeatureActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_READSTRUCTURALFEATUREACTIONACTIVATION_H_ */

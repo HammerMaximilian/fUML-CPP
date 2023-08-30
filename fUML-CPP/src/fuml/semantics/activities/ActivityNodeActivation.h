@@ -8,8 +8,8 @@
 #ifndef FUML_SEMANTICS_ACTIVITIES_ACTIVITYNODEACTIVATION_H_
 #define FUML_SEMANTICS_ACTIVITIES_ACTIVITYNODEACTIVATION_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/semantics/loci/SemanticVisitor.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::semantics::activities
 {
@@ -56,7 +56,8 @@ namespace fuml::semantics::activities
 			TokenListPtr getTokens();
 			void suspend();
 			virtual void resume();
-	}; // ActivityNodeActivation
+	};
+// ActivityNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_ACTIVITYNODEACTIVATION_H_ */

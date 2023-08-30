@@ -7,11 +7,11 @@
 
 #include <fuml/semantics/actions/ClearStructuralFeatureActionActivation.h>
 
+#include <fuml/semantics/structuredclassifiers/Link.h>
+#include <fuml/semantics/structuredclassifiers/Reference.h>
 #include <fuml/syntax/actions/ClearStructuralFeatureAction.h>
 #include <fuml/syntax/classification/StructuralFeature.h>
 #include <fuml/syntax/structuredclassifiers/Association.h>
-#include <fuml/semantics/structuredclassifiers/Link.h>
-#include <fuml/semantics/structuredclassifiers/Reference.h>
 
 void ClearStructuralFeatureActionActivation::doAction()
 {
@@ -21,8 +21,7 @@ void ClearStructuralFeatureActionActivation::doAction()
 	// Otherwise, if the object input is a structured value, then
 	// set the appropriate feature of the input value to be empty.
 
-	ClearStructuralFeatureActionPtr action = std::dynamic_pointer_cast<
-			ClearStructuralFeatureAction>(this->node);
+	ClearStructuralFeatureActionPtr action = std::dynamic_pointer_cast<ClearStructuralFeatureAction>(this->node);
 	StructuralFeaturePtr feature = action->structuralFeature;
 	AssociationPtr association = this->getAssociation(feature);
 
@@ -31,7 +30,7 @@ void ClearStructuralFeatureActionActivation::doAction()
 	if (association != nullptr)
 	{
 		LinkListPtr links = this->getMatchingLinks(association, feature, value);
-		for (const LinkPtr &link : *links)
+		for (const LinkPtr& link : *links)
 		{
 			link->destroy();
 		}

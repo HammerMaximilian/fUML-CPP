@@ -12,7 +12,8 @@ namespace fuml::semantics::commonbehavior
 {
 	class ArrivalSignal
 	{
-	}; // ArrivalSignal
+	};
+// ArrivalSignal
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_ARRIVALSIGNAL_H_ */

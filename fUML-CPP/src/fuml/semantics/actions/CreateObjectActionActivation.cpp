@@ -7,10 +7,10 @@
 
 #include <fuml/semantics/actions/CreateObjectActionActivation.h>
 
+#include <fuml/semantics/loci/Locus.h>
+#include <fuml/semantics/structuredclassifiers/Reference.h>
 #include <fuml/syntax/actions/CreateObjectAction.h>
 #include <fuml/syntax/structuredclassifiers/Class_.h>
-#include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/semantics/loci/Locus.h>
 
 void CreateObjectActionActivation::doAction()
 {
@@ -21,8 +21,7 @@ void CreateObjectActionActivation::doAction()
 	CreateObjectActionPtr action = std::dynamic_pointer_cast<CreateObjectAction>(this->node);
 
 	ReferencePtr reference(new Reference());
-	reference->referent = this->getExecutionLocus()->instantiate(
-			std::dynamic_pointer_cast<Class_>(action->classifier));
+	reference->referent = this->getExecutionLocus()->instantiate(std::dynamic_pointer_cast<Class_>(action->classifier));
 
 	this->putToken(action->result, reference);
 

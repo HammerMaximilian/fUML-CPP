@@ -7,15 +7,15 @@
 
 #include <fuml/semantics/actions/StructuredActivityNodeActivation.h>
 
-#include <fuml/syntax/actions/StructuredActivityNode.h>
-#include <fuml/syntax/actions/InputPin.h>
-#include <fuml/syntax/actions/OutputPin.h>
 #include <fuml/semantics/actions/PinActivation.h>
 #include <fuml/semantics/activities/ActivityNodeActivationGroup.h>
 #include <fuml/semantics/activities/ObjectToken.h>
+#include <fuml/syntax/actions/InputPin.h>
+#include <fuml/syntax/actions/OutputPin.h>
+#include <fuml/syntax/actions/StructuredActivityNode.h>
 
 void StructuredActivityNodeActivation::setThisStructuredActivityNodeActivationPtr(
-		std::weak_ptr<StructuredActivityNodeActivation> thisStructuredActivityNodeActivationPtr)
+	std::weak_ptr<StructuredActivityNodeActivation> thisStructuredActivityNodeActivationPtr)
 {
 	this->thisStructuredActivityNodeActivationPtr = thisStructuredActivityNodeActivationPtr;
 	ActionActivation::setThisActionActivationPtr(thisStructuredActivityNodeActivationPtr);
@@ -27,11 +27,14 @@ void StructuredActivityNodeActivation::doAction()
 	// its behavior with isolation.
 	// Otherwise just activate it normally.
 
-	if (std::dynamic_pointer_cast<StructuredActivityNode>(this->node)->mustIsolate) {
+	if (std::dynamic_pointer_cast<StructuredActivityNode>(this->node)->mustIsolate)
+	{
 		_beginIsolation();
 		this->doStructuredActivity();
 		_endIsolation();
-	} else {
+	}
+	else
+	{
 		this->doStructuredActivity();
 	}
 } // doAction
@@ -48,7 +51,8 @@ void StructuredActivityNodeActivation::doStructuredActivity()
 
 	// *** Concurrently send offers from all input pins. ***
 	InputPinListPtr inputPins = action->input;
-	for (const InputPinPtr& inputPin : *inputPins) {
+	for (const InputPinPtr& inputPin : *inputPins)
+	{
 		PinActivationPtr pinActivation = this->getPinActivation(inputPin);
 		pinActivation->sendUnofferedTokens();
 	}
@@ -66,8 +70,7 @@ void StructuredActivityNodeActivation::terminate()
 	ActionActivation::terminate();
 } // terminate
 
-ActivityNodeActivationPtr StructuredActivityNodeActivation::getNodeActivation(
-		const ActivityNodePtr&)
+ActivityNodeActivationPtr StructuredActivityNodeActivation::getNodeActivation(const ActivityNodePtr&)
 {
 	// If this structured activity node activation is not for the given
 	// node, then check if there is an activation for the node in the
@@ -76,17 +79,19 @@ ActivityNodeActivationPtr StructuredActivityNodeActivation::getNodeActivation(
 	ActivityNodeActivationPtr thisActivation = ActivityNodeActivation::getNodeActivation(node);
 
 	ActivityNodeActivationPtr activation = nullptr;
-	if (thisActivation != nullptr) {
+	if (thisActivation != nullptr)
+	{
 		activation = thisActivation;
-	} else if (this->activationGroup != nullptr) {
+	}
+	else if (this->activationGroup != nullptr)
+	{
 		activation = this->activationGroup->getNodeActivation(node);
 	}
 
 	return activation;
 } // getNodeActivation
 
-ActivityNodeListPtr StructuredActivityNodeActivation::makeActivityNodeList(
-		const ExecutableNodeListPtr& nodes)
+ActivityNodeListPtr StructuredActivityNodeActivation::makeActivityNodeList(const ExecutableNodeListPtr& nodes)
 {
 	// Return an activity node list containing the given list of executable
 	// nodes
@@ -94,19 +99,23 @@ ActivityNodeListPtr StructuredActivityNodeActivation::makeActivityNodeList(
 
 	ActivityNodeListPtr activityNodes(new ActivityNodeList());
 
-	for (const ActivityNodePtr& node : *nodes) {
+	for (const ActivityNodePtr& node : *nodes)
+	{
 		activityNodes->push_back(node);
 
 		ActionPtr action = std::dynamic_pointer_cast<Action>(node);
 
-		if (action) {
+		if (action)
+		{
 			InputPinListPtr inputPins = action->input;
-			for (const InputPinPtr& inputPin : *inputPins) {
+			for (const InputPinPtr& inputPin : *inputPins)
+			{
 				activityNodes->push_back(inputPin);
 			}
 
 			OutputPinListPtr outputPins = action->output;
-			for (const OutputPinPtr& outputPin : *outputPins) {
+			for (const OutputPinPtr& outputPin : *outputPins)
+			{
 				activityNodes->push_back(outputPin);
 			}
 		}
@@ -115,21 +124,22 @@ ActivityNodeListPtr StructuredActivityNodeActivation::makeActivityNodeList(
 	return activityNodes;
 } // makeActivityNodeList
 
-ValueListPtr StructuredActivityNodeActivation::getPinValues(
-		const OutputPinPtr& pin)
+ValueListPtr StructuredActivityNodeActivation::getPinValues(const OutputPinPtr& pin)
 {
 	// Return the values of the tokens on the pin activation corresponding
 	// to the given pin in the internal activation group for this node
 	// activation.
 
-	PinActivationPtr pinActivation = std::dynamic_pointer_cast<PinActivation>(this->activationGroup
-			->getNodeActivation(pin));
+	PinActivationPtr pinActivation = std::dynamic_pointer_cast<PinActivation>(
+		this->activationGroup->getNodeActivation(pin));
 	const TokenListPtr& tokens = pinActivation->getTokens();
 
 	ValueListPtr values(new ValueList());
-	for (const TokenPtr& token : *tokens) {
+	for (const TokenPtr& token : *tokens)
+	{
 		const ValuePtr& value = std::dynamic_pointer_cast<ObjectToken>(token)->value;
-		if (value != nullptr) {
+		if (value != nullptr)
+		{
 			values->push_back(value);
 		}
 	}
@@ -137,17 +147,17 @@ ValueListPtr StructuredActivityNodeActivation::getPinValues(
 	return values;
 } // getPinValues
 
-void StructuredActivityNodeActivation::putPinValues(
-		const OutputPinPtr& pin, const ValueListPtr& values)
+void StructuredActivityNodeActivation::putPinValues(const OutputPinPtr& pin, const ValueListPtr& values)
 {
 	// Place tokens for the given values on the pin activation corresponding
 	// to the given output pin on the internal activation group for this
 	// node activation.
 
-	PinActivationPtr pinActivation = std::dynamic_pointer_cast<PinActivation>(this->activationGroup
-			->getNodeActivation(pin));
+	PinActivationPtr pinActivation = std::dynamic_pointer_cast<PinActivation>(
+		this->activationGroup->getNodeActivation(pin));
 
-	for (const ValuePtr& value : *values) {
+	for (const ValuePtr& value : *values)
+	{
 		ObjectTokenPtr token(new ObjectToken());
 		token->setThisObjectTokenPtr(token);
 		token->value = value;
@@ -164,8 +174,7 @@ void StructuredActivityNodeActivation::createNodeActivations()
 
 	this->activationGroup.reset(new ActivityNodeActivationGroup());
 	this->activationGroup->containingNodeActivation = this->thisStructuredActivityNodeActivationPtr.lock();
-	this->activationGroup
-			->createNodeActivations(std::dynamic_pointer_cast<StructuredActivityNode>(this->node)->node);
+	this->activationGroup->createNodeActivations(std::dynamic_pointer_cast<StructuredActivityNode>(this->node)->node);
 
 } // createNodeActivations
 
@@ -173,19 +182,18 @@ void StructuredActivityNodeActivation::createEdgeInstances()
 {
 	// Create instances for all edges owned by this node.
 
-	this->activationGroup
-			->createEdgeInstances(std::dynamic_pointer_cast<StructuredActivityNode>(this->node)->edge);
+	this->activationGroup->createEdgeInstances(std::dynamic_pointer_cast<StructuredActivityNode>(this->node)->edge);
 } // createEdgeInstances
 
-bool StructuredActivityNodeActivation::isSourceFor(
-		const ActivityEdgeInstancePtr& edgeInstance)
+bool StructuredActivityNodeActivation::isSourceFor(const ActivityEdgeInstancePtr& edgeInstance)
 {
 	// Returns true if this node is either the source for the given
 	// edgeInstance itself or if it contains the source in its
 	// activation group.
 
 	bool isSource = ActionActivation::isSourceFor(edgeInstance);
-	if (!isSource) {
+	if (!isSource)
+	{
 		isSource = this->activationGroup->hasSourceFor(edgeInstance);
 	}
 	return isSource;
@@ -213,7 +221,8 @@ TokenListPtr StructuredActivityNodeActivation::completeAction()
 	// suspended.
 
 	TokenListPtr incomingTokens(new TokenList());
-	if (!this->isSuspended()) {
+	if (!this->isSuspended())
+	{
 		incomingTokens = ActionActivation::completeAction();
 	}
 	return incomingTokens;
@@ -227,10 +236,12 @@ void StructuredActivityNodeActivation::resume()
 	// then finish its resumption.
 
 	TokenListPtr incomingTokens = ActionActivation::completeAction();
-	if (incomingTokens->size() > 0) {
+	if (incomingTokens->size() > 0)
+	{
 		this->fire(incomingTokens);
 	}
-	if (!this->isSuspended()) {
+	if (!this->isSuspended())
+	{
 		ActivityNodeActivation::resume();
 	}
 } // resume

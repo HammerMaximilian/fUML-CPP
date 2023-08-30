@@ -31,7 +31,8 @@ namespace fuml::semantics::actions
 		protected:
 			virtual ValuePtr new_() override;
 
-	}; // ReturnInformation
+	};
+// ReturnInformation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_RETURNINFORMATION_H_ */

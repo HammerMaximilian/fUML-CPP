@@ -17,15 +17,12 @@ namespace fuml::semantics::actions
 		public:
 			virtual ~LinkActionActivation() = 0;
 
-			bool linkMatchesEndData(
-					const LinkPtr&,
-					const LinkEndDataListPtr&);
-			bool endMatchesEndData(
-					const LinkPtr&,
-					const LinkEndDataPtr&);
+			bool linkMatchesEndData(const LinkPtr&, const LinkEndDataListPtr&);
+			bool endMatchesEndData(const LinkPtr&, const LinkEndDataPtr&);
 			AssociationPtr getAssociation();
 
-	}; // LinkActionActivation
+	};
+// LinkActionActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIONS_LINKACTIONACTIVATION_H_ */

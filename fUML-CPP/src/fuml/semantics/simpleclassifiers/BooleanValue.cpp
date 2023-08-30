@@ -6,6 +6,7 @@
  */
 
 #include <fuml/semantics/simpleclassifiers/BooleanValue.h>
+
 #include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
 #include <fuml/syntax/values/LiteralBoolean.h>
 
@@ -29,7 +30,8 @@ bool BooleanValue::equals(const ValuePtr& otherValue)
 
 	bool isEqual = false;
 	BooleanValuePtr booleanValue = std::dynamic_pointer_cast<BooleanValue>(otherValue);
-	if (booleanValue) {
+	if (booleanValue)
+	{
 		isEqual = (booleanValue->value == this->value);
 	}
 
@@ -50,7 +52,8 @@ std::string BooleanValue::toString()
 {
 	std::string stringValue = "false";
 
-	if (this->value) {
+	if (this->value)
+	{
 		stringValue = "true";
 	}
 

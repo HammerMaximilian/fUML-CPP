@@ -8,8 +8,8 @@
 #ifndef FUML_SEMANTICS_COMMONBEHAVIOR_CLASSIFIERBEHAVIORINVOCATIONEVENTACCEPTER_H_
 #define FUML_SEMANTICS_COMMONBEHAVIOR_CLASSIFIERBEHAVIORINVOCATIONEVENTACCEPTER_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/semantics/commonbehavior/EventAccepter.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::semantics::commonbehavior
 {
@@ -25,15 +25,15 @@ namespace fuml::semantics::commonbehavior
 
 		public:
 			virtual ~ClassifierBehaviorInvocationEventAccepter() = default;
-			void setThisClassifierBehaviorInvocationEventAccepterPtr(std::weak_ptr<ClassifierBehaviorInvocationEventAccepter>);
-		
-			void invokeBehavior(
-					const Class_Ptr&,
-					const ParameterValueListPtr&);
+			void setThisClassifierBehaviorInvocationEventAccepterPtr(
+				std::weak_ptr<ClassifierBehaviorInvocationEventAccepter>);
+
+			void invokeBehavior(const Class_Ptr&, const ParameterValueListPtr&);
 			virtual bool match(const EventOccurrencePtr&) override;
 			virtual void accept(const EventOccurrencePtr&) override;
 			void terminate();
-	}; //
+	};
+// ClassifierBehaviorInvocationEventAccepter
 }
 
 #endif /* FUML_SEMANTICS_COMMONBEHAVIOR_CLASSIFIERBEHAVIORINVOCATIONEVENTACCEPTER_H_ */

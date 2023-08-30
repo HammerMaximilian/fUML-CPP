@@ -25,7 +25,8 @@ namespace fuml::semantics::activities
 			virtual void fire(const TokenListPtr&) override;
 			virtual void clearTokens() override;
 
-	}; // ActivityParameterNodeActivation
+	};
+// ActivityParameterNodeActivation
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_ACTIVITYPARAMETERNODEACTIVATION_H_ */

@@ -26,7 +26,8 @@ namespace fuml::semantics::activities
 			void removeOfferedValues(int);
 			void removeWithdrawnTokens();
 			bool hasTokens();
-	}; // Offer
+	};
+// Offer
 }
 
 #endif /* FUML_SEMANTICS_ACTIVITIES_OFFER_H_ */

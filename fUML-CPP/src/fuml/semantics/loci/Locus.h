@@ -10,7 +10,7 @@
 
 #include <fuml/semantics/fwd.h>
 #include <fuml/syntax/fwd.h>
-#include "utils/FumlObject.h"
+#include <utils/FumlObject.h>
 
 namespace fuml::semantics::loci
 {
@@ -28,7 +28,7 @@ namespace fuml::semantics::loci
 		public:
 			virtual ~Locus() = default;
 			void setThisLocusPtr(std::weak_ptr<Locus>);
-		
+
 			void setExecutor(const ExecutorPtr&);
 			void setFactory(const ExecutionFactoryPtr&);
 			ExtensionalValueListPtr getExtent(const ClassifierPtr&);
@@ -36,11 +36,10 @@ namespace fuml::semantics::loci
 			std::string makeIdentifier(const ExtensionalValuePtr&);
 			void remove(const ExtensionalValuePtr&);
 			Object_Ptr instantiate(const Class_Ptr&);
-			bool conforms(
-					const ClassifierPtr&,
-					const ClassifierPtr&);
+			bool conforms(const ClassifierPtr&, const ClassifierPtr&);
 
-	}; // Locus
+	};
+// Locus
 }
 
 #endif /* FUML_SEMANTICS_LOCI_LOCUS_H_ */
