@@ -17,7 +17,7 @@
 #include <fuml/syntax/actions/ExpansionRegion.h>
 #include <fuml/syntax/actions/InputPin.h>
 
-void ExpansionRegionActivation::setThisExpansionRegionActivation(
+void ExpansionRegionActivation::setThisExpansionRegionActivationPtr(
 	std::weak_ptr<ExpansionRegionActivation> thisExpansionRegionActivationPtr)
 {
 	this->thisExpansionRegionActivationPtr = thisExpansionRegionActivationPtr;

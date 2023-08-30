@@ -28,7 +28,7 @@ namespace fuml::semantics::activities
 
 		public:
 			virtual ~ActivityNodeActivation() = 0;
-			void setThisActivityNodeActivation(std::weak_ptr<ActivityNodeActivation>);
+			void setThisActivityNodeActivationPtr(std::weak_ptr<ActivityNodeActivation>);
 
 			virtual void initialize(const ActivityNodePtr&, const ActivityNodeActivationGroupPtr&);
 			virtual void run();

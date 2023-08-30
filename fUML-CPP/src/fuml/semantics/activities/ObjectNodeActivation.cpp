@@ -14,11 +14,11 @@ ObjectNodeActivation::~ObjectNodeActivation()
 {
 }
 
-void fuml::semantics::activities::ObjectNodeActivation::setThisObjectNodeActivation(
+void fuml::semantics::activities::ObjectNodeActivation::setThisObjectNodeActivationPtr(
 	std::weak_ptr<ObjectNodeActivation> thisObjectNodeActivationPtr)
 {
 	this->thisObjectNodeActivationPtr = thisObjectNodeActivationPtr;
-	ActivityNodeActivation::setThisActivityNodeActivation(thisObjectNodeActivationPtr);
+	ActivityNodeActivation::setThisActivityNodeActivationPtr(thisObjectNodeActivationPtr);
 }
 
 void ObjectNodeActivation::run()

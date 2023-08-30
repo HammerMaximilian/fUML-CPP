@@ -16,11 +16,11 @@
 #include <fuml/syntax/classification/Parameter.h>
 #include <fuml/syntax/commonbehavior/Behavior.h>
 
-void ActivityParameterNodeActivation::setThisActivityParameterNodeActivation(
+void ActivityParameterNodeActivation::setThisActivityParameterNodeActivationPtr(
 	std::weak_ptr<ActivityParameterNodeActivation> thisActivityParameterNodeActivationPtr)
 {
 	this->thisActivityParameterNodeActivationPtr = thisActivityParameterNodeActivationPtr;
-	ObjectNodeActivation::setThisObjectNodeActivation(thisActivityParameterNodeActivationPtr);
+	ObjectNodeActivation::setThisObjectNodeActivationPtr(thisActivityParameterNodeActivationPtr);
 }
 
 void ActivityParameterNodeActivation::run()

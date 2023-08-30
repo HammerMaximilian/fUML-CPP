@@ -19,7 +19,7 @@ namespace fuml::semantics::activities
 
 		public:
 			virtual ~ActivityParameterNodeActivation() = default;
-			void setThisActivityParameterNodeActivation(std::weak_ptr<ActivityParameterNodeActivation>);
+			void setThisActivityParameterNodeActivationPtr(std::weak_ptr<ActivityParameterNodeActivation>);
 
 			virtual void run() override;
 			virtual void fire(const TokenListPtr&) override;

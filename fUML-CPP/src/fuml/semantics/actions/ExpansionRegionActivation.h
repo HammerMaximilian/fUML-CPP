@@ -25,7 +25,7 @@ namespace fuml::semantics::actions
 
 		public:
 			virtual ~ExpansionRegionActivation() = default;
-			void setThisExpansionRegionActivation(std::weak_ptr<ExpansionRegionActivation>);
+			void setThisExpansionRegionActivationPtr(std::weak_ptr<ExpansionRegionActivation>);
 
 			virtual TokenListPtr takeOfferedTokens() override;
 			virtual void doAction() override;

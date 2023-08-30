@@ -36,7 +36,7 @@ ActionActivation::~ActionActivation()
 void ActionActivation::setThisActionActivationPtr(std::weak_ptr<ActionActivation> thisActionActivationPtr)
 {
 	this->thisActionActivationPtr = thisActionActivationPtr;
-	ActivityNodeActivation::setThisActivityNodeActivation(thisActionActivationPtr);
+	ActivityNodeActivation::setThisActivityNodeActivationPtr(thisActionActivationPtr);
 }
 
 void ActionActivation::initialize(const ActivityNodePtr& node, const ActivityNodeActivationGroupPtr& group)

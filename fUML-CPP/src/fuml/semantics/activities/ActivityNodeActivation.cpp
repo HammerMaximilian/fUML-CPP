@@ -18,7 +18,7 @@ ActivityNodeActivation::~ActivityNodeActivation()
 {
 }
 
-void fuml::semantics::activities::ActivityNodeActivation::setThisActivityNodeActivation(
+void fuml::semantics::activities::ActivityNodeActivation::setThisActivityNodeActivationPtr(
 	std::weak_ptr<ActivityNodeActivation> thisActivityNodeActivationPtr)
 {
 	this->thisActivityNodeActivationPtr = thisActivityNodeActivationPtr;
