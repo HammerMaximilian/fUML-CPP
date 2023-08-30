@@ -19,9 +19,10 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~ReadStructuralFeatureAction() = default;
-		
+
 			void setResult(const OutputPinPtr&);
-	}; // ReadStructuralFeatureAction
+	};
+// ReadStructuralFeatureAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_READSTRUCTURALFEATUREACTION_H_ */

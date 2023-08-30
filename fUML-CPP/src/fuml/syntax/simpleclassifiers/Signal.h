@@ -24,9 +24,9 @@ namespace fuml::syntax::simpleclassifiers
 			virtual ~Signal() = default;
 			void setThisSignalPtr(std::weak_ptr<Signal>);
 
-			void addOwnedAttribute(
-				const PropertyPtr&);
-	}; // Signal
+			void addOwnedAttribute(const PropertyPtr&);
+	};
+// Signal
 }
 
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_SIGNAL_H_ */

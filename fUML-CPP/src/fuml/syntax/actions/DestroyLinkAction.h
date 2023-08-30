@@ -19,9 +19,10 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~DestroyLinkAction() = default;
-		
+
 			void addEndData(const LinkEndDestructionDataPtr&);
-	}; // DestroyLinkAction
+	};
+// DestroyLinkAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_DESTROYLINKACTION_H_ */

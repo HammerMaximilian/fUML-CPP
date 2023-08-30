@@ -14,7 +14,7 @@ void AddStructuralFeatureValueAction::setIsReplaceAll(bool isReplaceAll)
 
 void AddStructuralFeatureValueAction::setInsertAt(const InputPinPtr& insertAt)
 {
-	if(insertAt != nullptr)
+	if (insertAt != nullptr)
 	{
 		Action::addInput(insertAt);
 	}

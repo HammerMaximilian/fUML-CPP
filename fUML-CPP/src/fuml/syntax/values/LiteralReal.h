@@ -19,9 +19,10 @@ namespace fuml::syntax::values
 
 		public:
 			virtual ~LiteralReal() = default;
-		
+
 			void setValue(float);
-	}; // LiteralReal
+	};
+// LiteralReal
 }
 
 #endif /* FUML_SYNTAX_VALUES_LITERALREAL_H_ */

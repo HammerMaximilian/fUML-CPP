@@ -29,20 +29,17 @@ namespace fuml::syntax::commonstructure
 			virtual ~Namespace() = 0;
 			void setThisNamespacePtr(std::weak_ptr<Namespace>);
 
-			void addElementImport(
-				const ElementImportPtr&);
-			void addPackageImport(
-				const PackageImportPtr&);
+			void addElementImport(const ElementImportPtr&);
+			void addPackageImport(const PackageImportPtr&);
 
 		protected:
-			void addOwnedMember(
-				const NamedElementPtr&);
+			void addOwnedMember(const NamedElementPtr&);
 			void addMember(const NamedElementPtr&);
 
 		private:
-			void addImportedMember(
-				const PackageableElementPtr&);
-	}; // Namespace
+			void addImportedMember(const PackageableElementPtr&);
+	};
+// Namespace
 }
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_NAMESPACE_H_ */

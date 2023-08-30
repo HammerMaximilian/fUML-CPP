@@ -20,10 +20,11 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~CallOperationAction() = default;
-		
+
 			void setTarget(const InputPinPtr&);
 			void setOperation(const OperationPtr&);
-	}; // CallBehaviorAction
+	};
+// CallBehaviorAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_CALLOPERATIONACTION_H_ */

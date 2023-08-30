@@ -20,12 +20,11 @@ namespace fuml::syntax::activities
 
 		public:
 			virtual ~DecisionNode() = default;
-			
-			void setDecisionInput(
-					const BehaviorPtr&);
-			void setDecisionInputFlow(
-					const ObjectFlowPtr&);
-	}; // DecisionNode
+
+			void setDecisionInput(const BehaviorPtr&);
+			void setDecisionInputFlow(const ObjectFlowPtr&);
+	};
+// DecisionNode
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_DECISIONNODE_H_ */

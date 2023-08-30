@@ -12,8 +12,7 @@ void ReadIsClassifiedObjectAction::setIsDirect(bool isDirect)
 	this->isDirect = isDirect;
 } // setIsDirect
 
-void ReadIsClassifiedObjectAction::setClassifier(
-	const ClassifierPtr& classifier)
+void ReadIsClassifiedObjectAction::setClassifier(const ClassifierPtr& classifier)
 {
 	this->classifier = classifier;
 } // setClassifier

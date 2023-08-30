@@ -20,10 +20,11 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~SendSignalAction() = default;
-		
+
 			void setTarget(const InputPinPtr&);
 			void setSignal(const SignalPtr&);
-	}; // SendSignalAction
+	};
+// SendSignalAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_SENDSIGNALACTION_H_ */

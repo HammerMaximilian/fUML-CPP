@@ -16,8 +16,9 @@ namespace fuml::syntax::simpleclassifiers
 	{
 		public:
 			virtual ~PrimitiveType() = default;
-		
-	}; // PrimitiveType
+
+	};
+// PrimitiveType
 }
 
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_PRIMITIVETYPE_H_ */

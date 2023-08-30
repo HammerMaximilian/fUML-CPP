@@ -20,10 +20,11 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~ValueSpecificationAction() = default;
-			
+
 			void setValue(const ValueSpecificationPtr&);
 			void setResult(const OutputPinPtr&);
-	}; // ValueSpecificationAction
+	};
+// ValueSpecificationAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_VALUESPECIFICATIONACTION_H_ */

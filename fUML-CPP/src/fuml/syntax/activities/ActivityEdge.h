@@ -28,16 +28,13 @@ namespace fuml::syntax::activities
 			virtual ~ActivityEdge() = 0;
 			void setThisActivityEdgePtr(std::weak_ptr<ActivityEdge>);
 
-			void setTarget(
-					const ActivityNodePtr&);
-			void setSource(
-					const ActivityNodePtr&);
+			void setTarget(const ActivityNodePtr&);
+			void setSource(const ActivityNodePtr&);
 			void setGuard(const ValueSpecificationPtr&);
-			void _setActivity(
-					const ActivityPtr&);
-			void _setInStructuredNode(
-					const StructuredActivityNodePtr&);
-	}; // ActivityEdge
+			void _setActivity(const ActivityPtr&);
+			void _setInStructuredNode(const StructuredActivityNodePtr&);
+	};
+// ActivityEdge
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYEDGE_H_ */

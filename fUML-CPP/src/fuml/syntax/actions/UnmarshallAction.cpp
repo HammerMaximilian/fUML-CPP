@@ -19,8 +19,7 @@ void UnmarshallAction::addResult(const OutputPinPtr& result)
 	this->result->push_back(result);
 }
 
-void UnmarshallAction::setUnmarshallType(
-	const ClassifierPtr& unmarshallType)
+void UnmarshallAction::setUnmarshallType(const ClassifierPtr& unmarshallType)
 {
 	this->unmarshallType = unmarshallType;
 }

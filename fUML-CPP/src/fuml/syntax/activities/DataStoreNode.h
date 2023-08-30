@@ -16,8 +16,9 @@ namespace fuml::syntax::activities
 	{
 		public:
 			virtual ~DataStoreNode() = default;
-			
-	}; // DataStoreNode
+
+	};
+// DataStoreNode
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_DATASTORENODE_H_ */

@@ -25,8 +25,7 @@ void Association::addOwnedEnd(const PropertyPtr& ownedEnd)
 	this->_addMemberEnd(ownedEnd);
 } // addOwnedEnd
 
-void Association::addNavigableOwnedEnd(
-	const PropertyPtr& navigableOwnedEnd)
+void Association::addNavigableOwnedEnd(const PropertyPtr& navigableOwnedEnd)
 {
 	// Note: A navigable end must also be set as an owned end using
 	// setOwnedEnd.
@@ -58,7 +57,9 @@ void Association::_addMemberEnd(const PropertyPtr& memberEnd)
 		const PropertyPtr& opposite = this->memberEnd->at(0);
 		memberEnd->_setOpposite(opposite);
 		opposite->_setOpposite(memberEnd);
-	} else if (this->memberEnd->size() > 2) {
+	}
+	else if (this->memberEnd->size() > 2)
+	{
 		for (const PropertyPtr& end : *(this->memberEnd))
 		{
 			end->_setOpposite(nullptr);

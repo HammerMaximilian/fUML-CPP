@@ -7,8 +7,7 @@
 
 #include <fuml/syntax/actions/ReplyAction.h>
 
-void ReplyAction::setReplyToCall(
-	const TriggerPtr& replyToCall)
+void ReplyAction::setReplyToCall(const TriggerPtr& replyToCall)
 {
 	this->replyToCall = replyToCall;
 }

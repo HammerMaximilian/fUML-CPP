@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_SIMPLECLASSIFIERS_DATATYPE_H_
 #define FUML_SYNTAX_SIMPLECLASSIFIERS_DATATYPE_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/classification/Classifier.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::syntax::simpleclassifiers
 {
@@ -25,9 +25,9 @@ namespace fuml::syntax::simpleclassifiers
 			virtual ~DataType() = default;
 			void setThisDataTypePtr(std::weak_ptr<DataType>);
 
-			void addOwnedAttribute(
-				const PropertyPtr&);
-	}; // DataType
+			void addOwnedAttribute(const PropertyPtr&);
+	};
+// DataType
 }
 
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_DATATYPE_H_ */

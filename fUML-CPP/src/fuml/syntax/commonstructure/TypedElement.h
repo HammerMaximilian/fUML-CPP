@@ -12,16 +12,17 @@
 
 namespace fuml::syntax::commonstructure
 {
-	class TypedElement : virtual public NamedElement {
-
+	class TypedElement : virtual public NamedElement
+	{
 		public:
 			TypePtr type = nullptr;
 
 		public:
 			virtual ~TypedElement() = default;
-		
+
 			void setType(const TypePtr&);
-	}; // TypedElement
+	};
+// TypedElement
 }
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_TYPEDELEMENT_H_ */

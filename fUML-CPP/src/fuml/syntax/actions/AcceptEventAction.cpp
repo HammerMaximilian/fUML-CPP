@@ -12,8 +12,7 @@ void AcceptEventAction::setIsUnmarshall(bool isUnmarshall)
 	this->isUnmarshall = isUnmarshall;
 } // setIsUnmarshall
 
-void AcceptEventAction::addTrigger(
-	const TriggerPtr& trigger)
+void AcceptEventAction::addTrigger(const TriggerPtr& trigger)
 {
 	this->trigger->push_back(trigger);
 } // addTrigger

@@ -16,14 +16,12 @@ void RedefinableElement::setIsLeaf(bool isLeaf)
 	this->isLeaf = isLeaf;
 } // setIsLeaf
 
-void RedefinableElement::addRedefinedElement(
-	const RedefinableElementPtr& redefinedElement)
+void RedefinableElement::addRedefinedElement(const RedefinableElementPtr& redefinedElement)
 {
 	this->redefinedElement->push_back(redefinedElement);
 } // addRedefinedElement
 
-void RedefinableElement::addRedefinitionContext(
-	const ClassifierPtr& redefinitionContext)
+void RedefinableElement::addRedefinitionContext(const ClassifierPtr& redefinitionContext)
 {
 	this->redefinitionContext->push_back(redefinitionContext);
 } // addRedefinitionContext

@@ -30,20 +30,18 @@ namespace fuml::syntax::classification
 			virtual ~Classifier() = 0;
 			void setThisClassifierPtr(std::weak_ptr<Classifier>);
 
-			virtual void addGeneralization(
-				const GeneralizationPtr&);
+			virtual void addGeneralization(const GeneralizationPtr&);
 			void setIsAbstract(bool);
-			virtual NamedElementListPtr inherit(
-				const NamedElementListPtr&);
-			NamedElementListPtr inheritableMembers(
-				const ClassifierPtr&);
+			virtual NamedElementListPtr inherit(const NamedElementListPtr&);
+			NamedElementListPtr inheritableMembers(const ClassifierPtr&);
 			bool hasVisibilityOf(const NamedElementPtr&);
 			void setIsFinalSpecialization(bool);
 
-			protected:
-				void addFeature(const FeaturePtr&);
-				void addAttribute(const PropertyPtr&);
-	}; //Classifier
+		protected:
+			void addFeature(const FeaturePtr&);
+			void addAttribute(const PropertyPtr&);
+	};
+//Classifier
 }
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_CLASSIFIER_H_ */

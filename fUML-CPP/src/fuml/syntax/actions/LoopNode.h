@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_LOOPNODE_H_
 #define FUML_SYNTAX_ACTIONS_LOOPNODE_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/actions/StructuredActivityNode.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::syntax::actions
 {
@@ -28,21 +28,17 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~LoopNode() = default;
-		
+
 			void setIsTestedFirst(bool);
-			void addTest(
-					const ExecutableNodePtr&);
-			void addBodyPart(
-					const ExecutableNodePtr&);
-			void addLoopVariableInput(
-					const InputPinPtr&);
-			void addLoopVariable(
-					const OutputPinPtr&);
+			void addTest(const ExecutableNodePtr&);
+			void addBodyPart(const ExecutableNodePtr&);
+			void addLoopVariableInput(const InputPinPtr&);
+			void addLoopVariable(const OutputPinPtr&);
 			void setDecider(const OutputPinPtr&);
-			void addBodyOutput(
-					const OutputPinPtr&);
+			void addBodyOutput(const OutputPinPtr&);
 			void addResult(const OutputPinPtr&);
-	}; // LoopNode
+	};
+// LoopNode
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_LOOPNODE_H_ */

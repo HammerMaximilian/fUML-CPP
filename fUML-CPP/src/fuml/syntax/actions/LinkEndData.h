@@ -20,10 +20,11 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~LinkEndData() = default;
-		
+
 			void setEnd(const PropertyPtr&);
 			void setValue(const InputPinPtr&);
-	}; // LinkEndData
+	};
+// LinkEndData
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_LINKENDDATA_H_ */

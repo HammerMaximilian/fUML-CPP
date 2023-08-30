@@ -5,10 +5,10 @@
  *      Author: maha6913
  */
 
+#include <algorithm>
 #include <fuml/syntax/actions/StructuredActivityNode.h>
 #include <fuml/syntax/activities/Activity.h>
 #include <fuml/syntax/activities/ActivityEdge.h>
-#include <algorithm>
 #include <iterator>
 
 void Activity::setThisActivityPtr(std::weak_ptr<Activity> thisActivityPtr)
@@ -22,8 +22,7 @@ void Activity::setIsReadOnly(bool isReadOnly)
 	this->isReadOnly = isReadOnly;
 } // setIsReadOnly
 
-void Activity::addNode(
-	const ActivityNodePtr& node)
+void Activity::addNode(const ActivityNodePtr& node)
 {
 	if (std::find(this->node->begin(), this->node->end(), node) == this->node->end())
 	{
@@ -33,11 +32,11 @@ void Activity::addNode(
 		node->_setActivity(thisActivityPtr.lock());
 	}
 
-	StructuredActivityNodePtr structuredActivityNode =
-			std::dynamic_pointer_cast<StructuredActivityNode>(node);
+	StructuredActivityNodePtr structuredActivityNode = std::dynamic_pointer_cast<StructuredActivityNode>(node);
 
-	if (structuredActivityNode &&
-			(std::find(this->structuredNode->begin(), this->structuredNode->end(), node) == this->structuredNode->end())) {
+	if (structuredActivityNode
+		&& (std::find(this->structuredNode->begin(), this->structuredNode->end(), node) == this->structuredNode->end()))
+	{
 		this->structuredNode->push_back(structuredActivityNode);
 	}
 
@@ -53,8 +52,7 @@ void Activity::addGroup(const ActivityGroupPtr& group)
 	this->group->push_back(group);
 }
 
-void Activity::addEdge(
-	const ActivityEdgePtr& edge)
+void Activity::addEdge(const ActivityEdgePtr& edge)
 {
 	Element::addOwnedElement(edge);
 
@@ -62,8 +60,7 @@ void Activity::addEdge(
 	edge->_setActivity(thisActivityPtr.lock());
 } // addEdge
 
-void Activity::_setContext(
-	const BehavioredClassifierPtr& context)
+void Activity::_setContext(const BehavioredClassifierPtr& context)
 {
 	// Note: The context of an activity should be set only _after_ all nodes
 	// have been added to the activity.
@@ -72,8 +69,7 @@ void Activity::_setContext(
 
 	for (const ActivityNodePtr& node : *(this->node))
 	{
-		ActionPtr action =
-				std::dynamic_pointer_cast<Action>(node);
+		ActionPtr action = std::dynamic_pointer_cast<Action>(node);
 		if (action)
 		{
 			action->_setContext(context);

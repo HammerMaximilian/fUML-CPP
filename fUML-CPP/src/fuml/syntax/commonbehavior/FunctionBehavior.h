@@ -16,8 +16,9 @@ namespace fuml::syntax::commonbehavior
 	{
 		public:
 			virtual ~FunctionBehavior() = default;
-			
-	}; // FunctionBehavior
+
+	};
+// FunctionBehavior
 }
 
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_FUNCTIONBEHAVIOR_H_ */

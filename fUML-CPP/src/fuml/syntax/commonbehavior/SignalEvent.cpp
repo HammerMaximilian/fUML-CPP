@@ -7,8 +7,7 @@
 
 #include <fuml/syntax/commonbehavior/SignalEvent.h>
 
-void SignalEvent::setSignal(
-	const SignalPtr& signal)
+void SignalEvent::setSignal(const SignalPtr& signal)
 {
 	this->signal = signal;
 } // setSignal

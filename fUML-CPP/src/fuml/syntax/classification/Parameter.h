@@ -14,9 +14,7 @@
 
 namespace fuml::syntax::classification
 {
-	class Parameter :
-		virtual public MultiplicityElement,
-		virtual public TypedElement
+	class Parameter : virtual public MultiplicityElement, virtual public TypedElement
 	{
 		public:
 			ParameterDirectionKind direction = ParameterDirectionKind::in;
@@ -25,12 +23,12 @@ namespace fuml::syntax::classification
 
 		public:
 			virtual ~Parameter() = default;
-			
-			void setDirection(
-					ParameterDirectionKind);
+
+			void setDirection(ParameterDirectionKind);
 			void setIsStream(bool);
 			void _setOperation(const OperationPtr&);
-	}; // Parameter
+	};
+// Parameter
 }
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_PARAMETER_H_ */

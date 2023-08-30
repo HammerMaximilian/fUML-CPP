@@ -7,14 +7,12 @@
 
 #include <fuml/syntax/activities/DecisionNode.h>
 
-void DecisionNode::setDecisionInput(
-	const BehaviorPtr& decisionInput)
+void DecisionNode::setDecisionInput(const BehaviorPtr& decisionInput)
 {
 	this->decisionInput = decisionInput;
 } // setDecisionInput
 
-void DecisionNode::setDecisionInputFlow(
-	const ObjectFlowPtr& decisionInputFlow)
+void DecisionNode::setDecisionInputFlow(const ObjectFlowPtr& decisionInputFlow)
 {
 	this->decisionInputFlow = decisionInputFlow;
 } // setDecisionInputFlow

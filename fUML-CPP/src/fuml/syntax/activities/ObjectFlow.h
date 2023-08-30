@@ -16,7 +16,8 @@ namespace fuml::syntax::activities
 	{
 		public:
 			virtual ~ObjectFlow() = default;
-	}; // ObjectFlow
+	};
+// ObjectFlow
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_OBJECTFLOW_H_ */

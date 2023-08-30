@@ -10,7 +10,6 @@
 
 #include <fuml/syntax/commonstructure/NamedElement.h>
 
-
 namespace fuml::syntax::classification
 {
 	class RedefinableElement : virtual public NamedElement
@@ -26,11 +25,10 @@ namespace fuml::syntax::classification
 			void setIsLeaf(bool);
 
 		protected:
-			void addRedefinedElement(
-					const RedefinableElementPtr&);
-			void addRedefinitionContext(
-					const ClassifierPtr&);
-	}; // RedefinableElement
+			void addRedefinedElement(const RedefinableElementPtr&);
+			void addRedefinitionContext(const ClassifierPtr&);
+	};
+// RedefinableElement
 }
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_REDEFINABLEELEMENT_H_ */

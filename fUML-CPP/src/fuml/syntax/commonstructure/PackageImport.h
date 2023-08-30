@@ -23,14 +23,12 @@ namespace fuml::syntax::commonstructure
 
 		public:
 			virtual ~PackageImport() = default;
-		
-			void setVisibility(
-				VisibilityKind);
-			void setImportedPackage(
-				const PackagePtr&);
-			void _setImportingNamespace(
-				const NamespacePtr&);
-	}; // PackageImport
+
+			void setVisibility(VisibilityKind);
+			void setImportedPackage(const PackagePtr&);
+			void _setImportingNamespace(const NamespacePtr&);
+	};
+// PackageImport
 }
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_PACKAGEIMPORT_H_ */

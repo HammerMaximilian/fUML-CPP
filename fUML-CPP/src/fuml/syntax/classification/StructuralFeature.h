@@ -14,19 +14,17 @@
 
 namespace fuml::syntax::classification
 {
-	class StructuralFeature :
-		virtual public Feature,
-		virtual public MultiplicityElement,
-		virtual public TypedElement
+	class StructuralFeature : virtual public Feature, virtual public MultiplicityElement, virtual public TypedElement
 	{
 		public:
 			bool isReadOnly = false;
 
 		public:
 			virtual ~StructuralFeature() = default;
-			
+
 			virtual void setIsReadOnly(bool);
-	}; // StructuralFeature
+	};
+// StructuralFeature
 }
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_STRUCTURALFEATURE_H_ */

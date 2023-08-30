@@ -6,8 +6,8 @@
  */
 
 #include <fuml/syntax/classification/BehavioralFeature.h>
-#include <fuml/syntax/commonbehavior/Behavior.h>
 #include <fuml/syntax/classification/Parameter.h>
+#include <fuml/syntax/commonbehavior/Behavior.h>
 
 BehavioralFeature::~BehavioralFeature()
 {
@@ -24,15 +24,13 @@ void BehavioralFeature::setIsAbstract(bool isAbstract)
 	this->isAbstract = isAbstract;
 } // setIsAbstract
 
-void BehavioralFeature::addOwnedParameter(
-	const ParameterPtr& ownedParameter)
+void BehavioralFeature::addOwnedParameter(const ParameterPtr& ownedParameter)
 {
 	Namespace::addOwnedMember(ownedParameter);
 	this->ownedParameter->push_back(ownedParameter);
 } // addOwnedParameter
 
-void BehavioralFeature::addMethod(
-	const BehaviorPtr& method)
+void BehavioralFeature::addMethod(const BehaviorPtr& method)
 {
 	method->_setSpecification(thisBehavioralFeaturePtr.lock());
 	this->method->push_back(method);

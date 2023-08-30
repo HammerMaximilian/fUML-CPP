@@ -9,8 +9,8 @@
 #define FUML_SYNTAX_COMMONBEHAVIOR_OPAQUEBEHAVIOR_H_
 
 #include <fuml/syntax/commonbehavior/Behavior.h>
-#include <UMLPrimitiveTypes/stringList.h>
 #include <string>
+#include <UMLPrimitiveTypes/stringList.h>
 
 namespace fuml::syntax::commonbehavior
 {
@@ -22,10 +22,11 @@ namespace fuml::syntax::commonbehavior
 
 		public:
 			virtual ~OpaqueBehavior() = default;
-			
+
 			void addBody(std::string);
 			void addLanguage(std::string);
-	}; // OpaqueBehavior
+	};
+// OpaqueBehavior
 }
 
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_OPAQUEBEHAVIOR_H_ */

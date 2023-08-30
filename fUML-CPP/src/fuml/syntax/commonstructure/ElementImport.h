@@ -24,14 +24,13 @@ namespace fuml::syntax::commonstructure
 
 		public:
 			virtual ~ElementImport() = default;
-		
+
 			void setAlias(std::string);
 			void setVisibility(VisibilityKind);
-			void setImportedElement(
-				const PackageableElementPtr&);
-			void _setImportingNamespace(
-				const NamespacePtr&);
-	}; // ElementImport
+			void setImportedElement(const PackageableElementPtr&);
+			void _setImportingNamespace(const NamespacePtr&);
+	};
+// ElementImport
 }
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_ELEMENTIMPORT_H_ */

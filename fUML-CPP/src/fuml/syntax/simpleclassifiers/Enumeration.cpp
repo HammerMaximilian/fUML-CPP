@@ -14,8 +14,7 @@ void Enumeration::setThisEnumerationPtr(std::weak_ptr<Enumeration> thisEnumerati
 	DataType::setThisDataTypePtr(thisEnumerationPtr);
 }
 
-void Enumeration::addOwnedLiteral(
-	const EnumerationLiteralPtr& ownedLiteral)
+void Enumeration::addOwnedLiteral(const EnumerationLiteralPtr& ownedLiteral)
 {
 	Namespace::addOwnedMember(ownedLiteral);
 

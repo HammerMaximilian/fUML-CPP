@@ -14,7 +14,7 @@ void RemoveStructuralFeatureValueAction::setIsRemoveDuplicates(bool isRemoveDupl
 
 void RemoveStructuralFeatureValueAction::setRemoveAt(const InputPinPtr& removeAt)
 {
-	if(removeAt != nullptr)
+	if (removeAt != nullptr)
 	{
 		Action::addInput(removeAt);
 	}

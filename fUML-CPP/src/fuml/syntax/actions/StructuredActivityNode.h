@@ -31,18 +31,14 @@ namespace fuml::syntax::actions
 			void setThisStructuredActivityNodePtr(std::weak_ptr<StructuredActivityNode>);
 
 			void setMustIsolate(bool);
-			void addNode(
-					const ActivityNodePtr&);
-			void addEdge(
-					const ActivityEdgePtr&);
-			void addStructuredNodeOutput(
-					const OutputPinPtr&);
-			void addStructuredNodeInput(
-					const InputPinPtr&);
+			void addNode(const ActivityNodePtr&);
+			void addEdge(const ActivityEdgePtr&);
+			void addStructuredNodeOutput(const OutputPinPtr&);
+			void addStructuredNodeInput(const InputPinPtr&);
 			void _setContext(const ClassifierPtr&);
-			void _setActivity(
-					const ActivityPtr&);
-	}; // StructuredActivityNode
+			void _setActivity(const ActivityPtr&);
+	};
+// StructuredActivityNode
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_STRUCTUREDACTIVITYNODE_H_ */

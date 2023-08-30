@@ -20,16 +20,15 @@ void Classifier::setThisClassifierPtr(std::weak_ptr<Classifier> thisClassifierPt
 	Namespace::setThisNamespacePtr(thisClassifierPtr);
 }
 
-void Classifier::addGeneralization(
-	const GeneralizationPtr& generalization)
+void Classifier::addGeneralization(const GeneralizationPtr& generalization)
 {
 	this->addOwnedElement(generalization);
 	this->generalization->push_back(generalization);
 	generalization->_setSpecific(thisClassifierPtr.lock());
 	this->general->push_back(generalization->general);
 
-	NamedElementListPtr inheritedMembers =
-		this->inherit(generalization->general->inheritableMembers(thisClassifierPtr.lock()));
+	NamedElementListPtr inheritedMembers = this->inherit(
+		generalization->general->inheritableMembers(thisClassifierPtr.lock()));
 
 	for (const NamedElementPtr& inheritedMember : *inheritedMembers)
 	{
@@ -43,12 +42,12 @@ void Classifier::setIsAbstract(bool isAbstract)
 	this->isAbstract = isAbstract;
 } // setIsAbstract
 
-NamedElementListPtr Classifier::inherit(
-	const NamedElementListPtr& inhs)
+NamedElementListPtr Classifier::inherit(const NamedElementListPtr& inhs)
 {
 	NamedElementListPtr inheritedElements = std::make_shared<NamedElementList>();
 
-	for (const NamedElementPtr& inh : *inhs) {
+	for (const NamedElementPtr& inh : *inhs)
+	{
 		inheritedElements->push_back(inh);
 	}
 
@@ -56,13 +55,14 @@ NamedElementListPtr Classifier::inherit(
 
 } // inherit
 
-NamedElementListPtr Classifier::inheritableMembers(
-	const ClassifierPtr& c)
+NamedElementListPtr Classifier::inheritableMembers(const ClassifierPtr& c)
 {
 	NamedElementListPtr inheritable = std::make_shared<NamedElementList>();
 
-	for (const NamedElementPtr& m : *(this->member)) {
-		if (c->hasVisibilityOf(m)) {
+	for (const NamedElementPtr& m : *(this->member))
+	{
+		if (c->hasVisibilityOf(m))
+		{
 			inheritable->push_back(m);
 		}
 	}
@@ -72,8 +72,10 @@ NamedElementListPtr Classifier::inheritableMembers(
 
 bool Classifier::hasVisibilityOf(const NamedElementPtr& n)
 {
-	for (const NamedElementPtr& inheritedMember : *(this->inheritedMember)) {
-		if (inheritedMember == n) {
+	for (const NamedElementPtr& inheritedMember : *(this->inheritedMember))
+	{
+		if (inheritedMember == n)
+		{
 			return n->visibility != VisibilityKind::private_;
 		}
 	}

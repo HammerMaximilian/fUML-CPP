@@ -16,7 +16,8 @@ namespace fuml::syntax::commonbehavior
 	{
 		public:
 			virtual ~MessageEvent() = 0;
-	}; // MessageEvent
+	};
+// MessageEvent
 }
 
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_MESSAGEEVENT_H_ */

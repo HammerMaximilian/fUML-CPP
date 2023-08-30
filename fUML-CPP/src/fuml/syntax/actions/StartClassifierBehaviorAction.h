@@ -19,9 +19,10 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~StartClassifierBehaviorAction() = default;
-		
+
 			void setObject(const InputPinPtr&);
-	}; // StartClassifierBehaviorAction
+	};
+// StartClassifierBehaviorAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_STARTCLASSIFIERBEHAVIORACTION_H_ */

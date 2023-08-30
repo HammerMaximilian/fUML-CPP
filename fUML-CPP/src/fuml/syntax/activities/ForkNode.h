@@ -16,7 +16,8 @@ namespace fuml::syntax::activities
 	{
 		public:
 			virtual ~ForkNode() = default;
-	}; // ForkNode
+	};
+// ForkNode
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_FORKNODE_H_ */

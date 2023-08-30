@@ -20,10 +20,11 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~RemoveStructuralFeatureValueAction() = default;
-		
+
 			void setIsRemoveDuplicates(bool);
 			void setRemoveAt(const InputPinPtr&);
-	}; // RemoveStructuralFeatureValueAction
+	};
+// RemoveStructuralFeatureValueAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_REMOVESTRUCTURALFEATUREVALUEACTION_H_ */

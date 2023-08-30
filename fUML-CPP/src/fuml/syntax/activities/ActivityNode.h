@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_ACTIVITYNODE_H_
 #define FUML_SYNTAX_ACTIVITIES_ACTIVITYNODE_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/classification/RedefinableElement.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::syntax::activities
 {
@@ -24,15 +24,12 @@ namespace fuml::syntax::activities
 		public:
 			virtual ~ActivityNode() = 0;
 
-			virtual void _setActivity(
-					const ActivityPtr&);
-			void _setInStructuredNode(
-					const StructuredActivityNodePtr&);
-			void _addIncoming(
-					const ActivityEdgePtr&);
-			void _addOutgoing(
-					const ActivityEdgePtr&);
-	}; // ActivityNode
+			virtual void _setActivity(const ActivityPtr&);
+			void _setInStructuredNode(const StructuredActivityNodePtr&);
+			void _addIncoming(const ActivityEdgePtr&);
+			void _addOutgoing(const ActivityEdgePtr&);
+	};
+// ActivityNode
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYNODE_H_ */

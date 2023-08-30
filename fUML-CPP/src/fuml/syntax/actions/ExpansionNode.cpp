@@ -7,12 +7,12 @@
 
 #include <fuml/syntax/actions/ExpansionNode.h>
 
-void ExpansionNode::_setRegionAsInput(
-		const ExpansionRegionPtr& regionAsInput) {
+void ExpansionNode::_setRegionAsInput(const ExpansionRegionPtr& regionAsInput)
+{
 	this->regionAsInput = regionAsInput;
 } // _setRegionAsInput
 
-void ExpansionNode::_setRegionAsOutput(
-		const ExpansionRegionPtr& regionAsOutput) {
+void ExpansionNode::_setRegionAsOutput(const ExpansionRegionPtr& regionAsOutput)
+{
 	this->regionAsOutput = regionAsOutput;
 } // _setRegionAsOutput

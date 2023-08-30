@@ -16,7 +16,8 @@ namespace fuml::syntax::activities
 	{
 		public:
 			virtual ~ControlNode() = 0;
-	}; // ControlNode
+	};
+// ControlNode
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_CONTROLNODE_H_ */

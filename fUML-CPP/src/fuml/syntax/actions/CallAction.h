@@ -22,7 +22,8 @@ namespace fuml::syntax::actions
 			virtual ~CallAction() = 0;
 
 			void addResult(const OutputPinPtr&);
-	}; // CallAction
+	};
+// CallAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_CALLACTION_H_ */

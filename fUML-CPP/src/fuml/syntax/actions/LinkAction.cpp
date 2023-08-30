@@ -11,14 +11,12 @@ LinkAction::~LinkAction()
 {
 }
 
-void LinkAction::addEndData(
-	const LinkEndDataPtr& endData)
+void LinkAction::addEndData(const LinkEndDataPtr& endData)
 {
 	this->endData->push_back(endData);
 } //addEndData
 
-void LinkAction::addInputValue(
-	const InputPinPtr& inputValue)
+void LinkAction::addInputValue(const InputPinPtr& inputValue)
 {
 	Action::addInput(inputValue);
 	this->inputValue->push_back(inputValue);

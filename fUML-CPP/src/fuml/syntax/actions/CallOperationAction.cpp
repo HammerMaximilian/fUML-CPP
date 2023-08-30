@@ -13,8 +13,7 @@ void CallOperationAction::setTarget(const InputPinPtr& target)
 	this->target = target;
 }
 
-void CallOperationAction::setOperation(
-	const OperationPtr& operation)
+void CallOperationAction::setOperation(const OperationPtr& operation)
 {
 	this->operation = operation;
 } // setOperation

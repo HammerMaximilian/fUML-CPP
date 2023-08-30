@@ -33,7 +33,8 @@ namespace fuml::syntax::packages
 			PackageableElementListPtr visibleMembers();
 			bool makesVisible(const NamedElementPtr&);
 			void setURI(std::string URI);
-	}; //Package
+	};
+//Package
 }
 
 #endif /* FUML_SYNTAX_PACKAGES_PACKAGE_H_ */

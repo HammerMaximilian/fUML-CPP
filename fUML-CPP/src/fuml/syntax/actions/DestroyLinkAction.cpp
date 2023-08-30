@@ -8,8 +8,7 @@
 #include <fuml/syntax/actions/DestroyLinkAction.h>
 #include <fuml/syntax/actions/LinkEndDestructionData.h>
 
-void DestroyLinkAction::addEndData(
-	const LinkEndDestructionDataPtr& endData)
+void DestroyLinkAction::addEndData(const LinkEndDestructionDataPtr& endData)
 {
 	LinkAction::addEndData(endData);
 	this->endData->push_back(endData);

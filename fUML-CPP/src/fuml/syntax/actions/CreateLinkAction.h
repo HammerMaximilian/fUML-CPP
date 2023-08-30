@@ -19,9 +19,10 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~CreateLinkAction() = default;
-		
+
 			void addEndData(const LinkEndCreationDataPtr&);
-	}; // CreateLinkAction
+	};
+// CreateLinkAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_CREATELINKACTION_H_ */

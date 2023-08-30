@@ -29,13 +29,12 @@ namespace fuml::syntax::commonstructure
 
 			void setIsOrdered(bool);
 			void setIsUnique(bool);
-			void setUpperValue(
-				const ValueSpecificationPtr&);
-			void setLowerValue(
-				const ValueSpecificationPtr&);
+			void setUpperValue(const ValueSpecificationPtr&);
+			void setLowerValue(const ValueSpecificationPtr&);
 			void setUpper(int);
 			void setLower(int);
-	}; // MultiplicityElement
+	};
+// MultiplicityElement
 }
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_MULTIPLICITYELEMENT_H_ */

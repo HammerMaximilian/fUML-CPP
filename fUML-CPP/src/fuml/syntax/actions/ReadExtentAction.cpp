@@ -13,8 +13,7 @@ void ReadExtentAction::setResult(const OutputPinPtr& result)
 	this->result = result;
 } // setResult
 
-void ReadExtentAction::setClassifier(
-	const ClassifierPtr& classifier)
+void ReadExtentAction::setClassifier(const ClassifierPtr& classifier)
 {
 	this->classifier = classifier;
 } // setClassifier

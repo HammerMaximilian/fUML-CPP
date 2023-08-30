@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_CLASSIFICATION_INSTANCESPECIFICATION_H_
 #define FUML_SYNTAX_CLASSIFICATION_INSTANCESPECIFICATION_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/commonstructure/NamedElement.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::syntax::classification
 {
@@ -28,7 +28,8 @@ namespace fuml::syntax::classification
 
 			void addClassifier(const ClassifierPtr&);
 			void addSlot(const SlotPtr&);
-	}; // InstanceSpecification
+	};
+// InstanceSpecification
 }
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_INSTANCESPECIFICATION_H_ */

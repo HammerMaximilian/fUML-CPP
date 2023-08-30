@@ -16,8 +16,9 @@ namespace fuml::syntax::values
 	{
 		public:
 			virtual ~LiteralNull() = default;
-		
-	}; // LiteralNull
+
+	};
+// LiteralNull
 }
 
 #endif /* FUML_SYNTAX_VALUES_LITERALNULL_H_ */

@@ -8,7 +8,7 @@
 #ifdef NDEBUG
 	#define LOG_INFO(a)		/**/
 	#define LOG_DEBUG(a)	/**/
-	#define LOG_ERROR(a)		/**/
+	#define LOG_ERROR(a)	/**/
 #else
 	#define LOG_INFO(a) 		std::cout<<"[\e[0;32mINFO\e[0m]:\t\t"<<__PRETTY_FUNCTION__<<"\n\t\t  -- Message: "<<a<<std::endl;
 	#define LOG_DEBUG(a) 		std::cout<<"[\e[0;34mDEBUG\e[0m]:\t"<<__PRETTY_FUNCTION__<<"\n\t\t  -- Message: "<<a<<std::endl;
@@ -23,7 +23,7 @@ using namespace utils;
 
 void Debug::println(bool condition, std::string message)
 {
-	if(condition)
+	if (condition)
 	{
 		Debug::println(message);
 	}
@@ -31,11 +31,11 @@ void Debug::println(bool condition, std::string message)
 
 void Debug::println(std::string message)
 {
-	if(message.length() >= 7 && message.substr(0,7) == "[event]")
+	if (message.length() >= 7 && message.substr(0, 7) == "[event]")
 	{
 		LOG_INFO(message.substr(8, message.length()));
 	}
-	else if(message.length() >= 7 && message.substr(0,7) == "[error]")
+	else if (message.length() >= 7 && message.substr(0, 7) == "[error]")
 	{
 		LOG_ERROR(message.substr(8, message.length()));
 	}

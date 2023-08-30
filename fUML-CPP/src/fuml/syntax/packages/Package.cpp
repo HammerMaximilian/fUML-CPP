@@ -19,14 +19,12 @@ void Package::setThisPackagePtr(std::weak_ptr<Package> thisPackagePtr)
 	Namespace::setThisNamespacePtr(thisPackagePtr);
 }
 
-void Package::addPackagedElement(
-		const PackageableElementPtr& packagedElement)
+void Package::addPackagedElement(const PackageableElementPtr& packagedElement)
 {
 	Namespace::addOwnedMember(packagedElement);
 	this->packagedElement->push_back(packagedElement);
 
-	TypePtr type =
-			std::dynamic_pointer_cast<Type>(packagedElement);
+	TypePtr type = std::dynamic_pointer_cast<Type>(packagedElement);
 
 	if (type)
 	{
@@ -34,8 +32,7 @@ void Package::addPackagedElement(
 		type->_setPackage(thisPackagePtr.lock());
 	}
 
-	PackagePtr package =
-			std::dynamic_pointer_cast<Package>(packagedElement);
+	PackagePtr package = std::dynamic_pointer_cast<Package>(packagedElement);
 
 	if (package)
 	{
@@ -47,8 +44,7 @@ void Package::addPackagedElement(
 
 PackageableElementListPtr Package::visibleMembers()
 {
-	PackageableElementListPtr visibleMembers =
-			std::make_shared<PackageableElementList>();
+	PackageableElementListPtr visibleMembers = std::make_shared<PackageableElementList>();
 
 	for (const PackageableElementPtr& member : *(this->packagedElement))
 	{
@@ -67,8 +63,7 @@ bool Package::makesVisible(const NamedElementPtr& el)
 	{
 		if (member == el)
 		{
-			return ((member->visibility == VisibilityKind::null_)
-					|| (member->visibility == VisibilityKind::public_));
+			return ((member->visibility == VisibilityKind::null_) || (member->visibility == VisibilityKind::public_));
 		}
 	}
 
@@ -82,7 +77,8 @@ bool Package::makesVisible(const NamedElementPtr& el)
 
 	for (const PackageImportPtr& packageImport : *(this->packageImport))
 	{
-		if (packageImport->visibility == VisibilityKind::public_) {
+		if (packageImport->visibility == VisibilityKind::public_)
+		{
 			// NOTE: This won't work unless the imported package members
 			// have already been loaded
 			NamedElementListPtr packageMembers = packageImport->importedPackage->member;

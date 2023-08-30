@@ -25,7 +25,8 @@ namespace fuml::syntax::activities
 			void setThisExecutableNodePtr(std::weak_ptr<ExecutableNode>);
 
 			void addExceptionHandler(const ExceptionHandlerPtr&);
-	}; // ExecutableNode
+	};
+// ExecutableNode
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_EXECUTABLENODE_H_ */

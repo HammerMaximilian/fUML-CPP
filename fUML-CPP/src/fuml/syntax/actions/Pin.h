@@ -13,13 +13,12 @@
 
 namespace fuml::syntax::actions
 {
-	class Pin:
-		virtual public MultiplicityElement,
-		virtual public ObjectNode
+	class Pin : virtual public MultiplicityElement, virtual public ObjectNode
 	{
 		public:
 			virtual ~Pin() = 0;
-	}; // Pin
+	};
+// Pin
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_PIN_H_ */

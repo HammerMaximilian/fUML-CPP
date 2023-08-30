@@ -19,9 +19,10 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~RaiseExceptionAction() = default;
-		
+
 			void setException(const InputPinPtr&);
-	}; // RaiseExceptionAction
+	};
+// RaiseExceptionAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_RAISEEXCEPTIONACTION_H_ */

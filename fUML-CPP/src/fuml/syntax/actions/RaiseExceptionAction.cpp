@@ -11,7 +11,5 @@ void RaiseExceptionAction::setException(const InputPinPtr& exception)
 {
 	Action::addInput(exception);
 	this->exception = exception;
-}
-
-
+} // setException
 

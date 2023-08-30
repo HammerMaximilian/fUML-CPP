@@ -30,13 +30,13 @@ namespace fuml::syntax::actions
 
 			void setIsLocallyReentrant(bool);
 			virtual void _setContext(const ClassifierPtr&);
-			void _setActivity(
-					const ActivityPtr&);
+			void _setActivity(const ActivityPtr&);
 
 		protected:
 			void addInput(const InputPinPtr&);
 			void addOutput(const OutputPinPtr&);
-	}; // Action
+	};
+// Action
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_ACTION_H_ */

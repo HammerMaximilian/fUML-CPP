@@ -13,8 +13,7 @@ void SendSignalAction::setTarget(const InputPinPtr& target)
 	this->target = target;
 } // setTarget
 
-void SendSignalAction::setSignal(
-	const SignalPtr& signal)
+void SendSignalAction::setSignal(const SignalPtr& signal)
 {
 	this->signal = signal;
 } // setSignal

@@ -19,9 +19,10 @@ namespace fuml::syntax::values
 
 		public:
 			virtual ~LiteralBoolean() = default;
-		
+
 			void setValue(bool);
-	}; // LiteralBoolean
+	};
+// LiteralBoolean
 }
 
 #endif /* FUML_SYNTAX_VALUES_LITERALBOOLEAN_H_ */

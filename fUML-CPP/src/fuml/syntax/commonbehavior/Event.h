@@ -16,8 +16,9 @@ namespace fuml::syntax::commonbehavior
 	{
 		public:
 			virtual ~Event() = default;
-			
-	}; // Event
+
+	};
+// Event
 }
 
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_EVENT_H_ */

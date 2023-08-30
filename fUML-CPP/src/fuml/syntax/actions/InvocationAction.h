@@ -20,7 +20,8 @@ namespace fuml::syntax::actions
 			virtual ~InvocationAction() = 0;
 
 			void addArgument(const InputPinPtr&);
-	}; // InvocationAction
+	};
+// InvocationAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_INVOCATIONACTION_H_ */

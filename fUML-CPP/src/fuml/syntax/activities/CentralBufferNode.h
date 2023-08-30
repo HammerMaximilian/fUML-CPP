@@ -16,8 +16,9 @@ namespace fuml::syntax::activities
 	{
 		public:
 			virtual ~CentralBufferNode() = default;
-			
-	}; // CentralBufferNode
+
+	};
+// CentralBufferNode
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_CENTRALBUFFERNODE_H_ */

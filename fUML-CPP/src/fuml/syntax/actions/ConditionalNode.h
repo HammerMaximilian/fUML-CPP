@@ -22,13 +22,13 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~ConditionalNode() = default;
-		
+
 			void setIsDeterminate(bool);
 			void setIsAssured(bool);
-			void addClause(
-					const ClausePtr&);
+			void addClause(const ClausePtr&);
 			void addResult(const OutputPinPtr&);
-	}; // ConditionalNode
+	};
+// ConditionalNode
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_CONDITIONALNODE_H_ */

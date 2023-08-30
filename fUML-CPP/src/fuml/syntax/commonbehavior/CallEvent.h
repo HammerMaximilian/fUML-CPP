@@ -19,9 +19,10 @@ namespace fuml::syntax::commonbehavior
 
 		public:
 			virtual ~CallEvent() = default;
-			
+
 			void setOperation(const OperationPtr&);
-	}; // CallEvent
+	};
+// CallEvent
 }
 
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_CALLEVENT_H_ */

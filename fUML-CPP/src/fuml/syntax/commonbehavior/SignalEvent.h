@@ -19,10 +19,10 @@ namespace fuml::syntax::commonbehavior
 
 		public:
 			virtual ~SignalEvent() = default;
-			
-			void setSignal(
-				const SignalPtr&);
-	}; // SignalEvent
+
+			void setSignal(const SignalPtr&);
+	};
+// SignalEvent
 }
 
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_SIGNALEVENT_H_ */

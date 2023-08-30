@@ -19,15 +19,13 @@ void ActivityEdge::setThisActivityEdgePtr(std::weak_ptr<ActivityEdge> thisActivi
 	Element::setThisElementPtr(thisActivityEdgePtr);
 }
 
-void ActivityEdge::setTarget(
-	const ActivityNodePtr& target)
+void ActivityEdge::setTarget(const ActivityNodePtr& target)
 {
 	this->target = target;
 	target->_addIncoming(thisActivityEdgePtr.lock());
 } // setTarget
 
-void ActivityEdge::setSource(
-	const ActivityNodePtr& source)
+void ActivityEdge::setSource(const ActivityNodePtr& source)
 {
 	this->source = source;
 	source->_addOutgoing(thisActivityEdgePtr.lock());
@@ -35,21 +33,20 @@ void ActivityEdge::setSource(
 
 void ActivityEdge::setGuard(const ValueSpecificationPtr& guard)
 {
-	if (guard != nullptr) {
+	if (guard != nullptr)
+	{
 		Element::addOwnedElement(guard);
 	}
 
 	this->guard = guard;
 } // setGuard
 
-void ActivityEdge::_setActivity(
-	const ActivityPtr& activity)
+void ActivityEdge::_setActivity(const ActivityPtr& activity)
 {
 	this->activity = activity;
 } // _setActivity
 
-void ActivityEdge::_setInStructuredNode(
-	const StructuredActivityNodePtr& inStructuredNode)
+void ActivityEdge::_setInStructuredNode(const StructuredActivityNodePtr& inStructuredNode)
 {
 	this->inStructuredNode = inStructuredNode;
 } // _setInStructuredNode

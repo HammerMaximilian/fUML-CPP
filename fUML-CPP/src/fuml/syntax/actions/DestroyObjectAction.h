@@ -21,11 +21,12 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~DestroyObjectAction() = default;
-		
+
 			void setIsDestroyLinks(bool);
 			void setIsDestroyOwnedObjects(bool);
 			void setTarget(const InputPinPtr& target);
-	}; // DestroyObjectAction
+	};
+// DestroyObjectAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_DESTROYOBJECTACTION_H_ */

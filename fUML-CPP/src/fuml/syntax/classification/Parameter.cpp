@@ -5,11 +5,10 @@
  *      Author: maha6913
  */
 
-#include <fuml/syntax/classification/Parameter.h>
 #include <fuml/syntax/classification/Operation.h>
+#include <fuml/syntax/classification/Parameter.h>
 
-void Parameter::setDirection(
-	ParameterDirectionKind direction)
+void Parameter::setDirection(ParameterDirectionKind direction)
 {
 	this->direction = direction;
 } // setDirection

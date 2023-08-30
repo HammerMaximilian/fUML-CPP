@@ -12,8 +12,7 @@ void ReduceAction::setIsOrdered(bool isOrdered)
 	this->isOrdered = isOrdered;
 } //setIsOrdered
 
-void ReduceAction::setReducer(
-	const BehaviorPtr& reducer)
+void ReduceAction::setReducer(const BehaviorPtr& reducer)
 {
 	this->reducer = reducer;
 } // setReducer

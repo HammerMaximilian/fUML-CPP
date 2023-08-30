@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_EXCEPTIONHANDLER_H_
 #define FUML_SYNTAX_ACTIVITIES_EXCEPTIONHANDLER_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/commonstructure/Element.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::syntax::activities
 {
@@ -45,11 +45,12 @@ namespace fuml::syntax::activities
 
 		public:
 			virtual ~ExceptionHandler() = default;
-			
+
 			void setExceptionInput(const ObjectNodePtr&);
 			void addExceptionType(const ClassifierPtr&);
 			void setHandlerBody(const ExecutableNodePtr&);
-	}; // ExceptionHandler
+	};
+// ExceptionHandler
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_EXCEPTIONHANDLER_H_ */

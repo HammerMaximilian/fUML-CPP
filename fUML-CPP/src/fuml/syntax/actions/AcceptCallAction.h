@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_ACCEPTCALLACTION_H_
 #define FUML_SYNTAX_ACTIONS_ACCEPTCALLACTION_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/actions/AcceptEventAction.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::syntax::actions
 {
@@ -20,9 +20,10 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~AcceptCallAction() = default;
-		
+
 			void setReturnInformation(const OutputPinPtr&);
-	}; // AcceptCallAction
+	};
+// AcceptCallAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_ACCEPTCALLACTION_H_ */

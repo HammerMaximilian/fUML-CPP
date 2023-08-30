@@ -7,8 +7,7 @@
 
 #include <fuml/syntax/classification/InstanceValue.h>
 
-void InstanceValue::setInstance(
-		const InstanceSpecificationPtr& instance)
+void InstanceValue::setInstance(const InstanceSpecificationPtr& instance)
 {
 	this->instance = instance;
 } // setInstance

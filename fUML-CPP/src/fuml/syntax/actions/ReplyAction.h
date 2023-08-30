@@ -21,11 +21,12 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~ReplyAction() = default;
-		
+
 			void setReplyToCall(const TriggerPtr&);
 			void addReplyValue(const InputPinPtr&);
 			void setReturnInformation(const InputPinPtr&);
-	}; // ReplyAction
+	};
+// ReplyAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_REPLYACTION_H_ */

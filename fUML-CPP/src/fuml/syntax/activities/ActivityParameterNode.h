@@ -19,9 +19,10 @@ namespace fuml::syntax::activities
 
 		public:
 			virtual ~ActivityParameterNode() = default;
-			
+
 			void setParameter(const ParameterPtr&);
-	}; // ActivityParameterNode
+	};
+// ActivityParameterNode
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYPARAMETERNODE_H_ */

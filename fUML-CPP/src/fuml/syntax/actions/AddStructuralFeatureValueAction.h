@@ -20,10 +20,11 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~AddStructuralFeatureValueAction() = default;
-		
+
 			void setIsReplaceAll(bool);
 			void setInsertAt(const InputPinPtr&);
-	}; // AddStructuralFeatureValueAction
+	};
+// AddStructuralFeatureValueAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_ADDSTRUCTURALFEATUREVALUEACTION_H_ */

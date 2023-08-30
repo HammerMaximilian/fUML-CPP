@@ -16,7 +16,8 @@ namespace fuml::syntax::activities
 	{
 		public:
 			virtual ~FinalNode() = 0;
-	}; // FinalNode
+	};
+// FinalNode
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_FINALNODE_H_ */

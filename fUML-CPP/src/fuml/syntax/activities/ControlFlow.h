@@ -16,8 +16,9 @@ namespace fuml::syntax::activities
 	{
 		public:
 			virtual ~ControlFlow() = default;
-			
-	}; // ControlFlow
+
+	};
+// ControlFlow
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_CONTROLFLOW_H_ */

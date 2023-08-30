@@ -16,8 +16,7 @@ void Element::setThisElementPtr(std::weak_ptr<Element> thisElementPtr)
 	this->thisElementPtr = thisElementPtr;
 }
 
-void Element::addOwnedElement(
-	const ElementPtr& ownedElement)
+void Element::addOwnedElement(const ElementPtr& ownedElement)
 {
 	this->ownedElement->push_back(ownedElement);
 	ownedElement->owner = thisElementPtr.lock();

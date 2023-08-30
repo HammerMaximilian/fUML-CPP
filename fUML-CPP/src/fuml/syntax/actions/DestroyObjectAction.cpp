@@ -17,8 +17,7 @@ void DestroyObjectAction::setIsDestroyOwnedObjects(bool isDestroyOwnedObjects)
 	this->isDestroyOwnedObjects = isDestroyOwnedObjects;
 } // setIsDestroyOwnedObjects
 
-void DestroyObjectAction::setTarget(
-	const InputPinPtr& target)
+void DestroyObjectAction::setTarget(const InputPinPtr& target)
 {
 	Action::addInput(target);
 	this->target = target;

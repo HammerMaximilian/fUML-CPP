@@ -18,6 +18,7 @@ namespace fuml::syntax::commonstructure
 			PackageableElement();
 			virtual ~PackageableElement() = 0;
 	};
+// PackageableElement
 }
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_PACKAGEABLEELEMENT_H_ */

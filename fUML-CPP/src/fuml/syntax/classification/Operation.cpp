@@ -21,14 +21,14 @@ void Operation::setIsQuery(bool isQuery)
 	this->isQuery = isQuery;
 } // setIsQuery
 
-void Operation::addOwnedParameter(
-	const ParameterPtr& ownedParameter)
+void Operation::addOwnedParameter(const ParameterPtr& ownedParameter)
 {
 	BehavioralFeature::addOwnedParameter(ownedParameter);
 	this->ownedParameter->push_back(ownedParameter);
 	ownedParameter->_setOperation(thisOperationPtr.lock());
 
-	if (ownedParameter->direction == ParameterDirectionKind::return_) {
+	if (ownedParameter->direction == ParameterDirectionKind::return_)
+	{
 		this->isOrdered = ownedParameter->isOrdered;
 		this->isUnique = ownedParameter->isUnique;
 		this->lower = ownedParameter->lower;
@@ -37,15 +37,13 @@ void Operation::addOwnedParameter(
 	}
 } // addOwnedParameter
 
-void Operation::addRedefinedOperation(
-	const OperationPtr& redefinedOperation)
+void Operation::addRedefinedOperation(const OperationPtr& redefinedOperation)
 {
 	RedefinableElement::addRedefinedElement(redefinedOperation);
 	this->redefinedOperation->push_back(redefinedOperation);
 } // addRedefinedOperation
 
-void Operation::addMethod(
-	const BehaviorPtr& method)
+void Operation::addMethod(const BehaviorPtr& method)
 {
 	// Note: To have a method, an operation must be owned by a class. The
 	// method must be an owned behavior of the class.
@@ -55,6 +53,7 @@ void Operation::addMethod(
 
 } // addMethod
 
-void Operation::_setClass(const std::shared_ptr<Class_>& class_) {
+void Operation::_setClass(const std::shared_ptr<Class_>& class_)
+{
 	this->class_ = class_;
 } // _setClass

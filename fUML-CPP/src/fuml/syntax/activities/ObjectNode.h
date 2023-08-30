@@ -13,13 +13,12 @@
 
 namespace fuml::syntax::activities
 {
-	class ObjectNode :
-		virtual public ActivityNode,
-		virtual public TypedElement
+	class ObjectNode : virtual public ActivityNode, virtual public TypedElement
 	{
 		public:
 			virtual ~ObjectNode() = 0;
-	}; // ObjectNode
+	};
+// ObjectNode
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_OBJECTNODE_H_ */

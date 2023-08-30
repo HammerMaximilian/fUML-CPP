@@ -20,10 +20,11 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~CreateObjectAction() = default;
-		
+
 			void setClassifier(const ClassifierPtr&);
 			void setResult(const OutputPinPtr& result);
-	}; // CreateObjectAction
+	};
+// CreateObjectAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_CREATEOBJECTACTION_H_ */

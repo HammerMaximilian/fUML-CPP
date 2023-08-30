@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_EXPANSIONNODE_H_
 #define FUML_SYNTAX_ACTIONS_EXPANSIONNODE_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/activities/ObjectNode.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::syntax::actions
 {
@@ -21,12 +21,11 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~ExpansionNode() = default;
-		
-			void _setRegionAsInput(
-					const ExpansionRegionPtr&);
-			void _setRegionAsOutput(
-					const ExpansionRegionPtr&);
-	}; // ExpansionNode
+
+			void _setRegionAsInput(const ExpansionRegionPtr&);
+			void _setRegionAsOutput(const ExpansionRegionPtr&);
+	};
+// ExpansionNode
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_EXPANSIONNODE_H_ */

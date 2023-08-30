@@ -7,8 +7,7 @@
 
 #include <fuml/syntax/actions/ValueSpecificationAction.h>
 
-void ValueSpecificationAction::setValue(
-	const ValueSpecificationPtr& value)
+void ValueSpecificationAction::setValue(const ValueSpecificationPtr& value)
 {
 	this->value = value;
 } // setValue

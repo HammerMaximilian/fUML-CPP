@@ -22,13 +22,12 @@ namespace fuml::syntax::classification
 
 		public:
 			virtual ~Slot() = default;
-			
-			void setDefiningFeature(
-					StructuralFeaturePtr);
+
+			void setDefiningFeature(StructuralFeaturePtr);
 			void addValue(ValueSpecificationPtr);
-			void _setOwningInstance(
-					InstanceSpecificationPtr);
-	}; // Slot
+			void _setOwningInstance(InstanceSpecificationPtr);
+	};
+// Slot
 }
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_SLOT_H_ */

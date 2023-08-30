@@ -19,9 +19,10 @@ namespace fuml::syntax::values
 
 		public:
 			virtual ~LiteralInteger() = default;
-		
+
 			void setValue(int);
-	}; // LiteralInteger
+	};
+// LiteralInteger
 }
 
 #endif /* FUML_SYNTAX_VALUES_LITERALINTEGER_H_ */

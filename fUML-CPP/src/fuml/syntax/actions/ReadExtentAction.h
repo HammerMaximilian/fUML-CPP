@@ -20,10 +20,11 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~ReadExtentAction() = default;
-		
+
 			void setResult(const OutputPinPtr&);
 			void setClassifier(const ClassifierPtr&);
-	}; // ReadExtentAction
+	};
+// ReadExtentAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_READEXTENTACTION_H_ */

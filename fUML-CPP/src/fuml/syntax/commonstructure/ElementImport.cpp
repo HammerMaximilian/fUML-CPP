@@ -18,14 +18,12 @@ void ElementImport::setVisibility(VisibilityKind visibility)
 	this->visibility = visibility;
 } // setVisibility
 
-void ElementImport::setImportedElement(
-	const PackageableElementPtr& importedElement)
+void ElementImport::setImportedElement(const PackageableElementPtr& importedElement)
 {
 	this->importedElement = importedElement;
 } // setImportedElement
 
-void ElementImport::_setImportingNamespace(
-	const NamespacePtr& importingNamespace)
+void ElementImport::_setImportingNamespace(const NamespacePtr& importingNamespace)
 {
 	this->importingNamespace = importingNamespace;
 } // _setImportingNamespace

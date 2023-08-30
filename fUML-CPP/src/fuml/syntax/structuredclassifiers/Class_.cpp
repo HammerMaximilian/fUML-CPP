@@ -22,21 +22,19 @@ void Class_::setIsActive(bool isActive)
 	this->isActive = isActive;
 } // setIsActive
 
-void Class_::addGeneralization(
-		const GeneralizationPtr& generalization)
+void Class_::addGeneralization(const GeneralizationPtr& generalization)
 {
 	Classifier::addGeneralization(generalization);
 
-	std::shared_ptr<Class_> superClass =
-		std::dynamic_pointer_cast<Class_>(generalization->general);
+	std::shared_ptr<Class_> superClass = std::dynamic_pointer_cast<Class_>(generalization->general);
 
-	if (superClass) {
+	if (superClass)
+	{
 		this->superClass->push_back(superClass);
 	}
 } // addGeneralization
 
-void Class_::addOwnedAttribute(
-		const PropertyPtr& ownedAttribute)
+void Class_::addOwnedAttribute(const PropertyPtr& ownedAttribute)
 {
 	Classifier::addAttribute(ownedAttribute);
 	Namespace::addOwnedMember(ownedAttribute);
@@ -45,8 +43,7 @@ void Class_::addOwnedAttribute(
 	ownedAttribute->_setClass(thisClass_Ptr.lock());
 } // addOwnedAttribute
 
-void Class_::addOwnedOperation(
-		const OperationPtr& ownedOperation)
+void Class_::addOwnedOperation(const OperationPtr& ownedOperation)
 {
 	Classifier::addFeature(ownedOperation);
 	Namespace::addOwnedMember(ownedOperation);
@@ -55,8 +52,7 @@ void Class_::addOwnedOperation(
 	ownedOperation->_setClass(thisClass_Ptr.lock());
 } // addOwnedOperation
 
-void Class_::addOwnedReception(
-		const ReceptionPtr& ownedReception)
+void Class_::addOwnedReception(const ReceptionPtr& ownedReception)
 {
 	Namespace::addOwnedMember(ownedReception);
 	Classifier::addFeature(ownedReception);
@@ -64,8 +60,7 @@ void Class_::addOwnedReception(
 	this->ownedReception->push_back(ownedReception);
 } // addOwnedReception
 
-NamedElementListPtr Class_::inherit(
-		const NamedElementListPtr& inhs)
+NamedElementListPtr Class_::inherit(const NamedElementListPtr& inhs)
 {
 	// "The inherit operation is overridden to exclude redefined properties."
 
@@ -73,8 +68,7 @@ NamedElementListPtr Class_::inherit(
 
 	for (const NamedElementPtr& member : *(this->ownedMember))
 	{
-		RedefinableElementPtr redefinableElement =
-			std::dynamic_pointer_cast<RedefinableElement>(member);
+		RedefinableElementPtr redefinableElement = std::dynamic_pointer_cast<RedefinableElement>(member);
 		if (redefinableElement)
 		{
 			redefinableMembers->push_back(redefinableElement);
@@ -86,10 +80,13 @@ NamedElementListPtr Class_::inherit(
 	for (const NamedElementPtr& inh : *inhs)
 	{
 		bool exclude = false;
-		for (const RedefinableElementPtr& redElem : *redefinableMembers) {
+		for (const RedefinableElementPtr& redElem : *redefinableMembers)
+		{
 			RedefinableElementListPtr redefinedElements = redElem->redefinedElement;
-			for (const RedefinableElementPtr& redElem_ : *redefinedElements) {
-				if (redElem_ == inh) {
+			for (const RedefinableElementPtr& redElem_ : *redefinedElements)
+			{
+				if (redElem_ == inh)
+				{
 					exclude = true;
 					break;
 				}
@@ -98,7 +95,8 @@ NamedElementListPtr Class_::inherit(
 				break;
 		}
 
-		if (!exclude) {
+		if (!exclude)
+		{
 			inherited->push_back(inh);
 		}
 	}
@@ -106,8 +104,7 @@ NamedElementListPtr Class_::inherit(
 	return inherited;
 } // inherit
 
-void Class_::addNestedClassifier(
-		const ClassifierPtr& nestedClassifier)
+void Class_::addNestedClassifier(const ClassifierPtr& nestedClassifier)
 {
 	this->addOwnedMember(nestedClassifier);
 	this->nestedClassifier->push_back(nestedClassifier);

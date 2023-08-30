@@ -12,12 +12,13 @@
 
 namespace fuml::syntax::actions
 {
-	class OutputPin: virtual public Pin
+	class OutputPin : virtual public Pin
 	{
 		public:
 			virtual ~OutputPin() = default;
-		
-	}; // OutputPin
+
+	};
+// OutputPin
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_OUTPUTPIN_H_ */

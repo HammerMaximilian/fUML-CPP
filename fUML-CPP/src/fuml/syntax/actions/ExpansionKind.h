@@ -15,7 +15,8 @@ namespace fuml::syntax::actions
 		parallel,
 		iterative,
 		stream
-	}; // ExpansionKind
+	};
+// ExpansionKind
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_EXPANSIONKIND_H_ */

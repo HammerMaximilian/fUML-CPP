@@ -23,13 +23,11 @@ namespace fuml::syntax::commonbehavior
 		public:
 			virtual ~Behavior() = 0;
 
-			void addOwnedParameter(
-					const ParameterPtr&);
-			virtual void _setContext(
-					const BehavioredClassifierPtr&);
-			void _setSpecification(
-					const BehavioralFeaturePtr&);
-	}; // Behavior
+			void addOwnedParameter(const ParameterPtr&);
+			virtual void _setContext(const BehavioredClassifierPtr&);
+			void _setSpecification(const BehavioralFeaturePtr&);
+	};
+// Behavior
 }
 
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_BEHAVIOR_H_ */

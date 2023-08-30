@@ -16,7 +16,8 @@ namespace fuml::syntax::activities
 	{
 		public:
 			virtual ~InitialNode() = default;
-	}; // InitialNode
+	};
+// InitialNode
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_INITIALNODE_H_ */

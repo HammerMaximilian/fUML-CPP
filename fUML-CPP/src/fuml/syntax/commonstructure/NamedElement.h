@@ -27,10 +27,10 @@ namespace fuml::syntax::commonstructure
 			virtual ~NamedElement() = 0;
 
 			void setName(std::string);
-			void setVisibility(
-				VisibilityKind);
+			void setVisibility(VisibilityKind);
 			void _setNamespace(const NamespacePtr&);
-	}; // NamedElement
+	};
+// NamedElement
 }
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_NAMEDELEMENT_H_ */

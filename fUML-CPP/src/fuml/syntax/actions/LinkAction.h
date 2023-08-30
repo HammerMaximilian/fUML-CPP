@@ -23,7 +23,8 @@ namespace fuml::syntax::actions
 
 			virtual void addEndData(const LinkEndDataPtr&);
 			void addInputValue(const InputPinPtr&);
-	}; // LinkAction
+	};
+// LinkAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_LINKACTION_H_ */

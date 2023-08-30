@@ -22,12 +22,13 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~ReduceAction() = default;
-		
+
 			void setIsOrdered(bool);
 			void setReducer(const BehaviorPtr&);
 			void setCollection(const InputPinPtr&);
 			void setResult(const OutputPinPtr&);
-	}; // ReduceAction
+	};
+// ReduceAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_REDUCEACTION_H_ */

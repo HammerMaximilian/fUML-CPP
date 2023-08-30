@@ -7,8 +7,7 @@
 
 #include <fuml/syntax/commonstructure/Comment.h>
 
-void Comment::setAnnotatedElement(
-	const ElementPtr& annotatedElement)
+void Comment::setAnnotatedElement(const ElementPtr& annotatedElement)
 {
 	this->annotatedElement->push_back(annotatedElement);
 } // setAnnotatedElement

@@ -12,14 +12,12 @@ void ReclassifyObjectAction::setIsReplaceAll(bool isReplaceAll)
 	this->isReplaceAll = isReplaceAll;
 } // setIsReplaceAll
 
-void ReclassifyObjectAction::addOldClassifier(
-	const ClassifierPtr& oldClassifier)
+void ReclassifyObjectAction::addOldClassifier(const ClassifierPtr& oldClassifier)
 {
 	this->oldClassifier->push_back(oldClassifier);
 } // addOldClassifier
 
-void ReclassifyObjectAction::addNewClassifier(
-	const ClassifierPtr& newClassifier)
+void ReclassifyObjectAction::addNewClassifier(const ClassifierPtr& newClassifier)
 {
 	this->newClassifier->push_back(newClassifier);
 } // addNewClassifier

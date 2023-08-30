@@ -27,13 +27,11 @@ namespace fuml::syntax::actions
 			virtual ~ExpansionRegion() = default;
 			void setThisExpansionRegionPtr(std::weak_ptr<ExpansionRegion>);
 
-			void setMode(
-					ExpansionKind);
-			void addInputElement(
-					const ExpansionNodePtr&);
-			void addOutputElement(
-					const ExpansionNodePtr&);
-	}; // ExpansionRegion
+			void setMode(ExpansionKind);
+			void addInputElement(const ExpansionNodePtr&);
+			void addOutputElement(const ExpansionNodePtr&);
+	};
+// ExpansionRegion
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_EXPANSIONREGION_H_ */

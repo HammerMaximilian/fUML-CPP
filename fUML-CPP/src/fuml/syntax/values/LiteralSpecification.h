@@ -16,7 +16,8 @@ namespace fuml::syntax::values
 	{
 		public:
 			virtual ~LiteralSpecification() = 0;
-	}; // LiteralSpecification
+	};
+// LiteralSpecification
 }
 
 #endif /* FUML_SYNTAX_VALUES_LITERALSPECIFICATION_H_ */

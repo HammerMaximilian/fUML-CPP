@@ -5,8 +5,8 @@
  *      Author: Maximilian
  */
 
-#include <utils/FumlObject.h>
 #include <functional>
+#include <utils/FumlObject.h>
 
 static size_t hashCode_(void* _addr);
 
@@ -44,7 +44,7 @@ void FumlObject::setXmiNamespace(std::string _namespace)
 
 size_t FumlObject::hashCode()
 {
-	if(this->internalHash == 0)
+	if (this->internalHash == 0)
 	{
 		this->internalHash = hashCode_(this);
 	}

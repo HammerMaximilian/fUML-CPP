@@ -24,8 +24,7 @@ void Action::_setContext(const ClassifierPtr& context)
 	this->context = context;
 } // _setContext
 
-void Action::_setActivity(
-	const ActivityPtr& activity)
+void Action::_setActivity(const ActivityPtr& activity)
 {
 	ActivityNode::_setActivity(activity);
 	this->_setContext(activity);

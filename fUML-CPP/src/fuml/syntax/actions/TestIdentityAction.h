@@ -21,11 +21,12 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~TestIdentityAction() = default;
-		
+
 			void setFirst(const InputPinPtr&);
 			void setSecond(const InputPinPtr&);
 			void setResult(const OutputPinPtr&);
-	}; // TestIdentityAction
+	};
+// TestIdentityAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_TESTIDENTITYACTION_H_ */

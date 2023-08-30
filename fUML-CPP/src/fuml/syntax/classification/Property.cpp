@@ -12,15 +12,13 @@ void Property::setIsReadOnly(bool isReadOnly)
 	this->isReadOnly = isReadOnly;
 } // setIsReadOnly
 
-void Property::setAggregation(
-	AggregationKind aggregation)
+void Property::setAggregation(AggregationKind aggregation)
 {
 	this->aggregation = aggregation;
 	this->isComposite = (aggregation == AggregationKind::composite);
 } // setAggregation
 
-void Property::_setAssociation(
-	const AssociationPtr& association)
+void Property::_setAssociation(const AssociationPtr& association)
 {
 	this->association = association;
 } // _setAssociation
@@ -40,8 +38,7 @@ void Property::setIsID(bool isID)
 	this->isID = isID;
 } // setIsID
 
-void Property::_setOwningAssociation(
-	const AssociationPtr& association)
+void Property::_setOwningAssociation(const AssociationPtr& association)
 {
 	this->association = association;
 } // _setOwningAssociation
@@ -50,5 +47,4 @@ void Property::_setOpposite(const PropertyPtr& opposite)
 {
 	this->opposite = opposite;
 } // _setOpposite
-
 

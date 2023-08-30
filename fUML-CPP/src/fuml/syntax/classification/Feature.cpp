@@ -11,8 +11,7 @@ Feature::~Feature()
 {
 }
 
-void Feature::_addFeaturingClassifier(
-		const ClassifierPtr& featuringClassifier)
+void Feature::_addFeaturingClassifier(const ClassifierPtr& featuringClassifier)
 {
 	this->featuringClassifier->push_back(featuringClassifier);
 } // _addFeaturingClassifier

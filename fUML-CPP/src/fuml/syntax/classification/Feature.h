@@ -21,9 +21,9 @@ namespace fuml::syntax::classification
 		public:
 			virtual ~Feature() = 0;
 
-			void _addFeaturingClassifier(
-					const ClassifierPtr&);
-	}; // Feature
+			void _addFeaturingClassifier(const ClassifierPtr&);
+	};
+// Feature
 }
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_FEATURE_H_ */

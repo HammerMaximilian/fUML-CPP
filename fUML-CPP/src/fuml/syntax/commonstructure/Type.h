@@ -15,12 +15,13 @@ namespace fuml::syntax::commonstructure
 	class Type : public Namespace
 	{
 		public:
-			PackagePtr package =  nullptr;
+			PackagePtr package = nullptr;
 
 		public:
 			virtual ~Type() = 0;
 			void _setPackage(const PackagePtr&);
-	}; //Type
+	};
+//Type
 }
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_TYPE_H_ */

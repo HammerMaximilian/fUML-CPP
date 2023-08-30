@@ -16,7 +16,8 @@ namespace fuml::syntax::activities
 	{
 		public:
 			virtual ~ActivityGroup() = 0;
-	}; // ActivityGroup
+	};
+// ActivityGroup
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITYGROUP_H_ */

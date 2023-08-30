@@ -20,9 +20,10 @@ namespace fuml::syntax::values
 
 		public:
 			virtual ~LiteralUnlimitedNatural() = default;
-		
+
 			void setValue(UMLPrimitiveTypes::unlimitedNatural);
-	}; // LiteralUnlimitedNatural
+	};
+// LiteralUnlimitedNatural
 }
 
 #endif /* FUML_SYNTAX_VALUES_LITERALUNLIMITEDNATURAL_H_ */

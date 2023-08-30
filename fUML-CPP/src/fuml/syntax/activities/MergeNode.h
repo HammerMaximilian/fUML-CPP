@@ -16,8 +16,9 @@ namespace fuml::syntax::activities
 	{
 		public:
 			virtual ~MergeNode() = default;
-			
-	}; // MergeNode
+
+	};
+// MergeNode
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_MERGENODE_H_ */

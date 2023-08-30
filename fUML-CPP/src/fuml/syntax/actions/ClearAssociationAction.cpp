@@ -13,8 +13,7 @@ void ClearAssociationAction::setObject(const InputPinPtr& object)
 	this->object = object;
 } // setObject
 
-void ClearAssociationAction::setAssociation(
-	const AssociationPtr& association)
+void ClearAssociationAction::setAssociation(const AssociationPtr& association)
 {
 	this->association = association;
 } // setAssociation

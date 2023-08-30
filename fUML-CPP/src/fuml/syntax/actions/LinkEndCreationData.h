@@ -15,15 +15,16 @@ namespace fuml::syntax::actions
 	class LinkEndCreationData : public LinkEndData
 	{
 		public:
-			bool isReplaceAll = false;;
+			bool isReplaceAll = false;
 			InputPinPtr insertAt = nullptr;
 
 		public:
 			virtual ~LinkEndCreationData() = default;
-		
+
 			void setIsReplaceAll(bool);
 			void setInsertAt(const InputPinPtr&);
-	}; // LinkEndCreationData
+	};
+// LinkEndCreationData
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_LINKENDCREATIONDATA_H_ */

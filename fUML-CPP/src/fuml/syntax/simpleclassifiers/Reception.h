@@ -19,10 +19,10 @@ namespace fuml::syntax::simpleclassifiers
 
 		public:
 			virtual ~Reception() = default;
-		
-			void setSignal(
-				const SignalPtr&);
-	}; // Reception
+
+			void setSignal(const SignalPtr&);
+	};
+// Reception
 }
 
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_RECEPTION_H_ */

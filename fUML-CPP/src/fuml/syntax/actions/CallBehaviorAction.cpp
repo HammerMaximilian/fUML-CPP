@@ -7,8 +7,7 @@
 
 #include <fuml/syntax/actions/CallBehaviorAction.h>
 
-void CallBehaviorAction::setBehavior(
-	const BehaviorPtr& behavior)
+void CallBehaviorAction::setBehavior(const BehaviorPtr& behavior)
 {
 	this->behavior = behavior;
 } // setBehavior

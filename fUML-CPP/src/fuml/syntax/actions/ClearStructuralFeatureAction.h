@@ -19,9 +19,10 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~ClearStructuralFeatureAction() = default;
-		
+
 			void setResult(const OutputPinPtr&);
-	}; // ClearStructuralFeatureAction
+	};
+// ClearStructuralFeatureAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_CLEARSTRUCTURALFEATUREACTION_H_ */

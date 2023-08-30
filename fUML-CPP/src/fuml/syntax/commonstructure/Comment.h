@@ -9,24 +9,24 @@
 #define FUML_SYNTAX_COMMONSTRUCTURE_COMMENT_H_
 
 #include <fuml/syntax/fwd.h>
-#include <utils/FumlObject.h>
 #include <string>
+#include <utils/FumlObject.h>
 
 namespace fuml::syntax::commonstructure
 {
-	class Comment : public utils::FumlObject {
-
+	class Comment : public utils::FumlObject
+	{
 		public:
 			ElementListPtr annotatedElement = std::make_shared<ElementList>();
 			std::string body = "";
 
 		public:
 			virtual ~Comment() = default;
-		
-			void setAnnotatedElement(
-				const ElementPtr&);
+
+			void setAnnotatedElement(const ElementPtr&);
 			void setBody(std::string);
-	}; // Comment
+	};
+// Comment
 }
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_COMMENT_H_ */

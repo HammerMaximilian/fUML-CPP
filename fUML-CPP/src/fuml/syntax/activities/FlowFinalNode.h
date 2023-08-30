@@ -16,8 +16,9 @@ namespace fuml::syntax::activities
 	{
 		public:
 			virtual ~FlowFinalNode() = default;
-			
-	}; // FlowFinalNode
+
+	};
+// FlowFinalNode
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_FLOWFINALNODE_H_ */

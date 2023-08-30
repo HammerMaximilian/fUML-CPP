@@ -7,8 +7,7 @@
 
 #include <fuml/syntax/simpleclassifiers/Reception.h>
 
-void Reception::setSignal(
-	const SignalPtr& signal)
+void Reception::setSignal(const SignalPtr& signal)
 {
 	this->signal = signal;
 }

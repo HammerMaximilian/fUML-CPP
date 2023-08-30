@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_STRUCTUREDCLASSIFIERS_CLASS__H_
 #define FUML_SYNTAX_STRUCTUREDCLASSIFIERS_CLASS__H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/commonbehavior/BehavioredClassifier.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::syntax::structuredclassifiers
 {
@@ -32,19 +32,14 @@ namespace fuml::syntax::structuredclassifiers
 			void setThisClass_Ptr(std::weak_ptr<Class_>);
 
 			void setIsActive(bool);
-			virtual void addGeneralization(
-				const GeneralizationPtr&) override;
-			void addOwnedAttribute(
-				const PropertyPtr&);
-			void addOwnedOperation(
-				const OperationPtr&);
-			void addOwnedReception(
-				const ReceptionPtr&);
-			virtual NamedElementListPtr inherit(
-				const NamedElementListPtr&) override;
-			void addNestedClassifier(
-				const ClassifierPtr&);
-	}; // Class
+			virtual void addGeneralization(const GeneralizationPtr&) override;
+			void addOwnedAttribute(const PropertyPtr&);
+			void addOwnedOperation(const OperationPtr&);
+			void addOwnedReception(const ReceptionPtr&);
+			virtual NamedElementListPtr inherit(const NamedElementListPtr&) override;
+			void addNestedClassifier(const ClassifierPtr&);
+	};
+// Class
 }
 
 #endif /* FUML_SYNTAX_STRUCTUREDCLASSIFIERS_CLASS__H_ */

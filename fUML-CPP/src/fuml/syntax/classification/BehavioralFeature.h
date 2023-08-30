@@ -14,9 +14,7 @@
 
 namespace fuml::syntax::classification
 {
-	class BehavioralFeature :
-		virtual public Feature,
-		virtual public Namespace
+	class BehavioralFeature : virtual public Feature, virtual public Namespace
 	{
 		public:
 			ParameterListPtr ownedParameter = std::make_shared<ParameterList>();
@@ -33,12 +31,11 @@ namespace fuml::syntax::classification
 			void setThisBehavioralFeaturePtr(std::weak_ptr<BehavioralFeature>);
 
 			void setIsAbstract(bool);
-			virtual void addOwnedParameter(
-				const ParameterPtr&);
-			virtual void addMethod(
-				const BehaviorPtr&);
+			virtual void addOwnedParameter(const ParameterPtr&);
+			virtual void addMethod(const BehaviorPtr&);
 			void addRaisedException(const TypePtr&);
-	}; // BehavioralFeature
+	};
+// BehavioralFeature
 }
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_BEHAVIORALFEATURE_H_ */

@@ -20,9 +20,10 @@ namespace fuml::syntax::values
 
 		public:
 			virtual ~LiteralString() = default;
-		
+
 			void setValue(std::string);
-	}; // LiteralString
+	};
+// LiteralString
 }
 
 #endif /* FUML_SYNTAX_VALUES_LITERALSTRING_H_ */

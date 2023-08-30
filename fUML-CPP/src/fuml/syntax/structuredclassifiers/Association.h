@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_STRUCTUREDCLASSIFIERS_ASSOCIATION_H_
 #define FUML_SYNTAX_STRUCTUREDCLASSIFIERS_ASSOCIATION_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/classification/Classifier.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::syntax::structuredclassifiers
 {
@@ -30,13 +30,13 @@ namespace fuml::syntax::structuredclassifiers
 			void setThisAssociationPtr(std::weak_ptr<Association>);
 
 			void addOwnedEnd(const PropertyPtr&);
-			void addNavigableOwnedEnd(
-				const PropertyPtr&);
+			void addNavigableOwnedEnd(const PropertyPtr&);
 			void addMemberEnd(const PropertyPtr&);
 
 		protected:
 			void _addMemberEnd(const PropertyPtr&);
-	}; // Association
+	};
+// Association
 }
 
 #endif /* FUML_SYNTAX_STRUCTUREDCLASSIFIERS_ASSOCIATION_H_ */

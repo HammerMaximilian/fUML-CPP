@@ -23,7 +23,8 @@ namespace fuml::syntax::actions
 
 			void setResult(const OutputPinPtr&);
 			void setValue(const InputPinPtr&);
-	}; // WriteStructuralFeatureAction
+	};
+// WriteStructuralFeatureAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_WRITESTRUCTURALFEATUREACTION_H_ */

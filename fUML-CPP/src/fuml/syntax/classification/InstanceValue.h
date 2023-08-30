@@ -19,10 +19,10 @@ namespace fuml::syntax::classification
 
 		public:
 			virtual ~InstanceValue() = default;
-			
-			void setInstance(
-					const InstanceSpecificationPtr&);
-	}; // InstanceValue
+
+			void setInstance(const InstanceSpecificationPtr&);
+	};
+// InstanceValue
 }
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_INSTANCEVALUE_H_ */

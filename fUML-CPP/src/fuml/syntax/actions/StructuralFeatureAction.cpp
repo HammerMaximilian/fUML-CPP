@@ -11,8 +11,7 @@ StructuralFeatureAction::~StructuralFeatureAction()
 {
 }
 
-void StructuralFeatureAction::setStructuralFeature(
-	const StructuralFeaturePtr& structuralFeature)
+void StructuralFeatureAction::setStructuralFeature(const StructuralFeaturePtr& structuralFeature)
 {
 	this->structuralFeature = structuralFeature;
 } // setStructuralFeature

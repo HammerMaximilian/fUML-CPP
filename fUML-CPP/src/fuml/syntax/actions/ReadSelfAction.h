@@ -19,9 +19,10 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~ReadSelfAction() = default;
-		
+
 			void setResult(const OutputPinPtr&);
-	}; // ReadSelfAction
+	};
+// ReadSelfAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_READSELFACTION_H_ */

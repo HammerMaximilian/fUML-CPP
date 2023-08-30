@@ -34,14 +34,12 @@ namespace fuml::syntax::classification
 			void setThisOperationPtr(std::weak_ptr<Operation>);
 
 			void setIsQuery(bool);
-			virtual void addOwnedParameter(
-					const ParameterPtr&) override;
-			void addRedefinedOperation(
-					const OperationPtr&);
-			virtual void addMethod(
-					const BehaviorPtr&) override;
+			virtual void addOwnedParameter(const ParameterPtr&) override;
+			void addRedefinedOperation(const OperationPtr&);
+			virtual void addMethod(const BehaviorPtr&) override;
 			void _setClass(const Class_Ptr&);
-	}; // Operation
+	};
+// Operation
 }
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_OPERATION_H_ */

@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_CLAUSE_H_
 #define FUML_SYNTAX_ACTIONS_CLAUSE_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/commonstructure/Element.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::syntax::actions
 {
@@ -30,16 +30,13 @@ namespace fuml::syntax::actions
 			virtual ~Clause() = default;
 			void setThisClausePtr(std::weak_ptr<Clause>);
 
-			void addPredecessorClause(
-					const ClausePtr&);
-			void addTest(
-					const ExecutableNodePtr&);
-			void addBody(
-					const ExecutableNodePtr&);
+			void addPredecessorClause(const ClausePtr&);
+			void addTest(const ExecutableNodePtr&);
+			void addBody(const ExecutableNodePtr&);
 			void setDecider(const OutputPinPtr&);
-			void addBodyOutput(
-					const OutputPinPtr&);
-	}; // Clause
+			void addBodyOutput(const OutputPinPtr&);
+	};
+// Clause
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_CLAUSE_H_ */

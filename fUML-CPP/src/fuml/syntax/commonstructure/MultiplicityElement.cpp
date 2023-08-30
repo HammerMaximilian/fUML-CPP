@@ -28,13 +28,11 @@ void MultiplicityElement::setIsUnique(bool isUnique)
 	this->isUnique = isUnique;
 } // setIsUnique
 
-void MultiplicityElement::setUpperValue(
-	const ValueSpecificationPtr& upperValue)
+void MultiplicityElement::setUpperValue(const ValueSpecificationPtr& upperValue)
 {
 	this->upperValue = upperValue;
 
-	LiteralUnlimitedNaturalPtr literalUnlimitedNatural =
-			std::dynamic_pointer_cast<LiteralUnlimitedNatural>(upperValue);
+	LiteralUnlimitedNaturalPtr literalUnlimitedNatural = std::dynamic_pointer_cast<LiteralUnlimitedNatural>(upperValue);
 
 	if (literalUnlimitedNatural)
 	{
@@ -42,13 +40,11 @@ void MultiplicityElement::setUpperValue(
 	}
 } // setUpperValue
 
-void MultiplicityElement::setLowerValue(
-	const ValueSpecificationPtr& lowerValue)
+void MultiplicityElement::setLowerValue(const ValueSpecificationPtr& lowerValue)
 {
 	this->lowerValue = lowerValue;
 
-	LiteralIntegerPtr literalInteger =
-			std::dynamic_pointer_cast<LiteralInteger>(lowerValue);
+	LiteralIntegerPtr literalInteger = std::dynamic_pointer_cast<LiteralInteger>(lowerValue);
 
 	if (literalInteger)
 	{

@@ -21,11 +21,12 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~UnmarshallAction() = default;
-			
+
 			void setObject(const InputPinPtr&);
 			void addResult(const OutputPinPtr&);
 			void setUnmarshallType(const ClassifierPtr&);
-	}; // UnmarshallAction
+	};
+// UnmarshallAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_UNMARSHALLACTION_H_ */

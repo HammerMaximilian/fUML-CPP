@@ -22,12 +22,13 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~ReadIsClassifiedObjectAction() = default;
-		
+
 			void setIsDirect(bool);
 			void setClassifier(const ClassifierPtr&);
 			void setResult(const OutputPinPtr&);
 			void setObject(const InputPinPtr&);
-	}; // ReadIsClassifiedObjectAction
+	};
+// ReadIsClassifiedObjectAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_READISCLASSIFIEDOBJECTACTION_H_ */

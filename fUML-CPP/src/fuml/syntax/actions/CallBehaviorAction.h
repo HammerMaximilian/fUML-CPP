@@ -19,10 +19,10 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~CallBehaviorAction() = default;
-		
-			void setBehavior(
-					const BehaviorPtr&);
-	}; // CallBehaviorAction
+
+			void setBehavior(const BehaviorPtr&);
+	};
+// CallBehaviorAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_CALLBEHAVIORACTION_H_ */

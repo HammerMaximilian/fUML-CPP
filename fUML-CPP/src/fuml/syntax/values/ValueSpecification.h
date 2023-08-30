@@ -17,6 +17,7 @@ namespace fuml::syntax::values
 		public:
 			virtual ~ValueSpecification() = 0;
 	};
+// ValueSpecification
 }
 
 #endif /* FUML_SYNTAX_VALUES_VALUESPECIFICATION_H_ */

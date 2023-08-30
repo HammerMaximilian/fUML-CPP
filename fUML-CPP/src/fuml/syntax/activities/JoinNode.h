@@ -16,8 +16,9 @@ namespace fuml::syntax::activities
 	{
 		public:
 			virtual ~JoinNode() = default;
-			
-	}; // JoinNode
+
+	};
+// JoinNode
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_JOINNODE_H_ */

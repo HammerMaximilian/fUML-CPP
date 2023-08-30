@@ -31,19 +31,17 @@ namespace fuml::syntax::classification
 
 		public:
 			virtual ~Property() = default;
-			
+
 			virtual void setIsReadOnly(bool) override;
-			void setAggregation(
-				AggregationKind);
-			void _setAssociation(
-				const AssociationPtr&);
+			void setAggregation(AggregationKind);
+			void _setAssociation(const AssociationPtr&);
 			void _setClass(const Class_Ptr&);
 			void _setDatatype(const DataTypePtr&);
 			void setIsID(bool);
-			void _setOwningAssociation(
-				const AssociationPtr&);
+			void _setOwningAssociation(const AssociationPtr&);
 			void _setOpposite(const PropertyPtr&);
-	}; // Property
+	};
+// Property
 }
 
 #endif /* FUML_SYNTAX_CLASSIFICATION_PROPERTY_H_ */

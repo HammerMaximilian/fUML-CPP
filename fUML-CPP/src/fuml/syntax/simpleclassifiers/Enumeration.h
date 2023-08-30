@@ -24,9 +24,9 @@ namespace fuml::syntax::simpleclassifiers
 			virtual ~Enumeration() = default;
 			void setThisEnumerationPtr(std::weak_ptr<Enumeration>);
 
-			void addOwnedLiteral(
-				const EnumerationLiteralPtr&);
-	}; // Enumeration
+			void addOwnedLiteral(const EnumerationLiteralPtr&);
+	};
+// Enumeration
 }
 
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_ENUMERATION_H_ */

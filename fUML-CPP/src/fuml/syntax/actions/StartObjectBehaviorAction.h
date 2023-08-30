@@ -19,9 +19,10 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~StartObjectBehaviorAction() = default;
-		
+
 			void setObject(const InputPinPtr&);
-	}; // StartObjectBehaviorAction
+	};
+// StartObjectBehaviorAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_STARTOBJECTBEHAVIORACTION_H_ */

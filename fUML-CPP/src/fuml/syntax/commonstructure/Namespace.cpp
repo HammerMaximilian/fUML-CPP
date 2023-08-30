@@ -20,8 +20,7 @@ void Namespace::setThisNamespacePtr(std::weak_ptr<Namespace> thisNamespacePtr)
 	Element::setThisElementPtr(thisNamespacePtr);
 }
 
-void Namespace::addOwnedMember(
-	const NamedElementPtr& ownedMember)
+void Namespace::addOwnedMember(const NamedElementPtr& ownedMember)
 {
 	this->addOwnedElement(ownedMember);
 
@@ -43,8 +42,7 @@ void Namespace::addMember(const NamedElementPtr& member)
 
 } // addMember
 
-void Namespace::addElementImport(
-	const ElementImportPtr& elementImport)
+void Namespace::addElementImport(const ElementImportPtr& elementImport)
 {
 	this->addOwnedElement(elementImport);
 
@@ -54,24 +52,21 @@ void Namespace::addElementImport(
 	this->addImportedMember(elementImport->importedElement);
 } // addElementImport
 
-void Namespace::addPackageImport(
-	const PackageImportPtr& packageImport)
+void Namespace::addPackageImport(const PackageImportPtr& packageImport)
 {
 	this->addOwnedElement(packageImport);
 
 	this->packageImport->push_back(packageImport);
 	packageImport->importingNamespace = thisNamespacePtr.lock();
 
-	PackageableElementListPtr importedElements =
-			packageImport->importedPackage->visibleMembers();
-	for(const PackageableElementPtr& importedElement : *importedElements)
+	PackageableElementListPtr importedElements = packageImport->importedPackage->visibleMembers();
+	for (const PackageableElementPtr& importedElement : *importedElements)
 	{
 		this->addImportedMember(importedElement);
 	}
 } // addPackageImport
 
-void Namespace::addImportedMember(
-	const PackageableElementPtr& importedMember)
+void Namespace::addImportedMember(const PackageableElementPtr& importedMember)
 {
 	this->addMember(importedMember);
 	this->importedMember->push_back(importedMember);

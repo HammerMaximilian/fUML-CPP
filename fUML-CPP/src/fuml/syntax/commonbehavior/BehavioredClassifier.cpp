@@ -12,32 +12,34 @@ BehavioredClassifier::~BehavioredClassifier()
 {
 }
 
-void BehavioredClassifier::setThisBehavioredClassifierPtr(std::weak_ptr<BehavioredClassifier> thisBehavioredClassifierPtr)
+void BehavioredClassifier::setThisBehavioredClassifierPtr(
+	std::weak_ptr<BehavioredClassifier> thisBehavioredClassifierPtr)
 {
 	this->thisBehavioredClassifierPtr = thisBehavioredClassifierPtr;
 	Classifier::setThisClassifierPtr(thisBehavioredClassifierPtr);
 }
 
-void BehavioredClassifier::addOwnedBehavior(
-	const BehaviorPtr& ownedBehavior)
+void BehavioredClassifier::addOwnedBehavior(const BehaviorPtr& ownedBehavior)
 {
 	Namespace::addOwnedMember(ownedBehavior);
 
 	this->ownedBehavior->push_back(ownedBehavior);
 
-	BehaviorPtr behavior =
-			std::dynamic_pointer_cast<Behavior>(thisBehavioredClassifierPtr.lock());
+	BehaviorPtr behavior = std::dynamic_pointer_cast<Behavior>(thisBehavioredClassifierPtr.lock());
 
-	if (!behavior || behavior->context == nullptr) {
+	if (!behavior || behavior->context == nullptr)
+	{
 		ownedBehavior->_setContext(thisBehavioredClassifierPtr.lock());
-	} else {
+	}
+	else
+	{
 		ownedBehavior->_setContext(behavior->context);
 	}
 
 } // addOwnedBehavior
 
-void BehavioredClassifier::setClassifierBehavior(
-	const BehaviorPtr& classifierBehavior) {
+void BehavioredClassifier::setClassifierBehavior(const BehaviorPtr& classifierBehavior)
+{
 	// Note: The classifier behavior must also be added as an owned behavior
 	// using addOwnedBehavior.
 

@@ -19,9 +19,10 @@ namespace fuml::syntax::commonbehavior
 
 		public:
 			virtual ~Trigger() = default;
-		
+
 			void setEvent(const EventPtr&);
-	}; // Trigger
+	};
+// Trigger
 }
 
 #endif /* FUML_SYNTAX_COMMONBEHAVIOR_TRIGGER_H_ */

@@ -28,9 +28,9 @@ namespace fuml::syntax::commonstructure
 			void setThisElementPtr(std::weak_ptr<Element>);
 
 		protected:
-			void addOwnedElement(
-				const ElementPtr& ownedElement);
-	}; // Element
+			void addOwnedElement(const ElementPtr& ownedElement);
+	};
+// Element
 }
 
 #endif /* FUML_SYNTAX_COMMONSTRUCTURE_ELEMENT_H_ */

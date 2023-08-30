@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_RECLASSIFYOBJECTACTION_H_
 #define FUML_SYNTAX_ACTIONS_RECLASSIFYOBJECTACTION_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/actions/Action.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::syntax::actions
 {
@@ -23,12 +23,13 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~ReclassifyObjectAction() = default;
-		
+
 			void setIsReplaceAll(bool);
 			void addOldClassifier(const ClassifierPtr&);
 			void addNewClassifier(const ClassifierPtr&);
 			void setObject(const InputPinPtr&);
-	}; // ReclassifyObjectAction
+	};
+// ReclassifyObjectAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_RECLASSIFYOBJECTACTION_H_ */

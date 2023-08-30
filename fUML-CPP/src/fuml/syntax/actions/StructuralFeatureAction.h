@@ -20,10 +20,10 @@ namespace fuml::syntax::actions
 		public:
 			virtual ~StructuralFeatureAction() = 0;
 
-			void setStructuralFeature(
-					const StructuralFeaturePtr&);
+			void setStructuralFeature(const StructuralFeaturePtr&);
 			void setObject(const InputPinPtr&);
-	}; // StructuralFeatureAction
+	};
+// StructuralFeatureAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_STRUCTURALFEATUREACTION_H_ */

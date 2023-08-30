@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_ACTIVITY_H_
 #define FUML_SYNTAX_ACTIVITIES_ACTIVITY_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/commonbehavior/Behavior.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::syntax::activities
 {
@@ -30,15 +30,13 @@ namespace fuml::syntax::activities
 			void setThisActivityPtr(std::weak_ptr<Activity>);
 
 			void setIsReadOnly(bool);
-			void addNode(
-					const ActivityNodePtr&);
+			void addNode(const ActivityNodePtr&);
 			void addStructuredNode(const StructuredActivityNodePtr&);
 			void addGroup(const ActivityGroupPtr&);
-			void addEdge(
-					const ActivityEdgePtr&);
-			virtual void _setContext(
-					const BehavioredClassifierPtr&) override;
-	}; // Activity
+			void addEdge(const ActivityEdgePtr&);
+			virtual void _setContext(const BehavioredClassifierPtr&) override;
+	};
+// Activity
 }
 
 #endif /* FUML_SYNTAX_ACTIVITIES_ACTIVITY_H_ */

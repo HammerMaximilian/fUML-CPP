@@ -20,10 +20,11 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~LinkEndDestructionData() = default;
-		
+
 			void setIsDestroyDuplicates(bool);
 			void setDestroyAt(const InputPinPtr&);
-	}; // LinkEndDestructionData
+	};
+// LinkEndDestructionData
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_LINKENDDESTRUCTIONDATA_H_ */

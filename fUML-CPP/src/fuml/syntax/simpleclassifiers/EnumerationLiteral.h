@@ -20,10 +20,10 @@ namespace fuml::syntax::simpleclassifiers
 
 		public:
 			virtual ~EnumerationLiteral() = default;
-		
-			void _setEnumeration(
-				const EnumerationPtr&);
-	}; // EnumerationLiteral
+
+			void _setEnumeration(const EnumerationPtr&);
+	};
+// EnumerationLiteral
 }
 
 #endif /* FUML_SYNTAX_SIMPLECLASSIFIERS_ENUMERATIONLITERAL_H_ */

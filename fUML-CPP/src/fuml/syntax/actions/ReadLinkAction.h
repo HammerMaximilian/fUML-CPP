@@ -19,9 +19,10 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~ReadLinkAction() = default;
-		
+
 			void setResult(const OutputPinPtr&);
-	}; // ReadLinkAction
+	};
+// ReadLinkAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_READLINKACTION_H_ */

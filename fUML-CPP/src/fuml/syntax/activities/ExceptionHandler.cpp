@@ -7,14 +7,17 @@
 
 #include <fuml/syntax/activities/ExceptionHandler.h>
 
-void ExceptionHandler::setExceptionInput(const ObjectNodePtr& exceptionInput) {
+void ExceptionHandler::setExceptionInput(const ObjectNodePtr& exceptionInput)
+{
 	this->exceptionInput = exceptionInput;
 }
 
-void ExceptionHandler::addExceptionType(const ClassifierPtr& exceptionType) {
+void ExceptionHandler::addExceptionType(const ClassifierPtr& exceptionType)
+{
 	this->exceptionType->push_back(exceptionType);
 }
 
-void ExceptionHandler::setHandlerBody(const ExecutableNodePtr& handlerBody) {
+void ExceptionHandler::setHandlerBody(const ExecutableNodePtr& handlerBody)
+{
 	this->handlerBody = handlerBody;
 }

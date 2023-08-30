@@ -8,8 +8,8 @@
 #ifndef FUML_SYNTAX_ACTIONS_ACCEPTEVENTACTION_H_
 #define FUML_SYNTAX_ACTIONS_ACCEPTEVENTACTION_H_
 
-#include <fuml/syntax/fwd.h>
 #include <fuml/syntax/actions/Action.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::syntax::actions
 {
@@ -22,12 +22,12 @@ namespace fuml::syntax::actions
 
 		public:
 			virtual ~AcceptEventAction() = default;
-		
+
 			void setIsUnmarshall(bool);
-			void addTrigger(
-					const TriggerPtr&);
+			void addTrigger(const TriggerPtr&);
 			void addResult(const OutputPinPtr&);
-	}; // AcceptEventAction
+	};
+// AcceptEventAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_ACCEPTEVENTACTION_H_ */

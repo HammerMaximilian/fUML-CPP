@@ -16,7 +16,8 @@ namespace fuml::syntax::actions
 	{
 		public:
 			virtual ~WriteLinkAction() = 0;
-	}; // WriteLinkAction
+	};
+// WriteLinkAction
 }
 
 #endif /* FUML_SYNTAX_ACTIONS_WRITELINKACTION_H_ */
