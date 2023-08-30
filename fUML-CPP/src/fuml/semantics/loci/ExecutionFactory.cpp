@@ -180,227 +180,389 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 
 	// Formerly Level L1
 
-	/*if (std::dynamic_pointer_cast<LiteralBoolean>(element)) {
-	 visitor.reset(new LiteralBooleanEvaluation());
-	 }
+	if (std::dynamic_pointer_cast<LiteralBoolean>(element))
+	{
+		LiteralBooleanEvaluationPtr newLiteralBooleanEvaluation(new LiteralBooleanEvaluation());
+		visitor = newLiteralBooleanEvaluation;
+	}
 
-	 else if (std::dynamic_pointer_cast<LiteralString>(element)) {
-	 visitor.reset(new LiteralStringEvaluation());
-	 }
+	else if (std::dynamic_pointer_cast<LiteralString>(element))
+	{
+		LiteralStringEvaluationPtr newLiteralStringEvaluation(new LiteralStringEvaluation());
+		visitor = newLiteralStringEvaluation;
+	}
 
-	 else if (std::dynamic_pointer_cast<LiteralNull>(element)) {
-	 visitor.reset(new LiteralNullEvaluation());
-	 }
+	else if (std::dynamic_pointer_cast<LiteralNull>(element))
+	{
+		LiteralNullEvaluationPtr newLiteralNullEvaluation(new LiteralNullEvaluation());
+		visitor = newLiteralNullEvaluation;
+	}
 
-	 else if (std::dynamic_pointer_cast<InstanceValue>(element)) {
-	 visitor.reset(new InstanceValueEvaluation());
-	 }
+	else if (std::dynamic_pointer_cast<InstanceValue>(element))
+	{
+		InstanceValueEvaluationPtr newInstanceValueEvaluation(new InstanceValueEvaluation());
+		visitor = newInstanceValueEvaluation;
+	}
 
-	 else if (std::dynamic_pointer_cast<LiteralUnlimitedNatural>(element)) {
-	 visitor.reset(new LiteralUnlimitedNaturalEvaluation());
-	 }
+	else if (std::dynamic_pointer_cast<LiteralUnlimitedNatural>(element))
+	{
+		LiteralUnlimitedNaturalEvaluationPtr newLiteralUnlimitedNaturalEvaluation(
+			new LiteralUnlimitedNaturalEvaluation());
+		visitor = newLiteralUnlimitedNaturalEvaluation;
+	}
 
-	 else if (std::dynamic_pointer_cast<LiteralInteger>(element)) {
-	 visitor.reset(new LiteralIntegerEvaluation());
-	 }
+	else if (std::dynamic_pointer_cast<LiteralInteger>(element))
+	{
+		LiteralIntegerEvaluationPtr newLiteralIntegerEvaluation(new LiteralIntegerEvaluation());
+		visitor = newLiteralIntegerEvaluation;
+	}
 
-	 else if (std::dynamic_pointer_cast<LiteralReal>(element)) {
-	 visitor.reset(new LiteralRealEvaluation());
-	 }
+	else if (std::dynamic_pointer_cast<LiteralReal>(element))
+	{
+		LiteralRealEvaluationPtr newLiteralRealEvaluation(new LiteralRealEvaluation());
+		visitor = newLiteralRealEvaluation;
+	}
 
-	 else if (std::dynamic_pointer_cast<CallEventBehavior>(element)) {
-	 visitor.reset(new CallEventExecution());
+	else if (std::dynamic_pointer_cast<CallEventBehavior>(element))
+	{
+		CallEventExecutionPtr newCallEventExecution(new CallEventExecution());
+		newCallEventExecution->setThisCallEventExecutionPtr(newCallEventExecution);
+		visitor = newCallEventExecution;
 
-	 // Formerly Level L2
+		// Formerly Level L2
 
-	 } else if (std::dynamic_pointer_cast<Activity>(element)) {
-	 visitor.reset(new ActivityExecution());
-	 }
+	}
+	else if (std::dynamic_pointer_cast<Activity>(element))
+	{
+		ActivityExecutionPtr newActivityExecution(new ActivityExecution());
+		newActivityExecution->setThisActivityExecutionPtr(newActivityExecution);
+		visitor = newActivityExecution;
+	}
 
-	 else if (std::dynamic_pointer_cast<ActivityParameterNode>(element)) {
-	 visitor.reset(new ActivityParameterNodeActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ActivityParameterNode>(element))
+	{
+		ActivityParameterNodeActivationPtr newActivityParameterNodeActivation(new ActivityParameterNodeActivation());
+		newActivityParameterNodeActivation->setThisActivityParameterNodeActivationPtr(newActivityParameterNodeActivation);
+		visitor = newActivityParameterNodeActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<CentralBufferNode>(element) &&
-	 !(std::dynamic_pointer_cast<DataStoreNode>(element))) {
-	 visitor.reset(new CentralBufferNodeActivation());
-	 }
+	else if (std::dynamic_pointer_cast<CentralBufferNode>(element)
+		&& !(std::dynamic_pointer_cast<DataStoreNode>(element)))
+	{
+		CentralBufferNodeActivationPtr newCentralBufferNodeActivation(new CentralBufferNodeActivation());
+		newCentralBufferNodeActivation->setThisObjectNodeActivationPtr(newCentralBufferNodeActivation);
+		visitor = newCentralBufferNodeActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<InitialNode>(element)) {
-	 visitor.reset(new InitialNodeActivation());
-	 }
+	else if (std::dynamic_pointer_cast<InitialNode>(element))
+	{
+		InitialNodeActivationPtr newInitialNodeActivation(new InitialNodeActivation());
+		newInitialNodeActivation->setThisActivityNodeActivationPtr(newInitialNodeActivation);
+		visitor = newInitialNodeActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ActivityFinalNode>(element)) {
-	 visitor.reset(new ActivityFinalNodeActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ActivityFinalNode>(element))
+	{
+		ActivityFinalNodeActivationPtr newActivityFinalNodeActivation(new ActivityFinalNodeActivation());
+		newActivityFinalNodeActivation->setThisActivityNodeActivationPtr(newActivityFinalNodeActivation);
+		visitor = newActivityFinalNodeActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<FlowFinalNode>(element)) {
-	 visitor.reset(new FlowFinalNodeActivation());
-	 }
+	else if (std::dynamic_pointer_cast<FlowFinalNode>(element))
+	{
+		FlowFinalNodeActivationPtr newFlowFinalNodeActivation(new FlowFinalNodeActivation());
+		newFlowFinalNodeActivation->setThisActivityNodeActivationPtr(newFlowFinalNodeActivation);
+		visitor = newFlowFinalNodeActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<JoinNode>(element)) {
-	 visitor.reset(new JoinNodeActivation());
-	 }
+	else if (std::dynamic_pointer_cast<JoinNode>(element))
+	{
+		JoinNodeActivationPtr newJoinNodeActivation(new JoinNodeActivation());
+		newJoinNodeActivation->setThisActivityNodeActivationPtr(newJoinNodeActivation);
+		visitor = newJoinNodeActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<MergeNode>(element)) {
-	 visitor.reset(new MergeNodeActivation());
-	 }
+	else if (std::dynamic_pointer_cast<MergeNode>(element))
+	{
+		MergeNodeActivationPtr newMergeNodeActivation(new MergeNodeActivation());
+		newMergeNodeActivation->setThisActivityNodeActivationPtr(newMergeNodeActivation);
+		visitor = newMergeNodeActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ForkNode>(element)) {
-	 visitor.reset(new ForkNodeActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ForkNode>(element))
+	{
+		ForkNodeActivationPtr newForkNodeActivation(new ForkNodeActivation());
+		newForkNodeActivation->setThisActivityNodeActivationPtr(newForkNodeActivation);
+		visitor = newForkNodeActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<DecisionNode>(element)) {
-	 visitor.reset(new DecisionNodeActivation());
-	 }
+	else if (std::dynamic_pointer_cast<DecisionNode>(element))
+	{
+		DecisionNodeActivationPtr newDecisionNodeActivation(new DecisionNodeActivation());
+		newDecisionNodeActivation->setThisActivityNodeActivationPtr(newDecisionNodeActivation);
+		visitor = newDecisionNodeActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<InputPin>(element)) {
-	 visitor.reset(new InputPinActivation());
-	 }
+	else if (std::dynamic_pointer_cast<InputPin>(element))
+	{
+		InputPinActivationPtr newInputPinActivation(new InputPinActivation());
+		newInputPinActivation->setThisObjectNodeActivationPtr(newInputPinActivation);
+		visitor = newInputPinActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<OutputPin>(element)) {
-	 visitor.reset(new OutputPinActivation());
-	 }
+	else if (std::dynamic_pointer_cast<OutputPin>(element))
+	{
+		OutputPinActivationPtr newOutputPinActivation(new OutputPinActivation());
+		newOutputPinActivation->setThisObjectNodeActivationPtr(newOutputPinActivation);
+		visitor = newOutputPinActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<CallBehaviorAction>(element)) {
-	 visitor.reset(new CallBehaviorActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<CallBehaviorAction>(element))
+	{
+		CallBehaviorActionActivationPtr newCallBehaviorActionActivation(new CallBehaviorActionActivation());
+		newCallBehaviorActionActivation->setThisActionActivationPtr(newCallBehaviorActionActivation);
+		visitor = newCallBehaviorActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<CallOperationAction>(element)) {
-	 visitor.reset(new CallOperationActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<CallOperationAction>(element))
+	{
+		CallOperationActionActivationPtr newCallOperationActionActivation(new CallOperationActionActivation());
+		newCallOperationActionActivation->setThisActionActivationPtr(newCallOperationActionActivation);
+		visitor = newCallOperationActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<SendSignalAction>(element)) {
-	 visitor.reset(new SendSignalActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<SendSignalAction>(element))
+	{
+		SendSignalActionActivationPtr newSendSignalActionActivation(new SendSignalActionActivation());
+		newSendSignalActionActivation->setThisActionActivationPtr(newSendSignalActionActivation);
+		visitor = newSendSignalActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ReadSelfAction>(element)) {
-	 visitor.reset(new ReadSelfActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ReadSelfAction>(element))
+	{
+		ReadSelfActionActivationPtr newReadSelfActionActivation(new ReadSelfActionActivation());
+		newReadSelfActionActivation->setThisActionActivationPtr(newReadSelfActionActivation);
+		visitor = newReadSelfActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<TestIdentityAction>(element)) {
-	 visitor.reset(new TestIdentityActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<TestIdentityAction>(element))
+	{
+		TestIdentityActionActivationPtr newTestIdentityActionActivation(new TestIdentityActionActivation());
+		newTestIdentityActionActivation->setThisActionActivationPtr(newTestIdentityActionActivation);
+		visitor = newTestIdentityActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ValueSpecificationAction>(element)) {
-	 visitor.reset(new ValueSpecificationActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ValueSpecificationAction>(element))
+	{
+		ValueSpecificationActionActivationPtr newValueSpecificationActionActivation(
+			new ValueSpecificationActionActivation());
+		newValueSpecificationActionActivation->setThisActionActivationPtr(newValueSpecificationActionActivation);
+		visitor = newValueSpecificationActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<CreateObjectAction>(element)) {
-	 visitor.reset(new CreateObjectActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<CreateObjectAction>(element))
+	{
+		CreateObjectActionActivationPtr newCreateObjectActionActivation(new CreateObjectActionActivation());
+		newCreateObjectActionActivation->setThisActionActivationPtr(newCreateObjectActionActivation);
+		visitor = newCreateObjectActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<DestroyObjectAction>(element)) {
-	 visitor.reset(new DestroyObjectActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<DestroyObjectAction>(element))
+	{
+		DestroyObjectActionActivationPtr newDestroyObjectActionActivation(new DestroyObjectActionActivation());
+		newDestroyObjectActionActivation->setThisActionActivationPtr(newDestroyObjectActionActivation);
+		visitor = newDestroyObjectActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ReadStructuralFeatureAction>(element)) {
-	 visitor.reset(new ReadStructuralFeatureActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ReadStructuralFeatureAction>(element))
+	{
+		ReadStructuralFeatureActionActivationPtr newReadStructuralFeatureActionActivation(
+			new ReadStructuralFeatureActionActivation());
+		newReadStructuralFeatureActionActivation->setThisActionActivationPtr(newReadStructuralFeatureActionActivation);
+		visitor = newReadStructuralFeatureActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ClearStructuralFeatureAction>(element)) {
-	 visitor.reset(new ClearStructuralFeatureActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ClearStructuralFeatureAction>(element))
+	{
+		ClearStructuralFeatureActionActivationPtr newClearStructuralFeatureActionActivation(
+			new ClearStructuralFeatureActionActivation());
+		newClearStructuralFeatureActionActivation->setThisActionActivationPtr(newClearStructuralFeatureActionActivation);
+		visitor = newClearStructuralFeatureActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<AddStructuralFeatureValueAction>(element)) {
-	 visitor.reset(new AddStructuralFeatureValueActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<AddStructuralFeatureValueAction>(element))
+	{
+		AddStructuralFeatureValueActionActivationPtr newAddStructuralFeatureValueActionActivation(
+			new AddStructuralFeatureValueActionActivation());
+		newAddStructuralFeatureValueActionActivation->setThisActionActivationPtr(newAddStructuralFeatureValueActionActivation);
+		visitor = newAddStructuralFeatureValueActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<RemoveStructuralFeatureValueAction>(element)) {
-	 visitor.reset(new RemoveStructuralFeatureValueActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<RemoveStructuralFeatureValueAction>(element))
+	{
+		RemoveStructuralFeatureValueActionActivationPtr newRemoveStructuralFeatureValueActionActivation(
+			new RemoveStructuralFeatureValueActionActivation());
+		newRemoveStructuralFeatureValueActionActivation->setThisActionActivationPtr(newRemoveStructuralFeatureValueActionActivation);
+		visitor = newRemoveStructuralFeatureValueActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ReadLinkAction>(element)) {
-	 visitor.reset(new ReadLinkActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ReadLinkAction>(element))
+	{
+		ReadLinkActionActivationPtr newReadLinkActionActivation(new ReadLinkActionActivation());
+		newReadLinkActionActivation->setThisActionActivationPtr(newReadLinkActionActivation);
+		visitor = newReadLinkActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ClearAssociationAction>(element)) {
-	 visitor.reset(new ClearAssociationActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ClearAssociationAction>(element))
+	{
+		ClearAssociationActionActivationPtr newClearAssociationActionActivation(new ClearAssociationActionActivation());
+		newClearAssociationActionActivation->setThisActionActivationPtr(newClearAssociationActionActivation);
+		visitor = newClearAssociationActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<CreateLinkAction>(element)) {
-	 visitor.reset(new CreateLinkActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<CreateLinkAction>(element))
+	{
+		CreateLinkActionActivationPtr newCreateLinkActionActivation(new CreateLinkActionActivation());
+		newCreateLinkActionActivation->setThisActionActivationPtr(newCreateLinkActionActivation);
+		visitor = newCreateLinkActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<DestroyLinkAction>(element)) {
-	 visitor.reset(new DestroyLinkActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<DestroyLinkAction>(element))
+	{
+		DestroyLinkActionActivationPtr newDestroyLinkActionActivation(new DestroyLinkActionActivation());
+		newDestroyLinkActionActivation->setThisActionActivationPtr(newDestroyLinkActionActivation);
+		visitor = newDestroyLinkActionActivation;
+	}
 
-	 // Formerly Level L3
+	// Formerly Level L3
 
-	 else if (std::dynamic_pointer_cast<DataStoreNode>(element)) {
-	 visitor.reset(new DataStoreNodeActivation());
-	 }
+	else if (std::dynamic_pointer_cast<DataStoreNode>(element))
+	{
+		DataStoreNodeActivationPtr newDataStoreNodeActivation(new DataStoreNodeActivation());
+		newDataStoreNodeActivation->setThisObjectNodeActivationPtr(newDataStoreNodeActivation);
+		visitor = newDataStoreNodeActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ConditionalNode>(element)) {
-	 visitor.reset(new ConditionalNodeActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ConditionalNode>(element))
+	{
+		ConditionalNodeActivationPtr newConditionalNodeActivation(new ConditionalNodeActivation());
+		newConditionalNodeActivation->setThisConditionalNodeActivationPtr(newConditionalNodeActivation);
+		visitor = newConditionalNodeActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<LoopNode>(element)) {
-	 visitor.reset(new LoopNodeActivation());
-	 }
+	else if (std::dynamic_pointer_cast<LoopNode>(element))
+	{
+		LoopNodeActivationPtr newLoopNodeActivation(new LoopNodeActivation());
+		newLoopNodeActivation->setThisLoopNodeActivationPtr(newLoopNodeActivation);
+		visitor = newLoopNodeActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ExpansionRegion>(element)) {
-	 visitor.reset(new ExpansionRegionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ExpansionRegion>(element))
+	{
+		ExpansionRegionActivationPtr newExpansionRegionActivation(new ExpansionRegionActivation());
+		newExpansionRegionActivation->setThisExpansionRegionActivationPtr(newExpansionRegionActivation);
+		visitor = newExpansionRegionActivation;
+	}
 
-	 // Note: Since ConditionalNode, LoopNode and ExpansionRegion are
-	 // subclasses of StructuredActivityNode, element must be tested
-	 // against the three subclasses before the superclass.
-	 else if (std::dynamic_pointer_cast<StructuredActivityNode>(element)) {
-	 visitor.reset(new StructuredActivityNodeActivation());
-	 }
+	// Note: Since ConditionalNode, LoopNode and ExpansionRegion are
+	// subclasses of StructuredActivityNode, element must be tested
+	// against the three subclasses before the superclass.
+	else if (std::dynamic_pointer_cast<StructuredActivityNode>(element))
+	{
+		StructuredActivityNodeActivationPtr newStructuredActivityNodeActivation(new StructuredActivityNodeActivation());
+		newStructuredActivityNodeActivation->setThisStructuredActivityNodeActivationPtr(newStructuredActivityNodeActivation);
+		visitor = newStructuredActivityNodeActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ExpansionNode>(element)) {
-	 visitor.reset(new ExpansionNodeActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ExpansionNode>(element))
+	{
+		ExpansionNodeActivationPtr newExpansionNodeActivation(new ExpansionNodeActivation());
+		newExpansionNodeActivation->setThisObjectNodeActivationPtr(newExpansionNodeActivation);
+		visitor = newExpansionNodeActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ReadExtentAction>(element)) {
-	 visitor.reset(new ReadExtentActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ReadExtentAction>(element))
+	{
+		ReadExtentActionActivationPtr newReadExtentActionActivation(new ReadExtentActionActivation());
+		newReadExtentActionActivation->setThisActionActivationPtr(newReadExtentActionActivation);
+		visitor = newReadExtentActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ReadIsClassifiedObjectAction>(element)) {
-	 visitor.reset(new ReadIsClassifiedObjectActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ReadIsClassifiedObjectAction>(element))
+	{
+		ReadIsClassifiedObjectActionActivationPtr newReadIsClassifiedObjectActionActivation(
+			new ReadIsClassifiedObjectActionActivation());
+		newReadIsClassifiedObjectActionActivation->setThisActionActivationPtr(newReadIsClassifiedObjectActionActivation);
+		visitor = newReadIsClassifiedObjectActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ReclassifyObjectAction>(element)) {
-	 visitor.reset(new ReclassifyObjectActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ReclassifyObjectAction>(element))
+	{
+		ReclassifyObjectActionActivationPtr newReclassifyObjectActionActivation(new ReclassifyObjectActionActivation());
+		newReclassifyObjectActionActivation->setThisActionActivationPtr(newReclassifyObjectActionActivation);
+		visitor = newReclassifyObjectActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<StartObjectBehaviorAction>(element)) {
-	 visitor.reset(new StartObjectBehaviorActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<StartObjectBehaviorAction>(element))
+	{
+		StartObjectBehaviorActionActivationPtr newStartObjectBehaviorActionActivation(
+			new StartObjectBehaviorActionActivation());
+		newStartObjectBehaviorActionActivation->setThisActionActivationPtr(newStartObjectBehaviorActionActivation);
+		visitor = newStartObjectBehaviorActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<StartClassifierBehaviorAction>(element)) {
-	 visitor.reset(new StartClassifierBehaviorActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<StartClassifierBehaviorAction>(element))
+	{
+		StartClassifierBehaviorActionActivationPtr newStartClassifierBehaviorActionActivation(
+			new StartClassifierBehaviorActionActivation());
+		newStartClassifierBehaviorActionActivation->setThisActionActivationPtr(newStartClassifierBehaviorActionActivation);
+		visitor = newStartClassifierBehaviorActionActivation;
+	}
 
-	 // Note: Since AcceptCallAction is a subclass of AcceptEventAction,
-	 // element must be tested against AcceptCallAction before
-	 // AcceptEventAction.
-	 else if (std::dynamic_pointer_cast<AcceptCallAction>(element)) {
-	 visitor.reset(new AcceptCallActionActivation());
-	 }
+	// Note: Since AcceptCallAction is a subclass of AcceptEventAction,
+	// element must be tested against AcceptCallAction before
+	// AcceptEventAction.
+	else if (std::dynamic_pointer_cast<AcceptCallAction>(element))
+	{
+		AcceptCallActionActivationPtr newAcceptCallActionActivation(new AcceptCallActionActivation());
+		newAcceptCallActionActivation->setThisAcceptEventActionActivationPtr(newAcceptCallActionActivation);
+		visitor = newAcceptCallActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<AcceptEventAction>(element)) {
-	 visitor.reset(new AcceptEventActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<AcceptEventAction>(element))
+	{
+		AcceptEventActionActivationPtr newAcceptEventActionActivation(new AcceptEventActionActivation());
+		newAcceptEventActionActivation->setThisAcceptEventActionActivationPtr(newAcceptEventActionActivation);
+		visitor = newAcceptEventActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ReplyAction>(element)) {
-	 visitor.reset(new ReplyActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ReplyAction>(element))
+	{
+		ReplyActionActivationPtr newReplyActionActivation(new ReplyActionActivation());
+		newReplyActionActivation->setThisActionActivationPtr(newReplyActionActivation);
+		visitor = newReplyActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<ReduceAction>(element)) {
-	 visitor.reset(new ReduceActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<ReduceAction>(element))
+	{
+		ReduceActionActivationPtr newReduceActionActivation(new ReduceActionActivation());
+		newReduceActionActivation->setThisActionActivationPtr(newReduceActionActivation);
+		visitor = newReduceActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<RaiseExceptionAction>(element)) {
-	 visitor.reset(new RaiseExceptionActionActivation());
-	 }
+	else if (std::dynamic_pointer_cast<RaiseExceptionAction>(element))
+	{
+		RaiseExceptionActionActivationPtr newRaiseExceptionActionActivation(new RaiseExceptionActionActivation());
+		newRaiseExceptionActionActivation->setThisActionActivationPtr(newRaiseExceptionActionActivation);
+		visitor = newRaiseExceptionActionActivation;
+	}
 
-	 else if (std::dynamic_pointer_cast<UnmarshallAction>(element)) {
-	 visitor.reset(new UnmarshallActionActivation());
-	 }*/
+	else if (std::dynamic_pointer_cast<UnmarshallAction>(element))
+	{
+		UnmarshallActionActivationPtr newUnmarshallActionActivation(new UnmarshallActionActivation());
+		newUnmarshallActionActivation->setThisActionActivationPtr(newUnmarshallActionActivation);
+		visitor = newUnmarshallActionActivation;
+	}
 
 	return visitor;
 } // instantiateVisitor
