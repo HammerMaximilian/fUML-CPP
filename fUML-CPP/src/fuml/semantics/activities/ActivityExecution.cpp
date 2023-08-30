@@ -48,7 +48,7 @@ void ActivityExecution::execute()
 		i = i + 1;
 	}
 
-	utils::Debug::println("[execute] isStreaming = " + this->isStreaming);
+	utils::Debug::println("[execute] isStreaming = " + std::to_string(this->isStreaming));
 
 	this->activationGroup.reset(new ActivityNodeActivationGroup());
 	this->activationGroup->activityExecution = this->thisActivityExecutionPtr.lock();
