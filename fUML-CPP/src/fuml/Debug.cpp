@@ -10,9 +10,9 @@
 	#define LOG_DEBUG(a)	/**/
 	#define LOG_ERROR(a)	/**/
 #else
-	#define LOG_INFO(a) 		std::cout<<"[\e[0;32mINFO\e[0m]:\t\t"<<__PRETTY_FUNCTION__<<"\n\t\t  -- Message: "<<a<<std::endl;
-	#define LOG_DEBUG(a) 		std::cout<<"[\e[0;34mDEBUG\e[0m]:\t"<<__PRETTY_FUNCTION__<<"\n\t\t  -- Message: "<<a<<std::endl;
-	#define LOG_ERROR(a)		std::cout<<"[\e[0;31mERROR\e[0m]:\t"<<__PRETTY_FUNCTION__<<"\n\t\t  -- Message: "<<a<<std::endl;
+	#define LOG_INFO(a) 		std::cout<<"[\e[0;32mINFO\e[0m]:\t\t"<<a<<std::endl;
+	#define LOG_DEBUG(a) 		std::cout<<"[\e[0;34mDEBUG\e[0m]:\t"<<a<<std::endl;
+	#define LOG_ERROR(a)		std::cout<<"[\e[0;31mERROR\e[0m]:\t"<<a<<std::endl;
 #endif
 
 #include "Debug.h"
