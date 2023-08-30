@@ -242,7 +242,8 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 	else if (std::dynamic_pointer_cast<ActivityParameterNode>(element))
 	{
 		ActivityParameterNodeActivationPtr newActivityParameterNodeActivation(new ActivityParameterNodeActivation());
-		newActivityParameterNodeActivation->setThisActivityParameterNodeActivationPtr(newActivityParameterNodeActivation);
+		newActivityParameterNodeActivation->setThisActivityParameterNodeActivationPtr(
+			newActivityParameterNodeActivation);
 		visitor = newActivityParameterNodeActivation;
 	}
 
@@ -386,7 +387,8 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 	{
 		ClearStructuralFeatureActionActivationPtr newClearStructuralFeatureActionActivation(
 			new ClearStructuralFeatureActionActivation());
-		newClearStructuralFeatureActionActivation->setThisActionActivationPtr(newClearStructuralFeatureActionActivation);
+		newClearStructuralFeatureActionActivation->setThisActionActivationPtr(
+			newClearStructuralFeatureActionActivation);
 		visitor = newClearStructuralFeatureActionActivation;
 	}
 
@@ -394,7 +396,8 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 	{
 		AddStructuralFeatureValueActionActivationPtr newAddStructuralFeatureValueActionActivation(
 			new AddStructuralFeatureValueActionActivation());
-		newAddStructuralFeatureValueActionActivation->setThisActionActivationPtr(newAddStructuralFeatureValueActionActivation);
+		newAddStructuralFeatureValueActionActivation->setThisActionActivationPtr(
+			newAddStructuralFeatureValueActionActivation);
 		visitor = newAddStructuralFeatureValueActionActivation;
 	}
 
@@ -402,7 +405,8 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 	{
 		RemoveStructuralFeatureValueActionActivationPtr newRemoveStructuralFeatureValueActionActivation(
 			new RemoveStructuralFeatureValueActionActivation());
-		newRemoveStructuralFeatureValueActionActivation->setThisActionActivationPtr(newRemoveStructuralFeatureValueActionActivation);
+		newRemoveStructuralFeatureValueActionActivation->setThisActionActivationPtr(
+			newRemoveStructuralFeatureValueActionActivation);
 		visitor = newRemoveStructuralFeatureValueActionActivation;
 	}
 
@@ -470,7 +474,8 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 	else if (std::dynamic_pointer_cast<StructuredActivityNode>(element))
 	{
 		StructuredActivityNodeActivationPtr newStructuredActivityNodeActivation(new StructuredActivityNodeActivation());
-		newStructuredActivityNodeActivation->setThisStructuredActivityNodeActivationPtr(newStructuredActivityNodeActivation);
+		newStructuredActivityNodeActivation->setThisStructuredActivityNodeActivationPtr(
+			newStructuredActivityNodeActivation);
 		visitor = newStructuredActivityNodeActivation;
 	}
 
@@ -492,7 +497,8 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 	{
 		ReadIsClassifiedObjectActionActivationPtr newReadIsClassifiedObjectActionActivation(
 			new ReadIsClassifiedObjectActionActivation());
-		newReadIsClassifiedObjectActionActivation->setThisActionActivationPtr(newReadIsClassifiedObjectActionActivation);
+		newReadIsClassifiedObjectActionActivation->setThisActionActivationPtr(
+			newReadIsClassifiedObjectActionActivation);
 		visitor = newReadIsClassifiedObjectActionActivation;
 	}
 
@@ -515,7 +521,8 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 	{
 		StartClassifierBehaviorActionActivationPtr newStartClassifierBehaviorActionActivation(
 			new StartClassifierBehaviorActionActivation());
-		newStartClassifierBehaviorActionActivation->setThisActionActivationPtr(newStartClassifierBehaviorActionActivation);
+		newStartClassifierBehaviorActionActivation->setThisActionActivationPtr(
+			newStartClassifierBehaviorActionActivation);
 		visitor = newStartClassifierBehaviorActionActivation;
 	}
 
