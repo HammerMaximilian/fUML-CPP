@@ -5,12 +5,12 @@
  *      Author: Maximilian
  */
 
-#ifndef EXAMPLES_INMEMORYMODEL_H_
-#define EXAMPLES_INMEMORYMODEL_H_
+#ifndef UTILS_ENVIRONMENT_INMEMORYMODEL_H_
+#define UTILS_ENVIRONMENT_INMEMORYMODEL_H_
 
 #include <fuml/syntax/fwd.h>
 
-namespace examples
+namespace fuml::environment
 {
 	class InMemoryModel
 	{
@@ -18,9 +18,7 @@ namespace examples
 			virtual ~InMemoryModel() = 0;
 
 			virtual BehaviorPtr getMainBehavior() = 0;
-
 	};
 }
 
-
-#endif /* EXAMPLES_INMEMORYMODEL_H_ */
+#endif /* UTILS_ENVIRONMENT_INMEMORYMODEL_H_ */

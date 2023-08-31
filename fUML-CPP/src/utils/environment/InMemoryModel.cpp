@@ -5,9 +5,9 @@
  *      Author: Maximilian
  */
 
-#include <examples/InMemoryModel.h>
+#include <utils/environment/InMemoryModel.h>
 
-using namespace examples;
+using namespace fuml::environment;
 
 InMemoryModel::~InMemoryModel()
 {
