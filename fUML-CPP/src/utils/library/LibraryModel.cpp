@@ -7,9 +7,11 @@
 
 #include <utils/library/LibraryModel.h>
 
-#include <stdexcept>
-#include <fuml/syntax/commonbehavior/FunctionBehavior.h>
 #include <fuml/syntax/classification/Parameter.h>
+#include <fuml/syntax/commonbehavior/FunctionBehavior.h>
+#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
+#include <stdexcept>
+#include <utils/primitivetypes/PrimitiveTypesModel.h>
 
 using namespace fuml::library;
 
@@ -46,7 +48,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter x
 		BooleanFunctions_And_x.reset(new Parameter());
 		BooleanFunctions_And_x->setName("x");
-		//BooleanFunctions_And_x->setType(Boolean);
+		BooleanFunctions_And_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_And_x->setLower(1);
 		BooleanFunctions_And_x->setUpper(1);
 		BooleanFunctions_And_x->setDirection(ParameterDirectionKind::in);
@@ -54,7 +56,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter y
 		BooleanFunctions_And_y.reset(new Parameter());
 		BooleanFunctions_And_y->setName("y");
-		//BooleanFunctions_And_y->setType(Boolean);
+		BooleanFunctions_And_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_And_y->setLower(1);
 		BooleanFunctions_And_y->setUpper(1);
 		BooleanFunctions_And_y->setDirection(ParameterDirectionKind::in);
@@ -62,7 +64,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		BooleanFunctions_And_result.reset(new Parameter());
 		BooleanFunctions_And_result->setName("result");
-		//BooleanFunctions_And_result->setType(Boolean);
+		BooleanFunctions_And_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_And_result->setLower(1);
 		BooleanFunctions_And_result->setUpper(1);
 		BooleanFunctions_And_result->setDirection(ParameterDirectionKind::return_);
@@ -75,7 +77,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter x
 		BooleanFunctions_Implies_x.reset(new Parameter());
 		BooleanFunctions_Implies_x->setName("x");
-		//BooleanFunctions_Implies_x->setType(Boolean);
+		BooleanFunctions_Implies_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_Implies_x->setLower(1);
 		BooleanFunctions_Implies_x->setUpper(1);
 		BooleanFunctions_Implies_x->setDirection(ParameterDirectionKind::in);
@@ -83,7 +85,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter y
 		BooleanFunctions_Implies_y.reset(new Parameter());
 		BooleanFunctions_Implies_y->setName("y");
-		//BooleanFunctions_Implies_y->setType(Boolean);
+		BooleanFunctions_Implies_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_Implies_y->setLower(1);
 		BooleanFunctions_Implies_y->setUpper(1);
 		BooleanFunctions_Implies_y->setDirection(ParameterDirectionKind::in);
@@ -91,7 +93,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		BooleanFunctions_Implies_result.reset(new Parameter());
 		BooleanFunctions_Implies_result->setName("result");
-		//BooleanFunctions_Implies_result->setType(Boolean);
+		BooleanFunctions_Implies_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_Implies_result->setLower(1);
 		BooleanFunctions_Implies_result->setUpper(1);
 		BooleanFunctions_Implies_result->setDirection(ParameterDirectionKind::return_);
@@ -104,7 +106,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter x
 		BooleanFunctions_Not_x.reset(new Parameter());
 		BooleanFunctions_Not_x->setName("x");
-		//BooleanFunctions_Not_x->setType(Boolean);
+		BooleanFunctions_Not_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_Not_x->setLower(1);
 		BooleanFunctions_Not_x->setUpper(1);
 		BooleanFunctions_Not_x->setDirection(ParameterDirectionKind::in);
@@ -112,7 +114,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		BooleanFunctions_Not_result.reset(new Parameter());
 		BooleanFunctions_Not_result->setName("result");
-		//BooleanFunctions_Not_result->setType(Boolean);
+		BooleanFunctions_Not_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_Not_result->setLower(1);
 		BooleanFunctions_Not_result->setUpper(1);
 		BooleanFunctions_Not_result->setDirection(ParameterDirectionKind::return_);
@@ -125,7 +127,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter x
 		BooleanFunctions_Or_x.reset(new Parameter());
 		BooleanFunctions_Or_x->setName("x");
-		//BooleanFunctions_Or_x->setType(Boolean);
+		BooleanFunctions_Or_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_Or_x->setLower(1);
 		BooleanFunctions_Or_x->setUpper(1);
 		BooleanFunctions_Or_x->setDirection(ParameterDirectionKind::in);
@@ -133,7 +135,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter y
 		BooleanFunctions_Or_y.reset(new Parameter());
 		BooleanFunctions_Or_y->setName("y");
-		//BooleanFunctions_Or_y->setType(Boolean);
+		BooleanFunctions_Or_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_Or_y->setLower(1);
 		BooleanFunctions_Or_y->setUpper(1);
 		BooleanFunctions_Or_y->setDirection(ParameterDirectionKind::in);
@@ -141,7 +143,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		BooleanFunctions_Or_result.reset(new Parameter());
 		BooleanFunctions_Or_result->setName("result");
-		//BooleanFunctions_Or_result->setType(Boolean);
+		BooleanFunctions_Or_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_Or_result->setLower(1);
 		BooleanFunctions_Or_result->setUpper(1);
 		BooleanFunctions_Or_result->setDirection(ParameterDirectionKind::return_);
@@ -154,7 +156,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter x
 		BooleanFunctions_ToBoolean_x.reset(new Parameter());
 		BooleanFunctions_ToBoolean_x->setName("x");
-		//BooleanFunctions_ToBoolean_x->setType(String));
+		BooleanFunctions_ToBoolean_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
 		BooleanFunctions_ToBoolean_x->setLower(1);
 		BooleanFunctions_ToBoolean_x->setUpper(1);
 		BooleanFunctions_ToBoolean_x->setDirection(ParameterDirectionKind::in);
@@ -162,7 +164,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		BooleanFunctions_ToBoolean_result.reset(new Parameter());
 		BooleanFunctions_ToBoolean_result->setName("result");
-		//BooleanFunctions_ToBoolean_result->setType(Boolean);
+		BooleanFunctions_ToBoolean_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_ToBoolean_result->setLower(0);
 		BooleanFunctions_ToBoolean_result->setUpper(1);
 		BooleanFunctions_ToBoolean_result->setDirection(ParameterDirectionKind::return_);
@@ -175,7 +177,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter x
 		BooleanFunctions_ToString_x.reset(new Parameter());
 		BooleanFunctions_ToString_x->setName("x");
-		//BooleanFunctions_ToString_x->setType(Boolean);
+		BooleanFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_ToString_x->setLower(1);
 		BooleanFunctions_ToString_x->setUpper(1);
 		BooleanFunctions_ToString_x->setDirection(ParameterDirectionKind::in);
@@ -183,7 +185,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		BooleanFunctions_ToString_result.reset(new Parameter());
 		BooleanFunctions_ToString_result->setName("result");
-		//BooleanFunctions_ToString_result->setType(String);
+		BooleanFunctions_ToString_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
 		BooleanFunctions_ToString_result->setLower(1);
 		BooleanFunctions_ToString_result->setUpper(1);
 		BooleanFunctions_ToString_result->setDirection(ParameterDirectionKind::return_);
@@ -196,7 +198,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter x
 		BooleanFunctions_Xor_x.reset(new Parameter());
 		BooleanFunctions_Xor_x->setName("x");
-		//BooleanFunctions_Xor_x->setType(Boolean);
+		BooleanFunctions_Xor_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_Xor_x->setLower(1);
 		BooleanFunctions_Xor_x->setUpper(1);
 		BooleanFunctions_Xor_x->setDirection(ParameterDirectionKind::in);
@@ -204,7 +206,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter y
 		BooleanFunctions_Xor_y.reset(new Parameter());
 		BooleanFunctions_Xor_y->setName("y");
-		//BooleanFunctions_Xor_y->setType(Boolean);
+		BooleanFunctions_Xor_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_Xor_y->setLower(1);
 		BooleanFunctions_Xor_y->setUpper(1);
 		BooleanFunctions_Xor_y->setDirection(ParameterDirectionKind::in);
@@ -212,7 +214,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		BooleanFunctions_Xor_result.reset(new Parameter());
 		BooleanFunctions_Xor_result->setName("result");
-		//BooleanFunctions_Xor_result->setType(Boolean);
+		BooleanFunctions_Xor_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
 		BooleanFunctions_Xor_result->setLower(1);
 		BooleanFunctions_Xor_result->setUpper(1);
 		BooleanFunctions_Xor_result->setDirection(ParameterDirectionKind::return_);

@@ -9,6 +9,7 @@
 #define UTILS_ENVIRONMENT_ENVIRONMENT_H_
 
 #include <fuml/semantics/fwd.h>
+#include <fuml/syntax/fwd.h>
 
 namespace fuml::environment
 {
@@ -35,6 +36,7 @@ namespace fuml::environment
 			Environment();
 
 			void addBuiltInType(std::string);
+			void addBuiltInType(const PrimitiveTypePtr&);
 			void addPrimitiveBehaviorPrototype(const OpaqueBehaviorExecutionPtr&);
 	};
 }
