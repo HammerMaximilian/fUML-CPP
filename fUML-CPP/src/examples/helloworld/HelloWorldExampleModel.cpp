@@ -6,6 +6,7 @@
  */
 
 #include <examples/helloworld/HelloWorldExampleModel.h>
+
 #include <fuml/syntax/actions/CallBehaviorAction.h>
 #include <fuml/syntax/actions/InputPin.h>
 #include <fuml/syntax/actions/OutputPin.h>
@@ -17,7 +18,9 @@
 #include <fuml/syntax/activities/ObjectFlow.h>
 #include <fuml/syntax/classification/Parameter.h>
 #include <fuml/syntax/commonbehavior/OpaqueBehavior.h>
+#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
 #include <fuml/syntax/values/LiteralString.h>
+#include <utils/primitivetypes/PrimitiveTypesModel.h>
 
 using namespace examples::HelloWorldExample;
 
@@ -50,6 +53,7 @@ void HelloWorldExampleModel::initializeInMemoryModel()
 		//Parameter input
 		HelloWorldModel_println_input.reset(new Parameter());
 		HelloWorldModel_println_input->setName("input");
+		HelloWorldModel_println_input->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
 		HelloWorldModel_println_input->setLower(1);
 		HelloWorldModel_println_input->setUpper(1);
 		HelloWorldModel_println_input->setDirection(ParameterDirectionKind::in);
