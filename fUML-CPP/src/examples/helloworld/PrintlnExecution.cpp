@@ -8,13 +8,20 @@
 #include <examples/helloworld/PrintlnExecution.h>
 
 #include <fuml/Debug.h>
+#include <fuml/syntax/commonbehavior/OpaqueBehavior.h>
 #include <fuml/semantics/commonbehavior/ParameterValue.h>
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/simpleclassifiers/StringValue.h>
 #include <iostream>
+#include <examples/helloworld/HelloWorldExampleModel.h>
 
 using namespace examples::HelloWorldExample;
+
+PrintlnExecution::PrintlnExecution()
+{
+	this->types->push_back(HelloWorldExampleModel::Instance()->HelloWorldModel_println);
+}
 
 void PrintlnExecution::doBody(const ParameterValueListPtr& inputParameters,
 	const ParameterValueListPtr& outputParameters)

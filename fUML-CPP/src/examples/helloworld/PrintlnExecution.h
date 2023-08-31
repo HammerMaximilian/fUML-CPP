@@ -15,6 +15,7 @@ namespace examples::HelloWorldExample
 	class PrintlnExecution : public OpaqueBehaviorExecution
 	{
 		public:
+			PrintlnExecution();
 			virtual ~PrintlnExecution() = default;
 
 			virtual void doBody(const ParameterValueListPtr&, const ParameterValueListPtr&) override;

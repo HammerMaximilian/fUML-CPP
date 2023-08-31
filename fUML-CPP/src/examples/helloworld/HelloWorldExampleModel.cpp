@@ -1,5 +1,5 @@
 /*
- * MyTestModel.cpp
+ * HelloWorldExampleModel.cpp
  *
  *  Created on: 31.08.2023
  *      Author: Maximilian
@@ -21,7 +21,7 @@
 
 using namespace examples::HelloWorldExample;
 
-const std::shared_ptr<HelloWorldExampleModel>& examples::HelloWorldExample::HelloWorldExampleModel::Instance()
+const std::shared_ptr<HelloWorldExampleModel>& HelloWorldExampleModel::Instance()
 {
 	static std::shared_ptr<HelloWorldExampleModel> instance = nullptr;
 
