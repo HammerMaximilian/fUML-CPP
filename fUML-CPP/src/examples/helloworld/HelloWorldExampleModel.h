@@ -5,15 +5,15 @@
  *      Author: Maximilian
  */
 
-#ifndef MYTESTMODELMODEL_H_
-#define MYTESTMODELMODEL_H_
+#ifndef EXAMPLES_HELLOWORLD_HELLOWORLDEXAMPLEMODEL_H_
+#define EXAMPLES_HELLOWORLD_HELLOWORLDEXAMPLEMODEL_H_
 
 #include <fuml/syntax/fwd.h>
-#include <examples/InMemoryModel.h>
+#include <utils/environment/InMemoryModel.h>
 
 namespace examples::HelloWorldExample
 {
-	class HelloWorldExampleModel : public examples::InMemoryModel
+	class HelloWorldExampleModel : public fuml::environment::InMemoryModel
 	{
 		public:
 			ActivityFinalNodePtr HelloWorldModel_main_ActivityFinalNode = nullptr;
@@ -42,4 +42,4 @@ namespace examples::HelloWorldExample
 	};
 }
 
-#endif /* MYTESTMODELMODEL_H_ */
+#endif /* EXAMPLES_HELLOWORLD_HELLOWORLDEXAMPLEMODEL_H_ */

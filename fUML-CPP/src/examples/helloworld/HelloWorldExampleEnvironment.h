@@ -8,20 +8,20 @@
 #ifndef EXAMPLES_HELLOWORLD_OPAQUEBEHAVIOREXECUTIONS_HELLOWORLDEXAMPLE_H_
 #define EXAMPLES_HELLOWORLD_OPAQUEBEHAVIOREXECUTIONS_HELLOWORLDEXAMPLE_H_
 
-#include <examples/FumlExample.h>
+#include <utils/environment/Environment.h>
 
 namespace examples::HelloWorldExample
 {
-	class HelloWorldExample : public examples::FumlExample
+	class HelloWorldExampleEnvironment : public fuml::environment::Environment
 	{
 		public:
-			virtual ~HelloWorldExample() = default;
-			static const std::shared_ptr<HelloWorldExample>& Instance();
+			virtual ~HelloWorldExampleEnvironment() = default;
+			static const std::shared_ptr<HelloWorldExampleEnvironment>& Instance();
 
 			virtual void execute() override;
 
 		private:
-			HelloWorldExample() = default;
+			HelloWorldExampleEnvironment() = default;
 	};
 }
 

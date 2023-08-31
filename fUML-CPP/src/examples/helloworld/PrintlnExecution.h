@@ -5,8 +5,8 @@
  *      Author: Maximilian
  */
 
-#ifndef PRINTLNEXECUTION_H_
-#define PRINTLNEXECUTION_H_
+#ifndef EXAMPLES_HELLOWORLD_PRINTLNEXECUTION_H_
+#define EXAMPLES_HELLOWORLD_PRINTLNEXECUTION_H_
 
 #include <fuml/semantics/commonbehavior/OpaqueBehaviorExecution.h>
 
@@ -23,4 +23,4 @@ namespace examples::HelloWorldExample
 // BooleanFunctionBehaviorExecution
 }
 
-#endif /* PRINTLNEXECUTION_H_ */
+#endif /* EXAMPLES_HELLOWORLD_PRINTLNEXECUTION_H_ */
