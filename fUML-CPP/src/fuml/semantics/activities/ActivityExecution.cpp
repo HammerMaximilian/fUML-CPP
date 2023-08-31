@@ -51,6 +51,7 @@ void ActivityExecution::execute()
 	utils::Debug::println("[execute] isStreaming = " + std::to_string(this->isStreaming));
 
 	this->activationGroup.reset(new ActivityNodeActivationGroup());
+	this->activationGroup->setThisActivityNodeActivationGroupPtr(this->activationGroup);
 	this->activationGroup->activityExecution = this->thisActivityExecutionPtr.lock();
 	this->activationGroup->activate(activity->node, activity->edge);
 

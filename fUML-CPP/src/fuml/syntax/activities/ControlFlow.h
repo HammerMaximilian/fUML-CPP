@@ -8,7 +8,7 @@
 #ifndef FUML_SYNTAX_ACTIVITIES_CONTROLFLOW_H_
 #define FUML_SYNTAX_ACTIVITIES_CONTROLFLOW_H_
 
-#include <ActivityEdge.h>
+#include <fuml/syntax/activities/ActivityEdge.h>
 
 namespace fuml::syntax::activities
 {

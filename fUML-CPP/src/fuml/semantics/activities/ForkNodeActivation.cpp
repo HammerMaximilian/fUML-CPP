@@ -28,6 +28,7 @@ void ForkNodeActivation::fire(const TokenListPtr& incomingTokens)
 	for (const TokenPtr& token : *incomingTokens)
 	{
 		ForkedTokenPtr forkedToken(new ForkedToken());
+		forkedToken->setThisForkedTokenPtr(forkedToken);
 		forkedToken->baseToken = token;
 		forkedToken->remainingOffersCount = outgoingEdgeCount;
 		forkedToken->baseTokenIsWithdrawn = false;

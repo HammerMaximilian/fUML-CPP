@@ -199,7 +199,7 @@ LocusPtr ActivityNodeActivation::getExecutionLocus()
 	return this->getActivityExecution()->locus;
 } // getExecutionLocus
 
-ActivityNodeActivationPtr ActivityNodeActivation::getNodeActivation(const ActivityNodePtr&)
+ActivityNodeActivationPtr ActivityNodeActivation::getNodeActivation(const ActivityNodePtr& node)
 {
 	// Get the activity node activation corresponding to the given activity
 	// node, in the context of this activity node activation.

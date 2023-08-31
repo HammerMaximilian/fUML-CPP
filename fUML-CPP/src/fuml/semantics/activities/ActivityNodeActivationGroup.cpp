@@ -65,7 +65,7 @@ void ActivityNodeActivationGroup::run(const ActivityNodeActivationListPtr& activ
 			// For an action activation, also consider incoming edges to
 			// input pins
 
-			ActionActivationPtr actionActivation = std::dynamic_pointer_cast<ActionActivation>(actionActivation);
+			ActionActivationPtr actionActivation = std::dynamic_pointer_cast<ActionActivation>(activation);
 
 			if (isEnabled && actionActivation)
 			{
@@ -266,6 +266,9 @@ void ActivityNodeActivationGroup::createEdgeInstances(const ActivityEdgeListPtr&
 		this->edgeInstances->push_back(edgeInstance);
 		this->getNodeActivation(edge->source)->addOutgoingEdge(edgeInstance);
 		this->getNodeActivation(edge->target)->addIncomingEdge(edgeInstance);
+
+		ActivityNodeActivationPtr target = this->getNodeActivation(edge->target);
+		ActivityEdgeInstancePtr theEdge = target->incomingEdges->at(0);
 	}
 
 	const ActivityNodeActivationListPtr& nodeActivations = this->nodeActivations;
@@ -273,6 +276,7 @@ void ActivityNodeActivationGroup::createEdgeInstances(const ActivityEdgeListPtr&
 	{
 		nodeActivation->createEdgeInstances();
 	}
+
 } // createEdgeInstances
 
 ActivityExecutionPtr ActivityNodeActivationGroup::getActivityExecution()

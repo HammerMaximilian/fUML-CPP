@@ -229,7 +229,9 @@ void ActionActivation::sendOffers()
 	if (this->outgoingEdges->size() > 0)
 	{
 		TokenListPtr tokens(new TokenList());
-		tokens->push_back(ControlTokenPtr(new ControlToken()));
+		ControlTokenPtr newControlToken(new ControlToken());
+		newControlToken->setThisTokenPtr(newControlToken);
+		tokens->push_back(newControlToken);
 		this->addTokens(tokens);
 		this->outgoingEdges->at(0)->sendOffer(tokens);
 	}
@@ -297,6 +299,7 @@ void ActionActivation::addOutgoingEdge(const ActivityEdgeInstancePtr& edge)
 	if (this->outgoingEdges->size() == 0)
 	{
 		forkNodeActivation.reset(new ForkNodeActivation());
+		forkNodeActivation->setThisActivityNodeActivationPtr(forkNodeActivation);
 		forkNodeActivation->running = false;
 		ActivityEdgeInstancePtr newEdge(new ActivityEdgeInstance());
 		ActivityNodeActivation::addOutgoingEdge(newEdge);
@@ -347,6 +350,7 @@ void ActionActivation::putToken(const OutputPinPtr& pin, const ValuePtr& value)
 	utils::Debug::println("[putToken] node = " + this->node->name);
 
 	ObjectTokenPtr token(new ObjectToken());
+	token->setThisObjectTokenPtr(token);
 	token->value = value;
 
 	PinActivationPtr pinActivation = this->getPinActivation(pin);

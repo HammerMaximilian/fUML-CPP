@@ -14,7 +14,9 @@ void InitialNodeActivation::fire(const TokenListPtr& incomingTokens)
 	// Create a single token and send offers for it.
 
 	TokenListPtr tokens(new TokenList());
-	tokens->push_back(ControlTokenPtr(new ControlToken()));
+	ControlTokenPtr newControlToken(new ControlToken());
+	newControlToken->setThisTokenPtr(newControlToken);
+	tokens->push_back(newControlToken);
 	this->addTokens(tokens);
 
 	this->sendOffers(tokens);
