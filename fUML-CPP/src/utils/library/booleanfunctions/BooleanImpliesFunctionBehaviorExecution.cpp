@@ -8,8 +8,15 @@
 #include <utils/library/booleanfunctions/BooleanImpliesFunctionBehaviorExecution.h>
 
 #include <fuml/Debug.h>
+#include <fuml/syntax/commonbehavior/FunctionBehavior.h>
+#include <utils/library/LibraryModel.h>
 
 using namespace fuml::library::booleanfunctions;
+
+BooleanImpliesFunctionBehaviorExecution::BooleanImpliesFunctionBehaviorExecution()
+{
+	this->types->push_back(fuml::library::LibraryModel::Instance()->BooleanFunctions_Implies);
+}
 
 bool BooleanImpliesFunctionBehaviorExecution::doBooleanFunction(const std::shared_ptr<std::vector<bool>>& arguments)
 {

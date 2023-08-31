@@ -15,6 +15,7 @@ namespace fuml::library::booleanfunctions
 	class BooleanToBooleanFunctionBehaviorExecution : public OpaqueBehaviorExecution
 	{
 		public:
+			BooleanToBooleanFunctionBehaviorExecution();
 			virtual ~BooleanToBooleanFunctionBehaviorExecution() = default;
 
 			virtual void doBody(const ParameterValueListPtr&, const ParameterValueListPtr&) override;

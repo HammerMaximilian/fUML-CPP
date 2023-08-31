@@ -8,8 +8,15 @@
 #include <utils/library/booleanfunctions/BooleanNotFunctionBehaviorExecution.h>
 
 #include <fuml/Debug.h>
+#include <fuml/syntax/commonbehavior/FunctionBehavior.h>
+#include <utils/library/LibraryModel.h>
 
 using namespace fuml::library::booleanfunctions;
+
+BooleanNotFunctionBehaviorExecution::BooleanNotFunctionBehaviorExecution()
+{
+	this->types->push_back(fuml::library::LibraryModel::Instance()->BooleanFunctions_Not);
+}
 
 bool BooleanNotFunctionBehaviorExecution::doBooleanFunction(const std::shared_ptr<std::vector<bool>>& arguments)
 {

@@ -14,8 +14,15 @@
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/simpleclassifiers/BooleanValue.h>
 #include <fuml/semantics/simpleclassifiers/StringValue.h>
+#include <fuml/syntax/commonbehavior/FunctionBehavior.h>
+#include <utils/library/LibraryModel.h>
 
 using namespace fuml::library::booleanfunctions;
+
+BooleanToBooleanFunctionBehaviorExecution::BooleanToBooleanFunctionBehaviorExecution()
+{
+	this->types->push_back(fuml::library::LibraryModel::Instance()->BooleanFunctions_ToBoolean);
+}
 
 void BooleanToBooleanFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,
 	const ParameterValueListPtr& outputParameters)

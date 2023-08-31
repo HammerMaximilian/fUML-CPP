@@ -15,6 +15,7 @@ namespace fuml::library::booleanfunctions
 	class BooleanNotFunctionBehaviorExecution : public BooleanFunctionBehaviorExecution
 	{
 		public:
+			BooleanNotFunctionBehaviorExecution();
 			virtual ~BooleanNotFunctionBehaviorExecution() = default;
 
 			virtual bool doBooleanFunction(const std::shared_ptr<std::vector<bool>>&) override;
