@@ -18,6 +18,11 @@
 #include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
 #include <fuml/syntax/activities/Activity.h>
 #include <fuml/syntax/activities/ActivityParameterNode.h>
+#include <fuml/syntax/actions/ReadExtentAction.h>
+#include <fuml/syntax/actions/CallOperationAction.h>
+#include <fuml/syntax/actions/InputPin.h>
+#include <fuml/syntax/actions/OutputPin.h>
+#include <fuml/syntax/activities/ObjectFlow.h>
 #include <stdexcept>
 #include <utils/primitivetypes/PrimitiveTypesModel.h>
 
@@ -201,6 +206,7 @@ void LibraryModel::initializeInMemoryModel()
 		IntegerFunctions_Abs_x->setName("x");
 		IntegerFunctions_Abs_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
 	IntegerFunctions_Abs->addOwnedParameter(IntegerFunctions_Abs_x);
+
 	//FunctionBehavior Div
 	IntegerFunctions_Div.reset(new FunctionBehavior());
 	IntegerFunctions_Div->setThisClass_Ptr(IntegerFunctions_Div);
@@ -221,6 +227,7 @@ void LibraryModel::initializeInMemoryModel()
 		IntegerFunctions_Div_y->setName("y");
 		IntegerFunctions_Div_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
 	IntegerFunctions_Div->addOwnedParameter(IntegerFunctions_Div_y);
+
 	//FunctionBehavior Max
 	IntegerFunctions_Max.reset(new FunctionBehavior());
 	IntegerFunctions_Max->setThisClass_Ptr(IntegerFunctions_Max);
@@ -241,6 +248,7 @@ void LibraryModel::initializeInMemoryModel()
 		IntegerFunctions_Max_y->setName("y");
 		IntegerFunctions_Max_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
 	IntegerFunctions_Max->addOwnedParameter(IntegerFunctions_Max_y);
+
 	//FunctionBehavior Min
 	IntegerFunctions_Min.reset(new FunctionBehavior());
 	IntegerFunctions_Min->setThisClass_Ptr(IntegerFunctions_Min);
@@ -261,6 +269,7 @@ void LibraryModel::initializeInMemoryModel()
 		IntegerFunctions_Min_y->setName("y");
 		IntegerFunctions_Min_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
 	IntegerFunctions_Min->addOwnedParameter(IntegerFunctions_Min_y);
+
 	//FunctionBehavior Mod
 	IntegerFunctions_Mod.reset(new FunctionBehavior());
 	IntegerFunctions_Mod->setThisClass_Ptr(IntegerFunctions_Mod);
@@ -282,6 +291,7 @@ void LibraryModel::initializeInMemoryModel()
 		IntegerFunctions_Mod_y->setName("y");
 		IntegerFunctions_Mod_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
 	IntegerFunctions_Mod->addOwnedParameter(IntegerFunctions_Mod_y);
+
 	//FunctionBehavior Neg
 	IntegerFunctions_Neg.reset(new FunctionBehavior());
 	IntegerFunctions_Neg->setThisClass_Ptr(IntegerFunctions_Neg);
@@ -297,6 +307,7 @@ void LibraryModel::initializeInMemoryModel()
 		IntegerFunctions_Neg_x->setName("x");
 		IntegerFunctions_Neg_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
 	IntegerFunctions_Neg->addOwnedParameter(IntegerFunctions_Neg_x);
+
 	//FunctionBehavior ToInteger
 	IntegerFunctions_ToInteger.reset(new FunctionBehavior());
 	IntegerFunctions_ToInteger->setThisClass_Ptr(IntegerFunctions_ToInteger);
@@ -312,6 +323,7 @@ void LibraryModel::initializeInMemoryModel()
 		IntegerFunctions_ToInteger_x->setName("x");
 		IntegerFunctions_ToInteger_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
 	IntegerFunctions_ToInteger->addOwnedParameter(IntegerFunctions_ToInteger_x);
+
 	//FunctionBehavior ToString
 	IntegerFunctions_ToString.reset(new FunctionBehavior());
 	IntegerFunctions_ToString->setThisClass_Ptr(IntegerFunctions_ToString);
@@ -327,6 +339,7 @@ void LibraryModel::initializeInMemoryModel()
 		IntegerFunctions_ToString_x->setName("x");
 		IntegerFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
 	IntegerFunctions_ToString->addOwnedParameter(IntegerFunctions_ToString_x);
+
 	//FunctionBehavior ToUnlimitedNatural
 	IntegerFunctions_ToUnlimitedNatural.reset(new FunctionBehavior());
 	IntegerFunctions_ToUnlimitedNatural->setThisClass_Ptr(IntegerFunctions_ToUnlimitedNatural);
@@ -342,6 +355,7 @@ void LibraryModel::initializeInMemoryModel()
 		IntegerFunctions_ToUnlimitedNatural_x->setName("x");
 		IntegerFunctions_ToUnlimitedNatural_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
 	IntegerFunctions_ToUnlimitedNatural->addOwnedParameter(IntegerFunctions_ToUnlimitedNatural_x);
+
 	//FunctionBehavior divide
 	IntegerFunctions_divide.reset(new FunctionBehavior());
 	IntegerFunctions_divide->setThisClass_Ptr(IntegerFunctions_divide);
@@ -394,6 +408,7 @@ void LibraryModel::initializeInMemoryModel()
 		IntegerFunctions_greaterOrEqual_y->setName("y");
 		IntegerFunctions_greaterOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
 	IntegerFunctions_greaterOrEqual->addOwnedParameter(IntegerFunctions_greaterOrEqual_y);
+
 	//FunctionBehavior greaterThan
 	IntegerFunctions_greaterThan.reset(new FunctionBehavior());
 	IntegerFunctions_greaterThan->setThisClass_Ptr(IntegerFunctions_greaterThan);
@@ -414,6 +429,7 @@ void LibraryModel::initializeInMemoryModel()
 		IntegerFunctions_greaterThan_y->setName("y");
 		IntegerFunctions_greaterThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
 	IntegerFunctions_greaterThan->addOwnedParameter(IntegerFunctions_greaterThan_y);
+
 	//FunctionBehavior lessOrEqual
 	IntegerFunctions_lessOrEqual.reset(new FunctionBehavior());
 	IntegerFunctions_lessOrEqual->setThisClass_Ptr(IntegerFunctions_lessOrEqual);
@@ -434,6 +450,7 @@ void LibraryModel::initializeInMemoryModel()
 		IntegerFunctions_lessOrEqual_y->setName("y");
 		IntegerFunctions_lessOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
 	IntegerFunctions_lessOrEqual->addOwnedParameter(IntegerFunctions_lessOrEqual_y);
+
 	//FunctionBehavior lessThan
 	IntegerFunctions_lessThan.reset(new FunctionBehavior());
 	IntegerFunctions_lessThan->setThisClass_Ptr(IntegerFunctions_lessThan);
@@ -454,6 +471,7 @@ void LibraryModel::initializeInMemoryModel()
 		IntegerFunctions_lessThan_y->setName("y");
 		IntegerFunctions_lessThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
 	IntegerFunctions_lessThan->addOwnedParameter(IntegerFunctions_lessThan_y);
+
 	//FunctionBehavior minus
 	IntegerFunctions_minus.reset(new FunctionBehavior());
 	IntegerFunctions_minus->setThisClass_Ptr(IntegerFunctions_minus);
@@ -474,6 +492,7 @@ void LibraryModel::initializeInMemoryModel()
 		IntegerFunctions_minus_y->setName("y");
 		IntegerFunctions_minus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
 	IntegerFunctions_minus->addOwnedParameter(IntegerFunctions_minus_y);
+
 	//FunctionBehavior plus
 	IntegerFunctions_plus.reset(new FunctionBehavior());
 	IntegerFunctions_plus->setThisClass_Ptr(IntegerFunctions_plus);
@@ -494,6 +513,7 @@ void LibraryModel::initializeInMemoryModel()
 		IntegerFunctions_plus_y->setName("y");
 		IntegerFunctions_plus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
 	IntegerFunctions_plus->addOwnedParameter(IntegerFunctions_plus_y);
+
 	//FunctionBehavior times
 	IntegerFunctions_times.reset(new FunctionBehavior());
 	IntegerFunctions_times->setThisClass_Ptr(IntegerFunctions_times);
@@ -534,6 +554,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_Abs_x->setName("x");
 		RealFunctions_Abs_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
 	RealFunctions_Abs->addOwnedParameter(RealFunctions_Abs_x);
+
 	//FunctionBehavior Floor
 	RealFunctions_Floor.reset(new FunctionBehavior());
 	RealFunctions_Floor->setThisClass_Ptr(RealFunctions_Floor);
@@ -549,6 +570,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_Floor_x->setName("x");
 		RealFunctions_Floor_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
 	RealFunctions_Floor->addOwnedParameter(RealFunctions_Floor_x);
+
 	//FunctionBehavior Inv
 	RealFunctions_Inv.reset(new FunctionBehavior());
 	RealFunctions_Inv->setThisClass_Ptr(RealFunctions_Inv);
@@ -564,6 +586,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_Inv_x->setName("x");
 		RealFunctions_Inv_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
 	RealFunctions_Inv->addOwnedParameter(RealFunctions_Inv_x);
+
 	//FunctionBehavior Max
 	RealFunctions_Max.reset(new FunctionBehavior());
 	RealFunctions_Max->setThisClass_Ptr(RealFunctions_Max);
@@ -584,6 +607,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_Max_y->setName("y");
 		RealFunctions_Max_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
 	RealFunctions_Max->addOwnedParameter(RealFunctions_Max_y);
+
 	//FunctionBehavior Min
 	RealFunctions_Min.reset(new FunctionBehavior());
 	RealFunctions_Min->setThisClass_Ptr(RealFunctions_Min);
@@ -604,6 +628,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_Min_y->setName("y");
 		RealFunctions_Min_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
 	RealFunctions_Min->addOwnedParameter(RealFunctions_Min_y);
+
 	//FunctionBehavior Neg
 	RealFunctions_Neg.reset(new FunctionBehavior());
 	RealFunctions_Neg->setThisClass_Ptr(RealFunctions_Neg);
@@ -619,6 +644,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_Neg_x->setName("x");
 		RealFunctions_Neg_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
 	RealFunctions_Neg->addOwnedParameter(RealFunctions_Neg_x);
+
 	//FunctionBehavior Round
 	RealFunctions_Round.reset(new FunctionBehavior());
 	RealFunctions_Round->setThisClass_Ptr(RealFunctions_Round);
@@ -634,6 +660,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_Round_x->setName("x");
 		RealFunctions_Round_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
 	RealFunctions_Round->addOwnedParameter(RealFunctions_Round_x);
+
 	//FunctionBehavior ToInteger
 	RealFunctions_ToInteger.reset(new FunctionBehavior());
 	RealFunctions_ToInteger->setThisClass_Ptr(RealFunctions_ToInteger);
@@ -649,6 +676,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_ToInteger_x->setName("x");
 		RealFunctions_ToInteger_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
 	RealFunctions_ToInteger->addOwnedParameter(RealFunctions_ToInteger_x);
+
 	//FunctionBehavior ToReal
 	RealFunctions_ToReal.reset(new FunctionBehavior());
 	RealFunctions_ToReal->setThisClass_Ptr(RealFunctions_ToReal);
@@ -664,6 +692,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_ToReal_x->setName("x");
 		RealFunctions_ToReal_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
 	RealFunctions_ToReal->addOwnedParameter(RealFunctions_ToReal_x);
+
 	//FunctionBehavior ToString
 	RealFunctions_ToString.reset(new FunctionBehavior());
 	RealFunctions_ToString->setThisClass_Ptr(RealFunctions_ToString);
@@ -679,6 +708,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_ToString_x->setName("x");
 		RealFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
 	RealFunctions_ToString->addOwnedParameter(RealFunctions_ToString_x);
+
 	//FunctionBehavior divide
 	RealFunctions_divide.reset(new FunctionBehavior());
 	RealFunctions_divide->setThisClass_Ptr(RealFunctions_divide);
@@ -731,6 +761,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_greaterOrEqual_y->setName("y");
 		RealFunctions_greaterOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
 	RealFunctions_greaterOrEqual->addOwnedParameter(RealFunctions_greaterOrEqual_y);
+
 	//FunctionBehavior greaterThan
 	RealFunctions_greaterThan.reset(new FunctionBehavior());
 	RealFunctions_greaterThan->setThisClass_Ptr(RealFunctions_greaterThan);
@@ -751,6 +782,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_greaterThan_y->setName("y");
 		RealFunctions_greaterThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
 	RealFunctions_greaterThan->addOwnedParameter(RealFunctions_greaterThan_y);
+
 	//FunctionBehavior lessOrEqual
 	RealFunctions_lessOrEqual.reset(new FunctionBehavior());
 	RealFunctions_lessOrEqual->setThisClass_Ptr(RealFunctions_lessOrEqual);
@@ -771,6 +803,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_lessOrEqual_y->setName("y");
 		RealFunctions_lessOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
 	RealFunctions_lessOrEqual->addOwnedParameter(RealFunctions_lessOrEqual_y);
+
 	//FunctionBehavior lessThan
 	RealFunctions_lessThan.reset(new FunctionBehavior());
 	RealFunctions_lessThan->setThisClass_Ptr(RealFunctions_lessThan);
@@ -791,6 +824,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_lessThan_y->setName("y");
 		RealFunctions_lessThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
 	RealFunctions_lessThan->addOwnedParameter(RealFunctions_lessThan_y);
+
 	//FunctionBehavior minus
 	RealFunctions_minus.reset(new FunctionBehavior());
 	RealFunctions_minus->setThisClass_Ptr(RealFunctions_minus);
@@ -811,6 +845,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_minus_y->setName("y");
 		RealFunctions_minus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
 	RealFunctions_minus->addOwnedParameter(RealFunctions_minus_y);
+
 	//FunctionBehavior plus
 	RealFunctions_plus.reset(new FunctionBehavior());
 	RealFunctions_plus->setThisClass_Ptr(RealFunctions_plus);
@@ -831,6 +866,7 @@ void LibraryModel::initializeInMemoryModel()
 		RealFunctions_plus_y->setName("y");
 		RealFunctions_plus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
 	RealFunctions_plus->addOwnedParameter(RealFunctions_plus_y);
+
 	//FunctionBehavior times
 	RealFunctions_times.reset(new FunctionBehavior());
 	RealFunctions_times->setThisClass_Ptr(RealFunctions_times);
@@ -875,6 +911,7 @@ void LibraryModel::initializeInMemoryModel()
 		StringFunctions_Concat_y->setName("y");
 		StringFunctions_Concat_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
 	StringFunctions_Concat->addOwnedParameter(StringFunctions_Concat_y);
+
 	//FunctionBehavior Size
 	StringFunctions_Size.reset(new FunctionBehavior());
 	StringFunctions_Size->setThisClass_Ptr(StringFunctions_Size);
@@ -890,6 +927,7 @@ void LibraryModel::initializeInMemoryModel()
 		StringFunctions_Size_x->setName("x");
 		StringFunctions_Size_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
 	StringFunctions_Size->addOwnedParameter(StringFunctions_Size_x);
+
 	//FunctionBehavior Substring
 	StringFunctions_Substring.reset(new FunctionBehavior());
 	StringFunctions_Substring->setThisClass_Ptr(StringFunctions_Substring);
@@ -939,6 +977,7 @@ void LibraryModel::initializeInMemoryModel()
 		UnlimitedNaturalFunctions_Max_y->setName("y");
 		UnlimitedNaturalFunctions_Max_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
 	UnlimitedNaturalFunctions_Max->addOwnedParameter(UnlimitedNaturalFunctions_Max_y);
+
 	//FunctionBehavior Min
 	UnlimitedNaturalFunctions_Min.reset(new FunctionBehavior());
 	UnlimitedNaturalFunctions_Min->setThisClass_Ptr(UnlimitedNaturalFunctions_Min);
@@ -959,6 +998,7 @@ void LibraryModel::initializeInMemoryModel()
 		UnlimitedNaturalFunctions_Min_y->setName("y");
 		UnlimitedNaturalFunctions_Min_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
 	UnlimitedNaturalFunctions_Min->addOwnedParameter(UnlimitedNaturalFunctions_Min_y);
+
 	//FunctionBehavior ToInteger
 	UnlimitedNaturalFunctions_ToInteger.reset(new FunctionBehavior());
 	UnlimitedNaturalFunctions_ToInteger->setThisClass_Ptr(UnlimitedNaturalFunctions_ToInteger);
@@ -974,6 +1014,7 @@ void LibraryModel::initializeInMemoryModel()
 		UnlimitedNaturalFunctions_ToInteger_x->setName("x");
 		UnlimitedNaturalFunctions_ToInteger_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
 	UnlimitedNaturalFunctions_ToInteger->addOwnedParameter(UnlimitedNaturalFunctions_ToInteger_x);
+
 	//FunctionBehavior ToString
 	UnlimitedNaturalFunctions_ToString.reset(new FunctionBehavior());
 	UnlimitedNaturalFunctions_ToString->setThisClass_Ptr(UnlimitedNaturalFunctions_ToString);
@@ -989,6 +1030,7 @@ void LibraryModel::initializeInMemoryModel()
 		UnlimitedNaturalFunctions_ToString_x->setName("x");
 		UnlimitedNaturalFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
 	UnlimitedNaturalFunctions_ToString->addOwnedParameter(UnlimitedNaturalFunctions_ToString_x);
+
 	//FunctionBehavior ToUnlimitedNatural
 	UnlimitedNaturalFunctions_ToUnlimitedNatural.reset(new FunctionBehavior());
 	UnlimitedNaturalFunctions_ToUnlimitedNatural->setThisClass_Ptr(UnlimitedNaturalFunctions_ToUnlimitedNatural);
@@ -1036,6 +1078,7 @@ void LibraryModel::initializeInMemoryModel()
 		UnlimitedNaturalFunctions_greaterOrEqual_y->setName("y");
 		UnlimitedNaturalFunctions_greaterOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
 	UnlimitedNaturalFunctions_greaterOrEqual->addOwnedParameter(UnlimitedNaturalFunctions_greaterOrEqual_y);
+
 	//FunctionBehavior greaterThan
 	UnlimitedNaturalFunctions_greaterThan.reset(new FunctionBehavior());
 	UnlimitedNaturalFunctions_greaterThan->setThisClass_Ptr(UnlimitedNaturalFunctions_greaterThan);
@@ -1056,6 +1099,7 @@ void LibraryModel::initializeInMemoryModel()
 		UnlimitedNaturalFunctions_greaterThan_y->setName("y");
 		UnlimitedNaturalFunctions_greaterThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
 	UnlimitedNaturalFunctions_greaterThan->addOwnedParameter(UnlimitedNaturalFunctions_greaterThan_y);
+
 	//FunctionBehavior lessOrEqual
 	UnlimitedNaturalFunctions_lessOrEqual.reset(new FunctionBehavior());
 	UnlimitedNaturalFunctions_lessOrEqual->setThisClass_Ptr(UnlimitedNaturalFunctions_lessOrEqual);
@@ -1076,6 +1120,7 @@ void LibraryModel::initializeInMemoryModel()
 		UnlimitedNaturalFunctions_lessOrEqual_y->setName("y");
 		UnlimitedNaturalFunctions_lessOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
 	UnlimitedNaturalFunctions_lessOrEqual->addOwnedParameter(UnlimitedNaturalFunctions_lessOrEqual_y);
+
 	//FunctionBehavior lessThan
 	UnlimitedNaturalFunctions_lessThan.reset(new FunctionBehavior());
 	UnlimitedNaturalFunctions_lessThan->setThisClass_Ptr(UnlimitedNaturalFunctions_lessThan);
@@ -1116,6 +1161,7 @@ void LibraryModel::initializeInMemoryModel()
 		ListFunctions_ListSize_list->setLower(0);
 		ListFunctions_ListSize_list->setUpper(-1);
 	ListFunctions_ListSize->addOwnedParameter(ListFunctions_ListSize_list);
+
 	//FunctionBehavior ListGet
 	ListFunctions_ListGet.reset(new FunctionBehavior());
 	ListFunctions_ListGet->setThisClass_Ptr(ListFunctions_ListGet);
@@ -1136,6 +1182,7 @@ void LibraryModel::initializeInMemoryModel()
 		ListFunctions_ListGet_list->setLower(0);
 		ListFunctions_ListGet_list->setUpper(-1);
 	ListFunctions_ListGet->addOwnedParameter(ListFunctions_ListGet_list);
+
 	//FunctionBehavior ListConcat
 	ListFunctions_ListConcat.reset(new FunctionBehavior());
 	ListFunctions_ListConcat->setThisClass_Ptr(ListFunctions_ListConcat);
@@ -1173,6 +1220,7 @@ void LibraryModel::initializeInMemoryModel()
 		Notification_content->setName("content");
 		Notification_content->setLower(0);
 	Notification->addOwnedAttribute(Notification_content);
+
 	//Class Listener
 	Listener.reset(new Class_());
 	Listener->setThisClass_Ptr(Listener);
@@ -1185,6 +1233,7 @@ void LibraryModel::initializeInMemoryModel()
 		Listener_Notification->setName("Notification");
 		Listener_Notification->setSignal(Notification);
 	Listener->addOwnedReception(Listener_Notification);
+
 	//DataType Status
 	Status.reset(new DataType());
 	Status->setThisDataTypePtr(Status);
@@ -1716,7 +1765,64 @@ void LibraryModel::initializeInMemoryModel()
 		WriteLine_ActivityParameterNode_errorStatus->setParameter(WriteLine_errorStatus);
 		WriteLine_ActivityParameterNode_errorStatus->setType(Status);
 	WriteLine->addNode(WriteLine_ActivityParameterNode_errorStatus);
-
+		//ReadExtentAction StandardOutputChannel
+		WriteLine_ReadExtentAction_StandardOutputChannel.reset(new ReadExtentAction());
+		WriteLine_ReadExtentAction_StandardOutputChannel->setThisExecutableNodePtr(WriteLine_ReadExtentAction_StandardOutputChannel);
+		WriteLine_ReadExtentAction_StandardOutputChannel->setName("StandardOutputChannel");
+		WriteLine_ReadExtentAction_StandardOutputChannel->setClassifier(StandardOutputChannel);
+			//OutputPin result
+			WriteLine_ReadExtentAction_StandardOutputChannel_result.reset(new OutputPin());
+			WriteLine_ReadExtentAction_StandardOutputChannel_result->setThisElementPtr(WriteLine_ReadExtentAction_StandardOutputChannel_result);
+			WriteLine_ReadExtentAction_StandardOutputChannel_result->setName("result");
+			WriteLine_ReadExtentAction_StandardOutputChannel_result->setType(StandardOutputChannel);
+			WriteLine_ReadExtentAction_StandardOutputChannel_result->setUpper(-1);
+		WriteLine_ReadExtentAction_StandardOutputChannel->setResult(WriteLine_ReadExtentAction_StandardOutputChannel_result);
+	WriteLine->addNode(WriteLine_ReadExtentAction_StandardOutputChannel);
+		//CallOperationAction writeLine
+		WriteLine_CallOperationAction_writeLine.reset(new CallOperationAction());
+		WriteLine_CallOperationAction_writeLine->setThisExecutableNodePtr(WriteLine_CallOperationAction_writeLine);
+		WriteLine_CallOperationAction_writeLine->setName("writeLine");
+		WriteLine_CallOperationAction_writeLine->setOperation(TextOutputChannel_writeLine);
+			//InputPin target
+			WriteLine_CallOperationAction_writeLine_target.reset(new InputPin());
+			WriteLine_CallOperationAction_writeLine_target->setThisElementPtr(WriteLine_CallOperationAction_writeLine_target);
+			WriteLine_CallOperationAction_writeLine_target->setName("target");
+			WriteLine_CallOperationAction_writeLine_target->setType(TextOutputChannel);
+		WriteLine_CallOperationAction_writeLine->setTarget(WriteLine_CallOperationAction_writeLine_target);
+			//InputPin value
+			WriteLine_CallOperationAction_writeLine_value.reset(new InputPin());
+			WriteLine_CallOperationAction_writeLine_value->setThisElementPtr(WriteLine_CallOperationAction_writeLine_value);
+			WriteLine_CallOperationAction_writeLine_value->setName("value");
+			WriteLine_CallOperationAction_writeLine_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		WriteLine_CallOperationAction_writeLine->addArgument(WriteLine_CallOperationAction_writeLine_value);
+			//OutputPin errorStatus
+			WriteLine_CallOperationAction_writeLine_errorStatus.reset(new OutputPin());
+			WriteLine_CallOperationAction_writeLine_errorStatus->setThisElementPtr(WriteLine_CallOperationAction_writeLine_errorStatus);
+			WriteLine_CallOperationAction_writeLine_errorStatus->setName("errorStatus");
+			WriteLine_CallOperationAction_writeLine_errorStatus->setType(Status);
+		WriteLine_CallOperationAction_writeLine->addResult(WriteLine_CallOperationAction_writeLine_errorStatus);
+	WriteLine->addNode(WriteLine_CallOperationAction_writeLine);
+		//ObjectFlow from value to writeLine_value
+		WriteLine_From_value_To_writeLine_value.reset(new ObjectFlow());
+		WriteLine_From_value_To_writeLine_value->setThisActivityEdgePtr(WriteLine_From_value_To_writeLine_value);
+		WriteLine_From_value_To_writeLine_value->setName("From_value_To_writeLine_value");
+		WriteLine_From_value_To_writeLine_value->setSource(WriteLine_ActivityParameterNode_value);
+		WriteLine_From_value_To_writeLine_value->setTarget(WriteLine_CallOperationAction_writeLine_value);
+	WriteLine->addEdge(WriteLine_From_value_To_writeLine_value);
+		//ObjectFlow from StandardOutputChannel_result to writeLine_target
+		WriteLine_From_StandardOutputChannel_result_To_writeLine_target.reset(new ObjectFlow());
+		WriteLine_From_StandardOutputChannel_result_To_writeLine_target->setThisActivityEdgePtr(WriteLine_From_StandardOutputChannel_result_To_writeLine_target);
+		WriteLine_From_StandardOutputChannel_result_To_writeLine_target->setName("From_StandardOutputChannel_result_To_writeLine_target");
+		WriteLine_From_StandardOutputChannel_result_To_writeLine_target->setSource(WriteLine_ReadExtentAction_StandardOutputChannel_result);
+		WriteLine_From_StandardOutputChannel_result_To_writeLine_target->setTarget(WriteLine_CallOperationAction_writeLine_target);
+	WriteLine->addEdge(WriteLine_From_StandardOutputChannel_result_To_writeLine_target);
+		//ObjectFlow from writeLine_errorStatus to errorStatus
+		WriteLine_From_writeLine_errorStatus_To_errorStatus.reset(new ObjectFlow());
+		WriteLine_From_writeLine_errorStatus_To_errorStatus->setThisActivityEdgePtr(WriteLine_From_writeLine_errorStatus_To_errorStatus);
+		WriteLine_From_writeLine_errorStatus_To_errorStatus->setName("From_writeLine_errorStatus_To_errorStatus");
+		WriteLine_From_writeLine_errorStatus_To_errorStatus->setSource(WriteLine_CallOperationAction_writeLine_errorStatus);
+		WriteLine_From_writeLine_errorStatus_To_errorStatus->setTarget(WriteLine_ActivityParameterNode_errorStatus);
+	WriteLine->addEdge(WriteLine_From_writeLine_errorStatus_To_errorStatus);
 
 	//Class ActiveChannel
 	ActiveChannel.reset(new Class_());
@@ -1753,6 +1859,96 @@ void LibraryModel::initializeInMemoryModel()
 	ActiveChannel->addOwnedOperation(ActiveChannel_unregister);
 
 	//Activity ReadLine
+	ReadLine.reset(new Activity());
+	ReadLine->setThisActivityPtr(ReadLine);
+	ReadLine->setName("ReadLine");
+	ReadLine->isReentrant = false;
+		//Parameter result
+		ReadLine_result.reset(new Parameter());
+		ReadLine_result->setThisElementPtr(ReadLine_result);
+		ReadLine_result->setName("result");
+		ReadLine_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		ReadLine_result->setDirection(ParameterDirectionKind::return_);
+	ReadLine->addOwnedParameter(ReadLine_result);
+		//Parameter errorStatus
+		ReadLine_errorStatus.reset(new Parameter());;
+		ReadLine_errorStatus->setThisElementPtr(ReadLine_errorStatus);
+		ReadLine_errorStatus->setName("errorStatus");
+		ReadLine_errorStatus->setType(Status);
+		ReadLine_errorStatus->setDirection(ParameterDirectionKind::out);
+	ReadLine->addOwnedParameter(ReadLine_errorStatus);
+		//ActivityParameterNode result
+		ReadLine_ActivityParameterNode_result.reset(new ActivityParameterNode());
+		ReadLine_ActivityParameterNode_result->setThisElementPtr(ReadLine_ActivityParameterNode_result);
+		ReadLine_ActivityParameterNode_result->setName("result");
+		ReadLine_ActivityParameterNode_result->setParameter(ReadLine_result);
+		ReadLine_ActivityParameterNode_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+	ReadLine->addNode(ReadLine_ActivityParameterNode_result);
+		//ActivityParameterNode errorStatus
+		ReadLine_ActivityParameterNode_errorStatus.reset(new ActivityParameterNode());
+		ReadLine_ActivityParameterNode_errorStatus->setThisElementPtr(ReadLine_ActivityParameterNode_errorStatus);
+		ReadLine_ActivityParameterNode_errorStatus->setName("errorStatus");
+		ReadLine_ActivityParameterNode_errorStatus->setParameter(ReadLine_errorStatus);
+		ReadLine_ActivityParameterNode_errorStatus->setType(Status);
+	ReadLine->addNode(ReadLine_ActivityParameterNode_errorStatus);
+		//ReadExtentAction StandardInputChannel
+		ReadLine_ReadExtentAction_StandardInputChannel.reset(new ReadExtentAction());
+		ReadLine_ReadExtentAction_StandardInputChannel->setThisExecutableNodePtr(ReadLine_ReadExtentAction_StandardInputChannel);
+		ReadLine_ReadExtentAction_StandardInputChannel->setName("StandardInputChannel");
+		ReadLine_ReadExtentAction_StandardInputChannel->setClassifier(StandardInputChannel);
+			//OutputPin result
+			ReadLine_ReadExtentAction_StandardInputChannel_result.reset(new OutputPin());
+			ReadLine_ReadExtentAction_StandardInputChannel_result->setThisElementPtr(ReadLine_ReadExtentAction_StandardInputChannel_result);
+			ReadLine_ReadExtentAction_StandardInputChannel_result->setName("result");
+			ReadLine_ReadExtentAction_StandardInputChannel_result->setType(StandardInputChannel);
+			ReadLine_ReadExtentAction_StandardInputChannel_result->setUpper(-1);
+		ReadLine_ReadExtentAction_StandardInputChannel->setResult(ReadLine_ReadExtentAction_StandardInputChannel_result);
+	ReadLine->addNode(ReadLine_ReadExtentAction_StandardInputChannel);
+		//CallOperationAction readLine
+		ReadLine_CallOperationAction_readLine.reset(new CallOperationAction());
+		ReadLine_CallOperationAction_readLine->setThisExecutableNodePtr(ReadLine_CallOperationAction_readLine);
+		ReadLine_CallOperationAction_readLine->setName("readLine");
+		ReadLine_CallOperationAction_readLine->setOperation(TextInputChannel_readLine);
+			//InputPin target
+			ReadLine_CallOperationAction_readLine_target.reset(new InputPin());
+			ReadLine_CallOperationAction_readLine_target->setThisElementPtr(ReadLine_CallOperationAction_readLine_target);
+			ReadLine_CallOperationAction_readLine_target->setName("target");
+			ReadLine_CallOperationAction_readLine_target->setType(TextInputChannel);
+		ReadLine_CallOperationAction_readLine->setTarget(ReadLine_CallOperationAction_readLine_target);
+			//OutputPin result
+			ReadLine_CallOperationAction_readLine_result.reset(new OutputPin());
+			ReadLine_CallOperationAction_readLine_result->setThisElementPtr(ReadLine_CallOperationAction_readLine_result);
+			ReadLine_CallOperationAction_readLine_result->setName("result");
+			ReadLine_CallOperationAction_readLine_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		ReadLine_CallOperationAction_readLine->addResult(ReadLine_CallOperationAction_readLine_result);
+			//OutputPin errorStatus
+			ReadLine_CallOperationAction_readLine_errorStatus.reset(new OutputPin());
+			ReadLine_CallOperationAction_readLine_errorStatus->setThisElementPtr(ReadLine_CallOperationAction_readLine_errorStatus);
+			ReadLine_CallOperationAction_readLine_errorStatus->setName("errorStatus");
+			ReadLine_CallOperationAction_readLine_errorStatus->setType(Status);
+		ReadLine_CallOperationAction_readLine->addResult(ReadLine_CallOperationAction_readLine_errorStatus);
+	ReadLine->addNode(ReadLine_CallOperationAction_readLine);
+		//ObjectFlow from StandardInputChannel_result to readLine_target
+		ReadLine_From_StandardInputChannel_result_To_readLine_target.reset(new ObjectFlow());
+		ReadLine_From_StandardInputChannel_result_To_readLine_target->setThisActivityEdgePtr(ReadLine_From_StandardInputChannel_result_To_readLine_target);
+		ReadLine_From_StandardInputChannel_result_To_readLine_target->setName("From_StandardInputChannel_result_To_readLine_target");
+		ReadLine_From_StandardInputChannel_result_To_readLine_target->setSource(ReadLine_ReadExtentAction_StandardInputChannel_result);
+		ReadLine_From_StandardInputChannel_result_To_readLine_target->setTarget(ReadLine_CallOperationAction_readLine_target);
+	ReadLine->addEdge(ReadLine_From_StandardInputChannel_result_To_readLine_target);
+		//ObjectFlow from readLine_result to result
+		ReadLine_From_readLine_result_To_result.reset(new ObjectFlow());
+		ReadLine_From_readLine_result_To_result->setThisActivityEdgePtr(ReadLine_From_readLine_result_To_result);
+		ReadLine_From_readLine_result_To_result->setName("From_readLine_result_To_result");
+		ReadLine_From_readLine_result_To_result->setSource(ReadLine_CallOperationAction_readLine_result);
+		ReadLine_From_readLine_result_To_result->setTarget(ReadLine_ActivityParameterNode_result);
+	ReadLine->addEdge(ReadLine_From_readLine_result_To_result);
+		//ObjectFlow from readLine_errorStatus to errorStatus
+		ReadLine_From_readLine_errorStatus_To_errorStatus.reset(new ObjectFlow());
+		ReadLine_From_readLine_errorStatus_To_errorStatus->setThisActivityEdgePtr(ReadLine_From_readLine_errorStatus_To_errorStatus);
+		ReadLine_From_readLine_errorStatus_To_errorStatus->setName("From_readline_errorStatus_To_errorStatus");
+		ReadLine_From_readLine_errorStatus_To_errorStatus->setSource(ReadLine_CallOperationAction_readLine_errorStatus);
+		ReadLine_From_readLine_errorStatus_To_errorStatus->setTarget(ReadLine_ActivityParameterNode_errorStatus);
+	ReadLine->addEdge(ReadLine_From_readLine_errorStatus_To_errorStatus);
 }
 
 

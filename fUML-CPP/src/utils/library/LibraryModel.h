@@ -397,8 +397,8 @@ namespace fuml::library
 				ReadExtentActionPtr WriteLine_ReadExtentAction_StandardOutputChannel = nullptr;
 				OutputPinPtr WriteLine_ReadExtentAction_StandardOutputChannel_result = nullptr;
 				CallOperationActionPtr WriteLine_CallOperationAction_writeLine = nullptr;
-				InputPinPtr WriteLine_CallOperationAction_write_target = nullptr;
-				InputPinPtr WriteLine_CallOperationAction_write_value = nullptr;
+				InputPinPtr WriteLine_CallOperationAction_writeLine_target = nullptr;
+				InputPinPtr WriteLine_CallOperationAction_writeLine_value = nullptr;
 				OutputPinPtr WriteLine_CallOperationAction_writeLine_errorStatus = nullptr;
 				ObjectFlowPtr WriteLine_From_StandardOutputChannel_result_To_writeLine_target = nullptr;
 				ObjectFlowPtr WriteLine_From_value_To_writeLine_value = nullptr;
