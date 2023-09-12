@@ -20,7 +20,7 @@ using namespace fuml::library::stringfunctions;
 
 StringSubstringFunctionBehaviorExecution::StringSubstringFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->StringFunctions_Size);
+	this->types->push_back(fuml::library::LibraryModel::Instance()->StringFunctions_Substring);
 }
 
 void StringSubstringFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,
