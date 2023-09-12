@@ -26,7 +26,7 @@ namespace fuml::semantics::structuredclassifiers
 			void setThisObject_Ptr(std::weak_ptr<Object_>);
 
 			void startBehavior(const Class_Ptr&, const ParameterValueListPtr&);
-			ExecutionPtr dispatch(const OperationPtr&);
+			virtual ExecutionPtr dispatch(const OperationPtr&);
 			void send(const EventOccurrencePtr&);
 			virtual void destroy() override;
 			void register_(const EventAccepterPtr&);
