@@ -19,15 +19,19 @@ namespace fuml::library::libraryclass
 {
 	class OperationExecution : public Execution
 	{
+		private:
+			std::weak_ptr<OperationExecution> thisOperationExecutionPtr;
+
 		public:
 			virtual ~OperationExecution() = default;
+			void setThisOperationExecutionPtr(std::weak_ptr<OperationExecution>);
 
-			void set(const std::shared_ptr<ImplementationObject>&, OperationPtr&);
+			void set(const std::shared_ptr<ImplementationObject>&, const OperationPtr&);
 			virtual ValuePtr new_() override;
 			virtual void execute() override;
 			std::string getOperationName();
 			ParameterPtr getParameter(std::string);
-			ParameterValue getParameterValue(std::string);
+			ParameterValuePtr getParameterValue(std::string);
 			void setParameterValue(const ParameterPtr&, const ValueListPtr&);
 			void setParameterValue(std::string, const ValueListPtr&);
 			void setParameterValue(std::string, const ValuePtr&);
