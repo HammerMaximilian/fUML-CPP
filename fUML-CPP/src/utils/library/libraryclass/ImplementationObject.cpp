@@ -13,14 +13,18 @@
 
 using namespace fuml::library::libraryclass;
 
-void fuml::library::libraryclass::ImplementationObject::setThisImplementationObjectPtr(
+ImplementationObject::~ImplementationObject()
+{
+}
+
+void ImplementationObject::setThisImplementationObjectPtr(
 	std::weak_ptr<ImplementationObject> thisImplementationObjectPtr)
 {
 	this->thisImplementationObjectPtr = thisImplementationObjectPtr;
 	Object_::setThisObject_Ptr(thisImplementationObjectPtr);
 }
 
-ExecutionPtr fuml::library::libraryclass::ImplementationObject::dispatch(const OperationPtr& operation)
+ExecutionPtr ImplementationObject::dispatch(const OperationPtr& operation)
 {
 	std::shared_ptr<OperationExecution> execution(new OperationExecution());
 	this->locus->add(execution);
