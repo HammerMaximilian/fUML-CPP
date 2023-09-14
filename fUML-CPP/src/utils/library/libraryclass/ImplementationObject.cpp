@@ -27,6 +27,7 @@ void ImplementationObject::setThisImplementationObjectPtr(
 ExecutionPtr ImplementationObject::dispatch(const OperationPtr& operation)
 {
 	std::shared_ptr<OperationExecution> execution(new OperationExecution());
+	execution->setThisOperationExecutionPtr(execution);
 	this->locus->add(execution);
 	execution->set(thisImplementationObjectPtr.lock(), operation);
 	return execution;

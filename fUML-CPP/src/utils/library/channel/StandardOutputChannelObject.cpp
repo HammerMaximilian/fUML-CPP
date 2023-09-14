@@ -55,6 +55,7 @@ void StandardOutputChannelObject::writeString(std::string value,
 {
 	if (this->isOpen())
 	{
+		// CAUTION: the following line causes GNU debugger to crash when stepped over
 		std::cout << value << std::flush;
 	}
 	else

@@ -75,6 +75,7 @@ void ActivityParameterNodeActivation::fire(const TokenListPtr& incomingTokens)
 			{
 				;
 				ObjectTokenPtr token(new ObjectToken());
+				token->setThisObjectTokenPtr(token);
 				token->value = value;
 				this->addToken(token);
 			}
