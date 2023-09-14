@@ -18,7 +18,7 @@ namespace examples::HelloWorldExample
 			virtual ~HelloWorldExampleEnvironment() = default;
 			static const std::shared_ptr<HelloWorldExampleEnvironment>& Instance();
 
-			virtual void execute() override;
+			virtual void execute(std::string) override;
 
 		private:
 			HelloWorldExampleEnvironment() = default;

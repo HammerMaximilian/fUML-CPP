@@ -22,7 +22,7 @@ const std::shared_ptr<examples::HelloWorldExample::HelloWorldExampleEnvironment>
 	return instance;
 }
 
-void examples::HelloWorldExample::HelloWorldExampleEnvironment::execute()
+void examples::HelloWorldExample::HelloWorldExampleEnvironment::execute(std::string behaviorName)
 {
 	/*
 	 * Initialize context object and input parameter values here if desired.
@@ -37,7 +37,7 @@ void examples::HelloWorldExample::HelloWorldExampleEnvironment::execute()
 	/*
 	 * Start execution via base class call
 	 */
-	fuml::environment::Environment::execute();
+	fuml::environment::Environment::execute(behaviorName);
 
 	/*
 	 * Evaluate output parameter values here if desired.

@@ -24,11 +24,6 @@ const std::shared_ptr<PrimitiveTypesModel>& PrimitiveTypesModel::Instance()
 	return instance;
 }
 
-BehaviorPtr PrimitiveTypesModel::getMainBehavior()
-{
-	throw std::runtime_error("'getMainBehavior' is unimplemented for PrimitiveTypesModel since PrimitiveTypesModel does not have any main behavior");
-}
-
 void PrimitiveTypesModel::initializeInMemoryModel()
 {
 	/*

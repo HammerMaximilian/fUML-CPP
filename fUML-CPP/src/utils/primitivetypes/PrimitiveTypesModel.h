@@ -26,8 +26,6 @@ namespace fuml::primitivetypes
 			virtual ~PrimitiveTypesModel() = default;
 			static const std::shared_ptr<PrimitiveTypesModel>& Instance();
 
-			virtual BehaviorPtr getMainBehavior() override;
-
 		private:
 			PrimitiveTypesModel() = default;
 			void initializeInMemoryModel();

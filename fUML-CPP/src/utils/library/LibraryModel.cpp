@@ -40,11 +40,6 @@ const std::shared_ptr<LibraryModel>& LibraryModel::Instance()
 	return instance;
 }
 
-BehaviorPtr LibraryModel::getMainBehavior()
-{
-	throw std::runtime_error("'getMainBehavior' is unimplemented for LibraryModel since LibraryModel does not have any main behavior");
-}
-
 void LibraryModel::initializeInMemoryModel()
 {
 	/*

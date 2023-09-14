@@ -436,8 +436,6 @@ namespace fuml::library
 			virtual ~LibraryModel() = default;
 			static const std::shared_ptr<LibraryModel>& Instance();
 
-			virtual BehaviorPtr getMainBehavior() override;
-
 		private:
 			LibraryModel() = default;
 			void initializeInMemoryModel();

@@ -37,11 +37,6 @@ const std::shared_ptr<HelloWorldExampleModel>& HelloWorldExampleModel::Instance(
 	return instance;
 }
 
-BehaviorPtr HelloWorldExampleModel::getMainBehavior()
-{
-	return this->HelloWorldModel_main;
-}
-
 void HelloWorldExampleModel::initializeInMemoryModel()
 {
 	/*
@@ -51,6 +46,7 @@ void HelloWorldExampleModel::initializeInMemoryModel()
 	HelloWorldModel_main.reset(new Activity());
 	HelloWorldModel_main->setThisActivityPtr(HelloWorldModel_main);
 	HelloWorldModel_main->setName("main");
+	this->addToElementRepository("main", HelloWorldModel_main);
 		//InitialNode InitialNode
 		HelloWorldModel_main_InitialNode.reset(new InitialNode());
 		HelloWorldModel_main_InitialNode->setThisElementPtr(HelloWorldModel_main_InitialNode);

@@ -30,7 +30,7 @@ namespace fuml::environment
 		public:
 			virtual ~Environment() = 0;
 
-			virtual void execute();
+			virtual void execute(std::string);
 
 		protected:
 			Environment();

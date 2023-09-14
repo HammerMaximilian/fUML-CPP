@@ -33,8 +33,6 @@ namespace examples::HelloWorldExample
 			virtual ~HelloWorldExampleModel() = default;
 			static const std::shared_ptr<HelloWorldExampleModel>& Instance();
 
-			virtual BehaviorPtr getMainBehavior() override;
-
 		private:
 			HelloWorldExampleModel() = default;
 			void initializeInMemoryModel();

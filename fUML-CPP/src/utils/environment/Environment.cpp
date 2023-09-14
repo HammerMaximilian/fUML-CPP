@@ -13,8 +13,9 @@
 #include <fuml/semantics/loci/FirstChoiceStrategy.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/RedefinitionBasedDispatchStrategy.h>
+#include <fuml/syntax/commonbehavior/Behavior.h>
 #include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
-#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
+#include <iostream>
 #include <utils/environment/InMemoryModel.h>
 #include <utils/library/channel/StandardInputChannelObject.h>
 #include <utils/library/channel/StandardOutputChannelObject.h>
@@ -56,10 +57,26 @@ Environment::~Environment()
 {
 }
 
-void Environment::execute()
+void Environment::execute(std::string behaviorName)
 {
+	std::shared_ptr<fuml::FumlObject> object = this->inMemoryModel->findElementByName(behaviorName);
+
+	if(object == nullptr)
+	{
+		std::cerr << "[ERROR] Element with specified name does not exist: " << behaviorName << std::endl;
+		return;
+	}
+
+	BehaviorPtr behavior = std::dynamic_pointer_cast<Behavior>(object);
+
+	if(behavior == nullptr)
+	{
+		std::cerr << "[ERROR] Specified behavior name does not name a behavior: " << behaviorName << std::endl;
+		return;
+	}
+
 	this->outputs = this->locus->executor->execute(
-		this->inMemoryModel->getMainBehavior(),
+		behavior,
 		this->context,
 		this->inputs);
 }
