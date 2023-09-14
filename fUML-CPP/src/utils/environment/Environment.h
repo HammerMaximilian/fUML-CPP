@@ -35,9 +35,10 @@ namespace fuml::environment
 		protected:
 			Environment();
 
-			void addBuiltInType(std::string);
-			void addBuiltInType(const PrimitiveTypePtr&);
-			void addPrimitiveBehaviorPrototype(const OpaqueBehaviorExecutionPtr&);
+			virtual void add(const ExtensionalValuePtr&);
+			virtual void addBuiltInType(std::string);
+			virtual void addBuiltInType(const PrimitiveTypePtr&);
+			virtual void addPrimitiveBehaviorPrototype(const OpaqueBehaviorExecutionPtr&);
 	};
 }
 
