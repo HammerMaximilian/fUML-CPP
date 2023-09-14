@@ -20,6 +20,7 @@
 #include <fuml/syntax/commonbehavior/OpaqueBehavior.h>
 #include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
 #include <fuml/syntax/values/LiteralString.h>
+#include <utils/library/LibraryModel.h>
 #include <utils/primitivetypes/PrimitiveTypesModel.h>
 
 using namespace examples::HelloWorldExample;
@@ -46,19 +47,6 @@ void HelloWorldExampleModel::initializeInMemoryModel()
 	/*
 	 * Create in-memory model elements
 	 */
-	//OpaqueBehavior println
-	HelloWorldModel_println.reset(new OpaqueBehavior());
-	HelloWorldModel_println->setThisClass_Ptr(HelloWorldModel_println);
-	HelloWorldModel_println->setName("println");
-		//Parameter input
-		HelloWorldModel_println_input.reset(new Parameter());
-		HelloWorldModel_println_input->setName("input");
-		HelloWorldModel_println_input->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
-		HelloWorldModel_println_input->setLower(1);
-		HelloWorldModel_println_input->setUpper(1);
-		HelloWorldModel_println_input->setDirection(ParameterDirectionKind::in);
-	HelloWorldModel_println->addOwnedParameter(HelloWorldModel_println_input);
-
 	// Activity main
 	HelloWorldModel_main.reset(new Activity());
 	HelloWorldModel_main->setThisActivityPtr(HelloWorldModel_main);
@@ -81,24 +69,27 @@ void HelloWorldExampleModel::initializeInMemoryModel()
 			HelloWorldModel_main_SpecifyString_result.reset(new OutputPin());
 			HelloWorldModel_main_SpecifyString_result->setThisElementPtr(HelloWorldModel_main_SpecifyString_result);
 			HelloWorldModel_main_SpecifyString_result->setName("result");
-			HelloWorldModel_main_SpecifyString_result->setLower(1);
-			HelloWorldModel_main_SpecifyString_result->setUpper(1);
 		HelloWorldModel_main_SpecifyString->setResult(HelloWorldModel_main_SpecifyString_result);
 	HelloWorldModel_main->node->push_back(HelloWorldModel_main_SpecifyString);
-		//CallBehaviorAction callPrintln
-		HelloWorldModel_main_callPrintln.reset(new CallBehaviorAction());
-		HelloWorldModel_main_callPrintln->setThisExecutableNodePtr(HelloWorldModel_main_callPrintln);
-		HelloWorldModel_main_callPrintln->setName("callPrintln");
-		HelloWorldModel_main_callPrintln->setBehavior(HelloWorldModel_println);
-		HelloWorldModel_main_callPrintln->isSynchronous = true; //imposed by the fUML specification
-			//InputPin input
-			HelloWorldModel_main_callPrintln_input.reset(new InputPin());
-			HelloWorldModel_main_callPrintln_input->setThisElementPtr(HelloWorldModel_main_callPrintln_input);
-			HelloWorldModel_main_callPrintln_input->setName("input");
-			HelloWorldModel_main_callPrintln_input->setLower(1);
-			HelloWorldModel_main_callPrintln_input->setUpper(1);
-		HelloWorldModel_main_callPrintln->addArgument(HelloWorldModel_main_callPrintln_input);
-	HelloWorldModel_main->node->push_back(HelloWorldModel_main_callPrintln);
+		//CallBehaviorAction callWriteLine
+		HelloWorldModel_main_callWriteLine.reset(new CallBehaviorAction());
+		HelloWorldModel_main_callWriteLine->setThisExecutableNodePtr(HelloWorldModel_main_callWriteLine);
+		HelloWorldModel_main_callWriteLine->setName("callWriteLine");
+		HelloWorldModel_main_callWriteLine->setBehavior(fuml::library::LibraryModel::Instance()->WriteLine);
+		HelloWorldModel_main_callWriteLine->isSynchronous = true; //imposed by the fUML specification
+			//InputPin value
+			HelloWorldModel_main_callWriteLine_value.reset(new InputPin());
+			HelloWorldModel_main_callWriteLine_value->setThisElementPtr(HelloWorldModel_main_callWriteLine_value);
+			HelloWorldModel_main_callWriteLine_value->setName("value");
+			HelloWorldModel_main_callWriteLine_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		HelloWorldModel_main_callWriteLine->addArgument(HelloWorldModel_main_callWriteLine_value);
+			//OutputPin errorStatus
+			HelloWorldModel_main_callWriteLine_errorStatus.reset(new OutputPin());
+			HelloWorldModel_main_callWriteLine_errorStatus->setThisElementPtr(HelloWorldModel_main_callWriteLine_errorStatus);
+			HelloWorldModel_main_callWriteLine_errorStatus->setName("errorStatus");
+			HelloWorldModel_main_callWriteLine_errorStatus->setType(fuml::library::LibraryModel::Instance()->Status);
+		HelloWorldModel_main_callWriteLine->addResult(HelloWorldModel_main_callWriteLine_errorStatus);
+	HelloWorldModel_main->node->push_back(HelloWorldModel_main_callWriteLine);
 		//ActivityFinalNode ActivityFinalNode
 		HelloWorldModel_main_ActivityFinalNode.reset(new ActivityFinalNode());
 		HelloWorldModel_main_ActivityFinalNode->setThisElementPtr(HelloWorldModel_main_ActivityFinalNode);
@@ -117,14 +108,14 @@ void HelloWorldExampleModel::initializeInMemoryModel()
 		HelloWorldModel_main_From_SpecifyString_result_To_callPrintln_input->setName("From_SpecifyString_result_To_callPrintln_input");
 		HelloWorldModel_main_From_SpecifyString_result_To_callPrintln_input->setSource(HelloWorldModel_main_SpecifyString_result);
 		HelloWorldModel_main_SpecifyString_result->outgoing->push_back(HelloWorldModel_main_From_SpecifyString_result_To_callPrintln_input);
-		HelloWorldModel_main_From_SpecifyString_result_To_callPrintln_input->setTarget(HelloWorldModel_main_callPrintln_input);
-		HelloWorldModel_main_callPrintln_input->incoming->push_back(HelloWorldModel_main_From_SpecifyString_result_To_callPrintln_input);
+		HelloWorldModel_main_From_SpecifyString_result_To_callPrintln_input->setTarget(HelloWorldModel_main_callWriteLine_value);
+		HelloWorldModel_main_callWriteLine_value->incoming->push_back(HelloWorldModel_main_From_SpecifyString_result_To_callPrintln_input);
 	HelloWorldModel_main->edge->push_back(HelloWorldModel_main_From_SpecifyString_result_To_callPrintln_input);
 		//ControlFlow from callPrintln to ActivityFinalNode
 		HelloWorldModel_main_From_callPrintln_To_ActivityFinalNode.reset(new ControlFlow());
 		HelloWorldModel_main_From_callPrintln_To_ActivityFinalNode->setName("From_callPrintln_To_ActivityFinalNode");
-		HelloWorldModel_main_From_callPrintln_To_ActivityFinalNode->setSource(HelloWorldModel_main_callPrintln);
-		HelloWorldModel_main_callPrintln->outgoing->push_back(HelloWorldModel_main_From_callPrintln_To_ActivityFinalNode);
+		HelloWorldModel_main_From_callPrintln_To_ActivityFinalNode->setSource(HelloWorldModel_main_callWriteLine);
+		HelloWorldModel_main_callWriteLine->outgoing->push_back(HelloWorldModel_main_From_callPrintln_To_ActivityFinalNode);
 		HelloWorldModel_main_From_callPrintln_To_ActivityFinalNode->setTarget(HelloWorldModel_main_ActivityFinalNode);
 		HelloWorldModel_main_ActivityFinalNode->incoming->push_back(HelloWorldModel_main_From_callPrintln_To_ActivityFinalNode);
 	HelloWorldModel_main->edge->push_back(HelloWorldModel_main_From_callPrintln_To_ActivityFinalNode);

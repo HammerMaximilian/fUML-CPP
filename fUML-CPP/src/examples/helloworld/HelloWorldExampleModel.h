@@ -18,16 +18,15 @@ namespace examples::HelloWorldExample
 		public:
 			ActivityFinalNodePtr HelloWorldModel_main_ActivityFinalNode = nullptr;
 			ActivityPtr HelloWorldModel_main = nullptr;
-			CallBehaviorActionPtr HelloWorldModel_main_callPrintln = nullptr;
+			CallBehaviorActionPtr HelloWorldModel_main_callWriteLine = nullptr;
 			ControlFlowPtr HelloWorldModel_main_From_callPrintln_To_ActivityFinalNode = nullptr;
 			ControlFlowPtr HelloWorldModel_main_From_InitialNode_To_SpecifyString = nullptr;
 			InitialNodePtr HelloWorldModel_main_InitialNode = nullptr;
-			InputPinPtr HelloWorldModel_main_callPrintln_input = nullptr;
+			InputPinPtr HelloWorldModel_main_callWriteLine_value = nullptr;
+			OutputPinPtr HelloWorldModel_main_callWriteLine_errorStatus = nullptr;
 			LiteralStringPtr HelloWorldModel_main_SpecifyString_value = nullptr;
 			ObjectFlowPtr HelloWorldModel_main_From_SpecifyString_result_To_callPrintln_input = nullptr;
-			OpaqueBehaviorPtr HelloWorldModel_println = nullptr;
 			OutputPinPtr HelloWorldModel_main_SpecifyString_result = nullptr;
-			ParameterPtr HelloWorldModel_println_input = nullptr;
 			ValueSpecificationActionPtr HelloWorldModel_main_SpecifyString = nullptr;
 
 		public:

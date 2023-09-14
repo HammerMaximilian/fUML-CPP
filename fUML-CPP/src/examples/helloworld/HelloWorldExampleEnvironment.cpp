@@ -8,9 +8,6 @@
 #include <examples/helloworld/HelloWorldExampleEnvironment.h>
 
 #include <examples/helloworld/HelloWorldExampleModel.h>
-#include <examples/helloworld/PrintlnExecution.h>
-#include <fuml/syntax/commonbehavior/OpaqueBehavior.h>
-#include <utils/library/booleanfunctions/BooleanAndFunctionBehaviorExecution.h>
 
 const std::shared_ptr<examples::HelloWorldExample::HelloWorldExampleEnvironment>& examples::HelloWorldExample::HelloWorldExampleEnvironment::Instance()
 {
@@ -36,9 +33,6 @@ void examples::HelloWorldExample::HelloWorldExampleEnvironment::execute()
 	/*
 	 * Create custom opaque behavior execution instances and add them to the execution environment here if desired.
 	 */
-	std::shared_ptr<PrintlnExecution> printlnExecution(new PrintlnExecution());
-	printlnExecution->setThisObject_Ptr(printlnExecution);
-	this->addPrimitiveBehaviorPrototype(printlnExecution);
 
 	/*
 	 * Start execution via base class call
