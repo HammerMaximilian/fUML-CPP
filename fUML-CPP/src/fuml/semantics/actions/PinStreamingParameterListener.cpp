@@ -19,7 +19,7 @@ void PinStreamingParameterListener::post(const ValueListPtr& values)
 	// the pin activation would otherwise not offer them until its
 	// associated action activation terminates).
 
-	utils::Debug::println("[post] Posting to node " + this->nodeActivation->node->name);
+	fuml::Debug::println("[post] Posting to node " + this->nodeActivation->node->name);
 
 	TokenListPtr tokens(new TokenList());
 	for (const ValuePtr& value : *values)

@@ -14,7 +14,7 @@
 
 namespace fuml::semantics::commonbehavior
 {
-	class ObjectActivation : public utils::FumlObject
+	class ObjectActivation : public fuml::FumlObject
 	{
 		public:
 			ClassifierBehaviorInvocationEventAccepterListPtr classifierBehaviorInvocations =

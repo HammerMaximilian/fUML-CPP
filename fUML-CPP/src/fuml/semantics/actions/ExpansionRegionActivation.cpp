@@ -146,13 +146,13 @@ void ExpansionRegionActivation::doStructuredActivity()
 
 	if (region->mode == ExpansionKind::iterative)
 	{
-		utils::Debug::println("[doStructuredActivity] Expansion mode = iterative");
+		fuml::Debug::println("[doStructuredActivity] Expansion mode = iterative");
 		this->next = 1;
 		this->runIterative();
 	}
 	else if (region->mode == ExpansionKind::parallel)
 	{
-		utils::Debug::println("[doStructuredActivity] Expansion mode = parallel");
+		fuml::Debug::println("[doStructuredActivity] Expansion mode = parallel");
 		this->runParallel();
 	}
 
@@ -195,7 +195,7 @@ void ExpansionRegionActivation::doOutput()
 	ExpansionRegionPtr region = std::dynamic_pointer_cast<ExpansionRegion>(this->node);
 	const ExpansionNodeListPtr& outputElements = region->outputElement;
 
-	utils::Debug::println(
+	fuml::Debug::println(
 		"[doOutput] Expansion region " + region->name + " is " + (this->isSuspended() ? "suspended." : "completed."));
 
 	if (!this->isSuspended())
@@ -261,7 +261,7 @@ void ExpansionRegionActivation::runGroup(const ExpansionActivationGroupPtr& acti
 
 	if (this->isRunning())
 	{
-		utils::Debug::println(
+		fuml::Debug::println(
 			"[runGroup] groupInput[0] = "
 				+ std::to_string(
 					this->inputExpansionTokens->at(0)->tokens->at(activationGroup->index - 1)->getValue()->hashCode()));

@@ -116,8 +116,8 @@ void ActionActivation::fire(const TokenListPtr& incomingTokens)
 	do
 	{
 
-		utils::Debug::println("[fire] Action " + this->node->name + "...");
-		utils::Debug::println(
+		fuml::Debug::println("[fire] Action " + this->node->name + "...");
+		fuml::Debug::println(
 			"[event] Fire activity=" + this->getActivityExecution()->getBehavior()->name + " action="
 				+ this->node->name);
 
@@ -149,7 +149,7 @@ TokenListPtr ActionActivation::completeAction()
 
 	this->sendOffers();
 
-	utils::Debug::println("[fire] Checking if " + this->node->name + " should fire again...");
+	fuml::Debug::println("[fire] Checking if " + this->node->name + " should fire again...");
 
 	_beginIsolation();
 	TokenListPtr incomingTokens(new TokenList());
@@ -347,7 +347,7 @@ void ActionActivation::putToken(const OutputPinPtr& pin, const ValuePtr& value)
 	// Place a token for the given value on the pin activation corresponding
 	// to the given output pin.
 
-	utils::Debug::println("[putToken] node = " + this->node->name);
+	fuml::Debug::println("[putToken] node = " + this->node->name);
 
 	ObjectTokenPtr token(new ObjectToken());
 	token->setThisObjectTokenPtr(token);
@@ -378,7 +378,7 @@ ValueListPtr ActionActivation::getTokens(const InputPinPtr& pin)
 	// input pin and return them
 	// (but leave the tokens on the pin).
 
-	utils::Debug::println("[getTokens] node = " + this->node->name + ", pin = " + pin->name);
+	fuml::Debug::println("[getTokens] node = " + this->node->name + ", pin = " + pin->name);
 
 	PinActivationPtr pinActivation = this->getPinActivation(pin);
 	TokenListPtr tokens = pinActivation->getUnofferedTokens();
@@ -403,7 +403,7 @@ ValueListPtr ActionActivation::takeTokens(const InputPinPtr& pin)
 	// Take any tokens held by the pin activation corresponding to the given
 	// input pin and return them.
 
-	utils::Debug::println("[takeTokens] node = " + this->node->name + ", pin = " + pin->name);
+	fuml::Debug::println("[takeTokens] node = " + this->node->name + ", pin = " + pin->name);
 
 	PinActivationPtr pinActivation = this->getPinActivation(pin);
 	TokenListPtr tokens = pinActivation->takeUnofferedTokens();

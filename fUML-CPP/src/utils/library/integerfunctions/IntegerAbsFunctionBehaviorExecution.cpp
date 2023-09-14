@@ -23,7 +23,7 @@ int IntegerAbsFunctionBehaviorExecution::doIntegerFunction(const std::shared_ptr
 	int arg1 = arguments->at(0);
 
 	int i = abs(arg1);
-	utils::Debug::println("[doBody] Integer Abs result = " + std::to_string(i));
+	fuml::Debug::println("[doBody] Integer Abs result = " + std::to_string(i));
 	return i;
 }
 

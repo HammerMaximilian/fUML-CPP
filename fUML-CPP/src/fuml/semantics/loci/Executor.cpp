@@ -57,11 +57,11 @@ ReferencePtr Executor::start(const Class_Ptr& type, const ParameterValueListPtr&
 	// active object or the class of the object itself, if that is a
 	// behavior.)
 
-	utils::Debug::println(std::string("[start] Starting " + type->name + "..."));
+	fuml::Debug::println(std::string("[start] Starting " + type->name + "..."));
 
 	Object_Ptr object = this->locus->instantiate(type);
 
-	utils::Debug::println(std::string("[start] Object = " + object->toString()));
+	fuml::Debug::println(std::string("[start] Object = " + object->toString()));
 	object->startBehavior(type, inputs);
 
 	ReferencePtr reference(new Reference());

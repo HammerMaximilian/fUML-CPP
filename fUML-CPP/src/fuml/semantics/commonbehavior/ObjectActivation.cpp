@@ -45,8 +45,8 @@ void ObjectActivation::register_(const EventAccepterPtr& accepter)
 	// Register the given event accepter to wait for a dispatched signal
 	// event.
 
-	utils::Debug::println("[register] object = " + this->object->toString());
-	utils::Debug::println("[register] accepter = " + accepter->hashCode());
+	fuml::Debug::println("[register] object = " + this->object->toString());
+	fuml::Debug::println("[register] accepter = " + accepter->hashCode());
 
 	this->waitingEventAccepters->push_back(accepter);
 } // register_
@@ -56,8 +56,8 @@ void ObjectActivation::unregister(const EventAccepterPtr& accepter)
 	// Remove the given event accepter for the list of waiting event
 	// accepters.
 
-	utils::Debug::println("[unregister] object = " + this->object->toString());
-	utils::Debug::println("[unregister] accepter = " + accepter->hashCode());
+	fuml::Debug::println("[unregister] object = " + this->object->toString());
+	fuml::Debug::println("[unregister] accepter = " + accepter->hashCode());
 
 	bool notFound = true;
 	unsigned int i = 1;
@@ -85,7 +85,7 @@ void ObjectActivation::dispatchNextEvent()
 	{
 		EventOccurrencePtr eventOccurrence = this->getNextEvent();
 
-		utils::Debug::println("[dispatchNextEvent] eventOccurrence = " + eventOccurrence->hashCode());
+		fuml::Debug::println("[dispatchNextEvent] eventOccurrence = " + eventOccurrence->hashCode());
 
 		UMLPrimitiveTypes::intList matchingEventAccepterIndexes;
 		const EventAccepterListPtr& waitingEventAccepters = this->waitingEventAccepters;
@@ -149,7 +149,7 @@ void ObjectActivation::startBehavior(const Class_Ptr& classifier, const Paramete
 
 	if (classifier == nullptr)
 	{
-		utils::Debug::println("[startBehavior] Starting behavior for all classifiers...");
+		fuml::Debug::println("[startBehavior] Starting behavior for all classifiers...");
 		// *** Start all classifier behaviors concurrently. ***
 		Class_ListPtr types = this->object->types;
 		for (const Class_Ptr& type : *types)
@@ -163,7 +163,7 @@ void ObjectActivation::startBehavior(const Class_Ptr& classifier, const Paramete
 	}
 	else
 	{
-		utils::Debug::println("[startBehavior] Starting behavior for " + classifier->name + "...");
+		fuml::Debug::println("[startBehavior] Starting behavior for " + classifier->name + "...");
 
 		_beginIsolation();
 		bool notYetStarted = true;
@@ -202,10 +202,10 @@ void ObjectActivation::_startObjectBehavior()
 
 void ObjectActivation::_endIsolation()
 {
-	utils::Debug::println("[_endIsolation] End isolation.");
+	fuml::Debug::println("[_endIsolation] End isolation.");
 } // _endIsolation
 
 void ObjectActivation::_beginIsolation()
 {
-	utils::Debug::println("[_beginIsolation] Begin isolation.");
+	fuml::Debug::println("[_beginIsolation] Begin isolation.");
 } // _beginIsolation

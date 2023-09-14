@@ -30,7 +30,7 @@ void BooleanToBooleanFunctionBehaviorExecution::doBody(const ParameterValueListP
 	// Extract single String input argument
 	StringValuePtr sv1 = std::dynamic_pointer_cast<StringValue>(inputParameters->at(0)->values->at(0));
 	std::string s1 = sv1->value;
-	utils::Debug::println("[doBody] argument = " + s1);
+	fuml::Debug::println("[doBody] argument = " + s1);
 
 	// Calculate boolean value from String.
 	bool result = true;
@@ -47,7 +47,7 @@ void BooleanToBooleanFunctionBehaviorExecution::doBody(const ParameterValueListP
 	}
 	else
 	{
-		utils::Debug::println("[doBody] Invalid input, cannot convert to boolean: " + s1);
+		fuml::Debug::println("[doBody] Invalid input, cannot convert to boolean: " + s1);
 		// Invalid input, return
 		return;
 	}
@@ -56,7 +56,7 @@ void BooleanToBooleanFunctionBehaviorExecution::doBody(const ParameterValueListP
 	BooleanValuePtr resultObj(new BooleanValue());
 	resultObj->value = result;
 	resultObj->type = this->locus->factory->getBuiltInType("Boolean");
-	utils::Debug::println("[doBody] Boolean ToBoolean result = " + std::to_string(resultObj->value));
+	fuml::Debug::println("[doBody] Boolean ToBoolean result = " + std::to_string(resultObj->value));
 
 	// Add output to the outputParameters list
 	outputParameters->at(0)->values->push_back(resultObj);

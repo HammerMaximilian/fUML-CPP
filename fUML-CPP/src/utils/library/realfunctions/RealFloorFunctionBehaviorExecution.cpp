@@ -35,7 +35,7 @@ void RealFloorFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inp
 	IntegerValuePtr result(new IntegerValue());
 	result->value = resultInt;
 	result->type = this->locus->factory->getBuiltInType("Integer");
-	utils::Debug::println("[doBody] Real Floor result = " + std::to_string(resultInt));
+	fuml::Debug::println("[doBody] Real Floor result = " + std::to_string(resultInt));
 
 	outputParameters->at(0)->values->push_back(result);
 }

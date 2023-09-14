@@ -14,7 +14,7 @@
 
 namespace fuml::semantics::loci
 {
-	class ExecutionFactory : public utils::FumlObject
+	class ExecutionFactory : public fuml::FumlObject
 	{
 		public:
 			LocusPtr locus = nullptr;

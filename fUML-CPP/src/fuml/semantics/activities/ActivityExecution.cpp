@@ -33,8 +33,8 @@ void ActivityExecution::execute()
 
 	ActivityPtr activity = std::dynamic_pointer_cast<Activity>(this->getTypes()->at(0));
 
-	utils::Debug::println("[execute] Activity " + activity->name + "...");
-	utils::Debug::println("[event] Execute activity=" + activity->name);
+	fuml::Debug::println("[execute] Activity " + activity->name + "...");
+	fuml::Debug::println("[event] Execute activity=" + activity->name);
 
 	this->isStreaming = false;
 	unsigned int i = 1;
@@ -48,7 +48,7 @@ void ActivityExecution::execute()
 		i = i + 1;
 	}
 
-	utils::Debug::println("[execute] isStreaming = " + std::to_string(this->isStreaming));
+	fuml::Debug::println("[execute] isStreaming = " + std::to_string(this->isStreaming));
 
 	this->activationGroup.reset(new ActivityNodeActivationGroup());
 	this->activationGroup->setThisActivityNodeActivationGroupPtr(this->activationGroup);
@@ -86,7 +86,7 @@ void ActivityExecution::complete()
 				if (value != nullptr)
 				{
 					parameterValue->values->push_back(value);
-					utils::Debug::println(
+					fuml::Debug::println(
 						"[event] Output activity=" + activity->name + " parameter=" + parameterValue->parameter->name
 							+ " value=" + std::to_string(value->hashCode()));
 				}
@@ -96,7 +96,7 @@ void ActivityExecution::complete()
 		}
 	}
 
-	utils::Debug::println("[execute] Activity " + activity->name + " completed.");
+	fuml::Debug::println("[execute] Activity " + activity->name + " completed.");
 } // complete
 
 ValuePtr ActivityExecution::copy()

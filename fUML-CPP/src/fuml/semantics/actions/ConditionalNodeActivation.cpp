@@ -66,12 +66,12 @@ void ConditionalNodeActivation::doStructuredActivity()
 	unsigned int i = 0;
 	for (const ClauseActivationPtr& clauseActivation : *(this->clauseActivations))
 	{
-		utils::Debug::println(
+		fuml::Debug::println(
 			"[doStructuredActivity] clauseActivations[" + std::to_string(i) + "] = "
 				+ std::to_string(clauseActivation->hashCode()));
 		if (clauseActivation->isReady())
 		{
-			utils::Debug::println("[doStructuredActivity] Clause activation is ready.");
+			fuml::Debug::println("[doStructuredActivity] Clause activation is ready.");
 			readyClauseActivations->push_back(clauseActivation);
 		}
 		i++;
@@ -80,7 +80,7 @@ void ConditionalNodeActivation::doStructuredActivity()
 	// *** Give control to all ready clauses concurrently. ***
 	for (const ClauseActivationPtr& clauseActivation : *readyClauseActivations)
 	{
-		utils::Debug::println(
+		fuml::Debug::println(
 			"[doStructuredActivity] Giving control to " + std::to_string(clauseActivation->hashCode()) + "...");
 		clauseActivation->receiveControl();
 	}
@@ -88,7 +88,7 @@ void ConditionalNodeActivation::doStructuredActivity()
 	this->selectedClause = nullptr;
 	if (this->selectedClauses->size() > 0 && this->isRunning())
 	{
-		utils::Debug::println(
+		fuml::Debug::println(
 			"[doStructuredActivity] " + std::to_string(this->selectedClauses->size()) + " clause(s) selected.");
 
 		// *** If multiple clauses are selected, choose one
@@ -97,7 +97,7 @@ void ConditionalNodeActivation::doStructuredActivity()
 			->choose(this->selectedClauses->size());
 		this->selectedClause = this->selectedClauses->at(i - 1);
 
-		utils::Debug::println(
+		fuml::Debug::println(
 			"[doStructuredActivity] Running selectedClauses[" + std::to_string(i) + "] = "
 				+ std::to_string(this->selectedClause->hashCode()));
 

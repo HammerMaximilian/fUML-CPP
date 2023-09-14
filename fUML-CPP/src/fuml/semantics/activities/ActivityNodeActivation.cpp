@@ -37,7 +37,7 @@ void ActivityNodeActivation::run()
 {
 	// Run the activation of this node.
 
-	utils::Debug::println(
+	fuml::Debug::println(
 		this->node == nullptr ?
 			"[run] Anonymous activation of type " + std::string(typeid(*this).name()) :
 			"[run] node = " + this->node->name);
@@ -50,7 +50,7 @@ void ActivityNodeActivation::receiveOffer()
 	// Receive an offer from an incoming edge.
 	// Check if all prerequisites have been satisfied. If so, fire.
 
-	utils::Debug::println("[receiveOffer] " + (this->node == nullptr ? "..." : "node = " + this->node->name));
+	fuml::Debug::println("[receiveOffer] " + (this->node == nullptr ? "..." : "node = " + this->node->name));
 
 	_beginIsolation();
 
@@ -59,7 +59,7 @@ void ActivityNodeActivation::receiveOffer()
 	TokenListPtr tokens(new TokenList());
 	if (ready)
 	{
-		utils::Debug::println("[receiveOffer] Firing.");
+		fuml::Debug::println("[receiveOffer] Firing.");
 		tokens = this->takeOfferedTokens();
 	}
 
@@ -110,7 +110,7 @@ void ActivityNodeActivation::terminate()
 {
 	// Terminate the activation of this node.
 
-	utils::Debug::println(this->running,
+	fuml::Debug::println(this->running,
 		this->node == nullptr ?
 			"[terminate] Anonymous activation of type " + std::string(typeid(*this).name()) :
 			"[terminate] node = " + this->node->name);
@@ -219,7 +219,7 @@ void ActivityNodeActivation::addToken(const TokenPtr& token)
 {
 	// Transfer the given token to be held by this node.
 
-	utils::Debug::println("[addToken] " + (this->node == nullptr ? "..." : "node = " + this->node->name));
+	fuml::Debug::println("[addToken] " + (this->node == nullptr ? "..." : "node = " + this->node->name));
 
 	TokenPtr transferredToken = token->transfer(this->thisActivityNodeActivationPtr.lock());
 	this->heldTokens->push_back(transferredToken);
@@ -238,7 +238,7 @@ int ActivityNodeActivation::removeToken(const TokenPtr& token)
 	{
 		if (this->heldTokens->at(i - 1) == token)
 		{
-			utils::Debug::println("[removeToken] " + (this->node == nullptr ? "..." : "node = " + this->node->name));
+			fuml::Debug::println("[removeToken] " + (this->node == nullptr ? "..." : "node = " + this->node->name));
 			this->heldTokens->erase(this->heldTokens->begin() + (i - 1));
 			notFound = false;
 		}

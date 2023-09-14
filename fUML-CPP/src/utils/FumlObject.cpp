@@ -10,7 +10,11 @@
 
 static size_t hashCode_(void* _addr);
 
-using namespace utils;
+using namespace fuml;
+
+FumlObject::~FumlObject()
+{
+}
 
 std::string FumlObject::getXmiId() const
 {

@@ -29,7 +29,7 @@ void RealRoundFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inp
 {
 	RealValuePtr rv = std::dynamic_pointer_cast<RealValue>(inputParameters->at(0)->values->at(0));
 	float x = rv->value;
-	utils::Debug::println("[doBody] argument = " + std::to_string(x));
+	fuml::Debug::println("[doBody] argument = " + std::to_string(x));
 
 	int resultInt = std::round(x);
 
@@ -37,7 +37,7 @@ void RealRoundFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inp
 	result->value = resultInt;
 	result->type = this->locus->factory->getBuiltInType("Integer");
 
-	utils::Debug::println("[doBody] Real Round result = " + resultInt);
+	fuml::Debug::println("[doBody] Real Round result = " + resultInt);
 
 	// Add output to the outputParameters list
 	outputParameters->at(0)->values->push_back(result);

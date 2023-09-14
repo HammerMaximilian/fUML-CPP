@@ -43,7 +43,7 @@ void DestroyObjectActionActivation::destroyObject(const ValuePtr& value, bool is
 
 	if (reference)
 	{
-		utils::Debug::println("[destroyObject] object = " + reference->referent->identifier);
+		fuml::Debug::println("[destroyObject] object = " + reference->referent->identifier);
 
 		if (isDestroyLinks || isDestroyOwnedObjects)
 		{
@@ -61,7 +61,7 @@ void DestroyObjectActionActivation::destroyObject(const ValuePtr& value, bool is
 							ValuePtr compositeValue = this->getCompositeValue(reference, link);
 							if (compositeValue != nullptr)
 							{
-								utils::Debug::println("[destroyObject] Destroying (linked) owned object ...");
+								fuml::Debug::println("[destroyObject] Destroying (linked) owned object ...");
 								this->destroyObject(compositeValue, isDestroyLinks, isDestroyOwnedObjects);
 							}
 						}
@@ -82,7 +82,7 @@ void DestroyObjectActionActivation::destroyObject(const ValuePtr& value, bool is
 				if (std::dynamic_pointer_cast<Property>(featureValue->feature)->aggregation
 					== AggregationKind::composite)
 				{
-					utils::Debug::println("[destroyObject] Destroying owned objects...");
+					fuml::Debug::println("[destroyObject] Destroying owned objects...");
 					const ValueListPtr& values = featureValue->values;
 					for (const ValuePtr& ownedValue : *values)
 					{

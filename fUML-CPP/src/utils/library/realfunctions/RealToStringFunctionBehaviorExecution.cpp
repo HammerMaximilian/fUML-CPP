@@ -28,7 +28,7 @@ void RealToStringFunctionBehaviorExecution::doBody(const ParameterValueListPtr& 
 {
 	RealValuePtr rv = std::dynamic_pointer_cast<RealValue>(inputParameters->at(0)->values->at(0));
 	float r = rv->value;
-	utils::Debug::println("[doBody] argument = " + std::to_string(r));
+	fuml::Debug::println("[doBody] argument = " + std::to_string(r));
 
 	// Convert float to String
 	std::string resultString = std::to_string(r);
@@ -36,7 +36,7 @@ void RealToStringFunctionBehaviorExecution::doBody(const ParameterValueListPtr& 
 	result->value = resultString;
 	result->type = this->locus->factory->getBuiltInType("String");
 
-	utils::Debug::println("[doBody] Real ToString result = " + resultString);
+	fuml::Debug::println("[doBody] Real ToString result = " + resultString);
 
 	// Add output to the outputParameters list
 	outputParameters->at(0)->values->push_back(result);

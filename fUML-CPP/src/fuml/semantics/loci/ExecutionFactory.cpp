@@ -592,7 +592,7 @@ OpaqueBehaviorExecutionPtr ExecutionFactory::instantiateOpaqueBehaviorExecution(
 		i = i + 1;
 	}
 
-	utils::Debug::println(execution == nullptr,
+	fuml::Debug::println(execution == nullptr,
 		std::string("[instantiateOpaqueExecution] No prototype execution found for " + behavior->name + "."));
 
 	return execution;

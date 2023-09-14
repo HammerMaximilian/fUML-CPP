@@ -40,7 +40,7 @@ void ListConcatFunctionBehaviorExecution::doBody(const ParameterValueListPtr& in
 	}
 	listAsString += "}";
 
-	utils::Debug::println("[doBody] List Concat, result = " + listAsString);
+	fuml::Debug::println("[doBody] List Concat, result = " + listAsString);
 	#endif
 
 	// Add output to the outputParameters list

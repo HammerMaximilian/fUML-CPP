@@ -49,7 +49,7 @@ void AcceptEventActionActivation::fire(const TokenListPtr&)
 	// with the context object of the enclosing activity execution
 	// and wait for an event to be accepted.
 
-	utils::Debug::println("[fire] Action " + this->node->name + "...");
+	fuml::Debug::println("[fire] Action " + this->node->name + "...");
 
 	this->getExecutionContext()->register_(this->eventAccepter);
 	this->waiting = true;
@@ -100,7 +100,7 @@ void AcceptEventActionActivation::accept(const EventOccurrencePtr& eventOccurren
 	AcceptEventActionPtr action = std::dynamic_pointer_cast<AcceptEventAction>(this->node);
 	const OutputPinListPtr& resultPins = action->result;
 
-	utils::Debug::println(
+	fuml::Debug::println(
 		"[accept] action = " + action->name + ", eventOccurrence = " + std::to_string(eventOccurrence->hashCode()));
 
 	if (this->running)
@@ -112,7 +112,7 @@ void AcceptEventActionActivation::accept(const EventOccurrencePtr& eventOccurren
 			if (signalEventOccurrence)
 			{
 				SignalInstancePtr signalInstance = signalEventOccurrence->signalInstance;
-				utils::Debug::println(
+				fuml::Debug::println(
 					"[accept] isUnmarshall = false, signalInstance = " + std::to_string(signalInstance->hashCode()));
 				ValueListPtr result(new ValueList());
 				result->push_back(signalInstance);
@@ -138,7 +138,7 @@ void AcceptEventActionActivation::accept(const EventOccurrencePtr& eventOccurren
 
 		this->waiting = false;
 
-		utils::Debug::println("[accept] Checking if " + this->node->name + " should fire again...");
+		fuml::Debug::println("[accept] Checking if " + this->node->name + " should fire again...");
 		this->receiveOffer();
 
 		this->resume();

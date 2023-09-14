@@ -17,7 +17,7 @@ void ExpansionNodeActivation::fire(const TokenListPtr& incomingTokens)
 {
 	// Take tokens from all incoming edges.
 
-	utils::Debug::println("[fire] Expansion node " + this->node->name + "...");
+	fuml::Debug::println("[fire] Expansion node " + this->node->name + "...");
 
 	this->addTokens(incomingTokens);
 } // fire

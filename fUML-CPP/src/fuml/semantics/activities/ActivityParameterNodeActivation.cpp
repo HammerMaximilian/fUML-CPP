@@ -41,7 +41,7 @@ void ActivityParameterNodeActivation::run()
 			new ActivityParameterNodeStreamingParameterListener());
 		listener->nodeActivation = this->thisActivityParameterNodeActivationPtr.lock();
 		streamingParameterValue->register_(listener);
-		utils::Debug::println("[run] Registering for streaming parameter " + parameter->name + ".");
+		fuml::Debug::println("[run] Registering for streaming parameter " + parameter->name + ".");
 	}
 } // run
 
@@ -65,10 +65,10 @@ void ActivityParameterNodeActivation::fire(const TokenListPtr& incomingTokens)
 
 	if (this->node->incoming->size() == 0)
 	{
-		utils::Debug::println("[fire] Input activity parameter node " + this->node->name + "...");
+		fuml::Debug::println("[fire] Input activity parameter node " + this->node->name + "...");
 		if (parameterValue != nullptr)
 		{
-			utils::Debug::println(
+			fuml::Debug::println(
 				"[fire] Parameter has " + std::to_string(parameterValue->values->size()) + " value(s).");
 			const ValueListPtr& values = parameterValue->values;
 			for (const ValuePtr& value : *values)
@@ -85,7 +85,7 @@ void ActivityParameterNodeActivation::fire(const TokenListPtr& incomingTokens)
 
 	else
 	{
-		utils::Debug::println("[fire] Output activity parameter node " + this->node->name + "...");
+		fuml::Debug::println("[fire] Output activity parameter node " + this->node->name + "...");
 
 		this->addTokens(incomingTokens);
 
@@ -101,7 +101,7 @@ void ActivityParameterNodeActivation::fire(const TokenListPtr& incomingTokens)
 				if (value != nullptr)
 				{
 					values->push_back(value);
-					utils::Debug::println(
+					fuml::Debug::println(
 						"[event] Post activity=" + this->getActivityExecution()->getBehavior()->name + " parameter="
 							+ parameterValue->parameter->name + " value=" + std::to_string(value->hashCode()));
 				}

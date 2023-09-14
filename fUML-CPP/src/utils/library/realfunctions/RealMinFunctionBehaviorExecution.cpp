@@ -24,7 +24,7 @@ float RealMinFunctionBehaviorExecution::doRealFunction(const std::shared_ptr<std
 	float x2 = arguments->at(1);
 
 	float x = (x1 <= x2) ? x1 : x2;
-	utils::Debug::println("[doBody] Real Min result = " + std::to_string(x));
+	fuml::Debug::println("[doBody] Real Min result = " + std::to_string(x));
 	return x;
 }
 

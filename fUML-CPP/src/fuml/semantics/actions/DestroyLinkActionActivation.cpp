@@ -31,12 +31,12 @@ void DestroyLinkActionActivation::doAction()
 	// false, pick one matching link (if any) non-deterministically. [The
 	// semantics of this case is not clear from the current spec.]
 
-	utils::Debug::println("[doAction] DestroyLinkAction...");
+	fuml::Debug::println("[doAction] DestroyLinkAction...");
 
 	DestroyLinkActionPtr action = std::dynamic_pointer_cast<DestroyLinkAction>(this->node);
 	const LinkEndDestructionDataListPtr& destructionDataList = action->endData;
 
-	utils::Debug::println("[doAction] end data size = " + std::to_string(destructionDataList->size()));
+	fuml::Debug::println("[doAction] end data size = " + std::to_string(destructionDataList->size()));
 
 	bool destroyOnlyOne = false;
 	for (const LinkEndDestructionDataPtr& endData : *destructionDataList)
@@ -49,7 +49,7 @@ void DestroyLinkActionActivation::doAction()
 	LinkEndDataListPtr endDataList(new LinkEndDataList());
 	for (const LinkEndDestructionDataPtr& endData : *destructionDataList)
 	{
-		utils::Debug::println("[doAction] Matching end = " + endData->end->name);
+		fuml::Debug::println("[doAction] Matching end = " + endData->end->name);
 		endDataList->push_back(endData);
 	}
 
@@ -75,7 +75,7 @@ void DestroyLinkActionActivation::doAction()
 		{
 			this->takeTokens(endData->destroyAt);
 		}
-		utils::Debug::println("[doAction] Consuming tokens for end " + end->name);
+		fuml::Debug::println("[doAction] Consuming tokens for end " + end->name);
 		this->takeTokens(endData->value);
 	}
 

@@ -10,7 +10,7 @@
 
 #include <string>
 
-namespace utils
+namespace fuml
 {
 	class Debug
 	{

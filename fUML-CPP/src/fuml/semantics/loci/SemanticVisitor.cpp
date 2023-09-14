@@ -9,7 +9,7 @@
 
 #include <fuml/Debug.h>
 
-using namespace utils;
+using namespace fuml;
 
 SemanticVisitor::~SemanticVisitor()
 {

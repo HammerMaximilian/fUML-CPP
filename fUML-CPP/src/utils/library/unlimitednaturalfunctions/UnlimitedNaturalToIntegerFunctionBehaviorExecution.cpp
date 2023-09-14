@@ -28,13 +28,13 @@ void UnlimitedNaturalToIntegerFunctionBehaviorExecution::doBody(const ParameterV
 {
 	UnlimitedNaturalValuePtr unv = std::dynamic_pointer_cast<UnlimitedNaturalValue>(inputParameters->at(0)->values->at(0));
 	int un1 = unv->value;
-	utils::Debug::println("[doBody] argument = " + std::to_string(un1));
+	fuml::Debug::println("[doBody] argument = " + std::to_string(un1));
 
 	// If the unlimited natural is unbounded (equal to -1), it cannot be
 	// converted to an integer.
 	if(un1 == -1)
 	{
-		utils::Debug::println("[doBody] Unbounded input invalid for ToInteger function");
+		fuml::Debug::println("[doBody] Unbounded input invalid for ToInteger function");
 		return;
 	}
 
@@ -43,7 +43,7 @@ void UnlimitedNaturalToIntegerFunctionBehaviorExecution::doBody(const ParameterV
 	resultObj->value = un1;
 	resultObj->type = this->locus->factory->getBuiltInType("Integer");
 
-	utils::Debug::println("[doBody] UnlimitedNatural ToInteger result = " + un1);
+	fuml::Debug::println("[doBody] UnlimitedNatural ToInteger result = " + un1);
 
 	// Add output to the outputParameters list
 	outputParameters->at(0)->values->push_back(resultObj);

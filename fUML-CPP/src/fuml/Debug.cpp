@@ -19,7 +19,7 @@
 
 #include <iostream>
 
-using namespace utils;
+using namespace fuml;
 
 void Debug::println(bool condition, std::string message)
 {

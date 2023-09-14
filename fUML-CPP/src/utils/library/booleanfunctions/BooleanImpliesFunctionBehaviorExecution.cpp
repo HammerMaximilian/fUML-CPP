@@ -23,7 +23,7 @@ bool BooleanImpliesFunctionBehaviorExecution::doBooleanFunction(const std::share
 	bool b1 = arguments->at(0);
 	bool b2 = arguments->at(1);
 	bool result = ((!b1) || (b1 && b2));
-	utils::Debug::println("[doBody] Boolean Implies result = " + std::to_string(result));
+	fuml::Debug::println("[doBody] Boolean Implies result = " + std::to_string(result));
 	return result;
 }
 

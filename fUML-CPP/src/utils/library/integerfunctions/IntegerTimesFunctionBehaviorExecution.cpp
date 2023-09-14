@@ -24,7 +24,7 @@ int IntegerTimesFunctionBehaviorExecution::doIntegerFunction(const std::shared_p
 	int i2 = arguments->at(1);
 
 	int i = i1 * i2;
-	utils::Debug::println("[doBody] Integer Multiply result = " + std::to_string(i));
+	fuml::Debug::println("[doBody] Integer Multiply result = " + std::to_string(i));
 	return i;
 }
 

@@ -25,7 +25,7 @@ void Link::destroy()
 	// Shift the positions of the feature values of any remaining links in
 	// the extent of the same association, for ends that are ordered.
 
-	utils::Debug::println(std::string("[destroy] link = " + this->identifier));
+	fuml::Debug::println(std::string("[destroy] link = " + this->identifier));
 
 	PropertyListPtr ends = this->type->memberEnd;
 	ExtensionalValueListPtr extent = this->locus->getExtent(this->type);
@@ -130,7 +130,7 @@ void Link::addTo(const LocusPtr& locus)
 	// Shift the positions of ends of other links, as appropriate, for ends
 	// that are ordered.
 
-	utils::Debug::println(std::string("[addTo] link = " + this->identifier));
+	fuml::Debug::println(std::string("[addTo] link = " + this->identifier));
 
 	PropertyListPtr ends = this->type->memberEnd;
 	ExtensionalValueListPtr extent = locus->getExtent(this->type);

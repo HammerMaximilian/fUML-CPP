@@ -31,12 +31,12 @@ void ListGetFunctionBehaviorExecution::doBody(const ParameterValueListPtr& input
 	// Get the position in the list from the second argument
 	IntegerValuePtr iv = std::dynamic_pointer_cast<IntegerValue>(inputParameters->at(0)->values->at(0));
 	int position = iv->value;
-	utils::Debug::println("[doBody] List Get, position=" + std::to_string(position));
+	fuml::Debug::println("[doBody] List Get, position=" + std::to_string(position));
 
 	// The position must be 1 or greater, since index is 1-based
 	if(position < 1)
 	{
-		utils::Debug::println("[doBody] List Get, invalid value (return nothing).");
+		fuml::Debug::println("[doBody] List Get, invalid value (return nothing).");
 		//Invalid argument, return
 		return;
 	}
@@ -47,7 +47,7 @@ void ListGetFunctionBehaviorExecution::doBody(const ParameterValueListPtr& input
 		// Find the element in the list by its position.  Offset index by 1,
 		// since the underlying list is 0-based, while this API is 1-based
 		ValuePtr result = vl->at(position-1);
-		utils::Debug::println("[doBody] List Get, result = " + result->toString());
+		fuml::Debug::println("[doBody] List Get, result = " + result->toString());
 
 		// Add output to the outputParameters list.  The output can be a
 		// reference to the original object in the input list.
@@ -55,7 +55,7 @@ void ListGetFunctionBehaviorExecution::doBody(const ParameterValueListPtr& input
 	}
 	catch(...)
 	{
-		utils::Debug::println("[doBody] List Get, index out of bounds error (return nothing).");
+		fuml::Debug::println("[doBody] List Get, index out of bounds error (return nothing).");
 		//Invalid argument, return
 		return;
 	}

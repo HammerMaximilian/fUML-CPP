@@ -27,7 +27,7 @@ void UnlimitedNaturalFunctionBehaviorExecution::doBody(const ParameterValueListP
 	for (const ParameterValuePtr& inputParameter : *inputParameters)
 	{
 		int value = std::dynamic_pointer_cast<UnlimitedNaturalValue>(inputParameter->values->at(0))->value;
-		utils::Debug::println("[doBody] argument = " + std::to_string(value));
+		fuml::Debug::println("[doBody] argument = " + std::to_string(value));
 		arguments->push_back(value);
 	}
 

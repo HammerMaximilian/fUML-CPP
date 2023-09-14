@@ -23,7 +23,7 @@ float RealInverseFunctionBehaviorExecution::doRealFunction(const std::shared_ptr
 	float x1 = arguments->at(0);
 
 	float x = 1.0f/x1;
-	utils::Debug::println("[doBody] Real Inverse result = " + std::to_string(x));
+	fuml::Debug::println("[doBody] Real Inverse result = " + std::to_string(x));
 	return x;
 }
 

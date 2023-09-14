@@ -43,7 +43,7 @@ void ActivityNodeActivationGroup::run(const ActivityNodeActivationListPtr& activ
 		activation->run();
 	}
 
-	utils::Debug::println("[run] Checking for enabled nodes...");
+	fuml::Debug::println("[run] Checking for enabled nodes...");
 
 	ActivityNodeActivationListPtr enabledParameterNodeActivations(new ActivityNodeActivationList());
 	ActivityNodeActivationListPtr enabledOtherActivations(new ActivityNodeActivationList());
@@ -51,7 +51,7 @@ void ActivityNodeActivationGroup::run(const ActivityNodeActivationListPtr& activ
 	for (const ActivityNodeActivationPtr& activation : *activations)
 	{
 
-		utils::Debug::println("[run] Checking node " + activation->node->name + "...");
+		fuml::Debug::println("[run] Checking node " + activation->node->name + "...");
 
 		PinActivationPtr pinActivation = std::dynamic_pointer_cast<PinActivation>(activation);
 		ExpansionNodeActivationPtr expansionNodeActivation = std::dynamic_pointer_cast<ExpansionNodeActivation>(
@@ -83,7 +83,7 @@ void ActivityNodeActivationGroup::run(const ActivityNodeActivationListPtr& activ
 
 			if (isEnabled)
 			{
-				utils::Debug::println("[run] Node " + activation->node->name + " is enabled.");
+				fuml::Debug::println("[run] Node " + activation->node->name + " is enabled.");
 
 				ActivityParameterNodeActivationPtr activityParameterNodeActivation = std::dynamic_pointer_cast<
 					ActivityParameterNodeActivation>(activation);
@@ -103,14 +103,14 @@ void ActivityNodeActivationGroup::run(const ActivityNodeActivationListPtr& activ
 	// *** Send offers to all enabled activity parameter nodes concurrently. ***
 	for (const ActivityNodeActivationPtr& activation : *enabledParameterNodeActivations)
 	{
-		utils::Debug::println("[run] Sending offer to activity parameter node " + activation->node->name + ".");
+		fuml::Debug::println("[run] Sending offer to activity parameter node " + activation->node->name + ".");
 		activation->receiveOffer();
 	}
 
 	// *** Send offers to all other enabled nodes concurrently. ***
 	for (const ActivityNodeActivationPtr& activation : *enabledOtherActivations)
 	{
-		utils::Debug::println("[run] Sending offer to node " + activation->node->name + ".");
+		fuml::Debug::println("[run] Sending offer to node " + activation->node->name + ".");
 		activation->receiveOffer();
 	}
 } // run
@@ -174,7 +174,7 @@ void ActivityNodeActivationGroup::terminateAll()
 {
 	// Terminate all node activations in the group.
 
-	utils::Debug::println(
+	fuml::Debug::println(
 		"[terminateAll] Terminating activation group for "
 			+ (this->activityExecution != nullptr ? "activity " + this->activityExecution->getTypes()->at(0)->name :
 				this->containingNodeActivation != nullptr ?
@@ -196,7 +196,7 @@ void ActivityNodeActivationGroup::createNodeActivations(const ActivityNodeListPt
 
 	for (const ActivityNodePtr& node : *nodes)
 	{
-		utils::Debug::println("[createNodeActivations] Creating a node activation for " + node->name + "...");
+		fuml::Debug::println("[createNodeActivations] Creating a node activation for " + node->name + "...");
 		this->createNodeActivation(node);
 	}
 } // createNodeActivations
@@ -255,7 +255,7 @@ void ActivityNodeActivationGroup::createEdgeInstances(const ActivityEdgeListPtr&
 	for (const ActivityEdgePtr& edge : *edges)
 	{
 
-		utils::Debug::println(
+		fuml::Debug::println(
 			"[createEdgeInstances] Creating an edge instance from " + edge->source->name + " to " + edge->target->name
 				+ ".");
 
@@ -350,7 +350,7 @@ void ActivityNodeActivationGroup::suspend(const ActivityNodeActivationPtr& activ
 	// the only suspended activation, and the activation group has a
 	// containing node activation, then suspend that containing activation.
 
-	utils::Debug::println("[suspend] node=" + (activation->node == nullptr ? "nullptr" : activation->node->name));
+	fuml::Debug::println("[suspend] node=" + (activation->node == nullptr ? "nullptr" : activation->node->name));
 
 	if (!this->isSuspended())
 	{
@@ -370,7 +370,7 @@ void ActivityNodeActivationGroup::resume(const ActivityNodeActivationPtr& activa
 	// suspended activation, and the activation group has a containing
 	// node activation, then resume that containing activation.
 
-	utils::Debug::println("[resume] node=" + (activation->node == nullptr ? "nullptr" : activation->node->name));
+	fuml::Debug::println("[resume] node=" + (activation->node == nullptr ? "nullptr" : activation->node->name));
 
 	[[maybe_unused]] bool found = false;
 	ActivityNodeActivationList::iterator it = this->suspendedActivations->begin();

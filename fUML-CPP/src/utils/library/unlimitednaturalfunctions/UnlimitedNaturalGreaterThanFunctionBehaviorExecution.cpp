@@ -27,7 +27,7 @@ bool UnlimitedNaturalGreaterThanFunctionBehaviorExecution::doUnlimitedNaturalFun
 	// "unbounded", which is the highest possible value.
 	bool b = ((i2 >= 0) && ((i1 < 0) || (i1 > i2)));
 
-	utils::Debug::println("[doBody] UnlimitedNatural Greater Than result = " + std::to_string(b));
+	fuml::Debug::println("[doBody] UnlimitedNatural Greater Than result = " + std::to_string(b));
 	return b;
 }
 

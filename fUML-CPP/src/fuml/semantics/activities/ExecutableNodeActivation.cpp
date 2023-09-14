@@ -88,7 +88,7 @@ void ExecutableNodeActivation::handle(const ValuePtr& exception, const Exception
 	// Offer the given exception to the body of the given exception handler
 	// on its exception input node.
 
-	utils::Debug::println(
+	fuml::Debug::println(
 		"[handle] action = " + this->node->name + ", exception = " + std::to_string(exception->hashCode()));
 
 	ActivityNodeActivationPtr handlerBodyActivation = this->group->getNodeActivation(handler->handlerBody);

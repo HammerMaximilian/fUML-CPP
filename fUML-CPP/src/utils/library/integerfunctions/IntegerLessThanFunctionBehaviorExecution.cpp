@@ -24,7 +24,7 @@ bool IntegerLessThanFunctionBehaviorExecution::doIntegerFunction(const std::shar
 	int i2 = arguments->at(1);
 
 	bool b = (i1 < i2);
-	utils::Debug::println("[doBody] Integer Less Than result = " + std::to_string(b));
+	fuml::Debug::println("[doBody] Integer Less Than result = " + std::to_string(b));
 	return b;
 }
 

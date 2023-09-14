@@ -27,12 +27,12 @@ void BooleanToStringFunctionBehaviorExecution::doBody(const ParameterValueListPt
 	const ParameterValueListPtr& outputParameters)
 {
 	BooleanValuePtr bv1 = std::dynamic_pointer_cast<BooleanValue>(inputParameters->at(0)->values->at(0));
-	utils::Debug::println("[doBody] argument = " + bv1->value);
+	fuml::Debug::println("[doBody] argument = " + bv1->value);
 
 	StringValuePtr resultObj(new StringValue());
 	resultObj->value = bv1->toString();
 	resultObj->type = this->locus->factory->getBuiltInType("String");
-	utils::Debug::println("[doBody] Boolean ToString result = " + resultObj->value);
+	fuml::Debug::println("[doBody] Boolean ToString result = " + resultObj->value);
 
 	outputParameters->at(0)->values->push_back(resultObj);
 }

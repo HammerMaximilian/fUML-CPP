@@ -18,7 +18,7 @@ void RaiseExceptionActionActivation::doAction()
 	RaiseExceptionActionPtr action = std::dynamic_pointer_cast<RaiseExceptionAction>(this->node);
 	const ValuePtr& exception = this->takeTokens(action->exception)->at(0);
 
-	utils::Debug::println(
+	fuml::Debug::println(
 		"[doAction] action = " + action->name + ", exception = " + std::to_string(exception->hashCode()));
 
 	this->propagateException(exception);

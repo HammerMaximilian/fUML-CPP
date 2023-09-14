@@ -25,7 +25,7 @@ bool IntegerGreaterThanEqualFunctionBehaviorExecution::doIntegerFunction(
 	int i2 = arguments->at(1);
 
 	bool b = (i1 >= i2);
-	utils::Debug::println("[doBody] Integer Greater Than or Equal result = " + std::to_string(b));
+	fuml::Debug::println("[doBody] Integer Greater Than or Equal result = " + std::to_string(b));
 	return b;
 }
 

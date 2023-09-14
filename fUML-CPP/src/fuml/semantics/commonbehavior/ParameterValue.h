@@ -14,7 +14,7 @@
 
 namespace fuml::semantics::commonbehavior
 {
-	class ParameterValue : utils::FumlObject
+	class ParameterValue : fuml::FumlObject
 	{
 		public:
 			ParameterPtr parameter = nullptr;

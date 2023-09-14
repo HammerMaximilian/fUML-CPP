@@ -13,7 +13,7 @@
 
 namespace fuml::semantics::actions
 {
-	class TokenSet : public utils::FumlObject
+	class TokenSet : public fuml::FumlObject
 	{
 		public:
 			TokenListPtr tokens = std::make_shared<TokenList>();

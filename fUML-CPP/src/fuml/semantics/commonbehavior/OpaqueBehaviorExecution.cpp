@@ -20,7 +20,7 @@ void OpaqueBehaviorExecution::execute()
 {
 	// Execute the body of the opaque behavior.
 
-	utils::Debug::println("[execute] Opaque behavior " + this->getBehavior()->name + "...");
+	fuml::Debug::println("[execute] Opaque behavior " + this->getBehavior()->name + "...");
 
 	ParameterListPtr parameters = this->getBehavior()->ownedParameter;
 

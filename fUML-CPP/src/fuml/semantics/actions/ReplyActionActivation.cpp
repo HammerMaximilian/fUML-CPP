@@ -27,7 +27,7 @@ void ReplyActionActivation::doAction()
 
 	ValueListPtr values = this->takeTokens(returnInformationPin);
 	ReturnInformationPtr returnInformation = std::dynamic_pointer_cast<ReturnInformation>(values->at(0));
-	utils::Debug::println(
+	fuml::Debug::println(
 		"[doAction] action = " + action->name + " returnInformation = "
 			+ std::to_string(returnInformation->hashCode()));
 

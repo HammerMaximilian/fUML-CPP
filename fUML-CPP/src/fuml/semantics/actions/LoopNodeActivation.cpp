@@ -125,7 +125,7 @@ void LoopNodeActivation::doLoop(bool continuing)
 		}
 
 		std::string state = (continuing ? "Continuing." : (this->isSuspended() ? "Suspended" : "Done."));
-		utils::Debug::println("[doStructuredActivity] " + state);
+		fuml::Debug::println("[doStructuredActivity] " + state);
 
 	}
 
@@ -146,7 +146,7 @@ bool LoopNodeActivation::runTest()
 	// Run the test part of the loop node for this node activation.
 	// Return the value on the decider pin.
 
-	utils::Debug::println("[runTest] Running test...");
+	fuml::Debug::println("[runTest] Running test...");
 
 	LoopNodePtr loopNode = std::dynamic_pointer_cast<LoopNode>(this->node);
 
@@ -162,7 +162,7 @@ bool LoopNodeActivation::runTest()
 	}
 
 	std::string testFailed = (decision ? "Test succeeded." : "Test failed.");
-	utils::Debug::println("[runTest] " + testFailed);
+	fuml::Debug::println("[runTest] " + testFailed);
 
 	return decision;
 } // runTest
@@ -172,7 +172,7 @@ void LoopNodeActivation::runBody()
 	// Run the body part of the loop node for this node activation and save
 	// the body outputs.
 
-	utils::Debug::println("[runBody] Running body...");
+	fuml::Debug::println("[runBody] Running body...");
 
 	LoopNodePtr loopNode = std::dynamic_pointer_cast<LoopNode>(this->node);
 

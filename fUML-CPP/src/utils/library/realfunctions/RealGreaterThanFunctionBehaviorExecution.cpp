@@ -24,7 +24,7 @@ bool RealGreaterThanFunctionBehaviorExecution::doRealFunction(const std::shared_
 	float x2 = arguments->at(1);
 
 	bool b = (x1 > x2);
-	utils::Debug::println("[doBody] Real Greater Than result = " + std::to_string(b));
+	fuml::Debug::println("[doBody] Real Greater Than result = " + std::to_string(b));
 	return b;
 }
 

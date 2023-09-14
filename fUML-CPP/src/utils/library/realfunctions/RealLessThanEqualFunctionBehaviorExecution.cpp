@@ -25,7 +25,7 @@ bool RealLessThanEqualFunctionBehaviorExecution::doRealFunction(
 	float x2 = arguments->at(1);
 
 	bool b = (x1 <= x2);
-	utils::Debug::println("[doBody] Real Less Than or Equal result = " + std::to_string(b));
+	fuml::Debug::println("[doBody] Real Less Than or Equal result = " + std::to_string(b));
 	return b;
 }
 

@@ -32,7 +32,7 @@ void IntegerDivideFunctionBehaviorExecution::doBody(const ParameterValueListPtr&
 	// Check for illegal divide by zero
 	if (arg2 == 0)
 	{
-		utils::Debug::println("[doBody] Integer Divide, divide by zero not allowed");
+		fuml::Debug::println("[doBody] Integer Divide, divide by zero not allowed");
 		// Invalid input, return
 		return;
 	}
@@ -40,7 +40,7 @@ void IntegerDivideFunctionBehaviorExecution::doBody(const ParameterValueListPtr&
 	RealValuePtr resultObj(new RealValue());
 	resultObj->value = ((float) arg1 / (float) arg2);
 	resultObj->type = this->locus->factory->getBuiltInType("Real");
-	utils::Debug::println("[doBody] Integer Divide result = " + std::to_string(resultObj->value));
+	fuml::Debug::println("[doBody] Integer Divide result = " + std::to_string(resultObj->value));
 
 	outputParameters->at(0)->values->push_back(resultObj);
 }

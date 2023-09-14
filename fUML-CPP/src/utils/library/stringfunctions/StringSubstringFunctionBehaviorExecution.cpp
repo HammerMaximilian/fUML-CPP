@@ -28,19 +28,19 @@ void StringSubstringFunctionBehaviorExecution::doBody(const ParameterValueListPt
 {
 	StringValuePtr sv1 = std::dynamic_pointer_cast<StringValue>(inputParameters->at(0)->values->at(0));
 	std::string s1 = sv1->value;
-	utils::Debug::println("[doBody] argument, string = " + s1);
+	fuml::Debug::println("[doBody] argument, string = " + s1);
 	IntegerValuePtr lowerValue = std::dynamic_pointer_cast<IntegerValue>(inputParameters->at(1)->values->at(0));
 	int lower = lowerValue->value; // lower value
-	utils::Debug::println("[doBody] argument, lower = " + std::to_string(lower));
+	fuml::Debug::println("[doBody] argument, lower = " + std::to_string(lower));
 	IntegerValuePtr upperValue = std::dynamic_pointer_cast<IntegerValue>(inputParameters->at(2)->values->at(0));
 	int upper = upperValue->value; // upper value
-	utils::Debug::println("[doBody] argument, upper = " + std::to_string(upper));
+	fuml::Debug::println("[doBody] argument, upper = " + std::to_string(upper));
 
 	// Check for invalid values.  A lower value of less than 1 or greater than the
 	// length of the string is invalid.
 	if(lower < 1 || lower > (int)s1.length())
 	{
-		utils::Debug::println("[doBody] invalid lower value for String Substring: " + std::to_string(lower));
+		fuml::Debug::println("[doBody] invalid lower value for String Substring: " + std::to_string(lower));
 		//Invalid arguments, return
 		return;
 	}
@@ -48,7 +48,7 @@ void StringSubstringFunctionBehaviorExecution::doBody(const ParameterValueListPt
 	// Same checks for upper value
 	if(upper < 1 || upper > (int)s1.length())
 	{
-		utils::Debug::println("[doBody] invalid upper value for String Substring: " + std::to_string(upper));
+		fuml::Debug::println("[doBody] invalid upper value for String Substring: " + std::to_string(upper));
 		//Invalid arguments, return
 		return;
 	}
@@ -56,7 +56,7 @@ void StringSubstringFunctionBehaviorExecution::doBody(const ParameterValueListPt
 	// Upper cannot be less than lower.  Note upper and lower can be equal.
 	if(upper < lower)
 	{
-		utils::Debug::println("[doBody] upper is less than lower for String Substring");
+		fuml::Debug::println("[doBody] upper is less than lower for String Substring");
 		//Invalid arguments, return
 		return;
 	}
@@ -74,7 +74,7 @@ void StringSubstringFunctionBehaviorExecution::doBody(const ParameterValueListPt
 	resultObj->value = resultString;
 	resultObj->type = this->locus->factory->getBuiltInType("String");
 
-	utils::Debug::println("[doBody] String Substring result = " + resultString);
+	fuml::Debug::println("[doBody] String Substring result = " + resultString);
 
 	// Add output to the outputParameters list
 	outputParameters->at(0)->values->push_back(resultObj);

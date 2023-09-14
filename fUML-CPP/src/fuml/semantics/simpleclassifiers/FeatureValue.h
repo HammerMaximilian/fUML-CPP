@@ -14,7 +14,7 @@
 
 namespace fuml::semantics::simpleclassifiers
 {
-	class FeatureValue : public utils::FumlObject
+	class FeatureValue : public fuml::FumlObject
 	{
 		public:
 			StructuralFeaturePtr feature = nullptr;

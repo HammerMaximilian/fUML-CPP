@@ -26,12 +26,12 @@ int IntegerModFunctionBehaviorExecution::doIntegerFunction(const std::shared_ptr
 	// Modulus requires second argument to be non-zero
 	if(i2 == 0)
 	{
-		utils::Debug::println("[doBody] Integer Modulo requires non-zero second argument");
+		fuml::Debug::println("[doBody] Integer Modulo requires non-zero second argument");
 		return INT_MIN;
 	}
 
 	int i = i1 % i2;
-	utils::Debug::println("[doBody] Integer Modulo result = " + std::to_string(i));
+	fuml::Debug::println("[doBody] Integer Modulo result = " + std::to_string(i));
 	return i;
 }
 

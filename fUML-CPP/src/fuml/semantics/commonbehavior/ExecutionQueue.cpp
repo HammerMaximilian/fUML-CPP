@@ -38,7 +38,7 @@ void ExecutionQueue::enqueue(const ExecutionPtr& execution)
 	}
 	else
 	{
-		utils::Debug::println("[enqueue] execution = " + execution->toString());
+		fuml::Debug::println("[enqueue] execution = " + execution->toString());
 		executionQueue->add(execution);
 	}
 }
@@ -60,7 +60,7 @@ bool ExecutionQueue::runNext()
 		this->queue->erase(this->queue->begin());
 		if (execution->context->getTypes()->size() > 0)
 		{
-			utils::Debug::println("[runNext] execution = " + execution->toString());
+			fuml::Debug::println("[runNext] execution = " + execution->toString());
 			execution->execute();
 		}
 		return true;

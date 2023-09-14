@@ -27,13 +27,13 @@ float RealDivideFunctionBehaviorExecution::doRealFunction(const std::shared_ptr<
 
 	// Check for illegal divide by zero
 	if (arg2 == 0) {
-		utils::Debug::println("[doBody] Real Divide, divide by zero not allowed");
+		fuml::Debug::println("[doBody] Real Divide, divide by zero not allowed");
 		return INT_MIN;
 	}
 
 	// Perform Divide function
 	float x = arg1/arg2;
-	utils::Debug::println("[doBody] Real Divide result = " + std::to_string(x));
+	fuml::Debug::println("[doBody] Real Divide result = " + std::to_string(x));
 	return x;
 }
 

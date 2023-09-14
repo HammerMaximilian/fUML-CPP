@@ -21,11 +21,11 @@ void ClauseActivation::receiveControl()
 	// running and run the body of this clause.
 	// If the test fails, then pass control to successor clauses.
 
-	utils::Debug::println("[receiveControl] clauseActivation = " + std::to_string(this->hashCode()));
+	fuml::Debug::println("[receiveControl] clauseActivation = " + std::to_string(this->hashCode()));
 
 	if (this->isReady())
 	{
-		utils::Debug::println("[receiveControl] Running test...");
+		fuml::Debug::println("[receiveControl] Running test...");
 		this->runTest();
 
 		BooleanValuePtr decision = this->getDecision();
@@ -36,12 +36,12 @@ void ClauseActivation::receiveControl()
 		{
 			if (decision->value == true)
 			{
-				utils::Debug::println("[receiveControl] Test succeeded.");
+				fuml::Debug::println("[receiveControl] Test succeeded.");
 				this->selectBody();
 			}
 			else
 			{
-				utils::Debug::println("[receiveControl] Test failed.");
+				fuml::Debug::println("[receiveControl] Test failed.");
 
 				ClauseActivationListPtr successors = this->getSuccessors();
 

@@ -28,7 +28,7 @@ void IntegerToStringFunctionBehaviorExecution::doBody(const ParameterValueListPt
 {
 	IntegerValuePtr iv = std::dynamic_pointer_cast<IntegerValue>(inputParameters->at(0)->values->at(0));
 	int i = iv->value;
-	utils::Debug::println("[doBody] argument = " + std::to_string(i));
+	fuml::Debug::println("[doBody] argument = " + std::to_string(i));
 
 	// Convert int to String
 	std::string resultString = std::to_string(i);
@@ -36,7 +36,7 @@ void IntegerToStringFunctionBehaviorExecution::doBody(const ParameterValueListPt
 	resultObj->value = resultString;
 	resultObj->type = this->locus->factory->getBuiltInType("String");
 
-	utils::Debug::println("[doBody] Integer ToString result = " + resultString);
+	fuml::Debug::println("[doBody] Integer ToString result = " + resultString);
 
 	// Add output to the outputParameters list
 	outputParameters->at(0)->values->push_back(resultObj);

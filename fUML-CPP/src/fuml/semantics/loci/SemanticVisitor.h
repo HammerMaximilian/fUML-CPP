@@ -13,7 +13,7 @@
 
 namespace fuml::semantics::loci
 {
-	class SemanticVisitor : public utils::FumlObject
+	class SemanticVisitor : public fuml::FumlObject
 	{
 		public:
 			virtual ~SemanticVisitor() = 0;

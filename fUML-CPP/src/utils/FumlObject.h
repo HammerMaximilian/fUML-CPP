@@ -10,7 +10,7 @@
 
 #include <string>
 
-namespace utils
+namespace fuml
 {
 	class FumlObject
 	{
@@ -21,6 +21,8 @@ namespace utils
 			size_t internalHash = 0;
 
 		public:
+			virtual ~FumlObject() = 0;
+
 			std::string getXmiId() const;
 			void setXmiId(std::string);
 			std::string getHref() const;

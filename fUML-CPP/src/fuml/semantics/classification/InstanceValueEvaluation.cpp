@@ -40,7 +40,7 @@ ValuePtr InstanceValueEvaluation::evaluate()
 	const ClassifierListPtr& types = instance->classifier;
 	const ClassifierPtr& myType = types->at(0);
 
-	utils::Debug::println(std::string("[evaluate] type = " + myType->name));
+	fuml::Debug::println(std::string("[evaluate] type = " + myType->name));
 
 	ValuePtr value;
 	EnumerationLiteralPtr enumerationLiteral = std::dynamic_pointer_cast<EnumerationLiteral>(instance);

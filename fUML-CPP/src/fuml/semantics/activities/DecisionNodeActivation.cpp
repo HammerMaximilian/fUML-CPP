@@ -26,7 +26,7 @@ void DecisionNodeActivation::fire(const TokenListPtr& incomingTokens)
 	// Get the decision values and test them on each guard.
 	// Forward the offer over the edges for which the test succeeds.
 
-	utils::Debug::println("[fire] Decision node " + this->node->name + "...");
+	fuml::Debug::println("[fire] Decision node " + this->node->name + "...");
 
 	TokenListPtr removedControlTokens = this->removeJoinedControlTokens(incomingTokens);
 	ValueListPtr decisionValues = this->getDecisionValues(incomingTokens);
@@ -88,7 +88,7 @@ ValueListPtr DecisionNodeActivation::getDecisionValues(const TokenListPtr& incom
 	unsigned int i = 0;
 	for (const ValuePtr& decisionValue : *decisionValues)
 	{
-		utils::Debug::println(
+		fuml::Debug::println(
 			"[getDecisionValues] decisionValues[" + std::to_string(i++) + "] = "
 				+ std::to_string(decisionValue->hashCode()));
 	}
@@ -108,7 +108,7 @@ ValuePtr DecisionNodeActivation::executeDecisionInputBehavior(const ValuePtr& in
 	// returned, if one is given, otherwise the input value is used as the
 	// decision value.
 
-	utils::Debug::println("[executeDecisionBehavior] inputValue = " + inputValue->hashCode());
+	fuml::Debug::println("[executeDecisionBehavior] inputValue = " + inputValue->hashCode());
 
 	BehaviorPtr decisionInputBehavior = std::dynamic_pointer_cast<DecisionNode>(this->node)->decisionInput;
 

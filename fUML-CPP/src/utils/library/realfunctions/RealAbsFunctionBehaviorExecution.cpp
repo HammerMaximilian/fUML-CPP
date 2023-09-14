@@ -23,7 +23,7 @@ float RealAbsFunctionBehaviorExecution::doRealFunction(const std::shared_ptr<std
 	float arg1 = arguments->at(0);
 
 	float x = abs(arg1);
-	utils::Debug::println("[doBody] Real Abs result = " + std::to_string(x));
+	fuml::Debug::println("[doBody] Real Abs result = " + std::to_string(x));
 	return x;
 }
 

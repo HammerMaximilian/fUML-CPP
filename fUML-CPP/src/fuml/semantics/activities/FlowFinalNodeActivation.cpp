@@ -15,7 +15,7 @@ void FlowFinalNodeActivation::fire(const TokenListPtr& incomingTokens)
 {
 	// Consume all incoming tokens.
 
-	utils::Debug::println("[fire] Flow final node " + this->node->name + "...");
+	fuml::Debug::println("[fire] Flow final node " + this->node->name + "...");
 
 	for (const TokenPtr& token : *incomingTokens)
 	{

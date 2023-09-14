@@ -29,7 +29,7 @@ void RealToIntegerFunctionBehaviorExecution::doBody(const ParameterValueListPtr&
 {
 	RealValuePtr rv = std::dynamic_pointer_cast<RealValue>(inputParameters->at(0)->values->at(0));
 	float x = rv->value;
-	utils::Debug::println("[doBody] argument = " + std::to_string(x));
+	fuml::Debug::println("[doBody] argument = " + std::to_string(x));
 
 	int resultInt = (int)((x >= 0) ? std::floor(x) : -(std::floor(x)));
 
@@ -37,7 +37,7 @@ void RealToIntegerFunctionBehaviorExecution::doBody(const ParameterValueListPtr&
 	result->value = resultInt;
 	result->type = this->locus->factory->getBuiltInType("Integer");
 
-	utils::Debug::println("[doBody] Real ToInteger result = " + resultInt);
+	fuml::Debug::println("[doBody] Real ToInteger result = " + resultInt);
 
 	// Add output to the outputParameters list
 	outputParameters->at(0)->values->push_back(result);

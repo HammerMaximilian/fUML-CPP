@@ -29,7 +29,7 @@ void IntegerToIntegerFunctionBehaviorExecution::doBody(const ParameterValueListP
 	// Extract single String input argument
 	StringValuePtr sv1 = std::dynamic_pointer_cast<StringValue>(inputParameters->at(0)->values->at(0));
 	std::string s1 = sv1->value;
-	utils::Debug::println("[doBody] argument = " + s1);
+	fuml::Debug::println("[doBody] argument = " + s1);
 
 	// Convert String to int
 	int resultInt;
@@ -40,7 +40,7 @@ void IntegerToIntegerFunctionBehaviorExecution::doBody(const ParameterValueListP
 	catch (...)
 	{
 		// If the String does not specify an integer, simply return an empty values list
-		utils::Debug::println("[doBody] string does not specify an integer: " + s1);
+		fuml::Debug::println("[doBody] string does not specify an integer: " + s1);
 		//Invalid argument, return
 		return;
 	}
@@ -49,7 +49,7 @@ void IntegerToIntegerFunctionBehaviorExecution::doBody(const ParameterValueListP
 	IntegerValuePtr resultObj(new IntegerValue());
 	resultObj->value = resultInt;
 	resultObj->type = this->locus->factory->getBuiltInType("Integer");
-	utils::Debug::println("[doBody] Integer ToInteger result = " + std::to_string(resultInt));
+	fuml::Debug::println("[doBody] Integer ToInteger result = " + std::to_string(resultInt));
 
 	// Add output to the outputParameters list
 	outputParameters->at(0)->values->push_back(resultObj);

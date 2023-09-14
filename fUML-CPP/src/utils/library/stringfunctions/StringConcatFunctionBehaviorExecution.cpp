@@ -27,11 +27,11 @@ void StringConcatFunctionBehaviorExecution::doBody(const ParameterValueListPtr& 
 {
 	StringValuePtr sv1 = std::dynamic_pointer_cast<StringValue>(inputParameters->at(0)->values->at(0));
 	std::string s1 = sv1->value;
-	utils::Debug::println("[doBody] argument = " + s1);
+	fuml::Debug::println("[doBody] argument = " + s1);
 
 	StringValuePtr sv2 = std::dynamic_pointer_cast<StringValue>(inputParameters->at(1)->values->at(0));
 	std::string s2 = sv2->value;
-	utils::Debug::println("[doBody] argument = " + s1);
+	fuml::Debug::println("[doBody] argument = " + s1);
 
 	// Concatenate the two strings
 	std::string resultString = s1 + s2;
@@ -39,7 +39,7 @@ void StringConcatFunctionBehaviorExecution::doBody(const ParameterValueListPtr& 
 	StringValuePtr resultObj(new StringValue());
 	resultObj->value = resultString;
 	resultObj->type = this->locus->factory->getBuiltInType("String");
-	utils::Debug::println("[doBody] String Concat result = " + resultString);
+	fuml::Debug::println("[doBody] String Concat result = " + resultString);
 
 	// Add output to the outputParameters list
 	outputParameters->at(0)->values->push_back(resultObj);

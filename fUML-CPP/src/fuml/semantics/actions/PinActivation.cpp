@@ -19,7 +19,7 @@ void PinActivation::fire(const TokenListPtr& incomingTokens)
 {
 	// Add all incoming tokens to the pin.
 
-	utils::Debug::println("[fire] Pin " + (this->node == nullptr ? "" : this->node->name + "..."));
+	fuml::Debug::println("[fire] Pin " + (this->node == nullptr ? "" : this->node->name + "..."));
 
 	this->addTokens(incomingTokens);
 } // fire

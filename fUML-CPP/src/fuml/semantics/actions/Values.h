@@ -13,7 +13,7 @@
 
 namespace fuml::semantics::actions
 {
-	class Values : public utils::FumlObject
+	class Values : public fuml::FumlObject
 	{
 		public:
 			ValueListPtr values = std::make_shared<ValueList>();

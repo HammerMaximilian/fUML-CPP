@@ -14,7 +14,7 @@
 
 namespace fuml::semantics::loci
 {
-	class Locus : public utils::FumlObject
+	class Locus : public fuml::FumlObject
 	{
 		public:
 			std::string identifier = std::to_string(this->hashCode());

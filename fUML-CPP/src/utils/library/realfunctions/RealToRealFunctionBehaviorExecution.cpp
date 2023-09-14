@@ -29,7 +29,7 @@ void RealToRealFunctionBehaviorExecution::doBody(const ParameterValueListPtr& in
 	// Extract single String input argument
 	StringValuePtr sv1 = std::dynamic_pointer_cast<StringValue>(inputParameters->at(0)->values->at(0));
 	std::string s1 = sv1->value;
-	utils::Debug::println("[doBody] argument = " + s1);
+	fuml::Debug::println("[doBody] argument = " + s1);
 
 	// Convert String to float
 	float resultFloat;
@@ -40,7 +40,7 @@ void RealToRealFunctionBehaviorExecution::doBody(const ParameterValueListPtr& in
 	catch (...)
 	{
 		// If the String does not specify an real, simply return an empty values list
-		utils::Debug::println("[doBody] string does not specify a real: " + s1);
+		fuml::Debug::println("[doBody] string does not specify a real: " + s1);
 		//Invalid argument, return
 		return;
 	}
@@ -49,7 +49,7 @@ void RealToRealFunctionBehaviorExecution::doBody(const ParameterValueListPtr& in
 	RealValuePtr resultObj(new RealValue());
 	resultObj->value = resultFloat;
 	resultObj->type = this->locus->factory->getBuiltInType("Real");
-	utils::Debug::println("[doBody] Real ToReal result = " + std::to_string(resultFloat));
+	fuml::Debug::println("[doBody] Real ToReal result = " + std::to_string(resultFloat));
 
 	// Add output to the outputParameters list
 	outputParameters->at(0)->values->push_back(resultObj);

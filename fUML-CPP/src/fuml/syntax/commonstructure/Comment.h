@@ -14,7 +14,7 @@
 
 namespace fuml::syntax::commonstructure
 {
-	class Comment : public utils::FumlObject
+	class Comment : public fuml::FumlObject
 	{
 		public:
 			ElementListPtr annotatedElement = std::make_shared<ElementList>();

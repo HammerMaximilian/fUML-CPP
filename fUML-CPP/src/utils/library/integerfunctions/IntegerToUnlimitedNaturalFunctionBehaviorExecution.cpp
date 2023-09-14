@@ -29,14 +29,14 @@ void IntegerToUnlimitedNaturalFunctionBehaviorExecution::doBody(const ParameterV
 	// Extract integer arguments and perform an integer function on them.
 	IntegerValuePtr iv = std::dynamic_pointer_cast<IntegerValue>(inputParameters->at(0)->values->at(0));
 	int i = iv->value;
-	utils::Debug::println("[doBody] argument = " + std::to_string(i));
+	fuml::Debug::println("[doBody] argument = " + std::to_string(i));
 
 	// Convert int to UnlimitedNatural
 	UnlimitedNaturalValuePtr resultObj(new UnlimitedNaturalValue());
 	resultObj->value = i;
 	resultObj->type = this->locus->factory->getBuiltInType("UnlimitedNatural");
 
-	utils::Debug::println("[doBody] Integer ToUnlimitedNatural result = " + i);
+	fuml::Debug::println("[doBody] Integer ToUnlimitedNatural result = " + i);
 
 	// Add output to the outputParameters list
 	outputParameters->at(0)->values->push_back(resultObj);

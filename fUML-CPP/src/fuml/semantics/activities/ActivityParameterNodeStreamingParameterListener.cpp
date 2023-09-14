@@ -18,7 +18,7 @@ void ActivityParameterNodeStreamingParameterListener::post(const ValueListPtr& v
 	// because an input activity parameter node activation retrieves values
 	// directly from the relevant parameter value.)
 
-	utils::Debug::println("[post] Posting to node " + this->nodeActivation->node->name);
+	fuml::Debug::println("[post] Posting to node " + this->nodeActivation->node->name);
 
 	nodeActivation->fire(TokenListPtr(new TokenList));
 }

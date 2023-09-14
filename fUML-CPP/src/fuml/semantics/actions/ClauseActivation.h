@@ -14,7 +14,7 @@
 
 namespace fuml::semantics::actions
 {
-	class ClauseActivation : public utils::FumlObject
+	class ClauseActivation : public fuml::FumlObject
 	{
 		public:
 			ConditionalNodeActivationPtr conditionalNodeActivation = nullptr;

@@ -14,7 +14,7 @@
 
 namespace fuml::semantics::activities
 {
-	class ActivityNodeActivationGroup : public utils::FumlObject
+	class ActivityNodeActivationGroup : public fuml::FumlObject
 	{
 		public:
 			ActivityEdgeInstanceListPtr edgeInstances = std::make_shared<ActivityEdgeInstanceList>();

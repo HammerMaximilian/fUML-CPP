@@ -13,7 +13,7 @@
 
 namespace fuml::semantics::activities
 {
-	class Token : public utils::FumlObject
+	class Token : public fuml::FumlObject
 	{
 		public:
 			ActivityNodeActivationPtr holder = nullptr;

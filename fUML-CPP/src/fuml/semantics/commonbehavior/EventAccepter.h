@@ -13,7 +13,7 @@
 
 namespace fuml::semantics::commonbehavior
 {
-	class EventAccepter : public utils::FumlObject
+	class EventAccepter : public fuml::FumlObject
 	{
 		public:
 			virtual ~EventAccepter() = 0;

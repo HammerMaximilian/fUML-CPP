@@ -30,7 +30,7 @@ bool CallEventExecution::isCallerSuspended()
 
 	_beginIsolation();
 	bool isSuspended = this->callerSuspended;
-	utils::Debug::println(
+	fuml::Debug::println(
 		"[isCallerSuspended] operation = " + this->getOperation()->name + ", callerSuspended = "
 			+ std::to_string(isSuspended));
 	_endIsolation();
@@ -45,7 +45,7 @@ void CallEventExecution::setCallerSuspended(bool callerSuspended)
 
 	_beginIsolation();
 	this->callerSuspended = callerSuspended;
-	utils::Debug::println(
+	fuml::Debug::println(
 		"[setCallerSuspended] operation = " + this->getOperation()->name + ", callerSuspended = "
 			+ std::to_string(callerSuspended));
 	_endIsolation();
@@ -172,5 +172,5 @@ void CallEventExecution::wait_()
 	// executions to proceed.
 	// [There is no further formal specification for this operation.]
 
-	utils::Debug::println(!ExecutionQueue::step(), "[wait] Stuck!");
+	fuml::Debug::println(!ExecutionQueue::step(), "[wait] Stuck!");
 } // wait_

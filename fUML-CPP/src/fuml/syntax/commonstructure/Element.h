@@ -13,7 +13,7 @@
 
 namespace fuml::syntax::commonstructure
 {
-	class Element : public utils::FumlObject
+	class Element : public fuml::FumlObject
 	{
 		public:
 			ElementListPtr ownedElement = std::make_shared<ElementList>();

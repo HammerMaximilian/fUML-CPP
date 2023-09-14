@@ -28,7 +28,7 @@ void UnlimitedNaturalToStringFunctionBehaviorExecution::doBody(const ParameterVa
 {
 	UnlimitedNaturalValuePtr unv1 = std::dynamic_pointer_cast<UnlimitedNaturalValue>(inputParameters->at(0)->values->at(0));
 	int un = unv1->value;
-	utils::Debug::println("[doBody] argument = " + std::to_string(un));
+	fuml::Debug::println("[doBody] argument = " + std::to_string(un));
 
 	// Convert UnlimitedNatural to String
 	std::string resultString = std::to_string(un);
@@ -36,7 +36,7 @@ void UnlimitedNaturalToStringFunctionBehaviorExecution::doBody(const ParameterVa
 	resultObj->value = resultString;
 	resultObj->type = this->locus->factory->getBuiltInType("String");
 
-	utils::Debug::println("[doBody] UnlimitedNatural ToString result = " + resultString);
+	fuml::Debug::println("[doBody] UnlimitedNatural ToString result = " + resultString);
 
 	// Add output to the outputParameters list
 	outputParameters->at(0)->values->push_back(resultObj);

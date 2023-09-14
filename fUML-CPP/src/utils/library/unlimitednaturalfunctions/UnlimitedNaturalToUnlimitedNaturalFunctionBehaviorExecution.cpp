@@ -29,7 +29,7 @@ void UnlimitedNaturalToUnlimitedNaturalFunctionBehaviorExecution::doBody(const P
 	// Extract single String input argument
 	StringValuePtr sv1 = std::dynamic_pointer_cast<StringValue>(inputParameters->at(0)->values->at(0));
 	std::string s1 = sv1->value;
-	utils::Debug::println("[doBody] argument = " + s1);
+	fuml::Debug::println("[doBody] argument = " + s1);
 
 	// Convert String to int
 	int un;
@@ -47,7 +47,7 @@ void UnlimitedNaturalToUnlimitedNaturalFunctionBehaviorExecution::doBody(const P
 	catch (...)
 	{
 		// If the String does not specify an integer, simply return an empty values list
-		utils::Debug::println("[doBody] String does not specify an UnlimitedNatural: " + s1);
+		fuml::Debug::println("[doBody] String does not specify an UnlimitedNatural: " + s1);
 		//Invalid argument, return
 		return;
 	}
@@ -55,7 +55,7 @@ void UnlimitedNaturalToUnlimitedNaturalFunctionBehaviorExecution::doBody(const P
 	// If the integer is less than -1, it cannot be converted to an UnlimitedNatural.
 	if(un < -1)
 	{
-		utils::Debug::println("[doBody] Cannot be converted to an UnlimitedNatural: " + s1);
+		fuml::Debug::println("[doBody] Cannot be converted to an UnlimitedNatural: " + s1);
 		return;
 	}
 
@@ -63,7 +63,7 @@ void UnlimitedNaturalToUnlimitedNaturalFunctionBehaviorExecution::doBody(const P
 	UnlimitedNaturalValuePtr resultObj(new UnlimitedNaturalValue());
 	resultObj->value = un;
 	resultObj->type = this->locus->factory->getBuiltInType("UnlimitedNatural");
-	utils::Debug::println("[doBody] UnlimitedNatural ToUnlimitedNatural result = " + std::to_string(un));
+	fuml::Debug::println("[doBody] UnlimitedNatural ToUnlimitedNatural result = " + std::to_string(un));
 
 	// Add output to the outputParameters list
 	outputParameters->at(0)->values->push_back(resultObj);

@@ -118,7 +118,7 @@ bool InputPinActivation::streamingIsTerminated()
 
 	_beginIsolation();
 	isTerminated = this->streamingParameterValue->isTerminated();
-	utils::Debug::println("[streamingIsTerminated] isTerminated = " + isTerminated);
+	fuml::Debug::println("[streamingIsTerminated] isTerminated = " + isTerminated);
 	_endIsolation();
 
 	return isTerminated;

@@ -20,7 +20,7 @@ void ActivityFinalNodeActivation::fire(const TokenListPtr& incomingTokens)
 	// Terminate the activity execution or structured node activation
 	// containing this activation.
 
-	utils::Debug::println("[fire] Activity final node " + this->node->name + "...");
+	fuml::Debug::println("[fire] Activity final node " + this->node->name + "...");
 
 	if (incomingTokens->size() > 0 || this->incomingEdges->size() == 0)
 	{

@@ -26,12 +26,12 @@ int IntegerDivFunctionBehaviorExecution::doIntegerFunction(const std::shared_ptr
 	// Check for illegal divide by zero
 	if (arg2 == 0)
 	{
-		utils::Debug::println("[doBody] Integer Div, divide by zero not allowed");
+		fuml::Debug::println("[doBody] Integer Div, divide by zero not allowed");
 		return INT_MIN;
 	}
 
 	int i = arg1 / arg2;
-	utils::Debug::println("[doBody] Integer Div result = " + std::to_string(i));
+	fuml::Debug::println("[doBody] Integer Div result = " + std::to_string(i));
 	return i;
 }
 

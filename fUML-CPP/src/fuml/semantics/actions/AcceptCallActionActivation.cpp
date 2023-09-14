@@ -28,7 +28,7 @@ void AcceptCallActionActivation::accept(const EventOccurrencePtr& eventOccurrenc
 
 	this->putToken(returnInformationPin, returnInformation);
 
-	utils::Debug::println(
+	fuml::Debug::println(
 		"[accept] action = " + action->name + ", returnInformation = " + std::to_string(returnInformation->hashCode()));
 
 	AcceptEventActionActivation::accept(eventOccurrence);

@@ -23,7 +23,7 @@ int IntegerNegateFunctionBehaviorExecution::doIntegerFunction(const std::shared_
 	int i1 = arguments->at(0);
 
 	int i = -i1;
-	utils::Debug::println("[doBody] Integer Negate result = " + std::to_string(i));
+	fuml::Debug::println("[doBody] Integer Negate result = " + std::to_string(i));
 	return i;
 }
 

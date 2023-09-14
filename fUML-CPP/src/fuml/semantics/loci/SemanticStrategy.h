@@ -13,7 +13,7 @@
 
 namespace fuml::semantics::loci
 {
-	class SemanticStrategy : public utils::FumlObject
+	class SemanticStrategy : public fuml::FumlObject
 	{
 		public:
 			virtual ~SemanticStrategy() = 0;

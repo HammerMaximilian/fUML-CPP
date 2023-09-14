@@ -21,7 +21,7 @@ BooleanNotFunctionBehaviorExecution::BooleanNotFunctionBehaviorExecution()
 bool BooleanNotFunctionBehaviorExecution::doBooleanFunction(const std::shared_ptr<std::vector<bool>>& arguments)
 {
 	bool result = (!arguments->at(0));
-	utils::Debug::println("[doBody] Boolean Not result = " + std::to_string(result));
+	fuml::Debug::println("[doBody] Boolean Not result = " + std::to_string(result));
 	return result;
 }
 

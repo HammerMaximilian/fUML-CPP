@@ -14,7 +14,7 @@
 
 namespace fuml::semantics::activities
 {
-	class ActivityEdgeInstance : public utils::FumlObject
+	class ActivityEdgeInstance : public fuml::FumlObject
 	{
 		public:
 			ActivityEdgePtr edge = nullptr;

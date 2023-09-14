@@ -35,7 +35,7 @@ void ListSizeFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inpu
 	IntegerValuePtr result(new IntegerValue());
 	result->value = size;
 	result->type = this->locus->factory->getBuiltInType("Integer");
-	utils::Debug::println("[doBody] List Size, result = " + std::to_string(size));
+	fuml::Debug::println("[doBody] List Size, result = " + std::to_string(size));
 
 	// Add output to the outputParameters list
 	outputParameters->at(0)->values->push_back(result);

@@ -28,7 +28,7 @@ void UnlimitedNaturalRelationalFunctionBehaviorExecution::doBody(const Parameter
 	for (const ParameterValuePtr& inputParameter : *inputParameters)
 	{
 		int value = std::dynamic_pointer_cast<UnlimitedNaturalValue>(inputParameter->values->at(0))->value;
-		utils::Debug::println("[doBody] argument = " + std::to_string(value));
+		fuml::Debug::println("[doBody] argument = " + std::to_string(value));
 		arguments->push_back(value);
 	}
 
@@ -38,7 +38,7 @@ void UnlimitedNaturalRelationalFunctionBehaviorExecution::doBody(const Parameter
 	result->value = value;
 	result->type = this->locus->factory->getBuiltInType("Boolean");
 
-	utils::Debug::println("[doBody] result = " + std::to_string(value));
+	fuml::Debug::println("[doBody] result = " + std::to_string(value));
 
 	outputParameters->at(0)->values->push_back(result);
 }

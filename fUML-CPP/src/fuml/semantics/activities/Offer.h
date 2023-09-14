@@ -13,7 +13,7 @@
 
 namespace fuml::semantics::activities
 {
-	class Offer : public utils::FumlObject
+	class Offer : public fuml::FumlObject
 	{
 		public:
 			TokenListPtr offeredTokens = std::make_shared<TokenList>();

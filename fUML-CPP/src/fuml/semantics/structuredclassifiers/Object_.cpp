@@ -62,7 +62,7 @@ void Object_::destroy()
 	// Stop the object activation (if any), clear all types and feature values,
 	// and destroy the object as an extensional value.
 
-	utils::Debug::println(std::string("[destroy] object = " + this->identifier));
+	fuml::Debug::println(std::string("[destroy] object = " + this->identifier));
 
 	if (this->objectActivation != nullptr)
 	{

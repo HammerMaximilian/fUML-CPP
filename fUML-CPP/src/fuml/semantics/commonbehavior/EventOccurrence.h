@@ -14,7 +14,7 @@
 
 namespace fuml::semantics::commonbehavior
 {
-	class EventOccurrence : public utils::FumlObject
+	class EventOccurrence : public fuml::FumlObject
 	{
 		public:
 			ReferencePtr target = nullptr;

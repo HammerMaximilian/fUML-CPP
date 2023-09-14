@@ -27,7 +27,7 @@ int UnlimitedNaturalMinFunctionBehaviorExecution::doUnlimitedNaturalFunction(con
 	// "unbounded", which is the highest possible value.
 	int i = ((i1 < 0) ? i2 : ((i2 < 0) ? i1 : ((i1 <= i2) ? i1 : i2)));
 
-	utils::Debug::println("[doBody] UnlimitedNatural Min result = " + std::to_string(i));
+	fuml::Debug::println("[doBody] UnlimitedNatural Min result = " + std::to_string(i));
 	return i;
 }
 

@@ -24,7 +24,7 @@ int IntegerMaxFunctionBehaviorExecution::doIntegerFunction(const std::shared_ptr
 	int i2 = arguments->at(1);
 
 	int i = (i1 >= i2) ? i1 : i2;
-	utils::Debug::println("[doBody] Integer Max result = " + std::to_string(i));
+	fuml::Debug::println("[doBody] Integer Max result = " + std::to_string(i));
 	return i;
 }
 
