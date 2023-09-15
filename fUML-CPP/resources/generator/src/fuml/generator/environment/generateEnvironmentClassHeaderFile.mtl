@@ -1,0 +1,52 @@
+[comment encoding = UTF-8 /]
+[module generateEnvironmentClassHeaderFile('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[template public generateEnvironmentClassHeaderFile(aPackage : Package)]
+[file (aPackage.name + 'Environment.h', false, 'UTF-8')]
+/*
+ * [aPackage.name + 'Environment.h'/]
+ * 
+ * Auto-generated file
+ */
+
+#ifndef [aPackage.name.toUpperCase() + '_ENVIRONMENT_H'/]
+#define [aPackage.name.toUpperCase() + '_ENVIRONMENT_H'/]
+
+#include <utils/environment/Environment.h>
+
+/* [protected (': User-defined includes and forward declarations')]
+ * This section may be used for includes and forward declarations.
+ * It will not be overwritten by future generation processes.
+ */
+
+/*
+ * [/protected]
+ */
+
+namespace [aPackage.name/]
+{
+	class [aPackage.name/]Environment : public fuml::environment::Environment
+	{
+		public:
+			virtual ~[aPackage.name/]() = default;
+			static const std::shared_ptr<[aPackage.name/]>& Instance();
+
+			virtual void execute(std::string) override;
+
+		private:
+			[aPackage.name/]();
+
+		/* [protected (': User-defined members')]
+		 * This section may be used for user-defined members.
+		 * It will not be overwritten by future generation processes.
+		 */
+
+		/*
+ 		 * [/protected]
+		 */
+	};
+}
+
+#endif /* [aPackage.name.toUpperCase() + '_ENVIRONMENT_H'/] */
+[/file]
+[/template]
