@@ -1,0 +1,365 @@
+[comment encoding = UTF-8 /]
+[module generateModelClassSourceFile('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import fuml::generator::naming::naming /]
+[import fuml::generator::syntax::syntax /]
+
+[template public generateModelClassSourceFile(aPackage : Package)]
+[file (aPackage.getName() + 'Model.cpp', false, 'UTF-8')]
+/*
+ * [aPackage.getName() + 'Model.cpp'/]
+ * 
+ * Auto-generated file
+ */
+
+#include "[aPackage.getName() + 'Model.h'/]"
+
+[aPackage.allOwnedElements()
+->select(e : Element | supportedUMLMetaclasses()->includes(e.eClass().name))
+.generateMetaclassInclude()
+->including('#include <fuml/syntax/packages/Package.h>\r\n')
+->including('#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>\r\n')
+->including('#include <utils/primitivetypes/PrimitiveTypesModel.h>\r\n')
+->including('#include <utils/library/LibraryModel.h>\r\n')
+->asOrderedSet()/]
+
+/*
+ *	TODO: Generate includes for metaclasses
+ */
+
+/* [protected (': User-defined includes and using directives')]
+ * This section may be used for includes and using directives.
+ * It will not be overwritten by future generation processes.
+ */
+
+/*
+ * [/protected]
+ */
+
+using namespace [aPackage.getName()/];
+using namespace fuml::primitivetypes;
+
+/* [protected (': User-defined members')]
+ * This section may be used for user-defined members,
+ * for exmaple implementations of user-defined member functions
+ * or definition of static members.
+ * It will not be overwritten by future generation processes.
+ */
+
+/*
+ * [/protected]
+ */
+
+[aPackage.getName() + 'Model'/]::[aPackage.getName() + 'Model'/]()
+{
+	/* [protected (': Additional model initializations')]
+ 	 * This section may be used to do any additional model initialization,
+	 * for example initializing user-defined members.
+ 	 * It will not be overwritten by future generation processes.
+ 	 */
+
+	/*
+ 	 * [/protected]
+ 	 */
+}
+
+[aPackage.getName() + 'Model'/]::~[aPackage.getName() + 'Model'/]()
+{
+	/* [protected (': Additional model cleanup')]
+ 	 * This section may be used to do any additional model cleanup,
+	 * for example freeing memory for user-defined members.
+ 	 * It will not be overwritten by future generation processes.
+ 	 */
+
+	/*
+ 	 * [/protected]
+ 	 */
+}
+
+const std::shared_ptr<[aPackage.getName() + 'Model'/]>& [aPackage.getName() + 'Model'/]::Instance()
+{
+	static std::shared_ptr<[aPackage.getName() + 'Model'/]> instance = nullptr;
+
+	if(!instance)
+	{
+		instance.reset(new [aPackage.getName() + 'Model'/]());
+		instance->initializeInMemoryModel();
+	}
+
+	return instance;
+}
+
+void [aPackage.getName() + 'Model'/]::initializeInMemoryModel()
+{
+	// Create public members
+	[aPackage.generatePublicMemberCreation()/]
+
+	// Initialize public members
+	[aPackage.generateElementInitialization()/]
+}
+[/file]
+[/template]
+
+[template private generatePublicMemberCreation(aPackage : Package) post(trim())]
+/*
+ * [aPackage.eClass().name + ' ' + aPackage.getName()/]
+ */
+[aPackage.getFullName()/].reset(new [aPackage.eClass().name.adjustMetaclassName()/]());
+[for (packagedElement : Element | aPackage.packagedElement)]
+	[packagedElement.generatePublicMemberCreations()/]
+[/for]
+[/template]
+
+[template private generatePublicMemberCreations(anElement : Element) post(trim())]
+[if (anElement.oclIsKindOf(Package))]
+[anElement.oclAsType(Package).generatePublicMemberCreation()/]
+[else]
+[anElement.getFullName()/].reset(new [anElement.eClass().name.adjustMetaclassName()/]());
+	[for (ownedElement : Element | anElement.ownedElement->select(e : Element | supportedUMLMetaclasses()->includes(e.eClass().name)))]
+	[ownedElement.generatePublicMemberCreations()/]
+	[/for]
+[/if]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Property)) post(trim())]
+[let aProperty : Property = anElement.oclAsType(Property)]
+// [aProperty.eClass().name + ' ' + aProperty.getName()/]
+[aProperty.getFullName()/]->setThisElementPtr([aProperty.getFullName()/]);
+[aProperty.generateStructuralFeatureInitialization()/]
+[comment Property 'Property::isDerived' /]
+	[if (aProperty.isDerived)]
+[aProperty.getFullName()/]->isDerived = true;
+	[/if]
+[comment Property 'Property::isReadOnly' /]
+	[if (aProperty.isReadOnly)]
+[aProperty.getFullName()/]->setIsReadOnly(true);
+	[/if]
+[comment Property 'Property::isDerivedUnion' /]
+	[if (aProperty.isDerivedUnion)]
+[aProperty.getFullName()/]->isDerivedUnion = true;
+	[/if]
+[comment Property 'Property::aggregation' /]
+	[if (aProperty.aggregation <> AggregationKind::none)]
+[aProperty.getFullName()/]->setAggregation(AggregationKind::[aProperty.aggregation/]);
+	[/if]
+[comment Property 'Property::isID' /]
+	[if (aProperty.isID)]
+[aProperty.getFullName()/]->setIsID(true);
+	[/if]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Operation)) post(trim())]
+[let anOperation : Operation = anElement.oclAsType(Operation)]
+// [anOperation.eClass().name + ' ' + anOperation.getName()/]
+[anOperation.getFullName()/]->setThisOperationPtr([anOperation.getFullName()/]);
+[anOperation.generateNamedElementInitialization()/]
+[anOperation.generateBehavioralFeatureInitialization()/]
+[comment Property 'Operation::redefinedOperation' /]
+[for (redefinedOperation : Operation | anOperation.redefinedOperation)]
+[anOperation.getFullName()/]->addRedefinedOperation([generateElementReference(redefinedOperation, anOperation)/]);
+[/for]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Reception)) post(trim())]
+[let aReception : Reception = anElement.oclAsType(Reception)]
+// [aReception.eClass().name + ' ' + aReception.getName()/]
+[aReception.getFullName()/]->setThisBehavioralFeaturePtr([aReception.getFullName()/]);
+[aReception.generateNamedElementInitialization()/]
+[aReception.generateBehavioralFeatureInitialization()/]
+[comment Property 'Reception::signal' /]
+[if (not (aReception.signal.oclIsUndefined()))]
+[aReception.getFullName()/]->setSignal([generateElementReference(aReception.signal, aReception)/]);
+[/if]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Parameter)) post(trim())]
+[let aParameter : Parameter = anElement.oclAsType(Parameter)]
+// [aParameter.eClass().name + ' ' + aParameter.getName()/]
+[aParameter.getFullName()/]->setThisElementPtr([aParameter.getFullName()/]);
+[aParameter.generateNamedElementInitialization()/]
+[aParameter.generateMultiplicityElementInitialization()/]
+[aParameter.generateTypedElementInitialization()/]
+[comment Property 'Parameter::direction' /]
+	[if (aParameter.direction <> ParameterDirectionKind::_in)]
+[aParameter.getFullName()/]->setDirection(ParameterDirectionKind::[aParameter.direction/][if(aParameter.direction = ParameterDirectionKind::return)]_[/if]);
+	[/if]
+[comment Property 'Parameter::isStream' /]
+	[if (aParameter.isStream)]
+[aParameter.getFullName()/]->setIsStream(true);
+	[/if]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Class)) post(trim())]
+[let aClass : Class = anElement.oclAsType(Class)]
+// [aClass.eClass().name + ' ' + aClass.getName()/]
+[aClass.getFullName()/]->setThisClass_Ptr([aClass.getFullName()/]);
+[aClass.generateBehavioredClassifierInitialization()/]
+[comment Property 'Class::isActive' /]
+	[if (aClass.isActive)]
+[aClass.getFullName()/]->setIsActive(true);
+	[/if]
+[comment Property 'Class::ownedOperation' /]
+[for (anOperation : Operation | aClass.ownedOperation)]
+	[anOperation.generateElementInitialization()/]
+[aClass.getFullName()/]->addOwnedOperation([anOperation.getFullName()/]);
+[/for]
+[comment Property 'Class::ownedReception' /]
+[for (aReception : Reception | aClass.ownedReception)]
+	[aReception.generateElementInitialization()/]
+[aClass.getFullName()/]->addOwnedReception([aReception.getFullName()/]);
+[/for]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Package)) post(trim())]
+[let aPackage : Package = anElement.oclAsType(Package)]
+/*
+ * [aPackage.eClass().name + ' ' + aPackage.getName()/]
+ */
+[aPackage.getFullName()/]->setThisPackagePtr([aPackage.getFullName()/]);
+[aPackage.generateNamedElementInitialization()/]
+[for (aPackageableElement : PackageableElement | aPackage.packagedElement->select(pE : PackageableElement | supportedUMLMetaclasses()->includes(pE.eClass().name)))]
+	[aPackageableElement.generateElementInitialization()/]
+[aPackage.getFullName()/]->addPackagedElement([aPackageableElement.getFullName()/]);
+[/for]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Generalization)) post(trim())]
+[let aGeneralization : Generalization = anElement.oclAsType(Generalization)]
+// [aGeneralization.eClass().name + ' to ' + aGeneralization.general.getName()/]
+[aGeneralization.getFullName()/]->setThisGeneralizationPtr([aGeneralization.getFullName()/]);
+[comment Property 'Generalization::general' /]
+[aGeneralization.getFullName()/]->setGeneral([aGeneralization.general.getFullName()/]);
+[/let]
+[/template]
+
+[comment Just for fall-through /]
+[template private generateElementInitialization(anElement : Element) post(trim())]
+// Initialization is currently unimplemented for metaclass [anElement.eClass().name/]
+[/template]
+
+[template private generateNamedElementInitialization(aNamedElement : NamedElement) post(trim())]
+[comment Property 'NamedElement::name' /]
+[aNamedElement.getFullName()/]->setName("[aNamedElement.name/]");
+[aNamedElement.getFullName()/]->setVisibility(VisibilityKind::[aNamedElement.visibility/][if(aNamedElement.visibility <> VisibilityKind::_package)]_[/if]);
+[/template]
+
+[template private generateBehavioredClassifierInitialization(aBehavioredClassifier : BehavioredClassifier) post(trim())]
+[aBehavioredClassifier.generateNamedElementInitialization()/]
+[aBehavioredClassifier.generateClassifierInitialization()/]
+[comment Property 'BehavioredClassifier::classifierBehavior' /]
+	[if (not (aBehavioredClassifier.classifierBehavior.oclIsUndefined()))]
+[aBehavioredClassifier.getFullName()/]->setClassifierBehavior([generateElementReference(aBehavioredClassifier.classifierBehavior, aBehavioredClassifier)/]);
+	[/if]
+[comment Property 'BehavioredClassifier::ownedBehavior' /]
+	[for (aBehavior : Behavior | aBehavioredClassifier.ownedBehavior)]
+	[aBehavior.generateElementInitialization()/]
+[aBehavioredClassifier.getFullName()/]->addOwnedBehavior([aBehavior.getFullName()/]);
+	[/for]
+[/template]
+
+[template private generateClassifierInitialization(aClassifier : Classifier) post(trim())]
+[comment Property 'Classifier::isAbstract' /]
+	[if (aClassifier.isAbstract)]
+[aClassifier.getFullName()/]->setIsAbstract(true);
+	[/if]
+[comment Property 'Classifier::isFinalSpecialization' /]
+	[if (aClassifier.isFinalSpecialization)]
+[aClassifier.getFullName()/]->setIsFinalSpecialization(true);
+	[/if]
+[comment Property 'Classifier::generalization' /]
+[for (aGeneralization : Generalization | aClassifier.generalization)]
+	[aGeneralization.generateElementInitialization()/]
+[aClassifier.getFullName()/]->addGeneralization([aGeneralization.getFullName()/]);
+[/for]
+[comment Property 'Classifier::attribute' /]
+[for (aProperty : Property | aClassifier.attribute)]
+	[aProperty.generateElementInitialization()/]
+[aClassifier.getFullName()/]->addOwnedAttribute([aProperty.getFullName()/]);
+[/for]
+[/template]
+
+[template private generateStructuralFeatureInitialization(aStructuralFeature : StructuralFeature) post(trim())]
+[aStructuralFeature.generateNamedElementInitialization()/]
+[aStructuralFeature.generateFeatureInitialization()/]
+[aStructuralFeature.generateMultiplicityElementInitialization()/]
+[aStructuralFeature.generateTypedElementInitialization()/]
+[/template]
+
+[template private generateFeatureInitialization(aFeature : Feature) post(trim())]
+[aFeature.generateRedefinableElementInitialization()/]
+[comment Property 'Feature::isStatic' /]
+	[if (aFeature.isStatic)]
+[aFeature.getFullName()/]->isStatic = true;
+	[/if]
+[/template]
+
+[template private generateRedefinableElementInitialization(aRedefinableElement : RedefinableElement) post(trim())]
+[comment Property 'RedefinableElement::isLeaf' /]
+	[if (aRedefinableElement.isLeaf)]
+[aRedefinableElement.getFullName()/]->setIsLeaf(true);
+	[/if]
+[/template]
+
+[template private generateMultiplicityElementInitialization(aMultiplicityElement : MultiplicityElement) post(trim())]
+[comment Property 'MultiplicityElement::isOrdered' /]
+	[if (aMultiplicityElement.isOrdered)]
+[aMultiplicityElement.getFullName()/]->setIsOrdered(true);
+	[/if]
+[comment Property 'MultiplicityElement::isUnique' /]
+	[if (not (aMultiplicityElement.isUnique))]
+[aMultiplicityElement.getFullName()/]->setIsUnique(false);
+	[/if]
+[comment Property 'MultiplicityElement::upper' /]
+	[if (aMultiplicityElement.upper <> 1)]
+[aMultiplicityElement.getFullName()/]->setUpper([aMultiplicityElement.upper/]);
+	[/if]
+[comment Property 'MultiplicityElement::lower' /]
+	[if (aMultiplicityElement.lower <> 1)]
+[aMultiplicityElement.getFullName()/]->setLower([aMultiplicityElement.lower/]);
+	[/if]
+[/template]
+
+[template private generateTypedElementInitialization(aTypedElement : TypedElement) post(trim())]
+[comment Property 'TypedElement::type' /]
+	[if (not (aTypedElement.type.oclIsUndefined()))]
+[aTypedElement.getFullName()/]->setType([generateElementReference(aTypedElement.type, aTypedElement)/]);
+	[/if]
+[/template]
+
+[template private generateElementReference(refferedElement : Element, referringElement : Element) post(trim())]
+[if (refferedElement.getRootPackage() <> referringElement.getRootPackage())][refferedElement.getRootPackage().getName() + 'Model::Instance()->'/][/if][refferedElement.getFullName()/]
+[/template]
+
+[template private generateBehavioralFeatureInitialization(aBehavioralFeature : BehavioralFeature) post(trim())]
+[aBehavioralFeature.generateFeatureInitialization()/]
+[comment Property 'BehavioralFeature::isAbstract' /]
+	[if (aBehavioralFeature.isAbstract)]
+[aBehavioralFeature.getFullName()/]->setIsAbstract(true);
+	[/if]
+[comment Property 'BehavioralFeature::ownedParameter' /]
+	[for (aParameter : Parameter | aBehavioralFeature.ownedParameter)]
+	[aParameter.generateElementInitialization()/]
+[aBehavioralFeature.getFullName()/]->addOwnedParameter([aParameter.getFullName()/]);
+	[/for]
+[comment Property 'BehavioralFeature::method' /]
+	[for (aBehavior : Behavior | aBehavioralFeature.method)]
+[aBehavioralFeature.getFullName()/]->addMethod([generateElementReference(aBehavior, aBehavioralFeature)/]);
+	[/for]
+[comment Property 'BehavioralFeature::raisedException' /]
+	[for (aType : Type | aBehavioralFeature.raisedException)]
+[aBehavioralFeature.getFullName()/]->addRaisedException([generateElementReference(aType, aBehavioralFeature)/]);
+	[/for]
+[/template]
+
+[query private getRootPackage(anElement : Element) : Package = 
+	if(anElement.getNearestPackage().isRootPackage())
+		then anElement.getNearestPackage()
+	else anElement.getNearestPackage().getRootPackage()
+	endif /]
+[query private isRootPackage(aPackage : Package) : Boolean = aPackage.nestingPackage = null /]
