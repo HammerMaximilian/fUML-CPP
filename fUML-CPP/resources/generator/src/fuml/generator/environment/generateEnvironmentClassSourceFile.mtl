@@ -1,20 +1,21 @@
 [comment encoding = UTF-8 /]
 [module generateEnvironmentClassSourceFile('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[import fuml::generator::naming::naming /]
 
 [template public generateEnvironmentClassSourceFile(aPackage : Package)]
-[file (aPackage.name + 'Environment.cpp', false, 'UTF-8')]
+[file (aPackage.getName() + 'Environment.cpp', false, 'UTF-8')]
 /*
- * [aPackage.name + 'Environment.cpp'/]
+ * [aPackage.getName() + 'Environment.cpp'/]
  * 
  * Auto-generated file
  */
 
-#inlude "[aPackage.name + 'Environment.h'/]"
+#include "[aPackage.getName() + 'Environment.h'/]"
 
-#include "[aPackage.name + 'Model.h'/]"
+#include "[aPackage.getName() + 'Model.h'/]"
 [for (anOpaqueBehavior : OpaqueBehavior | aPackage.allOwnedElements()->filter(OpaqueBehavior))]
-#include "[anOpaqueBehavior.name + 'Execution.h'/]"
+#include "[anOpaqueBehavior.getName() + 'Execution.h'/]"
 [/for]
 
 /* [protected (': User-defined includes and using directives')]
@@ -26,7 +27,7 @@
  * [/protected]
  */
 
-using namespace [aPackage.name/];
+using namespace [aPackage.getName()/];
 
 /* [protected (': User-defined members')]
  * This section may be used for user-defined members,
@@ -39,15 +40,15 @@ using namespace [aPackage.name/];
  * [/protected]
  */
 
-[aPackage.name + 'Environment'/]::[aPackage.name + 'Environment'/]()
+[aPackage.getName() + 'Environment'/]::[aPackage.getName() + 'Environment'/]()
 {
 	/*
 	 * Create custom opaque behavior execution instances and add them to the execution environment.
 	 */
 	[for (anOpaqueBehavior : OpaqueBehavior | aPackage.allOwnedElements()->filter(OpaqueBehavior))]
-	std::shared_ptr<[anOpaqueBehavior.name + 'Execution'/]> [anOpaqueBehavior.name.toLowerFirst() + 'Execution'/](new [anOpaqueBehavior.name + 'Execution'/]());
-	[anOpaqueBehavior.name.toLowerFirst() + 'Execution'/]->setThisObject_Ptr([anOpaqueBehavior.name.toLowerFirst() + 'Execution'/]);
-	this->addPrimitiveBehaviorPrototype([anOpaqueBehavior.name.toLowerFirst() + 'Execution'/]);
+	std::shared_ptr<[anOpaqueBehavior.getName() + 'Execution'/]> _[anOpaqueBehavior.getName() + 'Execution'/](new [anOpaqueBehavior.getName() + 'Execution'/]());
+	_[anOpaqueBehavior.getName() + 'Execution'/]->setThisObject_Ptr(_[anOpaqueBehavior.getName() + 'Execution'/]);
+	this->addPrimitiveBehaviorPrototype(_[anOpaqueBehavior.getName() + 'Execution'/]);
 	[/for]
 
 	/* [protected (': Additional environment initializations')]
@@ -61,20 +62,33 @@ using namespace [aPackage.name/];
  	 */
 }
 
-const std::shared_ptr<[aPackage.name + 'Environment'/]>& [aPackage.name + 'Environment'/]::Instance()
+[aPackage.getName() + 'Environment'/]::~[aPackage.getName() + 'Environment'/]()
 {
-	static std::shared_ptr<[aPackage.name + 'Environment'/]> instance = nullptr;
+	/* [protected (': Additional environment cleanup')]
+ 	 * This section may be used to do any additional environment cleanup,
+	 * for example freeing memory for user-defined members.
+ 	 * It will not be overwritten by future generation processes.
+ 	 */
+
+	/*
+ 	 * [/protected]
+ 	 */
+}
+
+const std::shared_ptr<[aPackage.getName() + 'Environment'/]>& [aPackage.getName() + 'Environment'/]::Instance()
+{
+	static std::shared_ptr<[aPackage.getName() + 'Environment'/]> instance = nullptr;
 
 	if(!instance)
 	{
-		instance.reset(new [aPackage.name + 'Environment'/]());
-		instance->inMemoryModel = [aPackage.name + 'Model'/]::Instance();
+		instance.reset(new [aPackage.getName() + 'Environment'/]());
+		instance->inMemoryModel = [aPackage.getName() + 'Model'/]::Instance();
 	}
 
 	return instance;
 }
 
-void [aPackage.name + 'Environment'/]::execute(std::string behaviorName)
+void [aPackage.getName() + 'Environment'/]::execute(std::string behaviorName)
 {
 	/* [protected (': Context and inputs initializations')]
  	 * This section may be used to initialize the execution context 
