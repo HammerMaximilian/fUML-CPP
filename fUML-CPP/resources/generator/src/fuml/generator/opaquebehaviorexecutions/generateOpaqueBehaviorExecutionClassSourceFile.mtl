@@ -1,0 +1,86 @@
+[comment encoding = UTF-8 /]
+[module generateOpaqueBehaviorExecutionClassSourceFile('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import fuml::generator::naming::naming /]
+
+[template public generateOpaqueBehaviorExecutionClassSourceFile(anOpaqueBehavior : OpaqueBehavior)]
+[file (anOpaqueBehavior.getName() + 'Execution.cpp', false, 'UTF-8')]
+/*
+ * [anOpaqueBehavior.getName() + 'Execution.cpp'/]
+ * 
+ * Auto-generated file
+ */
+
+#include "[anOpaqueBehavior.getName() + 'Execution.h'/]"
+
+#include "[anOpaqueBehavior.getRootPackage().getName() + 'Model.h'/]"
+
+/* [protected (': User-defined includes and using directives')]
+ * This section may be used for includes and using directives.
+ * It will not be overwritten by future generation processes.
+ */
+
+/*
+ * [/protected]
+ */
+
+using namespace [anOpaqueBehavior.getRootPackage().getName()/];
+
+/* [protected (': User-defined members')]
+ * This section may be used for user-defined members,
+ * for exmaple implementations of user-defined member functions
+ * or definition of static members.
+ * It will not be overwritten by future generation processes.
+ */
+
+/*
+ * [/protected]
+ */
+
+[anOpaqueBehavior.getName() + 'Execution'/]::[anOpaqueBehavior.getName() + 'Execution'/]()
+{
+	//this->types->push_back([anOpaqueBehavior.getRootPackage().getName() + 'Model::Instance()->' + anOpaqueBehavior.getFullName()/]);
+	/* [protected (': Additional opaque behavior execution initializations')]
+ 	 * This section may be used to do any additional opaque behavior execution initialization,
+	 * for example initializing user-defined members.
+ 	 * It will not be overwritten by future generation processes.
+ 	 */
+
+	/*
+ 	 * [/protected]
+ 	 */
+}
+
+[anOpaqueBehavior.getName() + 'Execution'/]::~[anOpaqueBehavior.getName() + 'Execution'/]()
+{
+	/* [protected (': Additional opaque behavior execution cleanup')]
+ 	 * This section may be used to do any additional opaque behavior execution cleanup,
+	 * for example freeing memory for user-defined members.
+ 	 * It will not be overwritten by future generation processes.
+ 	 */
+
+	/*
+ 	 * [/protected]
+ 	 */
+}
+
+void [anOpaqueBehavior.getName() + 'Execution'/]::doBody(const ParameterValueListPtr& inputParameters,
+	const ParameterValueListPtr& outputParameters)
+{
+}
+
+ValuePtr [anOpaqueBehavior.getName() + 'Execution'/]::new_()
+{
+	std::shared_ptr<[anOpaqueBehavior.getName() + 'Execution'/]> newValue(new [anOpaqueBehavior.getName() + 'Execution'/]());
+	newValue->setThisObject_Ptr(newValue);
+	return newValue;
+}
+[/file]
+[/template]
+
+[query private getRootPackage(anElement : Element) : Package = 
+	if(anElement.getNearestPackage().isRootPackage())
+		then anElement.getNearestPackage()
+	else anElement.getNearestPackage().getRootPackage()
+	endif /]
+[query private isRootPackage(aPackage : Package) : Boolean = aPackage.nestingPackage = null /]
