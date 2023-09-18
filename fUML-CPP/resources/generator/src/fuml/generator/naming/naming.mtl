@@ -1,0 +1,15 @@
+[comment encoding = windows-1252 /]
+[module naming('http://www.eclipse.org/uml2/5.0.0/UML')/]
+
+[query public getFullName(element : Element) : String
+	= invoke('fuml.generator.services.NamingService', 'getFullName(org.eclipse.uml2.uml.Element)', Sequence{element})
+/]
+
+[query public getName(element : Element) : String
+	= invoke('fuml.generator.services.NamingService', 'getName(org.eclipse.uml2.uml.Element)', Sequence{element})
+/]
+
+[query public setUseExtendedNamingConvention(useExtendedNamingConvention : Boolean) : OclVoid
+	= invoke('fuml.generator.services.NamingService', 'setUseExtendedNamingConvention(boolean)', Sequence{useExtendedNamingConvention})
+/]
+
