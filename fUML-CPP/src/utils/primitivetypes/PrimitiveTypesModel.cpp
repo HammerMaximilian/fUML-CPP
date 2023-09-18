@@ -31,27 +31,27 @@ void PrimitiveTypesModel::initializeInMemoryModel()
 	 */
 
 	//PrimitiveType Boolean
-	Boolean.reset(new PrimitiveType());
-	Boolean->setThisDataTypePtr(Boolean);
-	Boolean->setName("Boolean");
+	PrimitiveTypes_Boolean.reset(new PrimitiveType());
+	PrimitiveTypes_Boolean->setThisDataTypePtr(PrimitiveTypes_Boolean);
+	PrimitiveTypes_Boolean->setName("Boolean");
 
 	//PrimitiveType Integer
-	Integer.reset(new PrimitiveType());
-	Integer->setThisDataTypePtr(Integer);
-	Integer->setName("Integer");
+	PrimitiveTypes_Integer.reset(new PrimitiveType());
+	PrimitiveTypes_Integer->setThisDataTypePtr(PrimitiveTypes_Integer);
+	PrimitiveTypes_Integer->setName("Integer");
 
 	//PrimitiveType Real
-	Real.reset(new PrimitiveType());
-	Real->setThisDataTypePtr(Real);
-	Real->setName("Real");
+	PrimitiveTypes_Real.reset(new PrimitiveType());
+	PrimitiveTypes_Real->setThisDataTypePtr(PrimitiveTypes_Real);
+	PrimitiveTypes_Real->setName("Real");
 
 	//PrimitiveType Integer
-	String.reset(new PrimitiveType());
-	String->setThisDataTypePtr(String);
-	String->setName("String");
+	PrimitiveTypes_String.reset(new PrimitiveType());
+	PrimitiveTypes_String->setThisDataTypePtr(PrimitiveTypes_String);
+	PrimitiveTypes_String->setName("String");
 
 	//PrimitiveType Integer
-	UnlimitedNatural.reset(new PrimitiveType());
-	UnlimitedNatural->setThisDataTypePtr(UnlimitedNatural);
-	UnlimitedNatural->setName("UnlimitedNatural");
+	PrimitiveTypes_UnlimitedNatural.reset(new PrimitiveType());
+	PrimitiveTypes_UnlimitedNatural->setThisDataTypePtr(PrimitiveTypes_UnlimitedNatural);
+	PrimitiveTypes_UnlimitedNatural->setName("UnlimitedNatural");
 }

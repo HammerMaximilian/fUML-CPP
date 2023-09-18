@@ -56,17 +56,17 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter x
 		BooleanFunctions_And_x.reset(new Parameter());
 		BooleanFunctions_And_x->setName("x");
-		BooleanFunctions_And_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_And_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 	BooleanFunctions_And->addOwnedParameter(BooleanFunctions_And_x);
 		//Parameter y
 		BooleanFunctions_And_y.reset(new Parameter());
 		BooleanFunctions_And_y->setName("y");
-		BooleanFunctions_And_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_And_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 	BooleanFunctions_And->addOwnedParameter(BooleanFunctions_And_y);
 		//Parameter result
 		BooleanFunctions_And_result.reset(new Parameter());
 		BooleanFunctions_And_result->setName("result");
-		BooleanFunctions_And_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_And_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		BooleanFunctions_And_result->setDirection(ParameterDirectionKind::return_);
 	BooleanFunctions_And->addOwnedParameter(BooleanFunctions_And_result);
 
@@ -77,17 +77,17 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter x
 		BooleanFunctions_Implies_x.reset(new Parameter());
 		BooleanFunctions_Implies_x->setName("x");
-		BooleanFunctions_Implies_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_Implies_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 	BooleanFunctions_Implies->addOwnedParameter(BooleanFunctions_Implies_x);
 		//Parameter y
 		BooleanFunctions_Implies_y.reset(new Parameter());
 		BooleanFunctions_Implies_y->setName("y");
-		BooleanFunctions_Implies_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_Implies_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 	BooleanFunctions_Implies->addOwnedParameter(BooleanFunctions_Implies_y);
 		//Parameter result
 		BooleanFunctions_Implies_result.reset(new Parameter());
 		BooleanFunctions_Implies_result->setName("result");
-		BooleanFunctions_Implies_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_Implies_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		BooleanFunctions_Implies_result->setDirection(ParameterDirectionKind::return_);
 	BooleanFunctions_Implies->addOwnedParameter(BooleanFunctions_Implies_result);
 
@@ -98,12 +98,12 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter x
 		BooleanFunctions_Not_x.reset(new Parameter());
 		BooleanFunctions_Not_x->setName("x");
-		BooleanFunctions_Not_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_Not_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 	BooleanFunctions_Not->addOwnedParameter(BooleanFunctions_Not_x);
 		//Parameter result
 		BooleanFunctions_Not_result.reset(new Parameter());
 		BooleanFunctions_Not_result->setName("result");
-		BooleanFunctions_Not_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_Not_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		BooleanFunctions_Not_result->setDirection(ParameterDirectionKind::return_);
 	BooleanFunctions_Not->addOwnedParameter(BooleanFunctions_Not_result);
 
@@ -114,17 +114,17 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter x
 		BooleanFunctions_Or_x.reset(new Parameter());
 		BooleanFunctions_Or_x->setName("x");
-		BooleanFunctions_Or_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_Or_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 	BooleanFunctions_Or->addOwnedParameter(BooleanFunctions_Or_x);
 		//Parameter y
 		BooleanFunctions_Or_y.reset(new Parameter());
 		BooleanFunctions_Or_y->setName("y");
-		BooleanFunctions_Or_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_Or_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 	BooleanFunctions_Or->addOwnedParameter(BooleanFunctions_Or_y);
 		//Parameter result
 		BooleanFunctions_Or_result.reset(new Parameter());
 		BooleanFunctions_Or_result->setName("result");
-		BooleanFunctions_Or_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_Or_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		BooleanFunctions_Or_result->setDirection(ParameterDirectionKind::return_);
 	BooleanFunctions_Or->addOwnedParameter(BooleanFunctions_Or_result);
 
@@ -135,12 +135,12 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter x
 		BooleanFunctions_ToBoolean_x.reset(new Parameter());
 		BooleanFunctions_ToBoolean_x->setName("x");
-		BooleanFunctions_ToBoolean_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		BooleanFunctions_ToBoolean_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 	BooleanFunctions_ToBoolean->addOwnedParameter(BooleanFunctions_ToBoolean_x);
 		//Parameter result
 		BooleanFunctions_ToBoolean_result.reset(new Parameter());
 		BooleanFunctions_ToBoolean_result->setName("result");
-		BooleanFunctions_ToBoolean_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_ToBoolean_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		BooleanFunctions_ToBoolean_result->setLower(0);
 		BooleanFunctions_ToBoolean_result->setDirection(ParameterDirectionKind::return_);
 	BooleanFunctions_ToBoolean->addOwnedParameter(BooleanFunctions_ToBoolean_result);
@@ -152,12 +152,12 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter x
 		BooleanFunctions_ToString_x.reset(new Parameter());
 		BooleanFunctions_ToString_x->setName("x");
-		BooleanFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 	BooleanFunctions_ToString->addOwnedParameter(BooleanFunctions_ToString_x);
 		//Parameter result
 		BooleanFunctions_ToString_result.reset(new Parameter());
 		BooleanFunctions_ToString_result->setName("result");
-		BooleanFunctions_ToString_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		BooleanFunctions_ToString_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 		BooleanFunctions_ToString_result->setDirection(ParameterDirectionKind::return_);
 	BooleanFunctions_ToString->addOwnedParameter(BooleanFunctions_ToString_result);
 
@@ -168,17 +168,17 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter x
 		BooleanFunctions_Xor_x.reset(new Parameter());
 		BooleanFunctions_Xor_x->setName("x");
-		BooleanFunctions_Xor_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_Xor_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 	BooleanFunctions_Xor->addOwnedParameter(BooleanFunctions_Xor_x);
 		//Parameter y
 		BooleanFunctions_Xor_y.reset(new Parameter());
 		BooleanFunctions_Xor_y->setName("y");
-		BooleanFunctions_Xor_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_Xor_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 	BooleanFunctions_Xor->addOwnedParameter(BooleanFunctions_Xor_y);
 		//Parameter result
 		BooleanFunctions_Xor_result.reset(new Parameter());
 		BooleanFunctions_Xor_result->setName("result");
-		BooleanFunctions_Xor_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		BooleanFunctions_Xor_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		BooleanFunctions_Xor_result->setDirection(ParameterDirectionKind::return_);
 	BooleanFunctions_Xor->addOwnedParameter(BooleanFunctions_Xor_result);
 
@@ -192,14 +192,14 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_Abs_result.reset(new Parameter());
 		IntegerFunctions_Abs_result->setName("result");
-		IntegerFunctions_Abs_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Abs_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		IntegerFunctions_Abs_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_Abs->addOwnedParameter(IntegerFunctions_Abs_result);
 		//Parameter x
 		IntegerFunctions_Abs_x = nullptr;
 		IntegerFunctions_Abs_x.reset(new Parameter());
 		IntegerFunctions_Abs_x->setName("x");
-		IntegerFunctions_Abs_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Abs_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_Abs->addOwnedParameter(IntegerFunctions_Abs_x);
 
 	//FunctionBehavior Div
@@ -209,18 +209,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_Div_result.reset(new Parameter());
 		IntegerFunctions_Div_result->setName("result");
-		IntegerFunctions_Div_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Div_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		IntegerFunctions_Div_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_Div->addOwnedParameter(IntegerFunctions_Div_result);
 		//Parameter x
 		IntegerFunctions_Div_x.reset(new Parameter());
 		IntegerFunctions_Div_x->setName("x");
-		IntegerFunctions_Div_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Div_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_Div->addOwnedParameter(IntegerFunctions_Div_x);
 		//Parameter y
 		IntegerFunctions_Div_y.reset(new Parameter());
 		IntegerFunctions_Div_y->setName("y");
-		IntegerFunctions_Div_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Div_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_Div->addOwnedParameter(IntegerFunctions_Div_y);
 
 	//FunctionBehavior Max
@@ -230,18 +230,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_Max_result.reset(new Parameter());
 		IntegerFunctions_Max_result->setName("result");
-		IntegerFunctions_Max_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Max_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		IntegerFunctions_Max_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_Max->addOwnedParameter(IntegerFunctions_Max_result);
 		//Parameter x
 		IntegerFunctions_Max_x.reset(new Parameter());
 		IntegerFunctions_Max_x->setName("x");
-		IntegerFunctions_Max_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Max_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_Max->addOwnedParameter(IntegerFunctions_Max_x);
 		//Parameter y
 		IntegerFunctions_Max_y.reset(new Parameter());
 		IntegerFunctions_Max_y->setName("y");
-		IntegerFunctions_Max_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Max_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_Max->addOwnedParameter(IntegerFunctions_Max_y);
 
 	//FunctionBehavior Min
@@ -251,18 +251,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_Min_result.reset(new Parameter());
 		IntegerFunctions_Min_result->setName("result");
-		IntegerFunctions_Min_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Min_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		IntegerFunctions_Min_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_Min->addOwnedParameter(IntegerFunctions_Min_result);
 		//Parameter x
 		IntegerFunctions_Min_x.reset(new Parameter());
 		IntegerFunctions_Min_x->setName("x");
-		IntegerFunctions_Min_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Min_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_Min->addOwnedParameter(IntegerFunctions_Min_x);
 		//Parameter y
 		IntegerFunctions_Min_y.reset(new Parameter());
 		IntegerFunctions_Min_y->setName("y");
-		IntegerFunctions_Min_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Min_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_Min->addOwnedParameter(IntegerFunctions_Min_y);
 
 	//FunctionBehavior Mod
@@ -272,19 +272,19 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_Mod_result.reset(new Parameter());
 		IntegerFunctions_Mod_result->setName("result");
-		IntegerFunctions_Mod_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Mod_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		IntegerFunctions_Mod_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_Mod->addOwnedParameter(IntegerFunctions_Mod_result);
 		//Parameter x
 		IntegerFunctions_Mod_x.reset(new Parameter());
 		IntegerFunctions_Mod_x->setName("x");
-		IntegerFunctions_Mod_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Mod_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_Mod->addOwnedParameter(IntegerFunctions_Mod_x);
 		//Parameter y
 		IntegerFunctions_Mod_y = nullptr;
 		IntegerFunctions_Mod_y.reset(new Parameter());
 		IntegerFunctions_Mod_y->setName("y");
-		IntegerFunctions_Mod_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Mod_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_Mod->addOwnedParameter(IntegerFunctions_Mod_y);
 
 	//FunctionBehavior Neg
@@ -294,13 +294,13 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_Neg_result.reset(new Parameter());
 		IntegerFunctions_Neg_result->setName("result");
-		IntegerFunctions_Neg_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Neg_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		IntegerFunctions_Neg_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_Neg->addOwnedParameter(IntegerFunctions_Neg_result);
 		//Parameter x
 		IntegerFunctions_Neg_x.reset(new Parameter());
 		IntegerFunctions_Neg_x->setName("x");
-		IntegerFunctions_Neg_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_Neg_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_Neg->addOwnedParameter(IntegerFunctions_Neg_x);
 
 	//FunctionBehavior ToInteger
@@ -310,13 +310,13 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_ToInteger_result.reset(new Parameter());
 		IntegerFunctions_ToInteger_result->setName("result");
-		IntegerFunctions_ToInteger_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_ToInteger_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		IntegerFunctions_ToInteger_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_ToInteger->addOwnedParameter(IntegerFunctions_ToInteger_result);
 		//Parameter x
 		IntegerFunctions_ToInteger_x.reset(new Parameter());
 		IntegerFunctions_ToInteger_x->setName("x");
-		IntegerFunctions_ToInteger_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		IntegerFunctions_ToInteger_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 	IntegerFunctions_ToInteger->addOwnedParameter(IntegerFunctions_ToInteger_x);
 
 	//FunctionBehavior ToString
@@ -326,13 +326,13 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_ToString_result.reset(new Parameter());
 		IntegerFunctions_ToString_result->setName("result");
-		IntegerFunctions_ToString_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		IntegerFunctions_ToString_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 		IntegerFunctions_ToString_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_ToString->addOwnedParameter(IntegerFunctions_ToString_result);
 		//Parameter x
 		IntegerFunctions_ToString_x.reset(new Parameter());
 		IntegerFunctions_ToString_x->setName("x");
-		IntegerFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_ToString->addOwnedParameter(IntegerFunctions_ToString_x);
 
 	//FunctionBehavior ToUnlimitedNatural
@@ -342,13 +342,13 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_ToUnlimitedNatural_result.reset(new Parameter());
 		IntegerFunctions_ToUnlimitedNatural_result->setName("result");
-		IntegerFunctions_ToUnlimitedNatural_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		IntegerFunctions_ToUnlimitedNatural_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 		IntegerFunctions_ToUnlimitedNatural_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_ToUnlimitedNatural->addOwnedParameter(IntegerFunctions_ToUnlimitedNatural_result);
 		//Parameter x
 		IntegerFunctions_ToUnlimitedNatural_x.reset(new Parameter());
 		IntegerFunctions_ToUnlimitedNatural_x->setName("x");
-		IntegerFunctions_ToUnlimitedNatural_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_ToUnlimitedNatural_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_ToUnlimitedNatural->addOwnedParameter(IntegerFunctions_ToUnlimitedNatural_x);
 
 	//FunctionBehavior divide
@@ -358,18 +358,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_divide_result.reset(new Parameter());
 		IntegerFunctions_divide_result->setName("result");
-		IntegerFunctions_divide_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		IntegerFunctions_divide_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 		IntegerFunctions_divide_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_divide->addOwnedParameter(IntegerFunctions_divide_result);
 		//Parameter x
 		IntegerFunctions_divide_x.reset(new Parameter());
 		IntegerFunctions_divide_x->setName("x");
-		IntegerFunctions_divide_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_divide_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_divide->addOwnedParameter(IntegerFunctions_divide_x);
 		//Parameter y
 		IntegerFunctions_divide_y.reset(new Parameter());
 		IntegerFunctions_divide_y->setName("y");
-		IntegerFunctions_divide_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_divide_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_divide->addOwnedParameter(IntegerFunctions_divide_y);
 /* NOT PRESENT IN FUML LIBRARY
 	//FunctionBehavior equals
@@ -390,18 +390,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_greaterOrEqual_result.reset(new Parameter());
 		IntegerFunctions_greaterOrEqual_result->setName("result");
-		IntegerFunctions_greaterOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		IntegerFunctions_greaterOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		IntegerFunctions_greaterOrEqual_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_greaterOrEqual->addOwnedParameter(IntegerFunctions_greaterOrEqual_result);
 		//Parameter x
 		IntegerFunctions_greaterOrEqual_x.reset(new Parameter());
 		IntegerFunctions_greaterOrEqual_x->setName("x");
-		IntegerFunctions_greaterOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_greaterOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_greaterOrEqual->addOwnedParameter(IntegerFunctions_greaterOrEqual_x);
 		//Parameter y
 		IntegerFunctions_greaterOrEqual_y.reset(new Parameter());
 		IntegerFunctions_greaterOrEqual_y->setName("y");
-		IntegerFunctions_greaterOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_greaterOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_greaterOrEqual->addOwnedParameter(IntegerFunctions_greaterOrEqual_y);
 
 	//FunctionBehavior greaterThan
@@ -411,18 +411,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_greaterThan_result.reset(new Parameter());
 		IntegerFunctions_greaterThan_result->setName("result");
-		IntegerFunctions_greaterThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		IntegerFunctions_greaterThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		IntegerFunctions_greaterThan_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_greaterThan->addOwnedParameter(IntegerFunctions_greaterThan_result);
 		//Parameter x
 		IntegerFunctions_greaterThan_x.reset(new Parameter());
 		IntegerFunctions_greaterThan_x->setName("x");
-		IntegerFunctions_greaterThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_greaterThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_greaterThan->addOwnedParameter(IntegerFunctions_greaterThan_x);
 		//Parameter y
 		IntegerFunctions_greaterThan_y.reset(new Parameter());
 		IntegerFunctions_greaterThan_y->setName("y");
-		IntegerFunctions_greaterThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_greaterThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_greaterThan->addOwnedParameter(IntegerFunctions_greaterThan_y);
 
 	//FunctionBehavior lessOrEqual
@@ -432,18 +432,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_lessOrEqual_result.reset(new Parameter());
 		IntegerFunctions_lessOrEqual_result->setName("result");
-		IntegerFunctions_lessOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		IntegerFunctions_lessOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		IntegerFunctions_lessOrEqual_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_lessOrEqual->addOwnedParameter(IntegerFunctions_lessOrEqual_result);
 		//Parameter x
 		IntegerFunctions_lessOrEqual_x.reset(new Parameter());
 		IntegerFunctions_lessOrEqual_x->setName("x");
-		IntegerFunctions_lessOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_lessOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_lessOrEqual->addOwnedParameter(IntegerFunctions_lessOrEqual_x);
 		//Parameter y
 		IntegerFunctions_lessOrEqual_y.reset(new Parameter());
 		IntegerFunctions_lessOrEqual_y->setName("y");
-		IntegerFunctions_lessOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_lessOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_lessOrEqual->addOwnedParameter(IntegerFunctions_lessOrEqual_y);
 
 	//FunctionBehavior lessThan
@@ -453,18 +453,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_lessThan_result.reset(new Parameter());
 		IntegerFunctions_lessThan_result->setName("result");
-		IntegerFunctions_lessThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		IntegerFunctions_lessThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		IntegerFunctions_lessThan_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_lessThan->addOwnedParameter(IntegerFunctions_lessThan_result);
 		//Parameter x
 		IntegerFunctions_lessThan_x.reset(new Parameter());
 		IntegerFunctions_lessThan_x->setName("x");
-		IntegerFunctions_lessThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_lessThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_lessThan->addOwnedParameter(IntegerFunctions_lessThan_x);
 		//Parameter y
 		IntegerFunctions_lessThan_y.reset(new Parameter());
 		IntegerFunctions_lessThan_y->setName("y");
-		IntegerFunctions_lessThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_lessThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_lessThan->addOwnedParameter(IntegerFunctions_lessThan_y);
 
 	//FunctionBehavior minus
@@ -474,18 +474,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_minus_result.reset(new Parameter());
 		IntegerFunctions_minus_result->setName("result");
-		IntegerFunctions_minus_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_minus_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		IntegerFunctions_minus_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_minus->addOwnedParameter(IntegerFunctions_minus_result);
 		//Parameter x
 		IntegerFunctions_minus_x.reset(new Parameter());
 		IntegerFunctions_minus_x->setName("x");
-		IntegerFunctions_minus_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_minus_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_minus->addOwnedParameter(IntegerFunctions_minus_x);
 		//Parameter y
 		IntegerFunctions_minus_y.reset(new Parameter());
 		IntegerFunctions_minus_y->setName("y");
-		IntegerFunctions_minus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_minus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_minus->addOwnedParameter(IntegerFunctions_minus_y);
 
 	//FunctionBehavior plus
@@ -495,18 +495,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_plus_result.reset(new Parameter());
 		IntegerFunctions_plus_result->setName("result");
-		IntegerFunctions_plus_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_plus_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		IntegerFunctions_plus_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_plus->addOwnedParameter(IntegerFunctions_plus_result);
 		//Parameter x
 		IntegerFunctions_plus_x.reset(new Parameter());
 		IntegerFunctions_plus_x->setName("x");
-		IntegerFunctions_plus_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_plus_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_plus->addOwnedParameter(IntegerFunctions_plus_x);
 		//Parameter y
 		IntegerFunctions_plus_y.reset(new Parameter());
 		IntegerFunctions_plus_y->setName("y");
-		IntegerFunctions_plus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_plus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_plus->addOwnedParameter(IntegerFunctions_plus_y);
 
 	//FunctionBehavior times
@@ -516,18 +516,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		IntegerFunctions_times_result.reset(new Parameter());
 		IntegerFunctions_times_result->setName("result");
-		IntegerFunctions_times_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_times_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		IntegerFunctions_times_result->setDirection(ParameterDirectionKind::return_);
 	IntegerFunctions_times->addOwnedParameter(IntegerFunctions_times_result);
 		//Parameter x
 		IntegerFunctions_times_x.reset(new Parameter());
 		IntegerFunctions_times_x->setName("x");
-		IntegerFunctions_times_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_times_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_times->addOwnedParameter(IntegerFunctions_times_x);
 		//Parameter y
 		IntegerFunctions_times_y.reset(new Parameter());
 		IntegerFunctions_times_y->setName("y");
-		IntegerFunctions_times_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		IntegerFunctions_times_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	IntegerFunctions_times->addOwnedParameter(IntegerFunctions_times_y);
 
 	/*
@@ -540,14 +540,14 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_Abs_result.reset(new Parameter());
 		RealFunctions_Abs_result->setName("result");
-		RealFunctions_Abs_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_Abs_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 		RealFunctions_Abs_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_Abs->addOwnedParameter(RealFunctions_Abs_result);
 		//Parameter x
 		RealFunctions_Abs_x = nullptr;
 		RealFunctions_Abs_x.reset(new Parameter());
 		RealFunctions_Abs_x->setName("x");
-		RealFunctions_Abs_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_Abs_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_Abs->addOwnedParameter(RealFunctions_Abs_x);
 
 	//FunctionBehavior Floor
@@ -557,13 +557,13 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_Floor_result.reset(new Parameter());
 		RealFunctions_Floor_result->setName("result");
-		RealFunctions_Floor_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		RealFunctions_Floor_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		RealFunctions_Floor_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_Floor->addOwnedParameter(RealFunctions_Floor_result);
 		//Parameter x
 		RealFunctions_Floor_x.reset(new Parameter());
 		RealFunctions_Floor_x->setName("x");
-		RealFunctions_Floor_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_Floor_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_Floor->addOwnedParameter(RealFunctions_Floor_x);
 
 	//FunctionBehavior Inv
@@ -573,13 +573,13 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_Inv_result.reset(new Parameter());
 		RealFunctions_Inv_result->setName("result");
-		RealFunctions_Inv_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_Inv_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 		RealFunctions_Inv_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_Inv->addOwnedParameter(RealFunctions_Inv_result);
 		//Parameter x
 		RealFunctions_Inv_x.reset(new Parameter());
 		RealFunctions_Inv_x->setName("x");
-		RealFunctions_Inv_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_Inv_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_Inv->addOwnedParameter(RealFunctions_Inv_x);
 
 	//FunctionBehavior Max
@@ -589,18 +589,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_Max_result.reset(new Parameter());
 		RealFunctions_Max_result->setName("result");
-		RealFunctions_Max_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_Max_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 		RealFunctions_Max_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_Max->addOwnedParameter(RealFunctions_Max_result);
 		//Parameter x
 		RealFunctions_Max_x.reset(new Parameter());
 		RealFunctions_Max_x->setName("x");
-		RealFunctions_Max_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_Max_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_Max->addOwnedParameter(RealFunctions_Max_x);
 		//Parameter y
 		RealFunctions_Max_y.reset(new Parameter());
 		RealFunctions_Max_y->setName("y");
-		RealFunctions_Max_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_Max_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_Max->addOwnedParameter(RealFunctions_Max_y);
 
 	//FunctionBehavior Min
@@ -610,18 +610,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_Min_result.reset(new Parameter());
 		RealFunctions_Min_result->setName("result");
-		RealFunctions_Min_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_Min_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 		RealFunctions_Min_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_Min->addOwnedParameter(RealFunctions_Min_result);
 		//Parameter x
 		RealFunctions_Min_x.reset(new Parameter());
 		RealFunctions_Min_x->setName("x");
-		RealFunctions_Min_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_Min_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_Min->addOwnedParameter(RealFunctions_Min_x);
 		//Parameter y
 		RealFunctions_Min_y.reset(new Parameter());
 		RealFunctions_Min_y->setName("y");
-		RealFunctions_Min_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_Min_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_Min->addOwnedParameter(RealFunctions_Min_y);
 
 	//FunctionBehavior Neg
@@ -631,13 +631,13 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_Neg_result.reset(new Parameter());
 		RealFunctions_Neg_result->setName("result");
-		RealFunctions_Neg_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_Neg_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 		RealFunctions_Neg_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_Neg->addOwnedParameter(RealFunctions_Neg_result);
 		//Parameter x
 		RealFunctions_Neg_x.reset(new Parameter());
 		RealFunctions_Neg_x->setName("x");
-		RealFunctions_Neg_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_Neg_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_Neg->addOwnedParameter(RealFunctions_Neg_x);
 
 	//FunctionBehavior Round
@@ -647,13 +647,13 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_Round_result.reset(new Parameter());
 		RealFunctions_Round_result->setName("result");
-		RealFunctions_Round_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		RealFunctions_Round_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		RealFunctions_Round_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_Round->addOwnedParameter(RealFunctions_Round_result);
 		//Parameter x
 		RealFunctions_Round_x.reset(new Parameter());
 		RealFunctions_Round_x->setName("x");
-		RealFunctions_Round_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_Round_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_Round->addOwnedParameter(RealFunctions_Round_x);
 
 	//FunctionBehavior ToInteger
@@ -663,13 +663,13 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_ToInteger_result.reset(new Parameter());
 		RealFunctions_ToInteger_result->setName("result");
-		RealFunctions_ToInteger_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		RealFunctions_ToInteger_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		RealFunctions_ToInteger_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_ToInteger->addOwnedParameter(RealFunctions_ToInteger_result);
 		//Parameter x
 		RealFunctions_ToInteger_x.reset(new Parameter());
 		RealFunctions_ToInteger_x->setName("x");
-		RealFunctions_ToInteger_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_ToInteger_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_ToInteger->addOwnedParameter(RealFunctions_ToInteger_x);
 
 	//FunctionBehavior ToReal
@@ -679,13 +679,13 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_ToReal_result.reset(new Parameter());
 		RealFunctions_ToReal_result->setName("result");
-		RealFunctions_ToReal_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_ToReal_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 		RealFunctions_ToReal_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_ToReal->addOwnedParameter(RealFunctions_ToReal_result);
 		//Parameter x
 		RealFunctions_ToReal_x.reset(new Parameter());
 		RealFunctions_ToReal_x->setName("x");
-		RealFunctions_ToReal_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		RealFunctions_ToReal_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 	RealFunctions_ToReal->addOwnedParameter(RealFunctions_ToReal_x);
 
 	//FunctionBehavior ToString
@@ -695,13 +695,13 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_ToString_result.reset(new Parameter());
 		RealFunctions_ToString_result->setName("result");
-		RealFunctions_ToString_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		RealFunctions_ToString_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 		RealFunctions_ToString_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_ToString->addOwnedParameter(RealFunctions_ToString_result);
 		//Parameter x
 		RealFunctions_ToString_x.reset(new Parameter());
 		RealFunctions_ToString_x->setName("x");
-		RealFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_ToString->addOwnedParameter(RealFunctions_ToString_x);
 
 	//FunctionBehavior divide
@@ -711,18 +711,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_divide_result.reset(new Parameter());
 		RealFunctions_divide_result->setName("result");
-		RealFunctions_divide_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_divide_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 		RealFunctions_divide_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_divide->addOwnedParameter(RealFunctions_divide_result);
 		//Parameter x
 		RealFunctions_divide_x.reset(new Parameter());
 		RealFunctions_divide_x->setName("x");
-		RealFunctions_divide_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		RealFunctions_divide_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	RealFunctions_divide->addOwnedParameter(RealFunctions_divide_x);
 		//Parameter y
 		RealFunctions_divide_y.reset(new Parameter());
 		RealFunctions_divide_y->setName("y");
-		RealFunctions_divide_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		RealFunctions_divide_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	RealFunctions_divide->addOwnedParameter(RealFunctions_divide_y);
 /* NOT PRESENT IN FUML LIBRARY
 	//FunctionBehavior equals
@@ -743,18 +743,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_greaterOrEqual_result.reset(new Parameter());
 		RealFunctions_greaterOrEqual_result->setName("result");
-		RealFunctions_greaterOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		RealFunctions_greaterOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		RealFunctions_greaterOrEqual_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_greaterOrEqual->addOwnedParameter(RealFunctions_greaterOrEqual_result);
 		//Parameter x
 		RealFunctions_greaterOrEqual_x.reset(new Parameter());
 		RealFunctions_greaterOrEqual_x->setName("x");
-		RealFunctions_greaterOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_greaterOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_greaterOrEqual->addOwnedParameter(RealFunctions_greaterOrEqual_x);
 		//Parameter y
 		RealFunctions_greaterOrEqual_y.reset(new Parameter());
 		RealFunctions_greaterOrEqual_y->setName("y");
-		RealFunctions_greaterOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_greaterOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_greaterOrEqual->addOwnedParameter(RealFunctions_greaterOrEqual_y);
 
 	//FunctionBehavior greaterThan
@@ -764,18 +764,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_greaterThan_result.reset(new Parameter());
 		RealFunctions_greaterThan_result->setName("result");
-		RealFunctions_greaterThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		RealFunctions_greaterThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		RealFunctions_greaterThan_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_greaterThan->addOwnedParameter(RealFunctions_greaterThan_result);
 		//Parameter x
 		RealFunctions_greaterThan_x.reset(new Parameter());
 		RealFunctions_greaterThan_x->setName("x");
-		RealFunctions_greaterThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_greaterThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_greaterThan->addOwnedParameter(RealFunctions_greaterThan_x);
 		//Parameter y
 		RealFunctions_greaterThan_y.reset(new Parameter());
 		RealFunctions_greaterThan_y->setName("y");
-		RealFunctions_greaterThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_greaterThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_greaterThan->addOwnedParameter(RealFunctions_greaterThan_y);
 
 	//FunctionBehavior lessOrEqual
@@ -785,18 +785,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_lessOrEqual_result.reset(new Parameter());
 		RealFunctions_lessOrEqual_result->setName("result");
-		RealFunctions_lessOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		RealFunctions_lessOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		RealFunctions_lessOrEqual_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_lessOrEqual->addOwnedParameter(RealFunctions_lessOrEqual_result);
 		//Parameter x
 		RealFunctions_lessOrEqual_x.reset(new Parameter());
 		RealFunctions_lessOrEqual_x->setName("x");
-		RealFunctions_lessOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_lessOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_lessOrEqual->addOwnedParameter(RealFunctions_lessOrEqual_x);
 		//Parameter y
 		RealFunctions_lessOrEqual_y.reset(new Parameter());
 		RealFunctions_lessOrEqual_y->setName("y");
-		RealFunctions_lessOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_lessOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_lessOrEqual->addOwnedParameter(RealFunctions_lessOrEqual_y);
 
 	//FunctionBehavior lessThan
@@ -806,18 +806,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_lessThan_result.reset(new Parameter());
 		RealFunctions_lessThan_result->setName("result");
-		RealFunctions_lessThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		RealFunctions_lessThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		RealFunctions_lessThan_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_lessThan->addOwnedParameter(RealFunctions_lessThan_result);
 		//Parameter x
 		RealFunctions_lessThan_x.reset(new Parameter());
 		RealFunctions_lessThan_x->setName("x");
-		RealFunctions_lessThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_lessThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_lessThan->addOwnedParameter(RealFunctions_lessThan_x);
 		//Parameter y
 		RealFunctions_lessThan_y.reset(new Parameter());
 		RealFunctions_lessThan_y->setName("y");
-		RealFunctions_lessThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_lessThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_lessThan->addOwnedParameter(RealFunctions_lessThan_y);
 
 	//FunctionBehavior minus
@@ -827,18 +827,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_minus_result.reset(new Parameter());
 		RealFunctions_minus_result->setName("result");
-		RealFunctions_minus_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_minus_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 		RealFunctions_minus_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_minus->addOwnedParameter(RealFunctions_minus_result);
 		//Parameter x
 		RealFunctions_minus_x.reset(new Parameter());
 		RealFunctions_minus_x->setName("x");
-		RealFunctions_minus_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_minus_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_minus->addOwnedParameter(RealFunctions_minus_x);
 		//Parameter y
 		RealFunctions_minus_y.reset(new Parameter());
 		RealFunctions_minus_y->setName("y");
-		RealFunctions_minus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_minus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_minus->addOwnedParameter(RealFunctions_minus_y);
 
 	//FunctionBehavior plus
@@ -848,18 +848,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_plus_result.reset(new Parameter());
 		RealFunctions_plus_result->setName("result");
-		RealFunctions_plus_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_plus_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 		RealFunctions_plus_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_plus->addOwnedParameter(RealFunctions_plus_result);
 		//Parameter x
 		RealFunctions_plus_x.reset(new Parameter());
 		RealFunctions_plus_x->setName("x");
-		RealFunctions_plus_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_plus_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_plus->addOwnedParameter(RealFunctions_plus_x);
 		//Parameter y
 		RealFunctions_plus_y.reset(new Parameter());
 		RealFunctions_plus_y->setName("y");
-		RealFunctions_plus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_plus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_plus->addOwnedParameter(RealFunctions_plus_y);
 
 	//FunctionBehavior times
@@ -869,18 +869,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		RealFunctions_times_result.reset(new Parameter());
 		RealFunctions_times_result->setName("result");
-		RealFunctions_times_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_times_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 		RealFunctions_times_result->setDirection(ParameterDirectionKind::return_);
 	RealFunctions_times->addOwnedParameter(RealFunctions_times_result);
 		//Parameter x
 		RealFunctions_times_x.reset(new Parameter());
 		RealFunctions_times_x->setName("x");
-		RealFunctions_times_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_times_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_times->addOwnedParameter(RealFunctions_times_x);
 		//Parameter y
 		RealFunctions_times_y.reset(new Parameter());
 		RealFunctions_times_y->setName("y");
-		RealFunctions_times_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+		RealFunctions_times_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 	RealFunctions_times->addOwnedParameter(RealFunctions_times_y);
 
 	/*
@@ -893,18 +893,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		StringFunctions_Concat_result.reset(new Parameter());
 		StringFunctions_Concat_result->setName("result");
-		StringFunctions_Concat_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		StringFunctions_Concat_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 		StringFunctions_Concat_result->setDirection(ParameterDirectionKind::return_);
 	StringFunctions_Concat->addOwnedParameter(StringFunctions_Concat_result);
 		//Parameter x
 		StringFunctions_Concat_x.reset(new Parameter());
 		StringFunctions_Concat_x->setName("x");
-		StringFunctions_Concat_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		StringFunctions_Concat_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 	StringFunctions_Concat->addOwnedParameter(StringFunctions_Concat_x);
 		//Parameter y
 		StringFunctions_Concat_y.reset(new Parameter());
 		StringFunctions_Concat_y->setName("y");
-		StringFunctions_Concat_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		StringFunctions_Concat_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 	StringFunctions_Concat->addOwnedParameter(StringFunctions_Concat_y);
 
 	//FunctionBehavior Size
@@ -914,13 +914,13 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		StringFunctions_Size_result.reset(new Parameter());
 		StringFunctions_Size_result->setName("result");
-		StringFunctions_Size_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		StringFunctions_Size_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		StringFunctions_Size_result->setDirection(ParameterDirectionKind::return_);
 	StringFunctions_Size->addOwnedParameter(StringFunctions_Size_result);
 		//Parameter x
 		StringFunctions_Size_x.reset(new Parameter());
 		StringFunctions_Size_x->setName("x");
-		StringFunctions_Size_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		StringFunctions_Size_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 	StringFunctions_Size->addOwnedParameter(StringFunctions_Size_x);
 
 	//FunctionBehavior Substring
@@ -930,23 +930,23 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter lower
 		StringFunctions_Substring_lower.reset(new Parameter());
 		StringFunctions_Substring_lower->setName("lower");
-		StringFunctions_Substring_lower->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		StringFunctions_Substring_lower->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	StringFunctions_Substring->addOwnedParameter(StringFunctions_Substring_lower);
 		//Parameter result
 		StringFunctions_Substring_result.reset(new Parameter());
 		StringFunctions_Substring_result->setName("result");
-		StringFunctions_Substring_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		StringFunctions_Substring_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 		StringFunctions_Substring_result->setDirection(ParameterDirectionKind::return_);
 	StringFunctions_Substring->addOwnedParameter(StringFunctions_Substring_result);
 		//Parameter upper
 		StringFunctions_Substring_upper.reset(new Parameter());
 		StringFunctions_Substring_upper->setName("upper");
-		StringFunctions_Substring_upper->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		StringFunctions_Substring_upper->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	StringFunctions_Substring->addOwnedParameter(StringFunctions_Substring_upper);
 		//Parameter x
 		StringFunctions_Substring_x.reset(new Parameter());
 		StringFunctions_Substring_x->setName("x");
-		StringFunctions_Substring_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		StringFunctions_Substring_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 	StringFunctions_Substring->addOwnedParameter(StringFunctions_Substring_x);
 
 	/*
@@ -959,18 +959,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		UnlimitedNaturalFunctions_Max_result.reset(new Parameter());
 		UnlimitedNaturalFunctions_Max_result->setName("result");
-		UnlimitedNaturalFunctions_Max_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_Max_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 		UnlimitedNaturalFunctions_Max_result->setDirection(ParameterDirectionKind::return_);
 	UnlimitedNaturalFunctions_Max->addOwnedParameter(UnlimitedNaturalFunctions_Max_result);
 		//Parameter x
 		UnlimitedNaturalFunctions_Max_x.reset(new Parameter());
 		UnlimitedNaturalFunctions_Max_x->setName("x");
-		UnlimitedNaturalFunctions_Max_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_Max_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 	UnlimitedNaturalFunctions_Max->addOwnedParameter(UnlimitedNaturalFunctions_Max_x);
 		//Parameter y
 		UnlimitedNaturalFunctions_Max_y.reset(new Parameter());
 		UnlimitedNaturalFunctions_Max_y->setName("y");
-		UnlimitedNaturalFunctions_Max_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_Max_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 	UnlimitedNaturalFunctions_Max->addOwnedParameter(UnlimitedNaturalFunctions_Max_y);
 
 	//FunctionBehavior Min
@@ -980,18 +980,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		UnlimitedNaturalFunctions_Min_result.reset(new Parameter());
 		UnlimitedNaturalFunctions_Min_result->setName("result");
-		UnlimitedNaturalFunctions_Min_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_Min_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 		UnlimitedNaturalFunctions_Min_result->setDirection(ParameterDirectionKind::return_);
 	UnlimitedNaturalFunctions_Min->addOwnedParameter(UnlimitedNaturalFunctions_Min_result);
 		//Parameter x
 		UnlimitedNaturalFunctions_Min_x.reset(new Parameter());
 		UnlimitedNaturalFunctions_Min_x->setName("x");
-		UnlimitedNaturalFunctions_Min_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_Min_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 	UnlimitedNaturalFunctions_Min->addOwnedParameter(UnlimitedNaturalFunctions_Min_x);
 		//Parameter y
 		UnlimitedNaturalFunctions_Min_y.reset(new Parameter());
 		UnlimitedNaturalFunctions_Min_y->setName("y");
-		UnlimitedNaturalFunctions_Min_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_Min_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 	UnlimitedNaturalFunctions_Min->addOwnedParameter(UnlimitedNaturalFunctions_Min_y);
 
 	//FunctionBehavior ToInteger
@@ -1001,13 +1001,13 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		UnlimitedNaturalFunctions_ToInteger_result.reset(new Parameter());
 		UnlimitedNaturalFunctions_ToInteger_result->setName("result");
-		UnlimitedNaturalFunctions_ToInteger_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		UnlimitedNaturalFunctions_ToInteger_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		UnlimitedNaturalFunctions_ToInteger_result->setDirection(ParameterDirectionKind::return_);
 	UnlimitedNaturalFunctions_ToInteger->addOwnedParameter(UnlimitedNaturalFunctions_ToInteger_result);
 		//Parameter x
 		UnlimitedNaturalFunctions_ToInteger_x.reset(new Parameter());
 		UnlimitedNaturalFunctions_ToInteger_x->setName("x");
-		UnlimitedNaturalFunctions_ToInteger_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_ToInteger_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 	UnlimitedNaturalFunctions_ToInteger->addOwnedParameter(UnlimitedNaturalFunctions_ToInteger_x);
 
 	//FunctionBehavior ToString
@@ -1017,13 +1017,13 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		UnlimitedNaturalFunctions_ToString_result.reset(new Parameter());
 		UnlimitedNaturalFunctions_ToString_result->setName("result");
-		UnlimitedNaturalFunctions_ToString_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		UnlimitedNaturalFunctions_ToString_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 		UnlimitedNaturalFunctions_ToString_result->setDirection(ParameterDirectionKind::return_);
 	UnlimitedNaturalFunctions_ToString->addOwnedParameter(UnlimitedNaturalFunctions_ToString_result);
 		//Parameter x
 		UnlimitedNaturalFunctions_ToString_x.reset(new Parameter());
 		UnlimitedNaturalFunctions_ToString_x->setName("x");
-		UnlimitedNaturalFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 	UnlimitedNaturalFunctions_ToString->addOwnedParameter(UnlimitedNaturalFunctions_ToString_x);
 
 	//FunctionBehavior ToUnlimitedNatural
@@ -1033,13 +1033,13 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		UnlimitedNaturalFunctions_ToUnlimitedNatural_result.reset(new Parameter());
 		UnlimitedNaturalFunctions_ToUnlimitedNatural_result->setName("result");
-		UnlimitedNaturalFunctions_ToUnlimitedNatural_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_ToUnlimitedNatural_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 		UnlimitedNaturalFunctions_ToUnlimitedNatural_result->setDirection(ParameterDirectionKind::return_);
 	UnlimitedNaturalFunctions_ToUnlimitedNatural->addOwnedParameter(UnlimitedNaturalFunctions_ToUnlimitedNatural_result);
 		//Parameter x
 		UnlimitedNaturalFunctions_ToUnlimitedNatural_x.reset(new Parameter());
 		UnlimitedNaturalFunctions_ToUnlimitedNatural_x->setName("x");
-		UnlimitedNaturalFunctions_ToUnlimitedNatural_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		UnlimitedNaturalFunctions_ToUnlimitedNatural_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 	UnlimitedNaturalFunctions_ToUnlimitedNatural->addOwnedParameter(UnlimitedNaturalFunctions_ToUnlimitedNatural_x);
 /* NOT PRESENT IN FUML LIBRARY
 	//FunctionBehavior equals
@@ -1060,18 +1060,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		UnlimitedNaturalFunctions_greaterOrEqual_result.reset(new Parameter());
 		UnlimitedNaturalFunctions_greaterOrEqual_result->setName("result");
-		UnlimitedNaturalFunctions_greaterOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		UnlimitedNaturalFunctions_greaterOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		UnlimitedNaturalFunctions_greaterOrEqual_result->setDirection(ParameterDirectionKind::return_);
 	UnlimitedNaturalFunctions_greaterOrEqual->addOwnedParameter(UnlimitedNaturalFunctions_greaterOrEqual_result);
 		//Parameter x
 		UnlimitedNaturalFunctions_greaterOrEqual_x.reset(new Parameter());
 		UnlimitedNaturalFunctions_greaterOrEqual_x->setName("x");
-		UnlimitedNaturalFunctions_greaterOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_greaterOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 	UnlimitedNaturalFunctions_greaterOrEqual->addOwnedParameter(UnlimitedNaturalFunctions_greaterOrEqual_x);
 		//Parameter y
 		UnlimitedNaturalFunctions_greaterOrEqual_y.reset(new Parameter());
 		UnlimitedNaturalFunctions_greaterOrEqual_y->setName("y");
-		UnlimitedNaturalFunctions_greaterOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_greaterOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 	UnlimitedNaturalFunctions_greaterOrEqual->addOwnedParameter(UnlimitedNaturalFunctions_greaterOrEqual_y);
 
 	//FunctionBehavior greaterThan
@@ -1081,18 +1081,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		UnlimitedNaturalFunctions_greaterThan_result.reset(new Parameter());
 		UnlimitedNaturalFunctions_greaterThan_result->setName("result");
-		UnlimitedNaturalFunctions_greaterThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		UnlimitedNaturalFunctions_greaterThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		UnlimitedNaturalFunctions_greaterThan_result->setDirection(ParameterDirectionKind::return_);
 	UnlimitedNaturalFunctions_greaterThan->addOwnedParameter(UnlimitedNaturalFunctions_greaterThan_result);
 		//Parameter x
 		UnlimitedNaturalFunctions_greaterThan_x.reset(new Parameter());
 		UnlimitedNaturalFunctions_greaterThan_x->setName("x");
-		UnlimitedNaturalFunctions_greaterThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_greaterThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 	UnlimitedNaturalFunctions_greaterThan->addOwnedParameter(UnlimitedNaturalFunctions_greaterThan_x);
 		//Parameter y
 		UnlimitedNaturalFunctions_greaterThan_y.reset(new Parameter());
 		UnlimitedNaturalFunctions_greaterThan_y->setName("y");
-		UnlimitedNaturalFunctions_greaterThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_greaterThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 	UnlimitedNaturalFunctions_greaterThan->addOwnedParameter(UnlimitedNaturalFunctions_greaterThan_y);
 
 	//FunctionBehavior lessOrEqual
@@ -1102,18 +1102,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		UnlimitedNaturalFunctions_lessOrEqual_result.reset(new Parameter());
 		UnlimitedNaturalFunctions_lessOrEqual_result->setName("result");
-		UnlimitedNaturalFunctions_lessOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		UnlimitedNaturalFunctions_lessOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		UnlimitedNaturalFunctions_lessOrEqual_result->setDirection(ParameterDirectionKind::return_);
 	UnlimitedNaturalFunctions_lessOrEqual->addOwnedParameter(UnlimitedNaturalFunctions_lessOrEqual_result);
 		//Parameter x
 		UnlimitedNaturalFunctions_lessOrEqual_x.reset(new Parameter());
 		UnlimitedNaturalFunctions_lessOrEqual_x->setName("x");
-		UnlimitedNaturalFunctions_lessOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_lessOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 	UnlimitedNaturalFunctions_lessOrEqual->addOwnedParameter(UnlimitedNaturalFunctions_lessOrEqual_x);
 		//Parameter y
 		UnlimitedNaturalFunctions_lessOrEqual_y.reset(new Parameter());
 		UnlimitedNaturalFunctions_lessOrEqual_y->setName("y");
-		UnlimitedNaturalFunctions_lessOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_lessOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 	UnlimitedNaturalFunctions_lessOrEqual->addOwnedParameter(UnlimitedNaturalFunctions_lessOrEqual_y);
 
 	//FunctionBehavior lessThan
@@ -1123,18 +1123,18 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		UnlimitedNaturalFunctions_lessThan_result.reset(new Parameter());
 		UnlimitedNaturalFunctions_lessThan_result->setName("result");
-		UnlimitedNaturalFunctions_lessThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+		UnlimitedNaturalFunctions_lessThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		UnlimitedNaturalFunctions_lessThan_result->setDirection(ParameterDirectionKind::return_);
 	UnlimitedNaturalFunctions_lessThan->addOwnedParameter(UnlimitedNaturalFunctions_lessThan_result);
 		//Parameter x
 		UnlimitedNaturalFunctions_lessThan_x.reset(new Parameter());
 		UnlimitedNaturalFunctions_lessThan_x->setName("x");
-		UnlimitedNaturalFunctions_lessThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_lessThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 	UnlimitedNaturalFunctions_lessThan->addOwnedParameter(UnlimitedNaturalFunctions_lessThan_x);
 		//Parameter y
 		UnlimitedNaturalFunctions_lessThan_y.reset(new Parameter());
 		UnlimitedNaturalFunctions_lessThan_y->setName("y");
-		UnlimitedNaturalFunctions_lessThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+		UnlimitedNaturalFunctions_lessThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 	UnlimitedNaturalFunctions_lessThan->addOwnedParameter(UnlimitedNaturalFunctions_lessThan_y);
 
 	/*
@@ -1147,7 +1147,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter result
 		ListFunctions_ListSize_result.reset(new Parameter());
 		ListFunctions_ListSize_result->setName("result");
-		ListFunctions_ListSize_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		ListFunctions_ListSize_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		ListFunctions_ListSize_result->setDirection(ParameterDirectionKind::return_);
 	ListFunctions_ListSize->addOwnedParameter(ListFunctions_ListSize_result);
 		//Parameter list
@@ -1169,7 +1169,7 @@ void LibraryModel::initializeInMemoryModel()
 		//Parameter index
 		ListFunctions_ListGet_index.reset(new Parameter());
 		ListFunctions_ListGet_index->setName("index");
-		ListFunctions_ListGet_index->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		ListFunctions_ListGet_index->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	ListFunctions_ListGet->addOwnedParameter(ListFunctions_ListGet_index);
 		//Parameter list
 		ListFunctions_ListGet_list.reset(new Parameter());
@@ -1237,19 +1237,19 @@ void LibraryModel::initializeInMemoryModel()
 		Status_context.reset(new Property());
 		Status_context->setThisElementPtr(Status_context);
 		Status_context->setName("context");
-		Status_context->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		Status_context->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 	Status->addOwnedAttribute(Status_context);
 		//Property code
 		Status_code.reset(new Property());
 		Status_code->setThisElementPtr(Status_code);
 		Status_code->setName("code");
-		Status_code->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+		Status_code->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 	Status->addOwnedAttribute(Status_code);
 		//Property description
 		Status_description.reset(new Property());
 		Status_description->setThisElementPtr(Status_description);
 		Status_description->setName("description");
-		Status_description->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		Status_description->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 	Status->addOwnedAttribute(Status_description);
 
 	/*
@@ -1269,7 +1269,7 @@ void LibraryModel::initializeInMemoryModel()
 			Channel_getName_ReturnResult.reset(new Parameter());
 			Channel_getName_ReturnResult->setThisElementPtr(Channel_getName_ReturnResult);
 			Channel_getName_ReturnResult->setName("ReturnResult");
-			Channel_getName_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+			Channel_getName_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 			Channel_getName_ReturnResult->setDirection(ParameterDirectionKind::return_);
 		Channel_getName->addOwnedParameter(Channel_getName_ReturnResult);
 	Channel->addOwnedOperation(Channel_getName);
@@ -1308,7 +1308,7 @@ void LibraryModel::initializeInMemoryModel()
 			Channel_isOpen_ReturnResult.reset(new Parameter());
 			Channel_isOpen_ReturnResult->setThisElementPtr(Channel_isOpen_ReturnResult);
 			Channel_isOpen_ReturnResult->setName("ReturnResult");
-			Channel_isOpen_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+			Channel_isOpen_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 			Channel_isOpen_ReturnResult->setDirection(ParameterDirectionKind::return_);
 		Channel_isOpen->addOwnedParameter(Channel_isOpen_ReturnResult);
 	Channel->addOwnedOperation(Channel_isOpen);
@@ -1345,7 +1345,7 @@ void LibraryModel::initializeInMemoryModel()
 			InputChannel_hasMore_ReturnResult.reset(new Parameter());
 			InputChannel_hasMore_ReturnResult->setThisElementPtr(InputChannel_hasMore_ReturnResult);
 			InputChannel_hasMore_ReturnResult->setName("ReturnResult");
-			InputChannel_hasMore_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+			InputChannel_hasMore_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 			InputChannel_hasMore_ReturnResult->setDirection(ParameterDirectionKind::return_);
 		InputChannel_hasMore->addOwnedParameter(InputChannel_hasMore_ReturnResult);
 	InputChannel->addOwnedOperation(InputChannel_hasMore);
@@ -1407,7 +1407,7 @@ void LibraryModel::initializeInMemoryModel()
 			OutputChannel_isFull_ReturnResult.reset(new Parameter());
 			OutputChannel_isFull_ReturnResult->setThisElementPtr(OutputChannel_isFull_ReturnResult);
 			OutputChannel_isFull_ReturnResult->setName("ReturnResult");
-			OutputChannel_isFull_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+			OutputChannel_isFull_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 			OutputChannel_isFull_ReturnResult->setDirection(ParameterDirectionKind::return_);
 		OutputChannel_isFull->addOwnedParameter(OutputChannel_isFull_ReturnResult);
 	OutputChannel->addOwnedOperation(OutputChannel_isFull);
@@ -1448,7 +1448,7 @@ void LibraryModel::initializeInMemoryModel()
 				TextInputChannel_readCharacter_ReturnResult.reset(new Parameter());
 				TextInputChannel_readCharacter_ReturnResult->setThisElementPtr(TextInputChannel_readCharacter_ReturnResult);
 				TextInputChannel_readCharacter_ReturnResult->setName("ReturnResult");
-				TextInputChannel_readCharacter_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+				TextInputChannel_readCharacter_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 				TextInputChannel_readCharacter_ReturnResult->setDirection(ParameterDirectionKind::return_);
 			TextInputChannel_readCharacter->addOwnedParameter(TextInputChannel_readCharacter_ReturnResult);
 				//Parameter errorStatus
@@ -1467,7 +1467,7 @@ void LibraryModel::initializeInMemoryModel()
 				TextInputChannel_peekCharacter_OwnedParameter.reset(new Parameter());
 				TextInputChannel_peekCharacter_OwnedParameter->setThisElementPtr(TextInputChannel_peekCharacter_OwnedParameter);
 				TextInputChannel_peekCharacter_OwnedParameter->setName("OwnedParameter");
-				TextInputChannel_peekCharacter_OwnedParameter->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+				TextInputChannel_peekCharacter_OwnedParameter->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 				TextInputChannel_peekCharacter_OwnedParameter->setDirection(ParameterDirectionKind::return_);
 			TextInputChannel_peekCharacter->addOwnedParameter(TextInputChannel_peekCharacter_OwnedParameter);
 				//Parameter errorStatus
@@ -1486,7 +1486,7 @@ void LibraryModel::initializeInMemoryModel()
 				TextInputChannel_readLine_ReturnResult.reset(new Parameter());
 				TextInputChannel_readLine_ReturnResult->setThisElementPtr(TextInputChannel_readLine_ReturnResult);
 				TextInputChannel_readLine_ReturnResult->setName("ReturnResult");
-				TextInputChannel_readLine_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+				TextInputChannel_readLine_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 				TextInputChannel_readLine_ReturnResult->setDirection(ParameterDirectionKind::return_);
 			TextInputChannel_readLine->addOwnedParameter(TextInputChannel_readLine_ReturnResult);
 				//Parameter errorStatus
@@ -1505,7 +1505,7 @@ void LibraryModel::initializeInMemoryModel()
 				TextInputChannel_readInteger_ReturnResult.reset(new Parameter());
 				TextInputChannel_readInteger_ReturnResult->setThisElementPtr(TextInputChannel_readInteger_ReturnResult);
 				TextInputChannel_readInteger_ReturnResult->setName("ReturnResult");
-				TextInputChannel_readInteger_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+				TextInputChannel_readInteger_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 				TextInputChannel_readInteger_ReturnResult->setDirection(ParameterDirectionKind::return_);
 			TextInputChannel_readInteger->addOwnedParameter(TextInputChannel_readInteger_ReturnResult);
 				//Parameter errorStatus
@@ -1524,7 +1524,7 @@ void LibraryModel::initializeInMemoryModel()
 				TextInputChannel_readReal_ReturnResult.reset(new Parameter());
 				TextInputChannel_readReal_ReturnResult->setThisElementPtr(TextInputChannel_readReal_ReturnResult);
 				TextInputChannel_readReal_ReturnResult->setName("ReturnResult");
-				TextInputChannel_readReal_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+				TextInputChannel_readReal_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 				TextInputChannel_readReal_ReturnResult->setDirection(ParameterDirectionKind::return_);
 			TextInputChannel_readReal->addOwnedParameter(TextInputChannel_readReal_ReturnResult);
 				//Parameter errorStatus
@@ -1543,7 +1543,7 @@ void LibraryModel::initializeInMemoryModel()
 				TextInputChannel_readBoolean_ReturnResult.reset(new Parameter());
 				TextInputChannel_readBoolean_ReturnResult->setThisElementPtr(TextInputChannel_readBoolean_ReturnResult);
 				TextInputChannel_readBoolean_ReturnResult->setName("ReturnResult");
-				TextInputChannel_readBoolean_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+				TextInputChannel_readBoolean_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 				TextInputChannel_readBoolean_ReturnResult->setDirection(ParameterDirectionKind::return_);
 			TextInputChannel_readBoolean->addOwnedParameter(TextInputChannel_readBoolean_ReturnResult);
 				//Parameter errorStatus
@@ -1562,7 +1562,7 @@ void LibraryModel::initializeInMemoryModel()
 				TextInputChannel_readUnlimitedNatural_ReturnResult.reset(new Parameter());
 				TextInputChannel_readUnlimitedNatural_ReturnResult->setThisElementPtr(TextInputChannel_readUnlimitedNatural_ReturnResult);
 				TextInputChannel_readUnlimitedNatural_ReturnResult->setName("ReturnResult");
-				TextInputChannel_readUnlimitedNatural_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+				TextInputChannel_readUnlimitedNatural_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 				TextInputChannel_readUnlimitedNatural_ReturnResult->setDirection(ParameterDirectionKind::return_);
 			TextInputChannel_readUnlimitedNatural->addOwnedParameter(TextInputChannel_readUnlimitedNatural_ReturnResult);
 				//Parameter errorStatus
@@ -1614,7 +1614,7 @@ void LibraryModel::initializeInMemoryModel()
 			TextOutputChannel_writeString_value.reset(new Parameter());
 			TextOutputChannel_writeString_value->setThisElementPtr(TextOutputChannel_writeString_value);
 			TextOutputChannel_writeString_value->setName("value");
-			TextOutputChannel_writeString_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+			TextOutputChannel_writeString_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 		TextOutputChannel_writeString->addOwnedParameter(TextOutputChannel_writeString_value);
 			//Parameter errorStatus
 			TextOutputChannel_writeString_errorStatus.reset(new Parameter());
@@ -1645,7 +1645,7 @@ void LibraryModel::initializeInMemoryModel()
 			TextOutputChannel_writeLine_value.reset(new Parameter());
 			TextOutputChannel_writeLine_value->setThisElementPtr(TextOutputChannel_writeLine_value);
 			TextOutputChannel_writeLine_value->setName("value");
-			TextOutputChannel_writeLine_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+			TextOutputChannel_writeLine_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 		TextOutputChannel_writeLine->addOwnedParameter(TextOutputChannel_writeLine_value);
 			//Parameter errorStatus
 			TextOutputChannel_writeLine_errorStatus.reset(new Parameter());
@@ -1663,7 +1663,7 @@ void LibraryModel::initializeInMemoryModel()
 			TextOutputChannel_writeInteger_value.reset(new Parameter());
 			TextOutputChannel_writeInteger_value->setThisElementPtr(TextOutputChannel_writeInteger_value);
 			TextOutputChannel_writeInteger_value->setName("value");
-			TextOutputChannel_writeInteger_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
+			TextOutputChannel_writeInteger_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
 		TextOutputChannel_writeInteger->addOwnedParameter(TextOutputChannel_writeInteger_value);
 			//Parameter errorStatus
 			TextOutputChannel_writeInteger_errorStatus.reset(new Parameter());
@@ -1681,7 +1681,7 @@ void LibraryModel::initializeInMemoryModel()
 			TextOutputChannel_writeReal_value.reset(new Parameter());
 			TextOutputChannel_writeReal_value->setThisElementPtr(TextOutputChannel_writeReal_value);
 			TextOutputChannel_writeReal_value->setName("value");
-			TextOutputChannel_writeReal_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
+			TextOutputChannel_writeReal_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
 		TextOutputChannel_writeReal->addOwnedParameter(TextOutputChannel_writeReal_value);
 			//Parameter errorStatus
 			TextOutputChannel_writeReal_errorStatus.reset(new Parameter());
@@ -1699,7 +1699,7 @@ void LibraryModel::initializeInMemoryModel()
 			TextOutputChannel_writeBoolean_value.reset(new Parameter());
 			TextOutputChannel_writeBoolean_value->setThisElementPtr(TextOutputChannel_writeBoolean_value);
 			TextOutputChannel_writeBoolean_value->setName("value");
-			TextOutputChannel_writeBoolean_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
+			TextOutputChannel_writeBoolean_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
 		TextOutputChannel_writeBoolean->addOwnedParameter(TextOutputChannel_writeBoolean_value);
 			//Parameter errorStatus
 			TextOutputChannel_writeBoolean_errorStatus.reset(new Parameter());
@@ -1717,7 +1717,7 @@ void LibraryModel::initializeInMemoryModel()
 			TextOutputChannel_writeUnlimitedNatural_value.reset(new Parameter());
 			TextOutputChannel_writeUnlimitedNatural_value->setThisElementPtr(TextOutputChannel_writeUnlimitedNatural_value);
 			TextOutputChannel_writeUnlimitedNatural_value->setName("value");
-			TextOutputChannel_writeUnlimitedNatural_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+			TextOutputChannel_writeUnlimitedNatural_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 		TextOutputChannel_writeUnlimitedNatural->addOwnedParameter(TextOutputChannel_writeUnlimitedNatural_value);
 			//Parameter errorStatus
 			TextOutputChannel_writeUnlimitedNatural_errorStatus.reset(new Parameter());
@@ -1737,7 +1737,7 @@ void LibraryModel::initializeInMemoryModel()
 		WriteLine_value.reset(new Parameter());
 		WriteLine_value->setThisElementPtr(WriteLine_value);
 		WriteLine_value->setName("value");
-		WriteLine_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		WriteLine_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 	WriteLine->addOwnedParameter(WriteLine_value);
 		//Parameter errorStatus
 		WriteLine_errorStatus.reset(new Parameter());;
@@ -1751,7 +1751,7 @@ void LibraryModel::initializeInMemoryModel()
 		WriteLine_ActivityParameterNode_value->setThisElementPtr(WriteLine_ActivityParameterNode_value);
 		WriteLine_ActivityParameterNode_value->setName("value");
 		WriteLine_ActivityParameterNode_value->setParameter(WriteLine_value);
-		WriteLine_ActivityParameterNode_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		WriteLine_ActivityParameterNode_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 	WriteLine->addNode(WriteLine_ActivityParameterNode_value);
 		//ActivityParameterNode errorStatus
 		WriteLine_ActivityParameterNode_errorStatus.reset(new ActivityParameterNode());
@@ -1788,7 +1788,7 @@ void LibraryModel::initializeInMemoryModel()
 			WriteLine_CallOperationAction_writeLine_value.reset(new InputPin());
 			WriteLine_CallOperationAction_writeLine_value->setThisElementPtr(WriteLine_CallOperationAction_writeLine_value);
 			WriteLine_CallOperationAction_writeLine_value->setName("value");
-			WriteLine_CallOperationAction_writeLine_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+			WriteLine_CallOperationAction_writeLine_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 		WriteLine_CallOperationAction_writeLine->addArgument(WriteLine_CallOperationAction_writeLine_value);
 			//OutputPin errorStatus
 			WriteLine_CallOperationAction_writeLine_errorStatus.reset(new OutputPin());
@@ -1862,7 +1862,7 @@ void LibraryModel::initializeInMemoryModel()
 		ReadLine_result.reset(new Parameter());
 		ReadLine_result->setThisElementPtr(ReadLine_result);
 		ReadLine_result->setName("result");
-		ReadLine_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		ReadLine_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 		ReadLine_result->setDirection(ParameterDirectionKind::return_);
 	ReadLine->addOwnedParameter(ReadLine_result);
 		//Parameter errorStatus
@@ -1877,7 +1877,7 @@ void LibraryModel::initializeInMemoryModel()
 		ReadLine_ActivityParameterNode_result->setThisElementPtr(ReadLine_ActivityParameterNode_result);
 		ReadLine_ActivityParameterNode_result->setName("result");
 		ReadLine_ActivityParameterNode_result->setParameter(ReadLine_result);
-		ReadLine_ActivityParameterNode_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+		ReadLine_ActivityParameterNode_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 	ReadLine->addNode(ReadLine_ActivityParameterNode_result);
 		//ActivityParameterNode errorStatus
 		ReadLine_ActivityParameterNode_errorStatus.reset(new ActivityParameterNode());
@@ -1914,7 +1914,7 @@ void LibraryModel::initializeInMemoryModel()
 			ReadLine_CallOperationAction_readLine_result.reset(new OutputPin());
 			ReadLine_CallOperationAction_readLine_result->setThisElementPtr(ReadLine_CallOperationAction_readLine_result);
 			ReadLine_CallOperationAction_readLine_result->setName("result");
-			ReadLine_CallOperationAction_readLine_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+			ReadLine_CallOperationAction_readLine_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 		ReadLine_CallOperationAction_readLine->addResult(ReadLine_CallOperationAction_readLine_result);
 			//OutputPin errorStatus
 			ReadLine_CallOperationAction_readLine_errorStatus.reset(new OutputPin());

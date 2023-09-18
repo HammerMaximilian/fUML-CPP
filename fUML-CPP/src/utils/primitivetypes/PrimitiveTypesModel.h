@@ -16,11 +16,11 @@ namespace fuml::primitivetypes
 	class PrimitiveTypesModel : public fuml::environment::InMemoryModel
 	{
 		public:
-			PrimitiveTypePtr Boolean = nullptr;
-			PrimitiveTypePtr Integer = nullptr;
-			PrimitiveTypePtr Real = nullptr;
-			PrimitiveTypePtr String = nullptr;
-			PrimitiveTypePtr UnlimitedNatural = nullptr;
+			PrimitiveTypePtr PrimitiveTypes_Boolean = nullptr;
+			PrimitiveTypePtr PrimitiveTypes_Integer = nullptr;
+			PrimitiveTypePtr PrimitiveTypes_Real = nullptr;
+			PrimitiveTypePtr PrimitiveTypes_String = nullptr;
+			PrimitiveTypePtr PrimitiveTypes_UnlimitedNatural = nullptr;
 
 		public:
 			virtual ~PrimitiveTypesModel() = default;

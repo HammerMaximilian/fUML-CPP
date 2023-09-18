@@ -77,7 +77,7 @@ void HelloWorldExampleModel::initializeInMemoryModel()
 			HelloWorldModel_main_callWriteLine_value.reset(new InputPin());
 			HelloWorldModel_main_callWriteLine_value->setThisElementPtr(HelloWorldModel_main_callWriteLine_value);
 			HelloWorldModel_main_callWriteLine_value->setName("value");
-			HelloWorldModel_main_callWriteLine_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
+			HelloWorldModel_main_callWriteLine_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 		HelloWorldModel_main_callWriteLine->addArgument(HelloWorldModel_main_callWriteLine_value);
 			//OutputPin errorStatus
 			HelloWorldModel_main_callWriteLine_errorStatus.reset(new OutputPin());

@@ -38,11 +38,11 @@ Environment::Environment()
 	this->locus->factory->setStrategy(FIFOGetNextEventStrategyPtr(new FIFOGetNextEventStrategy()));
 
 	// Setup builtin primitive types
-	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Boolean);
-	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Integer);
-	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->Real);
-	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->String);
-	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->UnlimitedNatural);
+	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 
 	// Add instances for StandardInputChannel & StandardOutputChannel
 	std::shared_ptr<StandardInputChannelObject> standardInputChannelObject(new StandardInputChannelObject);
