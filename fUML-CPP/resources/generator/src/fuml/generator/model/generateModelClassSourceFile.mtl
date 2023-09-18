@@ -193,6 +193,38 @@ void [aPackage.getName() + 'Model'/]::initializeInMemoryModel()
 [/let]
 [/template]
 
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Activity)) post(trim())]
+[let anActivity : Activity = anElement.oclAsType(Activity)]
+// [anActivity.eClass().name + ' ' + anActivity.getName()/]
+[anActivity.getFullName()/]->setThisActivityPtr([anActivity.getFullName()/]);
+[anActivity.generateBehaviorInitialization()/]
+[comment Property 'Activity::isReadOnly' /]
+[if (anActivity.isReadOnly)]
+[anActivity.getFullName()/]->setIsReadOnly(true);
+[/if]
+[comment Property 'Activity::node' /]
+[comment Property 'Activity::edge' /]
+[comment Property 'Activity::structuredNode' /]
+[comment Property 'Activity::group' /]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(OpaqueBehavior)) post(trim())]
+[let anOpaqueBehavior : OpaqueBehavior = anElement.oclAsType(OpaqueBehavior)]
+// [anOpaqueBehavior.eClass().name + ' ' + anOpaqueBehavior.getName()/]
+[anOpaqueBehavior.getFullName()/]->setThisClass_Ptr([anOpaqueBehavior.getFullName()/]);
+[anOpaqueBehavior.generateBehaviorInitialization()/]
+[comment Property 'OpaqueBehavior::language' /]
+[for (language : String | anOpaqueBehavior.language)]
+[anOpaqueBehavior.getFullName()/]->addLanguage("[language/]");
+[/for]
+[comment Property 'OpaqueBehavior::body' /]
+[for (_body : String | anOpaqueBehavior._body)]
+[anOpaqueBehavior.getFullName()/]->addBody("[_body.substituteAll('"', '\\"').substituteAll('\r\n', ' ')/]");
+[/for]
+[/let]
+[/template]
+
 [template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Class)) post(trim())]
 [let aClass : Class = anElement.oclAsType(Class)]
 // [aClass.eClass().name + ' ' + aClass.getName()/]
@@ -247,6 +279,33 @@ void [aPackage.getName() + 'Model'/]::initializeInMemoryModel()
 [comment Property 'NamedElement::name' /]
 [aNamedElement.getFullName()/]->setName("[aNamedElement.name/]");
 [aNamedElement.getFullName()/]->setVisibility(VisibilityKind::[aNamedElement.visibility/][if(aNamedElement.visibility <> VisibilityKind::_package)]_[/if]);
+[/template]
+
+[template private generateBehaviorInitialization(aBehavior : Behavior) post(trim())]
+[aBehavior.generateBehavioredClassifierInitialization()/]
+[comment Property 'aBehavior::isActive' /]
+	[if (aBehavior.isActive)]
+[aBehavior.getFullName()/]->setIsActive(true);
+	[/if]
+[comment Property 'aBehavior::ownedOperation' /]
+[for (anOperation : Operation | aBehavior.ownedOperation)]
+	[anOperation.generateElementInitialization()/]
+[aBehavior.getFullName()/]->addOwnedOperation([anOperation.getFullName()/]);
+[/for]
+[comment Property 'aBehavior::ownedReception' /]
+[for (aReception : Reception | aBehavior.ownedReception)]
+	[aReception.generateElementInitialization()/]
+[aBehavior.getFullName()/]->addOwnedReception([aReception.getFullName()/]);
+[/for]
+[comment Property 'aBehavior::isReentrant' /]
+	[if (not (aBehavior.isReentrant))]
+[aBehavior.getFullName()/]->setIsReentrant(false);
+	[/if]
+[comment Property 'Behavior::ownedParameter' /]
+	[for (aParameter : Parameter | aBehavior.ownedParameter)]
+	[aParameter.generateElementInitialization()/]
+[aBehavior.getFullName()/]->addOwnedParameter([aParameter.getFullName()/]);
+	[/for]
 [/template]
 
 [template private generateBehavioredClassifierInitialization(aBehavioredClassifier : BehavioredClassifier) post(trim())]
