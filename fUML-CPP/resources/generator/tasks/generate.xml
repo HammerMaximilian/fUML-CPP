@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="generator">
     <property name="ECLIPSE_HOME" value="../../../../../../eclipse/modeling_papyrus"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../workspaces/fUML-CPP"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../workspaces/fUML-CPP/modeling"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="generator.libraryclasspath">
