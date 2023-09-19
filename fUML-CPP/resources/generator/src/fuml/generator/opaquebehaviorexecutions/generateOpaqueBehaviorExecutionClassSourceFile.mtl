@@ -14,6 +14,7 @@
 #include "[anOpaqueBehavior.getName() + 'Execution.h'/]"
 
 #include "[anOpaqueBehavior.getRootPackage().getName() + 'Model.h'/]"
+#include <fuml/Debug.h>
 
 /* [protected (': User-defined includes and using directives')]
  * This section may be used for includes and using directives.
@@ -67,6 +68,7 @@ using namespace [anOpaqueBehavior.getRootPackage().getName()/];
 void [anOpaqueBehavior.getName() + 'Execution'/]::doBody(const ParameterValueListPtr& inputParameters,
 	const ParameterValueListPtr& outputParameters)
 {
+	fuml::Debug::println("['['/]doBody[']'/] [anOpaqueBehavior.getName()/]");
 }
 
 ValuePtr [anOpaqueBehavior.getName() + 'Execution'/]::new_()
