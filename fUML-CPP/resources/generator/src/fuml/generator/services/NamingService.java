@@ -9,7 +9,7 @@ public class NamingService
 	private static int internalElementCount = 0;
 	private static boolean useExtendedNamingConvention = false;
 	
-	public String getFullName(Element element)
+	/*public String getFullName(Element element)
 	{
 		String fullName = "";
 		
@@ -17,7 +17,7 @@ public class NamingService
 					+ this.getName(element);
 		
 		return fullName;
-	}
+	}*/
 	
 	public String getName(Element element)
 	{

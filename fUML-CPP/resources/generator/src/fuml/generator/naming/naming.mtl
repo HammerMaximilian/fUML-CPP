@@ -1,9 +1,17 @@
 [comment encoding = windows-1252 /]
 [module naming('http://www.eclipse.org/uml2/5.0.0/UML')/]
 
+[comment]
 [query public getFullName(element : Element) : String
 	= invoke('fuml.generator.services.NamingService', 'getFullName(org.eclipse.uml2.uml.Element)', Sequence{element})
 /]
+[/comment]
+
+[query public getFullName(element : Element) : String = 
+	(if(element.owner.oclIsUndefined()) then '' else element.owner.getFullName() + '_' endif)
+	+ element.getName()
+/]
+
 
 [query public getName(element : Element) : String
 	= invoke('fuml.generator.services.NamingService', 'getName(org.eclipse.uml2.uml.Element)', Sequence{element})
