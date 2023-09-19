@@ -1,4 +1,4 @@
-#include <examples/helloworld/HelloWorldExampleEnvironment.h>
+#include <examples/calcmodel/CalcModelEnvironment.h>
 #include <iostream>
 using namespace std;
 
@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 
 	for(int i = 1; i < argc; i++)
 	{
-		examples::HelloWorldExample::HelloWorldExampleEnvironment::Instance()->execute(argv[i]);
+		CalcModel::CalcModelEnvironment::Instance()->execute(argv[i]);
 	}
 
 	return 0;
