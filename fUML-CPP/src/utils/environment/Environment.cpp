@@ -75,6 +75,13 @@ void Environment::execute(std::string behaviorName)
 		return;
 	}
 
+	Class_Ptr contextType = std::dynamic_pointer_cast<Class_>(behavior->context);
+
+	if(contextType != nullptr)
+	{
+		this->context = this->locus->instantiate(contextType);
+	}
+
 	this->outputs = this->locus->executor->execute(
 		behavior,
 		this->context,

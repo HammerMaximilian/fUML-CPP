@@ -72,16 +72,16 @@ void Offer::removeWithdrawnTokens()
 	// Remove any tokens that have already been consumed.
 
 	const TokenListPtr& offeredTokens = this->offeredTokens;
-	unsigned int i = 1;
-	unsigned offeredTokensSize = offeredTokens->size();
-	while (i <= offeredTokensSize)
+
+	TokenList::iterator it = offeredTokens->begin();
+	TokenList::iterator end = offeredTokens->end();
+	while (it != end)
 	{
-		if (offeredTokens->at(i - 1)->isWithdrawn())
+		if ((*it)->isWithdrawn())
 		{
-			offeredTokens->erase(offeredTokens->begin() + (i - 1));
-			i = i - 1;
+			it = offeredTokens->erase(it);
 		}
-		i = i + 1;
+		it++;
 	}
 } // removeWithdrawnTokens
 
