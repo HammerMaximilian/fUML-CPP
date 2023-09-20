@@ -15,6 +15,10 @@
 
 #include "[anOpaqueBehavior.getRootPackage().getName() + 'Model.h'/]"
 #include <fuml/Debug.h>
+#include <fuml/semantics/commonbehavior/ParameterValue.h>
+#include <fuml/semantics/loci/ExecutionFactory.h>
+#include <fuml/semantics/loci/Locus.h>
+#include <fuml/syntax/commonbehavior/OpaqueBehavior.h>
 
 /* [protected (': User-defined includes and using directives')]
  * This section may be used for includes and using directives.
@@ -40,7 +44,7 @@ using namespace [anOpaqueBehavior.getRootPackage().getName()/];
 
 [anOpaqueBehavior.getName() + 'Execution'/]::[anOpaqueBehavior.getName() + 'Execution'/]()
 {
-	//this->types->push_back([anOpaqueBehavior.getRootPackage().getName() + 'Model::Instance()->' + anOpaqueBehavior.getFullName()/]);
+	this->types->push_back([anOpaqueBehavior.getRootPackage().getName() + 'Model::Instance()->' + anOpaqueBehavior.getFullName()/]);
 	/* [protected (': Additional opaque behavior execution initializations')]
  	 * This section may be used to do any additional opaque behavior execution initialization,
 	 * for example initializing user-defined members.
@@ -68,7 +72,9 @@ using namespace [anOpaqueBehavior.getRootPackage().getName()/];
 void [anOpaqueBehavior.getName() + 'Execution'/]::doBody(const ParameterValueListPtr& inputParameters,
 	const ParameterValueListPtr& outputParameters)
 {
-	fuml::Debug::println("['['/]doBody[']'/] [anOpaqueBehavior.getName()/]");
+	[if (anOpaqueBehavior.language->includes('C++') and anOpaqueBehavior._body->size() >= anOpaqueBehavior.language->size())]
+	[anOpaqueBehavior._body->at(anOpaqueBehavior.language->indexOf('C++'))/]
+	[/if]
 }
 
 ValuePtr [anOpaqueBehavior.getName() + 'Execution'/]::new_()

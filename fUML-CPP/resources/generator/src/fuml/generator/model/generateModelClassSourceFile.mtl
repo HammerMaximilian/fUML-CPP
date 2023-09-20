@@ -648,6 +648,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [let aValueSpecificationAction : ValueSpecificationAction = anElement.oclAsType(ValueSpecificationAction)]
 // [aValueSpecificationAction.eClass().name + ' ' + aValueSpecificationAction.getName()/]
 [aValueSpecificationAction.getFullName()/]->setThisExecutableNodePtr([aValueSpecificationAction.getFullName()/]);
+[aValueSpecificationAction.generateNamedElementInitialization()/]
 [aValueSpecificationAction.generateActionInitialization()/]
 [comment Property 'ValueSpecificationAction::value' /]
 	[if (not (aValueSpecificationAction.value.oclIsUndefined()))]
@@ -657,7 +658,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [comment Property 'ValueSpecificationAction::result' /]
 	[if (not (aValueSpecificationAction.result.oclIsUndefined()))]
 	[aValueSpecificationAction.result.generatePinInitialization()/]
-[aValueSpecificationAction.getFullName()/]->setTarget([aValueSpecificationAction.result.getFullName()/]);
+[aValueSpecificationAction.getFullName()/]->setResult([aValueSpecificationAction.result.getFullName()/]);
 	[/if]
 [/let]
 [/template]
@@ -780,6 +781,11 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 	[if (not (anActivityEdge.target.oclIsUndefined()))]
 [anActivityEdge.getFullName()/]->setTarget([anActivityEdge.target.getFullName()/]);
 	[/if]
+[comment Property 'ActivityEdge::guard' /]
+[if (not (anActivityEdge.guard.oclIsUndefined()))]
+	[anActivityEdge.guard.generateValueSpecificationInitialization()/]
+[anActivityEdge.getFullName()/]->setGuard([anActivityEdge.guard.getFullName()/]);
+[/if]
 [/let]
 [/template]
 
@@ -1160,7 +1166,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 
 [template private generateNamedElementInitialization(aNamedElement : NamedElement) post(trim())]
 [comment Property 'NamedElement::name' /]
-[aNamedElement.getFullName()/]->setName("[aNamedElement.name/]");
+[aNamedElement.getFullName()/]->setName("[aNamedElement.getName()/]");
 [aNamedElement.getFullName()/]->setVisibility(VisibilityKind::[aNamedElement.visibility/][if(aNamedElement.visibility <> VisibilityKind::_package)]_[/if]);
 [/template]
 
