@@ -1,4 +1,4 @@
-#include <examples/calcmodel/CalcModelEnvironment.h>
+#include <examples/primechecker/primecheckerEnvironment.h>
 #include <iostream>
 using namespace std;
 
@@ -13,16 +13,20 @@ static void printUsage()
 
 int main(int argc, char* argv[])
 {
-	if(argc == 1)
+	/*if(argc == 1)
 	{
 		std::cerr << "[ERROR] Must declare at least one behavior name.\n" << std::endl;
 		printUsage();
 		return -1;
-	}
+	}*/
+
+	primechecker::primecheckerEnvironment::Instance()->execute("checkIfPrime");
+
+	std::cout<<"Ende"<<std::endl;
 
 	for(int i = 1; i < argc; i++)
 	{
-		CalcModel::CalcModelEnvironment::Instance()->execute(argv[i]);
+		//CalcModel::CalcModelEnvironment::Instance()->execute(argv[i]);
 	}
 
 	return 0;
