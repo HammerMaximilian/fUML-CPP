@@ -127,8 +127,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [let anInitialNode : InitialNode = anElement.oclAsType(InitialNode)]
 // [anInitialNode.eClass().name + ' ' + anInitialNode.getName()/]
 [anInitialNode.getFullName()/]->setThisElementPtr([anInitialNode.getFullName()/]);
-[anInitialNode.generateNamedElementInitialization()/]
-[anInitialNode.generateRedefinableElementInitialization()/]
+[anInitialNode.generateActivityNodeInitialization()/]
 [/let]
 [/template]
 
@@ -136,8 +135,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [let aFinalNode : FinalNode = anElement.oclAsType(FinalNode)]
 // [aFinalNode.eClass().name + ' ' + aFinalNode.getName()/]
 [aFinalNode.getFullName()/]->setThisElementPtr([aFinalNode.getFullName()/]);
-[aFinalNode.generateNamedElementInitialization()/]
-[aFinalNode.generateRedefinableElementInitialization()/]
+[aFinalNode.generateActivityNodeInitialization()/]
 [/let]
 [/template]
 
@@ -145,8 +143,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [let aMergeNode : MergeNode = anElement.oclAsType(MergeNode)]
 // [aMergeNode.eClass().name + ' ' + aMergeNode.getName()/]
 [aMergeNode.getFullName()/]->setThisElementPtr([aMergeNode.getFullName()/]);
-[aMergeNode.generateNamedElementInitialization()/]
-[aMergeNode.generateRedefinableElementInitialization()/]
+[aMergeNode.generateActivityNodeInitialization()/]
 [/let]
 [/template]
 
@@ -154,8 +151,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [let aForkNode : ForkNode = anElement.oclAsType(ForkNode)]
 // [aForkNode.eClass().name + ' ' + aForkNode.getName()/]
 [aForkNode.getFullName()/]->setThisElementPtr([aForkNode.getFullName()/]);
-[aForkNode.generateNamedElementInitialization()/]
-[aForkNode.generateRedefinableElementInitialization()/]
+[aForkNode.generateActivityNodeInitialization()/]
 [/let]
 [/template]
 
@@ -163,8 +159,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [let aJoinNode : JoinNode = anElement.oclAsType(JoinNode)]
 // [aJoinNode.eClass().name + ' ' + aJoinNode.getName()/]
 [aJoinNode.getFullName()/]->setThisElementPtr([aJoinNode.getFullName()/]);
-[aJoinNode.generateNamedElementInitialization()/]
-[aJoinNode.generateRedefinableElementInitialization()/]
+[aJoinNode.generateActivityNodeInitialization()/]
 [/let]
 [/template]
 
@@ -172,8 +167,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [let aDecisionNode : DecisionNode = anElement.oclAsType(DecisionNode)]
 // [aDecisionNode.eClass().name + ' ' + aDecisionNode.getName()/]
 [aDecisionNode.getFullName()/]->setThisElementPtr([aDecisionNode.getFullName()/]);
-[aDecisionNode.generateNamedElementInitialization()/]
-[aDecisionNode.generateRedefinableElementInitialization()/]
+[aDecisionNode.generateActivityNodeInitialization()/]
 [comment Property 'DecisionNode::decisionInput' /]
 [if (not (aDecisionNode.decisionInput.oclIsUndefined()))]
 [aDecisionNode.getFullName()/]->setDecisionInput([generateElementReference(aDecisionNode.decisionInput, aDecisionNode)/]);
@@ -189,8 +183,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [let anActivityParameterNode : ActivityParameterNode = anElement.oclAsType(ActivityParameterNode)]
 // [anActivityParameterNode.eClass().name + ' ' + anActivityParameterNode.getName()/]
 [anActivityParameterNode.getFullName()/]->setThisElementPtr([anActivityParameterNode.getFullName()/]);
-[anActivityParameterNode.generateNamedElementInitialization()/]
-[anActivityParameterNode.generateRedefinableElementInitialization()/]
+[anActivityParameterNode.generateActivityNodeInitialization()/]
 [anActivityParameterNode.generateTypedElementInitialization()/]
 [comment Property 'ActivityParameterNode::parameter' /]
 [if (not (anActivityParameterNode.parameter.oclIsUndefined()))]
@@ -203,8 +196,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [let aCentralBufferNode : CentralBufferNode = anElement.oclAsType(CentralBufferNode)]
 // [aCentralBufferNode.eClass().name + ' ' + aCentralBufferNode.getName()/]
 [aCentralBufferNode.getFullName()/]->setThisElementPtr([aCentralBufferNode.getFullName()/]);
-[aCentralBufferNode.generateNamedElementInitialization()/]
-[aCentralBufferNode.generateRedefinableElementInitialization()/]
+[aCentralBufferNode.generateActivityNodeInitialization()/]
 [aCentralBufferNode.generateTypedElementInitialization()/]
 [/let]
 [/template]
@@ -213,8 +205,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [let anExpansionNode : ExpansionNode = anElement.oclAsType(ExpansionNode)]
 // [anExpansionNode.eClass().name + ' ' + anExpansionNode.getName()/]
 [anExpansionNode.getFullName()/]->setThisElementPtr([anExpansionNode.getFullName()/]);
-[anExpansionNode.generateNamedElementInitialization()/]
-[anExpansionNode.generateRedefinableElementInitialization()/]
+[anExpansionNode.generateActivityNodeInitialization()/]
 [anExpansionNode.generateTypedElementInitialization()/]
 [/let]
 [/template]
@@ -223,7 +214,6 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [let aCallBehaviorAction : CallBehaviorAction = anElement.oclAsType(CallBehaviorAction)]
 // [aCallBehaviorAction.eClass().name + ' ' + aCallBehaviorAction.getName()/]
 [aCallBehaviorAction.getFullName()/]->setThisExecutableNodePtr([aCallBehaviorAction.getFullName()/]);
-[aCallBehaviorAction.generateNamedElementInitialization()/]
 [aCallBehaviorAction.generateCallActionInitialization()/]
 [comment Property 'CallBehaviorAction::behavior' /]
 	[if (not (aCallBehaviorAction.behavior.oclIsUndefined()))]
@@ -241,7 +231,6 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [let aCallOperationAction : CallOperationAction = anElement.oclAsType(CallOperationAction)]
 // [aCallOperationAction.eClass().name + ' ' + aCallOperationAction.getName()/]
 [aCallOperationAction.getFullName()/]->setThisExecutableNodePtr([aCallOperationAction.getFullName()/]);
-[aCallOperationAction.generateNamedElementInitialization()/]
 [aCallOperationAction.generateCallActionInitialization()/]
 [comment Property 'CallOperationActionAction::operation' /]
 	[if (not (aCallOperationAction.operation.oclIsUndefined()))]
@@ -386,7 +375,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [comment Property 'DestroyObjectAction::target' /]
 	[if (not (aDestroyObjectAction.target.oclIsUndefined()))]
 	[aDestroyObjectAction.target.generatePinInitialization()/]
-[aDestroyObjectAction.getFullName()/]->setException([aDestroyObjectAction.target.getFullName()/]);
+[aDestroyObjectAction.getFullName()/]->setTarget([aDestroyObjectAction.target.getFullName()/]);
 	[/if]
 [/let]
 [/template]
@@ -648,7 +637,6 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [let aValueSpecificationAction : ValueSpecificationAction = anElement.oclAsType(ValueSpecificationAction)]
 // [aValueSpecificationAction.eClass().name + ' ' + aValueSpecificationAction.getName()/]
 [aValueSpecificationAction.getFullName()/]->setThisExecutableNodePtr([aValueSpecificationAction.getFullName()/]);
-[aValueSpecificationAction.generateNamedElementInitialization()/]
 [aValueSpecificationAction.generateActionInitialization()/]
 [comment Property 'ValueSpecificationAction::value' /]
 	[if (not (aValueSpecificationAction.value.oclIsUndefined()))]
@@ -695,7 +683,6 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [let anOperation : Operation = anElement.oclAsType(Operation)]
 // [anOperation.eClass().name + ' ' + anOperation.getName()/]
 [anOperation.getFullName()/]->setThisOperationPtr([anOperation.getFullName()/]);
-[anOperation.generateNamedElementInitialization()/]
 [anOperation.generateBehavioralFeatureInitialization()/]
 [comment Property 'Operation::redefinedOperation' /]
 [for (redefinedOperation : Operation | anOperation.redefinedOperation)]
@@ -708,7 +695,6 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [let aReception : Reception = anElement.oclAsType(Reception)]
 // [aReception.eClass().name + ' ' + aReception.getName()/]
 [aReception.getFullName()/]->setThisBehavioralFeaturePtr([aReception.getFullName()/]);
-[aReception.generateNamedElementInitialization()/]
 [aReception.generateBehavioralFeatureInitialization()/]
 [comment Property 'Reception::signal' /]
 [if (not (aReception.signal.oclIsUndefined()))]
@@ -957,6 +943,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [/template]
 
 [template private generateActivityNodeInitialization(anActivityNode : ActivityNode) post(trim())]
+[anActivityNode.generateNamedElementInitialization()/]
 [anActivityNode.generateRedefinableElementInitialization()/]
 [/template]
 
@@ -1009,7 +996,6 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [/template]
 
 [template private generateBehavioredClassifierInitialization(aBehavioredClassifier : BehavioredClassifier) post(trim())]
-[aBehavioredClassifier.generateNamedElementInitialization()/]
 [aBehavioredClassifier.generateClassifierInitialization()/]
 [comment Property 'BehavioredClassifier::classifierBehavior' /]
 	[if (not (aBehavioredClassifier.classifierBehavior.oclIsUndefined()))]
@@ -1036,6 +1022,8 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [/template]
 
 [template private generateClassifierInitialization(aClassifier : Classifier) post(trim())]
+[aClassifier.generateNamedElementInitialization()/]
+[aClassifier.generateRedefinableElementInitialization()/]
 [comment Property 'Classifier::isAbstract' /]
 	[if (aClassifier.isAbstract)]
 [aClassifier.getFullName()/]->setIsAbstract(true);
@@ -1085,6 +1073,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [/template]
 
 [template private generateFeatureInitialization(aFeature : Feature) post(trim())]
+[aFeature.generateNamedElementInitialization()/]
 [aFeature.generateRedefinableElementInitialization()/]
 [comment Property 'Feature::isStatic' /]
 	[if (aFeature.isStatic)]
@@ -1173,8 +1162,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [template private generatePinInitialization(aPin : Pin) post(trim())]
 // [aPin.eClass().name + ' ' + aPin.getName()/]
 [aPin.getFullName()/]->setThisElementPtr([aPin.getFullName()/]);
-[aPin.generateNamedElementInitialization()/]
-[aPin.generateRedefinableElementInitialization()/]
+[aPin.generateActivityNodeInitialization()/]
 [aPin.generateTypedElementInitialization()/]
 [aPin.generateMultiplicityElementInitialization()/]
 [/template]
@@ -1210,7 +1198,6 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullName()/
 [/template]
 
 [template private generateStructuralFeatureInitialization(aStructuralFeature : StructuralFeature) post(trim())]
-[aStructuralFeature.generateNamedElementInitialization()/]
 [aStructuralFeature.generateFeatureInitialization()/]
 [aStructuralFeature.generateMultiplicityElementInitialization()/]
 [aStructuralFeature.generateTypedElementInitialization()/]
