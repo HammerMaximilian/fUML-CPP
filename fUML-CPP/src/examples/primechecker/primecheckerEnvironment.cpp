@@ -7,13 +7,13 @@
 #include "primecheckerEnvironment.h"
 
 #include "primecheckerModel.h"
-#include "enterNumberExecution.h"
-#include "printIsNotPrimeExecution.h"
 #include "printIsPrimeExecution.h"
 #include "incrementExecution.h"
 #include "doPrimeCheckExecution.h"
-#include "checkIf_1_Or_0Execution.h"
 #include "checkLoopConditionExecution.h"
+#include "enterNumberExecution.h"
+#include "printIsNotPrimeExecution.h"
+#include "checkIf_1_Or_0Execution.h"
 
 /* Start of user code : User-defined includes and using directives
  * This section may be used for includes and using directives.
@@ -42,12 +42,6 @@ primecheckerEnvironment::primecheckerEnvironment()
 	/*
 	 * Create custom opaque behavior execution instances and add them to the execution environment.
 	 */
-	std::shared_ptr<enterNumberExecution> _enterNumberExecution(new enterNumberExecution());
-	_enterNumberExecution->setThisObject_Ptr(_enterNumberExecution);
-	this->addPrimitiveBehaviorPrototype(_enterNumberExecution);
-	std::shared_ptr<printIsNotPrimeExecution> _printIsNotPrimeExecution(new printIsNotPrimeExecution());
-	_printIsNotPrimeExecution->setThisObject_Ptr(_printIsNotPrimeExecution);
-	this->addPrimitiveBehaviorPrototype(_printIsNotPrimeExecution);
 	std::shared_ptr<printIsPrimeExecution> _printIsPrimeExecution(new printIsPrimeExecution());
 	_printIsPrimeExecution->setThisObject_Ptr(_printIsPrimeExecution);
 	this->addPrimitiveBehaviorPrototype(_printIsPrimeExecution);
@@ -57,12 +51,18 @@ primecheckerEnvironment::primecheckerEnvironment()
 	std::shared_ptr<doPrimeCheckExecution> _doPrimeCheckExecution(new doPrimeCheckExecution());
 	_doPrimeCheckExecution->setThisObject_Ptr(_doPrimeCheckExecution);
 	this->addPrimitiveBehaviorPrototype(_doPrimeCheckExecution);
-	std::shared_ptr<checkIf_1_Or_0Execution> _checkIf_1_Or_0Execution(new checkIf_1_Or_0Execution());
-	_checkIf_1_Or_0Execution->setThisObject_Ptr(_checkIf_1_Or_0Execution);
-	this->addPrimitiveBehaviorPrototype(_checkIf_1_Or_0Execution);
 	std::shared_ptr<checkLoopConditionExecution> _checkLoopConditionExecution(new checkLoopConditionExecution());
 	_checkLoopConditionExecution->setThisObject_Ptr(_checkLoopConditionExecution);
 	this->addPrimitiveBehaviorPrototype(_checkLoopConditionExecution);
+	std::shared_ptr<enterNumberExecution> _enterNumberExecution(new enterNumberExecution());
+	_enterNumberExecution->setThisObject_Ptr(_enterNumberExecution);
+	this->addPrimitiveBehaviorPrototype(_enterNumberExecution);
+	std::shared_ptr<printIsNotPrimeExecution> _printIsNotPrimeExecution(new printIsNotPrimeExecution());
+	_printIsNotPrimeExecution->setThisObject_Ptr(_printIsNotPrimeExecution);
+	this->addPrimitiveBehaviorPrototype(_printIsNotPrimeExecution);
+	std::shared_ptr<checkIf_1_Or_0Execution> _checkIf_1_Or_0Execution(new checkIf_1_Or_0Execution());
+	_checkIf_1_Or_0Execution->setThisObject_Ptr(_checkIf_1_Or_0Execution);
+	this->addPrimitiveBehaviorPrototype(_checkIf_1_Or_0Execution);
 
 	/* Start of user code : Additional environment initializations
  	 * This section may be used to do any additional environment initialization,

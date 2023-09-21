@@ -72,13 +72,15 @@ fuml::Debug::println("[doBody] number = " + std::to_string(number));
 
 bool resultBoolean = (number == 0 || number == 1);
 
+outputParameters->at(0)->values = inputParameters->at(0)->values;
+
 BooleanValuePtr result(new BooleanValue());
 result->value = resultBoolean;
 result->type = this->locus->factory->getBuiltInType("Boolean");
 
 fuml::Debug::println("[doBody] result = " + std::to_string(resultBoolean));
 
-outputParameters->at(0)->values->push_back(result);
+outputParameters->at(1)->values->push_back(result);
 }
 
 ValuePtr checkIf_1_Or_0Execution::new_()
