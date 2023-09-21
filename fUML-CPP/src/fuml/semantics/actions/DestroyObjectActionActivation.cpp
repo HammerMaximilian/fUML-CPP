@@ -28,7 +28,7 @@ void DestroyObjectActionActivation::doAction()
 	// Destroy the referent object.
 
 	DestroyObjectActionPtr action = std::dynamic_pointer_cast<DestroyObjectAction>(this->node);
-	const ValuePtr& value = this->takeTokens(action->target)->at(0);
+	ValuePtr value = this->takeTokens(action->target)->at(0);
 
 	this->destroyObject(value, action->isDestroyLinks, action->isDestroyOwnedObjects);
 } // doAction
