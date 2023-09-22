@@ -9,13 +9,13 @@
 
 #include <fuml/Debug.h>
 #include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::integerfunctions;
 
 IntegerGreaterThanEqualFunctionBehaviorExecution::IntegerGreaterThanEqualFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->IntegerFunctions_greaterOrEqual);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual);
 }
 
 bool IntegerGreaterThanEqualFunctionBehaviorExecution::doIntegerFunction(

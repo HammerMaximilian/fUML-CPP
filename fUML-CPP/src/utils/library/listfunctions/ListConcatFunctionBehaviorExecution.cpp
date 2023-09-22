@@ -12,13 +12,13 @@
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::listfunctions;
 
 ListConcatFunctionBehaviorExecution::ListConcatFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->ListFunctions_ListConcat);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat);
 }
 
 void ListConcatFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,

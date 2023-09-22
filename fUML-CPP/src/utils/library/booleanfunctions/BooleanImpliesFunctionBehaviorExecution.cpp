@@ -9,13 +9,13 @@
 
 #include <fuml/Debug.h>
 #include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::booleanfunctions;
 
 BooleanImpliesFunctionBehaviorExecution::BooleanImpliesFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->BooleanFunctions_Implies);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies);
 }
 
 bool BooleanImpliesFunctionBehaviorExecution::doBooleanFunction(const std::shared_ptr<std::vector<bool>>& arguments)

@@ -11,14 +11,14 @@
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/simpleclassifiers/BooleanValue.h>
 #include <utils/library/common/Status.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 #include <utils/library/libraryclass/OperationExecution.h>
-#include <utils/library/LibraryModel.h>
 
 using namespace fuml::library::channel;
 
 InputChannelObject::InputChannelObject()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->InputChannel);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_BasicInputOutput_InputChannel);
 }
 
 InputChannelObject::~InputChannelObject()

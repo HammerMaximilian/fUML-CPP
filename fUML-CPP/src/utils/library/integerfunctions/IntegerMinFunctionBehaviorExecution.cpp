@@ -9,13 +9,13 @@
 
 #include <fuml/Debug.h>
 #include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::integerfunctions;
 
 IntegerMinFunctionBehaviorExecution::IntegerMinFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->IntegerFunctions_Min);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min);
 }
 
 int IntegerMinFunctionBehaviorExecution::doIntegerFunction(const std::shared_ptr<std::vector<int>>& arguments)

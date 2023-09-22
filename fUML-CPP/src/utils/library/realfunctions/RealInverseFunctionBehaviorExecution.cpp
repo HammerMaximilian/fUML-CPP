@@ -9,13 +9,13 @@
 
 #include <fuml/Debug.h>
 #include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::realfunctions;
 
 RealInverseFunctionBehaviorExecution::RealInverseFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->RealFunctions_Inv);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv);
 }
 
 float RealInverseFunctionBehaviorExecution::doRealFunction(const std::shared_ptr<std::vector<float>>& arguments)

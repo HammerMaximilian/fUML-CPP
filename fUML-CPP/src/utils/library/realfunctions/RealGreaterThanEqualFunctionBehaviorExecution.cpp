@@ -9,13 +9,13 @@
 
 #include <fuml/Debug.h>
 #include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::realfunctions;
 
 RealGreaterThanEqualFunctionBehaviorExecution::RealGreaterThanEqualFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->RealFunctions_greaterOrEqual);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual);
 }
 
 bool RealGreaterThanEqualFunctionBehaviorExecution::doRealFunction(const std::shared_ptr<std::vector<float>>& arguments)

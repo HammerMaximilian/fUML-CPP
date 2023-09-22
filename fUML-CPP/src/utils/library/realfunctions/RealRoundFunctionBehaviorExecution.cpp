@@ -15,13 +15,13 @@
 #include <fuml/semantics/simpleclassifiers/RealValue.h>
 #include <fuml/semantics/simpleclassifiers/IntegerValue.h>
 #include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::realfunctions;
 
 RealRoundFunctionBehaviorExecution::RealRoundFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->RealFunctions_Round);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round);
 }
 
 void RealRoundFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,

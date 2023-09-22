@@ -15,7 +15,6 @@
 #include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
 #include <fuml/syntax/values/LiteralUnlimitedNatural.h>
 #include <fuml/syntax/activities/ControlFlow.h>
-#include <utils/library/LibraryModel.h>
 #include <fuml/syntax/activities/ForkNode.h>
 #include <fuml/syntax/activities/MergeNode.h>
 #include <fuml/syntax/activities/InitialNode.h>
@@ -28,6 +27,7 @@
 #include <fuml/syntax/packages/Package.h>
 #include <fuml/syntax/values/LiteralBoolean.h>
 #include <fuml/syntax/commonbehavior/OpaqueBehavior.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 
 /*

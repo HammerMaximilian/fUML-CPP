@@ -9,13 +9,13 @@
 
 #include <fuml/Debug.h>
 #include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::unlimitednaturalfunctions;
 
 UnlimitedNaturalLessThanFunctionBehaviorExecution::UnlimitedNaturalLessThanFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->UnlimitedNaturalFunctions_lessThan);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan);
 }
 
 bool UnlimitedNaturalLessThanFunctionBehaviorExecution::doUnlimitedNaturalFunction(const std::shared_ptr<std::vector<int>>& arguments)

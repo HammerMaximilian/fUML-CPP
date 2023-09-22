@@ -14,13 +14,13 @@
 #include <fuml/semantics/simpleclassifiers/StringValue.h>
 #include <fuml/semantics/simpleclassifiers/IntegerValue.h>
 #include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::stringfunctions;
 
 StringSubstringFunctionBehaviorExecution::StringSubstringFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->StringFunctions_Substring);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring);
 }
 
 void StringSubstringFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,

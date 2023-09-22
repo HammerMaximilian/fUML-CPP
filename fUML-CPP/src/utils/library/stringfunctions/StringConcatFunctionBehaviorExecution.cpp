@@ -13,13 +13,13 @@
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/simpleclassifiers/StringValue.h>
 #include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::stringfunctions;
 
 StringConcatFunctionBehaviorExecution::StringConcatFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->StringFunctions_Concat);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat);
 }
 
 void StringConcatFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,

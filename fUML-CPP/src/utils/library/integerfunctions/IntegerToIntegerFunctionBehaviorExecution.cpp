@@ -14,13 +14,13 @@
 #include <fuml/semantics/simpleclassifiers/IntegerValue.h>
 #include <fuml/semantics/simpleclassifiers/StringValue.h>
 #include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::integerfunctions;
 
 IntegerToIntegerFunctionBehaviorExecution::IntegerToIntegerFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->IntegerFunctions_ToInteger);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger);
 }
 
 void IntegerToIntegerFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,

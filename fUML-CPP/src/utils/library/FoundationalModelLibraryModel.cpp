@@ -1,0 +1,1948 @@
+/*
+ * LibraryModel.cpp
+ *
+ *  Created on: 31.08.2023
+ *      Author: Maximilian
+ */
+
+#include <fuml/syntax/classification/Parameter.h>
+#include <fuml/syntax/commonbehavior/FunctionBehavior.h>
+#include <fuml/syntax/simpleclassifiers/Signal.h>
+#include <fuml/syntax/classification/Property.h>
+#include <fuml/syntax/simpleclassifiers/Reception.h>
+#include <fuml/syntax/classification/Operation.h>
+#include <fuml/syntax/structuredclassifiers/Class_.h>
+#include <fuml/syntax/classification/Generalization.h>
+#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
+#include <fuml/syntax/activities/Activity.h>
+#include <fuml/syntax/activities/ActivityParameterNode.h>
+#include <fuml/syntax/actions/ReadExtentAction.h>
+#include <fuml/syntax/actions/CallOperationAction.h>
+#include <fuml/syntax/actions/InputPin.h>
+#include <fuml/syntax/actions/OutputPin.h>
+#include <fuml/syntax/activities/ObjectFlow.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
+#include <stdexcept>
+#include <utils/primitivetypes/PrimitiveTypesModel.h>
+
+using namespace fuml::library;
+
+const std::shared_ptr<FoundationalModelLibraryModel>& FoundationalModelLibraryModel::Instance()
+{
+	static std::shared_ptr<FoundationalModelLibraryModel> instance = nullptr;
+
+	if(!instance)
+	{
+		instance.reset(new FoundationalModelLibraryModel());
+		instance->initializeInMemoryModel();
+	}
+	return instance;
+}
+
+void FoundationalModelLibraryModel::initializeInMemoryModel()
+{
+	/*
+	 * Create in-memory model elements
+	 */
+
+	/*
+	 * Boolean functions
+	 */
+	//FunctionBehavior And
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And->setName("And");
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And_y);
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_And_result);
+
+	//FunctionBehavior Implies
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies->setName("Implies");
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies_y);
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Implies_result);
+
+	//FunctionBehavior Not
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Not.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Not->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Not);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Not->setName("Not");
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Not_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Not_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Not_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Not->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Not_x);
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Not_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Not_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Not_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Not_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Not->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Not_result);
+
+	//FunctionBehavior Or
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or->setName("Or");
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or_y);
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Or_result);
+
+	//FunctionBehavior ToBoolean
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean->setName("ToBoolean");
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean_x);
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean_result->setLower(0);
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean_result);
+
+	//FunctionBehavior ToString
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToString.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToString->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToString);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToString->setName("ToString");
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToString_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToString_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToString->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToString_x);
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToString_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToString_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToString_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToString_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToString->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToString_result);
+
+	//FunctionBehavior Xor
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor->setName("Xor");
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor_y);
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_Xor_result);
+
+	/*
+	 * Integer functions
+	 */
+	//FunctionBehavior Abs
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs->setName("Abs");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs_x = nullptr;
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Abs_x);
+
+	//FunctionBehavior Div
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div->setName("Div");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Div_y);
+
+	//FunctionBehavior Max
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max->setName("Max");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Max_y);
+
+	//FunctionBehavior Min
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min->setName("Min");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Min_y);
+
+	//FunctionBehavior Mod
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod->setName("Mod");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod_y = nullptr;
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Mod_y);
+
+	//FunctionBehavior Neg
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Neg.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Neg->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Neg);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Neg->setName("Neg");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Neg_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Neg_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Neg_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Neg_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Neg->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Neg_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Neg_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Neg_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Neg_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Neg->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_Neg_x);
+
+	//FunctionBehavior ToInteger
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger->setName("ToInteger");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToInteger_x);
+
+	//FunctionBehavior ToString
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToString.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToString->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToString);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToString->setName("ToString");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToString_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToString_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToString_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToString_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToString->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToString_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToString_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToString_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToString->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToString_x);
+
+	//FunctionBehavior ToUnlimitedNatural
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToUnlimitedNatural.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToUnlimitedNatural->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToUnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToUnlimitedNatural->setName("ToUnlimitedNatural");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToUnlimitedNatural_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToUnlimitedNatural_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToUnlimitedNatural_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToUnlimitedNatural_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToUnlimitedNatural->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToUnlimitedNatural_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToUnlimitedNatural_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToUnlimitedNatural_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToUnlimitedNatural_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToUnlimitedNatural->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_ToUnlimitedNatural_x);
+
+	//FunctionBehavior divide
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide->setName("/");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_divide_y);
+/* NOT PRESENT IN FUML LIBRARY
+	//FunctionBehavior equals
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_equals.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_equals->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_equals);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_equals->setName("equals");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_equals_result = nullptr;
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_equals_x = nullptr;
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_equals_y = nullptr;
+*/
+	//FunctionBehavior greaterOrEqual
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual->setName(">=");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterOrEqual_y);
+
+	//FunctionBehavior greaterThan
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan->setName(">");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_greaterThan_y);
+
+	//FunctionBehavior lessOrEqual
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual->setName("<=");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessOrEqual_y);
+
+	//FunctionBehavior lessThan
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan->setName("<");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_lessThan_y);
+
+	//FunctionBehavior minus
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus->setName("-");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_minus_y);
+
+	//FunctionBehavior plus
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus->setName("+");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_plus_y);
+
+	//FunctionBehavior times
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times->setName("*");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_IntegerFunctions_times_y);
+
+	/*
+	 * Real functions
+	 */
+	//FunctionBehavior Abs
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs->setName("Abs");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs_x = nullptr;
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Abs_x);
+
+	//FunctionBehavior Floor
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Floor.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Floor->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Floor);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Floor->setName("Floor");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Floor_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Floor_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Floor_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Floor_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Floor->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Floor_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Floor_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Floor_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Floor_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Floor->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Floor_x);
+
+	//FunctionBehavior Inv
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv->setName("Inv");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Inv_x);
+
+	//FunctionBehavior Max
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max->setName("Max");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Max_y);
+
+	//FunctionBehavior Min
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min->setName("Min");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Min_y);
+
+	//FunctionBehavior Neg
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Neg.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Neg->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Neg);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Neg->setName("Neg");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Neg_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Neg_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Neg_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Neg_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Neg->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Neg_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Neg_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Neg_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Neg_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Neg->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Neg_x);
+
+	//FunctionBehavior Round
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round->setName("Round");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_Round_x);
+
+	//FunctionBehavior ToInteger
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToInteger.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToInteger->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToInteger);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToInteger->setName("ToInteger");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToInteger_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToInteger_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToInteger_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToInteger_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToInteger->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToInteger_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToInteger_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToInteger_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToInteger_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToInteger->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToInteger_x);
+
+	//FunctionBehavior ToReal
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToReal.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToReal->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToReal);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToReal->setName("ToReal");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToReal_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToReal_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToReal_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToReal_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToReal->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToReal_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToReal_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToReal_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToReal_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToReal->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToReal_x);
+
+	//FunctionBehavior ToString
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToString.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToString->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToString);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToString->setName("ToString");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToString_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToString_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToString_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToString_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToString->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToString_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToString_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToString_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToString->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_ToString_x);
+
+	//FunctionBehavior divide
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide->setName("/");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_divide_y);
+/* NOT PRESENT IN FUML LIBRARY
+	//FunctionBehavior equals
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_equals.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_equals->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_equals);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_equals->setName("equals");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_equals_result = nullptr;
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_equals_x = nullptr;
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_equals_y = nullptr;
+*/
+	//FunctionBehavior greaterOrEqual
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual->setName(">=");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterOrEqual_y);
+
+	//FunctionBehavior greaterThan
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan->setName(">");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_greaterThan_y);
+
+	//FunctionBehavior lessOrEqual
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual->setName("<=");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessOrEqual_y);
+
+	//FunctionBehavior lessThan
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan->setName("<");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_lessThan_y);
+
+	//FunctionBehavior minus
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus->setName("-");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_minus_y);
+
+	//FunctionBehavior plus
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus->setName("+");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_plus_y);
+
+	//FunctionBehavior times
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times->setName("*");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_RealFunctions_times_y);
+
+	/*
+	 * String functions
+	 */
+	//FunctionBehavior Concat
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat);
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat->setName("Concat");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Concat_y);
+
+	//FunctionBehavior Size
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size);
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size->setName("Size");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size_x);
+
+	//FunctionBehavior Substring
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring);
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring->setName("Substring");
+		//Parameter lower
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_lower.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_lower->setName("lower");
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_lower->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_lower);
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_result);
+		//Parameter upper
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_upper.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_upper->setName("upper");
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_upper->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_upper);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+	FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Substring_x);
+
+	/*
+	 * UnlimitedNatural functions
+	 */
+	//FunctionBehavior Max
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max->setName("Max");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Max_y);
+
+	//FunctionBehavior Min
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min->setName("Min");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_Min_y);
+
+	//FunctionBehavior ToInteger
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToInteger.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToInteger->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToInteger);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToInteger->setName("ToInteger");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToInteger_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToInteger_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToInteger_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToInteger_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToInteger->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToInteger_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToInteger_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToInteger_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToInteger_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToInteger->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToInteger_x);
+
+	//FunctionBehavior ToString
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToString.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToString->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToString);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToString->setName("ToString");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToString_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToString_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToString_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToString_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToString->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToString_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToString_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToString_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToString_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToString->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToString_x);
+
+	//FunctionBehavior ToUnlimitedNatural
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural->setName("ToUnlimitedNatural");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural_x);
+/* NOT PRESENT IN FUML LIBRARY
+	//FunctionBehavior equals
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_equals.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_equals->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_equals);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_equals->setName("equals");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_equals_result = nullptr;
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_equals_x = nullptr;
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_equals_y = nullptr;
+*/
+	//FunctionBehavior greaterOrEqual
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual->setName(">=");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterOrEqual_y);
+
+	//FunctionBehavior greaterThan
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan->setName(">");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_greaterThan_y);
+
+	//FunctionBehavior lessOrEqual
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual->setName("<=");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessOrEqual_y);
+
+	//FunctionBehavior lessThan
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan->setName("<");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan_result);
+		//Parameter x
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan_x.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan_x->setName("x");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan_x->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan_x);
+		//Parameter y
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan_y.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan_y->setName("y");
+		FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan_y->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+	FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_lessThan_y);
+
+	/*
+	 * List functions
+	 */
+	//FunctionBehavior ListSize
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize);
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize->setName("ListSize");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize_result);
+		//Parameter list
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize_list.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize_list->setName("list");
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize_list->setLower(0);
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize_list->setUpper(-1);
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListSize_list);
+
+	//FunctionBehavior ListGet
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet);
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet->setName("ListGet");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet_result);
+		//Parameter index
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet_index.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet_index->setName("index");
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet_index->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet_index);
+		//Parameter list
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet_list.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet_list->setName("list");
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet_list->setLower(0);
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet_list->setUpper(-1);
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet_list);
+
+	//FunctionBehavior ListConcat
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat.reset(new FunctionBehavior());
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat->setThisClass_Ptr(FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat);
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat->setName("ListConcat");
+		//Parameter result
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_result.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_result->setName("result");
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_result->setLower(0);
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_result->setUpper(-1);
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_result);
+		//Parameter index
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_list1.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_list1->setName("list1");
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_list1->setLower(0);
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_list1->setUpper(-1);
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_list1);
+		//Parameter list
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_list2.reset(new Parameter());
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_list2->setName("list2");
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_list2->setLower(0);
+		FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_list2->setUpper(-1);
+	FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat->addOwnedParameter(FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListConcat_list2);
+
+	/*
+	 * Common
+	 */
+	//Signal Notification
+	FoundationalModelLibrary_Common_Notification.reset(new Signal());
+	FoundationalModelLibrary_Common_Notification->setThisSignalPtr(FoundationalModelLibrary_Common_Notification);
+	FoundationalModelLibrary_Common_Notification->setName("Notification");
+		//Property content
+		FoundationalModelLibrary_Common_Notification_content.reset(new Property());
+		FoundationalModelLibrary_Common_Notification_content->setThisElementPtr(FoundationalModelLibrary_Common_Notification_content);
+		FoundationalModelLibrary_Common_Notification_content->setName("content");
+		FoundationalModelLibrary_Common_Notification_content->setLower(0);
+	FoundationalModelLibrary_Common_Notification->addOwnedAttribute(FoundationalModelLibrary_Common_Notification_content);
+
+	//Class Listener
+	FoundationalModelLibrary_Common_Listener.reset(new Class_());
+	FoundationalModelLibrary_Common_Listener->setThisClass_Ptr(FoundationalModelLibrary_Common_Listener);
+	FoundationalModelLibrary_Common_Listener->setName("Listener");
+	FoundationalModelLibrary_Common_Listener->setIsAbstract(true);
+	FoundationalModelLibrary_Common_Listener->setIsActive(true);
+		//Reception Notification
+		FoundationalModelLibrary_Common_Listener_Notification.reset(new Reception());
+		FoundationalModelLibrary_Common_Listener_Notification->setThisBehavioralFeaturePtr(FoundationalModelLibrary_Common_Listener_Notification);
+		FoundationalModelLibrary_Common_Listener_Notification->setName("Notification");
+		FoundationalModelLibrary_Common_Listener_Notification->setSignal(FoundationalModelLibrary_Common_Notification);
+	FoundationalModelLibrary_Common_Listener->addOwnedReception(FoundationalModelLibrary_Common_Listener_Notification);
+
+	//DataType Status
+	FoundationalModelLibrary_Common_Status.reset(new DataType());
+	FoundationalModelLibrary_Common_Status->setThisDataTypePtr(FoundationalModelLibrary_Common_Status);
+	FoundationalModelLibrary_Common_Status->setName("Status");
+		//Property context
+		FoundationalModelLibrary_Common_Status_context.reset(new Property());
+		FoundationalModelLibrary_Common_Status_context->setThisElementPtr(FoundationalModelLibrary_Common_Status_context);
+		FoundationalModelLibrary_Common_Status_context->setName("context");
+		FoundationalModelLibrary_Common_Status_context->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+	FoundationalModelLibrary_Common_Status->addOwnedAttribute(FoundationalModelLibrary_Common_Status_context);
+		//Property code
+		FoundationalModelLibrary_Common_Status_code.reset(new Property());
+		FoundationalModelLibrary_Common_Status_code->setThisElementPtr(FoundationalModelLibrary_Common_Status_code);
+		FoundationalModelLibrary_Common_Status_code->setName("code");
+		FoundationalModelLibrary_Common_Status_code->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	FoundationalModelLibrary_Common_Status->addOwnedAttribute(FoundationalModelLibrary_Common_Status_code);
+		//Property description
+		FoundationalModelLibrary_Common_Status_description.reset(new Property());
+		FoundationalModelLibrary_Common_Status_description->setThisElementPtr(FoundationalModelLibrary_Common_Status_description);
+		FoundationalModelLibrary_Common_Status_description->setName("description");
+		FoundationalModelLibrary_Common_Status_description->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+	FoundationalModelLibrary_Common_Status->addOwnedAttribute(FoundationalModelLibrary_Common_Status_description);
+
+	/*
+	 * BasicInputOutput
+	 */
+	// Class Channel
+	FoundationalModelLibrary_BasicInputOutput_Channel.reset(new Class_());
+	FoundationalModelLibrary_BasicInputOutput_Channel->setThisClass_Ptr(FoundationalModelLibrary_BasicInputOutput_Channel);
+	FoundationalModelLibrary_BasicInputOutput_Channel->setName("Channel");
+	FoundationalModelLibrary_BasicInputOutput_Channel->setIsAbstract(true);
+		//Operation getName
+		FoundationalModelLibrary_BasicInputOutput_Channel_getName.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_Channel_getName->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_Channel_getName);
+		FoundationalModelLibrary_BasicInputOutput_Channel_getName->setName("getName");
+		FoundationalModelLibrary_BasicInputOutput_Channel_getName->setIsAbstract(true);
+			//Parameter ReturnResult
+			FoundationalModelLibrary_BasicInputOutput_Channel_getName_ReturnResult.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_Channel_getName_ReturnResult->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_Channel_getName_ReturnResult);
+			FoundationalModelLibrary_BasicInputOutput_Channel_getName_ReturnResult->setName("ReturnResult");
+			FoundationalModelLibrary_BasicInputOutput_Channel_getName_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+			FoundationalModelLibrary_BasicInputOutput_Channel_getName_ReturnResult->setDirection(ParameterDirectionKind::return_);
+		FoundationalModelLibrary_BasicInputOutput_Channel_getName->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_Channel_getName_ReturnResult);
+	FoundationalModelLibrary_BasicInputOutput_Channel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_Channel_getName);
+		//Operation open
+		FoundationalModelLibrary_BasicInputOutput_Channel_open.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_Channel_open->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_Channel_open);
+		FoundationalModelLibrary_BasicInputOutput_Channel_open->setName("open");
+		FoundationalModelLibrary_BasicInputOutput_Channel_open->setIsAbstract(true);
+			//Parameter errorStatus
+			FoundationalModelLibrary_BasicInputOutput_Channel_open_errorStatus.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_Channel_open_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_Channel_open_errorStatus);
+			FoundationalModelLibrary_BasicInputOutput_Channel_open_errorStatus->setName("errorStatus");
+			FoundationalModelLibrary_BasicInputOutput_Channel_open_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+			FoundationalModelLibrary_BasicInputOutput_Channel_open_errorStatus->setDirection(ParameterDirectionKind::out);
+		FoundationalModelLibrary_BasicInputOutput_Channel_open->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_Channel_open_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_Channel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_Channel_open);
+		//Operation close
+		FoundationalModelLibrary_BasicInputOutput_Channel_close.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_Channel_close->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_Channel_close);
+		FoundationalModelLibrary_BasicInputOutput_Channel_close->setName("close");
+		FoundationalModelLibrary_BasicInputOutput_Channel_close->setIsAbstract(true);
+			//Parameter errorStatus
+			FoundationalModelLibrary_BasicInputOutput_Channel_close_errorStatus.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_Channel_close_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_Channel_close_errorStatus);
+			FoundationalModelLibrary_BasicInputOutput_Channel_close_errorStatus->setName("errorStatus");
+			FoundationalModelLibrary_BasicInputOutput_Channel_close_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+			FoundationalModelLibrary_BasicInputOutput_Channel_close_errorStatus->setDirection(ParameterDirectionKind::out);
+		FoundationalModelLibrary_BasicInputOutput_Channel_close->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_Channel_close_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_Channel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_Channel_close);
+		//Operation isOpen
+		FoundationalModelLibrary_BasicInputOutput_Channel_isOpen.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_Channel_isOpen->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_Channel_isOpen);
+		FoundationalModelLibrary_BasicInputOutput_Channel_isOpen->setName("isOpen");
+		FoundationalModelLibrary_BasicInputOutput_Channel_isOpen->setIsAbstract(true);
+			//Parameter ReturnResult
+			FoundationalModelLibrary_BasicInputOutput_Channel_isOpen_ReturnResult.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_Channel_isOpen_ReturnResult->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_Channel_isOpen_ReturnResult);
+			FoundationalModelLibrary_BasicInputOutput_Channel_isOpen_ReturnResult->setName("ReturnResult");
+			FoundationalModelLibrary_BasicInputOutput_Channel_isOpen_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+			FoundationalModelLibrary_BasicInputOutput_Channel_isOpen_ReturnResult->setDirection(ParameterDirectionKind::return_);
+		FoundationalModelLibrary_BasicInputOutput_Channel_isOpen->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_Channel_isOpen_ReturnResult);
+	FoundationalModelLibrary_BasicInputOutput_Channel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_Channel_isOpen);
+		//Operation getStatus
+		FoundationalModelLibrary_BasicInputOutput_Channel_getStatus.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_Channel_getStatus->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_Channel_getStatus);
+		FoundationalModelLibrary_BasicInputOutput_Channel_getStatus->setName("getStatus");
+		FoundationalModelLibrary_BasicInputOutput_Channel_getStatus->setIsAbstract(true);
+			//Parameter ReturnResult
+			FoundationalModelLibrary_BasicInputOutput_Channel_getStatus_ReturnResult.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_Channel_getStatus_ReturnResult->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_Channel_getStatus_ReturnResult);
+			FoundationalModelLibrary_BasicInputOutput_Channel_getStatus_ReturnResult->setName("ReturnResult");
+			FoundationalModelLibrary_BasicInputOutput_Channel_getStatus_ReturnResult->setType(FoundationalModelLibrary_Common_Status);
+			FoundationalModelLibrary_BasicInputOutput_Channel_getStatus_ReturnResult->setDirection(ParameterDirectionKind::return_);
+		FoundationalModelLibrary_BasicInputOutput_Channel_getStatus->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_Channel_getStatus_ReturnResult);
+	FoundationalModelLibrary_BasicInputOutput_Channel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_Channel_getStatus);
+
+	//Class InputChannel
+	FoundationalModelLibrary_BasicInputOutput_InputChannel.reset(new Class_());
+	FoundationalModelLibrary_BasicInputOutput_InputChannel->setThisClass_Ptr(FoundationalModelLibrary_BasicInputOutput_InputChannel);
+	FoundationalModelLibrary_BasicInputOutput_InputChannel->setName("InputChannel");
+	FoundationalModelLibrary_BasicInputOutput_InputChannel->setIsAbstract(true);
+		//Generalization to Channel
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_Generalization_Channel.reset(new Generalization());
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_Generalization_Channel->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_InputChannel_Generalization_Channel);
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_Generalization_Channel->setGeneral(FoundationalModelLibrary_BasicInputOutput_Channel);
+	FoundationalModelLibrary_BasicInputOutput_InputChannel->addGeneralization(FoundationalModelLibrary_BasicInputOutput_InputChannel_Generalization_Channel);
+		//Operation hasMore
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_hasMore.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_hasMore->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_InputChannel_hasMore);
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_hasMore->setName("hasMore");
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_hasMore->setIsAbstract(true);
+			//Parameter ReturnResult
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_hasMore_ReturnResult.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_hasMore_ReturnResult->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_InputChannel_hasMore_ReturnResult);
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_hasMore_ReturnResult->setName("ReturnResult");
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_hasMore_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_hasMore_ReturnResult->setDirection(ParameterDirectionKind::return_);
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_hasMore->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_InputChannel_hasMore_ReturnResult);
+	FoundationalModelLibrary_BasicInputOutput_InputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_InputChannel_hasMore);
+		//Operation read
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_read.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_read->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_InputChannel_read);
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_read->setName("read");
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_read->setIsAbstract(true);
+			//Parameter value
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_read_value.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_read_value->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_InputChannel_read_value);
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_read_value->setName("value");
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_read_value->setDirection(ParameterDirectionKind::out);
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_read->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_InputChannel_read_value);
+			//Parameter errorStatus
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_read_errorStatus.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_read_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_InputChannel_read_errorStatus);
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_read_errorStatus->setName("errorStatus");
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_read_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_read_errorStatus->setDirection(ParameterDirectionKind::out);
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_read->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_InputChannel_read_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_InputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_InputChannel_read);
+		//Operation peek
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_peek.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_peek->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_InputChannel_peek);
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_peek->setName("peek");
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_peek->setIsAbstract(true);
+			//Parameter value
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_peek_value.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_peek_value->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_InputChannel_peek_value);
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_peek_value->setName("value");
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_peek_value->setDirection(ParameterDirectionKind::out);
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_peek->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_InputChannel_peek_value);
+			//Parameter errorStatus
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_peek_errorStatus.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_peek_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_InputChannel_peek_errorStatus);
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_peek_errorStatus->setName("errorStatus");
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_peek_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+			FoundationalModelLibrary_BasicInputOutput_InputChannel_peek_errorStatus->setDirection(ParameterDirectionKind::out);
+		FoundationalModelLibrary_BasicInputOutput_InputChannel_peek->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_InputChannel_peek_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_InputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_InputChannel_peek);
+
+	//Class OutputChannel
+	FoundationalModelLibrary_BasicInputOutput_OutputChannel.reset(new Class_());
+	FoundationalModelLibrary_BasicInputOutput_OutputChannel->setThisClass_Ptr(FoundationalModelLibrary_BasicInputOutput_OutputChannel);
+	FoundationalModelLibrary_BasicInputOutput_OutputChannel->setName("OutputChannel");
+	FoundationalModelLibrary_BasicInputOutput_OutputChannel->setIsAbstract(true);
+		//Generalization to Channel
+		FoundationalModelLibrary_BasicInputOutput_OutputChannel_Generalization_Channel.reset(new Generalization());
+		FoundationalModelLibrary_BasicInputOutput_OutputChannel_Generalization_Channel->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_OutputChannel_Generalization_Channel);
+		FoundationalModelLibrary_BasicInputOutput_OutputChannel_Generalization_Channel->setGeneral(FoundationalModelLibrary_BasicInputOutput_Channel);
+	FoundationalModelLibrary_BasicInputOutput_OutputChannel->addGeneralization(FoundationalModelLibrary_BasicInputOutput_OutputChannel_Generalization_Channel);
+		//Operation isFull
+		FoundationalModelLibrary_BasicInputOutput_OutputChannel_isFull.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_OutputChannel_isFull->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_OutputChannel_isFull);
+		FoundationalModelLibrary_BasicInputOutput_OutputChannel_isFull->setName("isFull");
+		FoundationalModelLibrary_BasicInputOutput_OutputChannel_isFull->setIsAbstract(true);
+			//Parameter ReturnResult
+			FoundationalModelLibrary_BasicInputOutput_OutputChannel_isFull_ReturnResult.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_OutputChannel_isFull_ReturnResult->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_OutputChannel_isFull_ReturnResult);
+			FoundationalModelLibrary_BasicInputOutput_OutputChannel_isFull_ReturnResult->setName("ReturnResult");
+			FoundationalModelLibrary_BasicInputOutput_OutputChannel_isFull_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+			FoundationalModelLibrary_BasicInputOutput_OutputChannel_isFull_ReturnResult->setDirection(ParameterDirectionKind::return_);
+		FoundationalModelLibrary_BasicInputOutput_OutputChannel_isFull->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_OutputChannel_isFull_ReturnResult);
+	FoundationalModelLibrary_BasicInputOutput_OutputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_OutputChannel_isFull);
+		//Operation write
+		FoundationalModelLibrary_BasicInputOutput_OutputChannel_write.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_OutputChannel_write->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_OutputChannel_write);
+		FoundationalModelLibrary_BasicInputOutput_OutputChannel_write->setName("write");
+		FoundationalModelLibrary_BasicInputOutput_OutputChannel_write->setIsAbstract(true);
+			//Parameter value
+			FoundationalModelLibrary_BasicInputOutput_OutputChannel_write_value.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_OutputChannel_write_value->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_OutputChannel_write_value);
+			FoundationalModelLibrary_BasicInputOutput_OutputChannel_write_value->setName("value");
+		FoundationalModelLibrary_BasicInputOutput_OutputChannel_write->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_OutputChannel_write_value);
+			//Parameter errorStatus
+			FoundationalModelLibrary_BasicInputOutput_OutputChannel_write_errorStatus.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_OutputChannel_write_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_OutputChannel_write_errorStatus);
+			FoundationalModelLibrary_BasicInputOutput_OutputChannel_write_errorStatus->setName("errorStatus");
+			FoundationalModelLibrary_BasicInputOutput_OutputChannel_write_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+			FoundationalModelLibrary_BasicInputOutput_OutputChannel_write_errorStatus->setDirection(ParameterDirectionKind::out);
+		FoundationalModelLibrary_BasicInputOutput_OutputChannel_write->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_OutputChannel_write_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_OutputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_OutputChannel_write);
+
+	//Class TextInputChannel
+		FoundationalModelLibrary_BasicInputOutput_TextInputChannel.reset(new Class_());
+		FoundationalModelLibrary_BasicInputOutput_TextInputChannel->setThisClass_Ptr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel);
+		FoundationalModelLibrary_BasicInputOutput_TextInputChannel->setName("TextInputChannel");
+		FoundationalModelLibrary_BasicInputOutput_TextInputChannel->setIsAbstract(true);
+			//Generalization to Channel
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_Generalization_InputChannel.reset(new Generalization());
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_Generalization_InputChannel->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_Generalization_InputChannel);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_Generalization_InputChannel->setGeneral(FoundationalModelLibrary_BasicInputOutput_InputChannel);
+		FoundationalModelLibrary_BasicInputOutput_TextInputChannel->addGeneralization(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_Generalization_InputChannel);
+			//Operation readCharacter
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter.reset(new Operation());
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter->setName("readCharacter");
+				//Parameter ReturnResult
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter_ReturnResult.reset(new Parameter());
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter_ReturnResult->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter_ReturnResult);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter_ReturnResult->setName("ReturnResult");
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter_ReturnResult->setDirection(ParameterDirectionKind::return_);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter_ReturnResult);
+				//Parameter errorStatus
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter_errorStatus.reset(new Parameter());
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter_errorStatus);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter_errorStatus->setName("errorStatus");
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter_errorStatus->setDirection(ParameterDirectionKind::out);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_TextInputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readCharacter);
+			//Operation peekCharacter
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter.reset(new Operation());
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter->setName("peekCharacter");
+				//Parameter OwnedParameter
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter_OwnedParameter.reset(new Parameter());
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter_OwnedParameter->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter_OwnedParameter);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter_OwnedParameter->setName("OwnedParameter");
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter_OwnedParameter->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter_OwnedParameter->setDirection(ParameterDirectionKind::return_);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter_OwnedParameter);
+				//Parameter errorStatus
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter_errorStatus.reset(new Parameter());
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter_errorStatus);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter_errorStatus->setName("errorStatus");
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter_errorStatus->setDirection(ParameterDirectionKind::out);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_TextInputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_peekCharacter);
+			//Operation readLine
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine.reset(new Operation());
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine->setName("readLine");
+				//Parameter ReturnResult
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine_ReturnResult.reset(new Parameter());
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine_ReturnResult->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine_ReturnResult);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine_ReturnResult->setName("ReturnResult");
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine_ReturnResult->setDirection(ParameterDirectionKind::return_);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine_ReturnResult);
+				//Parameter errorStatus
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine_errorStatus.reset(new Parameter());
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine_errorStatus);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine_errorStatus->setName("errorStatus");
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine_errorStatus->setDirection(ParameterDirectionKind::out);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_TextInputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine);
+			//Operation readInteger
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger.reset(new Operation());
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger->setName("readInteger");
+				//Parameter ReturnResult
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger_ReturnResult.reset(new Parameter());
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger_ReturnResult->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger_ReturnResult);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger_ReturnResult->setName("ReturnResult");
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger_ReturnResult->setDirection(ParameterDirectionKind::return_);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger_ReturnResult);
+				//Parameter errorStatus
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger_errorStatus.reset(new Parameter());
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger_errorStatus);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger_errorStatus->setName("errorStatus");
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger_errorStatus->setDirection(ParameterDirectionKind::out);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_TextInputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readInteger);
+			//Operation readReal
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal.reset(new Operation());
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal->setName("readReal");
+				//Parameter ReturnResult
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal_ReturnResult.reset(new Parameter());
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal_ReturnResult->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal_ReturnResult);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal_ReturnResult->setName("ReturnResult");
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal_ReturnResult->setDirection(ParameterDirectionKind::return_);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal_ReturnResult);
+				//Parameter errorStatus
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal_errorStatus.reset(new Parameter());
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal_errorStatus);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal_errorStatus->setName("errorStatus");
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal_errorStatus->setDirection(ParameterDirectionKind::out);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_TextInputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readReal);
+			//Operation readBoolean
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean.reset(new Operation());
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean->setName("readBoolean");
+				//Parameter ReturnResult
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean_ReturnResult.reset(new Parameter());
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean_ReturnResult->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean_ReturnResult);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean_ReturnResult->setName("ReturnResult");
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean_ReturnResult->setDirection(ParameterDirectionKind::return_);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean_ReturnResult);
+				//Parameter errorStatus
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean_errorStatus.reset(new Parameter());
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean_errorStatus);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean_errorStatus->setName("errorStatus");
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean_errorStatus->setDirection(ParameterDirectionKind::out);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_TextInputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readBoolean);
+			//Operation readUnlimitedNatural
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural.reset(new Operation());
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural->setName("readUnlimitedNatural");
+				//Parameter ReturnResult
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural_ReturnResult.reset(new Parameter());
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural_ReturnResult->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural_ReturnResult);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural_ReturnResult->setName("ReturnResult");
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural_ReturnResult->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural_ReturnResult->setDirection(ParameterDirectionKind::return_);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural_ReturnResult);
+				//Parameter errorStatus
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural_errorStatus.reset(new Parameter());
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural_errorStatus);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural_errorStatus->setName("errorStatus");
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+				FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural_errorStatus->setDirection(ParameterDirectionKind::out);
+			FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_TextInputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readUnlimitedNatural);
+
+	//Class TextOutputChannel
+	FoundationalModelLibrary_BasicInputOutput_TextOutputChannel.reset(new Class_());
+	FoundationalModelLibrary_BasicInputOutput_TextOutputChannel->setThisClass_Ptr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel);
+	FoundationalModelLibrary_BasicInputOutput_TextOutputChannel->setName("TextOutputChannel");
+	FoundationalModelLibrary_BasicInputOutput_TextOutputChannel->setIsAbstract(true);
+		//Generalization to Channel
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_Generalization_OutputChannel.reset(new Generalization());
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_Generalization_OutputChannel->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_Generalization_OutputChannel);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_Generalization_OutputChannel->setGeneral(FoundationalModelLibrary_BasicInputOutput_OutputChannel);
+	FoundationalModelLibrary_BasicInputOutput_TextOutputChannel->addGeneralization(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_Generalization_OutputChannel);
+
+	//Class StandardInputChannel
+	FoundationalModelLibrary_BasicInputOutput_StandardInputChannel.reset(new Class_());
+	FoundationalModelLibrary_BasicInputOutput_StandardInputChannel->setThisClass_Ptr(FoundationalModelLibrary_BasicInputOutput_StandardInputChannel);
+	FoundationalModelLibrary_BasicInputOutput_StandardInputChannel->setName("StandardInputChannel");
+	FoundationalModelLibrary_BasicInputOutput_StandardInputChannel->setIsAbstract(true);
+		//Generalization to TextInputChannel
+		FoundationalModelLibrary_BasicInputOutput_StandardInputChannel_Generalization_TextInputChannel.reset(new Generalization());
+		FoundationalModelLibrary_BasicInputOutput_StandardInputChannel_Generalization_TextInputChannel->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_StandardInputChannel_Generalization_TextInputChannel);
+		FoundationalModelLibrary_BasicInputOutput_StandardInputChannel_Generalization_TextInputChannel->setGeneral(FoundationalModelLibrary_BasicInputOutput_TextInputChannel);
+	FoundationalModelLibrary_BasicInputOutput_StandardInputChannel->addGeneralization(FoundationalModelLibrary_BasicInputOutput_StandardInputChannel_Generalization_TextInputChannel);
+
+	//Class StandardOutputChannel
+	FoundationalModelLibrary_BasicInputOutput_StandardOutputChannel.reset(new Class_());
+	FoundationalModelLibrary_BasicInputOutput_StandardOutputChannel->setThisClass_Ptr(FoundationalModelLibrary_BasicInputOutput_StandardOutputChannel);
+	FoundationalModelLibrary_BasicInputOutput_StandardOutputChannel->setName("StandardOutputChannel");
+	FoundationalModelLibrary_BasicInputOutput_StandardOutputChannel->setIsAbstract(true);
+		//Generalization to TextOutputChannel
+		FoundationalModelLibrary_BasicInputOutput_StandardOutputChannel_Generalization_TextOutputChannel.reset(new Generalization());
+		FoundationalModelLibrary_BasicInputOutput_StandardOutputChannel_Generalization_TextOutputChannel->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_StandardOutputChannel_Generalization_TextOutputChannel);
+		FoundationalModelLibrary_BasicInputOutput_StandardOutputChannel_Generalization_TextOutputChannel->setGeneral(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel);
+	FoundationalModelLibrary_BasicInputOutput_StandardOutputChannel->addGeneralization(FoundationalModelLibrary_BasicInputOutput_StandardOutputChannel_Generalization_TextOutputChannel);
+		//Operation writeString
+	FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString->setName("writeString");
+			//Parameter value
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString_value.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString_value->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString_value);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString_value->setName("value");
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString_value);
+			//Parameter errorStatus
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString_errorStatus.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString_errorStatus);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString_errorStatus->setName("errorStatus");
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString_errorStatus->setDirection(ParameterDirectionKind::out);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_TextOutputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeString);
+		//Operation writeNewLine
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeNewLine.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeNewLine->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeNewLine);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeNewLine->setName("writeNewLine");
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeNewLine->setIsAbstract(true);
+			//Parameter errorStatus
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeNewLine_errorStatus.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeNewLine_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeNewLine_errorStatus);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeNewLine_errorStatus->setName("errorStatus");
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeNewLine_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeNewLine_errorStatus->setDirection(ParameterDirectionKind::out);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeNewLine->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeNewLine_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_TextOutputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeNewLine);
+		//Operation writeLine
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine->setName("writeLine");
+			//Parameter value
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine_value.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine_value->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine_value);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine_value->setName("value");
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine_value);
+			//Parameter errorStatus
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine_errorStatus.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine_errorStatus);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine_errorStatus->setName("errorStatus");
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine_errorStatus->setDirection(ParameterDirectionKind::out);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_TextOutputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine);
+		//Operation writeInteger
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger->setName("writeInteger");
+			//Parameter value
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger_value.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger_value->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger_value);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger_value->setName("value");
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger_value);
+			//Parameter errorStatus
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger_errorStatus.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger_errorStatus);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger_errorStatus->setName("errorStatus");
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger_errorStatus->setDirection(ParameterDirectionKind::out);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_TextOutputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeInteger);
+		//Operation writeReal
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal->setName("writeReal");
+			//Parameter value
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal_value.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal_value->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal_value);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal_value->setName("value");
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal_value);
+			//Parameter errorStatus
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal_errorStatus.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal_errorStatus);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal_errorStatus->setName("errorStatus");
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal_errorStatus->setDirection(ParameterDirectionKind::out);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_TextOutputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeReal);
+		//Operation writeBoolean
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean->setName("writeBoolean");
+			//Parameter value
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean_value.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean_value->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean_value);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean_value->setName("value");
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean_value);
+			//Parameter errorStatus
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean_errorStatus.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean_errorStatus);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean_errorStatus->setName("errorStatus");
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean_errorStatus->setDirection(ParameterDirectionKind::out);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_TextOutputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeBoolean);
+		//Operation writeUnlimitedNatural
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural->setName("writeUnlimitedNatural");
+			//Parameter value
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural_value.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural_value->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural_value);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural_value->setName("value");
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural_value);
+			//Parameter errorStatus
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural_errorStatus.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural_errorStatus);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural_errorStatus->setName("errorStatus");
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+			FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural_errorStatus->setDirection(ParameterDirectionKind::out);
+		FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_TextOutputChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeUnlimitedNatural);
+
+	//Activity WriteLine
+	FoundationalModelLibrary_BasicInputOutput_WriteLine.reset(new Activity());
+	FoundationalModelLibrary_BasicInputOutput_WriteLine->setThisActivityPtr(FoundationalModelLibrary_BasicInputOutput_WriteLine);
+	FoundationalModelLibrary_BasicInputOutput_WriteLine->setName("WriteLine");
+	FoundationalModelLibrary_BasicInputOutput_WriteLine->isReentrant = false;
+		//Parameter value
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_value.reset(new Parameter());
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_value->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_WriteLine_value);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_value->setName("value");
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+	FoundationalModelLibrary_BasicInputOutput_WriteLine->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_WriteLine_value);
+		//Parameter errorStatus
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_errorStatus.reset(new Parameter());;
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_WriteLine_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_errorStatus->setName("errorStatus");
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_errorStatus->setDirection(ParameterDirectionKind::out);
+	FoundationalModelLibrary_BasicInputOutput_WriteLine->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_WriteLine_errorStatus);
+		//ActivityParameterNode value
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_value.reset(new ActivityParameterNode());
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_value->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_value);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_value->setName("value");
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_value->setParameter(FoundationalModelLibrary_BasicInputOutput_WriteLine_value);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+	FoundationalModelLibrary_BasicInputOutput_WriteLine->addNode(FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_value);
+		//ActivityParameterNode errorStatus
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_errorStatus.reset(new ActivityParameterNode());
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_errorStatus->setName("errorStatus");
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_errorStatus->setParameter(FoundationalModelLibrary_BasicInputOutput_WriteLine_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+	FoundationalModelLibrary_BasicInputOutput_WriteLine->addNode(FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_errorStatus);
+		//ReadExtentAction StandardOutputChannel
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_ReadExtentAction_StandardOutputChannel.reset(new ReadExtentAction());
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_ReadExtentAction_StandardOutputChannel->setThisExecutableNodePtr(FoundationalModelLibrary_BasicInputOutput_WriteLine_ReadExtentAction_StandardOutputChannel);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_ReadExtentAction_StandardOutputChannel->setName("StandardOutputChannel");
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_ReadExtentAction_StandardOutputChannel->setClassifier(FoundationalModelLibrary_BasicInputOutput_StandardOutputChannel);
+			//OutputPin result
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_ReadExtentAction_StandardOutputChannel_result.reset(new OutputPin());
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_ReadExtentAction_StandardOutputChannel_result->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_WriteLine_ReadExtentAction_StandardOutputChannel_result);
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_ReadExtentAction_StandardOutputChannel_result->setName("result");
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_ReadExtentAction_StandardOutputChannel_result->setType(FoundationalModelLibrary_BasicInputOutput_StandardOutputChannel);
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_ReadExtentAction_StandardOutputChannel_result->setUpper(-1);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_ReadExtentAction_StandardOutputChannel->setResult(FoundationalModelLibrary_BasicInputOutput_WriteLine_ReadExtentAction_StandardOutputChannel_result);
+	FoundationalModelLibrary_BasicInputOutput_WriteLine->addNode(FoundationalModelLibrary_BasicInputOutput_WriteLine_ReadExtentAction_StandardOutputChannel);
+		//CallOperationAction writeLine
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine.reset(new CallOperationAction());
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine->setThisExecutableNodePtr(FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine->setName("writeLine");
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine->setOperation(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel_writeLine);
+			//InputPin target
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_target.reset(new InputPin());
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_target->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_target);
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_target->setName("target");
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_target->setType(FoundationalModelLibrary_BasicInputOutput_TextOutputChannel);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine->setTarget(FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_target);
+			//InputPin value
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_value.reset(new InputPin());
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_value->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_value);
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_value->setName("value");
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_value->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine->addArgument(FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_value);
+			//OutputPin errorStatus
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_errorStatus.reset(new OutputPin());
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_errorStatus);
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_errorStatus->setName("errorStatus");
+			FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine->addResult(FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_WriteLine->addNode(FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine);
+		//ObjectFlow from value to writeLine_value
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_From_value_To_writeLine_value.reset(new ObjectFlow());
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_From_value_To_writeLine_value->setThisActivityEdgePtr(FoundationalModelLibrary_BasicInputOutput_WriteLine_From_value_To_writeLine_value);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_From_value_To_writeLine_value->setName("From_value_To_writeLine_value");
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_From_value_To_writeLine_value->setSource(FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_value);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_From_value_To_writeLine_value->setTarget(FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_value);
+	FoundationalModelLibrary_BasicInputOutput_WriteLine->addEdge(FoundationalModelLibrary_BasicInputOutput_WriteLine_From_value_To_writeLine_value);
+		//ObjectFlow from StandardOutputChannel_result to writeLine_target
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_From_StandardOutputChannel_result_To_writeLine_target.reset(new ObjectFlow());
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_From_StandardOutputChannel_result_To_writeLine_target->setThisActivityEdgePtr(FoundationalModelLibrary_BasicInputOutput_WriteLine_From_StandardOutputChannel_result_To_writeLine_target);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_From_StandardOutputChannel_result_To_writeLine_target->setName("From_StandardOutputChannel_result_To_writeLine_target");
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_From_StandardOutputChannel_result_To_writeLine_target->setSource(FoundationalModelLibrary_BasicInputOutput_WriteLine_ReadExtentAction_StandardOutputChannel_result);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_From_StandardOutputChannel_result_To_writeLine_target->setTarget(FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_target);
+	FoundationalModelLibrary_BasicInputOutput_WriteLine->addEdge(FoundationalModelLibrary_BasicInputOutput_WriteLine_From_StandardOutputChannel_result_To_writeLine_target);
+		//ObjectFlow from writeLine_errorStatus to errorStatus
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_From_writeLine_errorStatus_To_errorStatus.reset(new ObjectFlow());
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_From_writeLine_errorStatus_To_errorStatus->setThisActivityEdgePtr(FoundationalModelLibrary_BasicInputOutput_WriteLine_From_writeLine_errorStatus_To_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_From_writeLine_errorStatus_To_errorStatus->setName("From_FoundationalModelLibrary_BasicInputOutput_WriteLine_errorStatus_To_errorStatus");
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_From_writeLine_errorStatus_To_errorStatus->setSource(FoundationalModelLibrary_BasicInputOutput_WriteLine_CallOperationAction_writeLine_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_WriteLine_From_writeLine_errorStatus_To_errorStatus->setTarget(FoundationalModelLibrary_BasicInputOutput_WriteLine_ActivityParameterNode_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_WriteLine->addEdge(FoundationalModelLibrary_BasicInputOutput_WriteLine_From_writeLine_errorStatus_To_errorStatus);
+
+	//Class ActiveChannel
+	FoundationalModelLibrary_BasicInputOutput_ActiveChannel.reset(new Class_());
+	FoundationalModelLibrary_BasicInputOutput_ActiveChannel->setThisClass_Ptr(FoundationalModelLibrary_BasicInputOutput_ActiveChannel);
+	FoundationalModelLibrary_BasicInputOutput_ActiveChannel->setName("ActiveChannel");
+	FoundationalModelLibrary_BasicInputOutput_ActiveChannel->setIsAbstract(true);
+	FoundationalModelLibrary_BasicInputOutput_ActiveChannel->setIsActive(true);
+		//Generalization to Channel
+		FoundationalModelLibrary_BasicInputOutput_ActiveChannel_Generalization_Channel.reset(new Generalization());
+		FoundationalModelLibrary_BasicInputOutput_ActiveChannel_Generalization_Channel->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_ActiveChannel_Generalization_Channel);
+		FoundationalModelLibrary_BasicInputOutput_ActiveChannel_Generalization_Channel->setGeneral(FoundationalModelLibrary_BasicInputOutput_Channel);
+	FoundationalModelLibrary_BasicInputOutput_ActiveChannel->addGeneralization(FoundationalModelLibrary_BasicInputOutput_ActiveChannel_Generalization_Channel);
+		//Operation register
+		FoundationalModelLibrary_BasicInputOutput_ActiveChannel_register.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_ActiveChannel_register->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_ActiveChannel_register);
+		FoundationalModelLibrary_BasicInputOutput_ActiveChannel_register->setName("register");
+			//Parameter listener
+			FoundationalModelLibrary_BasicInputOutput_ActiveChannel_register_listener.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_ActiveChannel_register_listener->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_ActiveChannel_register_listener);
+			FoundationalModelLibrary_BasicInputOutput_ActiveChannel_register_listener->setName("listener");
+			FoundationalModelLibrary_BasicInputOutput_ActiveChannel_register_listener->setType(FoundationalModelLibrary_Common_Listener);
+		FoundationalModelLibrary_BasicInputOutput_ActiveChannel_register->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_ActiveChannel_register_listener);
+	FoundationalModelLibrary_BasicInputOutput_ActiveChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_ActiveChannel_register);
+		//Operation unregister
+		FoundationalModelLibrary_BasicInputOutput_ActiveChannel_unregister.reset(new Operation());
+		FoundationalModelLibrary_BasicInputOutput_ActiveChannel_unregister->setThisOperationPtr(FoundationalModelLibrary_BasicInputOutput_ActiveChannel_unregister);
+		FoundationalModelLibrary_BasicInputOutput_ActiveChannel_unregister->setName("unregister");
+			//Parameter listener
+			FoundationalModelLibrary_BasicInputOutput_ActiveChannel_unregister_listener.reset(new Parameter());
+			FoundationalModelLibrary_BasicInputOutput_ActiveChannel_unregister_listener->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_ActiveChannel_unregister_listener);
+			FoundationalModelLibrary_BasicInputOutput_ActiveChannel_unregister_listener->setName("listener");
+			FoundationalModelLibrary_BasicInputOutput_ActiveChannel_unregister_listener->setType(FoundationalModelLibrary_Common_Listener);
+		FoundationalModelLibrary_BasicInputOutput_ActiveChannel_unregister->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_ActiveChannel_unregister_listener);
+	FoundationalModelLibrary_BasicInputOutput_ActiveChannel->addOwnedOperation(FoundationalModelLibrary_BasicInputOutput_ActiveChannel_unregister);
+
+	//Activity ReadLine
+	FoundationalModelLibrary_BasicInputOutput_ReadLine.reset(new Activity());
+	FoundationalModelLibrary_BasicInputOutput_ReadLine->setThisActivityPtr(FoundationalModelLibrary_BasicInputOutput_ReadLine);
+	FoundationalModelLibrary_BasicInputOutput_ReadLine->setName("ReadLine");
+	FoundationalModelLibrary_BasicInputOutput_ReadLine->isReentrant = false;
+		//Parameter result
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_result.reset(new Parameter());
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_result->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_ReadLine_result);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_result->setName("result");
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_result->setDirection(ParameterDirectionKind::return_);
+	FoundationalModelLibrary_BasicInputOutput_ReadLine->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_ReadLine_result);
+		//Parameter errorStatus
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_errorStatus.reset(new Parameter());;
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_ReadLine_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_errorStatus->setName("errorStatus");
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_errorStatus->setDirection(ParameterDirectionKind::out);
+	FoundationalModelLibrary_BasicInputOutput_ReadLine->addOwnedParameter(FoundationalModelLibrary_BasicInputOutput_ReadLine_errorStatus);
+		//ActivityParameterNode result
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_result.reset(new ActivityParameterNode());
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_result->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_result);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_result->setName("result");
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_result->setParameter(FoundationalModelLibrary_BasicInputOutput_ReadLine_result);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+	FoundationalModelLibrary_BasicInputOutput_ReadLine->addNode(FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_result);
+		//ActivityParameterNode errorStatus
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_errorStatus.reset(new ActivityParameterNode());
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_errorStatus->setName("errorStatus");
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_errorStatus->setParameter(FoundationalModelLibrary_BasicInputOutput_ReadLine_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+	FoundationalModelLibrary_BasicInputOutput_ReadLine->addNode(FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_errorStatus);
+		//ReadExtentAction StandardInputChannel
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_ReadExtentAction_StandardInputChannel.reset(new ReadExtentAction());
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_ReadExtentAction_StandardInputChannel->setThisExecutableNodePtr(FoundationalModelLibrary_BasicInputOutput_ReadLine_ReadExtentAction_StandardInputChannel);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_ReadExtentAction_StandardInputChannel->setName("StandardInputChannel");
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_ReadExtentAction_StandardInputChannel->setClassifier(FoundationalModelLibrary_BasicInputOutput_StandardInputChannel);
+			//OutputPin result
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_ReadExtentAction_StandardInputChannel_result.reset(new OutputPin());
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_ReadExtentAction_StandardInputChannel_result->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_ReadLine_ReadExtentAction_StandardInputChannel_result);
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_ReadExtentAction_StandardInputChannel_result->setName("result");
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_ReadExtentAction_StandardInputChannel_result->setType(FoundationalModelLibrary_BasicInputOutput_StandardInputChannel);
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_ReadExtentAction_StandardInputChannel_result->setUpper(-1);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_ReadExtentAction_StandardInputChannel->setResult(FoundationalModelLibrary_BasicInputOutput_ReadLine_ReadExtentAction_StandardInputChannel_result);
+	FoundationalModelLibrary_BasicInputOutput_ReadLine->addNode(FoundationalModelLibrary_BasicInputOutput_ReadLine_ReadExtentAction_StandardInputChannel);
+		//CallOperationAction readLine
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine.reset(new CallOperationAction());
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine->setThisExecutableNodePtr(FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine->setName("readLine");
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine->setOperation(FoundationalModelLibrary_BasicInputOutput_TextInputChannel_readLine);
+			//InputPin target
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_target.reset(new InputPin());
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_target->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_target);
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_target->setName("target");
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_target->setType(FoundationalModelLibrary_BasicInputOutput_TextInputChannel);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine->setTarget(FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_target);
+			//OutputPin result
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_result.reset(new OutputPin());
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_result->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_result);
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_result->setName("result");
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_result->setType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine->addResult(FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_result);
+			//OutputPin errorStatus
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_errorStatus.reset(new OutputPin());
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_errorStatus->setThisElementPtr(FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_errorStatus);
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_errorStatus->setName("errorStatus");
+			FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_errorStatus->setType(FoundationalModelLibrary_Common_Status);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine->addResult(FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_ReadLine->addNode(FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine);
+		//ObjectFlow from StandardInputChannel_result to readLine_target
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_From_StandardInputChannel_result_To_readLine_target.reset(new ObjectFlow());
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_From_StandardInputChannel_result_To_readLine_target->setThisActivityEdgePtr(FoundationalModelLibrary_BasicInputOutput_ReadLine_From_StandardInputChannel_result_To_readLine_target);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_From_StandardInputChannel_result_To_readLine_target->setName("From_StandardInputChannel_result_To_readLine_target");
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_From_StandardInputChannel_result_To_readLine_target->setSource(FoundationalModelLibrary_BasicInputOutput_ReadLine_ReadExtentAction_StandardInputChannel_result);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_From_StandardInputChannel_result_To_readLine_target->setTarget(FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_target);
+	FoundationalModelLibrary_BasicInputOutput_ReadLine->addEdge(FoundationalModelLibrary_BasicInputOutput_ReadLine_From_StandardInputChannel_result_To_readLine_target);
+		//ObjectFlow from readLine_result to result
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_From_readLine_result_To_result.reset(new ObjectFlow());
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_From_readLine_result_To_result->setThisActivityEdgePtr(FoundationalModelLibrary_BasicInputOutput_ReadLine_From_readLine_result_To_result);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_From_readLine_result_To_result->setName("From_readLine_result_To_result");
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_From_readLine_result_To_result->setSource(FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_result);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_From_readLine_result_To_result->setTarget(FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_result);
+	FoundationalModelLibrary_BasicInputOutput_ReadLine->addEdge(FoundationalModelLibrary_BasicInputOutput_ReadLine_From_readLine_result_To_result);
+		//ObjectFlow from readLine_errorStatus to errorStatus
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_From_readLine_errorStatus_To_errorStatus.reset(new ObjectFlow());
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_From_readLine_errorStatus_To_errorStatus->setThisActivityEdgePtr(FoundationalModelLibrary_BasicInputOutput_ReadLine_From_readLine_errorStatus_To_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_From_readLine_errorStatus_To_errorStatus->setName("From_readline_errorStatus_To_errorStatus");
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_From_readLine_errorStatus_To_errorStatus->setSource(FoundationalModelLibrary_BasicInputOutput_ReadLine_CallOperationAction_readLine_errorStatus);
+		FoundationalModelLibrary_BasicInputOutput_ReadLine_From_readLine_errorStatus_To_errorStatus->setTarget(FoundationalModelLibrary_BasicInputOutput_ReadLine_ActivityParameterNode_errorStatus);
+	FoundationalModelLibrary_BasicInputOutput_ReadLine->addEdge(FoundationalModelLibrary_BasicInputOutput_ReadLine_From_readLine_errorStatus_To_errorStatus);
+}
+
+

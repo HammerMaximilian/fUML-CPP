@@ -13,13 +13,13 @@
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/simpleclassifiers/IntegerValue.h>
 #include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::listfunctions;
 
 ListGetFunctionBehaviorExecution::ListGetFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->ListFunctions_ListGet);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_PrimitiveBehaviors_ListFunctions_ListGet);
 }
 
 void ListGetFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,

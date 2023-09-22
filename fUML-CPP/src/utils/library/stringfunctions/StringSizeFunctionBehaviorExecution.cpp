@@ -14,13 +14,13 @@
 #include <fuml/semantics/simpleclassifiers/StringValue.h>
 #include <fuml/semantics/simpleclassifiers/IntegerValue.h>
 #include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::stringfunctions;
 
 StringSizeFunctionBehaviorExecution::StringSizeFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->StringFunctions_Size);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_PrimitiveBehaviors_StringFunctions_Size);
 }
 
 void StringSizeFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,

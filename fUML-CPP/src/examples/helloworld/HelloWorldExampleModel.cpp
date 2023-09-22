@@ -20,7 +20,7 @@
 #include <fuml/syntax/commonbehavior/OpaqueBehavior.h>
 #include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
 #include <fuml/syntax/values/LiteralString.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 #include <utils/primitivetypes/PrimitiveTypesModel.h>
 
 using namespace examples::HelloWorldExample;
@@ -71,7 +71,7 @@ void HelloWorldExampleModel::initializeInMemoryModel()
 		HelloWorldModel_main_callWriteLine.reset(new CallBehaviorAction());
 		HelloWorldModel_main_callWriteLine->setThisExecutableNodePtr(HelloWorldModel_main_callWriteLine);
 		HelloWorldModel_main_callWriteLine->setName("callWriteLine");
-		HelloWorldModel_main_callWriteLine->setBehavior(fuml::library::LibraryModel::Instance()->WriteLine);
+		HelloWorldModel_main_callWriteLine->setBehavior(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_BasicInputOutput_WriteLine);
 		HelloWorldModel_main_callWriteLine->isSynchronous = true; //imposed by the fUML specification
 			//InputPin value
 			HelloWorldModel_main_callWriteLine_value.reset(new InputPin());
@@ -83,7 +83,7 @@ void HelloWorldExampleModel::initializeInMemoryModel()
 			HelloWorldModel_main_callWriteLine_errorStatus.reset(new OutputPin());
 			HelloWorldModel_main_callWriteLine_errorStatus->setThisElementPtr(HelloWorldModel_main_callWriteLine_errorStatus);
 			HelloWorldModel_main_callWriteLine_errorStatus->setName("errorStatus");
-			HelloWorldModel_main_callWriteLine_errorStatus->setType(fuml::library::LibraryModel::Instance()->Status);
+			HelloWorldModel_main_callWriteLine_errorStatus->setType(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_Common_Status);
 		HelloWorldModel_main_callWriteLine->addResult(HelloWorldModel_main_callWriteLine_errorStatus);
 	HelloWorldModel_main->node->push_back(HelloWorldModel_main_callWriteLine);
 		//ActivityFinalNode ActivityFinalNode

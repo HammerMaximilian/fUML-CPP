@@ -10,13 +10,13 @@
 #include <fuml/semantics/values/Value.h>
 #include <iostream>
 #include <utils/library/common/Status.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::channel;
 
 StandardOutputChannelObject::StandardOutputChannelObject()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->StandardOutputChannel);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_BasicInputOutput_StandardOutputChannel);
 }
 
 std::string StandardOutputChannelObject::getName()

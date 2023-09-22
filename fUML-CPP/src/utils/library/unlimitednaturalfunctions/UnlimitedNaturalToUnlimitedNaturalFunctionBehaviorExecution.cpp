@@ -14,13 +14,13 @@
 #include <fuml/semantics/simpleclassifiers/UnlimitedNaturalValue.h>
 #include <fuml/semantics/simpleclassifiers/StringValue.h>
 #include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::unlimitednaturalfunctions;
 
 UnlimitedNaturalToUnlimitedNaturalFunctionBehaviorExecution::UnlimitedNaturalToUnlimitedNaturalFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->UnlimitedNaturalFunctions_ToUnlimitedNatural);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_PrimitiveBehaviors_UnlimitedNaturalFunctions_ToUnlimitedNatural);
 }
 
 void UnlimitedNaturalToUnlimitedNaturalFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,

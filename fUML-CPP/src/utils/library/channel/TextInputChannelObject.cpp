@@ -15,14 +15,14 @@
 #include <fuml/semantics/simpleclassifiers/StringValue.h>
 #include <fuml/semantics/simpleclassifiers/UnlimitedNaturalValue.h>
 #include <utils/library/common/Status.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 #include <utils/library/libraryclass/OperationExecution.h>
-#include <utils/library/LibraryModel.h>
 
 using namespace fuml::library::channel;
 
 TextInputChannelObject::TextInputChannelObject()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->TextInputChannel);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_BasicInputOutput_TextInputChannel);
 }
 
 TextInputChannelObject::~TextInputChannelObject()

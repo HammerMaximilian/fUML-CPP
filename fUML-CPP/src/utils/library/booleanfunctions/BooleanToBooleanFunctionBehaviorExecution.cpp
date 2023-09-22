@@ -15,13 +15,13 @@
 #include <fuml/semantics/simpleclassifiers/BooleanValue.h>
 #include <fuml/semantics/simpleclassifiers/StringValue.h>
 #include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::booleanfunctions;
 
 BooleanToBooleanFunctionBehaviorExecution::BooleanToBooleanFunctionBehaviorExecution()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->BooleanFunctions_ToBoolean);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_PrimitiveBehaviors_BooleanFunctions_ToBoolean);
 }
 
 void BooleanToBooleanFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,

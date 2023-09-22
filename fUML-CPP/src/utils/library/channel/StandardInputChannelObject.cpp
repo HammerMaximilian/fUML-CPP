@@ -8,7 +8,7 @@
 #include <utils/library/channel/StandardInputChannelObject.h>
 
 #include <utils/library/common/Status.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 #include <iostream>
 #include <algorithm>
 
@@ -16,7 +16,7 @@ using namespace fuml::library::channel;
 
 StandardInputChannelObject::StandardInputChannelObject()
 {
-	this->types->push_back(fuml::library::LibraryModel::Instance()->StandardInputChannel);
+	this->types->push_back(fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_BasicInputOutput_StandardInputChannel);
 }
 
 std::string StandardInputChannelObject::getName()

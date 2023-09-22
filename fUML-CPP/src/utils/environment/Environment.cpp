@@ -44,6 +44,8 @@ Environment::Environment()
 	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
 	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
 
+	//Setup primitive behavior prototypes
+
 	// Add instances for StandardInputChannel & StandardOutputChannel
 	std::shared_ptr<StandardInputChannelObject> standardInputChannelObject(new StandardInputChannelObject);
 	standardInputChannelObject->setThisImplementationObjectPtr(standardInputChannelObject);

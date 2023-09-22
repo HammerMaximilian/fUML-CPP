@@ -14,7 +14,7 @@
 #include <fuml/semantics/simpleclassifiers/StringValue.h>
 #include <fuml/syntax/classification/Property.h>
 #include <fuml/syntax/simpleclassifiers/DataType.h>
-#include <utils/library/LibraryModel.h>
+#include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::common;
 
@@ -42,7 +42,7 @@ const DataTypePtr& Status::getStatusType()
 {
 	if (statusType == nullptr)
 	{
-		statusType = fuml::library::LibraryModel::Instance()->Status;
+		statusType = fuml::library::FoundationalModelLibraryModel::Instance()->FoundationalModelLibrary_Common_Status;
 	}
 	return statusType;
 }
