@@ -1,12 +1,12 @@
 /*
- * ModelEnvironment.cpp
+ * fUML_TestsEnvironment.cpp
  * 
  * Auto-generated file
  */
 
-#include "ModelEnvironment.h"
+#include "fUML_TestsEnvironment.h"
 
-#include "ModelModel.h"
+#include "fUML_TestsModel.h"
 
 /* Start of user code : User-defined includes and using directives
  * This section may be used for includes and using directives.
@@ -17,7 +17,7 @@
  * End of user code
  */
 
-using namespace Model;
+using namespace fUML_Tests;
 
 /* Start of user code : User-defined members
  * This section may be used for user-defined members,
@@ -30,7 +30,7 @@ using namespace Model;
  * End of user code
  */
 
-ModelEnvironment::ModelEnvironment()
+fUML_TestsEnvironment::fUML_TestsEnvironment()
 {
 	/*
 	 * Create custom opaque behavior execution instances and add them to the execution environment.
@@ -47,7 +47,7 @@ ModelEnvironment::ModelEnvironment()
  	 */
 }
 
-ModelEnvironment::~ModelEnvironment()
+fUML_TestsEnvironment::~fUML_TestsEnvironment()
 {
 	/* Start of user code : Additional environment cleanup
  	 * This section may be used to do any additional environment cleanup,
@@ -60,20 +60,20 @@ ModelEnvironment::~ModelEnvironment()
  	 */
 }
 
-const std::shared_ptr<ModelEnvironment>& ModelEnvironment::Instance()
+const std::shared_ptr<fUML_TestsEnvironment>& fUML_TestsEnvironment::Instance()
 {
-	static std::shared_ptr<ModelEnvironment> instance = nullptr;
+	static std::shared_ptr<fUML_TestsEnvironment> instance = nullptr;
 
 	if(!instance)
 	{
-		instance.reset(new ModelEnvironment());
-		instance->inMemoryModel = ModelModel::Instance();
+		instance.reset(new fUML_TestsEnvironment());
+		instance->inMemoryModel = fUML_TestsModel::Instance();
 	}
 
 	return instance;
 }
 
-void ModelEnvironment::execute(std::string behaviorName)
+void fUML_TestsEnvironment::execute(std::string behaviorName)
 {
 	/* Start of user code : Context and inputs initializations
  	 * This section may be used to initialize the execution context 

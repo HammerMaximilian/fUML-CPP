@@ -1,11 +1,11 @@
 /*
- * ModelEnvironment.h
+ * fUML_TestsEnvironment.h
  * 
  * Auto-generated file
  */
 
-#ifndef MODEL_ENVIRONMENT_H
-#define MODEL_ENVIRONMENT_H
+#ifndef FUML_TESTS_ENVIRONMENT_H
+#define FUML_TESTS_ENVIRONMENT_H
 
 #include <utils/environment/Environment.h>
 
@@ -18,18 +18,18 @@
  * End of user code
  */
 
-namespace Model
+namespace fUML_Tests
 {
-	class ModelEnvironment : public fuml::environment::Environment
+	class fUML_TestsEnvironment : public fuml::environment::Environment
 	{
 		public:
-			virtual ~ModelEnvironment();
-			static const std::shared_ptr<ModelEnvironment>& Instance();
+			virtual ~fUML_TestsEnvironment();
+			static const std::shared_ptr<fUML_TestsEnvironment>& Instance();
 
 			virtual void execute(std::string) override;
 
 		private:
-			ModelEnvironment();
+			fUML_TestsEnvironment();
 
 		/* Start of user code : User-defined members
 		 * This section may be used for user-defined members.
@@ -42,4 +42,4 @@ namespace Model
 	};
 }
 
-#endif /* MODEL_ENVIRONMENT_H */
+#endif /* FUML_TESTS_ENVIRONMENT_H */
