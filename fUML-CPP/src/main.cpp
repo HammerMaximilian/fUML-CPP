@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
 		return -1;
 	}*/
 
-	fUML_Tests::fUML_TestsEnvironment::Instance()->execute("TestGeneralizationAssembly");
+	fUML_Tests::fUML_TestsEnvironment::Instance()->execute("TestBooleanFunctions");
 
 	std::cout<<"Ende"<<std::endl;
 
