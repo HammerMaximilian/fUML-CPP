@@ -1,0 +1,2233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" 
+xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+   <uml:Model xmi:type="uml:Model" xmi:id="_0"
+              xmi:uuid="080223fc-db9f-4783-90a7-439a1752619a"
+              name="FoundationalModelLibrary">
+      <packagedElement xmi:type="uml:Package" xmi:id="PrimitiveBehaviors"
+                       xmi:uuid="35da67ca-95ed-4e92-b8ac-d4cf25d3bc4f"
+                       name="PrimitiveBehaviors">
+         <packageImport xmi:type="uml:PackageImport" xmi:id="PrimitiveBehaviors-_packageImport.0"
+                        xmi:uuid="26db0c05-1163-465d-a42e-d4cd25d07857">
+            <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+         </packageImport>
+         <packagedElement xmi:type="uml:Package" xmi:id="PrimitiveBehaviors-IntegerFunctions"
+                          xmi:uuid="675521bc-88a9-4a7a-80d4-fb60165b3472"
+                          name="IntegerFunctions">
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-IntegerFunctions-ToInteger"
+                             xmi:uuid="e1cf1b70-51a0-4c77-82f2-1c2d916d352c"
+                             name="ToInteger"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-IntegerFunctions-ToInteger-x"
+                               xmi:uuid="9f38c2dd-1039-4901-a246-118a08dc64f4"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-IntegerFunctions-ToInteger-result"
+                               xmi:uuid="e324afe4-1acd-4c92-ad8a-b5c9f7548028"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="PrimitiveBehaviors-IntegerFunctions-ToInteger-result-_lowerValue"
+                              xmi:uuid="e8d4d8a1-e035-40e3-a0e7-1b8d59ff7cb5"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-IntegerFunctions-lt"
+                             xmi:uuid="edf5ac3b-ddc5-4a58-8634-c5e12176cd89"
+                             name="&lt;"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-lt-x"
+                               xmi:uuid="300008c2-b561-44d8-b1c4-249ea53ae361"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-lt-y"
+                               xmi:uuid="f677840c-1cf9-4389-9190-38a3344e01ab"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-lt-result"
+                               xmi:uuid="e6a3b802-8623-4abf-8915-1c2f6fa07598"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-IntegerFunctions-plus"
+                             xmi:uuid="b9d22f2a-f0b0-4d13-b8dc-336409b8129f"
+                             name="+"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-plus-x"
+                               xmi:uuid="64672feb-2680-448c-b9ad-0f27fbaa9aa9"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-plus-y"
+                               xmi:uuid="6b1b2f06-6dca-45d8-aa79-493f20aa9bd4"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-IntegerFunctions-plus-result"
+                               xmi:uuid="96af1551-3a10-45f6-9051-dba73e4ae462"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-IntegerFunctions-minus"
+                             xmi:uuid="c9086b3c-38e1-45af-bf0f-0f4b116b7752"
+                             name="-"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-minus-x"
+                               xmi:uuid="c5c45a96-e992-4a0b-8192-a7f8ade67ced"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-minus-y"
+                               xmi:uuid="c14e3724-7c94-44e8-bf34-0a812365a475"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-IntegerFunctions-minus-result"
+                               xmi:uuid="d1328a2e-7ea0-49e6-8c3f-333ff8343502"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-IntegerFunctions-times"
+                             xmi:uuid="620f12df-cae8-4f83-973c-01548cb0d50a"
+                             name="*"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-times-x"
+                               xmi:uuid="ec7dabbe-db31-4626-b0b1-e0b94aba640c"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-times-y"
+                               xmi:uuid="4ddd1b8b-5b54-4000-8ae8-6f66799a4bdc"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-IntegerFunctions-times-result"
+                               xmi:uuid="6ff8be5d-8ee8-4884-82c8-f5d7d9cb3b6c"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-IntegerFunctions-Div"
+                             xmi:uuid="103de5c4-47f2-4eb3-847f-b0ffe1a0d4fe"
+                             name="Div"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-Div-x"
+                               xmi:uuid="1b0c358a-4183-448a-a14c-79604dc175d4"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-Div-y"
+                               xmi:uuid="53602c2c-64f8-48ea-8191-6cd2f9a9c1f3"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-IntegerFunctions-Div-result"
+                               xmi:uuid="7da564f9-e408-4ee9-9dd2-5b0151ecae5f"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="PrimitiveBehaviors-IntegerFunctions-Div-result-_lowerValue"
+                              xmi:uuid="0b2c41c4-95f3-4d8b-94a3-810b55bc8a19"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-IntegerFunctions-Neg"
+                             xmi:uuid="fde317f1-d583-4684-b6bb-a8f8e61fcbd4"
+                             name="Neg"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-Neg-x"
+                               xmi:uuid="45ba92db-0590-4c94-b02f-66fd8c37aca6"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-IntegerFunctions-Neg-result"
+                               xmi:uuid="d3c9c4d8-f4b3-42ec-be70-82779081d6ea"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-IntegerFunctions-Mod"
+                             xmi:uuid="b9bd7c45-991a-4f3d-93c8-9facfa664183"
+                             name="Mod"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-Mod-x"
+                               xmi:uuid="8a4ec234-03dd-483f-b127-bd660cabef41"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-Mod-y"
+                               xmi:uuid="5b995288-eecf-4f84-9697-1fd7a87b0fb7"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-IntegerFunctions-Mod-result"
+                               xmi:uuid="0198bfb4-282c-42ea-b61e-774c359cfc7e"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-IntegerFunctions-Max"
+                             xmi:uuid="d15a5933-93bc-4fc7-9d94-62c73f819766"
+                             name="Max"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-Max-x"
+                               xmi:uuid="7f3bfe32-676b-4a6b-a80a-fb9c459908e1"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-Max-y"
+                               xmi:uuid="79dbdd99-ecf4-4aaf-b599-523263448286"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-IntegerFunctions-Max-result"
+                               xmi:uuid="c1bf6350-e750-4ad8-b01a-f0f102310fe9"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-IntegerFunctions-Min"
+                             xmi:uuid="d13ea9a2-090c-4ee7-9c6b-c747db80088a"
+                             name="Min"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-Min-x"
+                               xmi:uuid="d037f39f-f08d-4580-88e1-aff83f667616"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-Min-y"
+                               xmi:uuid="33887498-84bd-47be-b2fd-14faf601ca66"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-IntegerFunctions-Min-result"
+                               xmi:uuid="8d5d253c-27fe-4c12-8b7e-d122c718eb41"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-IntegerFunctions-Abs"
+                             xmi:uuid="98e27e7e-4730-4975-8136-30684cc14e7c"
+                             name="Abs"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-Abs-x"
+                               xmi:uuid="11cd745e-abc6-4f34-8b0d-e9b07b15c263"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-IntegerFunctions-Abs-result"
+                               xmi:uuid="cc6853d6-7e09-4736-bde3-4680a6fd225c"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-IntegerFunctions-gt"
+                             xmi:uuid="1b7964b4-c1ae-436e-8a65-0ca59e9a5e2b"
+                             name="&gt;"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-gt-x"
+                               xmi:uuid="64852d92-a6ed-4851-be6b-26dfb3cd67e7"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-gt-y"
+                               xmi:uuid="fc1a5a2b-662c-4a96-974c-d292a798939e"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-gt-result"
+                               xmi:uuid="19e6ba08-d342-453c-979d-b7ea07e9371f"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-IntegerFunctions-le"
+                             xmi:uuid="ffe70bf6-82d6-4dd8-a08d-b7bc78bea068"
+                             name="&lt;="
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-le-x"
+                               xmi:uuid="62fd8a3a-f9e2-46d6-bcab-f06d094c58c0"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-le-y"
+                               xmi:uuid="14cf642e-3a31-4bd2-8b47-ef03dab9c21f"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-le-result"
+                               xmi:uuid="c81c375c-f039-4422-9810-7b895d98ed54"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-IntegerFunctions-ge"
+                             xmi:uuid="a1950015-cc79-4453-8661-5cc5055fc3c5"
+                             name="&gt;="
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-ge-x"
+                               xmi:uuid="170f9651-1119-42aa-8c67-3e53210731e3"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-ge-y"
+                               xmi:uuid="96d18c45-4509-4900-97ec-f547ce3af7a7"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-IntegerFunctions-ge-result"
+                               xmi:uuid="f3ddfbb8-5c60-4097-b195-1bc77ec5e6e4"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-IntegerFunctions-ToString"
+                             xmi:uuid="a217a40a-c0c3-424c-84e9-f2b8ee541231"
+                             name="ToString"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-IntegerFunctions-ToString-x"
+                               xmi:uuid="1e591376-aed5-429f-bf4b-daec6caac09f"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-IntegerFunctions-ToString-result"
+                               xmi:uuid="2ab9cd6e-585a-4152-948e-7e9ec476cfd2"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-IntegerFunctions-ToUnlimitedNatural"
+                             xmi:uuid="19ff14a6-27b6-47e6-910a-29764b6c3165"
+                             name="ToUnlimitedNatural"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-IntegerFunctions-ToUnlimitedNatural-x"
+                               xmi:uuid="868c5b2b-ea96-4d6e-b582-36847f128943"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-IntegerFunctions-ToUnlimitedNatural-result"
+                               xmi:uuid="481a68e5-eb4e-4f67-b737-4db9958e8551"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="PrimitiveBehaviors-IntegerFunctions-ToUnlimitedNatural-result-_lowerValue"
+                              xmi:uuid="021d2f82-ff4d-4420-9255-729fcc055428"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-IntegerFunctions-divide"
+                             xmi:uuid="3a8f5ab3-378c-4d90-bf50-1a1fa3359da1"
+                             name="/"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="rimitiveBehaviors-IntegerFunctions-divide-x"
+                               xmi:uuid="b277562e-02a9-47d1-a7ba-73d5e2e7436c"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="rimitiveBehaviors-IntegerFunctions-divide-y"
+                               xmi:uuid="03f311fb-06b3-4ef8-9a77-625a84b3ad42"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="rimitiveBehaviors-IntegerFunctions-divide-result"
+                               xmi:uuid="e3e36d2c-8d0a-443c-90c5-1e2d532528ff"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="PrimitiveBehaviors-IntegerFunctions-divide-result-_lowerValue"
+                              xmi:uuid="9681697b-c7a6-4556-b8ab-0e26d9004370"/>
+               </ownedParameter>
+            </packagedElement>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Package" xmi:id="PrimitiveBehaviors-RealFunctions"
+                          xmi:uuid="d7ab91e5-e2f3-4a4a-bae4-63f41f98f511"
+                          name="RealFunctions">
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-RealFunctions-ToInteger"
+                             xmi:uuid="3610a7e5-f83d-476b-bb8d-eaa198546854"
+                             name="ToInteger"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-ToInteger-x"
+                               xmi:uuid="7f038531-36e6-4a5c-a87e-af52aba9fd47"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-RealFunctions-ToInteger-result"
+                               xmi:uuid="5087fd4d-9086-4735-9ec2-25231869309d"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-RealFunctions-lt"
+                             xmi:uuid="68d0e9c4-4ea0-486e-9ba1-b7d61b32fc7e"
+                             name="&lt;"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-lt-x"
+                               xmi:uuid="238bad97-a98a-4b8c-b035-efdbb3a88683"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-lt-y"
+                               xmi:uuid="1a4bf515-9475-4038-8e2d-d66b7e545cd0"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-lt-result"
+                               xmi:uuid="ef9c6c79-1717-4120-ba98-ea8810fc40b8"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-RealFunctions-plus"
+                             xmi:uuid="089e2666-6895-43c1-8847-715eee06554a"
+                             name="+"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-plus-x"
+                               xmi:uuid="0449752c-4ee7-4245-be5c-1ce99aa67a70"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-plus-y"
+                               xmi:uuid="f3dc78ec-cf01-4620-aab5-8b0fbc239799"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-plus-result"
+                               xmi:uuid="bfdfd344-414a-4725-a8bc-4dc76c989fac"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-RealFunctions-minus"
+                             xmi:uuid="6b0fd125-c298-4dd4-b2a0-f361977e2978"
+                             name="-"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-minus-x"
+                               xmi:uuid="626f7866-df6c-447f-8fe8-761e9071df51"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-minus-y"
+                               xmi:uuid="efbb6742-188f-47ef-aec7-47a0c38c5b60"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-minus-result"
+                               xmi:uuid="4c91c82a-728f-4ce8-825b-ae7cdd66f168"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-RealFunctions-times"
+                             xmi:uuid="7675f8ea-8438-4f70-a203-6db8ed824fd9"
+                             name="*"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-times-x"
+                               xmi:uuid="b312e280-8883-4d89-97e4-59dfa6a4c454"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-times-y"
+                               xmi:uuid="840c0355-c48a-4992-977f-d9ce8f30fb1f"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-times-result"
+                               xmi:uuid="0d232784-5225-467d-83e6-c3cde88d61d5"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-RealFunctions-divide"
+                             xmi:uuid="85b63f37-df62-4b22-8046-7baaca31af9f"
+                             name="/"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-divide-x"
+                               xmi:uuid="9a03ba7d-72e9-45ae-b1cb-5e65f226cdbf"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-divide-y"
+                               xmi:uuid="a4dd3b30-cb8f-4d6e-9fca-edfff0621847"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-RealFunctions-divide-result"
+                               xmi:uuid="d1a33f45-f725-4de4-a6c2-c622c2239842"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="PrimitiveBehaviors-RealFunctions-divide-result-_lowerValue"
+                              xmi:uuid="888dc654-4241-4749-b64e-50bd84cda26a"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-RealFunctions-Neg"
+                             xmi:uuid="a4c1235d-faff-46a5-ab1c-a68037be1e01"
+                             name="Neg"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Neg-x"
+                               xmi:uuid="1675211d-a45d-43bb-a45f-fb8e41524d36"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Neg-result"
+                               xmi:uuid="ba6a1cb5-ce42-4107-8f6f-6293e89677cf"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-RealFunctions-Max"
+                             xmi:uuid="0a1ab50f-8a00-4409-910e-6381925a10fa"
+                             name="Max"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Max-x"
+                               xmi:uuid="87d7f283-75ba-4dc9-815a-fa71d77708b5"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Max-y"
+                               xmi:uuid="dbc577a5-d663-4352-a26a-af4e10bae6da"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Max-result"
+                               xmi:uuid="cc521169-1f5e-4b54-8d02-1e88d6fe579c"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-RealFunctions-Min"
+                             xmi:uuid="8f341e6f-ab5d-48ea-b94b-4f626c38a435"
+                             name="Min"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Min-x"
+                               xmi:uuid="3a426288-b1bc-47c6-8ce2-eeb6b55361f6"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Min-y"
+                               xmi:uuid="eb9bacb1-5ca9-4cb2-b406-d2d93328be0e"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Min-result"
+                               xmi:uuid="68463560-46bd-4165-843b-65bb245d67da"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-RealFunctions-Abs"
+                             xmi:uuid="befc5961-4552-4db9-a422-fd3ca4c478e0"
+                             name="Abs"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Abs-x"
+                               xmi:uuid="a9fc9c5b-5f78-4fbd-a892-a9d6bd30cced"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Abs-result"
+                               xmi:uuid="5d630838-04d9-4b84-aee4-75c3f9303dbf"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-RealFunctions-gt"
+                             xmi:uuid="d545c26f-fa89-49b3-bd7c-d0459377e25b"
+                             name="&gt;"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-gt-x"
+                               xmi:uuid="a8c1589f-7d7b-4200-9fc6-c5aea326947a"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-gt-y"
+                               xmi:uuid="5f2fa0f7-d34b-443a-b375-725df6b2818d"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-gt-result"
+                               xmi:uuid="78f3200e-ea00-4b66-a36e-e3fdc2135881"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-RealFunctions-le"
+                             xmi:uuid="cfaff7a3-2de7-4e5f-911f-a3d5c617a7d1"
+                             name="&lt;="
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-le-x"
+                               xmi:uuid="bf9e8137-7b37-41f6-9919-91ce8caed96f"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-le-y"
+                               xmi:uuid="04a138be-7af5-4943-8c48-70194b6fb1e9"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-le-result"
+                               xmi:uuid="f47b1d65-8111-42c5-8124-c071fa74ce5b"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-RealFunctions-ge"
+                             xmi:uuid="423ac9d4-8e64-4c2e-b686-a104700fff20"
+                             name="&gt;="
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-ge-x"
+                               xmi:uuid="43f2303f-ab64-47f6-8573-377b146d5f27"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-ge-y"
+                               xmi:uuid="e0fe26ea-0aeb-4534-8175-46c96644fd7c"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-ge-result"
+                               xmi:uuid="fb510889-5bda-4b88-8dfb-99c34d14c66c"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-RealFunctions-ToString"
+                             xmi:uuid="0e5192c3-48d3-4179-9a7d-cba950d6ba1a"
+                             name="ToString"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-ToString-x"
+                               xmi:uuid="f75937e6-bd0d-454a-abf1-aa79f81ec099"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-RealFunctions-ToString-result"
+                               xmi:uuid="dca67862-1b31-469a-8af9-4819f337f719"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-RealFunctions-Floor"
+                             xmi:uuid="00b210e3-ec11-46e7-9a10-77a7f23c664d"
+                             name="Floor"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Floor-x"
+                               xmi:uuid="b3254093-f50d-4083-a3a3-e71345fec5e4"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Floor-result"
+                               xmi:uuid="b2a6655b-4246-4858-b16c-0e20ff45fbed"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-RealFunctions-Floor-Round"
+                             xmi:uuid="5e712d0a-70a4-4da7-9c07-8cf4e29c80c1"
+                             name="Round"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Round-x"
+                               xmi:uuid="27da5742-565b-41a2-a771-2b40741a6b5b"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Round-result"
+                               xmi:uuid="30960464-ca1b-44ed-86c0-190858316c16"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-RealFunctions-Inv"
+                             xmi:uuid="ee1ac854-5bd1-472b-935a-fac827eff8d9"
+                             name="Inv"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Inv-x"
+                               xmi:uuid="2a9b384a-3002-4f0b-a1f4-5151496144be"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-Inv-result"
+                               xmi:uuid="5cd2735a-c1f7-48a1-99c4-f7ac159d4d9a"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-RealFunctions-ToReal"
+                             xmi:uuid="0419ab0d-4dbe-4cda-961c-0c40f6a62549"
+                             name="ToReal"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-RealFunctions-ToReal-x"
+                               xmi:uuid="f0cc9e21-d131-4259-a716-6d931eca4754"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-RealFunctions-ToReal-result"
+                               xmi:uuid="802787d4-2e61-4753-a744-d06475df9f0e"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="PrimitiveBehaviors-RealFunctions-ToReal-result-_lowerValue"
+                              xmi:uuid="60cacf70-9dc6-4e2e-8c53-b58835c9a6ab"/>
+               </ownedParameter>
+            </packagedElement>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Package" xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions"
+                          xmi:uuid="f991fbc7-472b-40a4-ae95-df6474c2973b"
+                          name="UnlimitedNaturalFunctions">
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ToUnlimitedNatural"
+                             xmi:uuid="4c717b2d-5be4-4455-86ed-d81248ee0f1e"
+                             name="ToUnlimitedNatural"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ToUnlimitedNatural-x"
+                               xmi:uuid="4d90adcf-8f88-45c7-b421-1eb0f00b6787"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ToUnlimitedNatural-result"
+                               xmi:uuid="a6b6ad21-da12-4fda-ae84-1987d6035bde"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ToUnlimitedNatural-result-_lowerValue"
+                              xmi:uuid="e4915156-9bad-4204-867c-a701f3d8f31f"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-lt"
+                             xmi:uuid="304252b6-2c0b-4688-8165-d8e2da07d291"
+                             name="&lt;"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-lt-x"
+                               xmi:uuid="ac4a79fb-033b-4dbe-af41-a1e781a9903a"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-lt-y"
+                               xmi:uuid="c307ccb9-95af-4006-9174-c37c676ef8fb"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-lt-result"
+                               xmi:uuid="14561207-e4ea-4a23-821c-7478c6e7e883"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-Max"
+                             xmi:uuid="680a6355-f397-4fbb-9f53-82984386bce1"
+                             name="Max"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-Max-x"
+                               xmi:uuid="f78c885f-a970-42d0-9c45-1cf5cb5bfa1e"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-Max-y"
+                               xmi:uuid="2e5dfcea-8806-4f86-9b49-5a62ad4f7a1f"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-Max-result"
+                               xmi:uuid="c89032e2-fb98-482c-a310-0a5bdbd9d662"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-Min"
+                             xmi:uuid="5991c26f-49cb-475e-9af5-5fd7224ad3ae"
+                             name="Min"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-Min-x"
+                               xmi:uuid="3c9f6a99-d22b-44b2-b24a-f15a467cf20c"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-Min-y"
+                               xmi:uuid="8c797686-5c21-4aeb-bd3c-bbd47ff04aa8"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-Min-result"
+                               xmi:uuid="331095a1-1fb6-4dec-bf22-1f69b96f7ecf"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-gt"
+                             xmi:uuid="3d274497-6905-45a4-8f13-3a7a78e400a9"
+                             name="&gt;"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-gt-x"
+                               xmi:uuid="fa45da15-7400-4ee8-8683-06a1eca8e7c9"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-gt-y"
+                               xmi:uuid="f6362303-24ad-4d73-930d-8753c9d4d183"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-gt-result"
+                               xmi:uuid="fa5ad994-f6ce-4cf3-9c76-022c1c9e0b77"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-le"
+                             xmi:uuid="afe3fc64-51c8-482e-b8f1-d072f8086601"
+                             name="&lt;="
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-le-x"
+                               xmi:uuid="00052b1b-6eae-4584-9cff-51cf41a710c8"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-le-y"
+                               xmi:uuid="e3036ebe-dc6d-4e84-8f28-681a14445e37"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-le-result"
+                               xmi:uuid="2bcbbc43-ddcc-46f6-a98b-69bf472dfae6"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ge"
+                             xmi:uuid="26f65bf8-b060-40c9-b41a-6d5190ed089f"
+                             name="&gt;="
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ge-x"
+                               xmi:uuid="de6584e1-02a2-42c1-ab95-eb2a0d58a167"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ge-y"
+                               xmi:uuid="f3cb30b9-795d-490f-a3c7-e315800f680b"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ge-result"
+                               xmi:uuid="55e0d3b1-990e-4154-9d70-9f89c603a7ab"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ToString"
+                             xmi:uuid="769035cc-c79e-4c9c-993a-11c0c4dbf900"
+                             name="ToString"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ToString-x"
+                               xmi:uuid="07b5774e-8323-4b9f-a668-4898875c3757"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ToString-result"
+                               xmi:uuid="a9c69d6d-41a3-4b6b-9de7-80c4c2076cbb"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ToInteger"
+                             xmi:uuid="b5db9957-1ca2-4c02-8887-45044bff66b2"
+                             name="ToInteger"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ToInteger-x"
+                               xmi:uuid="74cca1f0-da86-4cf4-9d55-a17e374278c1"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ToInteger-result"
+                               xmi:uuid="940300d5-24fd-4ac5-8fcc-17e157bb5983"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="PrimitiveBehaviors-UnlimitedNaturalFunctions-ToInteger-result-_lowerValue"
+                              xmi:uuid="2bad9157-b9ee-42f5-9b30-988353b5e48e"/>
+               </ownedParameter>
+            </packagedElement>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Package" xmi:id="PrimitiveBehaviors-BooleanFunctions"
+                          xmi:uuid="7dabbe89-6a83-4962-abbd-0328ef623532"
+                          name="BooleanFunctions">
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-BooleanFunctions-ToBoolean"
+                             xmi:uuid="3cba2be6-e585-494f-b47f-fdaf41cf1735"
+                             name="ToBoolean"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-BooleanFunctions-ToBoolean-x"
+                               xmi:uuid="cd8de7c0-d880-4387-82e4-a99ea0d4fe67"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-BooleanFunctions-ToBoolean-result"
+                               xmi:uuid="0d0b4b8e-8086-4ade-b46e-03bbb8a3e3a3"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="PrimitiveBehaviors-BooleanFunctions-ToBoolean-result-_lowerValue"
+                              xmi:uuid="af5d19a7-b95a-4980-b565-b1a75f0ced9b"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-BooleanFunctions-ToString"
+                             xmi:uuid="12ea2ab0-3f18-4271-9ff9-d76d9f4208f2"
+                             name="ToString"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-BooleanFunctions-ToString-x"
+                               xmi:uuid="f658b524-682a-4468-bd9e-1e82cfa6d8ba"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-BooleanFunctions-ToString-result"
+                               xmi:uuid="a6650f91-35dd-4dd6-a74e-a7f03285e790"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="PrimitiveBehaviors-BooleanFunctions-Or"
+                             xmi:uuid="aad1d525-5420-4d82-95d4-013fb7ff5fc1"
+                             name="Or"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-BooleanFunctions-Or-x"
+                               xmi:uuid="fee261f2-2e52-4d8c-b891-c4906efc6ce2"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-BooleanFunctions-Or-y"
+                               xmi:uuid="f3e63100-311f-4d83-8067-3ccd816cc451"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-BooleanFunctions-Or-result"
+                               xmi:uuid="a509473e-4fc1-4f77-8873-0249578e0317"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-BooleanFunctions-Xor"
+                             xmi:uuid="904128e3-490d-4c00-b1c4-edda1354df44"
+                             name="Xor"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-BooleanFunctions-Xor-x"
+                               xmi:uuid="7361ba00-3c3b-4937-b65d-d5d707b5169e"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-BooleanFunctions-Xor-y"
+                               xmi:uuid="2b3a5219-7827-4176-b2ff-686d849b5776"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-BooleanFunctions-Xor-result"
+                               xmi:uuid="86ad7f52-c9ee-4d02-9fe2-d694314a770d"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-BooleanFunctions-And"
+                             xmi:uuid="8b8b799d-5b5b-4d6e-94ef-1ed4b7a1793b"
+                             name="And"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-BooleanFunctions-And-x"
+                               xmi:uuid="392c3b07-f4be-49ee-a7ca-ad7da505a4eb"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-BooleanFunctions-And-y"
+                               xmi:uuid="dc125615-ad94-4a68-ab9f-09b3e3c2e960"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-BooleanFunctions-And-result"
+                               xmi:uuid="c4c0551e-411e-4530-ae76-07363f96a42f"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-BooleanFunctions-Implies"
+                             xmi:uuid="0f491ff9-236a-44cb-a1b2-9cedfe69b4d3"
+                             name="Implies"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-BooleanFunctions-Implies-x"
+                               xmi:uuid="ef076ba2-31b6-43b3-8397-91d2478bfab2"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-BooleanFunctions-Implies-y"
+                               xmi:uuid="3d3959fa-b31c-466c-a1dc-eb57a40564d5"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-BooleanFunctions-Implies-result"
+                               xmi:uuid="37af408e-59fe-42f1-b21b-0fec50dd695b"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-BooleanFunctions-Not"
+                             xmi:uuid="491d52ab-cb95-496a-9ff9-bb10119b5727"
+                             name="Not"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-BooleanFunctions-Not-x"
+                               xmi:uuid="b0ab8de1-7033-42d0-baba-4aa3102ad9cb"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-BooleanFunctions-Not-result"
+                               xmi:uuid="eab8ab1d-3105-4f1e-9d9b-5afe2d4d174d"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </packagedElement>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Package" xmi:id="PrimitiveBehaviors-StringFunctions"
+                          xmi:uuid="a1595a58-83c2-432c-97bd-6c71db12dcad"
+                          name="StringFunctions">
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-StringFunctions-Size"
+                             xmi:uuid="9d2ac8c7-97f0-4d4e-bf8c-61e36c2224d6"
+                             name="Size"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-StringFunctions-Size-x"
+                               xmi:uuid="2be384d9-2d1c-4fc9-b2cb-4e85e4c50097"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-StringFunctions-Size-result"
+                               xmi:uuid="40346f0b-28a4-4ce0-b381-4954b52d7da0"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-StringFunctions-Concat"
+                             xmi:uuid="e69ded68-f354-4455-8e20-ad0a84f7f5d8"
+                             name="Concat"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-StringFunctions-Concat-x"
+                               xmi:uuid="e71ede92-f4db-4109-ad85-4fd53621d109"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-StringFunctions-Concat-y"
+                               xmi:uuid="2c7621ca-eb3e-492d-8d3e-93f98e0bd3a1"
+                               name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-StringFunctions-Concat-result"
+                               xmi:uuid="61c0f609-8180-432b-9b7f-7fd4eecc97fb"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-StringFunctions-Substring"
+                             xmi:uuid="70228824-8e5f-4fd7-a26d-fa9691b823d6"
+                             name="Substring"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-StringFunctions-Substring-x"
+                               xmi:uuid="ee2bc95f-f36a-457d-a91c-573038bd2d01"
+                               name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-StringFunctions-Substring-lower"
+                               xmi:uuid="73190357-9bec-4543-9417-5df321dda999"
+                               name="lower">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-StringFunctions-Substring-result"
+                               xmi:uuid="cece5857-cad4-4417-8048-93b74fe78bba"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="PrimitiveBehaviors-StringFunctions-Substring-result-_lowerValue"
+                              xmi:uuid="0b7f960c-517f-45a0-92ba-2f6fb456ac8c"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-StringFunctions-Substring-upper"
+                               xmi:uuid="b328cd51-d53c-40e8-9736-2f5602bc5517"
+                               name="upper">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+            </packagedElement>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Package" xmi:id="PrimitiveBehaviors-ListFunctions"
+                          xmi:uuid="1f5e0cfe-0230-4f7e-b4b3-36aa70bf3016"
+                          name="ListFunctions">
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-ListFunctions-ListSize"
+                             xmi:uuid="a6e342e9-9489-4d0c-b5b6-dc215b32d297"
+                             name="ListSize"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-ListFunctions-ListSize-list"
+                               xmi:uuid="6e8f3db9-cee8-40a2-98c0-765a1fd78bec"
+                               name="list">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="PrimitiveBehaviors-ListFunctions-ListSize-list-_lowerValue"
+                              xmi:uuid="5808715a-2e4a-4844-99a4-8fd7d2ac3509"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="PrimitiveBehaviors-ListFunctions-ListSize-list-_upperValue"
+                              xmi:uuid="315ebb59-9b1a-4998-98c6-c3e5feedf9e8"
+                              value="*"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-ListFunctions-ListSize-result"
+                               xmi:uuid="60f70fd0-581f-4905-8931-b1c6fbfb2e06"
+                               name="result"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+            </packagedElement>
+            <packagedElement xmi:type="uml:FunctionBehavior"
+                             xmi:id="PrimitiveBehaviors-ListFunctions-ListGet"
+                             xmi:uuid="d7ddc3b2-7b89-48bc-92b3-2304ab2beafc"
+                             name="ListGet"
+                             isAbstract="true"
+                             isReentrant="false">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="PrimitiveBehaviors-ListFunctions-ListGet-list"
+                               xmi:uuid="2c3a67a3-8b78-47c8-afe5-d562e34247d1"
+                               name="list">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="PrimitiveBehaviors-ListFunctions-ListGet-list-_lowerValue"
+                              xmi:uuid="77741d2a-2faf-47c0-8b97-3ea8ff7e8437"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="PrimitiveBehaviors-ListFunctions-ListGet-list-_upperValue"
+                              xmi:uuid="a591678f-afb9-4f20-8e8e-56edddaca945"
+                              value="*"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-ListFunctions-ListGet-result"
+                               xmi:uuid="a552be71-ef33-4bc5-ba78-41ac40989cfc"
+                               name="result"
+                               direction="return">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="PrimitiveBehaviors-ListFunctions-ListGet-result-_lowerValue"
+                              xmi:uuid="27307b1a-f79e-4d3e-a0fe-b3d33616fbeb"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="PrimitiveBehaviors-ListFunctions-ListGet-index"
+                               xmi:uuid="4f2cf1e7-e6da-4d8b-96bf-d52b868aae68"
+                               name="index">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+            </packagedElement>
+         </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="BasicInputOutput"
+                       xmi:uuid="3b0d6614-3a62-46e2-9e86-cd9ddcf077ba"
+                       name="BasicInputOutput">
+         <packageImport xmi:type="uml:PackageImport" xmi:id="BasicInputOutput-_packageImport.0"
+                        xmi:uuid="406bffad-9aea-4db7-8d0e-34263c8ecb24"
+                        importedPackage="Common"/>
+         <packagedElement xmi:type="uml:Class" xmi:id="BasicInputOutput-Channel"
+                          xmi:uuid="e82d8f2e-4fbe-46b1-8214-8161bd4aa6bf"
+                          name="Channel"
+                          isAbstract="true">
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-Channel-getName"
+                            xmi:uuid="ef614729-7f79-47ba-8e5d-be4c60c8beeb"
+                            name="getName"
+                            visibility="public"
+                            isAbstract="true">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="BasicInputOutput-Channel-getName-ReturnResult"
+                               xmi:uuid="180b1c1f-8311-4742-9848-168970c87924"
+                               name="ReturnResult"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-Channel-open"
+                            xmi:uuid="b6282906-3ec7-47f7-a308-62b59a6839cc"
+                            name="open"
+                            visibility="public"
+                            isAbstract="true">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="BasicInputOutput-Channel-open-errorStatus"
+                               xmi:uuid="b724ec6b-9dd0-4c4b-b286-a35710204bed"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-Channel-open-errorStatus-_lowerValue"
+                              xmi:uuid="a046ec62-86cb-443f-8ecb-9788f1d9474d"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-Channel-close"
+                            xmi:uuid="f3261ec9-f7df-4eee-ac3f-ccc8c4567786"
+                            name="close"
+                            visibility="public"
+                            isAbstract="true">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="BasicInputOutput-Channel-close-errorStatus"
+                               xmi:uuid="2061da9f-9909-43cb-bf77-079bb139f446"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-Channel-close-errorStatus-_lowerValue"
+                              xmi:uuid="85319d0f-f55a-45f5-8476-68cd253c80e2"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-Channel-isOpen"
+                            xmi:uuid="34f77f5d-c6e0-4f98-bbb3-c534164bce37"
+                            name="isOpen"
+                            visibility="public"
+                            isAbstract="true">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="BasicInputOutput-Channel-isOpen-ReturnResult"
+                               xmi:uuid="53f1e85a-0c9c-416a-a0a3-d346c6fe73df"
+                               name="ReturnResult"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-Channel-getStatus"
+                            xmi:uuid="45d4c471-4ae4-4a5d-a3d7-7b0e0f2f04ef"
+                            name="getStatus"
+                            visibility="public"
+                            isAbstract="true">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-Channel-getStatus-ReturnResult"
+                               xmi:uuid="431a3e4b-d3d4-4cc8-a8bf-d6a134b06479"
+                               name="ReturnResult"
+                               direction="return"
+                               type="Common-Status"/>
+            </ownedOperation>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="BasicInputOutput-InputChannel"
+                          xmi:uuid="001d0d5d-c43c-40dd-8ea0-2214ccb72124"
+                          name="InputChannel"
+                          isAbstract="true">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="BasicInputOutput-InputChannel-_generalization.0"
+                            xmi:uuid="78cf338e-55cd-4002-82f8-5b3a146ff971"
+                            general="BasicInputOutput-Channel"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-InputChannel-hasMore"
+                            xmi:uuid="3b9870be-d3ff-46c9-9e77-b9d90f0a5575"
+                            name="hasMore"
+                            visibility="public"
+                            isAbstract="true">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-InputChannel-hasMore-ReturnResult"
+                               xmi:uuid="4bef6bdf-d7a4-4b53-9164-64ea624a19eb"
+                               name="ReturnResult"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-InputChannel-read"
+                            xmi:uuid="a5f62ce7-9200-474c-abdd-d1a7c005c6f1"
+                            name="read"
+                            visibility="public"
+                            isAbstract="true">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="BasicInputOutput-InputChannel-read-value"
+                               xmi:uuid="02c4ab63-65d1-4c41-b84d-8b5b58e6bb39"
+                               name="value"
+                               direction="out">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-InputChannel-read-value-_lowerValue"
+                              xmi:uuid="31a15370-a7c1-4c68-bdd8-003e3e8f10ae"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-InputChannel-read-errorStatus"
+                               xmi:uuid="4cadb321-f3a6-43fb-93c5-004171fd9245"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-InputChannel-read-errorStatus-_lowerValue"
+                              xmi:uuid="c5f933b2-67b0-47f8-9393-6166a601bdc4"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-InputChannel-peek"
+                            xmi:uuid="e6e8f7ea-b4c4-46aa-8204-a9f8a5eddcc8"
+                            name="peek"
+                            visibility="public"
+                            isAbstract="true">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="BasicInputOutput-InputChannel-peek-value"
+                               xmi:uuid="1f1bc39d-8971-4391-bca0-249f9cc3907c"
+                               name="value"
+                               direction="out">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-InputChannel-peek-value-_lowerValue"
+                              xmi:uuid="b97cf96f-2f09-415e-b52d-167bb6deef9d"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-InputChannel-peek-errorStatus"
+                               xmi:uuid="8fdaa3f1-31ed-4e27-95fa-f16f61f12492"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-InputChannel-peek-errorStatus-_lowerValue"
+                              xmi:uuid="76df8a95-0b4e-4227-9ffa-e89c2e2baeb8"/>
+               </ownedParameter>
+            </ownedOperation>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="BasicInputOutput-OutputChannel"
+                          xmi:uuid="8e16444a-9c8b-4592-8795-7eeb4f833e18"
+                          name="OutputChannel"
+                          isAbstract="true">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="BasicInputOutput-OutputChannel-_generalization.0"
+                            xmi:uuid="817b6c18-7a60-4cc0-8c4f-109e13300681"
+                            general="BasicInputOutput-Channel"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-OutputChannel-write"
+                            xmi:uuid="2a7412b2-4a13-450c-81b1-a9f7eecf7159"
+                            name="write"
+                            visibility="public"
+                            isAbstract="true">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="BasicInputOutput-OutputChannel-write-value"
+                               xmi:uuid="6748434e-c5e9-4fc4-9af4-8c5238367af3"
+                               name="value"/>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-OutputChannel-write-errorStatus"
+                               xmi:uuid="162518f3-2ca4-4552-bcfb-7338017813ce"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-OutputChannel-write-errorStatus-_lowerValue"
+                              xmi:uuid="db869706-018d-4cd2-bc86-19fa9ef9625a"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-OutputChannel-isFull"
+                            xmi:uuid="5bce76ff-37d9-43bc-b04b-eaec8e03198a"
+                            name="isFull"
+                            visibility="public"
+                            isAbstract="true">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-OutputChannel-isFull-ReturnResult"
+                               xmi:uuid="0783e526-10ca-4793-ad97-e3509991a21a"
+                               name="ReturnResult"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+            </ownedOperation>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="BasicInputOutput-TextInputChannel"
+                          xmi:uuid="3a8d2f4f-662e-4c57-834f-e6ac7f4808b2"
+                          name="TextInputChannel"
+                          isAbstract="true">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="BasicInputOutput-TextInputChannel-_generalization.0"
+                            xmi:uuid="84c2326b-1f41-4e90-baec-dae754e14658"
+                            general="BasicInputOutput-InputChannel"/>
+            <ownedOperation xmi:type="uml:Operation"
+                            xmi:id="BasicInputOutput-TextInputChannel-readCharacter"
+                            xmi:uuid="d59061e6-db93-492a-9c19-4919e69bb135"
+                            name="readCharacter"
+                            visibility="public">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextInputChannel-readCharacter-ReturnResult"
+                               xmi:uuid="b42d5ef9-18ef-480d-9359-f01a17354da1"
+                               name="ReturnResult"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextInputChannel-readCharacter-ReturnResult-_lowerValue"
+                              xmi:uuid="590af722-1865-4463-aa17-46bd660d3183"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextInputChannel-readCharacter-errorStatus"
+                               xmi:uuid="8a46b581-ae08-430b-98b5-45e377f8541b"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextInputChannel-readCharacter-errorStatus-_lowerValue"
+                              xmi:uuid="8b589ed3-2b97-4445-beed-8ada24ac5c66"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation"
+                            xmi:id="BasicInputOutput-TextInputChannel-peekCharacter"
+                            xmi:uuid="dda8c0a6-4f3a-4a70-bfd5-9c780f357a26"
+                            name="peekCharacter"
+                            visibility="public">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextInputChannel-peekCharacter-OwnedParameter"
+                               xmi:uuid="1a99dcf9-3ab3-4d81-aedc-dae1f89cefc8"
+                               name="OwnedParameter"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextInputChannel-peekCharacter-OwnedParameter-_lowerValue"
+                              xmi:uuid="edcedc3e-068f-4bc3-83b0-01c08755cec3"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextInputChannel-peekCharacter-errorStatus"
+                               xmi:uuid="6cabc2bb-fd7a-44de-a39b-7526d2740f37"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextInputChannel-peekCharacter-errorStatus-_lowerValue"
+                              xmi:uuid="b009f1be-0107-4301-a035-8b9a95ae91ae"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-TextInputChannel-readLine"
+                            xmi:uuid="7d6dd325-2c28-4211-a5fb-12658d5168b8"
+                            name="readLine"
+                            visibility="public">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextInputChannel-readLine-ReturnResult"
+                               xmi:uuid="136e95af-1662-4a8a-96d4-ad3770a1c688"
+                               name="ReturnResult"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextInputChannel-readLine-errorStatus"
+                               xmi:uuid="e510a1fd-096e-4548-90a4-072c423a6266"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextInputChannel-readLine-errorStatus-_lowerValue"
+                              xmi:uuid="7f252a94-b9da-425a-9cb4-e26efe54b2fa"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-TextInputChannel-readInteger"
+                            xmi:uuid="d36336bc-a4ca-41f7-bed6-44d152e70105"
+                            name="readInteger"
+                            visibility="public">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextInputChannel-readInteger-ReturnResult"
+                               xmi:uuid="a4aa81a5-f03d-41e7-a659-391cde64acd6"
+                               name="ReturnResult"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextInputChannel-readInteger-ReturnResult-_lowerValue"
+                              xmi:uuid="d21c11e4-1c7d-4dae-901e-57b586d79e51"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextInputChannel-readInteger-errorStatus"
+                               xmi:uuid="3acf7bc2-2619-4812-970a-345e46d55a06"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextInputChannel-readInteger-errorStatus-_lowerValue"
+                              xmi:uuid="3379979f-a098-4f29-a3ac-609b1ff7fb41"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-TextInputChannel-readReal"
+                            xmi:uuid="493ba065-dd8b-44b3-8f4a-73eaee527dfe"
+                            name="readReal"
+                            visibility="public">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextInputChannel-readReal-errorStatus"
+                               xmi:uuid="a1bbdd16-2211-496a-af86-a5e08d60efd2"
+                               name="errorStatus"
+                               visibility="public"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextInputChannel-readReal-errorStatus-_lowerValue"
+                              xmi:uuid="8dd87814-ef3e-415e-99d5-577fdcb622ff"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextInputChannel-readReal-ReturnResult"
+                               xmi:uuid="20c7bc06-9699-4414-8820-df4f1a807b4a"
+                               name="ReturnResult"
+                               visibility="public"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextInputChannel-readReal-ReturnResult-_lowerValue"
+                              xmi:uuid="3f409cc4-2adb-4dac-818f-a706de1d2ab8"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-TextInputChannel-readBoolean"
+                            xmi:uuid="22a07371-df77-4587-88d8-be56673805a1"
+                            name="readBoolean"
+                            visibility="public">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextInputChannel-readBoolean-ReturnResult"
+                               xmi:uuid="e6eeaabb-f0df-4d65-8a4c-a0e72d382006"
+                               name="ReturnResult"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextInputChannel-readBoolean-ReturnResult-_lowerValue"
+                              xmi:uuid="c09efeeb-cef6-41f9-8419-404436084916"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextInputChannel-readBoolean-errorStatus"
+                               xmi:uuid="60eafa53-7504-43b8-8750-4830f4c92c51"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextInputChannel-readBoolean-errorStatus-_lowerValue"
+                              xmi:uuid="e0a5511d-e4d2-415d-9dec-acf04a4d9f94"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation"
+                            xmi:id="BasicInputOutput-TextInputChannel-readUnlimitedNatural"
+                            xmi:uuid="dc1c4069-888f-4135-b7a3-d19b8c9d8137"
+                            name="readUnlimitedNatural"
+                            visibility="public">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextInputChannel-readUnlimitedNatural-ReturnResult"
+                               xmi:uuid="d25984aa-a512-4888-9fad-3f7bf99d26d1"
+                               name="ReturnResult"
+                               direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextInputChannel-readUnlimitedNatural-ReturnResult-_lowerValue"
+                              xmi:uuid="a014ed27-3ad6-40d0-8a77-26f09ca30300"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextInputChannel-readUnlimitedNatural-errorStatus"
+                               xmi:uuid="32e8a759-46fe-4403-ad90-236071278d2c"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextInputChannel-readUnlimitedNatural-errorStatus-_lowerValue"
+                              xmi:uuid="01d7cf3e-3baf-466b-a9aa-f0f5ce8138c7"/>
+               </ownedParameter>
+            </ownedOperation>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="BasicInputOutput-TextOutputChannel"
+                          xmi:uuid="b7f955cb-380c-4435-acb7-d6641f84c1c8"
+                          name="TextOutputChannel"
+                          isAbstract="true">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="BasicInputOutput-TextOutputChannel-_generalization.0"
+                            xmi:uuid="13a808b8-8960-4a38-b1f9-e17d620b5f40"
+                            general="BasicInputOutput-OutputChannel"/>
+            <ownedOperation xmi:type="uml:Operation"
+                            xmi:id="BasicInputOutput-TextOutputChannel-writeString"
+                            xmi:uuid="4f5b4931-5e6b-4b94-8228-f15d4f25af7a"
+                            name="writeString"
+                            visibility="public">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextOutputChannel-writeString-value"
+                               xmi:uuid="70b064a2-98f5-4f47-a23b-a95e36293270"
+                               name="value">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextOutputChannel-writeString-errorStatus"
+                               xmi:uuid="a7b38f3e-ec64-42a9-ac1e-0b29bb7bfddd"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextOutputChannel-writeString-errorStatus-_lowerValue"
+                              xmi:uuid="404b608b-aaac-44ff-b953-14f967310568"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation"
+                            xmi:id="BasicInputOutput-TextOutputChannel-writeNewLine"
+                            xmi:uuid="1ac1ee4f-5a3f-4711-a3ad-967de669c2a2"
+                            name="writeNewLine"
+                            visibility="public"
+                            isAbstract="true">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextOutputChannel-writeNewLine-errorStatus"
+                               xmi:uuid="736008a9-f827-4e43-b864-0608bb15425b"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextOutputChannel-writeNewLine-errorStatus-_lowerValue"
+                              xmi:uuid="07952873-3114-4f8b-8767-228fa2ecb717"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-TextOutputChannel-writeLine"
+                            xmi:uuid="6402ca41-9769-475f-aed1-7a081471668f"
+                            name="writeLine"
+                            visibility="public">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextOutputChannel-writeLine-value"
+                               xmi:uuid="01ada6e8-0f96-4352-9bc0-737a0ed659d4"
+                               name="value">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextOutputChannel-writeLine-errorStatus"
+                               xmi:uuid="edd584c0-ca17-4c04-be52-5b9252487b9b"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextOutputChannel-writeLine-errorStatus-_lowerValue"
+                              xmi:uuid="d903804d-bae1-4cb8-9d3e-ed01610ad77d"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation"
+                            xmi:id="BasicInputOutput-TextOutputChannel-writeInteger"
+                            xmi:uuid="fbf78a87-a7b7-47e7-a601-1e63b014082b"
+                            name="writeInteger"
+                            visibility="public">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextOutputChannel-writeInteger-value"
+                               xmi:uuid="46df0206-2b26-4ace-b09b-c4c6bd5b0e2b"
+                               name="value">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextOutputChannel-writeInteger-errorStatus"
+                               xmi:uuid="936b73c2-453e-44fa-8190-bbec40eba354"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextOutputChannel-writeInteger-errorStatus-_lowerValue"
+                              xmi:uuid="530ce168-021c-43e5-b0de-7749043f25fd"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-TextOutputChannel-writeReal"
+                            xmi:uuid="e11f9ac2-b89d-4ccb-be1c-c46feb4c90c9"
+                            name="writeReal"
+                            visibility="public">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextOutputChannel-writeReal-value"
+                               xmi:uuid="e3b4ff94-f281-4fcc-91fa-e0f9b304ab69"
+                               name="value"
+                               visibility="public">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextOutputChannel-writeReal-errorStatus"
+                               xmi:uuid="8e4cad22-446e-45b2-a6fb-251e98d5191a"
+                               name="errorStatus"
+                               visibility="public"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextOutputChannel-writeReal-errorStatus-_lowerValue"
+                              xmi:uuid="7efaf36c-834f-427a-8346-fa50bbce1b2d"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation"
+                            xmi:id="BasicInputOutput-TextOutputChannel-writeBoolean"
+                            xmi:uuid="5813283d-cca2-4b5e-8663-3b8912500d77"
+                            name="writeBoolean"
+                            visibility="public">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextOutputChannel-writeBoolean-value"
+                               xmi:uuid="6f5f5e46-7e42-472b-88e7-2546acfdd758"
+                               name="value">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextOutputChannel-writeBoolean-errorStatus"
+                               xmi:uuid="85fbd30e-2c14-47fd-b4e0-696d180a0c9f"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextOutputChannel-writeBoolean-errorStatus-_lowerValue"
+                              xmi:uuid="2b4c0d83-0d6d-4d05-bde7-6ff16d9a396e"/>
+               </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation"
+                            xmi:id="BasicInputOutput-TextOutputChannel-writeUnlimitedNatural"
+                            xmi:uuid="bfabeaa2-644f-49dc-882d-67597a5f2e6d"
+                            name="writeUnlimitedNatural"
+                            visibility="public">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextOutputChannel-writeUnlimitedNatural-value"
+                               xmi:uuid="ec2e45da-dfe5-4977-9dff-b5c271dbdaf6"
+                               name="value">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+               </ownedParameter>
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-TextOutputChannel-writeUnlimitedNatural-errorStatus"
+                               xmi:uuid="5f04d0e7-085b-4c2e-9eb3-eb331900f1c6"
+                               name="errorStatus"
+                               direction="out"
+                               type="Common-Status">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-TextOutputChannel-writeUnlimitedNatural-errorStatus-_lowerValue"
+                              xmi:uuid="04ba1eb3-ad9b-43a2-8b10-b95fbd04bf10"/>
+               </ownedParameter>
+            </ownedOperation>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="BasicInputOutput-StandardInputChannel"
+                          xmi:uuid="01d93dd6-e0a0-492c-a0f1-2e7ea709e157"
+                          name="StandardInputChannel"
+                          isAbstract="true">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="BasicInputOutput-StandardInputChannel-_generalization.0"
+                            xmi:uuid="17486ada-8b59-4eee-8d01-0ad213f113f0"
+                            general="BasicInputOutput-TextInputChannel"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="BasicInputOutput-StandardOutputChannel"
+                          xmi:uuid="af645624-fbc9-4f7c-b8bc-136604c73901"
+                          name="StandardOutputChannel"
+                          isAbstract="true">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="BasicInputOutput-StandardOutputChannel-_generalization.0"
+                            xmi:uuid="e098932d-c26b-417f-aa39-9eedf10226d6"
+                            general="BasicInputOutput-TextOutputChannel"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Activity" xmi:id="BasicInputOutput-WriteLine"
+                          xmi:uuid="91f937f8-2553-440d-b463-f641959032b6"
+                          name="WriteLine"
+                          isReentrant="false">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="BasicInputOutput-WriteLine-value"
+                            xmi:uuid="f10b930a-777c-4907-a0dc-9a31740e8614"
+                            name="value">
+               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="BasicInputOutput-WriteLine-errorStatus"
+                            xmi:uuid="a5a7a484-a4fc-4586-9000-77f2fee576ad"
+                            name="errorStatus"
+                            direction="out">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="BasicInputOutput-WriteLine-errorStatus-_lowerValue"
+                           xmi:uuid="3a878c39-d022-41e5-80ac-5738e2883423"/>
+            </ownedParameter>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="BasicInputOutput-WriteLine-_edge.0"
+                  xmi:uuid="c8f7e737-d6d5-4231-843d-6d685b648a4f"
+                  source="BasicInputOutput-WriteLine-StandardOutputChannel-_result"
+                  target="BasicInputOutput-WriteLine-writeLine-_target">
+               <guard xmi:type="uml:OpaqueExpression"
+                      xmi:id="BasicInputOutput-WriteLine-_edge.0-_guard"
+                      xmi:uuid="5fba91ff-5fa7-4b55-b1fd-a6dc721b5159">
+                  <body/>
+               </guard>
+               <weight xmi:type="uml:LiteralInteger"
+                       xmi:id="BasicInputOutput-WriteLine-_edge.0-_weight"
+                       xmi:uuid="a3617ec5-a218-489f-a67d-3e5a763d59d7"
+                       value="1"/>
+            </edge>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="BasicInputOutput-WriteLine-_edge.1"
+                  xmi:uuid="6f69602c-9322-45bb-af59-11379288d112"
+                  source="BasicInputOutput-WriteLine-value.1"
+                  target="BasicInputOutput-WriteLine-writeLine-value">
+               <guard xmi:type="uml:OpaqueExpression"
+                      xmi:id="BasicInputOutput-WriteLine-_edge.1-_guard"
+                      xmi:uuid="21a5497e-de60-4df9-a990-8736f87db1e8">
+                  <body/>
+               </guard>
+               <weight xmi:type="uml:LiteralInteger"
+                       xmi:id="BasicInputOutput-WriteLine-_edge.1-_weight"
+                       xmi:uuid="727fe89c-96f4-4f4a-9e7e-9b0245f831ee"
+                       value="1"/>
+            </edge>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="BasicInputOutput-WriteLine-_edge.2"
+                  xmi:uuid="bf41c098-4ccc-4458-a08c-d6e65f4f17b5"
+                  source="BasicInputOutput-WriteLine-writeLine-errorStatus"
+                  target="BasicInputOutput-WriteLine-errorStatus.1">
+               <guard xmi:type="uml:OpaqueExpression"
+                      xmi:id="BasicInputOutput-WriteLine-_edge.2-_guard"
+                      xmi:uuid="6260eaa3-5202-4f4b-bee4-c89455126df4">
+                  <body/>
+               </guard>
+               <weight xmi:type="uml:LiteralInteger"
+                       xmi:id="BasicInputOutput-WriteLine-_edge.2-_weight"
+                       xmi:uuid="c7cb23f3-e853-4f79-bf6b-1be14fb5f20e"
+                       value="1"/>
+            </edge>
+            <node xmi:type="uml:ReadExtentAction"
+                  xmi:id="BasicInputOutput-WriteLine-StandardOutputChannel"
+                  xmi:uuid="348ce0f4-93b7-4960-91fa-1936da82192c"
+                  name="StandardOutputChannel"
+                  classifier="BasicInputOutput-StandardOutputChannel">
+               <result xmi:type="uml:OutputPin"
+                       xmi:id="BasicInputOutput-WriteLine-StandardOutputChannel-_result"
+                       xmi:uuid="9b975c58-d1cf-4bc4-9692-b6ea6cf9418a"
+                       type="BasicInputOutput-StandardOutputChannel">
+                  <upperBound xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-WriteLine-StandardOutputChannel-_result-_upperBound"
+                              xmi:uuid="d4281ae8-6385-444c-8205-77eaf80959ac"
+                              value="1"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-WriteLine-StandardOutputChannel-_result-_lowerValue"
+                              xmi:uuid="2eae9621-8dfd-4ab3-8949-9b0d67ddec8a"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="BasicInputOutput-WriteLine-StandardOutputChannel-_result-_upperValue"
+                              xmi:uuid="e56d85f0-55c1-4799-9176-906680d39fef"
+                              value="*"/>
+               </result>
+            </node>
+            <node xmi:type="uml:CallOperationAction"
+                  xmi:id="BasicInputOutput-WriteLine-writeLine"
+                  xmi:uuid="6a32dd4d-3254-4301-858e-818bf4a4f28d"
+                  name="writeLine"
+                  operation="BasicInputOutput-TextOutputChannel-writeLine">
+               <argument xmi:type="uml:InputPin" xmi:id="BasicInputOutput-WriteLine-writeLine-value"
+                         xmi:uuid="1c3e9539-8875-48ad-a0dc-d1bfd6b7b960"
+                         name="value">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <upperBound xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-WriteLine-writeLine-value-_upperBound"
+                              xmi:uuid="c6667367-bb4a-4371-8223-95a1a0a2882f"
+                              value="1"/>
+               </argument>
+               <result xmi:type="uml:OutputPin"
+                       xmi:id="BasicInputOutput-WriteLine-writeLine-errorStatus"
+                       xmi:uuid="b05593be-8fcb-4bd2-8b6c-7eb7304992b7"
+                       name="errorStatus"
+                       type="Common-Status">
+                  <upperBound xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-WriteLine-writeLine-errorStatus-_upperBound"
+                              xmi:uuid="7dccccdc-ca14-4f4d-b713-3fa4cf694d98"
+                              value="1"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-WriteLine-writeLine-errorStatus-_lowerValue"
+                              xmi:uuid="613c418f-da93-4326-a94b-a1c0eda4aaa9"/>
+               </result>
+               <target xmi:type="uml:InputPin" xmi:id="BasicInputOutput-WriteLine-writeLine-_target"
+                       xmi:uuid="4c3cc45d-9e2a-485c-84fa-fbc89c3ee40b"
+                       type="BasicInputOutput-TextOutputChannel">
+                  <upperBound xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-WriteLine-writeLine-_target-_upperBound"
+                              xmi:uuid="fa369417-15a0-46a6-bcd6-942128022deb"
+                              value="1"/>
+               </target>
+            </node>
+            <node xmi:type="uml:ActivityParameterNode"
+                  xmi:id="BasicInputOutput-WriteLine-value.1"
+                  xmi:uuid="2d215fec-0015-4786-98d8-ea953f576bcc"
+                  name="value"
+                  parameter="BasicInputOutput-WriteLine-value">
+               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               <upperBound xmi:type="uml:LiteralInteger"
+                           xmi:id="BasicInputOutput-WriteLine-value.1-_upperBound"
+                           xmi:uuid="77b4d812-6ee1-419e-ab90-448494ff20f7"
+                           value="1"/>
+            </node>
+            <node xmi:type="uml:ActivityParameterNode"
+                  xmi:id="BasicInputOutput-WriteLine-errorStatus.1"
+                  xmi:uuid="3c4f9014-770c-4bd3-b462-5116d9957672"
+                  name="errorStatus"
+                  type="Common-Status"
+                  parameter="BasicInputOutput-WriteLine-errorStatus">
+               <upperBound xmi:type="uml:LiteralInteger"
+                           xmi:id="BasicInputOutput-WriteLine-errorStatus.1-_upperBound"
+                           xmi:uuid="54e8dd54-caf6-4c35-800f-c60226250a5f"
+                           value="1"/>
+            </node>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="BasicInputOutput-ActiveChannel"
+                          xmi:uuid="39c1f654-8573-4dd8-a19e-79f4cd947498"
+                          name="ActiveChannel"
+                          isAbstract="true"
+                          isActive="true">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="BasicInputOutput-ActiveChannel-_generalization.0"
+                            xmi:uuid="2105e548-62d1-4342-84a7-288b7902a94e"
+                            general="BasicInputOutput-Channel"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-ActiveChannel-register"
+                            xmi:uuid="0058fcc5-9481-4bb7-9a98-6278703af0bd"
+                            name="register"
+                            visibility="public">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-ActiveChannel-register-listener"
+                               xmi:uuid="4991eac8-ed04-4e50-9f96-c645401fef37"
+                               name="listener"
+                               type="Common-Listener"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="BasicInputOutput-ActiveChannel-unregister"
+                            xmi:uuid="ad23f982-afe4-434c-aa30-3c6b0f83c9de"
+                            name="unregister"
+                            visibility="public">
+               <ownedParameter xmi:type="uml:Parameter"
+                               xmi:id="BasicInputOutput-ActiveChannel-unregister-listener"
+                               xmi:uuid="f72a5ce1-c287-4c70-a5d4-ab5c99f83e23"
+                               name="listener"
+                               type="Common-Listener"/>
+            </ownedOperation>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Activity" xmi:id="BasicInputOutput-ReadLine"
+                          xmi:uuid="79194236-26e8-4014-b781-baff75d51460"
+                          name="ReadLine"
+                          isReentrant="false">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="BasicInputOutput-ReadLine-errorStatus"
+                            xmi:uuid="134c18a9-86e4-491a-a7de-70e6ccc57c99"
+                            name="errorStatus"
+                            direction="out">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="BasicInputOutput-ReadLine-errorStatus-_lowerValue"
+                           xmi:uuid="da000e70-35e3-4079-92ef-a5e871a189f4"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="BasicInputOutput-ReadLine-result"
+                            xmi:uuid="ca0ea3cc-c2cf-4b92-b07d-e88cd461dd76"
+                            name="result"
+                            direction="out">
+               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="BasicInputOutput-ReadLine-_edge.0"
+                  xmi:uuid="ffe331f2-7a4c-4ff5-a4a9-6b1e36a44ba9"
+                  source="BasicInputOutput-ReadLine-StandardInputChannel-_result"
+                  target="BasicInputOutput-ReadLine-readLine-_target">
+               <guard xmi:type="uml:OpaqueExpression"
+                      xmi:id="BasicInputOutput-ReadLine-_edge.0-_guard"
+                      xmi:uuid="2347915c-01d5-401e-817a-3e676e1128c9">
+                  <body/>
+               </guard>
+               <weight xmi:type="uml:LiteralInteger"
+                       xmi:id="BasicInputOutput-ReadLine-_edge.0-_weight"
+                       xmi:uuid="656a8848-c611-49bf-b0c5-0f428c978a20"
+                       value="1"/>
+            </edge>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="BasicInputOutput-ReadLine-_edge.1"
+                  xmi:uuid="6fd9eff6-656d-4239-8dca-92dfb312c8fc"
+                  source="BasicInputOutput-ReadLine-readLine-errorStatus"
+                  target="BasicInputOutput-ReadLine-errorStatus.1">
+               <guard xmi:type="uml:OpaqueExpression"
+                      xmi:id="BasicInputOutput-ReadLine-_edge.1-_guard"
+                      xmi:uuid="47cf2ac7-3f62-418b-a5a6-fe0ba83bc73e">
+                  <body/>
+               </guard>
+               <weight xmi:type="uml:LiteralInteger"
+                       xmi:id="BasicInputOutput-ReadLine-_edge.1-_weight"
+                       xmi:uuid="6b52c766-eaeb-4b86-9373-17fc70d633c8"
+                       value="1"/>
+            </edge>
+            <edge xmi:type="uml:ObjectFlow" xmi:id="BasicInputOutput-ReadLine-_edge.2"
+                  xmi:uuid="621b72e7-de71-4c0f-9b47-dd8f22777175"
+                  source="BasicInputOutput-ReadLine-readLine-_result.0"
+                  target="BasicInputOutput-ReadLine-result.1">
+               <guard xmi:type="uml:OpaqueExpression"
+                      xmi:id="BasicInputOutput-ReadLine-_edge.2-_guard"
+                      xmi:uuid="898d7b72-1a13-483b-a69f-8c5621dbaa10">
+                  <body/>
+               </guard>
+               <weight xmi:type="uml:LiteralInteger"
+                       xmi:id="BasicInputOutput-ReadLine-_edge.2-_weight"
+                       xmi:uuid="81e1d437-14ed-4536-baac-d390ee6cbb97"
+                       value="1"/>
+            </edge>
+            <node xmi:type="uml:ReadExtentAction"
+                  xmi:id="BasicInputOutput-ReadLine-StandardInputChannel"
+                  xmi:uuid="b6fd062e-4533-422a-9f93-3a38069d087c"
+                  name="StandardInputChannel"
+                  classifier="BasicInputOutput-StandardInputChannel">
+               <result xmi:type="uml:OutputPin"
+                       xmi:id="BasicInputOutput-ReadLine-StandardInputChannel-_result"
+                       xmi:uuid="f2f8c1ef-7545-49c5-b988-9540e3e7ac5e"
+                       type="BasicInputOutput-StandardInputChannel">
+                  <upperBound xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-ReadLine-StandardInputChannel-_result-_upperBound"
+                              xmi:uuid="2ab0584e-6674-451d-8666-d36ba868da6b"
+                              value="1"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-ReadLine-StandardInputChannel-_result-_lowerValue"
+                              xmi:uuid="6e64d6e6-f43b-4c69-9995-6f6319305efd"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="BasicInputOutput-ReadLine-StandardInputChannel-_result-_upperValue"
+                              xmi:uuid="13ca0069-054b-4067-8660-f29baf603915"
+                              value="*"/>
+               </result>
+            </node>
+            <node xmi:type="uml:CallOperationAction" xmi:id="BasicInputOutput-ReadLine-readLine"
+                  xmi:uuid="701e72cf-480a-4d9f-87f6-ae376db04a1c"
+                  name="readLine"
+                  operation="BasicInputOutput-TextInputChannel-readLine">
+               <result xmi:type="uml:OutputPin" xmi:id="BasicInputOutput-ReadLine-readLine-_result.0"
+                       xmi:uuid="ce2c5d58-0de8-4167-8952-416304d9d2bf">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <upperBound xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-ReadLine-readLine-_result.0-_upperBound"
+                              xmi:uuid="b84927d4-6f85-43bd-ab44-c317302b132d"
+                              value="1"/>
+               </result>
+               <result xmi:type="uml:OutputPin"
+                       xmi:id="BasicInputOutput-ReadLine-readLine-errorStatus"
+                       xmi:uuid="77828b85-00a1-4e06-b222-da7c409d58a5"
+                       name="errorStatus"
+                       type="Common-Status">
+                  <upperBound xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-ReadLine-readLine-errorStatus-_upperBound"
+                              xmi:uuid="2e90eccf-3ef4-4935-ac7a-401271325648"
+                              value="1"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-ReadLine-readLine-errorStatus-_lowerValue"
+                              xmi:uuid="44cad6d4-949e-4161-8769-47ebd1a14876"/>
+               </result>
+               <target xmi:type="uml:InputPin" xmi:id="BasicInputOutput-ReadLine-readLine-_target"
+                       xmi:uuid="26ab613f-4423-4054-bd3f-5789c7e40d17"
+                       type="BasicInputOutput-TextInputChannel">
+                  <upperBound xmi:type="uml:LiteralInteger"
+                              xmi:id="BasicInputOutput-ReadLine-readLine-_target-_upperBound"
+                              xmi:uuid="ebb7b0e6-8b33-449a-95dd-c17bb998e732"
+                              value="1"/>
+               </target>
+            </node>
+            <node xmi:type="uml:ActivityParameterNode"
+                  xmi:id="BasicInputOutput-ReadLine-errorStatus.1"
+                  xmi:uuid="3fd0b96a-e4a4-419d-b1ec-012052f1885e"
+                  name="errorStatus"
+                  type="Common-Status"
+                  parameter="BasicInputOutput-ReadLine-errorStatus">
+               <upperBound xmi:type="uml:LiteralInteger"
+                           xmi:id="BasicInputOutput-ReadLine-errorStatus.1-_upperBound"
+                           xmi:uuid="d27f5912-9df0-496d-a56f-ffc5ae8e6ffc"
+                           value="1"/>
+            </node>
+            <node xmi:type="uml:ActivityParameterNode"
+                  xmi:id="BasicInputOutput-ReadLine-result.1"
+                  xmi:uuid="956e20b4-552e-4350-a812-03d8223776c9"
+                  name="result"
+                  parameter="BasicInputOutput-ReadLine-result">
+               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+               <upperBound xmi:type="uml:LiteralInteger"
+                           xmi:id="BasicInputOutput-ReadLine-result.1-_upperBound"
+                           xmi:uuid="5fe4abbf-647a-42e2-9b1d-1d16c210cfe0"
+                           value="1"/>
+            </node>
+         </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="Common"
+                       xmi:uuid="bb6b7ab4-1da7-419d-b022-727c394c833b"
+                       name="Common">
+         <packagedElement xmi:type="uml:Signal" xmi:id="Common-Notification"
+                          xmi:uuid="69b7d13d-2350-492e-b42a-fa0009767db7"
+                          name="Notification"
+                          visibility="private">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="Common-Notification-content"
+                            xmi:uuid="64e6987d-c85e-455e-a209-2ae11e308322"
+                            name="content"
+                            visibility="public">
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Common-Notification-content-_lowerValue"
+                           xmi:uuid="a9aecd31-4bd6-439f-85d9-19f0d73961fa"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="Common-Listener"
+                          xmi:uuid="5bd8b521-7f09-40b3-a13a-f22ea10732b9"
+                          name="Listener"
+                          isAbstract="true"
+                          isActive="true">
+            <ownedReception xmi:type="uml:Reception" xmi:id="Common-Listener-_ownedReception.0"
+                            xmi:uuid="64e2cb06-78fa-4240-9c4e-77cba4256283"
+                            signal="Common-Notification">
+               <ownedParameter xmi:type="uml:Parameter" xmi:id="Common-Listener-_ownedReception.0-content"
+                               xmi:uuid="3bd8a910-e1be-456e-9afe-bd5a19fa8171"
+                               name="content"
+                               visibility="public">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="Common-Listener-_ownedReception.0-content-_lowerValue"
+                              xmi:uuid="0e65e186-1317-4aea-9a82-bbab03a630f9"/>
+               </ownedParameter>
+            </ownedReception>
+         </packagedElement>
+         <packagedElement xmi:type="uml:DataType" xmi:id="Common-Status"
+                          xmi:uuid="3302ebb8-1d13-4ff0-a870-c3df330f04be"
+                          name="Status">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="Common-Status-context"
+                            xmi:uuid="f15605d8-0263-467d-98e2-2301fc6bfe85"
+                            name="context"
+                            visibility="public">
+               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="Common-Status-code"
+                            xmi:uuid="56de6fda-1398-4cac-a1ed-c29df516f0ce"
+                            name="code"
+                            visibility="public">
+               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="Common-Status-description"
+                            xmi:uuid="23b5defb-291b-4a04-b1e7-5698e0c262dd"
+                            name="description"
+                            visibility="public">
+               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+         </packagedElement>
+      </packagedElement>
+   </uml:Model>
+</xmi:XMI>
