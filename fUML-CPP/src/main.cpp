@@ -1,4 +1,4 @@
-#include <examples/primechecker/primecheckerEnvironment.h>
+#include <test/fUML-Tests/src/fUML_TestsEnvironment.h>
 #include <iostream>
 using namespace std;
 
@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
 		return -1;
 	}*/
 
-	primechecker::primecheckerEnvironment::Instance()->execute("checkIfPrime");
+	fUML_Tests::fUML_TestsEnvironment::Instance()->execute("TestGeneralizationAssembly");
 
 	std::cout<<"Ende"<<std::endl;
 
