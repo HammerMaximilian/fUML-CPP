@@ -4,16 +4,16 @@
 [import fuml::generator::naming::naming /]
 
 [template public generateOpaqueBehaviorExecutionClassSourceFile(anOpaqueBehavior : OpaqueBehavior)]
-[file (anOpaqueBehavior.getName() + 'Execution.cpp', false, 'UTF-8')]
+[file (anOpaqueBehavior.getNameSanitized() + 'Execution.cpp', false, 'UTF-8')]
 /*
- * [anOpaqueBehavior.getName() + 'Execution.cpp'/]
+ * [anOpaqueBehavior.getNameSanitized() + 'Execution.cpp'/]
  * 
  * Auto-generated file
  */
 
-#include "[anOpaqueBehavior.getName() + 'Execution.h'/]"
+#include "[anOpaqueBehavior.getNameSanitized() + 'Execution.h'/]"
 
-#include "[anOpaqueBehavior.getRootPackage().getName() + 'Model.h'/]"
+#include "[anOpaqueBehavior.getRootPackage().getNameSanitized() + 'Model.h'/]"
 #include <fuml/Debug.h>
 #include <fuml/semantics/commonbehavior/ParameterValue.h>
 #include <fuml/semantics/loci/ExecutionFactory.h>
@@ -29,7 +29,7 @@
  * [/protected]
  */
 
-using namespace [anOpaqueBehavior.getRootPackage().getName()/];
+using namespace [anOpaqueBehavior.getRootPackage().getNameSanitized()/];
 
 /* [protected (': User-defined members')]
  * This section may be used for user-defined members,
@@ -42,9 +42,9 @@ using namespace [anOpaqueBehavior.getRootPackage().getName()/];
  * [/protected]
  */
 
-[anOpaqueBehavior.getName() + 'Execution'/]::[anOpaqueBehavior.getName() + 'Execution'/]()
+[anOpaqueBehavior.getNameSanitized() + 'Execution'/]::[anOpaqueBehavior.getNameSanitized() + 'Execution'/]()
 {
-	this->types->push_back([anOpaqueBehavior.getRootPackage().getName() + 'Model::Instance()->' + anOpaqueBehavior.getFullName()/]);
+	this->types->push_back([anOpaqueBehavior.getRootPackage().getNameSanitized() + 'Model::Instance()->' + anOpaqueBehavior.getFullName()/]);
 	/* [protected (': Additional opaque behavior execution initializations')]
  	 * This section may be used to do any additional opaque behavior execution initialization,
 	 * for example initializing user-defined members.
@@ -56,7 +56,7 @@ using namespace [anOpaqueBehavior.getRootPackage().getName()/];
  	 */
 }
 
-[anOpaqueBehavior.getName() + 'Execution'/]::~[anOpaqueBehavior.getName() + 'Execution'/]()
+[anOpaqueBehavior.getNameSanitized() + 'Execution'/]::~[anOpaqueBehavior.getNameSanitized() + 'Execution'/]()
 {
 	/* [protected (': Additional opaque behavior execution cleanup')]
  	 * This section may be used to do any additional opaque behavior execution cleanup,
@@ -69,7 +69,7 @@ using namespace [anOpaqueBehavior.getRootPackage().getName()/];
  	 */
 }
 
-void [anOpaqueBehavior.getName() + 'Execution'/]::doBody(const ParameterValueListPtr& inputParameters,
+void [anOpaqueBehavior.getNameSanitized() + 'Execution'/]::doBody(const ParameterValueListPtr& inputParameters,
 	const ParameterValueListPtr& outputParameters)
 {
 	[if (anOpaqueBehavior.language->includes('C++') and anOpaqueBehavior._body->size() >= anOpaqueBehavior.language->size())]
@@ -77,9 +77,9 @@ void [anOpaqueBehavior.getName() + 'Execution'/]::doBody(const ParameterValueLis
 	[/if]
 }
 
-ValuePtr [anOpaqueBehavior.getName() + 'Execution'/]::new_()
+ValuePtr [anOpaqueBehavior.getNameSanitized() + 'Execution'/]::new_()
 {
-	std::shared_ptr<[anOpaqueBehavior.getName() + 'Execution'/]> newValue(new [anOpaqueBehavior.getName() + 'Execution'/]());
+	std::shared_ptr<[anOpaqueBehavior.getNameSanitized() + 'Execution'/]> newValue(new [anOpaqueBehavior.getNameSanitized() + 'Execution'/]());
 	newValue->setThisObject_Ptr(newValue);
 	return newValue;
 }

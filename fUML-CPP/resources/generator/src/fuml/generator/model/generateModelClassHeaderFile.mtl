@@ -5,15 +5,15 @@
 [import fuml::generator::syntax::syntax /]
 
 [template public generateModelClassHeaderFile(aPackage : Package)]
-[file (aPackage.getName() + 'Model.h', false, 'UTF-8')]
+[file (aPackage.getNameSanitized() + 'Model.h', false, 'UTF-8')]
 /*
- * [aPackage.getName() + 'Model.h'/]
+ * [aPackage.getNameSanitized() + 'Model.h'/]
  * 
  * Auto-generated file
  */
 
-#ifndef [aPackage.getName().toUpperCase() + '_MODEL_H'/]
-#define [aPackage.getName().toUpperCase() + '_MODEL_H'/]
+#ifndef [aPackage.getNameSanitized().toUpperCase() + '_MODEL_H'/]
+#define [aPackage.getNameSanitized().toUpperCase() + '_MODEL_H'/]
 
 #include <fuml/syntax/fwd.h>
 #include <utils/environment/InMemoryModel.h>
@@ -27,19 +27,19 @@
  * [/protected]
  */
 
-namespace [aPackage.getName()/]
+namespace [aPackage.getNameSanitized()/]
 {
-	class [aPackage.getName() + 'Model'/] : public fuml::environment::InMemoryModel
+	class [aPackage.getNameSanitized() + 'Model'/] : public fuml::environment::InMemoryModel
 	{
 		public:
 		[aPackage.generatePublicMemberDeclarations()/]
 
 		public:
-			virtual ~[aPackage.getName() + 'Model'/]();
-			static const std::shared_ptr<[aPackage.getName() + 'Model'/]>& Instance();
+			virtual ~[aPackage.getNameSanitized() + 'Model'/]();
+			static const std::shared_ptr<[aPackage.getNameSanitized() + 'Model'/]>& Instance();
 
 		private:
-			[aPackage.getName() + 'Model'/]();
+			[aPackage.getNameSanitized() + 'Model'/]();
 			void initializeInMemoryModel();
 
 		/* [protected (': User-defined members')]
@@ -53,7 +53,7 @@ namespace [aPackage.getName()/]
 	};
 }
 
-#endif /* [aPackage.getName().toUpperCase() + '_MODEL_H'/] */
+#endif /* [aPackage.getNameSanitized().toUpperCase() + '_MODEL_H'/] */
 [/file]
 [/template]
 
@@ -61,7 +61,7 @@ namespace [aPackage.getName()/]
 /*
  * [aPackage.eClass().name + ' ' + aPackage.getName()/]
  */
-PackagePtr [aPackage.getFullName()/] = nullptr;
+PackagePtr [aPackage.getFullNameSanitized()/] = nullptr;
 [comment Check if metaclass of anElement is supported by fUML syntax /]
 [for (packagedElement : Element | aPackage.packagedElement->select(pE : PackageableElement | supportedUMLMetaclasses()->includes(pE.eClass().name)))]
 	[packagedElement.generatePublicMemberDeclarations()/]
@@ -72,7 +72,7 @@ PackagePtr [aPackage.getFullName()/] = nullptr;
 [if (anElement.oclIsKindOf(Package))]
 [anElement.oclAsType(Package).generatePublicMemberDeclarations()/]
 [else]
-[anElement.eClass().name.adjustMetaclassName()/]Ptr [anElement.getFullName()/] = nullptr;
+[anElement.eClass().name.adjustMetaclassName()/]Ptr [anElement.getFullNameSanitized()/] = nullptr;
 	[for (ownedElement : Element | anElement.ownedElement->select(e : Element | supportedUMLMetaclasses()->includes(e.eClass().name)))]
 	[ownedElement.generatePublicMemberDeclarations()/]
 	[/for]

@@ -12,12 +12,55 @@
 	+ element.getName()
 /]
 
+[query public getFullNameSanitized(element : Element) : String = 
+	((if(element.owner.oclIsUndefined()) then '' else element.owner.getFullNameSanitized() + '_' endif)
+	+ element.getNameSanitized())
+/]
 
-[query public getName(element : Element) : String
+[query public getName(element : Element) : String = element._getName().substituteAll('"', '\\"')/]
+
+
+[query private _getName(element : Element) : String
 	= invoke('fuml.generator.services.NamingService', 'getName(org.eclipse.uml2.uml.Element)', Sequence{element})
 /]
+
+[query public getNameSanitized(element : Element) : String = element._getName().sanitize() /]
 
 [query public setUseExtendedNamingConvention(useExtendedNamingConvention : Boolean) : OclVoid
 	= invoke('fuml.generator.services.NamingService', 'setUseExtendedNamingConvention(boolean)', Sequence{useExtendedNamingConvention})
 /]
+
+[query private sanitize(string : String) : String = 
+string.
+	substituteAll('+', 'plus').
+	substituteAll('-', 'minus').
+	substituteAll('*', 'times').
+	substituteAll('/', 'divide').
+	substituteAll('>=', 'greaterOrEqual').
+	substituteAll('<=', 'lessOrEqual').
+	substituteAll('>', 'greaterThan').
+	substituteAll('<', 'lessThan').
+	substituteAll('\\', '_').
+	substituteAll(' ', '_').
+	substituteAll('::', '_').
+	substituteAll('(', '_').
+	substituteAll('[', '_').
+	substituteAll('!', '_').
+	substituteAll('?', '_').
+	substituteAll('§', '_').
+	substituteAll('&', '_').
+	substituteAll('=', '_').
+	substituteAll('~', '_').
+	substituteAll('#', '_').
+	substituteAll('.', '_').
+	substituteAll(':', '_').
+	substituteAll(',', '_').
+	substituteAll(';', '_').
+	substituteAll('|', '_').
+	substituteAll('"', '').
+	substituteAll(')', '').
+	substituteAll(']', '').
+	substituteAll('__', '_')
+/]
+	
 

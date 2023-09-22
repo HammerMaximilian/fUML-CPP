@@ -4,15 +4,15 @@
 [import fuml::generator::naming::naming /]
 
 [template public generateOpaqueBehaviorExecutionClassHeaderFile(anOpaqueBehavior : OpaqueBehavior)]
-[file (anOpaqueBehavior.getName() + 'Execution.h', false, 'UTF-8')]
+[file (anOpaqueBehavior.getNameSanitized() + 'Execution.h', false, 'UTF-8')]
 /*
- * [anOpaqueBehavior.getName() + 'Execution.h'/]
+ * [anOpaqueBehavior.getNameSanitized() + 'Execution.h'/]
  * 
  * Auto-generated file
  */
 
-#ifndef [anOpaqueBehavior.getName().toUpperCase() + '_EXECUTION_H'/]
-#define [anOpaqueBehavior.getName().toUpperCase() + '_EXECUTION_H'/]
+#ifndef [anOpaqueBehavior.getNameSanitized().toUpperCase() + '_EXECUTION_H'/]
+#define [anOpaqueBehavior.getNameSanitized().toUpperCase() + '_EXECUTION_H'/]
 
 #include <fuml/semantics/commonbehavior/OpaqueBehaviorExecution.h>
 
@@ -25,13 +25,13 @@
  * [/protected]
  */
 
-namespace [anOpaqueBehavior.getRootPackage().getName()/]
+namespace [anOpaqueBehavior.getRootPackage().getNameSanitized()/]
 {
-	class [anOpaqueBehavior.getName()/]Execution : public OpaqueBehaviorExecution
+	class [anOpaqueBehavior.getNameSanitized()/]Execution : public OpaqueBehaviorExecution
 	{
 		public:
-			[anOpaqueBehavior.getName()/]Execution();
-			virtual ~[anOpaqueBehavior.getName()/]Execution();
+			[anOpaqueBehavior.getNameSanitized()/]Execution();
+			virtual ~[anOpaqueBehavior.getNameSanitized()/]Execution();
 
 			virtual void doBody(const ParameterValueListPtr&, const ParameterValueListPtr&) override;
 			virtual ValuePtr new_() override;		
@@ -47,7 +47,7 @@ namespace [anOpaqueBehavior.getRootPackage().getName()/]
 	};
 }
 
-#endif /* [anOpaqueBehavior.getName().toUpperCase() + '_EXECUTION_H'/] */
+#endif /* [anOpaqueBehavior.getNameSanitized().toUpperCase() + '_EXECUTION_H'/] */
 [/file]
 [/template]
 

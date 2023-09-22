@@ -27,7 +27,7 @@ public class NamingService
 		{
 			NamedElement namedElement = (NamedElement)element;
 			
-			name = ((namedElement.getName() != null) ? 
+			name = ((namedElement.getName() != null && !(namedElement.getName().isBlank())) ? 
 					((useExtendedNamingConvention) ? element.eClass().getName() + "_" : "")
 					+ namedElement.getName() : element.eClass().getName() + String.valueOf(internalElementCount++));
 		}
