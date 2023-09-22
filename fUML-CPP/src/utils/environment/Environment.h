@@ -39,6 +39,14 @@ namespace fuml::environment
 			virtual void addBuiltInType(std::string);
 			virtual void addBuiltInType(const PrimitiveTypePtr&);
 			virtual void addPrimitiveBehaviorPrototype(const OpaqueBehaviorExecutionPtr&);
+
+		private:
+			void addBooleanFunctionsPrototypes();
+			void addIntegerFunctionsPrototypes();
+			void addListFunctionsPrototypes();
+			void addRealFunctionsPrototypes();
+			void addStringFunctionsPrototypes();
+			void addUnlimitedNaturalFunctionsPrototypes();
 	};
 }
 
