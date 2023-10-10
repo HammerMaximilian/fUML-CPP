@@ -2,8 +2,13 @@
 
 [module generate('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[import fuml::generator::eclipse::generateCDTManagedBuilderCorePrefsFile /]
+[import fuml::generator::eclipse::generateCProjectFile /]
+[import fuml::generator::eclipse::generateLanguageSettingsXML /]
+[import fuml::generator::eclipse::generateProjectFile /]
 [import fuml::generator::environment::generateEnvironmentClassHeaderFile /]
 [import fuml::generator::environment::generateEnvironmentClassSourceFile /]
+[import fuml::generator::mainsource::generateMainSourceFile /]
 [import fuml::generator::model::generateModelClassHeaderFile /]
 [import fuml::generator::model::generateModelClassSourceFile /]
 [import fuml::generator::naming::naming /]
@@ -35,5 +40,12 @@
 		[anOpaqueBehavior.generateOpaqueBehaviorExecutionClassHeaderFile()/]
 		[anOpaqueBehavior.generateOpaqueBehaviorExecutionClassSourceFile()/]
 	[/for]
+
+	[aPackage.generateMainSourceFile()/]
+
+	[generateCDTManagedBuilderCorePrefsFile()/]
+	[generateCProjectFile()/]
+	[generateLanguageSettingsXML()/]
+	[generateProjectFile()/]
 [/if]
 [/template]
