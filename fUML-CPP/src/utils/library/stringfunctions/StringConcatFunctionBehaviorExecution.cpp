@@ -31,7 +31,7 @@ void StringConcatFunctionBehaviorExecution::doBody(const ParameterValueListPtr& 
 
 	StringValuePtr sv2 = std::dynamic_pointer_cast<StringValue>(inputParameters->at(1)->values->at(0));
 	std::string s2 = sv2->value;
-	fuml::Debug::println("[doBody] argument = " + s1);
+	fuml::Debug::println("[doBody] argument = " + s2);
 
 	// Concatenate the two strings
 	std::string resultString = s1 + s2;
