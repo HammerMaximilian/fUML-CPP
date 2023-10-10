@@ -73,15 +73,14 @@ void Offer::removeWithdrawnTokens()
 
 	const TokenListPtr& offeredTokens = this->offeredTokens;
 
-	TokenList::iterator it = offeredTokens->begin();
-	TokenList::iterator end = offeredTokens->end();
-	while (it != end)
+	for(unsigned int i = 0; i < offeredTokens->size(); i++)
 	{
-		if ((*it)->isWithdrawn())
+		const TokenPtr& offeredToken = offeredTokens->at(i);
+
+		if(offeredToken->isWithdrawn())
 		{
-			it = offeredTokens->erase(it);
+			offeredTokens->erase(offeredTokens->begin() + i);
 		}
-		it++;
 	}
 } // removeWithdrawnTokens
 
