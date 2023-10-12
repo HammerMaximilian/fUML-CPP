@@ -1,0 +1,10 @@
+[comment encoding = UTF-8 /]
+[module generateCoreResourcesPrefs('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+
+[template public generateCoreResourcesPrefs(any : OclAny)]
+[file ('.settings/org.eclipse.core.resources.prefs', false, 'UTF-8')]
+eclipse.preferences.version=1
+encoding/<project>=UTF-8
+[/file]
+[/template]

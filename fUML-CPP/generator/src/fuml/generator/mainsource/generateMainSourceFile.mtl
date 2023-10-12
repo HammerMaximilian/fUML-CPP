@@ -1,0 +1,40 @@
+[comment encoding = UTF-8 /]
+[module generateMainSourceFile('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import fuml::generator::globalconstants::globalconstants /]
+[import fuml::generator::naming::naming /]
+
+[template public generateMainSourceFile(aPackage : Package)]
+[file (sourceDirectoryPath() + aPackage.getNameSanitized() + '.cpp', false, 'UTF-8')]
+#include "[aPackage.getNameSanitized() + 'Environment.h'/]"
+#include <iostream>
+
+using namespace std;
+
+static void printUsage()
+{
+	std::cout <<
+		"=============================================================================================\n" <<
+		"USAGE: <program-name> <behavior-name> ['['/]<behavior-name> <behavior-name> <behavior-name> <...>]\n" <<
+		"=============================================================================================\n" <<
+		std::endl;
+}
+
+int main(int argc, char* argv['['/]])
+{
+	if(argc == 1)
+	{
+		std::cerr << "['['/]ERROR] Must declare at least one behavior name.\n" << std::endl;
+		printUsage();
+		return -1;
+	}
+
+	for(int i = 1; i < argc; i++)
+	{
+		[aPackage.getNameSanitized() + '::' + aPackage.getNameSanitized() + 'Environment' + '::Instance()->execute(argv[i]);'/]
+	}
+
+	return 0;
+}
+[/file]
+[/template]

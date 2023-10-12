@@ -1,0 +1,55 @@
+[comment encoding = UTF-8 /]
+[module generateEnvironmentClassHeaderFile('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import fuml::generator::globalconstants::globalconstants /]
+[import fuml::generator::naming::naming /]
+
+[template public generateEnvironmentClassHeaderFile(aPackage : Package)]
+[file (sourceDirectoryPath() + aPackage.getNameSanitized() + 'Environment.h', false, 'UTF-8')]
+/*
+ * [aPackage.getNameSanitized() + 'Environment.h'/]
+ * 
+ * Auto-generated file
+ */
+
+#ifndef [aPackage.getNameSanitized().toUpperCase() + '_ENVIRONMENT_H'/]
+#define [aPackage.getNameSanitized().toUpperCase() + '_ENVIRONMENT_H'/]
+
+#include <utils/environment/Environment.h>
+
+/* [protected (': User-defined includes and forward declarations')]
+ * This section may be used for includes and forward declarations.
+ * It will not be overwritten by future generation processes.
+ */
+
+/*
+ * [/protected]
+ */
+
+namespace [aPackage.getNameSanitized()/]
+{
+	class [aPackage.getNameSanitized() + 'Environment'/] : public fuml::environment::Environment
+	{
+		public:
+			virtual ~[aPackage.getNameSanitized() + 'Environment'/]();
+			static const std::shared_ptr<[aPackage.getNameSanitized() + 'Environment'/]>& Instance();
+
+			virtual void execute(std::string) override;
+
+		private:
+			[aPackage.getNameSanitized() + 'Environment'/]();
+
+		/* [protected (': User-defined members')]
+		 * This section may be used for user-defined members.
+		 * It will not be overwritten by future generation processes.
+		 */
+
+		/*
+ 		 * [/protected]
+		 */
+	};
+}
+
+#endif /* [aPackage.getNameSanitized().toUpperCase() + '_ENVIRONMENT_H'/] */
+[/file]
+[/template]
