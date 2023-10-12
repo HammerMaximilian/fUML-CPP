@@ -3,11 +3,13 @@
 [module generate('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import fuml::generator::eclipse::generateCDTManagedBuilderCorePrefsFile /]
+[import fuml::generator::eclipse::generateCoreResourcesPrefs /]
 [import fuml::generator::eclipse::generateCProjectFile /]
 [import fuml::generator::eclipse::generateLanguageSettingsXML /]
 [import fuml::generator::eclipse::generateProjectFile /]
 [import fuml::generator::environment::generateEnvironmentClassHeaderFile /]
 [import fuml::generator::environment::generateEnvironmentClassSourceFile /]
+[import fuml::generator::git::generateGitignore /]
 [import fuml::generator::mainsource::generateMainSourceFile /]
 [import fuml::generator::model::generateModelClassHeaderFile /]
 [import fuml::generator::model::generateModelClassSourceFile /]
@@ -42,9 +44,10 @@
 	[/for]
 
 	[aPackage.generateMainSourceFile()/]
-
+	[generateCoreResourcesPrefs()/]
 	[generateCDTManagedBuilderCorePrefsFile()/]
 	[generateCProjectFile()/]
+	[generateGitignore()/]
 	[generateLanguageSettingsXML()/]
 	[generateProjectFile()/]
 [/if]
