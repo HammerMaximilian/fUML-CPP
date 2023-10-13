@@ -26,7 +26,7 @@ ExecutionPtr CallBehaviorActionActivation::getCallExecution()
 	const BehaviorPtr& behavior = std::dynamic_pointer_cast<CallBehaviorAction>(this->node)->behavior;
 
 	Object_Ptr context;
-	if (behavior->context == nullptr)
+	if (behavior->context.lock() == nullptr)
 	{
 		context = nullptr;
 	}

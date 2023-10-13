@@ -13,7 +13,7 @@ ActivityEdge::~ActivityEdge()
 {
 }
 
-void ActivityEdge::setThisActivityEdgePtr(std::weak_ptr<ActivityEdge> thisActivityEdgePtr)
+void ActivityEdge::setThisActivityEdgePtr(ActivityEdgePtr_w thisActivityEdgePtr)
 {
 	this->thisActivityEdgePtr = thisActivityEdgePtr;
 	Element::setThisElementPtr(thisActivityEdgePtr);

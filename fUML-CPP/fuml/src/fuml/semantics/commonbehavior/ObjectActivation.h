@@ -24,12 +24,12 @@ namespace fuml::semantics::commonbehavior
 			Object_Ptr object = nullptr;
 
 		private:
-			std::weak_ptr<ObjectActivation> thisObjectActivationPtr;
+			ObjectActivationPtr_w thisObjectActivationPtr;
 			ObjectActivation_EventDispatchLoopExecutionPtr behavior;
 
 		public:
 			virtual ~ObjectActivation() = default;
-			void setThisObjectActivationPtr(std::weak_ptr<ObjectActivation>);
+			void setThisObjectActivationPtr(ObjectActivationPtr_w);
 
 			void stop();
 			void register_(const EventAccepterPtr&);

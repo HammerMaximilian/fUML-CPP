@@ -24,11 +24,11 @@ namespace fuml::syntax::classification
 			bool isFinalSpecialization = false;
 
 		private:
-			std::weak_ptr<Classifier> thisClassifierPtr;
+			ClassifierPtr_w thisClassifierPtr;
 
 		public:
 			virtual ~Classifier() = 0;
-			void setThisClassifierPtr(std::weak_ptr<Classifier>);
+			void setThisClassifierPtr(ClassifierPtr_w);
 
 			virtual void addGeneralization(const GeneralizationPtr&);
 			void setIsAbstract(bool);

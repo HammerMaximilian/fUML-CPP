@@ -16,14 +16,14 @@ namespace fuml::semantics::activities
 	class Token : public fuml::FumlObject
 	{
 		public:
-			ActivityNodeActivationPtr holder = nullptr;
+			ActivityNodeActivationPtr_w holder;
 
 		private:
-			std::weak_ptr<Token> thisTokenPtr;
+			TokenPtr_w thisTokenPtr;
 
 		public:
 			virtual ~Token() = 0;
-			void setThisTokenPtr(std::weak_ptr<Token>);
+			void setThisTokenPtr(TokenPtr_w);
 
 			TokenPtr transfer(const ActivityNodeActivationPtr& holder);
 			virtual void withdraw();

@@ -18,11 +18,11 @@ namespace fuml::semantics::commonbehavior
 			bool callerSuspended = false;
 
 		private:
-			std::weak_ptr<CallEventExecution> thisCallEventExecutionPtr;
+			CallEventExecutionPtr_w thisCallEventExecutionPtr;
 
 		public:
 			virtual ~CallEventExecution() = default;
-			void setThisCallEventExecutionPtr(std::weak_ptr<CallEventExecution>);
+			void setThisCallEventExecutionPtr(CallEventExecutionPtr_w);
 
 			bool isCallerSuspended();
 			void setCallerSuspended(bool);

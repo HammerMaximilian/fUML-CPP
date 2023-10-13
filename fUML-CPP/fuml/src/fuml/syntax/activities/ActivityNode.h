@@ -16,8 +16,8 @@ namespace fuml::syntax::activities
 	class ActivityNode : public RedefinableElement
 	{
 		public:
-			StructuredActivityNodePtr inStructuredNode = nullptr;
-			ActivityPtr activity = nullptr;
+			StructuredActivityNodePtr_w inStructuredNode;
+			ActivityPtr_w activity;
 			ActivityEdgeListPtr outgoing = std::make_shared<ActivityEdgeList>();
 			ActivityEdgeListPtr incoming = std::make_shared<ActivityEdgeList>();
 

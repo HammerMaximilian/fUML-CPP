@@ -17,7 +17,7 @@
 #include <fuml/syntax/commonbehavior/Trigger.h>
 
 void AcceptEventActionActivation::setThisAcceptEventActionActivationPtr(
-	std::weak_ptr<AcceptEventActionActivation> thisAcceptEventActionActivationPtr)
+	AcceptEventActionActivationPtr_w thisAcceptEventActionActivationPtr)
 {
 	this->thisAcceptEventActionActivationPtr = thisAcceptEventActionActivationPtr;
 	ActionActivation::setThisActionActivationPtr(thisAcceptEventActionActivationPtr);

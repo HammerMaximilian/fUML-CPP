@@ -146,7 +146,7 @@ void Environment::execute(std::string behaviorName)
 		return;
 	}
 
-	Class_Ptr contextType = std::dynamic_pointer_cast<Class_>(behavior->context);
+	Class_Ptr contextType = std::dynamic_pointer_cast<Class_>(behavior->context.lock());
 
 	if (contextType != nullptr)
 	{

@@ -23,11 +23,11 @@ namespace fuml::semantics::loci
 			ExtensionalValueListPtr extensionalValues = std::make_shared<ExtensionalValueList>();
 
 		private:
-			std::weak_ptr<Locus> thisLocusPtr;
+			LocusPtr_w thisLocusPtr;
 
 		public:
 			virtual ~Locus() = default;
-			void setThisLocusPtr(std::weak_ptr<Locus>);
+			void setThisLocusPtr(LocusPtr_w);
 
 			void setExecutor(const ExecutorPtr&);
 			void setFactory(const ExecutionFactoryPtr&);

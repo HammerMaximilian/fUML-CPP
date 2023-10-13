@@ -19,11 +19,11 @@ namespace fuml::semantics::actions
 			PinActivationListPtr pinActivations = std::make_shared<PinActivationList>();
 
 		private:
-			std::weak_ptr<ActionActivation> thisActionActivationPtr;
+			ActionActivationPtr_w thisActionActivationPtr;
 
 		public:
 			virtual ~ActionActivation() = 0;
-			void setThisActionActivationPtr(std::weak_ptr<ActionActivation>);
+			void setThisActionActivationPtr(ActionActivationPtr_w);
 
 			virtual void initialize(const ActivityNodePtr&, const ActivityNodeActivationGroupPtr&) override;
 			virtual void run() override;

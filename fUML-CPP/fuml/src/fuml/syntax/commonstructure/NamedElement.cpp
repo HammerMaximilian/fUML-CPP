@@ -18,13 +18,15 @@ void NamedElement::setName(std::string name)
 
 	if (!name.empty())
 	{
-		if (this->namespace_ == nullptr)
+		NamespacePtr namespace_ = this->namespace_.lock();
+
+		if (namespace_ == nullptr)
 		{
 			this->qualifiedName = name;
 		}
-		else if (!this->namespace_->qualifiedName.empty())
+		else if (!namespace_->qualifiedName.empty())
 		{
-			this->qualifiedName = this->namespace_->qualifiedName + "::" + name;
+			this->qualifiedName = namespace_->qualifiedName + "::" + name;
 		}
 	}
 } // setName
@@ -40,13 +42,13 @@ void NamedElement::_setNamespace(const NamespacePtr& namespace_)
 
 	if (!this->name.empty())
 	{
-		if (this->namespace_ == nullptr)
+		if (namespace_ == nullptr)
 		{
 			this->qualifiedName = name;
 		}
-		else if (!this->namespace_->qualifiedName.empty())
+		else if (!namespace_->qualifiedName.empty())
 		{
-			this->qualifiedName = this->namespace_->qualifiedName + "::" + name;
+			this->qualifiedName = namespace_->qualifiedName + "::" + name;
 		}
 	}
 } // _setNamespace

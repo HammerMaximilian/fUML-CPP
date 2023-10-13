@@ -8,7 +8,7 @@
 #include <fuml/syntax/simpleclassifiers/Enumeration.h>
 #include <fuml/syntax/simpleclassifiers/EnumerationLiteral.h>
 
-void Enumeration::setThisEnumerationPtr(std::weak_ptr<Enumeration> thisEnumerationPtr)
+void Enumeration::setThisEnumerationPtr(EnumerationPtr_w thisEnumerationPtr)
 {
 	this->thisEnumerationPtr = thisEnumerationPtr;
 	DataType::setThisDataTypePtr(thisEnumerationPtr);

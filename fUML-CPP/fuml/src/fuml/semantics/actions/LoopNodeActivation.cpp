@@ -16,7 +16,7 @@
 #include <fuml/syntax/actions/OutputPin.h>
 
 void fuml::semantics::actions::LoopNodeActivation::setThisLoopNodeActivationPtr(
-	std::weak_ptr<LoopNodeActivation> thisLoopNodeActivationPtr)
+	LoopNodeActivationPtr_w thisLoopNodeActivationPtr)
 {
 	this->thisLoopNodeActivationPtr = thisLoopNodeActivationPtr;
 	StructuredActivityNodeActivation::setThisStructuredActivityNodeActivationPtr(thisLoopNodeActivationPtr);
@@ -283,7 +283,7 @@ void LoopNodeActivation::resume()
 		// NOTE: If the subsequent iteration of the loop suspends it again,
 		// then it is necessary to remove the previous suspension from the
 		// containing activity node activation group.
-		this->group->resume(this->thisLoopNodeActivationPtr.lock());
+		this->group.lock()->resume(this->thisLoopNodeActivationPtr.lock());
 	}
 	else
 	{

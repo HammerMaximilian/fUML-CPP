@@ -33,7 +33,7 @@ ActionActivation::~ActionActivation()
 {
 }
 
-void ActionActivation::setThisActionActivationPtr(std::weak_ptr<ActionActivation> thisActionActivationPtr)
+void ActionActivation::setThisActionActivationPtr(ActionActivationPtr_w thisActionActivationPtr)
 {
 	this->thisActionActivationPtr = thisActionActivationPtr;
 	ActivityNodeActivation::setThisActivityNodeActivationPtr(thisActionActivationPtr);
@@ -263,11 +263,13 @@ void ActionActivation::createNodeActivations()
 		inputPinNodes->push_back(inputPin);
 	}
 
-	this->group->createNodeActivations(inputPinNodes);
+	ActivityNodeActivationGroupPtr group = this->group.lock();
+
+	group->createNodeActivations(inputPinNodes);
 
 	for (const ActivityNodePtr& node : *inputPinNodes)
 	{
-		this->addPinActivation(std::dynamic_pointer_cast<PinActivation>(this->group->getNodeActivation(node)));
+		this->addPinActivation(std::dynamic_pointer_cast<PinActivation>(group->getNodeActivation(node)));
 	}
 
 	ActivityNodeListPtr outputPinNodes(new ActivityNodeList());
@@ -277,11 +279,11 @@ void ActionActivation::createNodeActivations()
 		outputPinNodes->push_back(outputPin);
 	}
 
-	this->group->createNodeActivations(outputPinNodes);
+	group->createNodeActivations(outputPinNodes);
 
 	for (const ActivityNodePtr& node : *outputPinNodes)
 	{
-		this->addPinActivation(std::dynamic_pointer_cast<PinActivation>(this->group->getNodeActivation(node)));
+		this->addPinActivation(std::dynamic_pointer_cast<PinActivation>(group->getNodeActivation(node)));
 	}
 } // createNodeActivations
 
@@ -461,7 +463,7 @@ AssociationPtr ActionActivation::getAssociation(const StructuralFeaturePtr& feat
 	PropertyPtr property = std::dynamic_pointer_cast<Property>(feature);
 	if (property)
 	{
-		association = property->association;
+		association = property->association.lock();
 	}
 
 	return association;
@@ -598,7 +600,7 @@ void ActionActivation::transferOutputs(const ActionPtr& handlerBody)
 	// handler body to the output pins of this action activation.
 
 	ActionActivationPtr handlerBodyActivation = std::dynamic_pointer_cast<ActionActivation>(
-		this->group->getNodeActivation(handlerBody));
+		this->group.lock()->getNodeActivation(handlerBody));
 	const OutputPinListPtr& sourceOutputs = handlerBody->output;
 	OutputPinListPtr targetOutputs = std::dynamic_pointer_cast<Action>(this->node)->output;
 

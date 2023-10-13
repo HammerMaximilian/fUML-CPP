@@ -20,11 +20,11 @@ namespace fuml::syntax::classification
 			SlotListPtr slot = std::make_shared<SlotList>();
 
 		private:
-			std::weak_ptr<InstanceSpecification> thisInstanceSpecificationPtr;
+			InstanceSpecificationPtr_w thisInstanceSpecificationPtr;
 
 		public:
 			virtual ~InstanceSpecification() = default;
-			void setThisInstanceSpecificationPtr(std::weak_ptr<InstanceSpecification>);
+			void setThisInstanceSpecificationPtr(InstanceSpecificationPtr_w);
 
 			void addClassifier(const ClassifierPtr&);
 			void addSlot(const SlotPtr&);

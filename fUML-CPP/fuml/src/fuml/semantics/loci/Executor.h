@@ -17,7 +17,7 @@ namespace fuml::semantics::loci
 	class Executor : public fuml::FumlObject
 	{
 		public:
-			LocusPtr locus = nullptr;
+			LocusPtr_w locus;
 
 		public:
 			virtual ~Executor() = default;

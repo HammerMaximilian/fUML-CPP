@@ -10,7 +10,7 @@
 #include <fuml/syntax/classification/ParameterDirectionKind.h>
 #include <fuml/syntax/commonbehavior/Behavior.h>
 
-void Operation::setThisOperationPtr(std::weak_ptr<Operation> thisOperationPtr)
+void Operation::setThisOperationPtr(OperationPtr_w thisOperationPtr)
 {
 	this->thisOperationPtr = thisOperationPtr;
 	BehavioralFeature::setThisBehavioralFeaturePtr(thisOperationPtr);

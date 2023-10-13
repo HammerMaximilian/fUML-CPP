@@ -18,7 +18,7 @@ namespace fuml::syntax::classification
 	{
 		public:
 			ParameterDirectionKind direction = ParameterDirectionKind::in;
-			OperationPtr operation = nullptr;
+			OperationPtr_w operation;
 			bool isStream = false;
 
 		public:

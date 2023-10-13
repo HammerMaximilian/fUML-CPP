@@ -145,7 +145,7 @@ ExecutionPtr ExecutionFactory::createExecution(const BehaviorPtr& behavior, cons
 		execution->createFeatureValues();
 	}
 
-	this->locus->add(execution);
+	this->locus.lock()->add(execution);
 
 	if (context == nullptr)
 	{
@@ -167,7 +167,7 @@ EvaluationPtr ExecutionFactory::createEvaluation(const ValueSpecificationPtr& sp
 	EvaluationPtr evaluation = std::dynamic_pointer_cast<Evaluation>(this->instantiateVisitor(specification));
 
 	evaluation->specification = specification;
-	evaluation->locus = this->locus;
+	evaluation->locus = this->locus.lock();
 
 	return evaluation;
 } // createEvaluation

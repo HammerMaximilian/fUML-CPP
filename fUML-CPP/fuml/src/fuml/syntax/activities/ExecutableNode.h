@@ -18,11 +18,11 @@ namespace fuml::syntax::activities
 			ExceptionHandlerListPtr handler = std::make_shared<ExceptionHandlerList>();
 
 		private:
-			std::weak_ptr<ExecutableNode> thisExecutableNodePtr;
+			ExecutableNodePtr_w thisExecutableNodePtr;
 
 		public:
 			virtual ~ExecutableNode() = 0;
-			void setThisExecutableNodePtr(std::weak_ptr<ExecutableNode>);
+			void setThisExecutableNodePtr(ExecutableNodePtr_w);
 
 			void addExceptionHandler(const ExceptionHandlerPtr&);
 	};

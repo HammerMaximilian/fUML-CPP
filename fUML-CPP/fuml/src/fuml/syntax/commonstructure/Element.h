@@ -17,15 +17,15 @@ namespace fuml::syntax::commonstructure
 	{
 		public:
 			ElementListPtr ownedElement = std::make_shared<ElementList>();
-			ElementPtr owner = nullptr;
+			ElementPtr_w owner;
 			CommentListPtr ownedComment = std::make_shared<CommentList>();
 
 		private:
-			std::weak_ptr<Element> thisElementPtr;
+			ElementPtr_w thisElementPtr;
 
 		public:
 			virtual ~Element() = 0;
-			void setThisElementPtr(std::weak_ptr<Element>);
+			void setThisElementPtr(ElementPtr_w);
 
 		protected:
 			void addOwnedElement(const ElementPtr& ownedElement);

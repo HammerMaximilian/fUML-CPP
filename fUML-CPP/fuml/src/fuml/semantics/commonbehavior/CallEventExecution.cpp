@@ -17,7 +17,7 @@
 #include <fuml/syntax/classification/Parameter.h>
 
 void fuml::semantics::commonbehavior::CallEventExecution::setThisCallEventExecutionPtr(
-	std::weak_ptr<CallEventExecution> thisCallEventExecutionPtr)
+	CallEventExecutionPtr_w thisCallEventExecutionPtr)
 {
 	this->thisCallEventExecutionPtr = thisCallEventExecutionPtr;
 	Object_::setThisObject_Ptr(thisCallEventExecutionPtr);

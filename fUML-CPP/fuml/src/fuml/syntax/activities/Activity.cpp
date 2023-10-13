@@ -11,7 +11,7 @@
 #include <fuml/syntax/activities/ActivityEdge.h>
 #include <iterator>
 
-void Activity::setThisActivityPtr(std::weak_ptr<Activity> thisActivityPtr)
+void Activity::setThisActivityPtr(ActivityPtr_w thisActivityPtr)
 {
 	this->thisActivityPtr = thisActivityPtr;
 	Class_::setThisClass_Ptr(thisActivityPtr);

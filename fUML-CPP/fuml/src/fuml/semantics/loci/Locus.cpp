@@ -15,7 +15,7 @@
 #include <fuml/syntax/commonbehavior/Behavior.h>
 #include <iomanip>
 
-void Locus::setThisLocusPtr(std::weak_ptr<Locus> thisLocusPtr)
+void Locus::setThisLocusPtr(LocusPtr_w thisLocusPtr)
 {
 	this->thisLocusPtr = thisLocusPtr;
 }

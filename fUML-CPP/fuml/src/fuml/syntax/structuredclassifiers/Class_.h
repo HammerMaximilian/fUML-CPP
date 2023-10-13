@@ -25,11 +25,11 @@ namespace fuml::syntax::structuredclassifiers
 			Class_ListPtr superClass = std::make_shared<Class_List>();
 
 		private:
-			std::weak_ptr<Class_> thisClass_Ptr;
+			Class_Ptr_w thisClass_Ptr;
 
 		public:
 			virtual ~Class_() = default;
-			void setThisClass_Ptr(std::weak_ptr<Class_>);
+			void setThisClass_Ptr(Class_Ptr_w);
 
 			void setIsActive(bool);
 			virtual void addGeneralization(const GeneralizationPtr&) override;

@@ -18,7 +18,7 @@
 #include <fuml/syntax/actions/OutputPin.h>
 
 void ConditionalNodeActivation::setThisConditionalNodeActivationPtr(
-	std::weak_ptr<ConditionalNodeActivation> thisConditionalNodeActivationPtr)
+	ConditionalNodeActivationPtr_w thisConditionalNodeActivationPtr)
 {
 	this->thisConditionalNodeActivationPtr = thisConditionalNodeActivationPtr;
 	StructuredActivityNodeActivation::setThisStructuredActivityNodeActivationPtr(thisConditionalNodeActivationPtr);

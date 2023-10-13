@@ -23,11 +23,11 @@ namespace fuml::syntax::activities
 			ActivityGroupListPtr group = std::make_shared<ActivityGroupList>();
 
 		private:
-			std::weak_ptr<Activity> thisActivityPtr;
+			ActivityPtr_w thisActivityPtr;
 
 		public:
 			virtual ~Activity() = default;
-			void setThisActivityPtr(std::weak_ptr<Activity>);
+			void setThisActivityPtr(ActivityPtr_w);
 
 			void setIsReadOnly(bool);
 			void addNode(const ActivityNodePtr&);

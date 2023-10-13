@@ -17,7 +17,7 @@
 #include <fuml/syntax/activities/ActivityParameterNode.h>
 #include <fuml/syntax/classification/Parameter.h>
 
-void ActivityExecution::setThisActivityExecutionPtr(std::weak_ptr<ActivityExecution> thisActivityExecutionPtr)
+void ActivityExecution::setThisActivityExecutionPtr(ActivityExecutionPtr_w thisActivityExecutionPtr)
 {
 	this->thisActivityExecutionPtr = thisActivityExecutionPtr;
 	Object_::setThisObject_Ptr(thisActivityExecutionPtr);

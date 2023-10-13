@@ -15,7 +15,7 @@
 #include <fuml/syntax/actions/StructuredActivityNode.h>
 
 void StructuredActivityNodeActivation::setThisStructuredActivityNodeActivationPtr(
-	std::weak_ptr<StructuredActivityNodeActivation> thisStructuredActivityNodeActivationPtr)
+	StructuredActivityNodeActivationPtr_w thisStructuredActivityNodeActivationPtr)
 {
 	this->thisStructuredActivityNodeActivationPtr = thisStructuredActivityNodeActivationPtr;
 	ActionActivation::setThisActionActivationPtr(thisStructuredActivityNodeActivationPtr);

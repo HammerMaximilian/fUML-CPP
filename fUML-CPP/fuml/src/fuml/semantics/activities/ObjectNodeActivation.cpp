@@ -15,7 +15,7 @@ ObjectNodeActivation::~ObjectNodeActivation()
 }
 
 void fuml::semantics::activities::ObjectNodeActivation::setThisObjectNodeActivationPtr(
-	std::weak_ptr<ObjectNodeActivation> thisObjectNodeActivationPtr)
+	ObjectNodeActivationPtr_w thisObjectNodeActivationPtr)
 {
 	this->thisObjectNodeActivationPtr = thisObjectNodeActivationPtr;
 	ActivityNodeActivation::setThisActivityNodeActivationPtr(thisObjectNodeActivationPtr);

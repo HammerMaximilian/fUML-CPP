@@ -17,7 +17,7 @@ namespace fuml::semantics::loci
 	class ExecutionFactory : public fuml::FumlObject
 	{
 		public:
-			LocusPtr locus = nullptr;
+			LocusPtr_w locus;
 			OpaqueBehaviorExecutionListPtr primitiveBehaviorPrototypes = std::make_shared<OpaqueBehaviorExecutionList>();
 			PrimitiveTypeListPtr builtInTypes = std::make_shared<PrimitiveTypeList>();
 			SemanticStrategyListPtr strategies = std::make_shared<SemanticStrategyList>();

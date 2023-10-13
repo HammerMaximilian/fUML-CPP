@@ -19,11 +19,11 @@ namespace fuml::semantics::activities
 			bool isStreaming;
 
 		private:
-			std::weak_ptr<ActivityExecution> thisActivityExecutionPtr;
+			ActivityExecutionPtr_w thisActivityExecutionPtr;
 
 		public:
 			virtual ~ActivityExecution() = default;
-			void setThisActivityExecutionPtr(std::weak_ptr<ActivityExecution>);
+			void setThisActivityExecutionPtr(ActivityExecutionPtr_w);
 
 			virtual void execute() override;
 			void complete();

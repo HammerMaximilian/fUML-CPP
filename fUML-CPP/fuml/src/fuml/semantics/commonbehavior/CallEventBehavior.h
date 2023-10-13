@@ -9,6 +9,7 @@
 #define FUML_SEMANTICS_COMMONBEHAVIOR_CALLEVENTBEHAVIOR_H_
 
 #include <fuml/syntax/commonbehavior/Behavior.h>
+#include <fuml/semantics/fwd.h>
 
 namespace fuml::semantics::commonbehavior
 {
@@ -18,11 +19,11 @@ namespace fuml::semantics::commonbehavior
 			OperationPtr operation = nullptr;
 
 		private:
-			std::weak_ptr<CallEventBehavior> thisCallEventBehaviorPtr;
+			CallEventBehaviorPtr_w thisCallEventBehaviorPtr;
 
 		public:
 			virtual ~CallEventBehavior() = default;
-			void setThisCallEventBehavior(std::weak_ptr<CallEventBehavior>);
+			void setThisCallEventBehavior(CallEventBehaviorPtr_w);
 
 			void setOperation(const OperationPtr&);
 	};

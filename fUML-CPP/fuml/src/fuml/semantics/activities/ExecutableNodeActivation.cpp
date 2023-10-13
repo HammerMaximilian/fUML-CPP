@@ -35,14 +35,17 @@ void ExecutableNodeActivation::propagateException(const ValuePtr& exception)
 
 	if (matchingExceptionHandlers->size() == 0)
 	{
+		ActivityNodeActivationGroupPtr group = this->group.lock();
+		StructuredActivityNodeActivationPtr containingNodeActivation = group->containingNodeActivation.lock();
+
 		this->terminate();
-		if (this->group->containingNodeActivation != nullptr)
+		if (containingNodeActivation != nullptr)
 		{
-			this->group->containingNodeActivation->propagateException(exception);
+			containingNodeActivation->propagateException(exception);
 		}
 		else
 		{
-			this->group->activityExecution->propagateException(exception);
+			group->activityExecution.lock()->propagateException(exception);
 		}
 	}
 	else
@@ -91,8 +94,8 @@ void ExecutableNodeActivation::handle(const ValuePtr& exception, const Exception
 	fuml::Debug::println(
 		"[handle] action = " + this->node->name + ", exception = " + std::to_string(exception->hashCode()));
 
-	ActivityNodeActivationPtr handlerBodyActivation = this->group->getNodeActivation(handler->handlerBody);
-	ActivityNodeActivationPtr inputActivation = handlerBodyActivation->group->getNodeActivation(
+	ActivityNodeActivationPtr handlerBodyActivation = this->group.lock()->getNodeActivation(handler->handlerBody);
+	ActivityNodeActivationPtr inputActivation = handlerBodyActivation->group.lock()->getNodeActivation(
 		handler->exceptionInput);
 
 	ObjectTokenPtr token(new ObjectToken());

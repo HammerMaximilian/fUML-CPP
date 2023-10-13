@@ -18,7 +18,7 @@ namespace fuml::syntax::commonbehavior
 			bool isReentrant = true;
 			BehavioralFeaturePtr specification = nullptr;
 			ParameterListPtr ownedParameter = std::make_shared<ParameterList>();
-			BehavioredClassifierPtr context = nullptr;
+			BehavioredClassifierPtr_w context;
 
 		public:
 			virtual ~Behavior() = 0;

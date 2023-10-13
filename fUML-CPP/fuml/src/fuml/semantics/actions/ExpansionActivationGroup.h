@@ -22,11 +22,11 @@ namespace fuml::semantics::actions
 			int index = 0;
 
 		private:
-			std::weak_ptr<ExpansionActivationGroup> thisExpansionActivationGroupPtr;
+			ExpansionActivationGroupPtr_w thisExpansionActivationGroupPtr;
 
 		public:
 			virtual ~ExpansionActivationGroup() = default;
-			void setThisExpansionActivationGroupPtr(std::weak_ptr<ExpansionActivationGroup>);
+			void setThisExpansionActivationGroupPtr(ExpansionActivationGroupPtr_w);
 
 			virtual ActivityNodeActivationPtr getNodeActivation(const ActivityNodePtr&) override;
 			virtual ActivityExecutionPtr getActivityExecution() override;

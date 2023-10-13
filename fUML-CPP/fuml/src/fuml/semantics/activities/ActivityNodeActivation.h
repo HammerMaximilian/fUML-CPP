@@ -16,7 +16,7 @@ namespace fuml::semantics::activities
 	class ActivityNodeActivation : public SemanticVisitor
 	{
 		public:
-			ActivityNodeActivationGroupPtr group = nullptr;
+			ActivityNodeActivationGroupPtr_w group;
 			ActivityNodePtr node = nullptr;
 			ActivityEdgeInstanceListPtr incomingEdges = std::make_shared<ActivityEdgeInstanceList>();
 			ActivityEdgeInstanceListPtr outgoingEdges = std::make_shared<ActivityEdgeInstanceList>();
@@ -24,11 +24,11 @@ namespace fuml::semantics::activities
 			TokenListPtr heldTokens = std::make_shared<TokenList>();
 
 		private:
-			std::weak_ptr<ActivityNodeActivation> thisActivityNodeActivationPtr;
+			ActivityNodeActivationPtr_w thisActivityNodeActivationPtr;
 
 		public:
 			virtual ~ActivityNodeActivation() = 0;
-			void setThisActivityNodeActivationPtr(std::weak_ptr<ActivityNodeActivation>);
+			void setThisActivityNodeActivationPtr(ActivityNodeActivationPtr_w);
 
 			virtual void initialize(const ActivityNodePtr&, const ActivityNodeActivationGroupPtr&);
 			virtual void run();

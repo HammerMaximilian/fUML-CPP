@@ -24,11 +24,11 @@ namespace fuml::syntax::actions
 			InputPinListPtr structuredNodeInput = std::make_shared<InputPinList>();
 
 		private:
-			std::weak_ptr<StructuredActivityNode> thisStructuredActivityNodePtr;
+			StructuredActivityNodePtr_w thisStructuredActivityNodePtr;
 
 		public:
 			virtual ~StructuredActivityNode() = default;
-			void setThisStructuredActivityNodePtr(std::weak_ptr<StructuredActivityNode>);
+			void setThisStructuredActivityNodePtr(StructuredActivityNodePtr_w);
 
 			void setMustIsolate(bool);
 			void addNode(const ActivityNodePtr&);

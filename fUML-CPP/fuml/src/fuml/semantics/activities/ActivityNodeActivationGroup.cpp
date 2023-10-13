@@ -26,7 +26,7 @@
 #include <fuml/syntax/classification/Classifier.h>
 
 void ActivityNodeActivationGroup::setThisActivityNodeActivationGroupPtr(
-	std::weak_ptr<ActivityNodeActivationGroup> thisActivityNodeActivationGroup)
+	ActivityNodeActivationGroupPtr_w thisActivityNodeActivationGroup)
 {
 	this->thisActivityNodeActivationGroupPtr = thisActivityNodeActivationGroup;
 }
@@ -176,9 +176,9 @@ void ActivityNodeActivationGroup::terminateAll()
 
 	fuml::Debug::println(
 		"[terminateAll] Terminating activation group for "
-			+ (this->activityExecution != nullptr ? "activity " + this->activityExecution->getTypes()->at(0)->name :
-				this->containingNodeActivation != nullptr ?
-					"node " + this->containingNodeActivation->node->name : "expansion region") + ".");
+			+ (this->activityExecution.lock() != nullptr ? "activity " + this->activityExecution.lock()->getTypes()->at(0)->name :
+				this->containingNodeActivation.lock() != nullptr ?
+					"node " + this->containingNodeActivation.lock()->node->name : "expansion region") + ".");
 
 	const ActivityNodeActivationListPtr& nodeActivations = this->nodeActivations;
 	for (const ActivityNodeActivationPtr& nodeActivation : *nodeActivations)
@@ -228,9 +228,11 @@ ActivityNodeActivationPtr ActivityNodeActivationGroup::getNodeActivation(const A
 
 	PinPtr pin = std::dynamic_pointer_cast<Pin>(node);
 
-	if (this->containingNodeActivation != nullptr && pin)
+	StructuredActivityNodeActivationPtr containingNodeActivation = this->containingNodeActivation.lock();
+
+	if (containingNodeActivation != nullptr && pin)
 	{
-		activation = this->containingNodeActivation->getPinActivation(pin);
+		activation = containingNodeActivation->getPinActivation(pin);
 	}
 
 	if (activation == nullptr)
@@ -284,10 +286,10 @@ ActivityExecutionPtr ActivityNodeActivationGroup::getActivityExecution()
 	// Return the activity execution to which this group belongs, directly
 	// or indirectly.
 
-	ActivityExecutionPtr activityExecution = this->activityExecution;
+	ActivityExecutionPtr activityExecution = this->activityExecution.lock();
 	if (activityExecution == nullptr)
 	{
-		activityExecution = this->containingNodeActivation->group->getActivityExecution();
+		activityExecution = this->containingNodeActivation.lock()->group.lock()->getActivityExecution();
 	}
 
 	return activityExecution;
@@ -354,7 +356,7 @@ void ActivityNodeActivationGroup::suspend(const ActivityNodeActivationPtr& activ
 
 	if (!this->isSuspended())
 	{
-		const StructuredActivityNodeActivationPtr& containingNodeActivation = this->containingNodeActivation;
+		StructuredActivityNodeActivationPtr containingNodeActivation = this->containingNodeActivation.lock();
 		if (containingNodeActivation != nullptr)
 		{
 			containingNodeActivation->suspend();
@@ -387,7 +389,7 @@ void ActivityNodeActivationGroup::resume(const ActivityNodeActivationPtr& activa
 	}
 	if (!this->isSuspended())
 	{
-		const StructuredActivityNodeActivationPtr& containingNodeActivation = this->containingNodeActivation;
+		StructuredActivityNodeActivationPtr containingNodeActivation = this->containingNodeActivation.lock();
 		if (containingNodeActivation != nullptr)
 		{
 			containingNodeActivation->resume();

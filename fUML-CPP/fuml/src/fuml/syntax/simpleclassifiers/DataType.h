@@ -19,11 +19,11 @@ namespace fuml::syntax::simpleclassifiers
 			PropertyListPtr ownedAttribute = std::make_shared<PropertyList>();
 
 		private:
-			std::weak_ptr<DataType> thisDataTypePtr;
+			DataTypePtr_w thisDataTypePtr;
 
 		public:
 			virtual ~DataType() = default;
-			void setThisDataTypePtr(std::weak_ptr<DataType>);
+			void setThisDataTypePtr(DataTypePtr_w);
 
 			void addOwnedAttribute(const PropertyPtr&);
 	};

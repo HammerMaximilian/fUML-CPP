@@ -13,7 +13,7 @@ ExtensionalValue::~ExtensionalValue()
 {
 }
 
-void ExtensionalValue::setThisExtensionalValuePtr(std::weak_ptr<ExtensionalValue> thisExtensionalValuePtr)
+void ExtensionalValue::setThisExtensionalValuePtr(ExtensionalValuePtr_w thisExtensionalValuePtr)
 {
 	this->thisExtensionalValuePtr = thisExtensionalValuePtr;
 }

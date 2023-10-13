@@ -12,7 +12,7 @@ ExecutableNode::~ExecutableNode()
 {
 }
 
-void ExecutableNode::setThisExecutableNodePtr(std::weak_ptr<ExecutableNode> thisExecutableNodePtr)
+void ExecutableNode::setThisExecutableNodePtr(ExecutableNodePtr_w thisExecutableNodePtr)
 {
 	this->thisExecutableNodePtr = thisExecutableNodePtr;
 	Element::setThisElementPtr(thisExecutableNodePtr);

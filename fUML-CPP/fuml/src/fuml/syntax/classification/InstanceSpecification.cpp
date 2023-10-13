@@ -9,7 +9,7 @@
 #include <fuml/syntax/classification/Slot.h>
 
 void InstanceSpecification::setThisInstanceSpecificationPtr(
-	std::weak_ptr<InstanceSpecification> thisInstanceSpecificationPtr)
+		InstanceSpecificationPtr_w thisInstanceSpecificationPtr)
 {
 	this->thisInstanceSpecificationPtr = thisInstanceSpecificationPtr;
 	Element::setThisElementPtr(thisInstanceSpecificationPtr);

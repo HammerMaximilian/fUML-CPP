@@ -18,7 +18,7 @@ EventOccurrence_SendingBehaviorExecution::EventOccurrence_SendingBehaviorExecuti
 }
 
 void EventOccurrence_SendingBehaviorExecution::setThisEventOccurrence_SendingBehaviorExecution(
-	std::weak_ptr<EventOccurrence_SendingBehaviorExecution> thisEventOccurrence_SendingBehaviorExecutionPtr)
+	EventOccurrence_SendingBehaviorExecutionPtr_w thisEventOccurrence_SendingBehaviorExecutionPtr)
 {
 	this->thisEventOccurrence_SendingBehaviorExecutionPtr = thisEventOccurrence_SendingBehaviorExecutionPtr;
 	Object_::setThisObject_Ptr(thisEventOccurrence_SendingBehaviorExecutionPtr);

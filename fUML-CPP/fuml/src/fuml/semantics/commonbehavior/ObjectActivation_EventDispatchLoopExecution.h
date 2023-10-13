@@ -19,13 +19,13 @@ namespace fuml::semantics::commonbehavior
 			int signalCount = 0;
 
 		private:
-			std::weak_ptr<ObjectActivation_EventDispatchLoopExecution> thisObjectActivation_EventDispatchLoopExecutionPtr;
+			ObjectActivation_EventDispatchLoopExecutionPtr_w thisObjectActivation_EventDispatchLoopExecutionPtr;
 
 		public:
 			ObjectActivation_EventDispatchLoopExecution(const ObjectActivationPtr&);
 			virtual ~ObjectActivation_EventDispatchLoopExecution() = default;
 			void setThisObjectActivation_EventDispatchLoopExecutionPtr(
-				std::weak_ptr<ObjectActivation_EventDispatchLoopExecution>);
+				ObjectActivation_EventDispatchLoopExecutionPtr_w);
 
 			void _startObjectBehavior();
 			void _send(const ArrivalSignalPtr&);

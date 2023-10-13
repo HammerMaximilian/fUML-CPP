@@ -75,5 +75,5 @@ AssociationPtr LinkActionActivation::getAssociation()
 {
 	// Get the association for the link action of this activation.
 
-	return std::dynamic_pointer_cast<LinkAction>(this->node)->endData->at(0)->end->association;
+	return std::dynamic_pointer_cast<LinkAction>(this->node)->endData->at(0)->end->association.lock();
 } // getAssociation

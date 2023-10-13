@@ -19,15 +19,15 @@ namespace fuml::syntax::packages
 			PackageableElementListPtr packagedElement = std::make_shared<PackageableElementList>();
 			TypeListPtr ownedType = std::make_shared<TypeList>();
 			PackageListPtr nestedPackage = std::make_shared<PackageList>();
-			PackagePtr nestingPackage = nullptr;
+			PackagePtr_w nestingPackage;
 			std::string URI = "";
 
 		private:
-			std::weak_ptr<Package> thisPackagePtr;
+			PackagePtr_w thisPackagePtr;
 
 		public:
 			virtual ~Package() = default;
-			void setThisPackagePtr(std::weak_ptr<Package>);
+			void setThisPackagePtr(PackagePtr_w);
 
 			void addPackagedElement(const PackageableElementPtr&);
 			PackageableElementListPtr visibleMembers();

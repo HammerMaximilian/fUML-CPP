@@ -14,7 +14,7 @@ Classifier::~Classifier()
 {
 }
 
-void Classifier::setThisClassifierPtr(std::weak_ptr<Classifier> thisClassifierPtr)
+void Classifier::setThisClassifierPtr(ClassifierPtr_w thisClassifierPtr)
 {
 	this->thisClassifierPtr = thisClassifierPtr;
 	Namespace::setThisNamespacePtr(thisClassifierPtr);

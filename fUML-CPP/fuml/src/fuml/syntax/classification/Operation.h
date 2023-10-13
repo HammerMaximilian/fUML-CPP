@@ -21,17 +21,17 @@ namespace fuml::syntax::classification
 			bool isUnique = true;
 			int lower = 0;
 			UMLPrimitiveTypes::unlimitedNatural upper = 0;
-			Class_Ptr class_ = nullptr;
+			Class_Ptr_w class_;
 			OperationListPtr redefinedOperation = std::make_shared<OperationList>();
 			TypePtr type = nullptr;
 			ParameterListPtr ownedParameter = std::make_shared<ParameterList>();
 
 		private:
-			std::weak_ptr<Operation> thisOperationPtr;
+			OperationPtr_w thisOperationPtr;
 
 		public:
 			virtual ~Operation() = default;
-			void setThisOperationPtr(std::weak_ptr<Operation>);
+			void setThisOperationPtr(OperationPtr_w);
 
 			void setIsQuery(bool);
 			virtual void addOwnedParameter(const ParameterPtr&) override;

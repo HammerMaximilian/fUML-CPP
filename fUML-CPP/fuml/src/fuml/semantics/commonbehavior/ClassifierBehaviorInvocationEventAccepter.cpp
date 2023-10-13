@@ -17,7 +17,7 @@
 #include <fuml/syntax/structuredclassifiers/Class_.h>
 
 void fuml::semantics::commonbehavior::ClassifierBehaviorInvocationEventAccepter::setThisClassifierBehaviorInvocationEventAccepterPtr(
-	std::weak_ptr<ClassifierBehaviorInvocationEventAccepter> thisClassifierBehaviorInvocationEventAccepterPtr)
+	ClassifierBehaviorInvocationEventAccepterPtr_w thisClassifierBehaviorInvocationEventAccepterPtr)
 {
 	this->thisClassifierBehaviorInvocationEventAccepterPtr = thisClassifierBehaviorInvocationEventAccepterPtr;
 }

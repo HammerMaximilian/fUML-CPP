@@ -21,11 +21,11 @@ namespace fuml::semantics::actions
 			int next = 0;
 
 		private:
-			std::weak_ptr<ExpansionRegionActivation> thisExpansionRegionActivationPtr;
+			ExpansionRegionActivationPtr_w thisExpansionRegionActivationPtr;
 
 		public:
 			virtual ~ExpansionRegionActivation() = default;
-			void setThisExpansionRegionActivationPtr(std::weak_ptr<ExpansionRegionActivation>);
+			void setThisExpansionRegionActivationPtr(ExpansionRegionActivationPtr_w);
 
 			virtual TokenListPtr takeOfferedTokens() override;
 			virtual void doAction() override;

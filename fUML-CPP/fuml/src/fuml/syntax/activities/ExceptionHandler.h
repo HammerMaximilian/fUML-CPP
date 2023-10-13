@@ -41,7 +41,7 @@ namespace fuml::syntax::activities
 			 * propagates out of the protectedNode and has a type matching one of the
 			 * exceptionTypes, then it is caught by this ExceptionHandler.
 			 */
-			ExecutableNodePtr protectedNode;
+			ExecutableNodePtr_w protectedNode;
 
 		public:
 			virtual ~ExceptionHandler() = default;

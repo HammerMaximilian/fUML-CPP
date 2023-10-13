@@ -23,11 +23,11 @@ namespace fuml::syntax::commonstructure
 			PackageableElementListPtr importedMember = std::make_shared<PackageableElementList>();
 
 		private:
-			std::weak_ptr<Namespace> thisNamespacePtr;
+			NamespacePtr_w thisNamespacePtr;
 
 		public:
 			virtual ~Namespace() = 0;
-			void setThisNamespacePtr(std::weak_ptr<Namespace>);
+			void setThisNamespacePtr(NamespacePtr_w);
 
 			void addElementImport(const ElementImportPtr&);
 			void addPackageImport(const PackageImportPtr&);

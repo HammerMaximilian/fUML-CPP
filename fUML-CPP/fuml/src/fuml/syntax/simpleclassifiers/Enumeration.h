@@ -18,11 +18,11 @@ namespace fuml::syntax::simpleclassifiers
 			EnumerationLiteralListPtr ownedLiteral = std::make_shared<EnumerationLiteralList>();
 
 		private:
-			std::weak_ptr<Enumeration> thisEnumerationPtr;
+			EnumerationPtr_w thisEnumerationPtr;
 
 		public:
 			virtual ~Enumeration() = default;
-			void setThisEnumerationPtr(std::weak_ptr<Enumeration>);
+			void setThisEnumerationPtr(EnumerationPtr_w);
 
 			void addOwnedLiteral(const EnumerationLiteralPtr&);
 	};

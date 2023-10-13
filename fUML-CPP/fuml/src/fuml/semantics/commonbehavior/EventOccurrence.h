@@ -20,12 +20,12 @@ namespace fuml::semantics::commonbehavior
 			ReferencePtr target = nullptr;
 
 		private:
-			std::weak_ptr<EventOccurrence> thisEventOccurrencePtr;
+			EventOccurrencePtr_w thisEventOccurrencePtr;
 			EventOccurrence_SendingBehaviorExecutionPtr behavior;
 
 		public:
 			virtual ~EventOccurrence() = 0;
-			void setThisEventOccurrencePtr(std::weak_ptr<EventOccurrence>);
+			void setThisEventOccurrencePtr(EventOccurrencePtr_w);
 
 			void sendTo(const ReferencePtr&);
 			void doSend();

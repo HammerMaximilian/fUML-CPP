@@ -21,7 +21,7 @@
 #include <fuml/syntax/structuredclassifiers/Class_.h>
 #include <UMLPrimitiveTypes/intList.h>
 
-void ObjectActivation::setThisObjectActivationPtr(std::weak_ptr<ObjectActivation> thisObjectActivationPtr)
+void ObjectActivation::setThisObjectActivationPtr(ObjectActivationPtr_w thisObjectActivationPtr)
 {
 	this->thisObjectActivationPtr = thisObjectActivationPtr;
 	this->behavior.reset(new ObjectActivation_EventDispatchLoopExecution(this->thisObjectActivationPtr.lock()));

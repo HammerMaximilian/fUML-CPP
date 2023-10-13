@@ -20,11 +20,11 @@ namespace fuml::semantics::actions
 			ClausePtr selectedClause = nullptr;
 
 		private:
-			std::weak_ptr<ConditionalNodeActivation> thisConditionalNodeActivationPtr;
+			ConditionalNodeActivationPtr_w thisConditionalNodeActivationPtr;
 
 		public:
 			virtual ~ConditionalNodeActivation() = default;
-			void setThisConditionalNodeActivationPtr(std::weak_ptr<ConditionalNodeActivation>);
+			void setThisConditionalNodeActivationPtr(ConditionalNodeActivationPtr_w);
 
 			virtual void doStructuredActivity() override;
 			void completeBody();

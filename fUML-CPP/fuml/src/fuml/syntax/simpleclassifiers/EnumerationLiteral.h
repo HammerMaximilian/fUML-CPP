@@ -15,8 +15,8 @@ namespace fuml::syntax::simpleclassifiers
 	class EnumerationLiteral : public InstanceSpecification
 	{
 		public:
-			EnumerationPtr enumeration = nullptr;
-			EnumerationPtr classifier = nullptr;
+			EnumerationPtr_w enumeration;
+			EnumerationPtr_w classifier;
 
 		public:
 			virtual ~EnumerationLiteral() = default;

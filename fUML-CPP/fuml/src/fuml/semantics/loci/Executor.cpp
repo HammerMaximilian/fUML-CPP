@@ -27,7 +27,7 @@ ParameterValueListPtr Executor::execute(const BehaviorPtr& behavior, const Objec
 	// (in-out, out or return) parameter of the behavior.
 	// The execution instance is destroyed at completion.
 
-	ExecutionPtr execution = this->locus->factory->createExecution(behavior, context);
+	ExecutionPtr execution = this->locus.lock()->factory->createExecution(behavior, context);
 
 	for (const ParameterValuePtr& input : *inputs)
 	{
@@ -46,7 +46,7 @@ ValuePtr Executor::evaluate(const ValueSpecificationPtr& specification)
 	// Evaluate the given value specification, returning the specified
 	// value.
 
-	return this->locus->factory->createEvaluation(specification)->evaluate();
+	return this->locus.lock()->factory->createEvaluation(specification)->evaluate();
 } // evaluate
 
 ReferencePtr Executor::start(const Class_Ptr& type, const ParameterValueListPtr& inputs)
@@ -59,7 +59,7 @@ ReferencePtr Executor::start(const Class_Ptr& type, const ParameterValueListPtr&
 
 	fuml::Debug::println(std::string("[start] Starting " + type->name + "..."));
 
-	Object_Ptr object = this->locus->instantiate(type);
+	Object_Ptr object = this->locus.lock()->instantiate(type);
 
 	fuml::Debug::println(std::string("[start] Object = " + object->toString()));
 	object->startBehavior(type, inputs);

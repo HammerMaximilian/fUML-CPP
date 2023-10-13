@@ -18,11 +18,11 @@ namespace fuml::syntax::simpleclassifiers
 			PropertyListPtr ownedAttribute = std::make_shared<PropertyList>();
 
 		private:
-			std::weak_ptr<Signal> thisSignalPtr;
+			SignalPtr_w thisSignalPtr;
 
 		public:
 			virtual ~Signal() = default;
-			void setThisSignalPtr(std::weak_ptr<Signal>);
+			void setThisSignalPtr(SignalPtr_w);
 
 			void addOwnedAttribute(const PropertyPtr&);
 	};

@@ -14,7 +14,7 @@
 #include <fuml/semantics/structuredclassifiers/DispatchStrategy.h>
 #include <fuml/syntax/structuredclassifiers/Class_.h>
 
-void Object_::setThisObject_Ptr(std::weak_ptr<Object_> thisObject_Ptr)
+void Object_::setThisObject_Ptr(Object_Ptr_w thisObject_Ptr)
 {
 	this->thisObject_Ptr = thisObject_Ptr;
 	ExtensionalValue::setThisExtensionalValuePtr(thisObject_Ptr);

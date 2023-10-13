@@ -19,11 +19,11 @@ namespace fuml::semantics::actions
 			bool isTerminateAll = false;
 
 		private:
-			std::weak_ptr<LoopNodeActivation> thisLoopNodeActivationPtr;
+			LoopNodeActivationPtr_w thisLoopNodeActivationPtr;
 
 		public:
 			virtual ~LoopNodeActivation() = default;
-			void setThisLoopNodeActivationPtr(std::weak_ptr<LoopNodeActivation>);
+			void setThisLoopNodeActivationPtr(LoopNodeActivationPtr_w);
 
 			virtual void doStructuredActivity() override;
 			void doLoop(bool);

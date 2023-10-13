@@ -20,11 +20,11 @@ namespace fuml::semantics::activities
 			bool baseTokenIsWithdrawn = false;
 
 		private:
-			std::weak_ptr<ForkedToken> thisForkedTokenPtr;
+			ForkedTokenPtr_w thisForkedTokenPtr;
 
 		public:
 			virtual ~ForkedToken() = default;
-			void setThisForkedTokenPtr(std::weak_ptr<ForkedToken>);
+			void setThisForkedTokenPtr(ForkedTokenPtr_w);
 
 			virtual bool isControl() override;
 			virtual void withdraw() override;

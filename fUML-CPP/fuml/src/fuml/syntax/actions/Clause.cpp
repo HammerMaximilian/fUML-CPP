@@ -7,7 +7,7 @@
 
 #include <fuml/syntax/actions/Clause.h>
 
-void Clause::setThisClausePtr(std::weak_ptr<Clause> thisClausePtr)
+void Clause::setThisClausePtr(ClausePtr_w thisClausePtr)
 {
 	Element::setThisElementPtr(thisClausePtr);
 	this->thisClausePtr = thisClausePtr;

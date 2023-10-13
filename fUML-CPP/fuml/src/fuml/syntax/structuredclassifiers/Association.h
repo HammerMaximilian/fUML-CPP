@@ -23,11 +23,11 @@ namespace fuml::syntax::structuredclassifiers
 			PropertyListPtr navigableOwnedEnd = std::make_shared<PropertyList>();
 
 		private:
-			std::weak_ptr<Association> thisAssociationPtr;
+			AssociationPtr_w thisAssociationPtr;
 
 		public:
 			virtual ~Association() = default;
-			void setThisAssociationPtr(std::weak_ptr<Association>);
+			void setThisAssociationPtr(AssociationPtr_w);
 
 			void addOwnedEnd(const PropertyPtr&);
 			void addNavigableOwnedEnd(const PropertyPtr&);

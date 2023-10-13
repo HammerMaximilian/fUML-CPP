@@ -7,7 +7,7 @@
 
 #include <fuml/semantics/activities/ForkedToken.h>
 
-void ForkedToken::setThisForkedTokenPtr(std::weak_ptr<ForkedToken> thisForkedTokenPtr)
+void ForkedToken::setThisForkedTokenPtr(ForkedTokenPtr_w thisForkedTokenPtr)
 {
 	this->thisForkedTokenPtr = thisForkedTokenPtr;
 	Token::setThisTokenPtr(thisForkedTokenPtr);

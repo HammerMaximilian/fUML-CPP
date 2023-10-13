@@ -13,7 +13,7 @@ BehavioralFeature::~BehavioralFeature()
 {
 }
 
-void BehavioralFeature::setThisBehavioralFeaturePtr(std::weak_ptr<BehavioralFeature> thisBehavioralFeaturePtr)
+void BehavioralFeature::setThisBehavioralFeaturePtr(BehavioralFeaturePtr_w thisBehavioralFeaturePtr)
 {
 	this->thisBehavioralFeaturePtr = thisBehavioralFeaturePtr;
 	Namespace::setThisNamespacePtr(thisBehavioralFeaturePtr);

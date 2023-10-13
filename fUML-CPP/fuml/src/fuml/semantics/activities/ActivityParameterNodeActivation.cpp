@@ -17,7 +17,7 @@
 #include <fuml/syntax/commonbehavior/Behavior.h>
 
 void ActivityParameterNodeActivation::setThisActivityParameterNodeActivationPtr(
-	std::weak_ptr<ActivityParameterNodeActivation> thisActivityParameterNodeActivationPtr)
+	ActivityParameterNodeActivationPtr_w thisActivityParameterNodeActivationPtr)
 {
 	this->thisActivityParameterNodeActivationPtr = thisActivityParameterNodeActivationPtr;
 	ObjectNodeActivation::setThisObjectNodeActivationPtr(thisActivityParameterNodeActivationPtr);

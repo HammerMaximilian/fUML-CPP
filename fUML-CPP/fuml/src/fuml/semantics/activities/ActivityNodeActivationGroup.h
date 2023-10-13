@@ -19,16 +19,16 @@ namespace fuml::semantics::activities
 		public:
 			ActivityEdgeInstanceListPtr edgeInstances = std::make_shared<ActivityEdgeInstanceList>();
 			ActivityNodeActivationListPtr nodeActivations = std::make_shared<ActivityNodeActivationList>();
-			ActivityExecutionPtr activityExecution = nullptr;
-			StructuredActivityNodeActivationPtr containingNodeActivation = nullptr;
+			ActivityExecutionPtr_w activityExecution;
+			StructuredActivityNodeActivationPtr_w containingNodeActivation;
 			ActivityNodeActivationListPtr suspendedActivations = std::make_shared<ActivityNodeActivationList>();
 
 		private:
-			std::weak_ptr<ActivityNodeActivationGroup> thisActivityNodeActivationGroupPtr;
+			ActivityNodeActivationGroupPtr_w thisActivityNodeActivationGroupPtr;
 
 		public:
 			virtual ~ActivityNodeActivationGroup() = default;
-			void setThisActivityNodeActivationGroupPtr(std::weak_ptr<ActivityNodeActivationGroup>);
+			void setThisActivityNodeActivationGroupPtr(ActivityNodeActivationGroupPtr_w);
 
 			void run(const ActivityNodeActivationListPtr&);
 			bool checkIncomingEdges(const ActivityEdgeInstanceListPtr&, const ActivityNodeActivationListPtr&);

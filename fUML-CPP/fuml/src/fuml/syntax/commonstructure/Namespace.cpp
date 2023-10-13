@@ -14,7 +14,7 @@ Namespace::~Namespace()
 {
 }
 
-void Namespace::setThisNamespacePtr(std::weak_ptr<Namespace> thisNamespacePtr)
+void Namespace::setThisNamespacePtr(NamespacePtr_w thisNamespacePtr)
 {
 	this->thisNamespacePtr = thisNamespacePtr;
 	Element::setThisElementPtr(thisNamespacePtr);

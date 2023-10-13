@@ -19,11 +19,11 @@ namespace fuml::semantics::structuredclassifiers
 			ObjectActivationPtr objectActivation = nullptr;
 
 		private:
-			std::weak_ptr<Object_> thisObject_Ptr;
+			Object_Ptr_w thisObject_Ptr;
 
 		public:
 			virtual ~Object_() = default;
-			void setThisObject_Ptr(std::weak_ptr<Object_>);
+			void setThisObject_Ptr(Object_Ptr_w);
 
 			void startBehavior(const Class_Ptr&, const ParameterValueListPtr&);
 			virtual ExecutionPtr dispatch(const OperationPtr&);

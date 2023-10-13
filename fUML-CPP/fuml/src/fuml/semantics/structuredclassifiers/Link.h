@@ -18,11 +18,11 @@ namespace fuml::semantics::structuredclassifiers
 			AssociationPtr type = nullptr;
 
 		private:
-			std::weak_ptr<Link> thisLinkPtr;
+			LinkPtr_w thisLinkPtr;
 
 		public:
 			virtual ~Link() = default;
-			void setThisLinkPtr(std::weak_ptr<Link>);
+			void setThisLinkPtr(LinkPtr_w);
 
 			virtual void destroy() override;
 			virtual ValuePtr copy() override;

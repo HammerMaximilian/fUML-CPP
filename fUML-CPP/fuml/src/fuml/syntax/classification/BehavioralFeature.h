@@ -24,11 +24,11 @@ namespace fuml::syntax::classification
 			TypeListPtr raisedException = std::make_shared<TypeList>();
 
 		private:
-			std::weak_ptr<BehavioralFeature> thisBehavioralFeaturePtr;
+			BehavioralFeaturePtr_w thisBehavioralFeaturePtr;
 
 		public:
 			virtual ~BehavioralFeature() = 0;
-			void setThisBehavioralFeaturePtr(std::weak_ptr<BehavioralFeature>);
+			void setThisBehavioralFeaturePtr(BehavioralFeaturePtr_w);
 
 			void setIsAbstract(bool);
 			virtual void addOwnedParameter(const ParameterPtr&);

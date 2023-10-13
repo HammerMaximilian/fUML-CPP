@@ -8,7 +8,7 @@
 #include <fuml/syntax/classification/Property.h>
 #include <fuml/syntax/structuredclassifiers/Association.h>
 
-void Association::setThisAssociationPtr(std::weak_ptr<Association> thisAssociationPtr)
+void Association::setThisAssociationPtr(AssociationPtr_w thisAssociationPtr)
 {
 	this->thisAssociationPtr = thisAssociationPtr;
 	Classifier::setThisClassifierPtr(thisAssociationPtr);

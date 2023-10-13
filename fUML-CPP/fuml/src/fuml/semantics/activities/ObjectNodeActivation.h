@@ -18,11 +18,11 @@ namespace fuml::semantics::activities
 			int offeredTokenCount = 0;
 
 		private:
-			std::weak_ptr<ObjectNodeActivation> thisObjectNodeActivationPtr;
+			ObjectNodeActivationPtr_w thisObjectNodeActivationPtr;
 
 		public:
 			virtual ~ObjectNodeActivation() = 0;
-			void setThisObjectNodeActivationPtr(std::weak_ptr<ObjectNodeActivation>);
+			void setThisObjectNodeActivationPtr(ObjectNodeActivationPtr_w);
 
 			virtual void run() override;
 			virtual void sendOffers(const TokenListPtr&) override;

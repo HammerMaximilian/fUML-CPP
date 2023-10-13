@@ -13,7 +13,7 @@ Token::~Token()
 {
 }
 
-void Token::setThisTokenPtr(std::weak_ptr<Token> thisTokenPtr)
+void Token::setThisTokenPtr(TokenPtr_w thisTokenPtr)
 {
 	this->thisTokenPtr = thisTokenPtr;
 }
@@ -26,7 +26,7 @@ TokenPtr Token::transfer(const ActivityNodeActivationPtr& holder)
 	// transfered to a new holder.
 
 	TokenPtr token = this->thisTokenPtr.lock();
-	if (this->holder != nullptr)
+	if (this->holder.lock() != nullptr)
 	{
 		this->withdraw();
 		token = this->copy();
@@ -42,8 +42,8 @@ void Token::withdraw()
 
 	if (!this->isWithdrawn())
 	{
-		this->holder->removeToken(this->thisTokenPtr.lock());
-		this->holder = nullptr;
+		this->holder.lock()->removeToken(this->thisTokenPtr.lock());
+		this->holder.reset();
 	}
 } // withdraw
 
@@ -51,5 +51,5 @@ bool Token::isWithdrawn()
 {
 	// Test if this token has been withdrawn.
 
-	return this->holder == nullptr;
+	return this->holder.lock() == nullptr;
 } // isWithdrawn

@@ -24,18 +24,22 @@ void ActivityFinalNodeActivation::fire(const TokenListPtr& incomingTokens)
 
 	if (incomingTokens->size() > 0 || this->incomingEdges->size() == 0)
 	{
-		if (this->group->activityExecution != nullptr)
+		ActivityNodeActivationGroupPtr group = this->group.lock();
+		ActivityExecutionPtr activityExecution = group->activityExecution.lock();
+		StructuredActivityNodeActivationPtr containingNodeActivation = group->containingNodeActivation.lock();
+
+		if (activityExecution != nullptr)
 		{
-			this->group->activityExecution->terminate();
+			activityExecution->terminate();
 		}
-		else if (this->group->containingNodeActivation != nullptr)
+		else if (containingNodeActivation != nullptr)
 		{
-			this->group->containingNodeActivation->terminateAll();
+			containingNodeActivation->terminateAll();
 		}
 		else
 		{
 			ExpansionActivationGroupPtr expansionActivationGroup = std::dynamic_pointer_cast<ExpansionActivationGroup>(
-				this->group);
+				group);
 			if (expansionActivationGroup)
 			{
 				expansionActivationGroup->regionActivation->terminate();

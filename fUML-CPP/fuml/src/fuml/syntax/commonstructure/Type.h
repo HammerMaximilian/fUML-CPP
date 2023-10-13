@@ -15,7 +15,7 @@ namespace fuml::syntax::commonstructure
 	class Type : public Namespace
 	{
 		public:
-			PackagePtr package = nullptr;
+			PackagePtr_w package;
 
 		public:
 			virtual ~Type() = 0;

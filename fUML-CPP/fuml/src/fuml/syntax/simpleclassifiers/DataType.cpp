@@ -8,7 +8,7 @@
 #include <fuml/syntax/classification/Property.h>
 #include <fuml/syntax/simpleclassifiers/DataType.h>
 
-void DataType::setThisDataTypePtr(std::weak_ptr<DataType> thisDataTypePtr)
+void DataType::setThisDataTypePtr(DataTypePtr_w thisDataTypePtr)
 {
 	this->thisDataTypePtr = thisDataTypePtr;
 	Classifier::setThisClassifierPtr(thisDataTypePtr);

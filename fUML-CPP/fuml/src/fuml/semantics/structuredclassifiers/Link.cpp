@@ -13,7 +13,7 @@
 #include <fuml/syntax/classification/Property.h>
 #include <fuml/syntax/structuredclassifiers/Association.h>
 
-void Link::setThisLinkPtr(std::weak_ptr<Link> thisLinkPtr)
+void Link::setThisLinkPtr(LinkPtr_w thisLinkPtr)
 {
 	this->thisLinkPtr = thisLinkPtr;
 	ExtensionalValue::setThisExtensionalValuePtr(thisLinkPtr);

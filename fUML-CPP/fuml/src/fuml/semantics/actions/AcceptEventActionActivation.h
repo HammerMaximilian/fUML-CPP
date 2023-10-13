@@ -19,11 +19,11 @@ namespace fuml::semantics::actions
 			bool waiting = false;
 
 		private:
-			std::weak_ptr<AcceptEventActionActivation> thisAcceptEventActionActivationPtr;
+			AcceptEventActionActivationPtr_w thisAcceptEventActionActivationPtr;
 
 		public:
 			virtual ~AcceptEventActionActivation() = default;
-			void setThisAcceptEventActionActivationPtr(std::weak_ptr<AcceptEventActionActivation>);
+			void setThisAcceptEventActionActivationPtr(AcceptEventActionActivationPtr_w);
 
 			virtual void initialize(const ActivityNodePtr&, const ActivityNodeActivationGroupPtr&) override;
 			virtual void run() override;

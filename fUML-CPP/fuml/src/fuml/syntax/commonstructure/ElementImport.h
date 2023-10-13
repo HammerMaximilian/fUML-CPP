@@ -20,7 +20,7 @@ namespace fuml::syntax::commonstructure
 			VisibilityKind visibility;
 			std::string alias = "";
 			PackageableElementPtr importedElement = nullptr;
-			NamespacePtr importingNamespace = nullptr;
+			NamespacePtr_w importingNamespace;
 
 		public:
 			virtual ~ElementImport() = default;

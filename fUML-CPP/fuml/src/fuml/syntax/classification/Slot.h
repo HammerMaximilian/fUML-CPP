@@ -16,7 +16,7 @@ namespace fuml::syntax::classification
 	class Slot : public Element
 	{
 		public:
-			InstanceSpecificationPtr owningInstance = nullptr;
+			InstanceSpecificationPtr_w owningInstance;
 			StructuralFeaturePtr definingFeature = nullptr;
 			ValueSpecificationListPtr value = std::make_shared<ValueSpecificationList>();
 

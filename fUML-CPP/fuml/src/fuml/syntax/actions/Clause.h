@@ -24,11 +24,11 @@ namespace fuml::syntax::actions
 			OutputPinListPtr bodyOutput = std::make_shared<OutputPinList>();
 
 		private:
-			std::weak_ptr<Clause> thisClausePtr;
+			ClausePtr_w thisClausePtr;
 
 		public:
 			virtual ~Clause() = default;
-			void setThisClausePtr(std::weak_ptr<Clause>);
+			void setThisClausePtr(ClausePtr_w);
 
 			void addPredecessorClause(const ClausePtr&);
 			void addTest(const ExecutableNodePtr&);

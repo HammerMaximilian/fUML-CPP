@@ -177,7 +177,7 @@ bool StructuredValue::checkForAssociationEnd(const StructuralFeaturePtr& feature
 	PropertyPtr property = std::dynamic_pointer_cast<Property>(feature);
 	if (property)
 	{
-		isAssociationEnd = (property->association != nullptr);
+		isAssociationEnd = (property->association.lock() != nullptr);
 	}
 	return isAssociationEnd;
 }

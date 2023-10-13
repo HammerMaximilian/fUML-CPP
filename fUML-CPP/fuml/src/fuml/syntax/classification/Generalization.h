@@ -17,7 +17,7 @@ namespace fuml::syntax::classification
 	{
 		public:
 			bool isSubstitutable = true;
-			ClassifierPtr specific = nullptr;
+			ClassifierPtr_w specific;
 			ClassifierPtr general = nullptr;
 
 		public:

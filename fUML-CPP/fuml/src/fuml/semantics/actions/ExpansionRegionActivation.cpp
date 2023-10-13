@@ -18,7 +18,7 @@
 #include <fuml/syntax/actions/InputPin.h>
 
 void ExpansionRegionActivation::setThisExpansionRegionActivationPtr(
-	std::weak_ptr<ExpansionRegionActivation> thisExpansionRegionActivationPtr)
+	ExpansionRegionActivationPtr_w thisExpansionRegionActivationPtr)
 {
 	this->thisExpansionRegionActivationPtr = thisExpansionRegionActivationPtr;
 	ActionActivation::setThisActionActivationPtr(thisExpansionRegionActivationPtr);
@@ -323,7 +323,7 @@ ExpansionNodeActivationPtr ExpansionRegionActivation::getExpansionNodeActivation
 	// Therefore, they will already be activated along with their expansion
 	// region.]
 
-	return std::dynamic_pointer_cast<ExpansionNodeActivation>(this->group->getNodeActivation(node));
+	return std::dynamic_pointer_cast<ExpansionNodeActivation>(this->group.lock()->getNodeActivation(node));
 } // getExpansionNodeActivation
 
 int ExpansionRegionActivation::numberOfValues()

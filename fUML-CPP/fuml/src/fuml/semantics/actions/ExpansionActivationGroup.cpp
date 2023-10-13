@@ -93,7 +93,7 @@ void ExpansionActivationGroup::suspend(const ActivityNodeActivationPtr& activati
 } // suspend
 
 void ExpansionActivationGroup::setThisExpansionActivationGroupPtr(
-	std::weak_ptr<ExpansionActivationGroup> thisExpansionActivationGroupPtr)
+	ExpansionActivationGroupPtr_w thisExpansionActivationGroupPtr)
 {
 	this->thisExpansionActivationGroupPtr = thisExpansionActivationGroupPtr;
 	ActivityNodeActivationGroup::setThisActivityNodeActivationGroupPtr(thisExpansionActivationGroupPtr);

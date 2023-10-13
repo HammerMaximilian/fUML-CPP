@@ -21,11 +21,11 @@ namespace fuml::syntax::classification
 			bool isDerivedUnion = false;
 			AggregationKind aggregation = AggregationKind::none;
 			bool isComposite = false;
-			AssociationPtr owningAssociation = nullptr;
-			DataTypePtr datatype = nullptr;
-			AssociationPtr association = nullptr;
-			Class_Ptr class_ = nullptr;
-			PropertyPtr opposite = nullptr;
+			AssociationPtr_w owningAssociation;
+			DataTypePtr_w datatype;
+			AssociationPtr_w association;
+			Class_Ptr_w class_;
+			PropertyPtr_w opposite;
 			ValueSpecificationPtr defaultValue = nullptr;
 			bool isID = false;
 

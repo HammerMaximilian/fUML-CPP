@@ -21,11 +21,11 @@ namespace fuml::syntax::actions
 			ExpansionNodeListPtr inputElement = std::make_shared<ExpansionNodeList>();
 
 		private:
-			std::weak_ptr<ExpansionRegion> thisExpansionRegionPtr;
+			ExpansionRegionPtr_w thisExpansionRegionPtr;
 
 		public:
 			virtual ~ExpansionRegion() = default;
-			void setThisExpansionRegionPtr(std::weak_ptr<ExpansionRegion>);
+			void setThisExpansionRegionPtr(ExpansionRegionPtr_w);
 
 			void setMode(ExpansionKind);
 			void addInputElement(const ExpansionNodePtr&);

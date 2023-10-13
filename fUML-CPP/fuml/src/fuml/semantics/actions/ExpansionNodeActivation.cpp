@@ -50,6 +50,6 @@ ExpansionRegionActivationPtr ExpansionNodeActivation::getExpansionRegionActivati
 		region = node->regionAsOutput;
 	}
 
-	return std::dynamic_pointer_cast<ExpansionRegionActivation>(this->group->getNodeActivation(region));
+	return std::dynamic_pointer_cast<ExpansionRegionActivation>(this->group.lock()->getNodeActivation(region));
 
 } // getExpansionRegionActivation

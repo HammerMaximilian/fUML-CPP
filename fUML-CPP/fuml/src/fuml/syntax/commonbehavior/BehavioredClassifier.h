@@ -19,11 +19,11 @@ namespace fuml::syntax::commonbehavior
 			BehaviorPtr classifierBehavior = nullptr;
 
 		private:
-			std::weak_ptr<BehavioredClassifier> thisBehavioredClassifierPtr;
+			BehavioredClassifierPtr_w thisBehavioredClassifierPtr;
 
 		public:
 			virtual ~BehavioredClassifier() = 0;
-			void setThisBehavioredClassifierPtr(std::weak_ptr<BehavioredClassifier>);
+			void setThisBehavioredClassifierPtr(BehavioredClassifierPtr_w);
 
 			void addOwnedBehavior(const BehaviorPtr& ownedBehavior);
 			void setClassifierBehavior(const BehaviorPtr& classifierBehavior);

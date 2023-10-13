@@ -15,18 +15,18 @@ namespace fuml::syntax::activities
 	class ActivityEdge : public fuml::syntax::classification::RedefinableElement
 	{
 		public:
-			ActivityPtr activity = nullptr;
+			ActivityPtr_w activity;
 			ActivityNodePtr source = nullptr;
 			ActivityNodePtr target = nullptr;
 			ValueSpecificationPtr guard = nullptr;
-			StructuredActivityNodePtr inStructuredNode = nullptr;
+			StructuredActivityNodePtr_w inStructuredNode;
 
 		private:
-			std::weak_ptr<ActivityEdge> thisActivityEdgePtr;
+			ActivityEdgePtr_w thisActivityEdgePtr;
 
 		public:
 			virtual ~ActivityEdge() = 0;
-			void setThisActivityEdgePtr(std::weak_ptr<ActivityEdge>);
+			void setThisActivityEdgePtr(ActivityEdgePtr_w);
 
 			void setTarget(const ActivityNodePtr&);
 			void setSource(const ActivityNodePtr&);

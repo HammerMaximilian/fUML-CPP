@@ -11,7 +11,7 @@ Element::~Element()
 {
 }
 
-void Element::setThisElementPtr(std::weak_ptr<Element> thisElementPtr)
+void Element::setThisElementPtr(ElementPtr_w thisElementPtr)
 {
 	this->thisElementPtr = thisElementPtr;
 }

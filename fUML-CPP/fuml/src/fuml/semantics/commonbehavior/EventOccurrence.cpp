@@ -14,7 +14,7 @@ EventOccurrence::~EventOccurrence()
 {
 }
 
-void EventOccurrence::setThisEventOccurrencePtr(std::weak_ptr<EventOccurrence> thisEventOccurrencePtr)
+void EventOccurrence::setThisEventOccurrencePtr(EventOccurrencePtr_w thisEventOccurrencePtr)
 {
 	this->thisEventOccurrencePtr = thisEventOccurrencePtr;
 	this->behavior.reset(new EventOccurrence_SendingBehaviorExecution(this->thisEventOccurrencePtr.lock()));

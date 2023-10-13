@@ -21,7 +21,7 @@ namespace fuml::syntax::commonstructure
 			std::string name = "";
 			VisibilityKind visibility;
 			std::string qualifiedName = "";
-			NamespacePtr namespace_ = nullptr;
+			NamespacePtr_w namespace_;
 
 		public:
 			virtual ~NamedElement() = 0;

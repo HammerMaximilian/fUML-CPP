@@ -8,7 +8,7 @@
 #include <fuml/syntax/classification/Property.h>
 #include <fuml/syntax/simpleclassifiers/Signal.h>
 
-void Signal::setThisSignalPtr(std::weak_ptr<Signal> thisSignalPtr)
+void Signal::setThisSignalPtr(SignalPtr_w thisSignalPtr)
 {
 	this->thisSignalPtr = thisSignalPtr;
 	Classifier::setThisClassifierPtr(thisSignalPtr);

@@ -19,7 +19,7 @@ ActivityNodeActivation::~ActivityNodeActivation()
 }
 
 void fuml::semantics::activities::ActivityNodeActivation::setThisActivityNodeActivationPtr(
-	std::weak_ptr<ActivityNodeActivation> thisActivityNodeActivationPtr)
+	ActivityNodeActivationPtr_w thisActivityNodeActivationPtr)
 {
 	this->thisActivityNodeActivationPtr = thisActivityNodeActivationPtr;
 }
@@ -182,7 +182,7 @@ ActivityExecutionPtr ActivityNodeActivation::getActivityExecution()
 	// Return the activity execution that contains this activity node
 	// activation, directly or indirectly.
 
-	return this->group->getActivityExecution();
+	return this->group.lock()->getActivityExecution();
 } // getActivityExecution
 
 Object_Ptr ActivityNodeActivation::getExecutionContext()
@@ -305,12 +305,12 @@ void ActivityNodeActivation::suspend()
 {
 	// Suspend this activation within the activation group that contains it.
 
-	this->group->suspend(this->thisActivityNodeActivationPtr.lock());
+	this->group.lock()->suspend(this->thisActivityNodeActivationPtr.lock());
 } // suspend
 
 void ActivityNodeActivation::resume()
 {
 	// Resume this activation within the activation group that contains it.
 
-	this->group->resume(this->thisActivityNodeActivationPtr.lock());
+	this->group.lock()->resume(this->thisActivityNodeActivationPtr.lock());
 } // resume

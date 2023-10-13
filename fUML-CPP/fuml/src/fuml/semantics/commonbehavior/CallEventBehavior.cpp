@@ -12,7 +12,7 @@
 #include <fuml/syntax/classification/Parameter.h>
 
 void fuml::semantics::commonbehavior::CallEventBehavior::setThisCallEventBehavior(
-	std::weak_ptr<CallEventBehavior> thisCallEventBehaviorPtr)
+	CallEventBehaviorPtr_w thisCallEventBehaviorPtr)
 {
 	this->thisCallEventBehaviorPtr = thisCallEventBehaviorPtr;
 	Class_::setThisClass_Ptr(thisCallEventBehaviorPtr);

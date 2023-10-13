@@ -18,11 +18,11 @@ namespace fuml::semantics::actions
 			ActivityNodeActivationGroupPtr activationGroup = nullptr;
 
 		private:
-			std::weak_ptr<StructuredActivityNodeActivation> thisStructuredActivityNodeActivationPtr;
+			StructuredActivityNodeActivationPtr_w thisStructuredActivityNodeActivationPtr;
 
 		public:
 			virtual ~StructuredActivityNodeActivation() = default;
-			void setThisStructuredActivityNodeActivationPtr(std::weak_ptr<StructuredActivityNodeActivation>);
+			void setThisStructuredActivityNodeActivationPtr(StructuredActivityNodeActivationPtr_w);
 
 			virtual void doAction() override;
 			virtual void doStructuredActivity();
