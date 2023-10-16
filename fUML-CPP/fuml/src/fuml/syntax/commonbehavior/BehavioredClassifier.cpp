@@ -26,15 +26,22 @@ void BehavioredClassifier::addOwnedBehavior(const BehaviorPtr& ownedBehavior)
 	this->ownedBehavior->push_back(ownedBehavior);
 
 	BehaviorPtr behavior = std::dynamic_pointer_cast<Behavior>(thisBehavioredClassifierPtr.lock());
-	BehavioredClassifierPtr behaviorContext = behavior->context.lock();
 
-	if (!behavior || behaviorContext == nullptr)
+	if (!behavior)
 	{
 		ownedBehavior->_setContext(thisBehavioredClassifierPtr.lock());
 	}
 	else
 	{
-		ownedBehavior->_setContext(behaviorContext);
+		BehavioredClassifierPtr behaviorContext = behavior->context.lock();
+		if(!behaviorContext)
+		{
+			ownedBehavior->_setContext(thisBehavioredClassifierPtr.lock());
+		}
+		else
+		{
+			ownedBehavior->_setContext(behaviorContext);
+		}
 	}
 
 } // addOwnedBehavior
