@@ -25,7 +25,7 @@ void StartClassifierBehaviorActionActivation::doAction()
 
 	StartClassifierBehaviorActionPtr action = std::dynamic_pointer_cast<StartClassifierBehaviorAction>(this->node);
 
-	const ValuePtr& object = this->takeTokens(action->object)->at(0);
+	ValuePtr object = this->takeTokens(action->object)->at(0);
 
 	ReferencePtr reference = std::dynamic_pointer_cast<Reference>(object);
 

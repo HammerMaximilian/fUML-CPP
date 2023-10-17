@@ -38,6 +38,7 @@ void ObjectNodeActivation::sendOffers(const TokenListPtr& tokens)
 	if (tokens->size() == 0)
 	{
 		ObjectTokenPtr token(new ObjectToken());
+		token->setThisObjectTokenPtr(token);
 		token->holder = this->thisObjectNodeActivationPtr.lock();
 		tokens->push_back(token);
 	}

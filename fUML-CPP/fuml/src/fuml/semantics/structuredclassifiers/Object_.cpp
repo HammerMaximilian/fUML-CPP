@@ -9,6 +9,7 @@
 
 #include <fuml/Debug.h>
 #include <fuml/semantics/commonbehavior/ObjectActivation.h>
+#include <fuml/semantics/commonbehavior/ObjectActivation_EventDispatchLoopExecution.h>
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/DispatchStrategy.h>
@@ -28,6 +29,7 @@ void Object_::startBehavior(const Class_Ptr& classifier, const ParameterValueLis
 	if (this->objectActivation == nullptr)
 	{
 		this->objectActivation.reset(new ObjectActivation());
+		this->objectActivation->setThisObjectActivationPtr(this->objectActivation);
 		this->objectActivation->object = thisObject_Ptr.lock();
 	}
 

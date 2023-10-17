@@ -108,7 +108,8 @@ ValuePtr DecisionNodeActivation::executeDecisionInputBehavior(const ValuePtr& in
 	// returned, if one is given, otherwise the input value is used as the
 	// decision value.
 
-	fuml::Debug::println("[executeDecisionBehavior] inputValue = " + std::to_string(inputValue->hashCode()));
+	fuml::Debug::println("[executeDecisionBehavior] inputValue = " +
+							((inputValue == nullptr) ? "null" : std::to_string(inputValue->hashCode())));
 
 	BehaviorPtr decisionInputBehavior = std::dynamic_pointer_cast<DecisionNode>(this->node)->decisionInput;
 

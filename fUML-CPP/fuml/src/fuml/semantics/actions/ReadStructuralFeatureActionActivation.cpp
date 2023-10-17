@@ -23,6 +23,6 @@ void ReadStructuralFeatureActionActivation::doAction()
 	ReadStructuralFeatureActionPtr action = std::dynamic_pointer_cast<ReadStructuralFeatureAction>(this->node);
 	const StructuralFeaturePtr& feature = action->structuralFeature;
 
-	const ValuePtr& value = this->takeTokens(action->object)->at(0);
+	ValuePtr value = this->takeTokens(action->object)->at(0);
 	this->putTokens(action->result, this->getValues(value, feature));
 } // doAction

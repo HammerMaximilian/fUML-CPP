@@ -20,8 +20,8 @@ void TestIdentityActionActivation::doAction()
 
 	TestIdentityActionPtr action = std::dynamic_pointer_cast<TestIdentityAction>(this->node);
 
-	const ValuePtr& firstValue = this->takeTokens(action->first)->at(0);
-	const ValuePtr& secondValue = this->takeTokens(action->second)->at(0);
+	ValuePtr firstValue = this->takeTokens(action->first)->at(0);
+	ValuePtr secondValue = this->takeTokens(action->second)->at(0);
 
 	ValuePtr testResult = this->makeBooleanValue(firstValue->equals(secondValue));
 	this->putToken(action->result, testResult);

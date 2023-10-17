@@ -34,7 +34,7 @@ void ReclassifyObjectActionActivation::doAction()
 	const ClassifierListPtr& newClassifiers = action->newClassifier;
 	const ClassifierListPtr& oldClassifiers = action->oldClassifier;
 
-	const ValuePtr& input = this->takeTokens(action->object)->at(0);
+	ValuePtr input = this->takeTokens(action->object)->at(0);
 
 	ReferencePtr reference = std::dynamic_pointer_cast<Reference>(input);
 

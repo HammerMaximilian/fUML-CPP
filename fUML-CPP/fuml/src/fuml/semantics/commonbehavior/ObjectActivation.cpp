@@ -21,10 +21,12 @@
 #include <fuml/syntax/structuredclassifiers/Class_.h>
 #include <UMLPrimitiveTypes/intList.h>
 
-void ObjectActivation::setThisObjectActivationPtr(ObjectActivationPtr_w thisObjectActivationPtr)
+void ObjectActivation::setThisObjectActivationPtr(ObjectActivationPtr thisObjectActivationPtr)
 {
 	this->thisObjectActivationPtr = thisObjectActivationPtr;
-	this->behavior.reset(new ObjectActivation_EventDispatchLoopExecution(this->thisObjectActivationPtr.lock()));
+	ObjectActivation_EventDispatchLoopExecutionPtr behavior(new ObjectActivation_EventDispatchLoopExecution(thisObjectActivationPtr));
+	behavior->setThisObjectActivation_EventDispatchLoopExecutionPtr(behavior);
+	this->behavior = behavior;
 }
 
 void ObjectActivation::stop()
@@ -46,7 +48,7 @@ void ObjectActivation::register_(const EventAccepterPtr& accepter)
 	// event.
 
 	fuml::Debug::println("[register] object = " + this->object->toString());
-	fuml::Debug::println("[register] accepter = " + accepter->hashCode());
+	fuml::Debug::println("[register] accepter = " + std::to_string(accepter->hashCode()));
 
 	this->waitingEventAccepters->push_back(accepter);
 } // register_
@@ -57,7 +59,7 @@ void ObjectActivation::unregister(const EventAccepterPtr& accepter)
 	// accepters.
 
 	fuml::Debug::println("[unregister] object = " + this->object->toString());
-	fuml::Debug::println("[unregister] accepter = " + accepter->hashCode());
+	fuml::Debug::println("[unregister] accepter = " + std::to_string(accepter->hashCode()));
 
 	bool notFound = true;
 	unsigned int i = 1;
@@ -85,7 +87,7 @@ void ObjectActivation::dispatchNextEvent()
 	{
 		EventOccurrencePtr eventOccurrence = this->getNextEvent();
 
-		fuml::Debug::println("[dispatchNextEvent] eventOccurrence = " + eventOccurrence->hashCode());
+		fuml::Debug::println("[dispatchNextEvent] eventOccurrence = " + std::to_string(eventOccurrence->hashCode()));
 
 		UMLPrimitiveTypes::intList matchingEventAccepterIndexes;
 		const EventAccepterListPtr& waitingEventAccepters = this->waitingEventAccepters;
@@ -178,6 +180,7 @@ void ObjectActivation::startBehavior(const Class_Ptr& classifier, const Paramete
 		if (notYetStarted)
 		{
 			ClassifierBehaviorInvocationEventAccepterPtr newInvocation(new ClassifierBehaviorInvocationEventAccepter());
+			newInvocation->setThisClassifierBehaviorInvocationEventAccepterPtr(newInvocation);
 			newInvocation->objectActivation = this->thisObjectActivationPtr.lock();
 			this->classifierBehaviorInvocations->push_back(newInvocation);
 			newInvocation->invokeBehavior(classifier, inputs);

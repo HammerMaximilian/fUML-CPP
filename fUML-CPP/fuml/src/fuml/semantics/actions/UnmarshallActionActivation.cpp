@@ -21,7 +21,7 @@ void UnmarshallActionActivation::doAction()
 	ClassifierPtr unmarshallType = action->unmarshallType;
 	OutputPinListPtr resultPins = action->result;
 
-	const ValuePtr& value = this->takeTokens(action->object)->at(0);
+	ValuePtr value = this->takeTokens(action->object)->at(0);
 
 	StructuredValuePtr structuredValue = std::dynamic_pointer_cast<StructuredValue>(value);
 

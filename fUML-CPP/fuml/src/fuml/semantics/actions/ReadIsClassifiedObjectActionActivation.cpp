@@ -24,7 +24,7 @@ void ReadIsClassifiedObjectActionActivation::doAction()
 
 	ReadIsClassifiedObjectActionPtr action = std::dynamic_pointer_cast<ReadIsClassifiedObjectAction>(this->node);
 
-	const ValuePtr& input = this->takeTokens(action->object)->at(0);
+	ValuePtr input = this->takeTokens(action->object)->at(0);
 
 	bool result = false;
 	if (action->isDirect)

@@ -22,7 +22,7 @@ void SendSignalActionActivation::doAction()
 	// and send it to the referent object.
 
 	SendSignalActionPtr action = std::dynamic_pointer_cast<SendSignalAction>(this->node);
-	const ValuePtr& target = this->takeTokens(action->target)->at(0);
+	ValuePtr target = this->takeTokens(action->target)->at(0);
 
 	ReferencePtr reference = std::dynamic_pointer_cast<Reference>(target);
 

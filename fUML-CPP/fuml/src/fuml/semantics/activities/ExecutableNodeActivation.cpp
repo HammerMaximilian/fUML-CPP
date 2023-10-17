@@ -99,6 +99,7 @@ void ExecutableNodeActivation::handle(const ValuePtr& exception, const Exception
 		handler->exceptionInput);
 
 	ObjectTokenPtr token(new ObjectToken());
+	token->setThisObjectTokenPtr(token);
 	token->value = exception;
 	inputActivation->addToken(token);
 

@@ -16,7 +16,7 @@ void RaiseExceptionActionActivation::doAction()
 	// Get the value on the exception pin and propagate it as an exception.
 
 	RaiseExceptionActionPtr action = std::dynamic_pointer_cast<RaiseExceptionAction>(this->node);
-	const ValuePtr& exception = this->takeTokens(action->exception)->at(0);
+	ValuePtr exception = this->takeTokens(action->exception)->at(0);
 
 	fuml::Debug::println(
 		"[doAction] action = " + action->name + ", exception = " + std::to_string(exception->hashCode()));

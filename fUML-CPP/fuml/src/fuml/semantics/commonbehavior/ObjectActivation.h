@@ -29,7 +29,7 @@ namespace fuml::semantics::commonbehavior
 
 		public:
 			virtual ~ObjectActivation() = default;
-			void setThisObjectActivationPtr(ObjectActivationPtr_w);
+			void setThisObjectActivationPtr(ObjectActivationPtr);
 
 			void stop();
 			void register_(const EventAccepterPtr&);

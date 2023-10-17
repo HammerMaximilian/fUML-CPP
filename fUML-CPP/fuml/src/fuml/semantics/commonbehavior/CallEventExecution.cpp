@@ -101,6 +101,7 @@ EventOccurrencePtr CallEventExecution::createEventOccurrence()
 	// occurrence is create, e.g., if it is necessary to wrap it.)
 
 	CallEventOccurrencePtr eventOccurrence(new CallEventOccurrence());
+	eventOccurrence->setThisEventOccurrencePtr(eventOccurrence);
 	eventOccurrence->execution = this->thisCallEventExecutionPtr.lock();
 	return eventOccurrence;
 } // createEventOccurrence
