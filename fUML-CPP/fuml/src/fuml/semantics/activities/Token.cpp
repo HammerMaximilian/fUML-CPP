@@ -42,6 +42,7 @@ void Token::withdraw()
 
 	if (!this->isWithdrawn())
 	{
+		TokenPtr thisTokenPtrLocked = this->thisTokenPtr.lock(); // This is done so this token won't be deleted (i.e. it's memory is freed) by the next line in case it is only referenced by it's holder
 		this->holder.lock()->removeToken(this->thisTokenPtr.lock());
 		this->holder.reset();
 	}
