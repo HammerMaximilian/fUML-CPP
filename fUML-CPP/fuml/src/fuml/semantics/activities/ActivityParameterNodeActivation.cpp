@@ -73,7 +73,6 @@ void ActivityParameterNodeActivation::fire(const TokenListPtr& incomingTokens)
 			const ValueListPtr& values = parameterValue->values;
 			for (const ValuePtr& value : *values)
 			{
-				;
 				ObjectTokenPtr token(new ObjectToken());
 				token->setThisObjectTokenPtr(token);
 				token->value = value;

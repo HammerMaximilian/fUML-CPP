@@ -90,9 +90,10 @@ TokenListPtr ActivityEdgeInstance::takeOfferedTokens(int maxCount)
 		}
 		else
 		{
-			for (const TokenPtr& token : *offeredTokens)
+			for(unsigned int i = 0; i < (unsigned int)remainingCount; i++)
 			{
-				if (token->getValue() != nullptr)
+				const TokenPtr& token = offeredTokens->at(i);
+				if(token->getValue() != nullptr)
 				{
 					tokens->push_back(token);
 				}
