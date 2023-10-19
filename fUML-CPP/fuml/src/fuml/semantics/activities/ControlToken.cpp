@@ -32,9 +32,9 @@ bool ControlToken::isControl()
 	return true;
 }
 
-ValuePtr ControlToken::getValue()
+const ValuePtr& ControlToken::getValue()
 {
 	// Control tokens do not have values.
-
-	return nullptr;
+	static const ValuePtr null = nullptr;
+	return null;
 }

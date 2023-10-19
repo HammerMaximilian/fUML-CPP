@@ -30,7 +30,7 @@ namespace fuml::semantics::activities
 			virtual void withdraw() override;
 			virtual TokenPtr copy() override;
 			virtual bool equals(const TokenPtr&) override;
-			virtual ValuePtr getValue() override;
+			virtual const ValuePtr& getValue() override;
 
 	};
 // ForkedToken

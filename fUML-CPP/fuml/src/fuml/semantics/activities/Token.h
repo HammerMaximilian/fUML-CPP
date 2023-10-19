@@ -31,7 +31,7 @@ namespace fuml::semantics::activities
 			virtual TokenPtr copy() = 0;
 			bool isWithdrawn();
 			virtual bool isControl() = 0;
-			virtual ValuePtr getValue() = 0;
+			virtual const ValuePtr& getValue() = 0;
 	};
 // Token
 }

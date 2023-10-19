@@ -39,7 +39,7 @@ bool ObjectToken::isControl()
 	return false;
 } // isControl
 
-ValuePtr ObjectToken::getValue()
+const ValuePtr& ObjectToken::getValue()
 {
 	// Return the value of this object token.
 

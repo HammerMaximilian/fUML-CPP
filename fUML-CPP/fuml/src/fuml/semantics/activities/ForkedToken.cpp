@@ -61,7 +61,7 @@ bool ForkedToken::equals(const TokenPtr& otherToken)
 	return (this->thisForkedTokenPtr.lock() == otherToken);
 }
 
-ValuePtr ForkedToken::getValue()
+const ValuePtr& ForkedToken::getValue()
 {
 	// Return the value of the base token.
 

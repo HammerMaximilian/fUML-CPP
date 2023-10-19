@@ -27,7 +27,7 @@ namespace fuml::semantics::activities
 			virtual bool equals(const TokenPtr&) override;
 			virtual TokenPtr copy() override;
 			virtual bool isControl() override;
-			virtual ValuePtr getValue() override;
+			virtual const ValuePtr& getValue() override;
 	};
 // ObjectToken
 }
