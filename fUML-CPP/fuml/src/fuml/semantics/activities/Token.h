@@ -20,6 +20,7 @@ namespace fuml::semantics::activities
 
 		private:
 			TokenPtr_w thisTokenPtr;
+			bool _isWithdrawn = false;
 
 		public:
 			virtual ~Token() = 0;

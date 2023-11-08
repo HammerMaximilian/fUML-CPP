@@ -33,6 +33,7 @@ TokenPtr Token::transfer(const ActivityNodeActivationPtr& holder)
 	}
 
 	token->holder = holder;
+	this->_isWithdrawn = false;
 	return token;
 } // transfer
 
@@ -45,6 +46,7 @@ void Token::withdraw()
 		TokenPtr thisTokenPtrLocked = this->thisTokenPtr.lock(); // This is done so this token won't be deleted (i.e. it's memory is freed) by the next line in case it is only referenced by it's holder
 		this->holder.lock()->removeToken(this->thisTokenPtr.lock());
 		this->holder.reset();
+		this->_isWithdrawn = true;
 	}
 } // withdraw
 
@@ -52,5 +54,5 @@ bool Token::isWithdrawn()
 {
 	// Test if this token has been withdrawn.
 
-	return this->holder.lock() == nullptr;
+	return this->_isWithdrawn;
 } // isWithdrawn
