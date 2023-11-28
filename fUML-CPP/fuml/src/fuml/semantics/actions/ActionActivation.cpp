@@ -194,11 +194,14 @@ bool ActionActivation::isControlReady()
 	bool ready = ActivityNodeActivation::isReady()
 		&& (std::dynamic_pointer_cast<Action>(this->node)->isLocallyReentrant || !this->isFiring());
 
-	for (const ActivityEdgeInstancePtr& incomingEdge : *(this->incomingEdges))
+	if(ready)
 	{
-		ready = incomingEdge->hasOffer();
-		if (!ready)
-			break;
+		for (const ActivityEdgeInstancePtr& incomingEdge : *(this->incomingEdges))
+		{
+			ready = incomingEdge->hasOffer();
+			if (!ready)
+				break;
+		}
 	}
 
 	return ready;
