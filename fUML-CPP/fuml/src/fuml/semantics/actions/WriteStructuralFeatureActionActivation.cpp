@@ -20,13 +20,12 @@ int WriteStructuralFeatureActionActivation::position(const ValuePtr& value, cons
 	// it is not found.
 
 	bool found = false;
-	int i = startAt;
-	for (const ValuePtr& listValue : *list)
+	unsigned int i = startAt;
+	unsigned int listSize = list->size();
+	while (!found && i <= listSize)
 	{
-		found = listValue->equals(value);
-
-		if (found)
-			break;
+		found = list->at(i - 1)->equals(value);
+		i++;
 	}
 
 	if (!found)
