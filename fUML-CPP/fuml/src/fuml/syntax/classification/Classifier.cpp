@@ -27,14 +27,17 @@ void Classifier::addGeneralization(const GeneralizationPtr& generalization)
 	generalization->_setSpecific(thisClassifierPtr.lock());
 	this->general->push_back(generalization->general);
 
-	NamedElementListPtr inheritedMembers = this->inherit(
+	// In this implementation, members of base classes are not inherited
+	// Instead, if all members, owned members as well as members of direct or indirect base classes should be accessed
+	// Use method allMembers()
+	/*NamedElementListPtr inheritedMembers = this->inherit(
 		generalization->general->inheritableMembers(thisClassifierPtr.lock()));
 
 	for (const NamedElementPtr& inheritedMember : *inheritedMembers)
 	{
 		this->addMember(inheritedMember);
 		this->inheritedMember->push_back(inheritedMember);
-	}
+	}*/
 } // addGeneralization
 
 void Classifier::setIsAbstract(bool isAbstract)
@@ -102,3 +105,22 @@ void Classifier::addAttribute(const PropertyPtr& attribute)
 	this->addFeature(attribute);
 	this->attribute->push_back(attribute);
 } // addAttribute
+
+NamedElementListPtr Classifier::allMembers()
+{
+	if(!allMembersConstructed)
+	{
+		for(const ClassifierPtr& c : *(this->general))
+		{
+			NamedElementListPtr inheritedMembers = this->inherit(c->inheritableMembers(thisClassifierPtr.lock()));
+
+			for (const NamedElementPtr& inheritedMember : *inheritedMembers)
+			{
+				this->addMember(inheritedMember);
+				this->inheritedMember->push_back(inheritedMember);
+			}
+		}
+	}
+
+	return this->member;
+} // allMembers

@@ -63,7 +63,7 @@ StructuralFeatureListPtr StructuredValue::getMemberFeatures(const ClassifierPtr&
 
 	if (type != nullptr)
 	{
-		const NamedElementListPtr& members = type->member;
+		const NamedElementListPtr& members = type->allMembers();
 		for (const StructuralFeaturePtr& feature : *features)
 		{
 			bool isMember = false;

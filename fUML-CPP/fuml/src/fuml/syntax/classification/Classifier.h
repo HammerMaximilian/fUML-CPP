@@ -14,6 +14,9 @@ namespace fuml::syntax::classification
 {
 	class Classifier : public Type
 	{
+		private:
+			bool allMembersConstructed = false;
+
 		public:
 			bool isAbstract = false;
 			GeneralizationListPtr generalization = std::make_shared<GeneralizationList>();
@@ -36,6 +39,7 @@ namespace fuml::syntax::classification
 			NamedElementListPtr inheritableMembers(const ClassifierPtr&);
 			bool hasVisibilityOf(const NamedElementPtr&);
 			void setIsFinalSpecialization(bool);
+			NamedElementListPtr allMembers();
 
 		protected:
 			void addFeature(const FeaturePtr&);
