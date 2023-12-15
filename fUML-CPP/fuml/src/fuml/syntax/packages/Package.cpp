@@ -81,7 +81,7 @@ bool Package::makesVisible(const NamedElementPtr& el)
 		{
 			// NOTE: This won't work unless the imported package members
 			// have already been loaded
-			NamedElementListPtr packageMembers = packageImport->importedPackage->member;
+			NamedElementListPtr packageMembers = packageImport->importedPackage->_member;
 			for (const NamedElementPtr& packageMember : *packageMembers)
 			{
 				if (packageMember == el)

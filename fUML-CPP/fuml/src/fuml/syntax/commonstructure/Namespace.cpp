@@ -38,7 +38,7 @@ void Namespace::addMember(const NamedElementPtr& member)
 	// Debug.println("[addMember] member is a " +
 	// member.getClass().getName() + "; name = " + member.name);
 
-	this->member->push_back(member);
+	this->_member->push_back(member);
 
 } // addMember
 
@@ -71,3 +71,8 @@ void Namespace::addImportedMember(const PackageableElementPtr& importedMember)
 	this->addMember(importedMember);
 	this->importedMember->push_back(importedMember);
 } // addImportedMember
+
+const NamedElementListPtr& Namespace::member()
+{
+	return this->_member;
+}

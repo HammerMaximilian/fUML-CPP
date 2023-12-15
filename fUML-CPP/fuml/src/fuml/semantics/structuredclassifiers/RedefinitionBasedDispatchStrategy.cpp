@@ -28,7 +28,7 @@ BehaviorPtr RedefinitionBasedDispatchStrategy::getMethod(const Object_Ptr& objec
 	while (method == nullptr && i <= typesSize)
 	{
 		Class_Ptr type = object->types->at(i - 1);
-		NamedElementListPtr members = type->allMembers();
+		NamedElementListPtr members = type->member();
 		unsigned int j = 1;
 		unsigned int membersSize = members->size();
 

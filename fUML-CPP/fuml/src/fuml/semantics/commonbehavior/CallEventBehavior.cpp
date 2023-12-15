@@ -40,7 +40,7 @@ void CallEventBehavior::setOperation(const OperationPtr& operation)
 
 		this->ownedElement->push_back(parameter);
 		this->ownedMember->push_back(parameter);
-		this->member->push_back(parameter);
+		this->_member->push_back(parameter);
 		this->ownedParameter->push_back(parameter);
 	}
 	this->isReentrant = true;

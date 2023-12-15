@@ -14,9 +14,12 @@ namespace fuml::syntax::commonstructure
 {
 	class Namespace : virtual public PackageableElement
 	{
+		// Property "member" is encapsulated here an can be accessed via method "member()"
+		// See Classifier.h
+		protected:
+			NamedElementListPtr _member = std::make_shared<NamedElementList>();
 
 		public:
-			NamedElementListPtr member = std::make_shared<NamedElementList>();
 			NamedElementListPtr ownedMember = std::make_shared<NamedElementList>();
 			ElementImportListPtr elementImport = std::make_shared<ElementImportList>();
 			PackageImportListPtr packageImport = std::make_shared<PackageImportList>();
@@ -31,6 +34,8 @@ namespace fuml::syntax::commonstructure
 
 			void addElementImport(const ElementImportPtr&);
 			void addPackageImport(const PackageImportPtr&);
+
+			virtual const NamedElementListPtr& member();
 
 		protected:
 			void addOwnedMember(const NamedElementPtr&);

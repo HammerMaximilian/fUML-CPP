@@ -15,7 +15,7 @@ namespace fuml::syntax::classification
 	class Classifier : public Type
 	{
 		private:
-			bool allMembersConstructed = false;
+			bool memberConstructed = false;
 
 		public:
 			bool isAbstract = false;
@@ -39,7 +39,7 @@ namespace fuml::syntax::classification
 			NamedElementListPtr inheritableMembers(const ClassifierPtr&);
 			bool hasVisibilityOf(const NamedElementPtr&);
 			void setIsFinalSpecialization(bool);
-			NamedElementListPtr allMembers();
+			virtual const NamedElementListPtr& member() override;
 
 		protected:
 			void addFeature(const FeaturePtr&);

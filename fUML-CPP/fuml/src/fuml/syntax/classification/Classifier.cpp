@@ -27,9 +27,8 @@ void Classifier::addGeneralization(const GeneralizationPtr& generalization)
 	generalization->_setSpecific(thisClassifierPtr.lock());
 	this->general->push_back(generalization->general);
 
-	// In this implementation, members of base classes are not inherited
-	// Instead, if all members, owned members as well as members of direct or indirect base classes should be accessed
-	// Use method allMembers()
+	// In this implementation, members of base classifiers are not inherited here
+	// See method "Classifier::member()" below for further explanation
 	/*NamedElementListPtr inheritedMembers = this->inherit(
 		generalization->general->inheritableMembers(thisClassifierPtr.lock()));
 
@@ -62,7 +61,7 @@ NamedElementListPtr Classifier::inheritableMembers(const ClassifierPtr& c)
 {
 	NamedElementListPtr inheritable = std::make_shared<NamedElementList>();
 
-	for (const NamedElementPtr& m : *(this->member))
+	for (const NamedElementPtr& m : *(this->_member))
 	{
 		if (c->hasVisibilityOf(m))
 		{
@@ -106,12 +105,21 @@ void Classifier::addAttribute(const PropertyPtr& attribute)
 	this->attribute->push_back(attribute);
 } // addAttribute
 
-NamedElementListPtr Classifier::allMembers()
+// When using the generator to create an executable model within this implementation
+// the order in which classifiers are initialized and base classifiers are added (and thus, base members are inherited)
+// is arbitrary.
+// This can lead to base classifier members not being inherited as they are not yet created
+// Because of that, in this implementation, base members are not inherited when a generalization is added (i.e. in method "addGeneralization").
+// Instead, property "Namespace::member" is encapsulated and can be accessed by method "Namespace::member()".
+// This method is overridden here to inherit all base members recursively when "Classifier::member()" is first invoked.
+// This first invocation happens during model execution, i.e. after all model classifiers have been completely created.
+const NamedElementListPtr& Classifier::member()
 {
-	if(!allMembersConstructed)
+	if(!memberConstructed)
 	{
 		for(const ClassifierPtr& c : *(this->general))
 		{
+			NamedElementListPtr allMembersOfBase = c->member(); // This is only done to recursively construct member
 			NamedElementListPtr inheritedMembers = this->inherit(c->inheritableMembers(thisClassifierPtr.lock()));
 
 			for (const NamedElementPtr& inheritedMember : *inheritedMembers)
@@ -120,7 +128,9 @@ NamedElementListPtr Classifier::allMembers()
 				this->inheritedMember->push_back(inheritedMember);
 			}
 		}
+
+		memberConstructed = true;
 	}
 
-	return this->member;
+	return this->_member;
 } // allMembers
