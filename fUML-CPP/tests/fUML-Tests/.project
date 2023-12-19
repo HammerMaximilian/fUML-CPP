@@ -3,6 +3,7 @@
 	<name>fUML_Tests</name>
 	<comment></comment>
 	<projects>
+		<project>fuml</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
