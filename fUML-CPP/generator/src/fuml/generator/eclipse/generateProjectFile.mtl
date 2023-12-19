@@ -10,6 +10,7 @@
 	<name>[aPackage.getNameSanitized()/]</name>
 	<comment></comment>
 	<projects>
+		<project>fuml</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
