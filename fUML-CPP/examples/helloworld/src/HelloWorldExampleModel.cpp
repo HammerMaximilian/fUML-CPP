@@ -7,19 +7,19 @@
 
 #include "HelloWorldExampleModel.h"
 
-#include <fuml/syntax/actions/CallBehaviorAction.h>
-#include <fuml/syntax/actions/InputPin.h>
-#include <fuml/syntax/actions/OutputPin.h>
-#include <fuml/syntax/actions/ValueSpecificationAction.h>
-#include <fuml/syntax/activities/Activity.h>
-#include <fuml/syntax/activities/ActivityFinalNode.h>
-#include <fuml/syntax/activities/ControlFlow.h>
-#include <fuml/syntax/activities/InitialNode.h>
-#include <fuml/syntax/activities/ObjectFlow.h>
-#include <fuml/syntax/classification/Parameter.h>
-#include <fuml/syntax/commonbehavior/OpaqueBehavior.h>
-#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
-#include <fuml/syntax/values/LiteralString.h>
+#include <uml/actions/CallBehaviorAction.h>
+#include <uml/actions/InputPin.h>
+#include <uml/actions/OutputPin.h>
+#include <uml/actions/ValueSpecificationAction.h>
+#include <uml/activities/Activity.h>
+#include <uml/activities/ActivityFinalNode.h>
+#include <uml/activities/ControlFlow.h>
+#include <uml/activities/InitialNode.h>
+#include <uml/activities/ObjectFlow.h>
+#include <uml/classification/Parameter.h>
+#include <uml/commonbehavior/OpaqueBehavior.h>
+#include <uml/simpleclassifiers/PrimitiveType.h>
+#include <uml/values/LiteralString.h>
 #include <utils/library/FoundationalModelLibraryModel.h>
 #include <utils/primitivetypes/PrimitiveTypesModel.h>
 

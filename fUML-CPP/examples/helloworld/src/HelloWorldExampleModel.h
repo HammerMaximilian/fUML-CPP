@@ -8,12 +8,12 @@
 #ifndef EXAMPLES_HELLOWORLD_HELLOWORLDEXAMPLEMODEL_H_
 #define EXAMPLES_HELLOWORLD_HELLOWORLDEXAMPLEMODEL_H_
 
-#include <fuml/syntax/fwd.h>
+#include <uml/fwd.h>
 #include <utils/environment/InMemoryModel.h>
 
 namespace examples::HelloWorldExample
 {
-	class HelloWorldExampleModel : public fuml::environment::InMemoryModel
+	class HelloWorldExampleModel : public uml::environment::InMemoryModel
 	{
 		public:
 			ActivityFinalNodePtr HelloWorldModel_main_ActivityFinalNode = nullptr;
