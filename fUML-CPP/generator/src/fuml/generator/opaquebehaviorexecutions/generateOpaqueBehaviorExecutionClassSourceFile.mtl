@@ -19,7 +19,7 @@
 #include <fuml/semantics/commonbehavior/ParameterValue.h>
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Locus.h>
-#include <fuml/syntax/commonbehavior/OpaqueBehavior.h>
+#include <uml/commonbehavior/OpaqueBehavior.h>
 
 /* [protected (': User-defined includes and using directives')]
  * This section may be used for includes and using directives.

@@ -10,9 +10,9 @@
 #include <fuml/semantics/actions/PinActivation.h>
 #include <fuml/semantics/activities/ActivityNodeActivationGroup.h>
 #include <fuml/semantics/activities/ObjectToken.h>
-#include <fuml/syntax/actions/InputPin.h>
-#include <fuml/syntax/actions/OutputPin.h>
-#include <fuml/syntax/actions/StructuredActivityNode.h>
+#include <uml/actions/InputPin.h>
+#include <uml/actions/OutputPin.h>
+#include <uml/actions/StructuredActivityNode.h>
 
 void StructuredActivityNodeActivation::setThisStructuredActivityNodeActivationPtr(
 	StructuredActivityNodeActivationPtr_w thisStructuredActivityNodeActivationPtr)

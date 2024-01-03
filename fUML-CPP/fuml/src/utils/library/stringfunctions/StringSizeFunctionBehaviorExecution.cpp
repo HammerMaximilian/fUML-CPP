@@ -13,7 +13,7 @@
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/simpleclassifiers/StringValue.h>
 #include <fuml/semantics/simpleclassifiers/IntegerValue.h>
-#include <fuml/syntax/commonbehavior/FunctionBehavior.h>
+#include <uml/commonbehavior/FunctionBehavior.h>
 #include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::stringfunctions;

@@ -10,8 +10,8 @@
 #include <fuml/Debug.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/simpleclassifiers/FeatureValue.h>
-#include <fuml/syntax/classification/Property.h>
-#include <fuml/syntax/structuredclassifiers/Association.h>
+#include <uml/classification/Property.h>
+#include <uml/structuredclassifiers/Association.h>
 
 void Link::setThisLinkPtr(LinkPtr_w thisLinkPtr)
 {

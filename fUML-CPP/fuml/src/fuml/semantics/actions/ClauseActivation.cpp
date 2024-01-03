@@ -10,8 +10,8 @@
 #include <fuml/Debug.h>
 #include <fuml/semantics/actions/ConditionalNodeActivation.h>
 #include <fuml/semantics/simpleclassifiers/BooleanValue.h>
-#include <fuml/syntax/actions/Clause.h>
-#include <fuml/syntax/actions/OutputPin.h>
+#include <uml/actions/Clause.h>
+#include <uml/actions/OutputPin.h>
 
 void ClauseActivation::receiveControl()
 {

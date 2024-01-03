@@ -8,8 +8,8 @@
 #include <fuml/semantics/commonbehavior/CallEventBehavior.h>
 
 #include <fuml/semantics/fwd.h>
-#include <fuml/syntax/classification/Operation.h>
-#include <fuml/syntax/classification/Parameter.h>
+#include <uml/classification/Operation.h>
+#include <uml/classification/Parameter.h>
 
 void fuml::semantics::commonbehavior::CallEventBehavior::setThisCallEventBehavior(
 	CallEventBehaviorPtr_w thisCallEventBehaviorPtr)

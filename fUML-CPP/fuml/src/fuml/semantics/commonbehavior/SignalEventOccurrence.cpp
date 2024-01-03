@@ -10,9 +10,9 @@
 #include <fuml/semantics/commonbehavior/ParameterValue.h>
 #include <fuml/semantics/simpleclassifiers/FeatureValue.h>
 #include <fuml/semantics/simpleclassifiers/SignalInstance.h>
-#include <fuml/syntax/commonbehavior/SignalEvent.h>
-#include <fuml/syntax/commonbehavior/Trigger.h>
-#include <fuml/syntax/simpleclassifiers/Signal.h>
+#include <uml/commonbehavior/SignalEvent.h>
+#include <uml/commonbehavior/Trigger.h>
+#include <uml/simpleclassifiers/Signal.h>
 
 bool SignalEventOccurrence::match(const TriggerPtr& trigger)
 {

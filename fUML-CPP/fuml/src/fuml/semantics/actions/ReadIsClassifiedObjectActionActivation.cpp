@@ -8,7 +8,7 @@
 #include <fuml/semantics/actions/ReadIsClassifiedObjectActionActivation.h>
 
 #include <fuml/semantics/simpleclassifiers/BooleanValue.h>
-#include <fuml/syntax/actions/ReadIsClassifiedObjectAction.h>
+#include <uml/actions/ReadIsClassifiedObjectAction.h>
 
 void ReadIsClassifiedObjectActionActivation::doAction()
 {

@@ -10,7 +10,7 @@
 #include <fuml/Debug.h>
 #include <fuml/semantics/actions/PinActivation.h>
 #include <fuml/semantics/activities/ObjectToken.h>
-#include <fuml/syntax/activities/ActivityNode.h>
+#include <uml/activities/ActivityNode.h>
 
 void PinStreamingParameterListener::post(const ValueListPtr& values)
 {

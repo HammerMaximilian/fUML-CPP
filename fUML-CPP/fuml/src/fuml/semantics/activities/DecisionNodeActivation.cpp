@@ -16,10 +16,10 @@
 #include <fuml/semantics/loci/Executor.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/values/Value.h>
-#include <fuml/syntax/activities/DecisionNode.h>
-#include <fuml/syntax/activities/ObjectFlow.h>
-#include <fuml/syntax/classification/Parameter.h>
-#include <fuml/syntax/commonbehavior/Behavior.h>
+#include <uml/activities/DecisionNode.h>
+#include <uml/activities/ObjectFlow.h>
+#include <uml/classification/Parameter.h>
+#include <uml/commonbehavior/Behavior.h>
 
 void DecisionNodeActivation::fire(const TokenListPtr& incomingTokens)
 {

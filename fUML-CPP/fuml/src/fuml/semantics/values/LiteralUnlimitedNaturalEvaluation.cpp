@@ -7,7 +7,7 @@
 
 #include <fuml/semantics/simpleclassifiers/UnlimitedNaturalValue.h>
 #include <fuml/semantics/values/LiteralUnlimitedNaturalEvaluation.h>
-#include <fuml/syntax/values/LiteralUnlimitedNatural.h>
+#include <uml/values/LiteralUnlimitedNatural.h>
 
 ValuePtr LiteralUnlimitedNaturalEvaluation::evaluate()
 {

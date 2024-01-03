@@ -13,9 +13,9 @@
 #include <fuml/semantics/loci/ChoiceStrategy.h>
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Locus.h>
-#include <fuml/syntax/actions/Clause.h>
-#include <fuml/syntax/actions/ConditionalNode.h>
-#include <fuml/syntax/actions/OutputPin.h>
+#include <uml/actions/Clause.h>
+#include <uml/actions/ConditionalNode.h>
+#include <uml/actions/OutputPin.h>
 
 void ConditionalNodeActivation::setThisConditionalNodeActivationPtr(
 	ConditionalNodeActivationPtr_w thisConditionalNodeActivationPtr)

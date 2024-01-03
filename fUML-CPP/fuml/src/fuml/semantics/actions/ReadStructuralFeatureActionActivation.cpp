@@ -7,8 +7,8 @@
 
 #include <fuml/semantics/actions/ReadStructuralFeatureActionActivation.h>
 
-#include <fuml/syntax/actions/ReadStructuralFeatureAction.h>
-#include <fuml/syntax/classification/StructuralFeature.h>
+#include <uml/actions/ReadStructuralFeatureAction.h>
+#include <uml/classification/StructuralFeature.h>
 
 void ReadStructuralFeatureActionActivation::doAction()
 {

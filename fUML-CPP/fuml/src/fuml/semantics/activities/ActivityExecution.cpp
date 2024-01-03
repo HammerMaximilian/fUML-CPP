@@ -13,9 +13,9 @@
 #include <fuml/semantics/activities/ActivityParameterNodeActivation.h>
 #include <fuml/semantics/activities/ObjectToken.h>
 #include <fuml/semantics/commonbehavior/ParameterValue.h>
-#include <fuml/syntax/activities/Activity.h>
-#include <fuml/syntax/activities/ActivityParameterNode.h>
-#include <fuml/syntax/classification/Parameter.h>
+#include <uml/activities/Activity.h>
+#include <uml/activities/ActivityParameterNode.h>
+#include <uml/classification/Parameter.h>
 
 void ActivityExecution::setThisActivityExecutionPtr(ActivityExecutionPtr_w thisActivityExecutionPtr)
 {

@@ -10,7 +10,7 @@
 #include <fuml/semantics/activities/ActivityNodeActivation.h>
 #include <fuml/semantics/activities/Offer.h>
 #include <fuml/semantics/activities/Token.h>
-#include <fuml/syntax/activities/ActivityEdge.h>
+#include <uml/activities/ActivityEdge.h>
 
 void ActivityEdgeInstance::sendOffer(const TokenListPtr& tokens)
 {

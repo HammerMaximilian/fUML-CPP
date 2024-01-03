@@ -8,8 +8,8 @@
 #include <fuml/semantics/commonbehavior/CallEventOccurrence.h>
 
 #include <fuml/semantics/commonbehavior/CallEventExecution.h>
-#include <fuml/syntax/commonbehavior/CallEvent.h>
-#include <fuml/syntax/commonbehavior/Trigger.h>
+#include <uml/commonbehavior/CallEvent.h>
+#include <uml/commonbehavior/Trigger.h>
 
 OperationPtr CallEventOccurrence::getOperation()
 {

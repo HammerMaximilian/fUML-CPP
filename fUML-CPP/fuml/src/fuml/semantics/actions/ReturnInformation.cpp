@@ -8,7 +8,7 @@
 #include <fuml/semantics/actions/ReturnInformation.h>
 
 #include <fuml/semantics/commonbehavior/CallEventOccurrence.h>
-#include <fuml/syntax/classification/Operation.h>
+#include <uml/classification/Operation.h>
 
 OperationPtr ReturnInformation::getOperation()
 {

@@ -19,11 +19,11 @@
 #include <fuml/semantics/activities/ActivityParameterNodeActivation.h>
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Locus.h>
-#include <fuml/syntax/actions/Action.h>
-#include <fuml/syntax/actions/InputPin.h>
-#include <fuml/syntax/activities/ActivityEdge.h>
-#include <fuml/syntax/activities/ActivityNode.h>
-#include <fuml/syntax/classification/Classifier.h>
+#include <uml/actions/Action.h>
+#include <uml/actions/InputPin.h>
+#include <uml/activities/ActivityEdge.h>
+#include <uml/activities/ActivityNode.h>
+#include <uml/classification/Classifier.h>
 
 void ActivityNodeActivationGroup::setThisActivityNodeActivationGroupPtr(
 	ActivityNodeActivationGroupPtr_w thisActivityNodeActivationGroup)

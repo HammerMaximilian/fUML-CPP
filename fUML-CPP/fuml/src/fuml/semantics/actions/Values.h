@@ -9,11 +9,11 @@
 #define FUML_SEMANTICS_ACTIONS_VALUES_H_
 
 #include <fuml/semantics/fwd.h>
-#include <utils/FumlObject.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::actions
 {
-	class Values : public fuml::FumlObject
+	class Values : public uml::UmlObject
 	{
 		public:
 			ValueListPtr values = std::make_shared<ValueList>();

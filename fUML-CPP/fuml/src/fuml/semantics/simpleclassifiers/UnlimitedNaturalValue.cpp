@@ -8,8 +8,8 @@
 #include <fuml/semantics/simpleclassifiers/UnlimitedNaturalValue.h>
 
 #include <fuml/semantics/simpleclassifiers/IntegerValue.h>
-#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
-#include <fuml/syntax/values/LiteralUnlimitedNatural.h>
+#include <uml/simpleclassifiers/PrimitiveType.h>
+#include <uml/values/LiteralUnlimitedNatural.h>
 
 ValueSpecificationPtr UnlimitedNaturalValue::specify()
 {

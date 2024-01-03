@@ -11,9 +11,9 @@
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/actions/CallOperationAction.h>
-#include <fuml/syntax/actions/InputPin.h>
-#include <fuml/syntax/classification/Operation.h>
+#include <uml/actions/CallOperationAction.h>
+#include <uml/actions/InputPin.h>
+#include <uml/classification/Operation.h>
 
 bool CallOperationActionActivation::isReady()
 {

@@ -8,7 +8,7 @@
 #include <fuml/semantics/activities/CentralBufferNodeActivation.h>
 
 #include <fuml/Debug.h>
-#include <fuml/syntax/activities/ActivityNode.h>
+#include <uml/activities/ActivityNode.h>
 
 void CentralBufferNodeActivation::fire(const TokenListPtr& incomingTokens)
 {

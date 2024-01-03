@@ -8,8 +8,8 @@
 #include <fuml/semantics/structuredclassifiers/RedefinitionBasedDispatchStrategy.h>
 
 #include <fuml/semantics/structuredclassifiers/Object_.h>
-#include <fuml/syntax/classification/Operation.h>
-#include <fuml/syntax/structuredclassifiers/Class_.h>
+#include <uml/classification/Operation.h>
+#include <uml/structuredclassifiers/Class_.h>
 
 BehaviorPtr RedefinitionBasedDispatchStrategy::getMethod(const Object_Ptr& object, const OperationPtr& memberOperation)
 {

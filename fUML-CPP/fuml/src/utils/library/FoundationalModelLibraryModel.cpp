@@ -5,22 +5,22 @@
  *      Author: Maximilian
  */
 
-#include <fuml/syntax/classification/Parameter.h>
-#include <fuml/syntax/commonbehavior/FunctionBehavior.h>
-#include <fuml/syntax/simpleclassifiers/Signal.h>
-#include <fuml/syntax/classification/Property.h>
-#include <fuml/syntax/simpleclassifiers/Reception.h>
-#include <fuml/syntax/classification/Operation.h>
-#include <fuml/syntax/structuredclassifiers/Class_.h>
-#include <fuml/syntax/classification/Generalization.h>
-#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
-#include <fuml/syntax/activities/Activity.h>
-#include <fuml/syntax/activities/ActivityParameterNode.h>
-#include <fuml/syntax/actions/ReadExtentAction.h>
-#include <fuml/syntax/actions/CallOperationAction.h>
-#include <fuml/syntax/actions/InputPin.h>
-#include <fuml/syntax/actions/OutputPin.h>
-#include <fuml/syntax/activities/ObjectFlow.h>
+#include <uml/classification/Parameter.h>
+#include <uml/commonbehavior/FunctionBehavior.h>
+#include <uml/simpleclassifiers/Signal.h>
+#include <uml/classification/Property.h>
+#include <uml/simpleclassifiers/Reception.h>
+#include <uml/classification/Operation.h>
+#include <uml/structuredclassifiers/Class_.h>
+#include <uml/classification/Generalization.h>
+#include <uml/simpleclassifiers/PrimitiveType.h>
+#include <uml/activities/Activity.h>
+#include <uml/activities/ActivityParameterNode.h>
+#include <uml/actions/ReadExtentAction.h>
+#include <uml/actions/CallOperationAction.h>
+#include <uml/actions/InputPin.h>
+#include <uml/actions/OutputPin.h>
+#include <uml/activities/ObjectFlow.h>
 #include <utils/library/FoundationalModelLibraryModel.h>
 #include <stdexcept>
 #include <utils/primitivetypes/PrimitiveTypesModel.h>

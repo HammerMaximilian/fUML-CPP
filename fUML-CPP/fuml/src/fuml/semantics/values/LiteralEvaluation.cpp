@@ -6,8 +6,8 @@
  */
 
 #include <fuml/semantics/values/LiteralEvaluation.h>
-#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
-#include <fuml/syntax/values/ValueSpecification.h>
+#include <uml/simpleclassifiers/PrimitiveType.h>
+#include <uml/values/ValueSpecification.h>
 
 LiteralEvaluation::~LiteralEvaluation()
 {

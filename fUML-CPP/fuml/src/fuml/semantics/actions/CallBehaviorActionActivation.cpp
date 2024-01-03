@@ -10,8 +10,8 @@
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/Object_.h>
-#include <fuml/syntax/actions/CallBehaviorAction.h>
-#include <fuml/syntax/commonbehavior/Behavior.h>
+#include <uml/actions/CallBehaviorAction.h>
+#include <uml/commonbehavior/Behavior.h>
 
 ExecutionPtr CallBehaviorActionActivation::getCallExecution()
 {

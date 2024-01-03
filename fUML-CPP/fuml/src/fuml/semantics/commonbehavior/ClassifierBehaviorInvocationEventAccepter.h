@@ -9,7 +9,7 @@
 #define FUML_SEMANTICS_COMMONBEHAVIOR_CLASSIFIERBEHAVIORINVOCATIONEVENTACCEPTER_H_
 
 #include <fuml/semantics/commonbehavior/EventAccepter.h>
-#include <fuml/syntax/fwd.h>
+#include <uml/fwd.h>
 
 namespace fuml::semantics::commonbehavior
 {

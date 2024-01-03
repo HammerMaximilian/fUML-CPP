@@ -8,7 +8,7 @@
 #include <fuml/semantics/activities/ControlNodeActivation.h>
 
 #include <fuml/Debug.h>
-#include <fuml/syntax/activities/ActivityNode.h>
+#include <uml/activities/ActivityNode.h>
 
 ControlNodeActivation::~ControlNodeActivation()
 {

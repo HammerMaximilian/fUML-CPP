@@ -9,12 +9,12 @@
 #define FUML_SEMANTICS_COMMONBEHAVIOR_OBJECTACTIVATION_H_
 
 #include <fuml/semantics/fwd.h>
-#include <fuml/syntax/fwd.h>
-#include <utils/FumlObject.h>
+#include <uml/fwd.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::commonbehavior
 {
-	class ObjectActivation : public fuml::FumlObject
+	class ObjectActivation : public uml::UmlObject
 	{
 		public:
 			ClassifierBehaviorInvocationEventAccepterListPtr classifierBehaviorInvocations =

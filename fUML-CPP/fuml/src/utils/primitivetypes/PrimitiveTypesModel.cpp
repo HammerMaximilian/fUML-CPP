@@ -7,7 +7,7 @@
 
 #include <utils/primitivetypes/PrimitiveTypesModel.h>
 
-#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
+#include <uml/simpleclassifiers/PrimitiveType.h>
 #include <stdexcept>
 
 using namespace fuml::primitivetypes;

@@ -12,8 +12,8 @@
 #include <fuml/semantics/simpleclassifiers/DataValue.h>
 #include <fuml/semantics/simpleclassifiers/IntegerValue.h>
 #include <fuml/semantics/simpleclassifiers/StringValue.h>
-#include <fuml/syntax/classification/Property.h>
-#include <fuml/syntax/simpleclassifiers/DataType.h>
+#include <uml/classification/Property.h>
+#include <uml/simpleclassifiers/DataType.h>
 #include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::common;

@@ -9,11 +9,11 @@
 #define FUML_SEMANTICS_ACTIVITIES_OFFER_H_
 
 #include <fuml/semantics/fwd.h>
-#include <utils/FumlObject.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::activities
 {
-	class Offer : public fuml::FumlObject
+	class Offer : public uml::UmlObject
 	{
 		public:
 			TokenListPtr offeredTokens = std::make_shared<TokenList>();

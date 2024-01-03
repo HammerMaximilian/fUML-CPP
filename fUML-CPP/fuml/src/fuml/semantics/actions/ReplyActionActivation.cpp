@@ -10,9 +10,9 @@
 #include <fuml/Debug.h>
 #include <fuml/semantics/actions/ReturnInformation.h>
 #include <fuml/semantics/commonbehavior/ParameterValue.h>
-#include <fuml/syntax/actions/ReplyAction.h>
-#include <fuml/syntax/commonbehavior/CallEvent.h>
-#include <fuml/syntax/commonbehavior/Trigger.h>
+#include <uml/actions/ReplyAction.h>
+#include <uml/commonbehavior/CallEvent.h>
+#include <uml/commonbehavior/Trigger.h>
 
 void ReplyActionActivation::doAction()
 {

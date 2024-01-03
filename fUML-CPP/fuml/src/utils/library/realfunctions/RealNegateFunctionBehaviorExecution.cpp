@@ -8,7 +8,7 @@
 #include <utils/library/realfunctions/RealNegateFunctionBehaviorExecution.h>
 
 #include <fuml/Debug.h>
-#include <fuml/syntax/commonbehavior/FunctionBehavior.h>
+#include <uml/commonbehavior/FunctionBehavior.h>
 #include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::realfunctions;

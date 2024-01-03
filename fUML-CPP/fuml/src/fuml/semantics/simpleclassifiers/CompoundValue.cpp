@@ -10,8 +10,8 @@
 #include <fuml/semantics/simpleclassifiers/FeatureValue.h>
 #include <fuml/semantics/structuredclassifiers/Object_.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/classification/Classifier.h>
-#include <fuml/syntax/classification/StructuralFeature.h>
+#include <uml/classification/Classifier.h>
+#include <uml/classification/StructuralFeature.h>
 
 CompoundValue::~CompoundValue()
 {

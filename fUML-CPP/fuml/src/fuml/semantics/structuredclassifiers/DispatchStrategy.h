@@ -9,7 +9,7 @@
 #define FUML_SEMANTICS_STRUCTUREDCLASSIFIERS_DISPATCHSTRATEGY_H_
 
 #include <fuml/semantics/loci/SemanticStrategy.h>
-#include <fuml/syntax/fwd.h>
+#include <uml/fwd.h>
 
 namespace fuml::semantics::structuredclassifiers
 {

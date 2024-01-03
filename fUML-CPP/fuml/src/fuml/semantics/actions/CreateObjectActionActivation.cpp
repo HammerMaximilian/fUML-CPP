@@ -9,8 +9,8 @@
 
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/actions/CreateObjectAction.h>
-#include <fuml/syntax/structuredclassifiers/Class_.h>
+#include <uml/actions/CreateObjectAction.h>
+#include <uml/structuredclassifiers/Class_.h>
 
 void CreateObjectActionActivation::doAction()
 {

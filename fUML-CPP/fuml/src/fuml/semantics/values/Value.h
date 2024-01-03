@@ -10,7 +10,7 @@
 
 #include <fuml/semantics/fwd.h>
 #include <fuml/semantics/loci/SemanticVisitor.h>
-#include <fuml/syntax/fwd.h>
+#include <uml/fwd.h>
 
 namespace fuml::semantics::values
 {

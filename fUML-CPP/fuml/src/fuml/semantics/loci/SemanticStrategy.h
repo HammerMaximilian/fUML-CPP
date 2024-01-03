@@ -9,11 +9,11 @@
 #define FUML_SEMANTICS_LOCI_SEMANTICSTRATEGY_H_
 
 #include <fuml/semantics/fwd.h>
-#include <utils/FumlObject.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::loci
 {
-	class SemanticStrategy : public fuml::FumlObject
+	class SemanticStrategy : public uml::UmlObject
 	{
 		public:
 			virtual ~SemanticStrategy() = 0;

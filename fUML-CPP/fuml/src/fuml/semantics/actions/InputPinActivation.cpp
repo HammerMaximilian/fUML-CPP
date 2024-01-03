@@ -11,7 +11,7 @@
 #include <fuml/semantics/actions/CallActionActivation.h>
 #include <fuml/semantics/activities/Token.h>
 #include <fuml/semantics/commonbehavior/StreamingParameterValue.h>
-#include <fuml/syntax/actions/InputPin.h>
+#include <uml/actions/InputPin.h>
 
 void InputPinActivation::receiveOffer()
 {

@@ -9,12 +9,12 @@
 #define FUML_SEMANTICS_ACTIVITIES_ACTIVITYNODEACTIVATIONGROUP_H_
 
 #include <fuml/semantics/fwd.h>
-#include <fuml/syntax/fwd.h>
-#include <utils/FumlObject.h>
+#include <uml/fwd.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::activities
 {
-	class ActivityNodeActivationGroup : public fuml::FumlObject
+	class ActivityNodeActivationGroup : public uml::UmlObject
 	{
 		public:
 			ActivityEdgeInstanceListPtr edgeInstances = std::make_shared<ActivityEdgeInstanceList>();

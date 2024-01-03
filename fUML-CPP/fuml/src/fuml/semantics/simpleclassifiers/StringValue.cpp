@@ -7,8 +7,8 @@
 
 #include <fuml/semantics/simpleclassifiers/StringValue.h>
 
-#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
-#include <fuml/syntax/values/LiteralString.h>
+#include <uml/simpleclassifiers/PrimitiveType.h>
+#include <uml/values/LiteralString.h>
 
 ValueSpecificationPtr StringValue::specify()
 {

@@ -7,7 +7,7 @@
 
 #include <fuml/semantics/values/Value.h>
 
-#include <fuml/syntax/classification/Classifier.h>
+#include <uml/classification/Classifier.h>
 
 Value::~Value()
 {

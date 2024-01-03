@@ -13,8 +13,8 @@
 #include <fuml/semantics/structuredclassifiers/Link.h>
 #include <fuml/semantics/structuredclassifiers/Object_.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/actions/DestroyObjectAction.h>
-#include <fuml/syntax/classification/Property.h>
+#include <uml/actions/DestroyObjectAction.h>
+#include <uml/classification/Property.h>
 
 void DestroyObjectActionActivation::doAction()
 {

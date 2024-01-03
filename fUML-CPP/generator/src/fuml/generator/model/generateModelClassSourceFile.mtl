@@ -18,9 +18,9 @@
 [aPackage.allOwnedElements()
 ->select(e : Element | supportedUMLMetaclasses()->includes(e.eClass().name))
 .generateMetaclassInclude()
-->including('#include <fuml/syntax/commonbehavior/FunctionBehavior.h>\r\n')
-->including('#include <fuml/syntax/packages/Package.h>\r\n')
-->including('#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>\r\n')
+->including('#include <uml/commonbehavior/FunctionBehavior.h>\r\n')
+->including('#include <uml/packages/Package.h>\r\n')
+->including('#include <uml/simpleclassifiers/PrimitiveType.h>\r\n')
 ->including('#include <utils/primitivetypes/PrimitiveTypesModel.h>\r\n')
 ->including('#include <utils/library/FoundationalModelLibraryModel.h>\r\n')
 ->asOrderedSet()/]

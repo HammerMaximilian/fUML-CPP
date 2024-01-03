@@ -9,9 +9,9 @@
 
 #include <fuml/semantics/commonbehavior/ParameterValue.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/actions/InputPin.h>
-#include <fuml/syntax/actions/StartClassifierBehaviorAction.h>
-#include <fuml/syntax/structuredclassifiers/Class_.h>
+#include <uml/actions/InputPin.h>
+#include <uml/actions/StartClassifierBehaviorAction.h>
+#include <uml/structuredclassifiers/Class_.h>
 
 void StartClassifierBehaviorActionActivation::doAction()
 {

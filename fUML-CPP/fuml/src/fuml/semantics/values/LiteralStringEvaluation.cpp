@@ -7,7 +7,7 @@
 
 #include <fuml/semantics/simpleclassifiers/StringValue.h>
 #include <fuml/semantics/values/LiteralStringEvaluation.h>
-#include <fuml/syntax/values/LiteralString.h>
+#include <uml/values/LiteralString.h>
 
 ValuePtr LiteralStringEvaluation::evaluate()
 {

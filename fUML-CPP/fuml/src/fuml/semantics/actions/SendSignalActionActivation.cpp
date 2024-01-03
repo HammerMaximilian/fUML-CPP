@@ -10,9 +10,9 @@
 #include <fuml/semantics/commonbehavior/SignalEventOccurrence.h>
 #include <fuml/semantics/simpleclassifiers/SignalInstance.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/actions/SendSignalAction.h>
-#include <fuml/syntax/classification/Property.h>
-#include <fuml/syntax/simpleclassifiers/Signal.h>
+#include <uml/actions/SendSignalAction.h>
+#include <uml/classification/Property.h>
+#include <uml/simpleclassifiers/Signal.h>
 
 void SendSignalActionActivation::doAction()
 {

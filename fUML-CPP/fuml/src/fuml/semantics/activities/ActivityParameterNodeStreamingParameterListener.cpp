@@ -9,7 +9,7 @@
 
 #include <fuml/Debug.h>
 #include <fuml/semantics/activities/ActivityParameterNodeActivation.h>
-#include <fuml/syntax/activities/ActivityNode.h>
+#include <uml/activities/ActivityNode.h>
 
 void ActivityParameterNodeStreamingParameterListener::post(const ValueListPtr& values)
 {

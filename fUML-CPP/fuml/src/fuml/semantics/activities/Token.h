@@ -9,11 +9,11 @@
 #define FUML_SEMANTICS_ACTIVITIES_TOKEN_H_
 
 #include <fuml/semantics/fwd.h>
-#include <utils/FumlObject.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::activities
 {
-	class Token : public fuml::FumlObject
+	class Token : public uml::UmlObject
 	{
 		public:
 			ActivityNodeActivationPtr_w holder;

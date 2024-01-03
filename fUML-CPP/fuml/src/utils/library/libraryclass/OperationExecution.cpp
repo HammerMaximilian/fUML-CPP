@@ -8,9 +8,9 @@
 #include <utils/library/libraryclass/OperationExecution.h>
 
 #include <fuml/semantics/commonbehavior/ParameterValue.h>
-#include <fuml/syntax/classification/Operation.h>
-#include <fuml/syntax/classification/Parameter.h>
-#include <fuml/syntax/commonbehavior/OpaqueBehavior.h>
+#include <uml/classification/Operation.h>
+#include <uml/classification/Parameter.h>
+#include <uml/commonbehavior/OpaqueBehavior.h>
 #include <utils/library/libraryclass/ImplementationObject.h>
 
 using namespace fuml::library::libraryclass;

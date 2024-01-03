@@ -7,8 +7,8 @@
 
 #include <fuml/semantics/simpleclassifiers/IntegerValue.h>
 
-#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
-#include <fuml/syntax/values/LiteralInteger.h>
+#include <uml/simpleclassifiers/PrimitiveType.h>
+#include <uml/values/LiteralInteger.h>
 
 ValueSpecificationPtr IntegerValue::specify()
 {

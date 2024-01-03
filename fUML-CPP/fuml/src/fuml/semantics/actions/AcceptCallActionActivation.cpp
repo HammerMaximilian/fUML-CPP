@@ -10,8 +10,8 @@
 #include <fuml/Debug.h>
 #include <fuml/semantics/actions/ReturnInformation.h>
 #include <fuml/semantics/commonbehavior/CallEventOccurrence.h>
-#include <fuml/syntax/actions/AcceptCallAction.h>
-#include <fuml/syntax/actions/OutputPin.h>
+#include <uml/actions/AcceptCallAction.h>
+#include <uml/actions/OutputPin.h>
 
 void AcceptCallActionActivation::accept(const EventOccurrencePtr& eventOccurrence)
 {

@@ -7,8 +7,8 @@
 
 #include <fuml/semantics/simpleclassifiers/BooleanValue.h>
 
-#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
-#include <fuml/syntax/values/LiteralBoolean.h>
+#include <uml/simpleclassifiers/PrimitiveType.h>
+#include <uml/values/LiteralBoolean.h>
 
 ValueSpecificationPtr BooleanValue::specify()
 {

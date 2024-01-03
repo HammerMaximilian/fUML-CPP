@@ -9,7 +9,7 @@
 #define FUML_SEMANTICS_VALUES_LITERALEVALUATION_H_
 
 #include <fuml/semantics/values/Evaluation.h>
-#include <fuml/syntax/fwd.h>
+#include <uml/fwd.h>
 
 namespace fuml::semantics::values
 {

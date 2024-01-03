@@ -8,12 +8,12 @@
 #ifndef UTILS_PRIMITIVETYPES_PRIMITIVETYPESMODEL_H_
 #define UTILS_PRIMITIVETYPES_PRIMITIVETYPESMODEL_H_
 
-#include <fuml/syntax/fwd.h>
+#include <uml/fwd.h>
 #include <utils/environment/InMemoryModel.h>
 
 namespace fuml::primitivetypes
 {
-	class PrimitiveTypesModel : public fuml::environment::InMemoryModel
+	class PrimitiveTypesModel : public uml::environment::InMemoryModel
 	{
 		public:
 			PrimitiveTypePtr PrimitiveTypes_Boolean = nullptr;

@@ -11,8 +11,8 @@
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Executor.h>
 #include <fuml/semantics/structuredclassifiers/Object_.h>
-#include <fuml/syntax/classification/Classifier.h>
-#include <fuml/syntax/commonbehavior/Behavior.h>
+#include <uml/classification/Classifier.h>
+#include <uml/commonbehavior/Behavior.h>
 #include <iomanip>
 
 void Locus::setThisLocusPtr(LocusPtr_w thisLocusPtr)
