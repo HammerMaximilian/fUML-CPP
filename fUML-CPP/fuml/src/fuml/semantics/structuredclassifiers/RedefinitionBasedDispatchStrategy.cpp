@@ -11,7 +11,7 @@
 #include <uml/classification/Operation.h>
 #include <uml/structuredclassifiers/Class_.h>
 
-BehaviorPtr RedefinitionBasedDispatchStrategy::getMethod(const Object_Ptr& object, const OperationPtr& memberOperation)
+BehaviorPtr RedefinitionBasedDispatchStrategy::getMethod(const Object_Ptr& object, const OperationPtr& operation)
 {
 	// Find the member operation of a type of the given object that
 	// is the same as or a redefinition of the given operation. Then
@@ -35,19 +35,19 @@ BehaviorPtr RedefinitionBasedDispatchStrategy::getMethod(const Object_Ptr& objec
 		while (method == nullptr && j <= membersSize)
 		{
 			NamedElementPtr member = members->at(j - 1);
-			OperationPtr operation = std::dynamic_pointer_cast<Operation>(member);
+			OperationPtr memberOperation = std::dynamic_pointer_cast<Operation>(member);
 
-			if (operation)
+			if (memberOperation)
 			{
 				if (this->operationsMatch(memberOperation, operation))
 				{
-					if (memberOperation->method->size() == 0)
+					if (operation->method->size() == 0)
 					{
-						method = DispatchStrategy::getMethod(object, memberOperation);
+						method = DispatchStrategy::getMethod(object, operation);
 					}
 					else
 					{
-						method = memberOperation->method->at(0);
+						method = operation->method->at(0);
 					}
 				}
 			}
