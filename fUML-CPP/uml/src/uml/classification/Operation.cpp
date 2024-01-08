@@ -9,6 +9,7 @@
 #include <uml/classification/Parameter.h>
 #include <uml/classification/ParameterDirectionKind.h>
 #include <uml/commonbehavior/Behavior.h>
+#include <uml/simpleclassifiers/Interface.h>
 
 void Operation::setThisOperationPtr(OperationPtr_w thisOperationPtr)
 {
@@ -56,4 +57,11 @@ void Operation::addMethod(const BehaviorPtr& method)
 void Operation::_setClass(const std::shared_ptr<Class_>& class_)
 {
 	this->class_ = class_;
+	NamedElement::_setNamespace(class_);
 } // _setClass
+
+void Operation::_setInterface(const InterfacePtr& interface_)
+{
+	this->interface = interface_;
+	NamedElement::_setNamespace(interface_);
+}

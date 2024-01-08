@@ -21,6 +21,7 @@ namespace uml::commonstructure
 			std::string name = "";
 			VisibilityKind visibility;
 			std::string qualifiedName = "";
+			DependencyListPtr clientDependency = std::make_shared<DependencyList>(); // PSCS-specific
 			NamespacePtr_w namespace_;
 
 		public:
@@ -28,6 +29,7 @@ namespace uml::commonstructure
 
 			void setName(std::string);
 			void setVisibility(VisibilityKind);
+			void addClientDependency(const DependencyPtr&); // PSCS-specific
 			void _setNamespace(const NamespacePtr&);
 	};
 // NamedElement

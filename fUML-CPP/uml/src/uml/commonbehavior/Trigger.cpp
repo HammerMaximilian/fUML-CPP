@@ -11,3 +11,8 @@ void Trigger::setEvent(const EventPtr& event)
 {
 	this->event = event;
 } // setEvent
+
+void Trigger::addPort(const PortPtr& port)
+{
+	this->port->push_back(port);
+}

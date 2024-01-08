@@ -7,6 +7,7 @@
 
 #include <uml/commonbehavior/Behavior.h>
 #include <uml/commonbehavior/BehavioredClassifier.h>
+#include <uml/simpleclassifiers/InterfaceRealization.h>
 
 BehavioredClassifier::~BehavioredClassifier()
 {
@@ -53,3 +54,12 @@ void BehavioredClassifier::setClassifierBehavior(const BehaviorPtr& classifierBe
 
 	this->classifierBehavior = classifierBehavior;
 } // setClassifierBehavior
+
+void BehavioredClassifier::addInterfaceRealization(const InterfaceRealizationPtr& interfaceRealization)
+{
+	this->interfaceRealization->push_back(interfaceRealization);
+	interfaceRealization->_setImplementingClassifier(thisBehavioredClassifierPtr.lock());
+
+	NamedElement::addClientDependency(interfaceRealization);
+	Element::addOwnedElement(interfaceRealization);
+}

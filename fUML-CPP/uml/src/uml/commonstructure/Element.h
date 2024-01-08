@@ -19,6 +19,7 @@ namespace uml::commonstructure
 			ElementListPtr ownedElement = std::make_shared<ElementList>();
 			ElementPtr_w owner;
 			CommentListPtr ownedComment = std::make_shared<CommentList>();
+			StereotypeListPtr appliedStereotype = std::make_shared<StereotypeList>();
 
 		private:
 			ElementPtr_w thisElementPtr;
@@ -26,6 +27,8 @@ namespace uml::commonstructure
 		public:
 			virtual ~Element() = 0;
 			void setThisElementPtr(ElementPtr_w);
+			void applyStereotype(const StereotypePtr&); // // PSCS-specific, Stereotypes are required in PSCS
+			void unapplyStereotype(const StereotypePtr&); // PSCS-specific, Stereotypes are required in PSCS
 
 		protected:
 			void addOwnedElement(const ElementPtr& ownedElement);

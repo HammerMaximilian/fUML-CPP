@@ -12,11 +12,12 @@
 
 namespace uml::commonbehavior
 {
-	class BehavioredClassifier : public Classifier
+	class BehavioredClassifier : virtual public Classifier
 	{
 		public:
 			BehaviorListPtr ownedBehavior = std::make_shared<BehaviorList>();
 			BehaviorPtr classifierBehavior = nullptr;
+			InterfaceRealizationListPtr interfaceRealization = std::make_shared<InterfaceRealizationList>(); // PSCS-specific
 
 		private:
 			BehavioredClassifierPtr_w thisBehavioredClassifierPtr;
@@ -27,7 +28,7 @@ namespace uml::commonbehavior
 
 			void addOwnedBehavior(const BehaviorPtr& ownedBehavior);
 			void setClassifierBehavior(const BehaviorPtr& classifierBehavior);
-
+			void addInterfaceRealization(const InterfaceRealizationPtr& interfaceRealization); // PSCS-specific
 	};
 // BehavioredClassifier
 }

@@ -16,3 +16,8 @@ void InvocationAction::addArgument(const InputPinPtr& argument)
 	Action::addInput(argument);
 	this->argument->push_back(argument);
 } // addArgument
+
+void InvocationAction::setOnPort(const PortPtr& onPort)
+{
+	this->onPort = onPort;
+}

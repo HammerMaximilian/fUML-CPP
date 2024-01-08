@@ -16,10 +16,13 @@ namespace uml::actions
 	{
 		public:
 			InputPinListPtr argument = std::make_shared<InputPinList>();
+			PortPtr onPort = nullptr; // PSCS-specific
+
 		public:
 			virtual ~InvocationAction() = 0;
 
 			void addArgument(const InputPinPtr&);
+			void setOnPort(const PortPtr&); // PSCS-specific
 	};
 // InvocationAction
 }

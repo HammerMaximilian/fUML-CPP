@@ -10,10 +10,11 @@
 
 #include <uml/commonbehavior/BehavioredClassifier.h>
 #include <uml/fwd.h>
+#include <uml/structuredclassifiers/EncapsulatedClassifier.h>
 
 namespace uml::structuredclassifiers
 {
-	class Class_ : public BehavioredClassifier
+	class Class_ : public BehavioredClassifier, public EncapsulatedClassifier
 	{
 		public:
 			OperationListPtr ownedOperation = std::make_shared<OperationList>();

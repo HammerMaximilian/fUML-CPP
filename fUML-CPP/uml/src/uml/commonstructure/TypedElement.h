@@ -18,7 +18,7 @@ namespace uml::commonstructure
 			TypePtr type = nullptr;
 
 		public:
-			virtual ~TypedElement() = default;
+			virtual ~TypedElement() = 0;
 
 			void setType(const TypePtr&);
 	};

@@ -16,11 +16,13 @@ namespace uml::simpleclassifiers
 	{
 		public:
 			SignalPtr signal = nullptr;
+			InterfacePtr interface = nullptr;
 
 		public:
 			virtual ~Reception() = default;
 
 			void setSignal(const SignalPtr&);
+			void _setInterface(const InterfacePtr&);
 	};
 // Reception
 }

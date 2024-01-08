@@ -10,10 +10,11 @@
 
 #include <uml/classification/StructuralFeature.h>
 #include <uml/classification/AggregationKind.h>
+#include <uml/structuredclassifiers/ConnectableElement.h>
 
 namespace uml::classification
 {
-	class Property : public StructuralFeature
+	class Property : public StructuralFeature, public ConnectableElement
 	{
 		public:
 			bool isDerived = false;
@@ -28,6 +29,7 @@ namespace uml::classification
 			PropertyPtr_w opposite;
 			ValueSpecificationPtr defaultValue = nullptr;
 			bool isID = false;
+			InterfacePtr interface = nullptr; // PSCS-specific
 
 		public:
 			virtual ~Property() = default;
@@ -40,6 +42,7 @@ namespace uml::classification
 			void setIsID(bool);
 			void _setOwningAssociation(const AssociationPtr&);
 			void _setOpposite(const PropertyPtr&);
+			void _setInterface(const InterfacePtr&); // PSCS-specific
 	};
 // Property
 }

@@ -52,3 +52,8 @@ void NamedElement::_setNamespace(const NamespacePtr& namespace_)
 		}
 	}
 } // _setNamespace
+
+void NamedElement::addClientDependency(const DependencyPtr& clientDependency)
+{
+	this->clientDependency->push_back(clientDependency);
+}

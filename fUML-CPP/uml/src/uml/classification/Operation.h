@@ -25,6 +25,7 @@ namespace uml::classification
 			OperationListPtr redefinedOperation = std::make_shared<OperationList>();
 			TypePtr type = nullptr;
 			ParameterListPtr ownedParameter = std::make_shared<ParameterList>();
+			InterfacePtr interface = nullptr; // PSCS-specific
 
 		private:
 			OperationPtr_w thisOperationPtr;
@@ -38,6 +39,7 @@ namespace uml::classification
 			void addRedefinedOperation(const OperationPtr&);
 			virtual void addMethod(const BehaviorPtr&) override;
 			void _setClass(const Class_Ptr&);
+			void _setInterface(const InterfacePtr&); // PSCS-specific
 	};
 // Operation
 }

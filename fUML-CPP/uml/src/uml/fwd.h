@@ -123,7 +123,9 @@ namespace uml
 
 	namespace commonstructure
 	{
+		class Abstraction;  // PSCS-specific
 		class Comment;
+		class Dependency; // PSCS-specific
 		class Element;
 		class ElementImport;
 		class MultiplicityElement;
@@ -131,14 +133,18 @@ namespace uml
 		class Namespace;
 		class PackageImport;
 		class PackageableElement;
+		class Realization; // PSCS-specific
 		class Type;
 		class TypedElement;
+		class Usage; // PSCS-specific
 		enum class VisibilityKind;
 	}
 
 	namespace packages
 	{
 		class Package;
+		class Profile;
+		class Stereotype;
 	}
 
 	namespace simpleclassifiers
@@ -146,6 +152,8 @@ namespace uml
 		class DataType;
 		class Enumeration;
 		class EnumerationLiteral;
+		class Interface; // PSCS-specific
+		class InterfaceRealization; // PSCS-specific
 		class PrimitiveType;
 		class Reception;
 		class Signal;
@@ -155,6 +163,13 @@ namespace uml
 	{
 		class Association;
 		class Class_;
+		class ConnectableElement; // PSCS-specific
+		class Connector; // PSCS-specific
+		class ConnectorEnd; // PSCS-specific
+		enum class ConnectorKind; // PSCS-specific
+		class EncapsulatedClassifier; // PSCS-specific
+		class Port; // PSCS-specific
+		class StructuredClassifier; // PSCS-specific
 	}
 
 	namespace values
@@ -166,6 +181,7 @@ namespace uml
 		class LiteralSpecification;
 		class LiteralString;
 		class LiteralUnlimitedNatural;
+		class OpaqueExpression; // PSCS-specific
 		class ValueSpecification;
 	}
 }
@@ -429,10 +445,17 @@ using TriggerListPtr = std::shared_ptr<TriggerList>;
 /*
  * CommonStructure
  */
+using Abstraction = uml::commonstructure::Abstraction; // PSCS-specific
+using AbstractionPtr = std::shared_ptr<Abstraction>; // PSCS-specific
 using Comment = uml::commonstructure::Comment;
 using CommentPtr = std::shared_ptr<Comment>;
 using CommentList = std::vector<CommentPtr>;
 using CommentListPtr = std::shared_ptr<CommentList>;
+using Dependency = uml::commonstructure::Dependency; // PSCS-specific
+using DependencyPtr = std::shared_ptr<Dependency>; // PSCS-specific
+using DependencyPtr_w = std::weak_ptr<Dependency>; // PSCS-specific
+using DependencyList = std::vector<DependencyPtr>; // PSCS-specific
+using DependencyListPtr = std::shared_ptr<DependencyList>; // PSCS-specific
 using Element = uml::commonstructure::Element;
 using ElementPtr = std::shared_ptr<Element>;
 using ElementPtr_w = std::weak_ptr<Element>;
@@ -459,12 +482,16 @@ using PackageImport = uml::commonstructure::PackageImport;
 using PackageImportPtr = std::shared_ptr<PackageImport>;
 using PackageImportList = std::vector<PackageImportPtr>;
 using PackageImportListPtr = std::shared_ptr<PackageImportList>;
+using Realization = uml::commonstructure::Realization; // PSCS-specific
+using RealizationPtr = std::shared_ptr<Realization>; // PSCS-specific
 using Type = uml::commonstructure::Type;
 using TypePtr = std::shared_ptr<Type>;
 using TypedElement = uml::commonstructure::TypedElement;
 using TypedElementPtr = std::shared_ptr<TypedElement>;
 using TypeList = std::vector<TypePtr>;
 using TypeListPtr = std::shared_ptr<TypeList>;
+using Usage = uml::commonstructure::Usage; // PSCS-specific
+using UsagePtr = std::shared_ptr<Usage>; // PSCS-specific
 using VisibilityKind = uml::commonstructure::VisibilityKind;
 
 /*
@@ -475,6 +502,12 @@ using PackagePtr = std::shared_ptr<Package>;
 using PackagePtr_w = std::weak_ptr<Package>;
 using PackageList = std::vector<PackagePtr>;
 using PackageListPtr = std::shared_ptr<PackageList>;
+using Profile = uml::packages::Profile;
+using ProfilePtr = std::shared_ptr<Profile>;
+using Stereotype = uml::packages::Stereotype;
+using StereotypePtr = std::shared_ptr<Stereotype>;
+using StereotypeList = std::vector<StereotypePtr>;
+using StereotypeListPtr = std::shared_ptr<StereotypeList>;
 
 /*
  * SimpleClassifiers
@@ -489,6 +522,15 @@ using EnumerationLiteral = uml::simpleclassifiers::EnumerationLiteral;
 using EnumerationLiteralPtr = std::shared_ptr<EnumerationLiteral>;
 using EnumerationLiteralList = std::vector<EnumerationLiteralPtr>;
 using EnumerationLiteralListPtr = std::shared_ptr<EnumerationLiteralList>;
+using Interface = uml::simpleclassifiers::Interface; // PSCS-specific
+using InterfacePtr = std::shared_ptr<Interface>; // PSCS-specific
+using InterfacePtr_w = std::weak_ptr<Interface>; // PSCS-specific
+using InterfaceList = std::vector<InterfacePtr>; // PSCS-specific
+using InterfaceListPtr = std::shared_ptr<InterfaceList>; // PSCS-specific
+using InterfaceRealization = uml::simpleclassifiers::InterfaceRealization; // PSCS-specific
+using InterfaceRealizationPtr = std::shared_ptr<InterfaceRealization>; // PSCS-specific
+using InterfaceRealizationList = std::vector<InterfaceRealizationPtr>; // PSCS-specific
+using InterfaceRealizationListPtr = std::shared_ptr<InterfaceRealizationList>; // PSCS-specific
 using PrimitiveType = uml::simpleclassifiers::PrimitiveType;
 using PrimitiveTypePtr = std::shared_ptr<PrimitiveType>;
 using PrimitiveTypeList = std::vector<PrimitiveTypePtr>;
@@ -512,6 +554,25 @@ using Class_Ptr = std::shared_ptr<Class_>;
 using Class_Ptr_w = std::weak_ptr<Class_>;
 using Class_List = std::vector<Class_Ptr>;
 using Class_ListPtr = std::shared_ptr<Class_List>;
+using ConnectableElement = uml::structuredclassifiers::ConnectableElement; // PSCS-specific
+using ConnectableElementPtr = std::shared_ptr<ConnectableElement>; // PSCS-specific
+using Connector = uml::structuredclassifiers::Connector; // PSCS-specific
+using ConnectorPtr = std::shared_ptr<Connector>; // PSCS-specific
+using ConnectorList = std::vector<ConnectorPtr>; // PSCS-specific
+using ConnectorListPtr = std::shared_ptr<ConnectorList>; // PSCS-specific
+using ConnectorEnd = uml::structuredclassifiers::ConnectorEnd; // PSCS-specific
+using ConnectorEndPtr = std::shared_ptr<ConnectorEnd>; // PSCS-specific
+using ConnectorEndPtr_w = std::weak_ptr<ConnectorEnd>; // PSCS-specific
+using ConnectorEndList = std::vector<ConnectorEndPtr>; // PSCS-specific
+using ConnectorEndListPtr = std::shared_ptr<ConnectorEndList>; //PSCS-specifi
+using EncapsulatedClassifier = uml::structuredclassifiers::EncapsulatedClassifier; // PSCS-specific
+using EncapsulatedClassifierPtr = std::shared_ptr<EncapsulatedClassifier>; // PSCS-specific
+using Port = uml::structuredclassifiers::Port; // PSCS-specific
+using PortPtr = std::shared_ptr<Port>; // PSCS-specific
+using PortList = std::vector<PortPtr>; // PSCS-specific
+using PortListPtr = std::shared_ptr<PortList>; // PSCS-specific
+using StructuredClassifier = uml::structuredclassifiers::StructuredClassifier; // PSCS-specific
+using StructuredClassifierPtr = std::shared_ptr<StructuredClassifier>; // PSCS-specific
 
 /*
  * Values
@@ -530,6 +591,8 @@ using LiteralString = uml::values::LiteralString;
 using LiteralStringPtr = std::shared_ptr<LiteralString>;
 using LiteralUnlimitedNatural = uml::values::LiteralUnlimitedNatural;
 using LiteralUnlimitedNaturalPtr = std::shared_ptr<LiteralUnlimitedNatural>;
+using OpaqueExpression = uml::values::OpaqueExpression; // PSCS-specific
+using OpaqueExpressionPtr = std::shared_ptr<OpaqueExpression>; // PSCS-specific
 using ValueSpecification = uml::values::ValueSpecification;
 using ValueSpecificationPtr = std::shared_ptr<ValueSpecification>;
 using ValueSpecificationList = std::vector<ValueSpecificationPtr>;

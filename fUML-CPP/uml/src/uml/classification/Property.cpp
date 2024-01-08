@@ -6,6 +6,9 @@
  */
 
 #include <uml/classification/Property.h>
+#include <uml/simpleclassifiers/Interface.h>
+#include <uml/simpleclassifiers/DataType.h>
+#include <uml/structuredclassifiers/Class_.h>
 
 void Property::setIsReadOnly(bool isReadOnly)
 {
@@ -26,11 +29,13 @@ void Property::_setAssociation(const AssociationPtr& association)
 void Property::_setClass(const std::shared_ptr<Class_>& class_)
 {
 	this->class_ = class_;
+	NamedElement::_setNamespace(class_);
 } // _setClass
 
 void Property::_setDatatype(const DataTypePtr& datatype)
 {
 	this->datatype = datatype;
+	NamedElement::_setNamespace(datatype);
 } // _setDataType
 
 void Property::setIsID(bool isID)
@@ -48,3 +53,8 @@ void Property::_setOpposite(const PropertyPtr& opposite)
 	this->opposite = opposite;
 } // _setOpposite
 
+void Property::_setInterface(const InterfacePtr& interface_)
+{
+	this->interface = interface_;
+	NamedElement::_setNamespace(interface_);
+}

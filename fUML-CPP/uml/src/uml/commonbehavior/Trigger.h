@@ -16,11 +16,13 @@ namespace uml::commonbehavior
 	{
 		public:
 			EventPtr event = nullptr;
+			PortListPtr port = std::make_shared<PortList>(); // PSCS-specific
 
 		public:
 			virtual ~Trigger() = default;
 
 			void setEvent(const EventPtr&);
+			void addPort(const PortPtr&); // PSCS-specific
 	};
 // Trigger
 }

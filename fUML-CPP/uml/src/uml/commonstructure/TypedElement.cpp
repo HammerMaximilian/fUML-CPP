@@ -7,6 +7,10 @@
 
 #include <uml/commonstructure/TypedElement.h>
 
+TypedElement::~TypedElement()
+{
+}
+
 void TypedElement::setType(const TypePtr& type)
 {
 	this->type = type;

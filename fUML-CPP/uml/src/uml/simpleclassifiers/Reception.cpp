@@ -11,3 +11,8 @@ void Reception::setSignal(const SignalPtr& signal)
 {
 	this->signal = signal;
 }
+
+void Reception::_setInterface(const InterfacePtr& interface_)
+{
+	this->interface = interface_;
+}
