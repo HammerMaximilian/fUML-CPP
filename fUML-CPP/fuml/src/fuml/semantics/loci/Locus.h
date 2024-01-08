@@ -35,7 +35,7 @@ namespace fuml::semantics::loci
 			void add(const ExtensionalValuePtr&);
 			std::string makeIdentifier(const ExtensionalValuePtr&);
 			void remove(const ExtensionalValuePtr&);
-			Object_Ptr instantiate(const Class_Ptr&);
+			virtual Object_Ptr instantiate(const Class_Ptr&);
 			bool conforms(const ClassifierPtr&, const ClassifierPtr&);
 
 	};

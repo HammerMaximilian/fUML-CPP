@@ -25,7 +25,7 @@ namespace fuml::semantics::values
 			virtual ClassifierListPtr getTypes() = 0;
 			bool hasType(const ClassifierPtr&);
 			bool isInstanceOf(const ClassifierPtr&);
-			bool checkAllParents(const ClassifierPtr&, const ClassifierPtr&);
+			virtual bool checkAllParents(const ClassifierPtr&, const ClassifierPtr&);
 			virtual std::string toString() = 0;
 
 		protected:

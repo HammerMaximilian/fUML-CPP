@@ -28,7 +28,7 @@ namespace fuml::semantics::commonbehavior
 			void setThisEventOccurrencePtr(EventOccurrencePtr);
 
 			void sendTo(const ReferencePtr&);
-			void doSend();
+			virtual void doSend();
 			virtual bool match(const TriggerPtr&) = 0;
 			bool matchAny(const TriggerListPtr&);
 			virtual ParameterValueListPtr getParameterValues(const EventPtr&) = 0;

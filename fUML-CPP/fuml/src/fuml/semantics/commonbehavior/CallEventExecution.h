@@ -30,7 +30,7 @@ namespace fuml::semantics::commonbehavior
 			void releaseCaller();
 			virtual void execute() override;
 			void makeCall();
-			EventOccurrencePtr createEventOccurrence();
+			virtual EventOccurrencePtr createEventOccurrence();
 			OperationPtr getOperation();
 			ParameterValueListPtr getInputParameterValues();
 			void setOutputParameterValues(const ParameterValueListPtr&);

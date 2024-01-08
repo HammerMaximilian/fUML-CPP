@@ -27,7 +27,7 @@ namespace fuml::semantics::loci
 
 			ExecutionPtr createExecution(const BehaviorPtr&, const Object_Ptr&);
 			EvaluationPtr createEvaluation(const ValueSpecificationPtr&);
-			SemanticVisitorPtr instantiateVisitor(const ElementPtr&);
+			virtual SemanticVisitorPtr instantiateVisitor(const ElementPtr&);
 			OpaqueBehaviorExecutionPtr instantiateOpaqueBehaviorExecution(const OpaqueBehaviorPtr&);
 			void addPrimitiveBehaviorPrototype(const OpaqueBehaviorExecutionPtr&);
 			void addBuiltInType(const PrimitiveTypePtr&);

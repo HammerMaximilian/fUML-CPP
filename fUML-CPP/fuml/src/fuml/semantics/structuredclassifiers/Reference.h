@@ -20,9 +20,9 @@ namespace fuml::semantics::structuredclassifiers
 		public:
 			virtual ~Reference() = default;
 
-			void startBehavior(const Class_Ptr&, const ParameterValueListPtr&);
-			ExecutionPtr dispatch(const OperationPtr&);
-			void send(const EventOccurrencePtr&);
+			virtual void startBehavior(const Class_Ptr&, const ParameterValueListPtr&);
+			virtual ExecutionPtr dispatch(const OperationPtr&);
+			virtual void send(const EventOccurrencePtr&);
 			void destroy();
 			virtual bool equals(const ValuePtr&) override;
 			virtual ValuePtr copy() override;

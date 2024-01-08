@@ -24,7 +24,7 @@ namespace fuml::semantics::loci
 
 			ParameterValueListPtr execute(const BehaviorPtr&, const Object_Ptr&, const ParameterValueListPtr&);
 			ValuePtr evaluate(const ValueSpecificationPtr&);
-			ReferencePtr start(const Class_Ptr&, const ParameterValueListPtr&);
+			virtual ReferencePtr start(const Class_Ptr&, const ParameterValueListPtr&);
 	};
 // Executor
 }
