@@ -1036,7 +1036,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [aClassifier.getFullNameSanitized()/]->setIsFinalSpecialization(true);
 	[/if]
 [comment Property 'Classifier::generalization' /]
-[for (aGeneralization : Generalization | aClassifier.generalization)]
+[for (aGeneralization : Generalization | aClassifier.generalization->sortedBy(general.name))]
 	[aGeneralization.generateElementInitialization()/]
 [aClassifier.getFullNameSanitized()/]->addGeneralization([aGeneralization.getFullNameSanitized()/]);
 [/for]
