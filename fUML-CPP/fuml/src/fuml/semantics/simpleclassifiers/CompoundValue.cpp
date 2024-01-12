@@ -88,7 +88,7 @@ FeatureValuePtr CompoundValue::getFeatureValue(const StructuralFeaturePtr& featu
 	unsigned int featureValuesSize = this->featureValues->size();
 	while (featureValue == nullptr && i <= featureValuesSize)
 	{
-		FeatureValuePtr thisFeatureValue = this->featureValues->at(i - 1);
+		const FeatureValuePtr& thisFeatureValue = this->featureValues->at(i - 1);
 		if (thisFeatureValue->feature == feature)
 		{
 			featureValue = thisFeatureValue;
