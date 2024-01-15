@@ -50,7 +50,7 @@ BehaviorPtr SignatureBasedDispatchStrategy::getMethod(const Class_Ptr& type, con
 
         if(this->operationsMatch(ownedOperation, operation))
         {
-            if (!ownedOperation->method->empty())
+            if (ownedOperation->method->empty())
             {
                 method = DispatchStrategy::getMethod(nullptr, ownedOperation);
             }
