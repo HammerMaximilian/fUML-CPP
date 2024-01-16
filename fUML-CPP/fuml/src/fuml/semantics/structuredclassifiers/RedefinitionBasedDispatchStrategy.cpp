@@ -41,13 +41,13 @@ BehaviorPtr RedefinitionBasedDispatchStrategy::getMethod(const Object_Ptr& objec
 			{
 				if (this->operationsMatch(memberOperation, operation))
 				{
-					if (operation->method->size() == 0)
+					if (memberOperation->method->size() == 0)
 					{
-						method = DispatchStrategy::getMethod(object, operation);
+						method = DispatchStrategy::getMethod(object, memberOperation);
 					}
 					else
 					{
-						method = operation->method->at(0);
+						method = memberOperation->method->at(0);
 					}
 				}
 			}
