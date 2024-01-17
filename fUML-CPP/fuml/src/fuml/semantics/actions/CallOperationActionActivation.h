@@ -20,6 +20,7 @@ namespace fuml::semantics::actions
 			virtual bool isReady() override;
 			virtual ExecutionPtr getCallExecution() override;
 			virtual ParameterListPtr getParameters() override;
+			bool isExplicitBaseClassCall(const CallOperationActionPtr&); // implemented in CallOperationActionActivationExtension.cpp
 
 	};
 // CallOperationActionActivation

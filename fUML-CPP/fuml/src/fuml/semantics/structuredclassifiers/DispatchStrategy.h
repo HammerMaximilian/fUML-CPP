@@ -20,7 +20,9 @@ namespace fuml::semantics::structuredclassifiers
 
 			virtual std::string getName() override;
 			ExecutionPtr dispatch(const Object_Ptr&, const OperationPtr&);
+			ExecutionPtr dispatch(const Object_Ptr&, const OperationPtr&, bool); //implemented in DispatchStrategyExtension.cpp
 			virtual BehaviorPtr getMethod(const Object_Ptr&, const OperationPtr&);
+			virtual BehaviorPtr getMethod(const Object_Ptr&, const OperationPtr&, bool); // implemented in DispatchStrategyExtension.cpp
 	};
 // DispatchStrategy
 }

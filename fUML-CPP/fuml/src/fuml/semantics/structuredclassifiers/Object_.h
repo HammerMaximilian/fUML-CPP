@@ -27,6 +27,7 @@ namespace fuml::semantics::structuredclassifiers
 
 			void startBehavior(const Class_Ptr&, const ParameterValueListPtr&);
 			virtual ExecutionPtr dispatch(const OperationPtr&);
+			virtual ExecutionPtr dispatch(const OperationPtr&, bool); // implemented in Object_Extension.cpp
 			void send(const EventOccurrencePtr&);
 			virtual void destroy() override;
 			void register_(const EventAccepterPtr&);

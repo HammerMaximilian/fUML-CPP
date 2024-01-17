@@ -18,9 +18,10 @@ namespace fuml::extensions::structuredclassifiers
 			virtual ~SignatureBasedDispatchStrategy() = default;
 
 			virtual BehaviorPtr getMethod(const Object_Ptr&, const OperationPtr&) override;
+			virtual BehaviorPtr getMethod(const Object_Ptr&, const OperationPtr&, bool) override;
 			BehaviorPtr getMethod(const Class_Ptr&, const OperationPtr&);
 			virtual bool operationsMatch(const OperationPtr&, const OperationPtr&);
-			bool isCovariant(const ClassifierPtr&, const ClassifierPtr&);
+			bool isSpecializationOf(const ClassifierPtr&, const ClassifierPtr&);
 	};
 // SignatureBasedDispatchStrategy
 }

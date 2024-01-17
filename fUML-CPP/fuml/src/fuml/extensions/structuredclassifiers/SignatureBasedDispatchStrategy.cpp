@@ -15,6 +15,11 @@ using namespace fuml::extensions::structuredclassifiers;
 
 BehaviorPtr SignatureBasedDispatchStrategy::getMethod(const Object_Ptr& object_, const OperationPtr& operation)
 {
+	return this->getMethod(object_, operation, false);
+}
+
+BehaviorPtr SignatureBasedDispatchStrategy::getMethod(const Object_Ptr& object_, const OperationPtr& operation, bool isExplicitBaseClassCall)
+{
     // Find the member operation of a type of the given object_ that
     // is the same as or overrides the given operation. Then
     // return the method of that operation, if it has one, otherwise
@@ -24,12 +29,31 @@ BehaviorPtr SignatureBasedDispatchStrategy::getMethod(const Object_Ptr& object_,
     // the first one is arbitrarily chosen.]
 
     BehaviorPtr method = nullptr;
+    const Class_Ptr& operationClass = operation->class_.lock();
+
     unsigned int i = 1;
     unsigned int sizeOfTypes = object_->types->size();
     while (method == nullptr && i <= sizeOfTypes)
     {
         const Class_Ptr& type = object_->types->at(i - 1);
-        method = this->getMethod(type, operation);
+
+        if(isExplicitBaseClassCall)
+        {
+            // The operation call shall explicitly invoke a base class operation,
+            // even if the operation is overridden by type (or a direct or indirect base class of type).
+            // This behaves as if object_'s actual type was the type that owns operation,
+            // if operationClass is a direct or indirect base class of type.
+
+            if(operationClass != nullptr && this->isSpecializationOf(type, operationClass))
+            {
+                method = this->getMethod(operationClass, operation);
+            }
+        }
+        else
+        {
+            method = this->getMethod(type, operation);
+        }
+
         i++;
     }
 
@@ -71,8 +95,7 @@ BehaviorPtr SignatureBasedDispatchStrategy::getMethod(const Class_Ptr& type, con
         unsigned int sizeOfGeneral = general->size();
         while(method == nullptr && i <= sizeOfGeneral)
         {
-        	const Class_Ptr baseClass = std::dynamic_pointer_cast<Class_>(general->at(i - 1));
-            if(baseClass)
+            if(Class_Ptr baseClass = std::dynamic_pointer_cast<Class_>(general->at(i - 1)))
             {
                 method = this->getMethod(baseClass, operation);
             }
@@ -115,7 +138,7 @@ bool SignatureBasedDispatchStrategy::operationsMatch(const OperationPtr& ownedOp
 
                     matches = ownedOperationReturnType &&
                             baseOperationReturnType &&
-                            this->isCovariant(ownedOperationReturnType, baseOperationReturnType);
+                            this->isSpecializationOf(ownedOperationReturnType, baseOperationReturnType);
                 }
                 else
                 {
@@ -135,24 +158,24 @@ bool SignatureBasedDispatchStrategy::operationsMatch(const OperationPtr& ownedOp
     return matches;
 } // operationsMatch
 
-bool SignatureBasedDispatchStrategy::isCovariant(const ClassifierPtr& ownedOperationReturnType, const ClassifierPtr& baseOperationReturnType)
+bool SignatureBasedDispatchStrategy::isSpecializationOf(const ClassifierPtr& specializedType, const ClassifierPtr& generalType)
 {
-    bool isCovariant = false;
+    bool isSpecialized = false;
 
     unsigned int i = 1;
-    unsigned int sizeOfGeneral = ownedOperationReturnType->general->size();
-    while (isCovariant == false && i <= sizeOfGeneral)
+    unsigned int sizeOfGeneral = specializedType->general->size();
+    while (isSpecialized == false && i <= sizeOfGeneral)
     {
-        const ClassifierPtr& baseType = ownedOperationReturnType->general->at(i - 1);
-        isCovariant = baseOperationReturnType == baseType;
+        const ClassifierPtr& directBase = specializedType->general->at(i - 1);
+        isSpecialized = generalType == directBase;
 
-        if(!isCovariant)
+        if(!isSpecialized)
         {
-            isCovariant = this->isCovariant(baseType, baseOperationReturnType);
+            isSpecialized = this->isSpecializationOf(directBase, generalType);
         }
 
         i++;
     }
 
-    return isCovariant;
+    return isSpecialized;
 } // isCovariant
