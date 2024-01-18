@@ -8,10 +8,10 @@
 #include <fuml/semantics/structuredclassifiers/RedefinitionBasedDispatchStrategy.h>
 
 #include <fuml/semantics/structuredclassifiers/Object_.h>
-#include <fuml/syntax/classification/Operation.h>
-#include <fuml/syntax/structuredclassifiers/Class_.h>
+#include <uml/classification/Operation.h>
+#include <uml/structuredclassifiers/Class_.h>
 
-BehaviorPtr RedefinitionBasedDispatchStrategy::getMethod(const Object_Ptr& object, const OperationPtr& memberOperation)
+BehaviorPtr RedefinitionBasedDispatchStrategy::getMethod(const Object_Ptr& object, const OperationPtr& operation)
 {
 	// Find the member operation of a type of the given object that
 	// is the same as or a redefinition of the given operation. Then
@@ -28,16 +28,16 @@ BehaviorPtr RedefinitionBasedDispatchStrategy::getMethod(const Object_Ptr& objec
 	while (method == nullptr && i <= typesSize)
 	{
 		Class_Ptr type = object->types->at(i - 1);
-		NamedElementListPtr members = type->member;
+		NamedElementListPtr members = type->member();
 		unsigned int j = 1;
 		unsigned int membersSize = members->size();
 
 		while (method == nullptr && j <= membersSize)
 		{
 			NamedElementPtr member = members->at(j - 1);
-			OperationPtr operation = std::dynamic_pointer_cast<Operation>(member);
+			OperationPtr memberOperation = std::dynamic_pointer_cast<Operation>(member);
 
-			if (operation)
+			if (memberOperation)
 			{
 				if (this->operationsMatch(memberOperation, operation))
 				{

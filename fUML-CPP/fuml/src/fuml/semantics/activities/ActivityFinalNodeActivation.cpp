@@ -13,7 +13,7 @@
 #include <fuml/semantics/actions/StructuredActivityNodeActivation.h>
 #include <fuml/semantics/activities/ActivityExecution.h>
 #include <fuml/semantics/activities/ActivityNodeActivationGroup.h>
-#include <fuml/syntax/activities/ActivityNode.h>
+#include <uml/activities/ActivityNode.h>
 
 void ActivityFinalNodeActivation::fire(const TokenListPtr& incomingTokens)
 {

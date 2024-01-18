@@ -9,7 +9,7 @@
 
 #include <fuml/Debug.h>
 #include <fuml/semantics/activities/ActivityEdgeInstance.h>
-#include <fuml/syntax/actions/Pin.h>
+#include <uml/actions/Pin.h>
 
 PinActivation::~PinActivation()
 {

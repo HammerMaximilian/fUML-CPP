@@ -13,9 +13,9 @@
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/Object_.h>
 #include <fuml/semantics/values/Value.h>
-#include <fuml/syntax/actions/ReduceAction.h>
-#include <fuml/syntax/classification/Parameter.h>
-#include <fuml/syntax/commonbehavior/Behavior.h>
+#include <uml/actions/ReduceAction.h>
+#include <uml/classification/Parameter.h>
+#include <uml/commonbehavior/Behavior.h>
 
 void ReduceActionActivation::doAction()
 {

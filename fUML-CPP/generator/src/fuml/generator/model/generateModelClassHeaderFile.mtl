@@ -16,7 +16,7 @@
 #ifndef [aPackage.getNameSanitized().toUpperCase() + '_MODEL_H'/]
 #define [aPackage.getNameSanitized().toUpperCase() + '_MODEL_H'/]
 
-#include <fuml/syntax/fwd.h>
+#include <uml/fwd.h>
 #include <utils/environment/InMemoryModel.h>
 
 /* [protected (': User-defined includes and forward declarations')]
@@ -30,7 +30,7 @@
 
 namespace [aPackage.getNameSanitized()/]
 {
-	class [aPackage.getNameSanitized() + 'Model'/] : public fuml::environment::InMemoryModel
+	class [aPackage.getNameSanitized() + 'Model'/] : public uml::environment::InMemoryModel
 	{
 		public:
 		[aPackage.generatePublicMemberDeclarations()/]

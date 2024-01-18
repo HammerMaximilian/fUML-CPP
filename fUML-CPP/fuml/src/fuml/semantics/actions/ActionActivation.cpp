@@ -20,14 +20,14 @@
 #include <fuml/semantics/simpleclassifiers/BooleanValue.h>
 #include <fuml/semantics/simpleclassifiers/FeatureValue.h>
 #include <fuml/semantics/structuredclassifiers/Link.h>
-#include <fuml/syntax/actions/Action.h>
-#include <fuml/syntax/actions/InputPin.h>
-#include <fuml/syntax/actions/OutputPin.h>
-#include <fuml/syntax/activities/ExceptionHandler.h>
-#include <fuml/syntax/classification/Property.h>
-#include <fuml/syntax/commonbehavior/Behavior.h>
-#include <fuml/syntax/structuredclassifiers/Association.h>
-#include <fuml/syntax/values/LiteralBoolean.h>
+#include <uml/actions/Action.h>
+#include <uml/actions/InputPin.h>
+#include <uml/actions/OutputPin.h>
+#include <uml/activities/ExceptionHandler.h>
+#include <uml/classification/Property.h>
+#include <uml/commonbehavior/Behavior.h>
+#include <uml/structuredclassifiers/Association.h>
+#include <uml/values/LiteralBoolean.h>
 
 ActionActivation::~ActionActivation()
 {

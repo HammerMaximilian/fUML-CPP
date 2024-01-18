@@ -9,9 +9,9 @@
 #define UTILS_ENVIRONMENT_ENVIRONMENT_H_
 
 #include <fuml/semantics/fwd.h>
-#include <fuml/syntax/fwd.h>
+#include <uml/fwd.h>
 
-namespace fuml::environment
+namespace uml::environment
 {
 	class InMemoryModel;
 }
@@ -25,7 +25,7 @@ namespace fuml::environment
 			Object_Ptr context = nullptr;
 			ParameterValueListPtr inputs = std::make_shared<ParameterValueList>();
 			ParameterValueListPtr outputs = std::make_shared<ParameterValueList>();
-			std::shared_ptr<InMemoryModel> inMemoryModel = nullptr;
+			std::shared_ptr<uml::environment::InMemoryModel> inMemoryModel = nullptr;
 
 		public:
 			virtual ~Environment() = 0;

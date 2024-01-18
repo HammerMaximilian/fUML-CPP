@@ -8,8 +8,8 @@
 #include <fuml/semantics/simpleclassifiers/RealValue.h>
 
 #include <fuml/semantics/simpleclassifiers/IntegerValue.h>
-#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
-#include <fuml/syntax/values/LiteralReal.h>
+#include <uml/simpleclassifiers/PrimitiveType.h>
+#include <uml/values/LiteralReal.h>
 
 ValueSpecificationPtr RealValue::specify()
 {

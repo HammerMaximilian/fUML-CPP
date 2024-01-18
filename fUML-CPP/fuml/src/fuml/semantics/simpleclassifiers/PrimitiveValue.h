@@ -9,7 +9,7 @@
 #define FUML_SEMANTICS_SIMPLECLASSIFIERS_PRIMITIVEVALUE_H_
 
 #include <fuml/semantics/values/Value.h>
-#include <fuml/syntax/fwd.h>
+#include <uml/fwd.h>
 
 namespace fuml::semantics::simpleclassifiers
 {

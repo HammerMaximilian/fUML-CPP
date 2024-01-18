@@ -8,14 +8,14 @@
 #include <fuml/semantics/simpleclassifiers/StructuredValue.h>
 
 #include <fuml/semantics/simpleclassifiers/FeatureValue.h>
-#include <fuml/syntax/classification/Classifier.h>
-#include <fuml/syntax/classification/InstanceSpecification.h>
-#include <fuml/syntax/classification/InstanceValue.h>
-#include <fuml/syntax/classification/Property.h>
-#include <fuml/syntax/classification/Slot.h>
-#include <fuml/syntax/classification/StructuralFeature.h>
-#include <fuml/syntax/commonstructure/NamedElement.h>
-#include <fuml/syntax/values/ValueSpecification.h>
+#include <uml/classification/Classifier.h>
+#include <uml/classification/InstanceSpecification.h>
+#include <uml/classification/InstanceValue.h>
+#include <uml/classification/Property.h>
+#include <uml/classification/Slot.h>
+#include <uml/classification/StructuralFeature.h>
+#include <uml/commonstructure/NamedElement.h>
+#include <uml/values/ValueSpecification.h>
 
 StructuredValue::~StructuredValue()
 {
@@ -63,7 +63,7 @@ StructuralFeatureListPtr StructuredValue::getMemberFeatures(const ClassifierPtr&
 
 	if (type != nullptr)
 	{
-		const NamedElementListPtr& members = type->member;
+		const NamedElementListPtr& members = type->member();
 		for (const StructuralFeaturePtr& feature : *features)
 		{
 			bool isMember = false;

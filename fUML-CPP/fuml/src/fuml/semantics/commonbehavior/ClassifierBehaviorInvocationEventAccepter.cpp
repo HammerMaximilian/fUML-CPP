@@ -13,8 +13,8 @@
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/Object_.h>
-#include <fuml/syntax/commonbehavior/Behavior.h>
-#include <fuml/syntax/structuredclassifiers/Class_.h>
+#include <uml/commonbehavior/Behavior.h>
+#include <uml/structuredclassifiers/Class_.h>
 
 void fuml::semantics::commonbehavior::ClassifierBehaviorInvocationEventAccepter::setThisClassifierBehaviorInvocationEventAccepterPtr(
 	ClassifierBehaviorInvocationEventAccepterPtr_w thisClassifierBehaviorInvocationEventAccepterPtr)

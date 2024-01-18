@@ -9,12 +9,12 @@
 #define FUML_SEMANTICS_LOCI_EXECUTOR_H_
 
 #include <fuml/semantics/fwd.h>
-#include <fuml/syntax/fwd.h>
-#include <utils/FumlObject.h>
+#include <uml/fwd.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::loci
 {
-	class Executor : public fuml::FumlObject
+	class Executor : public uml::UmlObject
 	{
 		public:
 			LocusPtr_w locus;
@@ -24,7 +24,7 @@ namespace fuml::semantics::loci
 
 			ParameterValueListPtr execute(const BehaviorPtr&, const Object_Ptr&, const ParameterValueListPtr&);
 			ValuePtr evaluate(const ValueSpecificationPtr&);
-			ReferencePtr start(const Class_Ptr&, const ParameterValueListPtr&);
+			virtual ReferencePtr start(const Class_Ptr&, const ParameterValueListPtr&);
 	};
 // Executor
 }

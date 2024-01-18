@@ -9,12 +9,12 @@
 #define FUML_SEMANTICS_COMMONBEHAVIOR_EVENTOCCURRENCE_H_
 
 #include <fuml/semantics/fwd.h>
-#include <fuml/syntax/fwd.h>
-#include <utils/FumlObject.h>
+#include <uml/fwd.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::commonbehavior
 {
-	class EventOccurrence : public fuml::FumlObject
+	class EventOccurrence : public uml::UmlObject
 	{
 		public:
 			ReferencePtr target = nullptr;
@@ -28,7 +28,7 @@ namespace fuml::semantics::commonbehavior
 			void setThisEventOccurrencePtr(EventOccurrencePtr);
 
 			void sendTo(const ReferencePtr&);
-			void doSend();
+			virtual void doSend();
 			virtual bool match(const TriggerPtr&) = 0;
 			bool matchAny(const TriggerListPtr&);
 			virtual ParameterValueListPtr getParameterValues(const EventPtr&) = 0;

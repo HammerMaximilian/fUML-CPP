@@ -7,7 +7,7 @@
 #ifndef FUML_TESTS_MODEL_H
 #define FUML_TESTS_MODEL_H
 
-#include <fuml/syntax/fwd.h>
+#include <uml/fwd.h>
 #include <utils/environment/InMemoryModel.h>
 
 /* Start of user code : User-defined includes and forward declarations
@@ -21,7 +21,7 @@
 
 namespace fUML_Tests
 {
-	class fUML_TestsModel : public fuml::environment::InMemoryModel
+	class fUML_TestsModel : public uml::environment::InMemoryModel
 	{
 		public:
 		/*

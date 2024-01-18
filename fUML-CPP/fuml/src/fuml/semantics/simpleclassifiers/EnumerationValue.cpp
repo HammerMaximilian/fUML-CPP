@@ -7,11 +7,11 @@
 
 #include <fuml/semantics/simpleclassifiers/EnumerationValue.h>
 
-#include <fuml/syntax/classification/InstanceSpecification.h>
-#include <fuml/syntax/classification/InstanceValue.h>
-#include <fuml/syntax/simpleclassifiers/Enumeration.h>
-#include <fuml/syntax/simpleclassifiers/EnumerationLiteral.h>
-#include <fuml/syntax/values/LiteralBoolean.h>
+#include <uml/classification/InstanceSpecification.h>
+#include <uml/classification/InstanceValue.h>
+#include <uml/simpleclassifiers/Enumeration.h>
+#include <uml/simpleclassifiers/EnumerationLiteral.h>
+#include <uml/values/LiteralBoolean.h>
 
 ValueSpecificationPtr EnumerationValue::specify()
 {

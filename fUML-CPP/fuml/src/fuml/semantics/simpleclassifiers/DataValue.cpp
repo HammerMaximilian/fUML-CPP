@@ -7,7 +7,7 @@
 
 #include <fuml/semantics/simpleclassifiers/DataValue.h>
 
-#include <fuml/syntax/simpleclassifiers/DataType.h>
+#include <uml/simpleclassifiers/DataType.h>
 
 ClassifierListPtr DataValue::getTypes()
 {

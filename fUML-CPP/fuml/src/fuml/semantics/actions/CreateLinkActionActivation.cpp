@@ -11,10 +11,10 @@
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/simpleclassifiers/UnlimitedNaturalValue.h>
 #include <fuml/semantics/structuredclassifiers/Link.h>
-#include <fuml/syntax/actions/CreateLinkAction.h>
-#include <fuml/syntax/actions/LinkEndCreationData.h>
-#include <fuml/syntax/classification/Property.h>
-#include <fuml/syntax/structuredclassifiers/Association.h>
+#include <uml/actions/CreateLinkAction.h>
+#include <uml/actions/LinkEndCreationData.h>
+#include <uml/classification/Property.h>
+#include <uml/structuredclassifiers/Association.h>
 
 void CreateLinkActionActivation::doAction()
 {

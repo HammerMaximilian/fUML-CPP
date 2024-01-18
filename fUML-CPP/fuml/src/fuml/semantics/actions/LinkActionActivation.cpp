@@ -10,9 +10,9 @@
 #include <fuml/semantics/simpleclassifiers/FeatureValue.h>
 #include <fuml/semantics/simpleclassifiers/UnlimitedNaturalValue.h>
 #include <fuml/semantics/structuredclassifiers/Link.h>
-#include <fuml/syntax/actions/LinkAction.h>
-#include <fuml/syntax/actions/LinkEndDestructionData.h>
-#include <fuml/syntax/classification/Property.h>
+#include <uml/actions/LinkAction.h>
+#include <uml/actions/LinkEndDestructionData.h>
+#include <uml/classification/Property.h>
 
 LinkActionActivation::~LinkActionActivation()
 {

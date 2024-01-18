@@ -8,7 +8,7 @@
 #ifndef FUML_SEMANTICS_COMMONBEHAVIOR_CALLEVENTBEHAVIOR_H_
 #define FUML_SEMANTICS_COMMONBEHAVIOR_CALLEVENTBEHAVIOR_H_
 
-#include <fuml/syntax/commonbehavior/Behavior.h>
+#include <uml/commonbehavior/Behavior.h>
 #include <fuml/semantics/fwd.h>
 
 namespace fuml::semantics::commonbehavior

@@ -9,9 +9,9 @@
 
 #include <fuml/semantics/actions/ExpansionRegionActivation.h>
 #include <fuml/semantics/actions/OutputPinActivation.h>
-#include <fuml/syntax/actions/ExpansionNode.h>
-#include <fuml/syntax/actions/ExpansionRegion.h>
-#include <fuml/syntax/actions/InputPin.h>
+#include <uml/actions/ExpansionNode.h>
+#include <uml/actions/ExpansionRegion.h>
+#include <uml/actions/InputPin.h>
 
 ActivityNodeActivationPtr ExpansionActivationGroup::getNodeActivation(const ActivityNodePtr& node)
 {

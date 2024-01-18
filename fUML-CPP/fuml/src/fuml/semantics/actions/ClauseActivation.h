@@ -9,12 +9,12 @@
 #define FUML_SEMANTICS_ACTIONS_CLAUSEACTIVATION_H_
 
 #include <fuml/semantics/fwd.h>
-#include <fuml/syntax/fwd.h>
-#include <utils/FumlObject.h>
+#include <uml/fwd.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::actions
 {
-	class ClauseActivation : public fuml::FumlObject
+	class ClauseActivation : public uml::UmlObject
 	{
 		public:
 			ConditionalNodeActivationPtr conditionalNodeActivation = nullptr;

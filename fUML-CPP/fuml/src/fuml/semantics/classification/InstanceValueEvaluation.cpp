@@ -15,14 +15,14 @@
 #include <fuml/semantics/simpleclassifiers/DataValue.h>
 #include <fuml/semantics/simpleclassifiers/EnumerationValue.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/classification/Classifier.h>
-#include <fuml/syntax/classification/InstanceSpecification.h>
-#include <fuml/syntax/classification/InstanceValue.h>
-#include <fuml/syntax/classification/Slot.h>
-#include <fuml/syntax/commonbehavior/Behavior.h>
-#include <fuml/syntax/simpleclassifiers/DataType.h>
-#include <fuml/syntax/simpleclassifiers/Enumeration.h>
-#include <fuml/syntax/simpleclassifiers/EnumerationLiteral.h>
+#include <uml/classification/Classifier.h>
+#include <uml/classification/InstanceSpecification.h>
+#include <uml/classification/InstanceValue.h>
+#include <uml/classification/Slot.h>
+#include <uml/commonbehavior/Behavior.h>
+#include <uml/simpleclassifiers/DataType.h>
+#include <uml/simpleclassifiers/Enumeration.h>
+#include <uml/simpleclassifiers/EnumerationLiteral.h>
 
 ValuePtr InstanceValueEvaluation::evaluate()
 {

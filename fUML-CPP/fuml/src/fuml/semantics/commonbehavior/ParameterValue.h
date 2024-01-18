@@ -9,12 +9,12 @@
 #define FUML_SEMANTICS_COMMONBEHAVIOR_PARAMETERVALUE_H_
 
 #include <fuml/semantics/fwd.h>
-#include <fuml/syntax/fwd.h>
-#include <utils/FumlObject.h>
+#include <uml/fwd.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::commonbehavior
 {
-	class ParameterValue : fuml::FumlObject
+	class ParameterValue : uml::UmlObject
 	{
 		public:
 			ParameterPtr parameter = nullptr;

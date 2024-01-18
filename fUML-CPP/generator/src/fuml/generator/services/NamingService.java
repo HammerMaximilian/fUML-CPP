@@ -2,6 +2,9 @@ package fuml.generator.services;
 
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.NamedElement;
+import org.eclipse.uml2.uml.Operation;
+import org.eclipse.uml2.uml.Parameter;
+import org.eclipse.uml2.uml.ParameterDirectionKind;
 
 public class NamingService 
 {
@@ -29,7 +32,7 @@ public class NamingService
 			
 			name = ((namedElement.getName() != null && !(namedElement.getName().isBlank())) ? 
 					((useExtendedNamingConvention) ? element.eClass().getName() + "_" : "")
-					+ namedElement.getName() : element.eClass().getName() + String.valueOf(internalElementCount++));
+					+ getSpecializedName(namedElement) : element.eClass().getName() + String.valueOf(internalElementCount++));
 		}
 		else
 		{
@@ -42,5 +45,39 @@ public class NamingService
 	public void setUseExtendedNamingConvention(boolean _useExtendedNamingConvention)
 	{
 		useExtendedNamingConvention = _useExtendedNamingConvention;
+	}
+	
+	private String getSpecializedName(NamedElement namedElement)
+	{
+		switch(namedElement.eClass().getClassifierID())
+		{
+			case org.eclipse.uml2.uml.UMLPackage.OPERATION:
+			{
+				return getOperationName((Operation) namedElement);
+			}
+			default:
+			{ 
+				return namedElement.getName();
+			}
+		}
+	}
+	
+	private String getOperationName(Operation operation)
+	{
+		String operationName = ((operation.getType() != null) ? operation.getType().getName() + "_" : "")
+								+ operation.getName();
+		
+		for(int i = 0; i < operation.getOwnedParameters().size(); i++)
+		{
+			Parameter parameter = operation.getOwnedParameters().get(i);
+			
+			if(parameter.getDirection() != ParameterDirectionKind.RETURN_LITERAL)
+			{
+				operationName += "_" + ((parameter.getType() != null) ? parameter.getType().getName() : "untyped") 
+								+ ((parameter.getUpper() != 1) ? "Array" : "");
+			}
+		}
+		
+		return operationName;
 	}
 }

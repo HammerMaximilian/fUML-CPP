@@ -10,7 +10,7 @@
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/Object_.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/actions/ReadExtentAction.h>
+#include <uml/actions/ReadExtentAction.h>
 
 void ReadExtentActionActivation::doAction()
 {

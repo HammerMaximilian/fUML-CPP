@@ -8,12 +8,12 @@
 #ifndef UTILS_LIBRARY_FOUNDATIONALMODELLIBRARYMODEL_H_
 #define UTILS_LIBRARY_FOUNDATIONALMODELLIBRARYMODEL_H_
 
-#include <fuml/syntax/fwd.h>
+#include <uml/fwd.h>
 #include <utils/environment/InMemoryModel.h>
 
 namespace fuml::library
 {
-	class FoundationalModelLibraryModel : public fuml::environment::InMemoryModel
+	class FoundationalModelLibraryModel : public uml::environment::InMemoryModel
 	{
 		public:
 			/*

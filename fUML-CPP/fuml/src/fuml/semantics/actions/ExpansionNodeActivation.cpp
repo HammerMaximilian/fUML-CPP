@@ -10,8 +10,8 @@
 #include <fuml/Debug.h>
 #include <fuml/semantics/actions/ExpansionRegionActivation.h>
 #include <fuml/semantics/activities/ActivityNodeActivationGroup.h>
-#include <fuml/syntax/actions/ExpansionNode.h>
-#include <fuml/syntax/actions/ExpansionRegion.h>
+#include <uml/actions/ExpansionNode.h>
+#include <uml/actions/ExpansionRegion.h>
 
 void ExpansionNodeActivation::fire(const TokenListPtr& incomingTokens)
 {

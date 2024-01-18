@@ -12,10 +12,10 @@
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/Link.h>
-#include <fuml/syntax/actions/DestroyLinkAction.h>
-#include <fuml/syntax/actions/LinkEndDestructionData.h>
-#include <fuml/syntax/classification/Property.h>
-#include <fuml/syntax/structuredclassifiers/Association.h>
+#include <uml/actions/DestroyLinkAction.h>
+#include <uml/actions/LinkEndDestructionData.h>
+#include <uml/classification/Property.h>
+#include <uml/structuredclassifiers/Association.h>
 
 void DestroyLinkActionActivation::doAction()
 {

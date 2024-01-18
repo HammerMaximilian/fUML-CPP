@@ -11,8 +11,8 @@
 #include <fuml/semantics/structuredclassifiers/Link.h>
 #include <fuml/semantics/structuredclassifiers/Object_.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/actions/ReclassifyObjectAction.h>
-#include <fuml/syntax/structuredclassifiers/Class_.h>
+#include <uml/actions/ReclassifyObjectAction.h>
+#include <uml/structuredclassifiers/Class_.h>
 
 void ReclassifyObjectActionActivation::doAction()
 {

@@ -9,11 +9,11 @@
 #define FUML_SEMANTICS_COMMONBEHAVIOR_EVENTACCEPTER_H_
 
 #include <fuml/semantics/fwd.h>
-#include <utils/FumlObject.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::commonbehavior
 {
-	class EventAccepter : public fuml::FumlObject
+	class EventAccepter : public uml::UmlObject
 	{
 		public:
 			virtual ~EventAccepter() = 0;

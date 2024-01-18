@@ -14,7 +14,7 @@
 #include <fuml/semantics/simpleclassifiers/UnlimitedNaturalValue.h>
 #include <fuml/semantics/structuredclassifiers/Link.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/actions/RemoveStructuralFeatureValueAction.h>
+#include <uml/actions/RemoveStructuralFeatureValueAction.h>
 #include <UMLPrimitiveTypes/intList.h>
 
 void RemoveStructuralFeatureValueActionActivation::doAction()

@@ -9,12 +9,12 @@
 #define FUML_SEMANTICS_LOCI_EXECUTIONFACTORY_H_
 
 #include <fuml/semantics/fwd.h>
-#include <fuml/syntax/fwd.h>
-#include <utils/FumlObject.h>
+#include <uml/fwd.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::loci
 {
-	class ExecutionFactory : public fuml::FumlObject
+	class ExecutionFactory : public uml::UmlObject
 	{
 		public:
 			LocusPtr_w locus;
@@ -27,7 +27,7 @@ namespace fuml::semantics::loci
 
 			ExecutionPtr createExecution(const BehaviorPtr&, const Object_Ptr&);
 			EvaluationPtr createEvaluation(const ValueSpecificationPtr&);
-			SemanticVisitorPtr instantiateVisitor(const ElementPtr&);
+			virtual SemanticVisitorPtr instantiateVisitor(const ElementPtr&);
 			OpaqueBehaviorExecutionPtr instantiateOpaqueBehaviorExecution(const OpaqueBehaviorPtr&);
 			void addPrimitiveBehaviorPrototype(const OpaqueBehaviorExecutionPtr&);
 			void addBuiltInType(const PrimitiveTypePtr&);

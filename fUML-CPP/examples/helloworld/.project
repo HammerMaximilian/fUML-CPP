@@ -3,6 +3,7 @@
 	<name>HelloWorldExample</name>
 	<comment></comment>
 	<projects>
+		<project>fuml</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

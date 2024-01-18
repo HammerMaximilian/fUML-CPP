@@ -9,12 +9,12 @@
 #define FUML_SEMANTICS_SIMPLECLASSIFIERS_FEATUREVALUE_H_
 
 #include <fuml/semantics/fwd.h>
-#include <fuml/syntax/fwd.h>
-#include <utils/FumlObject.h>
+#include <uml/fwd.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::simpleclassifiers
 {
-	class FeatureValue : public fuml::FumlObject
+	class FeatureValue : public uml::UmlObject
 	{
 		public:
 			StructuralFeaturePtr feature = nullptr;

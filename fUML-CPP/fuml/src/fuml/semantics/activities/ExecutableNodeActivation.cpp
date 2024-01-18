@@ -15,9 +15,9 @@
 #include <fuml/semantics/loci/ChoiceStrategy.h>
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Locus.h>
-#include <fuml/syntax/activities/ExceptionHandler.h>
-#include <fuml/syntax/activities/ExecutableNode.h>
-#include <fuml/syntax/activities/ObjectNode.h>
+#include <uml/activities/ExceptionHandler.h>
+#include <uml/activities/ExecutableNode.h>
+#include <uml/activities/ObjectNode.h>
 
 ExecutableNodeActivation::~ExecutableNodeActivation()
 {

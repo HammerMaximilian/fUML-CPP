@@ -12,8 +12,8 @@
 #include <fuml/semantics/actions/Values.h>
 #include <fuml/semantics/activities/ActivityNodeActivationGroup.h>
 #include <fuml/semantics/simpleclassifiers/BooleanValue.h>
-#include <fuml/syntax/actions/LoopNode.h>
-#include <fuml/syntax/actions/OutputPin.h>
+#include <uml/actions/LoopNode.h>
+#include <uml/actions/OutputPin.h>
 
 void fuml::semantics::actions::LoopNodeActivation::setThisLoopNodeActivationPtr(
 	LoopNodeActivationPtr_w thisLoopNodeActivationPtr)

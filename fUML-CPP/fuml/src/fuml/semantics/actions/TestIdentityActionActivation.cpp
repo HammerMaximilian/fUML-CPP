@@ -8,7 +8,7 @@
 #include <fuml/semantics/actions/TestIdentityActionActivation.h>
 
 #include <fuml/semantics/simpleclassifiers/BooleanValue.h>
-#include <fuml/syntax/actions/TestIdentityAction.h>
+#include <uml/actions/TestIdentityAction.h>
 
 void TestIdentityActionActivation::doAction()
 {

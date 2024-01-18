@@ -3,6 +3,7 @@
 
 [import fuml::generator::globalconstants::globalconstants /]
 [import fuml::generator::naming::naming /]
+[import fuml::generator::profiles::profilesHandler /]
 [import fuml::generator::syntax::syntax /]
 
 [template public generateModelClassSourceFile(aPackage : Package)]
@@ -18,16 +19,13 @@
 [aPackage.allOwnedElements()
 ->select(e : Element | supportedUMLMetaclasses()->includes(e.eClass().name))
 .generateMetaclassInclude()
-->including('#include <fuml/syntax/commonbehavior/FunctionBehavior.h>\r\n')
-->including('#include <fuml/syntax/packages/Package.h>\r\n')
-->including('#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>\r\n')
+->including('#include <uml/commonbehavior/FunctionBehavior.h>\r\n')
+->including('#include <uml/packages/Package.h>\r\n')
+->including('#include <uml/simpleclassifiers/PrimitiveType.h>\r\n')
 ->including('#include <utils/primitivetypes/PrimitiveTypesModel.h>\r\n')
 ->including('#include <utils/library/FoundationalModelLibraryModel.h>\r\n')
+->addAll(aPackage.getAllAppliedProfiles()->select(isSupportedProfile()).generateProfileInclude())
 ->asOrderedSet()/]
-
-/*
- *	TODO: Generate includes for metaclasses
- */
 
 /* [protected (': User-defined includes and using directives')]
  * This section may be used for includes and using directives.
@@ -917,6 +915,12 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 // Initialization is currently unimplemented for metaclass [anElement.eClass().name/]
 [/template]
 
+[template private generateElementStereotypeApplications(anElement : Element) post(trim())]
+[for (aStereotype : Stereotype | anElement.getAppliedStereotypes()->select(isSupportedStereotype()))]
+[anElement.getFullNameSanitized()/]->applyStereotype([aStereotype.generateStereotypeAccess()/]);
+[/for]
+[/template]
+
 [comment ************************************************************************************************************************* /]
 
 [template private generateAcceptEventActionInitialization(anAcceptEventAction : AcceptEventAction) post(trim())]
@@ -1036,7 +1040,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [aClassifier.getFullNameSanitized()/]->setIsFinalSpecialization(true);
 	[/if]
 [comment Property 'Classifier::generalization' /]
-[for (aGeneralization : Generalization | aClassifier.generalization)]
+[for (aGeneralization : Generalization | aClassifier.generalization->sortedBy(general.name))]
 	[aGeneralization.generateElementInitialization()/]
 [aClassifier.getFullNameSanitized()/]->addGeneralization([aGeneralization.getFullNameSanitized()/]);
 [/for]
@@ -1158,6 +1162,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 
 [template private generateNamedElementInitialization(aNamedElement : NamedElement) post(trim())]
 [comment Property 'NamedElement::name' /]
+[aNamedElement.generateElementStereotypeApplications()/]
 [aNamedElement.getFullNameSanitized()/]->setName("[aNamedElement.getName()/]");
 [aNamedElement.getFullNameSanitized()/]->setVisibility(VisibilityKind::[aNamedElement.visibility/][if(aNamedElement.visibility <> VisibilityKind::_package)]_[/if]);
 [/template]

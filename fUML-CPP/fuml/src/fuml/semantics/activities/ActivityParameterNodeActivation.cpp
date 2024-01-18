@@ -12,9 +12,9 @@
 #include <fuml/semantics/activities/ActivityParameterNodeStreamingParameterListener.h>
 #include <fuml/semantics/activities/ObjectToken.h>
 #include <fuml/semantics/commonbehavior/StreamingParameterValue.h>
-#include <fuml/syntax/activities/ActivityParameterNode.h>
-#include <fuml/syntax/classification/Parameter.h>
-#include <fuml/syntax/commonbehavior/Behavior.h>
+#include <uml/activities/ActivityParameterNode.h>
+#include <uml/classification/Parameter.h>
+#include <uml/commonbehavior/Behavior.h>
 
 void ActivityParameterNodeActivation::setThisActivityParameterNodeActivationPtr(
 	ActivityParameterNodeActivationPtr_w thisActivityParameterNodeActivationPtr)

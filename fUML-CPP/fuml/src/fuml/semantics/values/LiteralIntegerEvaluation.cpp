@@ -7,7 +7,7 @@
 
 #include <fuml/semantics/simpleclassifiers/IntegerValue.h>
 #include <fuml/semantics/values/LiteralIntegerEvaluation.h>
-#include <fuml/syntax/values/LiteralInteger.h>
+#include <uml/values/LiteralInteger.h>
 
 ValuePtr LiteralIntegerEvaluation::evaluate()
 {

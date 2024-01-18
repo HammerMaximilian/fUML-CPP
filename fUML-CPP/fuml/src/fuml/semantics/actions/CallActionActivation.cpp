@@ -11,11 +11,11 @@
 #include <fuml/semantics/actions/PinStreamingParameterListener.h>
 #include <fuml/semantics/commonbehavior/Execution.h>
 #include <fuml/semantics/commonbehavior/StreamingParameterValue.h>
-#include <fuml/syntax/actions/CallAction.h>
-#include <fuml/syntax/actions/InputPin.h>
-#include <fuml/syntax/actions/OutputPin.h>
-#include <fuml/syntax/classification/Parameter.h>
-#include <fuml/syntax/commonbehavior/Behavior.h>
+#include <uml/actions/CallAction.h>
+#include <uml/actions/InputPin.h>
+#include <uml/actions/OutputPin.h>
+#include <uml/classification/Parameter.h>
+#include <uml/commonbehavior/Behavior.h>
 
 CallActionActivation::~CallActionActivation()
 {

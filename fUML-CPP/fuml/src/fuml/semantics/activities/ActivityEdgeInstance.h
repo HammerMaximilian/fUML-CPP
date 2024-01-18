@@ -9,12 +9,12 @@
 #define FUML_SEMANTICS_ACTIVITIES_ACTIVITYEDGEINSTANCE_H_
 
 #include <fuml/semantics/fwd.h>
-#include <fuml/syntax/fwd.h>
-#include <utils/FumlObject.h>
+#include <uml/fwd.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::activities
 {
-	class ActivityEdgeInstance : public fuml::FumlObject
+	class ActivityEdgeInstance : public uml::UmlObject
 	{
 		public:
 			ActivityEdgePtr edge = nullptr;

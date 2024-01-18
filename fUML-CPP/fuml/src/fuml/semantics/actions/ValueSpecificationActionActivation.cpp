@@ -9,7 +9,7 @@
 
 #include <fuml/semantics/loci/Executor.h>
 #include <fuml/semantics/loci/Locus.h>
-#include <fuml/syntax/actions/ValueSpecificationAction.h>
+#include <uml/actions/ValueSpecificationAction.h>
 
 void ValueSpecificationActionActivation::doAction()
 {

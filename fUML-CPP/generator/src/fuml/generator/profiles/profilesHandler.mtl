@@ -1,0 +1,55 @@
+[comment encoding = UTF-8 /]
+[module profilesHandler('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import fuml::generator::profiles::extensionsprofile /]
+
+[template public generateProfileInclude(aProfile : Profile)]
+[if (isSupportedProfile(aProfile))]
+#include <[getProfileInclude(aProfile)/]>
+[else]
+//Cannot add #include for unsupported profile [aProfile.name/]
+[/if]
+[/template]
+
+[template public generateStereotypeAccess(aStereotype : Stereotype) post(trim())]
+[if (isSupportedStereotype(aStereotype))]
+[getStereotypeAccess(aStereotype)/]
+[else]
+//Cannot generate access for unsupported stereotype [aStereotype.qualifiedName/]
+[/if]
+[/template]
+
+[query public isSupportedProfile(aProfile : Profile) : Boolean = supportedProfiles()->includes(aProfile.name) /]
+[query public isSupportedStereotype(aStereotype : Stereotype) : Boolean = supportedStereotypes()->includes(aStereotype.qualifiedName) /]
+
+[query private supportedProfiles(Any : OclAny) : Set(String) = Set(String)
+	{
+		ExtensionsProfile_name()
+	}
+ /]
+
+[query private supportedStereotypes(Any : OclAny) : Set(String) = Set(String)
+	{
+		supportedExtensionsProfileStereotypes()
+	}->flatten()
+ /]
+
+[query private supportedExtensionsProfileStereotypes(Any : OclAny) : Set(String) = Set(String)
+	{
+		ExtensionsProfileName_ExplicitBaseClassCall_qualifiedName()
+	}
+ /]
+
+[query private getProfileInclude(aProfile : Profile) : String = 
+	if(aProfile.name = ExtensionsProfile_name())
+		then ExtensionsProfile_include()
+		else ''
+	endif
+/]
+
+[query private getStereotypeAccess(aStereotype : Stereotype) : String = 
+	if(aStereotype.profile.name = ExtensionsProfile_name())
+		then getExtensionsProfile_StereotypeAccess(aStereotype.name)
+		else ''
+	endif
+/]

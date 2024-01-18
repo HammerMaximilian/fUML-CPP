@@ -10,10 +10,10 @@
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/simpleclassifiers/FeatureValue.h>
 #include <fuml/semantics/structuredclassifiers/Link.h>
-#include <fuml/syntax/actions/LinkEndData.h>
-#include <fuml/syntax/actions/ReadLinkAction.h>
-#include <fuml/syntax/classification/Property.h>
-#include <fuml/syntax/structuredclassifiers/Association.h>
+#include <uml/actions/LinkEndData.h>
+#include <uml/actions/ReadLinkAction.h>
+#include <uml/classification/Property.h>
+#include <uml/structuredclassifiers/Association.h>
 
 void ReadLinkActionActivation::doAction()
 {

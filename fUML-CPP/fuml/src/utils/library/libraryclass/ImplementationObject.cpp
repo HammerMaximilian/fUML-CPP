@@ -8,7 +8,7 @@
 #include <utils/library/libraryclass/ImplementationObject.h>
 
 #include <fuml/semantics/loci/Locus.h>
-#include <fuml/syntax/classification/Operation.h>
+#include <uml/classification/Operation.h>
 #include <utils/library/libraryclass/OperationExecution.h>
 
 using namespace fuml::library::libraryclass;

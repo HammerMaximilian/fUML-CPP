@@ -9,7 +9,7 @@
 #define FUML_SEMANTICS_ACTIVITIES_ACTIVITYNODEACTIVATION_H_
 
 #include <fuml/semantics/loci/SemanticVisitor.h>
-#include <fuml/syntax/fwd.h>
+#include <uml/fwd.h>
 
 namespace fuml::semantics::activities
 {

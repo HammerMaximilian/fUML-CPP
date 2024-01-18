@@ -8,8 +8,8 @@
 #include <fuml/semantics/commonbehavior/CallEventBehavior.h>
 
 #include <fuml/semantics/fwd.h>
-#include <fuml/syntax/classification/Operation.h>
-#include <fuml/syntax/classification/Parameter.h>
+#include <uml/classification/Operation.h>
+#include <uml/classification/Parameter.h>
 
 void fuml::semantics::commonbehavior::CallEventBehavior::setThisCallEventBehavior(
 	CallEventBehaviorPtr_w thisCallEventBehaviorPtr)
@@ -40,7 +40,7 @@ void CallEventBehavior::setOperation(const OperationPtr& operation)
 
 		this->ownedElement->push_back(parameter);
 		this->ownedMember->push_back(parameter);
-		this->member->push_back(parameter);
+		this->_member->push_back(parameter);
 		this->ownedParameter->push_back(parameter);
 	}
 	this->isReentrant = true;

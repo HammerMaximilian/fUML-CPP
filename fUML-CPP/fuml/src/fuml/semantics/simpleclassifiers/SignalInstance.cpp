@@ -7,7 +7,7 @@
 
 #include <fuml/semantics/simpleclassifiers/SignalInstance.h>
 
-#include <fuml/syntax/simpleclassifiers/Signal.h>
+#include <uml/simpleclassifiers/Signal.h>
 
 ClassifierListPtr SignalInstance::getTypes()
 {

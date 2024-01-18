@@ -14,8 +14,8 @@
 #include <fuml/semantics/actions/TokenSet.h>
 #include <fuml/semantics/activities/Token.h>
 #include <fuml/semantics/values/Value.h>
-#include <fuml/syntax/actions/ExpansionRegion.h>
-#include <fuml/syntax/actions/InputPin.h>
+#include <uml/actions/ExpansionRegion.h>
+#include <uml/actions/InputPin.h>
 
 void ExpansionRegionActivation::setThisExpansionRegionActivationPtr(
 	ExpansionRegionActivationPtr_w thisExpansionRegionActivationPtr)

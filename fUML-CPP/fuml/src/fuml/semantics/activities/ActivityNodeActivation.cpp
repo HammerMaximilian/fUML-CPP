@@ -12,7 +12,7 @@
 #include <fuml/semantics/activities/ActivityExecution.h>
 #include <fuml/semantics/activities/ActivityNodeActivationGroup.h>
 #include <fuml/semantics/activities/Token.h>
-#include <fuml/syntax/activities/ActivityNode.h>
+#include <uml/activities/ActivityNode.h>
 
 ActivityNodeActivation::~ActivityNodeActivation()
 {

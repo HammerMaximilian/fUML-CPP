@@ -13,8 +13,8 @@
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
 #include <fuml/semantics/values/Evaluation.h>
-#include <fuml/syntax/structuredclassifiers/Class_.h>
-#include <fuml/syntax/values/ValueSpecification.h>
+#include <uml/structuredclassifiers/Class_.h>
+#include <uml/values/ValueSpecification.h>
 
 ParameterValueListPtr Executor::execute(const BehaviorPtr& behavior, const Object_Ptr& context,
 	const ParameterValueListPtr& inputs)

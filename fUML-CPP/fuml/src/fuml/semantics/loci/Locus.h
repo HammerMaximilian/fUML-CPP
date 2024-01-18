@@ -9,12 +9,12 @@
 #define FUML_SEMANTICS_LOCI_LOCUS_H_
 
 #include <fuml/semantics/fwd.h>
-#include <fuml/syntax/fwd.h>
-#include <utils/FumlObject.h>
+#include <uml/fwd.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::loci
 {
-	class Locus : public fuml::FumlObject
+	class Locus : public uml::UmlObject
 	{
 		public:
 			std::string identifier = std::to_string(this->hashCode());
@@ -35,7 +35,7 @@ namespace fuml::semantics::loci
 			void add(const ExtensionalValuePtr&);
 			std::string makeIdentifier(const ExtensionalValuePtr&);
 			void remove(const ExtensionalValuePtr&);
-			Object_Ptr instantiate(const Class_Ptr&);
+			virtual Object_Ptr instantiate(const Class_Ptr&);
 			bool conforms(const ClassifierPtr&, const ClassifierPtr&);
 
 	};

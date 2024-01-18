@@ -10,8 +10,8 @@
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/Link.h>
-#include <fuml/syntax/actions/ClearAssociationAction.h>
-#include <fuml/syntax/structuredclassifiers/Association.h>
+#include <uml/actions/ClearAssociationAction.h>
+#include <uml/structuredclassifiers/Association.h>
 
 void ClearAssociationActionActivation::doAction()
 {

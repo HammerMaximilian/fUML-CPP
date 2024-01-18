@@ -10,8 +10,8 @@
 #include <fuml/semantics/simpleclassifiers/FeatureValue.h>
 #include <fuml/semantics/structuredclassifiers/Object_.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/classification/Classifier.h>
-#include <fuml/syntax/classification/StructuralFeature.h>
+#include <uml/classification/Classifier.h>
+#include <uml/classification/StructuralFeature.h>
 
 CompoundValue::~CompoundValue()
 {
@@ -88,7 +88,7 @@ FeatureValuePtr CompoundValue::getFeatureValue(const StructuralFeaturePtr& featu
 	unsigned int featureValuesSize = this->featureValues->size();
 	while (featureValue == nullptr && i <= featureValuesSize)
 	{
-		FeatureValuePtr thisFeatureValue = this->featureValues->at(i - 1);
+		const FeatureValuePtr& thisFeatureValue = this->featureValues->at(i - 1);
 		if (thisFeatureValue->feature == feature)
 		{
 			featureValue = thisFeatureValue;

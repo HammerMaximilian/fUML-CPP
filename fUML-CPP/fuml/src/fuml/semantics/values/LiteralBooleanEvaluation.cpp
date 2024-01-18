@@ -7,7 +7,7 @@
 
 #include <fuml/semantics/simpleclassifiers/BooleanValue.h>
 #include <fuml/semantics/values/LiteralBooleanEvaluation.h>
-#include <fuml/syntax/values/LiteralBoolean.h>
+#include <uml/values/LiteralBoolean.h>
 
 ValuePtr LiteralBooleanEvaluation::evaluate()
 {

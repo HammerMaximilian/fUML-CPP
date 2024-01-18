@@ -9,8 +9,8 @@
 
 #include <fuml/Debug.h>
 #include <fuml/semantics/commonbehavior/ParameterValue.h>
-#include <fuml/syntax/classification/Parameter.h>
-#include <fuml/syntax/commonbehavior/Behavior.h>
+#include <uml/classification/Parameter.h>
+#include <uml/commonbehavior/Behavior.h>
 
 OpaqueBehaviorExecution::~OpaqueBehaviorExecution()
 {

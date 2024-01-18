@@ -13,8 +13,8 @@
 #include <fuml/semantics/commonbehavior/SignalEventOccurrence.h>
 #include <fuml/semantics/simpleclassifiers/SignalInstance.h>
 #include <fuml/semantics/structuredclassifiers/Object_.h>
-#include <fuml/syntax/actions/AcceptEventAction.h>
-#include <fuml/syntax/commonbehavior/Trigger.h>
+#include <uml/actions/AcceptEventAction.h>
+#include <uml/commonbehavior/Trigger.h>
 
 void AcceptEventActionActivation::setThisAcceptEventActionActivationPtr(
 	AcceptEventActionActivationPtr_w thisAcceptEventActionActivationPtr)

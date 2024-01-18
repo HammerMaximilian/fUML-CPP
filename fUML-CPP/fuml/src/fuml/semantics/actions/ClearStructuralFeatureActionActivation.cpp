@@ -9,9 +9,9 @@
 
 #include <fuml/semantics/structuredclassifiers/Link.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/actions/ClearStructuralFeatureAction.h>
-#include <fuml/syntax/classification/StructuralFeature.h>
-#include <fuml/syntax/structuredclassifiers/Association.h>
+#include <uml/actions/ClearStructuralFeatureAction.h>
+#include <uml/classification/StructuralFeature.h>
+#include <uml/structuredclassifiers/Association.h>
 
 void ClearStructuralFeatureActionActivation::doAction()
 {

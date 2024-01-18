@@ -11,9 +11,9 @@
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/actions/CallOperationAction.h>
-#include <fuml/syntax/actions/InputPin.h>
-#include <fuml/syntax/classification/Operation.h>
+#include <uml/actions/CallOperationAction.h>
+#include <uml/actions/InputPin.h>
+#include <uml/classification/Operation.h>
 
 bool CallOperationActionActivation::isReady()
 {
@@ -36,6 +36,7 @@ ExecutionPtr CallOperationActionActivation::getCallExecution()
 	// operation to it and return the resulting execution object.
 
 	CallOperationActionPtr action = std::dynamic_pointer_cast<CallOperationAction>(this->node);
+	bool isExplicitBaseClassCall = this->isExplicitBaseClassCall(action);
 	ValuePtr target = this->takeTokens(action->target)->at(0);
 
 	ExecutionPtr execution;
@@ -44,7 +45,7 @@ ExecutionPtr CallOperationActionActivation::getCallExecution()
 
 	if (reference)
 	{
-		execution = reference->dispatch(action->operation);
+		execution = reference->dispatch(action->operation, isExplicitBaseClassCall);
 	}
 	else
 	{

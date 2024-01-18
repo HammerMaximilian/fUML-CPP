@@ -8,7 +8,7 @@
 #include <fuml/semantics/actions/UnmarshallActionActivation.h>
 
 #include <fuml/semantics/simpleclassifiers/StructuredValue.h>
-#include <fuml/syntax/actions/UnmarshallAction.h>
+#include <uml/actions/UnmarshallAction.h>
 
 void UnmarshallActionActivation::doAction()
 {

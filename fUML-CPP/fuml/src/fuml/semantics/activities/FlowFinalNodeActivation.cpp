@@ -9,7 +9,7 @@
 
 #include <fuml/Debug.h>
 #include <fuml/semantics/activities/Token.h>
-#include <fuml/syntax/activities/ActivityNode.h>
+#include <uml/activities/ActivityNode.h>
 
 void FlowFinalNodeActivation::fire(const TokenListPtr& incomingTokens)
 {

@@ -9,10 +9,10 @@
 
 #include <fuml/semantics/commonbehavior/ParameterValue.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/actions/InputPin.h>
-#include <fuml/syntax/actions/StartObjectBehaviorAction.h>
-#include <fuml/syntax/classification/Parameter.h>
-#include <fuml/syntax/commonbehavior/Behavior.h>
+#include <uml/actions/InputPin.h>
+#include <uml/actions/StartObjectBehaviorAction.h>
+#include <uml/classification/Parameter.h>
+#include <uml/commonbehavior/Behavior.h>
 
 void StartObjectBehaviorActionActivation::doAction()
 {

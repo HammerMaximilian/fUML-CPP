@@ -13,7 +13,7 @@
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/DispatchStrategy.h>
-#include <fuml/syntax/structuredclassifiers/Class_.h>
+#include <uml/structuredclassifiers/Class_.h>
 
 void Object_::setThisObject_Ptr(Object_Ptr_w thisObject_Ptr)
 {

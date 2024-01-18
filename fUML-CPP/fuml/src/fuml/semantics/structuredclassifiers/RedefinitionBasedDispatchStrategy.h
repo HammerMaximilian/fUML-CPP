@@ -18,7 +18,7 @@ namespace fuml::semantics::structuredclassifiers
 			virtual ~RedefinitionBasedDispatchStrategy() = default;
 
 			virtual BehaviorPtr getMethod(const Object_Ptr&, const OperationPtr&) override;
-			bool operationsMatch(const OperationPtr&, const OperationPtr&);
+			virtual bool operationsMatch(const OperationPtr&, const OperationPtr&);
 	};
 // RedefinitionBasedDispatchStrategy
 }

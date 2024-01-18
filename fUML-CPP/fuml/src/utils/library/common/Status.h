@@ -8,7 +8,7 @@
 #ifndef UTILS_LIBRARY_COMMON_STATUS_H_
 #define UTILS_LIBRARY_COMMON_STATUS_H_
 
-#include <fuml/syntax/fwd.h>
+#include <uml/fwd.h>
 #include <fuml/semantics/fwd.h>
 
 namespace fuml::library::common

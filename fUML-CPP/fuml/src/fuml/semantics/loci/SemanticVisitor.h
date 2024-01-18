@@ -9,11 +9,11 @@
 #define FUML_SEMANTICS_LOCI_SEMANTICVISITOR_H_
 
 #include <fuml/semantics/fwd.h>
-#include <utils/FumlObject.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::loci
 {
-	class SemanticVisitor : public fuml::FumlObject
+	class SemanticVisitor : public uml::UmlObject
 	{
 		public:
 			virtual ~SemanticVisitor() = 0;

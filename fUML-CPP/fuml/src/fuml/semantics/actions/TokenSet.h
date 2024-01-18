@@ -9,11 +9,11 @@
 #define FUML_SEMANTICS_ACTIONS_TOKENSET_H_
 
 #include <fuml/semantics/fwd.h>
-#include <utils/FumlObject.h>
+#include <utils/UmlObject.h>
 
 namespace fuml::semantics::actions
 {
-	class TokenSet : public fuml::FumlObject
+	class TokenSet : public uml::UmlObject
 	{
 		public:
 			TokenListPtr tokens = std::make_shared<TokenList>();

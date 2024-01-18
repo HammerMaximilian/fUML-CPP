@@ -9,7 +9,7 @@
 
 #include <fuml/Debug.h>
 #include <fuml/semantics/values/Value.h>
-#include <fuml/syntax/actions/RaiseExceptionAction.h>
+#include <uml/actions/RaiseExceptionAction.h>
 
 void RaiseExceptionActionActivation::doAction()
 {

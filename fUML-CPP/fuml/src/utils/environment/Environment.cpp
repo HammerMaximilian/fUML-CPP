@@ -13,8 +13,8 @@
 #include <fuml/semantics/loci/FirstChoiceStrategy.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/RedefinitionBasedDispatchStrategy.h>
-#include <fuml/syntax/commonbehavior/Behavior.h>
-#include <fuml/syntax/simpleclassifiers/PrimitiveType.h>
+#include <uml/commonbehavior/Behavior.h>
+#include <uml/simpleclassifiers/PrimitiveType.h>
 #include <iostream>
 #include <utils/environment/InMemoryModel.h>
 #include <utils/library/booleanfunctions/BooleanAndFunctionBehaviorExecution.h>
@@ -130,7 +130,7 @@ Environment::~Environment()
 
 void Environment::execute(std::string behaviorName)
 {
-	std::shared_ptr<fuml::FumlObject> object = this->inMemoryModel->findElementByName(behaviorName);
+	std::shared_ptr<uml::UmlObject> object = this->inMemoryModel->findElementByName(behaviorName);
 
 	if (object == nullptr)
 	{

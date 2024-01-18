@@ -13,8 +13,8 @@
 #include <fuml/semantics/commonbehavior/ExecutionQueue.h>
 #include <fuml/semantics/commonbehavior/ParameterValue.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/classification/Operation.h>
-#include <fuml/syntax/classification/Parameter.h>
+#include <uml/classification/Operation.h>
+#include <uml/classification/Parameter.h>
 
 void fuml::semantics::commonbehavior::CallEventExecution::setThisCallEventExecutionPtr(
 	CallEventExecutionPtr_w thisCallEventExecutionPtr)

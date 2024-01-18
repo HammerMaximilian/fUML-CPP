@@ -8,7 +8,7 @@
 #include <fuml/semantics/simpleclassifiers/FeatureValue.h>
 
 #include <fuml/semantics/values/Value.h>
-#include <fuml/syntax/classification/StructuralFeature.h>
+#include <uml/classification/StructuralFeature.h>
 
 bool FeatureValue::hasEqualValues(const FeatureValuePtr& other)
 {

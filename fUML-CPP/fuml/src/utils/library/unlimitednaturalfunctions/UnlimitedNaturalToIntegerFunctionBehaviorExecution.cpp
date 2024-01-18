@@ -13,7 +13,7 @@
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/simpleclassifiers/IntegerValue.h>
 #include <fuml/semantics/simpleclassifiers/UnlimitedNaturalValue.h>
-#include <fuml/syntax/commonbehavior/FunctionBehavior.h>
+#include <uml/commonbehavior/FunctionBehavior.h>
 #include <utils/library/FoundationalModelLibraryModel.h>
 
 using namespace fuml::library::unlimitednaturalfunctions;

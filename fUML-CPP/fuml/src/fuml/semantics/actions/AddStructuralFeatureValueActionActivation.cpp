@@ -14,9 +14,9 @@
 #include <fuml/semantics/simpleclassifiers/UnlimitedNaturalValue.h>
 #include <fuml/semantics/structuredclassifiers/Link.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
-#include <fuml/syntax/actions/AddStructuralFeatureValueAction.h>
-#include <fuml/syntax/classification/Property.h>
-#include <fuml/syntax/structuredclassifiers/Association.h>
+#include <uml/actions/AddStructuralFeatureValueAction.h>
+#include <uml/classification/Property.h>
+#include <uml/structuredclassifiers/Association.h>
 
 void AddStructuralFeatureValueActionActivation::doAction()
 {

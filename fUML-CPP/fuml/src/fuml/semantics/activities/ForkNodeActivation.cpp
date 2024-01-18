@@ -11,7 +11,7 @@
 #include <fuml/semantics/activities/ActivityEdgeInstance.h>
 #include <fuml/semantics/activities/ActivityNodeActivationGroup.h>
 #include <fuml/semantics/activities/ForkedToken.h>
-#include <fuml/syntax/activities/ActivityNode.h>
+#include <uml/activities/ActivityNode.h>
 
 void ForkNodeActivation::fire(const TokenListPtr& incomingTokens)
 {

@@ -7,7 +7,7 @@
 
 #include <fuml/semantics/simpleclassifiers/RealValue.h>
 #include <fuml/semantics/values/LiteralRealEvaluation.h>
-#include <fuml/syntax/values/LiteralReal.h>
+#include <uml/values/LiteralReal.h>
 
 ValuePtr LiteralRealEvaluation::evaluate()
 {
