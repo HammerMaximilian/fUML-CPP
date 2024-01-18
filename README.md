@@ -1,3 +1,5 @@
+<img src="logo.png" width="300"/>
+
 # fUML Reference Implementation for *C++*
 This software is an open source reference implementation of the *Semantics of a Foundational Subset for Executable UML Models* (fUML)
 specification by the *Object Management Group* (OMG) (see [here](https://www.omg.org/spec/FUML/1.5/About-FUML)). This implementation is based on the Java fUML reference implementation developed by
