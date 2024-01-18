@@ -27,10 +27,10 @@ For detailed information, please see the [User Guide](fUML-C++_User_Guide.pdf) s
 ### 2. Environment Variables
 * Add binary directories paths of *uml* and *fuml* to your system's environment variables (e.g. add them to PATH in Windows)
 * Depending on whether you want to build debug version, release version or both versions of the dynamic libraries:
-  * `%fUML-C++_root%\uml\Debug` for debug version of uml
-  * `%fUML-C++_root%\uml\Release` for release version of uml
-  * `%fUML-C++_root%\fuml\Debug` for debug version of fuml
-  * `%fUML-C++_root%\fuml\Release` for release version of fuml
+  * `"<fUML-C++-rootdir>\uml\Debug"` for debug version of uml
+  * `"<fUML-C++-rootdir>\uml\Release"` for release version of uml
+  * `"<fUML-C++-rootdir>\fuml\Debug"` for debug version of fuml
+  * `"<fUML-C++-rootdir>\fuml\Release"` for release version of fuml
 
 ## Building
 For detailed information, please see the [User Guide](fUML-C++_User_Guide.pdf) section *3. Build*.
@@ -40,4 +40,25 @@ For detailed information, please see the [User Guide](fUML-C++_User_Guide.pdf) s
 ## Usage
 For detailed information, please see the [User Guide](fUML-C++_User_Guide.pdf) section *4. Usage*.
 ### 1. Creating executable models using source code
-### 2. Generating executable models from *.uml* models
+* Create new C++ project (see `"<fUML-C++-rootdir>\examples\helloworld"` as a reference project)
+  * NOTE: it is suggested to store user-defined source code projects in common directory `"<fUML-C++-rootdir>\usersrc"`
+  * The *usersrc* directory may contain arbitrary nested subdirectories
+* Add include directories for uml and fuml to your project
+* Add uml and fuml binaries to the linker options of your projects
+* Create a `<model-name>Environment` class by deriving from class `fuml::environment::Environment`
+* Create a `<model-name>Model` class by deriving from class `uml::environment::InMemoryModel` (this class will contain all of your model elements)
+* Create a class containing a main method and call `<model-name>Environment::Instance()->execute("<behavior-name>");` for each behavior you want to execute in subsequent order
+* Build project and run executable 
+### 2. Generating executable models from *.uml* models (*Acceleo* plugin for Eclipse has to be installed)
+* Create new *.uml* model with a modeling tool of your choice (*Eclipse Papyrus* is suggested)
+  * NOTE: it is suggested to store user-defined models in common directory `"<fUML-C++-rootdir>\usermodels"`
+  * The *usermodels* directory may contain arbitrary nested subdirectories
+* Import nested project *generator* within fUML-C++ root project
+* Navigate to file `\generator\src\fuml.generator.main\generate.mtl` in the project explorer
+* Right click `generate.mtl` and choose `Run as`-->`Run configurations...`
+* Configure and run Acceleo Application accordingly:
+  *  Choose `fuml.generator.main.Generate`
+  *  Choose your model file
+  *  Choose a target directory for the generated source code (`"<fUML-C++-rootdir>\usersrc\<model-name>"` is suggested)
+* Import newly generated C++ project within fUML-C++ root project and build executable(s)
+* Run executable from command line using `<executable-name> <behavior-name> [<behavior-name> <behavior-name> <behavior-name> <...>]`
