@@ -520,6 +520,8 @@ using RedefinitionBasedDispatchStrategy = fuml::semantics::structuredclassifiers
 using RedefinitionBasedDispatchStrategyPtr = std::shared_ptr<RedefinitionBasedDispatchStrategy>;
 using Reference = fuml::semantics::structuredclassifiers::Reference;
 using ReferencePtr = std::shared_ptr<Reference>;
+using ReferenceList = std::vector<ReferencePtr>;
+using ReferenceListPtr = std::shared_ptr<ReferenceList>;
 
 
 /*
