@@ -14,10 +14,10 @@ EventOccurrence::~EventOccurrence()
 {
 }
 
-void EventOccurrence::setThisEventOccurrencePtr(EventOccurrencePtr thisEventOccurrencePtr)
+void EventOccurrence::setThisEventOccurrencePtr(EventOccurrencePtr_w thisEventOccurrencePtr)
 {
 	this->thisEventOccurrencePtr = thisEventOccurrencePtr;
-	EventOccurrence_SendingBehaviorExecutionPtr behavior(new EventOccurrence_SendingBehaviorExecution(thisEventOccurrencePtr));
+	EventOccurrence_SendingBehaviorExecutionPtr behavior(new EventOccurrence_SendingBehaviorExecution(thisEventOccurrencePtr.lock()));
 	behavior->setThisEventOccurrence_SendingBehaviorExecution(behavior);
 	this->behavior = behavior;
 }

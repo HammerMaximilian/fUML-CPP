@@ -9,6 +9,7 @@
 #define PSCS_SEMANTICS_ACTIONS_CS_REMOVESTRUCTURALFEATUREVALUEACTIONACTIVATION_H_
 
 #include <fuml/semantics/actions/RemoveStructuralFeatureValueActionActivation.h>
+#include <pscs/semantics/fwd.h>
 
 namespace pscs::semantics::actions
 {
@@ -18,6 +19,8 @@ namespace pscs::semantics::actions
 			virtual ~CS_RemoveStructuralFeatureValueActionActivation() = default;
 
 			virtual void doAction() override;
+			CS_LinkListPtr getLinksToDestroy(const StructuredValuePtr&, const StructuralFeaturePtr&, const ValuePtr&);
+			ValueListPtr getPotentialLinkEnds(const CS_ReferencePtr&, const StructuralFeaturePtr&);
 	}; // CS_RemoveStructuralFeatureValueActionActivation
 }
 

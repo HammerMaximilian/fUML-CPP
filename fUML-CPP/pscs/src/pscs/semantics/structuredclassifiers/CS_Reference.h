@@ -13,7 +13,7 @@
 
 namespace pscs::semantics::structuredclassifiers
 {
-	class CS_Reference : Reference
+	class CS_Reference : public Reference
 	{
 		public:
 			CS_ObjectPtr compositeReferent = nullptr;
@@ -27,7 +27,7 @@ namespace pscs::semantics::structuredclassifiers
 			ExecutionPtr dispatchOut(const OperationPtr&, const PortPtr&);
 			ExecutionPtr dispatchIn(const OperationPtr&, const PortPtr&);
 			void sendIn(const EventOccurrencePtr&, const PortPtr&);
-			ExecutionPtr dispatchOut(const OperationPtr&, CS_InteractionPointPtr&);
+			ExecutionPtr dispatchOut(const OperationPtr&, const CS_InteractionPointPtr&);
 			void sendOut(const EventOccurrencePtr&, const CS_InteractionPointPtr&);
 			virtual ValuePtr copy() override;
 	}; // CS_Reference

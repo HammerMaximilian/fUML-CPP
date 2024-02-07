@@ -17,7 +17,7 @@ namespace pscs::semantics::classification
 		public:
 			virtual ~CS_InstanceValueEvaluation() = default;
 
-			virtual Value evaluate() override;
+			virtual ValuePtr evaluate() override;
 	}; // CS_InstanceValueEvaluation
 }
 

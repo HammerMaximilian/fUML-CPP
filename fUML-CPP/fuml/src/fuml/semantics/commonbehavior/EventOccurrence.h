@@ -25,7 +25,7 @@ namespace fuml::semantics::commonbehavior
 
 		public:
 			virtual ~EventOccurrence() = 0;
-			void setThisEventOccurrencePtr(EventOccurrencePtr);
+			void setThisEventOccurrencePtr(EventOccurrencePtr_w);
 
 			void sendTo(const ReferencePtr&);
 			virtual void doSend();

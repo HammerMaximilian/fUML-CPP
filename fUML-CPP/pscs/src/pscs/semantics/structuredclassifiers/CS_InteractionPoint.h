@@ -19,18 +19,17 @@ namespace pscs::semantics::structuredclassifiers
 			CS_ReferencePtr owner = nullptr;
 			PortPtr definingPort = nullptr;
 
+		private:
+			CS_InteractionPointPtr_w thisCS_InteractionPoint_Ptr;
+
 		public:
 			virtual ~CS_InteractionPoint() = default;
+			void setThisCS_InteractionPoint_Ptr(CS_InteractionPointPtr_w);
 
 			virtual void startBehavior(const Class_Ptr&, const ParameterValueListPtr&) override;
 			virtual ExecutionPtr dispatch(const OperationPtr&) override;
 			virtual void send(const EventOccurrencePtr&) override;
-			virtual ValuePtr copy() override;
 			virtual bool checkAllParents(const ClassifierPtr&, const ClassifierPtr&) override;
-
-		protected:
-			virtual ValuePtr new_() override;
-
 	}; // CS_InteractionPoint
 }
 

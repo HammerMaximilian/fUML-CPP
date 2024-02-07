@@ -114,6 +114,7 @@ using CS_CallEventExecution = pscs::semantics::commonbehavior::CS_CallEventExecu
 using CS_CallEventExecutionPtr = std::shared_ptr<CS_CallEventExecution>;
 using CS_EventOccurrence = pscs::semantics::commonbehavior::CS_EventOccurrence;
 using CS_EventOccurrencePtr = std::shared_ptr<CS_EventOccurrence>;
+using CS_EventOccurrencePtr_w = std::weak_ptr<CS_EventOccurrence>;
 
 /*
  * Loci
@@ -134,6 +135,7 @@ using CS_DispatchOperationOfInterfaceStrategy = pscs::semantics::structuredclass
 using CS_DispatchOperationOfInterfaceStrategyPtr = std::shared_ptr<CS_DispatchOperationOfInterfaceStrategy>;
 using CS_InteractionPoint = pscs::semantics::structuredclassifiers::CS_InteractionPoint;
 using CS_InteractionPointPtr = std::shared_ptr<CS_InteractionPoint>;
+using CS_InteractionPointPtr_w = std::weak_ptr<CS_InteractionPoint>;
 using CS_Link = pscs::semantics::structuredclassifiers::CS_Link;
 using CS_LinkPtr = std::shared_ptr<CS_Link>;
 using CS_LinkList = std::vector<CS_LinkPtr>;
@@ -142,6 +144,7 @@ using CS_NameBased_StructuralFeatureOfInterfaceAccessStrategy = pscs::semantics:
 using CS_NameBased_StructuralFeatureOfInterfaceAccessStrategyPtr = std::shared_ptr<CS_NameBased_StructuralFeatureOfInterfaceAccessStrategy>;
 using CS_Object = pscs::semantics::structuredclassifiers::CS_Object;
 using CS_ObjectPtr = std::shared_ptr<CS_Object>;
+using CS_ObjectPtr_w = std::weak_ptr<CS_Object>;
 using CS_ObjectList = std::vector<CS_ObjectPtr>;
 using CS_ObjectListPtr = std::shared_ptr<CS_ObjectList>;
 using CS_Reference = pscs::semantics::structuredclassifiers::CS_Reference;
@@ -156,5 +159,8 @@ using CS_StructuralFeatureOfInterfaceAccessStrategyPtr = std::shared_ptr<CS_Stru
  */
 using CS_OpaqueExpressionEvaluation = pscs::semantics::values::CS_OpaqueExpressionEvaluation;
 using CS_OpaqueExpressionEvaluationPtr = std::shared_ptr<CS_OpaqueExpressionEvaluation>;
+
+#define AS(T, SP) std::dynamic_pointer_cast<T>(SP)
+#define IS(T, SP) (std::dynamic_pointer_cast<T>(SP)!=nullptr)
 
 #endif /* PSCS_SEMANTICS_FWD_H_ */

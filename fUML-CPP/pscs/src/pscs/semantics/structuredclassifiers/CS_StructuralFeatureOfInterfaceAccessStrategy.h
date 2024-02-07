@@ -21,7 +21,7 @@ namespace pscs::semantics::structuredclassifiers
 
 			virtual std::string getName() override;
 			virtual FeatureValuePtr read(const CS_ObjectPtr&, const StructuralFeaturePtr&) = 0;
-			virtual void write(const CS_ObjectPtr&, const StructuralFeaturePtr&, const ValuesListPtr&, int) = 0;
+			virtual void write(const CS_ObjectPtr&, const StructuralFeaturePtr&, const ValueListPtr&, int) = 0;
 	}; // CS_StructuralFeatureOfInterfaceAccessStrategy
 }
 

@@ -20,7 +20,7 @@ namespace pscs::semantics::actions
 
 			virtual void doAction() override;
 			CS_LinkListPtr getLinksToDestroy(const StructuredValuePtr&, const StructuralFeaturePtr&);
-			bool isOperationRequired(const CS_ReferencePtr&, const StructuralFeaturePtr&);
+			ValueListPtr getPotentialLinkEnds(const CS_ReferencePtr&, const StructuralFeaturePtr&);
 	}; // CS_ClearStructuralFeatureActionActivation
 }
 

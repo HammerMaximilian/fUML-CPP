@@ -14,7 +14,7 @@ FeatureValuePtr CS_NameBased_StructuralFeatureOfInterfaceAccessStrategy::read(co
 	throw "UnimplementedMethodException";
 }
 
-void CS_NameBased_StructuralFeatureOfInterfaceAccessStrategy::write(const CS_ObjectPtr& cs_Object, const StructuralFeaturePtr& feature, const ValuesListPtr& values, int position)
+void CS_NameBased_StructuralFeatureOfInterfaceAccessStrategy::write(const CS_ObjectPtr& cs_Object, const StructuralFeaturePtr& feature, const ValueListPtr& values, int position)
 {
 	throw "UnimplementedMethodException";
 }

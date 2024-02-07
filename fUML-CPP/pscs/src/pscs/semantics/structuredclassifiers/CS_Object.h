@@ -17,15 +17,19 @@ namespace pscs::semantics::structuredclassifiers
 {
 	class CS_Object : public Object_
 	{
+		private:
+			CS_ObjectPtr_w thisCS_ObjectPtr;
+
 		public:
 			virtual ~CS_Object() = default;
+			void setThisCS_ObjectPtr(CS_ObjectPtr_w);
 
 			ExecutionPtr dispatchIn(const OperationPtr&, const CS_InteractionPointPtr&);
 			void sendIn(const EventOccurrencePtr&, const CS_InteractionPointPtr&);
 			ReferenceListPtr selectTargetsForSending(const CS_LinkPtr&, const CS_InteractionPointPtr&, uml::structuredclassifiers::ConnectorKind, bool);
 			ReferenceListPtr selectTargetsForDispatching(const CS_LinkPtr&, const CS_InteractionPointPtr&, uml::structuredclassifiers::ConnectorKind, const OperationPtr&, bool);
 			void sendOut(const EventOccurrencePtr&, const CS_InteractionPointPtr&);
-			ExecutionPtr dispatchOut(const OperationPtr&, CS_InteractionPointPtr&);
+			ExecutionPtr dispatchOut(const OperationPtr&, const CS_InteractionPointPtr&);
 			virtual FeatureValuePtr getFeatureValue(const StructuralFeaturePtr&) override;
 			virtual void setFeatureValue(const StructuralFeaturePtr&, const ValueListPtr&, int) override;
 			bool contains(const Object_Ptr&);
@@ -41,7 +45,7 @@ namespace pscs::semantics::structuredclassifiers
 			ExecutionPtr dispatchIn(const OperationPtr&, const PortPtr&);
 			void sendIn(const EventOccurrencePtr&, const PortPtr&);
 			virtual bool checkAllParents(const ClassifierPtr&, const ClassifierPtr&) override;
-			bool realizedInterface(const Class_Ptr&, const InterfacePtr&);
+			bool realizesInterface(const Class_Ptr&, const InterfacePtr&);
 			bool isDescendant(const InterfacePtr&, const InterfacePtr&);
 	}; // CS_Object
 }

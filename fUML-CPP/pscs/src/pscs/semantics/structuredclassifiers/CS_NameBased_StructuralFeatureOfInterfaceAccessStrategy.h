@@ -18,7 +18,7 @@ namespace pscs::semantics::structuredclassifiers
 			virtual ~CS_NameBased_StructuralFeatureOfInterfaceAccessStrategy() = default;
 
 			virtual FeatureValuePtr read(const CS_ObjectPtr&, const StructuralFeaturePtr&) override;
-			virtual void write(const CS_ObjectPtr&, const StructuralFeaturePtr&, const ValuesListPtr&, int) override;
+			virtual void write(const CS_ObjectPtr&, const StructuralFeaturePtr&, const ValueListPtr&, int) override;
 	}; // CS_NameBased_StructuralFeatureOfInterfaceAccessStrategy
 }
 

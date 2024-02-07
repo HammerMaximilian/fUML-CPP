@@ -21,13 +21,17 @@ namespace pscs::semantics::commonbehavior
 			bool propagationInward;
 			PortPtr onPort = nullptr;
 
+		private:
+			CS_EventOccurrencePtr_w thisCS_EventOccurrencePtr;
+
 		public:
 			virtual ~CS_EventOccurrence() = default;
+			void setThisCS_EventOccurrencePtr(CS_EventOccurrencePtr_w);
 
 			virtual bool match(const TriggerPtr&) override;
 			virtual void doSend() override;
 			void sendInTo(const CS_ReferencePtr&, const PortPtr&);
-			void sendOutTo(const CS_ReferencePtr, const PortPtr&);
+			void sendOutTo(const CS_ReferencePtr&, const PortPtr&);
 			virtual ParameterValueListPtr getParameterValues(const EventPtr&) override;
 	}; // CS_EventOccurrence
 }

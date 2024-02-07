@@ -18,7 +18,7 @@ namespace pscs::semantics::values
 		public:
 			virtual ~CS_OpaqueExpressionEvaluation() = default;
 
-			virtual Value evaluate() override;
+			virtual ValuePtr evaluate() override;
 			ValueListPtr executeExpressionBehavior();
 	}; // CS_OpaqueExpressionEvaluation
 }
