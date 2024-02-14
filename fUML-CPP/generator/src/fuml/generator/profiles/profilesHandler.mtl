@@ -2,6 +2,7 @@
 [module profilesHandler('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import fuml::generator::profiles::extensionsprofile /]
+[import fuml::generator::profiles::standardprofile /]
 
 [template public generateProfileInclude(aProfile : Profile)]
 [if (isSupportedProfile(aProfile))]
@@ -24,13 +25,15 @@
 
 [query private supportedProfiles(Any : OclAny) : Set(String) = Set(String)
 	{
-		ExtensionsProfile_name()
+		ExtensionsProfile_name(),
+		StandardProfile_name()
 	}
  /]
 
 [query private supportedStereotypes(Any : OclAny) : Set(String) = Set(String)
 	{
-		supportedExtensionsProfileStereotypes()
+		supportedExtensionsProfileStereotypes(),
+		supportedStandardProfileStereotypes()
 	}->flatten()
  /]
 
@@ -40,16 +43,30 @@
 	}
  /]
 
+[query private supportedStandardProfileStereotypes(Any : OclAny) : Set(String) = Set(String)
+	{
+		StandardProfileName_Create_qualifiedName()
+	}
+ /]
+
 [query private getProfileInclude(aProfile : Profile) : String = 
 	if(aProfile.name = ExtensionsProfile_name())
 		then ExtensionsProfile_include()
-		else ''
+		else
+			if(aProfile.name = StandardProfile_name())
+				then StandardProfile_include()
+				else ''
+			endif
 	endif
 /]
 
 [query private getStereotypeAccess(aStereotype : Stereotype) : String = 
 	if(aStereotype.profile.name = ExtensionsProfile_name())
 		then getExtensionsProfile_StereotypeAccess(aStereotype.name)
-		else ''
+		else
+			if(aStereotype.profile.name = StandardProfile_name())
+				then getStandardProfile_StereotypeAccess(aStereotype.name)
+				else ''
+			endif
 	endif
 /]
