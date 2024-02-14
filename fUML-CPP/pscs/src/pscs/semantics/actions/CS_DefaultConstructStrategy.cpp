@@ -160,6 +160,8 @@ void CS_DefaultConstructStrategy::generateArrayPattern(const CS_ReferencePtr& co
     for (unsigned int i = 0; i < end1ValueSize; i++)
     {
         CS_LinkPtr link(new CS_Link());
+        link->setThisLinkPtr(link);
+
         if (connector->type == nullptr)
         {
             link->type = this->getDefaultAssociation();
@@ -232,6 +234,8 @@ void CS_DefaultConstructStrategy::generateStarPattern(const CS_ReferencePtr& con
         for (unsigned int j = 0; j < end2ValueSize; j++)
         {
             CS_LinkPtr link(new CS_Link());
+            link->setThisLinkPtr(link);
+
             if (connector->type == nullptr)
             {
                 link->type = this->getDefaultAssociation();

@@ -14,6 +14,7 @@ EventOccurrencePtr CS_CallEventExecution::createEventOccurrence()
 	// Wrap the created event occurrence within a CS_EventOccurrence which
 	// references the behavior port on which the call was dispatched.
 	CS_EventOccurrencePtr wrappingEventOccurrence(new CS_EventOccurrence());
+	wrappingEventOccurrence->setThisCS_EventOccurrencePtr(wrappingEventOccurrence);
 	wrappingEventOccurrence->interactionPoint = this->interactionPoint;
 	wrappingEventOccurrence->wrappedEventOccurrence = CallEventExecution::createEventOccurrence();
 

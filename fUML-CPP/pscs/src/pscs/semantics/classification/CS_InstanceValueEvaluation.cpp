@@ -69,7 +69,9 @@ ValuePtr CS_InstanceValueEvaluation::evaluate()
 			}
 			else
 			{
-				object_.reset(new CS_Object());
+				CS_ObjectPtr newCS_Object(new CS_Object());
+				newCS_Object->setThisCS_ObjectPtr(newCS_Object);
+				object_ = newCS_Object;
 				for(const ClassifierPtr& type : *types)
 				{
 					object_->types->push_back(AS(Class_, type));

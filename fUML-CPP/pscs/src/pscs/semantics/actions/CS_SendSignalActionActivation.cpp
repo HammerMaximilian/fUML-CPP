@@ -66,9 +66,11 @@ void CS_SendSignalActionActivation::doAction()
             }
             // Construct the signal event occurrence
             SignalEventOccurrencePtr signalEventOccurrence(new SignalEventOccurrence());
+            signalEventOccurrence->setThisEventOccurrencePtr(signalEventOccurrence);
             signalEventOccurrence->signalInstance = AS(SignalInstance, signalInstance->copy());
 
             CS_EventOccurrencePtr wrappingEventOccurrence(new CS_EventOccurrence());
+            wrappingEventOccurrence->setThisCS_EventOccurrencePtr(wrappingEventOccurrence);
             wrappingEventOccurrence->wrappedEventOccurrence = signalEventOccurrence;
 
             // Tries to determine if the signal has to be

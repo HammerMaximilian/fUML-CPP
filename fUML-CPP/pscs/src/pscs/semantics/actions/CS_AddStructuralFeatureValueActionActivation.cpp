@@ -42,6 +42,7 @@ void CS_AddStructuralFeatureValueActionActivation::doAction()
         {
             // First constructs an InteractionPoint from the inputValue
             CS_InteractionPointPtr interactionPoint(new CS_InteractionPoint());
+            interactionPoint->setThisCS_InteractionPoint_Ptr(interactionPoint);
             interactionPoint->referent = reference->referent;
             interactionPoint->definingPort = AS(Port, feature);
             // The value on action.object is necessarily instanceof
@@ -175,6 +176,7 @@ void CS_AddStructuralFeatureValueActionActivation::doActionDefault()
             }
         }
         CS_LinkPtr newLink(new CS_Link());
+        newLink->setThisLinkPtr(newLink);
         newLink->type = association;
         // This is necessary when setting a feature value with an insertAt
         // position

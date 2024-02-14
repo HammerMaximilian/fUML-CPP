@@ -68,6 +68,8 @@ void CS_CreateLinkActionActivation::doAction()
         }
     }
     CS_LinkPtr newLink(new CS_Link());
+    newLink->setThisLinkPtr(newLink);
+
     newLink->type = linkAssociation;
 
     for (const LinkEndCreationDataPtr& endData : *endDataList)

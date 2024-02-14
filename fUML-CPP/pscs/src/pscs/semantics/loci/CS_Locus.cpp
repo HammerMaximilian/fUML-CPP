@@ -23,7 +23,9 @@ Object_Ptr CS_Locus::instantiate(const Class_Ptr& type)
     }
     else
     {
-        object_.reset(new CS_Object());
+    	CS_ObjectPtr newCS_Object(new CS_Object());
+    	newCS_Object->setThisCS_ObjectPtr(newCS_Object);
+        object_ = newCS_Object;
         object_->types->push_back(type);
         object_->createFeatureValues();
         this->add(object_);

@@ -40,6 +40,7 @@ void CS_InteractionPoint::send(const EventOccurrencePtr& eventOccurrence)
 	else
 	{
 		wrappingEventOccurrence.reset(new CS_EventOccurrence());
+		wrappingEventOccurrence->setThisCS_EventOccurrencePtr(wrappingEventOccurrence);
 		wrappingEventOccurrence->wrappedEventOccurrence = eventOccurrence;
 	}
 

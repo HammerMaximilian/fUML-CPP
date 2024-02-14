@@ -15,8 +15,8 @@
 #include <pscs/semantics/actions/CS_ClearStructuralFeatureActionActivation.h>
 #include <pscs/semantics/actions/CS_CreateLinkActionActivation.h>
 #include <pscs/semantics/actions/CS_CreateObjectActionActivation.h>
-#include <pscs/semantics/actions/CS_ReadExtentActionActivation.h>
 #include <pscs/semantics/actions/CS_ReadSelfActionActivation.h>
+#include <pscs/semantics/actions/CS_ReadExtentActionActivation.h>
 #include <pscs/semantics/actions/CS_RemoveStructuralFeatureValueActionActivation.h>
 #include <pscs/semantics/actions/CS_SendSignalActionActivation.h>
 #include <pscs/semantics/classification/CS_InstanceValueEvaluation.h>
@@ -45,35 +45,55 @@ SemanticVisitorPtr CS_ExecutionFactory::instantiateVisitor(const ElementPtr& ele
     SemanticVisitorPtr visitor;
     if (IS(ReadExtentAction, element))
     {
-        visitor.reset(new CS_ReadExtentActionActivation());
+    	CS_ReadExtentActionActivationPtr newCS_ReadExtentActionActivation(new CS_ReadExtentActionActivation());
+    	newCS_ReadExtentActionActivation->setThisActionActivationPtr(newCS_ReadExtentActionActivation);
+        visitor = newCS_ReadExtentActionActivation;
     }
     else if (IS(AcceptCallAction, element))
     {
-        visitor.reset(new CS_AcceptCallActionActivation());
+		CS_AcceptCallActionActivationPtr newCS_AcceptCallActionActivation(new CS_AcceptCallActionActivation());
+		newCS_AcceptCallActionActivation->setThisAcceptEventActionActivationPtr(newCS_AcceptCallActionActivation);
+		visitor = newCS_AcceptCallActionActivation;
     }
     else if (IS(AcceptEventAction, element))
     {
-        visitor.reset(new CS_AcceptEventActionActivation());
+		CS_AcceptEventActionActivationPtr newCS_AcceptEventActionActivation(new CS_AcceptEventActionActivation());
+		newCS_AcceptEventActionActivation->setThisAcceptEventActionActivationPtr(newCS_AcceptEventActionActivation);
+		visitor = newCS_AcceptEventActionActivation;
     }
     else if (IS(AddStructuralFeatureValueAction, element))
     {
-        visitor.reset(new CS_AddStructuralFeatureValueActionActivation());
+		CS_AddStructuralFeatureValueActionActivationPtr newCS_AddStructuralFeatureValueActionActivation(
+			new CS_AddStructuralFeatureValueActionActivation());
+		newCS_AddStructuralFeatureValueActionActivation->setThisActionActivationPtr(
+			newCS_AddStructuralFeatureValueActionActivation);
+		visitor = newCS_AddStructuralFeatureValueActionActivation;
     }
     else if (IS(ClearStructuralFeatureAction, element))
     {
-        visitor.reset(new CS_ClearStructuralFeatureActionActivation());
+		CS_ClearStructuralFeatureActionActivationPtr newCS_ClearStructuralFeatureActionActivation(
+			new CS_ClearStructuralFeatureActionActivation());
+		newCS_ClearStructuralFeatureActionActivation->setThisActionActivationPtr(
+			newCS_ClearStructuralFeatureActionActivation);
+		visitor = newCS_ClearStructuralFeatureActionActivation;
     }
     else if (IS(CreateLinkAction, element))
     {
-        visitor.reset(new CS_CreateLinkActionActivation());
+		CS_CreateLinkActionActivationPtr newCS_CreateLinkActionActivation(new CS_CreateLinkActionActivation());
+		newCS_CreateLinkActionActivation->setThisActionActivationPtr(newCS_CreateLinkActionActivation);
+		visitor = newCS_CreateLinkActionActivation;
     }
     else if (IS(CreateObjectAction, element))
     {
-        visitor.reset(new CS_CreateObjectActionActivation());
+		CS_CreateObjectActionActivationPtr newCS_CreateObjectActionActivation(new CS_CreateObjectActionActivation());
+		newCS_CreateObjectActionActivation->setThisActionActivationPtr(newCS_CreateObjectActionActivation);
+		visitor = newCS_CreateObjectActionActivation;
     }
     else if (IS(ReadSelfAction, element))
     {
-        visitor.reset(new CS_ReadSelfActionActivation());
+		CS_ReadSelfActionActivationPtr newCS_ReadSelfActionActivation(new CS_ReadSelfActionActivation());
+		newCS_ReadSelfActionActivation->setThisActionActivationPtr(newCS_ReadSelfActionActivation);
+		visitor = newCS_ReadSelfActionActivation;
     }
     else if (IS(InstanceValue, element))
     {
@@ -81,11 +101,15 @@ SemanticVisitorPtr CS_ExecutionFactory::instantiateVisitor(const ElementPtr& ele
     }
     else if (IS(CallOperationAction, element))
     {
-        visitor.reset(new CS_CallOperationActionActivation());
+		CS_CallOperationActionActivationPtr newCS_CallOperationActionActivation(new CS_CallOperationActionActivation());
+		newCS_CallOperationActionActivation->setThisActionActivationPtr(newCS_CallOperationActionActivation);
+		visitor = newCS_CallOperationActionActivation;
     }
     else if (IS(SendSignalAction, element))
     {
-        visitor.reset(new CS_SendSignalActionActivation());
+		CS_SendSignalActionActivationPtr newCS_SendSignalActionActivation(new CS_SendSignalActionActivation());
+		newCS_SendSignalActionActivation->setThisActionActivationPtr(newCS_SendSignalActionActivation);
+		visitor = newCS_SendSignalActionActivation;
     }
     else if (IS(OpaqueExpression, element))
     {
@@ -93,11 +117,17 @@ SemanticVisitorPtr CS_ExecutionFactory::instantiateVisitor(const ElementPtr& ele
     }
     else if (IS(CallEventBehavior, element))
     {
-        visitor.reset(new CS_CallEventExecution());
+		CS_CallEventExecutionPtr newCS_CallEventExecution(new CS_CallEventExecution());
+		newCS_CallEventExecution->setThisCallEventExecutionPtr(newCS_CallEventExecution);
+		visitor = newCS_CallEventExecution;
     }
     else if (IS(RemoveStructuralFeatureValueAction, element))
     {
-        visitor.reset(new CS_RemoveStructuralFeatureValueActionActivation());
+		CS_RemoveStructuralFeatureValueActionActivationPtr newCS_RemoveStructuralFeatureValueActionActivation(
+			new CS_RemoveStructuralFeatureValueActionActivation());
+		newCS_RemoveStructuralFeatureValueActionActivation->setThisActionActivationPtr(
+			newCS_RemoveStructuralFeatureValueActionActivation);
+		visitor = newCS_RemoveStructuralFeatureValueActionActivation;
     }
     else
     {
