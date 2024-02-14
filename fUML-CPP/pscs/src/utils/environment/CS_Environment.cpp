@@ -1,11 +1,9 @@
 /*
- * Environment.cpp
+ * CS_Environment.cpp
  *
  *  Created on: 22.01.2024
  *      Author: Maximilian
  */
-
-#include <pscs/utils/environment/Environment.h>
 
 #include <pscs/semantics/actions/CS_DefaultConstructStrategy.h>
 #include <pscs/semantics/fwd.h>
@@ -15,10 +13,11 @@
 #include <pscs/semantics/structuredclassifiers/CS_DefaultRequestPropagationStrategy.h>
 #include <pscs/semantics/structuredclassifiers/CS_DispatchOperationOfInterfaceStrategy.h>
 #include <pscs/semantics/structuredclassifiers/CS_NameBased_StructuralFeatureOfInterfaceAccessStrategy.h>
+#include <utils/environment/CS_Environment.h>
 
 using namespace pscs::environment;
 
-Environment::Environment()
+CS_Environment::CS_Environment()
 {
 	// Setup CS_Locus, CS_Executor & CS_ExecutionFactory
 	this->locus.reset(new CS_Locus());
@@ -33,6 +32,6 @@ Environment::Environment()
 	this->locus->factory->setStrategy(CS_NameBased_StructuralFeatureOfInterfaceAccessStrategyPtr(new CS_NameBased_StructuralFeatureOfInterfaceAccessStrategy()));
 }
 
-Environment::~Environment()
+CS_Environment::~CS_Environment()
 {
 }
