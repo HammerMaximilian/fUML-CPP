@@ -1,6 +1,7 @@
 [comment encoding = UTF-8 /]
 [module generateMainSourceFile('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[import fuml::generator::executionmode::executionmode /]
 [import fuml::generator::globalconstants::globalconstants /]
 [import fuml::generator::naming::naming /]
 
@@ -10,7 +11,7 @@
 #include <iostream>
 
 using namespace std;
-
+[if (isExecutable())]
 static void printUsage()
 {
 	std::cout <<
@@ -19,9 +20,10 @@ static void printUsage()
 		"=============================================================================================\n" <<
 		std::endl;
 }
+[/if]
 
 int main(int argc, char* argv['['/]])
-{
+{	[if (isExecutable())]
 	if(argc == 1)
 	{
 		std::cerr << "['['/]ERROR] Must declare at least one behavior name.\n" << std::endl;
@@ -33,6 +35,9 @@ int main(int argc, char* argv['['/]])
 	{
 		[aPackage.getNameSanitized() + '::' + aPackage.getNameSanitized() + 'Environment' + '::Instance()->execute(argv[i]);'/]
 	}
+	[else]
+	std::cout << "['['/]INFO] This model was generated as "non-executable". If this was not intended, change the execution mode of the generator and re-generate this model.\n" << std::endl;
+	[/if]
 
 	return 0;
 }

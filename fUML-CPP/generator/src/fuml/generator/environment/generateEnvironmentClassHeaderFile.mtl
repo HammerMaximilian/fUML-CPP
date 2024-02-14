@@ -1,6 +1,7 @@
 [comment encoding = UTF-8 /]
 [module generateEnvironmentClassHeaderFile('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[import fuml::generator::executionmode::executionmode /]
 [import fuml::generator::globalconstants::globalconstants /]
 [import fuml::generator::naming::naming /]
 
@@ -15,7 +16,7 @@
 #ifndef [aPackage.getNameSanitized().toUpperCase() + '_ENVIRONMENT_H'/]
 #define [aPackage.getNameSanitized().toUpperCase() + '_ENVIRONMENT_H'/]
 
-#include <utils/environment/Environment.h>
+#include <utils/environment/[getSpecificationEnvironmentName()/].h>
 
 /* [protected (': User-defined includes and forward declarations')]
  * This section may be used for includes and forward declarations.
@@ -28,7 +29,7 @@
 
 namespace [aPackage.getNameSanitized()/]
 {
-	class [aPackage.getNameSanitized() + 'Environment'/] : public fuml::environment::Environment
+	class [aPackage.getNameSanitized() + 'Environment'/] : public [getSpecificationRootNamespaceName()/]::environment::[getSpecificationEnvironmentName()/]
 	{
 		public:
 			virtual ~[aPackage.getNameSanitized() + 'Environment'/]();
@@ -53,3 +54,17 @@ namespace [aPackage.getNameSanitized()/]
 #endif /* [aPackage.getNameSanitized().toUpperCase() + '_ENVIRONMENT_H'/] */
 [/file]
 [/template]
+
+[query private getSpecificationRootNamespaceName(any : OclAny) : String = 
+	if(isPSCSExecutable())
+		then 'pscs'
+	else 'fuml'
+	endif 
+/]
+
+[query private getSpecificationEnvironmentName(any : OclAny) : String = 
+	if(isPSCSExecutable())
+		then 'CS_Environment'
+	else 'Environment'
+	endif 
+/]

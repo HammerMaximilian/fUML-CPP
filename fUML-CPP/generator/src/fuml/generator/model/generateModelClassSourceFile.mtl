@@ -124,90 +124,46 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [/if]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(InitialNode)) post(trim())]
-[let anInitialNode : InitialNode = anElement.oclAsType(InitialNode)]
-// [anInitialNode.eClass().name + ' ' + anInitialNode.getName()/]
-[anInitialNode.getFullNameSanitized()/]->setThisElementPtr([anInitialNode.getFullNameSanitized()/]);
-[anInitialNode.generateActivityNodeInitialization()/]
+[comment Specialized element initialization templates for non-abstract metaclasses /]
+[comment]
+	Actions
+[/comment]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(AcceptCallAction)) post(trim())]
+[let anAcceptCallAction : AcceptCallAction = anElement.oclAsType(AcceptCallAction)]
+// [anAcceptCallAction.eClass().name + ' ' + anAcceptCallAction.getName()/]
+[anAcceptCallAction.getFullNameSanitized()/]->setThisExecutableNodePtr([anAcceptCallAction.getFullNameSanitized()/]);
+[anAcceptCallAction.generateAcceptEventActionInitialization()/]
+[comment Property 'AcceptCallAction::returnInformation' /]
+	[if (not (anAcceptCallAction.returnInformation.oclIsUndefined()))]
+	[anAcceptCallAction.returnInformation.generatePinInitialization()/]
+[anAcceptCallAction.getFullNameSanitized()/]->setReturnInformation([anAcceptCallAction.returnInformation.getFullNameSanitized()/]);
+	[/if]
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(FinalNode)) post(trim())]
-[let aFinalNode : FinalNode = anElement.oclAsType(FinalNode)]
-// [aFinalNode.eClass().name + ' ' + aFinalNode.getName()/]
-[aFinalNode.getFullNameSanitized()/]->setThisElementPtr([aFinalNode.getFullNameSanitized()/]);
-[aFinalNode.generateActivityNodeInitialization()/]
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(AcceptEventAction)) post(trim())]
+[let anAcceptEventAction : AcceptEventAction = anElement.oclAsType(AcceptEventAction)]
+// [anAcceptEventAction.eClass().name + ' ' + anAcceptEventAction.getName()/]
+[anAcceptEventAction.getFullNameSanitized()/]->setThisExecutableNodePtr([anAcceptEventAction.getFullNameSanitized()/]);
+[anAcceptEventAction.generateAcceptEventActionInitialization()/]
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(MergeNode)) post(trim())]
-[let aMergeNode : MergeNode = anElement.oclAsType(MergeNode)]
-// [aMergeNode.eClass().name + ' ' + aMergeNode.getName()/]
-[aMergeNode.getFullNameSanitized()/]->setThisElementPtr([aMergeNode.getFullNameSanitized()/]);
-[aMergeNode.generateActivityNodeInitialization()/]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ForkNode)) post(trim())]
-[let aForkNode : ForkNode = anElement.oclAsType(ForkNode)]
-// [aForkNode.eClass().name + ' ' + aForkNode.getName()/]
-[aForkNode.getFullNameSanitized()/]->setThisElementPtr([aForkNode.getFullNameSanitized()/]);
-[aForkNode.generateActivityNodeInitialization()/]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(JoinNode)) post(trim())]
-[let aJoinNode : JoinNode = anElement.oclAsType(JoinNode)]
-// [aJoinNode.eClass().name + ' ' + aJoinNode.getName()/]
-[aJoinNode.getFullNameSanitized()/]->setThisElementPtr([aJoinNode.getFullNameSanitized()/]);
-[aJoinNode.generateActivityNodeInitialization()/]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(DecisionNode)) post(trim())]
-[let aDecisionNode : DecisionNode = anElement.oclAsType(DecisionNode)]
-// [aDecisionNode.eClass().name + ' ' + aDecisionNode.getName()/]
-[aDecisionNode.getFullNameSanitized()/]->setThisElementPtr([aDecisionNode.getFullNameSanitized()/]);
-[aDecisionNode.generateActivityNodeInitialization()/]
-[comment Property 'DecisionNode::decisionInput' /]
-[if (not (aDecisionNode.decisionInput.oclIsUndefined()))]
-[aDecisionNode.getFullNameSanitized()/]->setDecisionInput([generateElementReference(aDecisionNode.decisionInput, aDecisionNode)/]);
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(AddStructuralFeatureValueAction)) post(trim())]
+[let anAddStructuralFeatureValueAction : AddStructuralFeatureValueAction = anElement.oclAsType(AddStructuralFeatureValueAction)]
+// [anAddStructuralFeatureValueAction.eClass().name + ' ' + anAddStructuralFeatureValueAction.getName()/]
+[anAddStructuralFeatureValueAction.getFullNameSanitized()/]->setThisExecutableNodePtr([anAddStructuralFeatureValueAction.getFullNameSanitized()/]);
+[anAddStructuralFeatureValueAction.generateWriteStructuralFeatureActionInitialization()/]
+[comment Property 'AddStructuralFeatureValueAction::isReplaceAll' /]
+[if (anAddStructuralFeatureValueAction.isReplaceAll)]
+[anAddStructuralFeatureValueAction.getFullNameSanitized()/]->setIsReplaceAll(true);
 [/if]
-[comment Property 'DecisionNode::decisionInputFlow' /]
-[if (not (aDecisionNode.decisionInputFlow.oclIsUndefined()))]
-[aDecisionNode.getFullNameSanitized()/]->setDecisionInputFlow([generateElementReference(aDecisionNode.decisionInputFlow, aDecisionNode)/]);
-[/if]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ActivityParameterNode)) post(trim())]
-[let anActivityParameterNode : ActivityParameterNode = anElement.oclAsType(ActivityParameterNode)]
-// [anActivityParameterNode.eClass().name + ' ' + anActivityParameterNode.getName()/]
-[anActivityParameterNode.getFullNameSanitized()/]->setThisElementPtr([anActivityParameterNode.getFullNameSanitized()/]);
-[anActivityParameterNode.generateActivityNodeInitialization()/]
-[anActivityParameterNode.generateTypedElementInitialization()/]
-[comment Property 'ActivityParameterNode::parameter' /]
-[if (not (anActivityParameterNode.parameter.oclIsUndefined()))]
-[anActivityParameterNode.getFullNameSanitized()/]->setParameter([anActivityParameterNode.parameter.getFullNameSanitized()/]);
-[/if]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(CentralBufferNode)) post(trim())]
-[let aCentralBufferNode : CentralBufferNode = anElement.oclAsType(CentralBufferNode)]
-// [aCentralBufferNode.eClass().name + ' ' + aCentralBufferNode.getName()/]
-[aCentralBufferNode.getFullNameSanitized()/]->setThisElementPtr([aCentralBufferNode.getFullNameSanitized()/]);
-[aCentralBufferNode.generateActivityNodeInitialization()/]
-[aCentralBufferNode.generateTypedElementInitialization()/]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ExpansionNode)) post(trim())]
-[let anExpansionNode : ExpansionNode = anElement.oclAsType(ExpansionNode)]
-// [anExpansionNode.eClass().name + ' ' + anExpansionNode.getName()/]
-[anExpansionNode.getFullNameSanitized()/]->setThisElementPtr([anExpansionNode.getFullNameSanitized()/]);
-[anExpansionNode.generateActivityNodeInitialization()/]
-[anExpansionNode.generateTypedElementInitialization()/]
+[comment Property 'anAddStructuralFeatureValueAction::insertAt' /]
+	[if (not (anAddStructuralFeatureValueAction.insertAt.oclIsUndefined()))]
+	[anAddStructuralFeatureValueAction.insertAt.generatePinInitialization()/]
+[anAddStructuralFeatureValueAction.getFullNameSanitized()/]->setInsertAt([anAddStructuralFeatureValueAction.insertAt.getFullNameSanitized()/]);
+	[/if]
 [/let]
 [/template]
 
@@ -250,69 +206,19 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ReadLinkAction)) post(trim())]
-[let aReadLinkAction : ReadLinkAction = anElement.oclAsType(ReadLinkAction)]
-// [aReadLinkAction.eClass().name + ' ' + aReadLinkAction.getName()/]
-[aReadLinkAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aReadLinkAction.getFullNameSanitized()/]);
-[aReadLinkAction.generateLinkActionInitialization()/]
-[comment Property 'ReadLinkAction::result' /]
-[if (not (aReadLinkAction.result.oclIsUndefined()))]
-[aReadLinkAction.getFullNameSanitized()/]->setResult([aReadLinkAction.result.getFullNameSanitized()/]);
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ClearAssociationAction)) post(trim())]
+[let aClearAssociationAction : ClearAssociationAction = anElement.oclAsType(ClearAssociationAction)]
+// [aClearAssociationAction.eClass().name + ' ' + aClearAssociationAction.getName()/]
+[aClearAssociationAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aClearAssociationAction.getFullNameSanitized()/]);
+[aClearAssociationAction.generateActionInitialization()/]
+[comment Property 'ClearAssociationAction::association' /]
+[if (not (aClearAssociationAction.association.oclIsUndefined()))]
+[aClearAssociationAction.getFullNameSanitized()/]->setClassifier([generateElementReference(aClearAssociationAction.association, aClearAssociationAction)/]);
 [/if]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(WriteLinkAction)) post(trim())]
-[let aWriteLinkAction : WriteLinkAction = anElement.oclAsType(WriteLinkAction)]
-// [aWriteLinkAction.eClass().name + ' ' + aWriteLinkAction.getName()/]
-[aWriteLinkAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aWriteLinkAction.getFullNameSanitized()/]);
-[aWriteLinkAction.generateLinkActionInitialization()/]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(AddStructuralFeatureValueAction)) post(trim())]
-[let anAddStructuralFeatureValueAction : AddStructuralFeatureValueAction = anElement.oclAsType(AddStructuralFeatureValueAction)]
-// [anAddStructuralFeatureValueAction.eClass().name + ' ' + anAddStructuralFeatureValueAction.getName()/]
-[anAddStructuralFeatureValueAction.getFullNameSanitized()/]->setThisExecutableNodePtr([anAddStructuralFeatureValueAction.getFullNameSanitized()/]);
-[anAddStructuralFeatureValueAction.generateWriteStructuralFeatureActionInitialization()/]
-[comment Property 'AddStructuralFeatureValueAction::isReplaceAll' /]
-[if (anAddStructuralFeatureValueAction.isReplaceAll)]
-[anAddStructuralFeatureValueAction.getFullNameSanitized()/]->setIsReplaceAll(true);
-[/if]
-[comment Property 'anAddStructuralFeatureValueAction::insertAt' /]
-	[if (not (anAddStructuralFeatureValueAction.insertAt.oclIsUndefined()))]
-	[anAddStructuralFeatureValueAction.insertAt.generatePinInitialization()/]
-[anAddStructuralFeatureValueAction.getFullNameSanitized()/]->setInsertAt([anAddStructuralFeatureValueAction.insertAt.getFullNameSanitized()/]);
-	[/if]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(RemoveStructuralFeatureValueAction)) post(trim())]
-[let aRemoveStructuralFeatureValueAction : RemoveStructuralFeatureValueAction = anElement.oclAsType(RemoveStructuralFeatureValueAction)]
-// [aRemoveStructuralFeatureValueAction.eClass().name + ' ' + aRemoveStructuralFeatureValueAction.getName()/]
-[aRemoveStructuralFeatureValueAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aRemoveStructuralFeatureValueAction.getFullNameSanitized()/]);
-[aRemoveStructuralFeatureValueAction.generateWriteStructuralFeatureActionInitialization()/]
-[comment Property 'RemoveStructuralFeatureValueAction::isRemoveDuplicates' /]
-[if (aRemoveStructuralFeatureValueAction.isRemoveDuplicates)]
-[aRemoveStructuralFeatureValueAction.getFullNameSanitized()/]->setIsRemoveDuplicates(true);
-[/if]
-[comment Property 'RemoveStructuralFeatureValueAction::removeAt' /]
-	[if (not (aRemoveStructuralFeatureValueAction.removeAt.oclIsUndefined()))]
-	[aRemoveStructuralFeatureValueAction.removeAt.generatePinInitialization()/]
-[aRemoveStructuralFeatureValueAction.getFullNameSanitized()/]->setRemoveAt([aRemoveStructuralFeatureValueAction.removeAt.getFullNameSanitized()/]);
-	[/if]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ReadStructuralFeatureAction)) post(trim())]
-[let aReadStructuralFeatureAction : ReadStructuralFeatureAction = anElement.oclAsType(ReadStructuralFeatureAction)]
-// [aReadStructuralFeatureAction.eClass().name + ' ' + aReadStructuralFeatureAction.getName()/]
-[aReadStructuralFeatureAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aReadStructuralFeatureAction.getFullNameSanitized()/]);
-[aReadStructuralFeatureAction.generateStructuralFeatureActionInitialization()/]
-[comment Property 'ReadStructuralFeatureAction::result' /]
-	[if (not (aReadStructuralFeatureAction.result.oclIsUndefined()))]
-	[aReadStructuralFeatureAction.result.generatePinInitialization()/]
-[aReadStructuralFeatureAction.getFullNameSanitized()/]->setResult([aReadStructuralFeatureAction.result.getFullNameSanitized()/]);
+[comment Property 'ClearAssociationAction::object' /]
+	[if (not (aClearAssociationAction.object.oclIsUndefined()))]
+	[aClearAssociationAction.object.generatePinInitialization()/]
+[aClearAssociationAction.getFullNameSanitized()/]->setObject([aClearAssociationAction.object.getFullNameSanitized()/]);
 	[/if]
 [/let]
 [/template]
@@ -330,32 +236,19 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ReadExtentAction)) post(trim())]
-[let aReadExtentAction : ReadExtentAction = anElement.oclAsType(ReadExtentAction)]
-// [aReadExtentAction.eClass().name + ' ' + aReadExtentAction.getName()/]
-[aReadExtentAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aReadExtentAction.getFullNameSanitized()/]);
-[aReadExtentAction.generateActionInitialization()/]
-[comment Property 'ReadExtentAction::classifier' /]
-[if (not (aReadExtentAction.classifier.oclIsUndefined()))]
-[aReadExtentAction.getFullNameSanitized()/]->setClassifier([generateElementReference(aReadExtentAction.classifier, aReadExtentAction)/]);
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(CreateObjectAction)) post(trim())]
+[let aCreateObjectAction : CreateObjectAction = anElement.oclAsType(CreateObjectAction)]
+// [aCreateObjectAction.eClass().name + ' ' + aCreateObjectAction.getName()/]
+[aCreateObjectAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aCreateObjectAction.getFullNameSanitized()/]);
+[aCreateObjectAction.generateActionInitialization()/]
+[comment Property 'CreateObjectAction::classifier' /]
+[if (not (aCreateObjectAction.classifier.oclIsUndefined()))]
+[aCreateObjectAction.getFullNameSanitized()/]->setClassifier([generateElementReference(aCreateObjectAction.classifier, aCreateObjectAction)/]);
 [/if]
-[comment Property 'ReadExtentAction::result' /]
-	[if (not (aReadExtentAction.result.oclIsUndefined()))]
-	[aReadExtentAction.result.generatePinInitialization()/]
-[aReadExtentAction.getFullNameSanitized()/]->setResult([aReadExtentAction.result.getFullNameSanitized()/]);
-	[/if]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(RaiseExceptionAction)) post(trim())]
-[let aRaiseExceptionAction : RaiseExceptionAction = anElement.oclAsType(RaiseExceptionAction)]
-// [aRaiseExceptionAction.eClass().name + ' ' + aRaiseExceptionAction.getName()/]
-[aRaiseExceptionAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aRaiseExceptionAction.getFullNameSanitized()/]);
-[aRaiseExceptionAction.generateActionInitialization()/]
-[comment Property 'RaiseExceptionAction::exception' /]
-	[if (not (aRaiseExceptionAction.exception.oclIsUndefined()))]
-	[aRaiseExceptionAction.exception.generatePinInitialization()/]
-[aRaiseExceptionAction.getFullNameSanitized()/]->setException([aRaiseExceptionAction.exception.getFullNameSanitized()/]);
+[comment Property 'CreateObjectAction::result' /]
+	[if (not (aCreateObjectAction.result.oclIsUndefined()))]
+	[aCreateObjectAction.result.generatePinInitialization()/]
+[aCreateObjectAction.getFullNameSanitized()/]->setResult([aCreateObjectAction.result.getFullNameSanitized()/]);
 	[/if]
 [/let]
 [/template]
@@ -381,36 +274,96 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(CreateObjectAction)) post(trim())]
-[let aCreateObjectAction : CreateObjectAction = anElement.oclAsType(CreateObjectAction)]
-// [aCreateObjectAction.eClass().name + ' ' + aCreateObjectAction.getName()/]
-[aCreateObjectAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aCreateObjectAction.getFullNameSanitized()/]);
-[aCreateObjectAction.generateActionInitialization()/]
-[comment Property 'CreateObjectAction::classifier' /]
-[if (not (aCreateObjectAction.classifier.oclIsUndefined()))]
-[aCreateObjectAction.getFullNameSanitized()/]->setClassifier([generateElementReference(aCreateObjectAction.classifier, aCreateObjectAction)/]);
-[/if]
-[comment Property 'CreateObjectAction::result' /]
-	[if (not (aCreateObjectAction.result.oclIsUndefined()))]
-	[aCreateObjectAction.result.generatePinInitialization()/]
-[aCreateObjectAction.getFullNameSanitized()/]->setResult([aCreateObjectAction.result.getFullNameSanitized()/]);
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(RaiseExceptionAction)) post(trim())]
+[let aRaiseExceptionAction : RaiseExceptionAction = anElement.oclAsType(RaiseExceptionAction)]
+// [aRaiseExceptionAction.eClass().name + ' ' + aRaiseExceptionAction.getName()/]
+[aRaiseExceptionAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aRaiseExceptionAction.getFullNameSanitized()/]);
+[aRaiseExceptionAction.generateActionInitialization()/]
+[comment Property 'RaiseExceptionAction::exception' /]
+	[if (not (aRaiseExceptionAction.exception.oclIsUndefined()))]
+	[aRaiseExceptionAction.exception.generatePinInitialization()/]
+[aRaiseExceptionAction.getFullNameSanitized()/]->setException([aRaiseExceptionAction.exception.getFullNameSanitized()/]);
 	[/if]
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ClearAssociationAction)) post(trim())]
-[let aClearAssociationAction : ClearAssociationAction = anElement.oclAsType(ClearAssociationAction)]
-// [aClearAssociationAction.eClass().name + ' ' + aClearAssociationAction.getName()/]
-[aClearAssociationAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aClearAssociationAction.getFullNameSanitized()/]);
-[aClearAssociationAction.generateActionInitialization()/]
-[comment Property 'ClearAssociationAction::association' /]
-[if (not (aClearAssociationAction.association.oclIsUndefined()))]
-[aClearAssociationAction.getFullNameSanitized()/]->setClassifier([generateElementReference(aClearAssociationAction.association, aClearAssociationAction)/]);
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ReadExtentAction)) post(trim())]
+[let aReadExtentAction : ReadExtentAction = anElement.oclAsType(ReadExtentAction)]
+// [aReadExtentAction.eClass().name + ' ' + aReadExtentAction.getName()/]
+[aReadExtentAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aReadExtentAction.getFullNameSanitized()/]);
+[aReadExtentAction.generateActionInitialization()/]
+[comment Property 'ReadExtentAction::classifier' /]
+[if (not (aReadExtentAction.classifier.oclIsUndefined()))]
+[aReadExtentAction.getFullNameSanitized()/]->setClassifier([generateElementReference(aReadExtentAction.classifier, aReadExtentAction)/]);
 [/if]
-[comment Property 'ClearAssociationAction::object' /]
-	[if (not (aClearAssociationAction.object.oclIsUndefined()))]
-	[aClearAssociationAction.object.generatePinInitialization()/]
-[aClearAssociationAction.getFullNameSanitized()/]->setObject([aClearAssociationAction.object.getFullNameSanitized()/]);
+[comment Property 'ReadExtentAction::result' /]
+	[if (not (aReadExtentAction.result.oclIsUndefined()))]
+	[aReadExtentAction.result.generatePinInitialization()/]
+[aReadExtentAction.getFullNameSanitized()/]->setResult([aReadExtentAction.result.getFullNameSanitized()/]);
+	[/if]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ReadIsClassifiedObjectAction)) post(trim())]
+[let aReadIsClassifiedObjectAction : ReadIsClassifiedObjectAction = anElement.oclAsType(ReadIsClassifiedObjectAction)]
+// [aReadIsClassifiedObjectAction.eClass().name + ' ' + aReadIsClassifiedObjectAction.getName()/]
+[aReadIsClassifiedObjectAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aReadIsClassifiedObjectAction.getFullNameSanitized()/]);
+[aReadIsClassifiedObjectAction.generateActionInitialization()/]
+[comment Property 'ReadIsClassifiedObjectAction::isDirect' /]
+	[if (aReadIsClassifiedObjectAction.isDirect)]
+[aReadIsClassifiedObjectAction.getFullNameSanitized()/]->setIsDirect(true);
+	[/if]
+[comment Property 'ReadIsClassifiedObjectAction::classifier' /]
+	[if (not (aReadIsClassifiedObjectAction.classifier.oclIsUndefined()))]
+[aReadIsClassifiedObjectAction.getFullNameSanitized()/]->setClassifier([generateElementReference(aReadIsClassifiedObjectAction.classifier, aReadIsClassifiedObjectAction)/]);
+	[/if]
+[comment Property 'ReadIsClassifiedObjectAction::object' /]
+	[if (not (aReadIsClassifiedObjectAction.object.oclIsUndefined()))]
+	[aReadIsClassifiedObjectAction.object.generatePinInitialization()/]
+[aReadIsClassifiedObjectAction.getFullNameSanitized()/]->setObject([aReadIsClassifiedObjectAction.object.getFullNameSanitized()/]);
+	[/if]
+[comment Property 'ReadIsClassifiedObjectAction::result' /]
+	[if (not (aReadIsClassifiedObjectAction.result.oclIsUndefined()))]
+	[aReadIsClassifiedObjectAction.result.generatePinInitialization()/]
+[aReadIsClassifiedObjectAction.getFullNameSanitized()/]->setResult([aReadIsClassifiedObjectAction.result.getFullNameSanitized()/]);
+	[/if]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ReadLinkAction)) post(trim())]
+[let aReadLinkAction : ReadLinkAction = anElement.oclAsType(ReadLinkAction)]
+// [aReadLinkAction.eClass().name + ' ' + aReadLinkAction.getName()/]
+[aReadLinkAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aReadLinkAction.getFullNameSanitized()/]);
+[aReadLinkAction.generateLinkActionInitialization()/]
+[comment Property 'ReadLinkAction::result' /]
+[if (not (aReadLinkAction.result.oclIsUndefined()))]
+[aReadLinkAction.getFullNameSanitized()/]->setResult([aReadLinkAction.result.getFullNameSanitized()/]);
+[/if]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ReadSelfAction)) post(trim())]
+[let aReadSelfAction : ReadSelfAction = anElement.oclAsType(ReadSelfAction)]
+// [aReadSelfAction.eClass().name + ' ' + aReadSelfAction.getName()/]
+[aReadSelfAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aReadSelfAction.getFullNameSanitized()/]);
+[aReadSelfAction.generateActionInitialization()/]
+[comment Property 'ReadSelfAction::result' /]
+	[if (not (aReadSelfAction.result.oclIsUndefined()))]
+	[aReadSelfAction.result.generatePinInitialization()/]
+[aReadSelfAction.getFullNameSanitized()/]->setResult([aReadSelfAction.result.getFullNameSanitized()/]);
+	[/if]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ReadStructuralFeatureAction)) post(trim())]
+[let aReadStructuralFeatureAction : ReadStructuralFeatureAction = anElement.oclAsType(ReadStructuralFeatureAction)]
+// [aReadStructuralFeatureAction.eClass().name + ' ' + aReadStructuralFeatureAction.getName()/]
+[aReadStructuralFeatureAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aReadStructuralFeatureAction.getFullNameSanitized()/]);
+[aReadStructuralFeatureAction.generateStructuralFeatureActionInitialization()/]
+[comment Property 'ReadStructuralFeatureAction::result' /]
+	[if (not (aReadStructuralFeatureAction.result.oclIsUndefined()))]
+	[aReadStructuralFeatureAction.result.generatePinInitialization()/]
+[aReadStructuralFeatureAction.getFullNameSanitized()/]->setResult([aReadStructuralFeatureAction.result.getFullNameSanitized()/]);
 	[/if]
 [/let]
 [/template]
@@ -440,41 +393,82 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ReadSelfAction)) post(trim())]
-[let aReadSelfAction : ReadSelfAction = anElement.oclAsType(ReadSelfAction)]
-// [aReadSelfAction.eClass().name + ' ' + aReadSelfAction.getName()/]
-[aReadSelfAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aReadSelfAction.getFullNameSanitized()/]);
-[aReadSelfAction.generateActionInitialization()/]
-[comment Property 'ReadSelfAction::result' /]
-	[if (not (aReadSelfAction.result.oclIsUndefined()))]
-	[aReadSelfAction.result.generatePinInitialization()/]
-[aReadSelfAction.getFullNameSanitized()/]->setResult([aReadSelfAction.result.getFullNameSanitized()/]);
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ReduceAction)) post(trim())]
+[let aReduceAction : ReduceAction = anElement.oclAsType(ReduceAction)]
+// [aReduceAction.eClass().name + ' ' + aReduceAction.getName()/]
+[aReduceAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aReduceAction.getFullNameSanitized()/]);
+[aReduceAction.generateActionInitialization()/]
+[comment Property 'ReduceAction::isOrdered' /]
+[aReduceAction.getFullNameSanitized()/]->setIsOrdered([aReduceAction.isOrdered.toString()/]);
+[comment Property 'ReduceAction::reducer' /]
+	[if (not (aReduceAction.reducer.oclIsUndefined()))]
+[aReduceAction.getFullNameSanitized()/]->setReducer([generateElementReference(aReduceAction.reducer, aReduceAction)/]);
+	[/if]
+[comment Property 'ReduceAction::collection' /]
+	[if (not (aReduceAction.collection.oclIsUndefined()))]
+	[aReduceAction.collection.generatePinInitialization()/]
+[aReduceAction.getFullNameSanitized()/]->setCollection([aReduceAction.collection.getFullNameSanitized()/]);
+	[/if]
+[comment Property 'ReduceAction::result' /]
+	[if (not (aReduceAction.result.oclIsUndefined()))]
+	[aReduceAction.result.generatePinInitialization()/]
+[aReduceAction.getFullNameSanitized()/]->setResult([aReduceAction.result.getFullNameSanitized()/]);
 	[/if]
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ReadIsClassifiedObjectAction)) post(trim())]
-[let aReadIsClassifiedObjectAction : ReadIsClassifiedObjectAction = anElement.oclAsType(ReadIsClassifiedObjectAction)]
-// [aReadIsClassifiedObjectAction.eClass().name + ' ' + aReadIsClassifiedObjectAction.getName()/]
-[aReadIsClassifiedObjectAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aReadIsClassifiedObjectAction.getFullNameSanitized()/]);
-[aReadIsClassifiedObjectAction.generateActionInitialization()/]
-[comment Property 'ReadIsClassifiedObjectAction::isDirect' /]
-	[if (aReadIsClassifiedObjectAction.isDirect)]
-[aReadIsClassifiedObjectAction.getFullNameSanitized()/]->setIsDirect(true);
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(RemoveStructuralFeatureValueAction)) post(trim())]
+[let aRemoveStructuralFeatureValueAction : RemoveStructuralFeatureValueAction = anElement.oclAsType(RemoveStructuralFeatureValueAction)]
+// [aRemoveStructuralFeatureValueAction.eClass().name + ' ' + aRemoveStructuralFeatureValueAction.getName()/]
+[aRemoveStructuralFeatureValueAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aRemoveStructuralFeatureValueAction.getFullNameSanitized()/]);
+[aRemoveStructuralFeatureValueAction.generateWriteStructuralFeatureActionInitialization()/]
+[comment Property 'RemoveStructuralFeatureValueAction::isRemoveDuplicates' /]
+[if (aRemoveStructuralFeatureValueAction.isRemoveDuplicates)]
+[aRemoveStructuralFeatureValueAction.getFullNameSanitized()/]->setIsRemoveDuplicates(true);
+[/if]
+[comment Property 'RemoveStructuralFeatureValueAction::removeAt' /]
+	[if (not (aRemoveStructuralFeatureValueAction.removeAt.oclIsUndefined()))]
+	[aRemoveStructuralFeatureValueAction.removeAt.generatePinInitialization()/]
+[aRemoveStructuralFeatureValueAction.getFullNameSanitized()/]->setRemoveAt([aRemoveStructuralFeatureValueAction.removeAt.getFullNameSanitized()/]);
 	[/if]
-[comment Property 'ReadIsClassifiedObjectAction::classifier' /]
-	[if (not (aReadIsClassifiedObjectAction.classifier.oclIsUndefined()))]
-[aReadIsClassifiedObjectAction.getFullNameSanitized()/]->setClassifier([generateElementReference(aReadIsClassifiedObjectAction.classifier, aReadIsClassifiedObjectAction)/]);
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ReplyAction)) post(trim())]
+[let aReplyAction : ReplyAction = anElement.oclAsType(ReplyAction)]
+// [aReplyAction.eClass().name + ' ' + aReplyAction.getName()/]
+[aReplyAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aReplyAction.getFullNameSanitized()/]);
+[aReplyAction.generateActionInitialization()/]
+[comment Property 'ReplyAction::replyToCall' /]
+	[if (not (aReplyAction.replyToCall.oclIsUndefined()))]
+[aReplyAction.getFullNameSanitized()/]->setReplyToCall([generateElementReference(aReplyAction.replyToCall, aReplyAction)/]);
 	[/if]
-[comment Property 'ReadIsClassifiedObjectAction::object' /]
-	[if (not (aReadIsClassifiedObjectAction.object.oclIsUndefined()))]
-	[aReadIsClassifiedObjectAction.object.generatePinInitialization()/]
-[aReadIsClassifiedObjectAction.getFullNameSanitized()/]->setObject([aReadIsClassifiedObjectAction.object.getFullNameSanitized()/]);
+[comment Property 'ReplyAction::returnInformation' /]
+	[if (not (aReplyAction.returnInformation.oclIsUndefined()))]
+	[aReplyAction.returnInformation.generatePinInitialization()/]
+[aReplyAction.getFullNameSanitized()/]->setReturnInformation([aReplyAction.returnInformation.getFullNameSanitized()/]);
 	[/if]
-[comment Property 'ReadIsClassifiedObjectAction::result' /]
-	[if (not (aReadIsClassifiedObjectAction.result.oclIsUndefined()))]
-	[aReadIsClassifiedObjectAction.result.generatePinInitialization()/]
-[aReadIsClassifiedObjectAction.getFullNameSanitized()/]->setResult([aReadIsClassifiedObjectAction.result.getFullNameSanitized()/]);
+[comment Property 'ReplyAction::replyValue' /]
+[for (anInputPin : InputPin | aReplyAction.replyValue)]
+	[anInputPin.generatePinInitialization()/]
+[aReplyAction.getFullNameSanitized()/]->addReplyValue([anInputPin.getFullNameSanitized()/]);
+[/for]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(SendSignalAction)) post(trim())]
+[let aSendSignalAction : SendSignalAction = anElement.oclAsType(SendSignalAction)]
+// [aSendSignalAction.eClass().name + ' ' + aSendSignalAction.getName()/]
+[aSendSignalAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aSendSignalAction.getFullNameSanitized()/]);
+[aSendSignalAction.generateActionInitialization()/]
+[comment Property 'SendSignalAction::signal' /]
+[if (not (aSendSignalAction.signal.oclIsUndefined()))]
+[aSendSignalAction.getFullNameSanitized()/]->setSignal([generateElementReference(aSendSignalAction.signal, aSendSignalAction)/]);
+[/if]
+[comment Property 'SendSignalAction::target' /]
+	[if (not (aSendSignalAction.target.oclIsUndefined()))]
+	[aSendSignalAction.target.generatePinInitialization()/]
+[aSendSignalAction.getFullNameSanitized()/]->setTarget([aSendSignalAction.target.getFullNameSanitized()/]);
 	[/if]
 [/let]
 [/template]
@@ -528,27 +522,6 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(AcceptCallAction)) post(trim())]
-[let anAcceptCallAction : AcceptCallAction = anElement.oclAsType(AcceptCallAction)]
-// [anAcceptCallAction.eClass().name + ' ' + anAcceptCallAction.getName()/]
-[anAcceptCallAction.getFullNameSanitized()/]->setThisExecutableNodePtr([anAcceptCallAction.getFullNameSanitized()/]);
-[anAcceptCallAction.generateAcceptEventActionInitialization()/]
-[comment Property 'AcceptCallAction::returnInformation' /]
-	[if (not (anAcceptCallAction.returnInformation.oclIsUndefined()))]
-	[anAcceptCallAction.returnInformation.generatePinInitialization()/]
-[anAcceptCallAction.getFullNameSanitized()/]->setReturnInformation([anAcceptCallAction.returnInformation.getFullNameSanitized()/]);
-	[/if]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(AcceptEventAction)) post(trim())]
-[let anAcceptEventAction : AcceptEventAction = anElement.oclAsType(AcceptEventAction)]
-// [anAcceptEventAction.eClass().name + ' ' + anAcceptEventAction.getName()/]
-[anAcceptEventAction.getFullNameSanitized()/]->setThisExecutableNodePtr([anAcceptEventAction.getFullNameSanitized()/]);
-[anAcceptEventAction.generateAcceptEventActionInitialization()/]
-[/let]
-[/template]
-
 [template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(UnmarshallAction)) post(trim())]
 [let anUnmarshallAction : UnmarshallAction = anElement.oclAsType(UnmarshallAction)]
 // [anUnmarshallAction.eClass().name + ' ' + anUnmarshallAction.getName()/]
@@ -571,69 +544,6 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ReduceAction)) post(trim())]
-[let aReduceAction : ReduceAction = anElement.oclAsType(ReduceAction)]
-// [aReduceAction.eClass().name + ' ' + aReduceAction.getName()/]
-[aReduceAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aReduceAction.getFullNameSanitized()/]);
-[aReduceAction.generateActionInitialization()/]
-[comment Property 'ReduceAction::isOrdered' /]
-[aReduceAction.getFullNameSanitized()/]->setIsOrdered([aReduceAction.isOrdered.toString()/]);
-[comment Property 'ReduceAction::reducer' /]
-	[if (not (aReduceAction.reducer.oclIsUndefined()))]
-[aReduceAction.getFullNameSanitized()/]->setReducer([generateElementReference(aReduceAction.reducer, aReduceAction)/]);
-	[/if]
-[comment Property 'ReduceAction::collection' /]
-	[if (not (aReduceAction.collection.oclIsUndefined()))]
-	[aReduceAction.collection.generatePinInitialization()/]
-[aReduceAction.getFullNameSanitized()/]->setCollection([aReduceAction.collection.getFullNameSanitized()/]);
-	[/if]
-[comment Property 'ReduceAction::result' /]
-	[if (not (aReduceAction.result.oclIsUndefined()))]
-	[aReduceAction.result.generatePinInitialization()/]
-[aReduceAction.getFullNameSanitized()/]->setResult([aReduceAction.result.getFullNameSanitized()/]);
-	[/if]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ReplyAction)) post(trim())]
-[let aReplyAction : ReplyAction = anElement.oclAsType(ReplyAction)]
-// [aReplyAction.eClass().name + ' ' + aReplyAction.getName()/]
-[aReplyAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aReplyAction.getFullNameSanitized()/]);
-[aReplyAction.generateActionInitialization()/]
-[comment Property 'ReplyAction::replyToCall' /]
-	[if (not (aReplyAction.replyToCall.oclIsUndefined()))]
-[aReplyAction.getFullNameSanitized()/]->setReplyToCall([generateElementReference(aReplyAction.replyToCall, aReplyAction)/]);
-	[/if]
-[comment Property 'ReplyAction::returnInformation' /]
-	[if (not (aReplyAction.returnInformation.oclIsUndefined()))]
-	[aReplyAction.returnInformation.generatePinInitialization()/]
-[aReplyAction.getFullNameSanitized()/]->setReturnInformation([aReplyAction.returnInformation.getFullNameSanitized()/]);
-	[/if]
-[comment Property 'ReplyAction::replyValue' /]
-[for (anInputPin : InputPin | aReplyAction.replyValue)]
-	[anInputPin.generatePinInitialization()/]
-[aReplyAction.getFullNameSanitized()/]->addReplyValue([anInputPin.getFullNameSanitized()/]);
-[/for]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(SendSignalAction)) post(trim())]
-[let aSendSignalAction : SendSignalAction = anElement.oclAsType(SendSignalAction)]
-// [aSendSignalAction.eClass().name + ' ' + aSendSignalAction.getName()/]
-[aSendSignalAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aSendSignalAction.getFullNameSanitized()/]);
-[aSendSignalAction.generateActionInitialization()/]
-[comment Property 'SendSignalAction::signal' /]
-[if (not (aSendSignalAction.signal.oclIsUndefined()))]
-[aSendSignalAction.getFullNameSanitized()/]->setSignal([generateElementReference(aSendSignalAction.signal, aSendSignalAction)/]);
-[/if]
-[comment Property 'SendSignalAction::target' /]
-	[if (not (aSendSignalAction.target.oclIsUndefined()))]
-	[aSendSignalAction.target.generatePinInitialization()/]
-[aSendSignalAction.getFullNameSanitized()/]->setTarget([aSendSignalAction.target.getFullNameSanitized()/]);
-	[/if]
-[/let]
-[/template]
-
 [template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ValueSpecificationAction)) post(trim())]
 [let aValueSpecificationAction : ValueSpecificationAction = anElement.oclAsType(ValueSpecificationAction)]
 // [aValueSpecificationAction.eClass().name + ' ' + aValueSpecificationAction.getName()/]
@@ -652,75 +562,17 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Property)) post(trim())]
-[let aProperty : Property = anElement.oclAsType(Property)]
-// [aProperty.eClass().name + ' ' + aProperty.getName()/]
-[aProperty.getFullNameSanitized()/]->setThisElementPtr([aProperty.getFullNameSanitized()/]);
-[aProperty.generateStructuralFeatureInitialization()/]
-[comment Property 'Property::isDerived' /]
-	[if (aProperty.isDerived)]
-[aProperty.getFullNameSanitized()/]->isDerived = true;
-	[/if]
-[comment Property 'Property::isReadOnly' /]
-	[if (aProperty.isReadOnly)]
-[aProperty.getFullNameSanitized()/]->setIsReadOnly(true);
-	[/if]
-[comment Property 'Property::isDerivedUnion' /]
-	[if (aProperty.isDerivedUnion)]
-[aProperty.getFullNameSanitized()/]->isDerivedUnion = true;
-	[/if]
-[comment Property 'Property::aggregation' /]
-	[if (aProperty.aggregation <> AggregationKind::none)]
-[aProperty.getFullNameSanitized()/]->setAggregation(AggregationKind::[aProperty.aggregation/]);
-	[/if]
-[comment Property 'Property::isID' /]
-	[if (aProperty.isID)]
-[aProperty.getFullNameSanitized()/]->setIsID(true);
-	[/if]
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(WriteLinkAction)) post(trim())]
+[let aWriteLinkAction : WriteLinkAction = anElement.oclAsType(WriteLinkAction)]
+// [aWriteLinkAction.eClass().name + ' ' + aWriteLinkAction.getName()/]
+[aWriteLinkAction.getFullNameSanitized()/]->setThisExecutableNodePtr([aWriteLinkAction.getFullNameSanitized()/]);
+[aWriteLinkAction.generateLinkActionInitialization()/]
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Operation)) post(trim())]
-[let anOperation : Operation = anElement.oclAsType(Operation)]
-// [anOperation.eClass().name + ' ' + anOperation.getName()/]
-[anOperation.getFullNameSanitized()/]->setThisOperationPtr([anOperation.getFullNameSanitized()/]);
-[anOperation.generateBehavioralFeatureInitialization()/]
-[comment Property 'Operation::redefinedOperation' /]
-[for (redefinedOperation : Operation | anOperation.redefinedOperation)]
-[anOperation.getFullNameSanitized()/]->addRedefinedOperation([generateElementReference(redefinedOperation, anOperation)/]);
-[/for]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Reception)) post(trim())]
-[let aReception : Reception = anElement.oclAsType(Reception)]
-// [aReception.eClass().name + ' ' + aReception.getName()/]
-[aReception.getFullNameSanitized()/]->setThisBehavioralFeaturePtr([aReception.getFullNameSanitized()/]);
-[aReception.generateBehavioralFeatureInitialization()/]
-[comment Property 'Reception::signal' /]
-[if (not (aReception.signal.oclIsUndefined()))]
-[aReception.getFullNameSanitized()/]->setSignal([generateElementReference(aReception.signal, aReception)/]);
-[/if]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Parameter)) post(trim())]
-[let aParameter : Parameter = anElement.oclAsType(Parameter)]
-// [aParameter.eClass().name + ' ' + aParameter.getName()/]
-[aParameter.getFullNameSanitized()/]->setThisElementPtr([aParameter.getFullNameSanitized()/]);
-[aParameter.generateNamedElementInitialization()/]
-[aParameter.generateMultiplicityElementInitialization()/]
-[aParameter.generateTypedElementInitialization()/]
-[comment Property 'Parameter::direction' /]
-	[if (aParameter.direction <> ParameterDirectionKind::_in)]
-[aParameter.getFullNameSanitized()/]->setDirection(ParameterDirectionKind::[aParameter.direction/][if(aParameter.direction = ParameterDirectionKind::return)]_[/if]);
-	[/if]
-[comment Property 'Parameter::isStream' /]
-	[if (aParameter.isStream)]
-[aParameter.getFullNameSanitized()/]->setIsStream(true);
-	[/if]
-[/let]
-[/template]
+[comment]
+	Activities
+[/comment]
 
 [template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Activity)) post(trim())]
 [let anActivity : Activity = anElement.oclAsType(Activity)]
@@ -776,43 +628,96 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(OpaqueBehavior)) post(trim())]
-[let anOpaqueBehavior : OpaqueBehavior = anElement.oclAsType(OpaqueBehavior)]
-// [anOpaqueBehavior.eClass().name + ' ' + anOpaqueBehavior.getName()/]
-[anOpaqueBehavior.getFullNameSanitized()/]->setThisClass_Ptr([anOpaqueBehavior.getFullNameSanitized()/]);
-[anOpaqueBehavior.generateBehaviorInitialization()/]
-[comment Property 'OpaqueBehavior::language' /]
-[for (language : String | anOpaqueBehavior.language)]
-[anOpaqueBehavior.getFullNameSanitized()/]->addLanguage("[language/]");
-[/for]
-[comment Property 'OpaqueBehavior::body' /]
-[for (_body : String | anOpaqueBehavior._body)]
-[anOpaqueBehavior.getFullNameSanitized()/]->addBody("[_body.substituteAll('"', '\\"').substituteAll('\r\n', ' ')/]");
-[/for]
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ActivityParameterNode)) post(trim())]
+[let anActivityParameterNode : ActivityParameterNode = anElement.oclAsType(ActivityParameterNode)]
+// [anActivityParameterNode.eClass().name + ' ' + anActivityParameterNode.getName()/]
+[anActivityParameterNode.getFullNameSanitized()/]->setThisElementPtr([anActivityParameterNode.getFullNameSanitized()/]);
+[anActivityParameterNode.generateActivityNodeInitialization()/]
+[anActivityParameterNode.generateTypedElementInitialization()/]
+[comment Property 'ActivityParameterNode::parameter' /]
+[if (not (anActivityParameterNode.parameter.oclIsUndefined()))]
+[anActivityParameterNode.getFullNameSanitized()/]->setParameter([anActivityParameterNode.parameter.getFullNameSanitized()/]);
+[/if]
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Class)) post(trim())]
-[let aClass : Class = anElement.oclAsType(Class)]
-// [aClass.eClass().name + ' ' + aClass.getName()/]
-[aClass.getFullNameSanitized()/]->setThisClass_Ptr([aClass.getFullNameSanitized()/]);
-[aClass.generateBehavioredClassifierInitialization()/]
-[comment Property 'Class::isActive' /]
-	[if (aClass.isActive)]
-[aClass.getFullNameSanitized()/]->setIsActive(true);
-	[/if]
-[comment Property 'Class::ownedOperation' /]
-[for (anOperation : Operation | aClass.ownedOperation)]
-	[anOperation.generateElementInitialization()/]
-[aClass.getFullNameSanitized()/]->addOwnedOperation([anOperation.getFullNameSanitized()/]);
-[/for]
-[comment Property 'Class::ownedReception' /]
-[for (aReception : Reception | aClass.ownedReception)]
-	[aReception.generateElementInitialization()/]
-[aClass.getFullNameSanitized()/]->addOwnedReception([aReception.getFullNameSanitized()/]);
-[/for]
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(CentralBufferNode)) post(trim())]
+[let aCentralBufferNode : CentralBufferNode = anElement.oclAsType(CentralBufferNode)]
+// [aCentralBufferNode.eClass().name + ' ' + aCentralBufferNode.getName()/]
+[aCentralBufferNode.getFullNameSanitized()/]->setThisElementPtr([aCentralBufferNode.getFullNameSanitized()/]);
+[aCentralBufferNode.generateActivityNodeInitialization()/]
+[aCentralBufferNode.generateTypedElementInitialization()/]
 [/let]
 [/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(DecisionNode)) post(trim())]
+[let aDecisionNode : DecisionNode = anElement.oclAsType(DecisionNode)]
+// [aDecisionNode.eClass().name + ' ' + aDecisionNode.getName()/]
+[aDecisionNode.getFullNameSanitized()/]->setThisElementPtr([aDecisionNode.getFullNameSanitized()/]);
+[aDecisionNode.generateActivityNodeInitialization()/]
+[comment Property 'DecisionNode::decisionInput' /]
+[if (not (aDecisionNode.decisionInput.oclIsUndefined()))]
+[aDecisionNode.getFullNameSanitized()/]->setDecisionInput([generateElementReference(aDecisionNode.decisionInput, aDecisionNode)/]);
+[/if]
+[comment Property 'DecisionNode::decisionInputFlow' /]
+[if (not (aDecisionNode.decisionInputFlow.oclIsUndefined()))]
+[aDecisionNode.getFullNameSanitized()/]->setDecisionInputFlow([generateElementReference(aDecisionNode.decisionInputFlow, aDecisionNode)/]);
+[/if]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ExpansionNode)) post(trim())]
+[let anExpansionNode : ExpansionNode = anElement.oclAsType(ExpansionNode)]
+// [anExpansionNode.eClass().name + ' ' + anExpansionNode.getName()/]
+[anExpansionNode.getFullNameSanitized()/]->setThisElementPtr([anExpansionNode.getFullNameSanitized()/]);
+[anExpansionNode.generateActivityNodeInitialization()/]
+[anExpansionNode.generateTypedElementInitialization()/]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(FinalNode)) post(trim())]
+[let aFinalNode : FinalNode = anElement.oclAsType(FinalNode)]
+// [aFinalNode.eClass().name + ' ' + aFinalNode.getName()/]
+[aFinalNode.getFullNameSanitized()/]->setThisElementPtr([aFinalNode.getFullNameSanitized()/]);
+[aFinalNode.generateActivityNodeInitialization()/]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(ForkNode)) post(trim())]
+[let aForkNode : ForkNode = anElement.oclAsType(ForkNode)]
+// [aForkNode.eClass().name + ' ' + aForkNode.getName()/]
+[aForkNode.getFullNameSanitized()/]->setThisElementPtr([aForkNode.getFullNameSanitized()/]);
+[aForkNode.generateActivityNodeInitialization()/]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(InitialNode)) post(trim())]
+[let anInitialNode : InitialNode = anElement.oclAsType(InitialNode)]
+// [anInitialNode.eClass().name + ' ' + anInitialNode.getName()/]
+[anInitialNode.getFullNameSanitized()/]->setThisElementPtr([anInitialNode.getFullNameSanitized()/]);
+[anInitialNode.generateActivityNodeInitialization()/]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(JoinNode)) post(trim())]
+[let aJoinNode : JoinNode = anElement.oclAsType(JoinNode)]
+// [aJoinNode.eClass().name + ' ' + aJoinNode.getName()/]
+[aJoinNode.getFullNameSanitized()/]->setThisElementPtr([aJoinNode.getFullNameSanitized()/]);
+[aJoinNode.generateActivityNodeInitialization()/]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(MergeNode)) post(trim())]
+[let aMergeNode : MergeNode = anElement.oclAsType(MergeNode)]
+// [aMergeNode.eClass().name + ' ' + aMergeNode.getName()/]
+[aMergeNode.getFullNameSanitized()/]->setThisElementPtr([aMergeNode.getFullNameSanitized()/]);
+[aMergeNode.generateActivityNodeInitialization()/]
+[/let]
+[/template]
+
+[comment]
+	Classifiers
+[/comment]
 
 [template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Association)) post(trim())]
 [let anAssociation : Association = anElement.oclAsType(Association)]
@@ -838,48 +743,73 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Signal)) post(trim())]
-[let aSignal : Signal = anElement.oclAsType(Signal)]
-// [aSignal.eClass().name + ' ' + aSignal.getName()/]
-[aSignal.getFullNameSanitized()/]->setThisSignalPtr([aSignal.getFullNameSanitized()/]);
-[aSignal.generateClassifierInitialization()/]
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(OpaqueBehavior)) post(trim())]
+[let anOpaqueBehavior : OpaqueBehavior = anElement.oclAsType(OpaqueBehavior)]
+// [anOpaqueBehavior.eClass().name + ' ' + anOpaqueBehavior.getName()/]
+[anOpaqueBehavior.getFullNameSanitized()/]->setThisClass_Ptr([anOpaqueBehavior.getFullNameSanitized()/]);
+[anOpaqueBehavior.generateBehaviorInitialization()/]
+[comment Property 'OpaqueBehavior::language' /]
+[for (language : String | anOpaqueBehavior.language)]
+[anOpaqueBehavior.getFullNameSanitized()/]->addLanguage("[language/]");
+[/for]
+[comment Property 'OpaqueBehavior::body' /]
+[for (_body : String | anOpaqueBehavior._body)]
+[anOpaqueBehavior.getFullNameSanitized()/]->addBody("[_body.substituteAll('"', '\\"').substituteAll('\r\n', ' ')/]");
+[/for]
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(CallEvent)) post(trim())]
-[let aCallEvent : CallEvent = anElement.oclAsType(CallEvent)]
-// [aCallEvent.eClass().name + ' ' + aCallEvent.getName()/]
-[aCallEvent.getFullNameSanitized()/]->setThisElementPtr([aCallEvent.getFullNameSanitized()/]);
-[aCallEvent.generateEventInitialization()/]
-[comment Property 'CallEvent::operation' /]
-[if (not (aCallEvent.operation.oclIsUndefined()))]
-[aCallEvent.getFullNameSanitized()/]->setOperation([generateElementReference(aCallEvent.operation, aCallEvent)/]);
-[/if]
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Class)) post(trim())]
+[let aClass : Class = anElement.oclAsType(Class)]
+// [aClass.eClass().name + ' ' + aClass.getName()/]
+[aClass.getFullNameSanitized()/]->setThisClass_Ptr([aClass.getFullNameSanitized()/]);
+[aClass.generateClassifierInitialization()/]
+[aClass.generateBehavioredClassifierInitialization()/]
+[aClass.generateStructuredClassifierInitialization()/]
+[comment Property 'Class::isActive' /]
+	[if (aClass.isActive)]
+[aClass.getFullNameSanitized()/]->setIsActive(true);
+	[/if]
+[comment Property 'Class::ownedOperation' /]
+[for (anOperation : Operation | aClass.ownedOperation)]
+	[anOperation.generateElementInitialization()/]
+[aClass.getFullNameSanitized()/]->addOwnedOperation([anOperation.getFullNameSanitized()/]);
+[/for]
+[comment Property 'Class::ownedReception' /]
+[for (aReception : Reception | aClass.ownedReception)]
+	[aReception.generateElementInitialization()/]
+[aClass.getFullNameSanitized()/]->addOwnedReception([aReception.getFullNameSanitized()/]);
+[/for]
+[comment Property 'Class::nestedClassifier' /]
+[for (aClassifier : Classifier | aClass.nestedClassifier)]
+	[aClass.generateElementInitialization()/]
+[aClass.getFullNameSanitized()/]->addNestedClassifier([aClassifier.getFullNameSanitized()/]);
+[/for]
 [/let]
 [/template]
 
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(SignalEvent)) post(trim())]
-[let aSignalEvent : SignalEvent = anElement.oclAsType(SignalEvent)]
-// [aSignalEvent.eClass().name + ' ' + aSignalEvent.getName()/]
-[aSignalEvent.getFullNameSanitized()/]->setThisElementPtr([aSignalEvent.getFullNameSanitized()/]);
-[aSignalEvent.generateEventInitialization()/]
-[comment Property 'SignalEvent::signal' /]
-[if (not (aSignalEvent.signal.oclIsUndefined()))]
-[aSignalEvent.getFullNameSanitized()/]->setSignal([generateElementReference(aSignalEvent.signal, aSignalEvent)/]);
-[/if]
-[/let]
-[/template]
-
-[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Package)) post(trim())]
-[let aPackage : Package = anElement.oclAsType(Package)]
-/*
- * [aPackage.eClass().name + ' ' + aPackage.getName()/]
- */
-[aPackage.getFullNameSanitized()/]->setThisPackagePtr([aPackage.getFullNameSanitized()/]);
-[aPackage.generateNamedElementInitialization()/]
-[for (aPackageableElement : PackageableElement | aPackage.packagedElement->select(pE : PackageableElement | supportedUMLMetaclasses()->includes(pE.eClass().name)))]
-	[aPackageableElement.generateElementInitialization()/]
-[aPackage.getFullNameSanitized()/]->addPackagedElement([aPackageableElement.getFullNameSanitized()/]);
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Interface)) post(trim())]
+[let anInterface : Interface = anElement.oclAsType(Interface)]
+// [anInterface.eClass().name + ' ' + anInterface.getName()/]
+[anInterface.generateClassifierInitialization()/]
+[comment Property 'Interface::ownedOperation' /]
+[for (anOperation : Operation | anInterface.ownedOperation)]
+	[anOperation.generateElementInitialization()/]
+[anInterface.getFullNameSanitized()/]->addOwnedOperation([anOperation.getFullNameSanitized()/]);
+[/for]
+[comment Property 'Interface::ownedReception' /]
+[for (aReception : Reception | anInterface.ownedReception)]
+	[aReception.generateElementInitialization()/]
+[anInterface.getFullNameSanitized()/]->addOwnedReception([aReception.getFullNameSanitized()/]);
+[/for]
+[comment Property 'Interface::nestedClassifier' /]
+[for (aClassifier : Classifier | anInterface.nestedClassifier)]
+	[aClassifier.generateElementInitialization()/]
+[anInterface.getFullNameSanitized()/]->addNestedClassifier([aClassifier.getFullNameSanitized()/]);
+[/for]
+[comment Property 'Interface::redefinedInterface' /]
+[for (redefinedInterface : Interface | anInterface.redefinedInterface)]
+[anInterface.getFullNameSanitized()/]->addRedefinedInterface([redefinedInterface.getFullNameSanitized()/]);
 [/for]
 [/let]
 [/template]
@@ -909,6 +839,170 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [/for]
 [/let]
 [/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Usage)) post(trim())]
+[let aUsage : Usage = anElement.oclAsType(Usage)]
+// [aUsage.eClass().name + ' ' + aUsage.getName()/]
+[aUsage.generateDependencyInitialization()/]
+[/let]
+[/template]
+
+[comment]
+	Features
+[/comment]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Operation)) post(trim())]
+[let anOperation : Operation = anElement.oclAsType(Operation)]
+// [anOperation.eClass().name + ' ' + anOperation.getName()/]
+[anOperation.getFullNameSanitized()/]->setThisOperationPtr([anOperation.getFullNameSanitized()/]);
+[anOperation.generateBehavioralFeatureInitialization()/]
+[comment Property 'Operation::redefinedOperation' /]
+[for (redefinedOperation : Operation | anOperation.redefinedOperation)]
+[anOperation.getFullNameSanitized()/]->addRedefinedOperation([generateElementReference(redefinedOperation, anOperation)/]);
+[/for]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Parameter)) post(trim())]
+[let aParameter : Parameter = anElement.oclAsType(Parameter)]
+// [aParameter.eClass().name + ' ' + aParameter.getName()/]
+[aParameter.getFullNameSanitized()/]->setThisElementPtr([aParameter.getFullNameSanitized()/]);
+[aParameter.generateNamedElementInitialization()/]
+[aParameter.generateMultiplicityElementInitialization()/]
+[aParameter.generateTypedElementInitialization()/]
+[comment Property 'Parameter::direction' /]
+	[if (aParameter.direction <> ParameterDirectionKind::_in)]
+[aParameter.getFullNameSanitized()/]->setDirection(ParameterDirectionKind::[aParameter.direction/][if(aParameter.direction = ParameterDirectionKind::return)]_[/if]);
+	[/if]
+[comment Property 'Parameter::isStream' /]
+	[if (aParameter.isStream)]
+[aParameter.getFullNameSanitized()/]->setIsStream(true);
+	[/if]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Property)) post(trim())]
+[let aProperty : Property = anElement.oclAsType(Property)]
+// [aProperty.eClass().name + ' ' + aProperty.getName()/]
+[aProperty.getFullNameSanitized()/]->setThisElementPtr([aProperty.getFullNameSanitized()/]);
+[aProperty.generateStructuralFeatureInitialization()/]
+[comment Property 'Property::isDerived' /]
+	[if (aProperty.isDerived)]
+[aProperty.getFullNameSanitized()/]->isDerived = true;
+	[/if]
+[comment Property 'Property::isReadOnly' /]
+	[if (aProperty.isReadOnly)]
+[aProperty.getFullNameSanitized()/]->setIsReadOnly(true);
+	[/if]
+[comment Property 'Property::isDerivedUnion' /]
+	[if (aProperty.isDerivedUnion)]
+[aProperty.getFullNameSanitized()/]->isDerivedUnion = true;
+	[/if]
+[comment Property 'Property::aggregation' /]
+	[if (aProperty.aggregation <> AggregationKind::none)]
+[aProperty.getFullNameSanitized()/]->setAggregation(AggregationKind::[aProperty.aggregation/]);
+	[/if]
+[comment Property 'Property::isID' /]
+	[if (aProperty.isID)]
+[aProperty.getFullNameSanitized()/]->setIsID(true);
+	[/if]
+[/let]
+[if (anElement.oclIsKindOf(Port))]
+[let aPort : Port = anElement.oclAsType(Port)]
+[comment Property 'Port::isBehavior' /]
+	[if (aPort.isBehavior)]
+[aPort.getFullNameSanitized()/]->isBehavior = true;
+	[/if]
+[comment Property 'Port::isConjugated' /]
+	[if (aPort.isConjugated)]
+[aPort.getFullNameSanitized()/]->isConjugated = true;;
+	[/if]
+[comment Property 'Port::isService' /]
+	[if (aPort.isService)]
+[aPort.getFullNameSanitized()/]->isService = true;
+	[/if]
+[comment Property 'Port::required' /]
+	[for (anInterface : Interface | aPort.required)]
+[aPort.getFullNameSanitized()/]->addRequired([anInterface.getFullNameSanitized()/]);
+	[/for]
+[comment Property 'Port::provided' /]
+	[for (anInterface : Interface | aPort.provided)]
+[aPort.getFullNameSanitized()/]->addProvided([anInterface.getFullNameSanitized()/]);
+	[/for]
+[comment Property 'Port::redefinedPort' /]
+	[for (redefinedPort : Port | aPort.redefinedPort)]
+[aPort.getFullNameSanitized()/]->addRedefinedPort([redefinedPort.getFullNameSanitized()/]);
+	[/for]
+[/let]
+[/if]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Reception)) post(trim())]
+[let aReception : Reception = anElement.oclAsType(Reception)]
+// [aReception.eClass().name + ' ' + aReception.getName()/]
+[aReception.getFullNameSanitized()/]->setThisBehavioralFeaturePtr([aReception.getFullNameSanitized()/]);
+[aReception.generateBehavioralFeatureInitialization()/]
+[comment Property 'Reception::signal' /]
+[if (not (aReception.signal.oclIsUndefined()))]
+[aReception.getFullNameSanitized()/]->setSignal([generateElementReference(aReception.signal, aReception)/]);
+[/if]
+[/let]
+[/template]
+
+[comment]
+	Signals & Events
+[/comment]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(CallEvent)) post(trim())]
+[let aCallEvent : CallEvent = anElement.oclAsType(CallEvent)]
+// [aCallEvent.eClass().name + ' ' + aCallEvent.getName()/]
+[aCallEvent.getFullNameSanitized()/]->setThisElementPtr([aCallEvent.getFullNameSanitized()/]);
+[aCallEvent.generateEventInitialization()/]
+[comment Property 'CallEvent::operation' /]
+[if (not (aCallEvent.operation.oclIsUndefined()))]
+[aCallEvent.getFullNameSanitized()/]->setOperation([generateElementReference(aCallEvent.operation, aCallEvent)/]);
+[/if]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Signal)) post(trim())]
+[let aSignal : Signal = anElement.oclAsType(Signal)]
+// [aSignal.eClass().name + ' ' + aSignal.getName()/]
+[aSignal.getFullNameSanitized()/]->setThisSignalPtr([aSignal.getFullNameSanitized()/]);
+[aSignal.generateClassifierInitialization()/]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(SignalEvent)) post(trim())]
+[let aSignalEvent : SignalEvent = anElement.oclAsType(SignalEvent)]
+// [aSignalEvent.eClass().name + ' ' + aSignalEvent.getName()/]
+[aSignalEvent.getFullNameSanitized()/]->setThisElementPtr([aSignalEvent.getFullNameSanitized()/]);
+[aSignalEvent.generateEventInitialization()/]
+[comment Property 'SignalEvent::signal' /]
+[if (not (aSignalEvent.signal.oclIsUndefined()))]
+[aSignalEvent.getFullNameSanitized()/]->setSignal([generateElementReference(aSignalEvent.signal, aSignalEvent)/]);
+[/if]
+[/let]
+[/template]
+
+[comment]
+	Packages
+[/comment]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Package)) post(trim())]
+[let aPackage : Package = anElement.oclAsType(Package)]
+/*
+ * [aPackage.eClass().name + ' ' + aPackage.getName()/]
+ */
+[aPackage.getFullNameSanitized()/]->setThisPackagePtr([aPackage.getFullNameSanitized()/]);
+[aPackage.generateNamedElementInitialization()/]
+[for (aPackageableElement : PackageableElement | aPackage.packagedElement->select(pE : PackageableElement | supportedUMLMetaclasses()->includes(pE.eClass().name)))]
+	[aPackageableElement.generateElementInitialization()/]
+[aPackage.getFullNameSanitized()/]->addPackagedElement([aPackageableElement.getFullNameSanitized()/]);
+[/for]
+[/let]
+[/template]
+
 
 [comment Just for fall-through /]
 [template private generateElementInitialization(anElement : Element) post(trim())]
@@ -955,6 +1049,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [/template]
 
 [template private generateBehaviorInitialization(aBehavior : Behavior) post(trim())]
+[aBehavior.generateClassifierInitialization()/]
 [aBehavior.generateBehavioredClassifierInitialization()/]
 [comment Property 'Behavior::isActive' /]
 	[if (aBehavior.isActive)]
@@ -1003,7 +1098,6 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [/template]
 
 [template private generateBehavioredClassifierInitialization(aBehavioredClassifier : BehavioredClassifier) post(trim())]
-[aBehavioredClassifier.generateClassifierInitialization()/]
 [comment Property 'BehavioredClassifier::classifierBehavior' /]
 	[if (not (aBehavioredClassifier.classifierBehavior.oclIsUndefined()))]
 [aBehavioredClassifier.getFullNameSanitized()/]->setClassifierBehavior([generateElementReference(aBehavioredClassifier.classifierBehavior, aBehavioredClassifier)/]);
@@ -1013,10 +1107,15 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 	[aBehavior.generateElementInitialization()/]
 [aBehavioredClassifier.getFullNameSanitized()/]->addOwnedBehavior([aBehavior.getFullNameSanitized()/]);
 	[/for]
+[comment Property 'BehavioredClassifier::interfaceRealization' /]
+	[for (anInterfaceRealization : InterfaceRealization | aBehavioredClassifier.interfaceRealization)]
+	[anInterfaceRealization.generateInterfaceRealizationInitialization()/]
+[aBehavioredClassifier.getFullNameSanitized()/]->addInterfaceRealization([anInterfaceRealization.getFullNameSanitized()/]);
+	[/for]
 [/template]
 
 [template private generateCallActionInitialization(aCallAction : CallAction) post(trim())]
-[aCallAction.generateExecutableNodeInitialization()/]
+[aCallAction.generateInvocationActionInitialization()/]
 [comment Property 'CallAction::isSynchronous' /]
 [if (not (aCallAction.isSynchronous))]
 [aCallAction.getFullNameSanitized()/]->isSynchronous = false;
@@ -1048,6 +1147,47 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [for (aProperty : Property | aClassifier.attribute)]
 	[aProperty.generateElementInitialization()/]
 [aClassifier.getFullNameSanitized()/]->addOwnedAttribute([aProperty.getFullNameSanitized()/]);
+[/for]
+[/template]
+
+[template private generateConnectorInitialization(aConnector : Connector) post(trim())]
+[aConnector.generateFeatureInitialization()/]
+[comment Property 'Connector::end' /]
+[for (aConnectorEnd : ConnectorEnd | aConnector.end)]
+	[aConnectorEnd.generateConnectorEndInitialization()/]
+[aConnector.getFullNameSanitized()/]->addEnd([aConnectorEnd.getFullNameSanitized()/]);
+[/for]
+[comment Property 'Connector::type' /]
+	[if (not (aConnector.type.oclIsUndefined()))]
+[aConnector.getFullNameSanitized()/]->setType([aConnector.type.getFullNameSanitized()/]);
+	[/if]
+[comment Property 'Connector::redefinedConnector' /]
+[for (redefinedConnector : Connector | aConnector.redefinedConnector)]
+[aConnector.getFullNameSanitized()/]->addRedefinedConnector([redefinedConnector.getFullNameSanitized()/]);
+[/for]
+[/template]
+
+[template private generateConnectorEndInitialization(aConnectorEnd : ConnectorEnd)]
+[aConnectorEnd.generateMultiplicityElementInitialization()/]
+[comment Property 'aConnectorEnd::role' /]
+[if (not (aConnectorEnd.role.oclIsUndefined()))]
+[aConnectorEnd.getFullNameSanitized()/]->setRole([aConnectorEnd.role.getFullNameSanitized()/]);
+[/if]
+[comment Property 'aConnectorEnd::partWithPort' /]
+[if (not (aConnectorEnd.partWithPort.oclIsUndefined()))]
+[aConnectorEnd.getFullNameSanitized()/]->setPartWithPort([aConnectorEnd.partWithPort.getFullNameSanitized()/]);
+[/if]
+[/template]
+
+[template private generateDependencyInitialization(aDependency : Dependency) post(trim())]
+[aDependency.generateNamedElementInitialization()/]
+[comment Property 'Dependency::client' /]
+[for (aNamedElement : NamedElement | aDependency.client)]
+[aDependency.getFullNameSanitized()/]->addClient([aNamedElement.getFullNameSanitized()/]);
+[/for]
+[comment Property 'Dependency::suplier' /]
+[for (aNamedElement : NamedElement | aDependency.supplier)]
+[aDependency.getFullNameSanitized()/]->addSupplier([aNamedElement.getFullNameSanitized()/]);
 [/for]
 [/template]
 
@@ -1086,6 +1226,23 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 	[if (aFeature.isStatic)]
 [aFeature.getFullNameSanitized()/]->isStatic = true;
 	[/if]
+[/template]
+
+[template private generateInterfaceRealizationInitialization(anInterfaceRealization : InterfaceRealization)]
+[comment skip initialization of Dependency to avoid contract appearing twice in supplier /]
+[anInterfaceRealization.generateNamedElementInitialization()/]
+[comment Property 'anInterfaceRealization::contract'/]
+	[if (not (anInterfaceRealization.contract.oclIsUndefined()))]
+[anInterfaceRealization.getFullNameSanitized()/]->setContract([anInterfaceRealization.contract.getFullNameSanitized()/]);
+	[/if]
+[/template]
+
+[template private generateInvocationActionInitialization(anInvocationAction : InvocationAction)]
+[anInvocationAction.generateActionInitialization()/]
+[comment Property 'anInvocationAction::onPort'/]
+[if (not anInvocationAction.onPort.oclIsUndefined())]
+[anInvocationAction.getFullNameSanitized()/].SetOnPort([anInvocationAction.onPort.getFullNameSanitized()/]);
+[/if]
 [/template]
 
 [template private generateLinkActionInitialization(aLinkAction : LinkAction) post(trim())]
@@ -1211,6 +1368,14 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [aStructuralFeature.generateTypedElementInitialization()/]
 [/template]
 
+[template private generateStructuredClassifierInitialization(aStructuredClassifier : StructuredClassifier) post(trim())]
+[comment Property 'StructuredClassifier::ownedConnector' /]
+	[for (aConnector : Connector | aStructuredClassifier.ownedConnector)]
+	[aConnector.generateConnectorInitialization()/]
+[aStructuredClassifier.getFullNameSanitized()/]->addOwnedConnector([aConnector.getFullNameSanitized()/]);
+	[/for]
+[/template]
+
 [template private generateTriggerInitialization(aTrigger : Trigger) post(trim())]
 [aTrigger.generateNamedElementInitialization()/]
 [comment Property 'Trigger::event' /]
@@ -1285,6 +1450,24 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [let aLiteralUnlimitedNatural : LiteralUnlimitedNatural = aValueSpecification.oclAsType(LiteralUnlimitedNatural)]
 [aLiteralUnlimitedNatural._generateValueSpecificationInitialization()/]
 [aLiteralUnlimitedNatural.getFullNameSanitized()/]->setValue([aLiteralUnlimitedNatural.value.toString()/]);
+[/let]
+[/template]
+
+[template private generateValueSpecificationInitialization(aValueSpecification : ValueSpecification) ? (aValueSpecification.oclIsKindOf(OpaqueExpression)) post(trim())]
+[let anOpaqueExpression : OpaqueExpression = aValueSpecification.oclAsType(OpaqueExpression)]
+[anOpaqueExpression._generateValueSpecificationInitialization()/]
+[comment Property 'OpaqueExpression::language' /]
+[for (language : String | anOpaqueExpression.language)]
+[anOpaqueExpression.getFullNameSanitized()/]->addLanguage("[language/]");
+[/for]
+[comment Property 'OpaqueExpression::body' /]
+[for (_body : String | anOpaqueExpression._body)]
+[anOpaqueExpression.getFullNameSanitized()/]->addBody("[_body.substituteAll('"', '\\"').substituteAll('\r\n', ' ')/]");
+[/for]
+[comment Property 'OpaqueExpression::behavior'/]
+[if (not (anOpaqueExpression.behavior.oclIsUndefined()))]
+[anOpaqueExpression.getFullNameSanitized()/]->setBehavior([anOpaqueExpression.behavior.getFullNameSanitized()/]);
+[/if]
 [/let]
 [/template]
 

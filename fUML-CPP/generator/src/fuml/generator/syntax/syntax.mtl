@@ -116,7 +116,8 @@
 	{
 		'Comment',
 		'ElementImport',
-		'PackageImport'
+		'PackageImport',
+		'Usage'
 	}
  /]
 
@@ -131,6 +132,8 @@
 		'DataType',
 		'Enumeration',
 		'EnumerationLiteral',
+		'Interface',
+		'InterfaceRealization',
 		'PrimitiveType',
 		'Reception',
 		'Signal'
@@ -140,7 +143,10 @@
 [query private supportedStructuredClassifiersMetaclasses(Any : OclAny) : Set(String) = Set(String)
 	{
 		'Association',
-		'Class'
+		'Class',
+		'Connector',
+		'ConnectorEnd',
+		'Port'
 	}
  /]
 
@@ -153,6 +159,7 @@
 		'LiteralSpecification',
 		'LiteralString',
 		'LiteralUnlimitedNatural',
+		'OpaqueExpression',
 		'ValueSpecification'
 	}
  /]

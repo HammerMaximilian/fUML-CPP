@@ -1,0 +1,32 @@
+[comment encoding = UTF-8 /]
+[module executionmode('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[comment set executable model level to NONE /]
+[query public setIsNoneExecutable(anOclAny: OclAny) : OclVoid
+	= invoke('fuml.generator.services.ExecutionMode', 'setIsNoneExecutable()', Sequence{})
+/]
+
+[comment set executable model level to FUML /]
+[query public setIsFUMLExecutable(anOclAny: OclAny) : OclVoid
+	= invoke('fuml.generator.services.ExecutionMode', 'setIsFUMLExecutable()', Sequence{})
+/]
+
+[comment set executable model level to PSCS /]
+[query public setIsPSCSExecutable(anOclAny: OclAny) : OclVoid
+	= invoke('fuml.generator.services.ExecutionMode', 'setIsPSCSExecutable()', Sequence{})
+/]
+
+[comment determines whether the model should be generated as none-executable /]
+[query public isExecutable(anOclAny: OclAny) : Boolean
+	= invoke('fuml.generator.services.ExecutionMode', 'isExecutable()', Sequence{})
+/]
+
+[comment determines whether the model should be generated as FUML-executable (delivers the same result as query 'isExecutableModel') /]
+[query public isFUMLExecutable(anOclAny: OclAny) : Boolean
+	= invoke('fuml.generator.services.ExecutionMode', 'isFUMLExecutable()', Sequence{})
+/]
+
+[comment determines whether the model should be generated as PSCS-executable /]
+[query public isPSCSExecutable(anOclAny: OclAny) : Boolean
+	= invoke('fuml.generator.services.ExecutionMode', 'isPSCSExecutable()', Sequence{})
+/]
