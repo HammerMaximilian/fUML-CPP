@@ -37,7 +37,7 @@ namespace [aPackage.getNameSanitized()/]
 
 			virtual void execute(std::string) override;
 
-		private:
+		protected:
 			[aPackage.getNameSanitized() + 'Environment'/]();
 
 		/* [protected (': User-defined members')]

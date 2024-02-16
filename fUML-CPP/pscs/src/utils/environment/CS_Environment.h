@@ -15,8 +15,14 @@ namespace pscs::environment
 	class CS_Environment : public fuml::environment::Environment
 	{
 		public:
-			CS_Environment();
 			virtual ~CS_Environment() = 0;
+
+		protected:
+			CS_Environment();
+
+			virtual void initializeLoci() override;
+			virtual void initializeLociContents() override;
+
 	};
 }
 
