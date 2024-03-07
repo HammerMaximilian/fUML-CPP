@@ -14,6 +14,11 @@ namespace fuml::extensions::structuredclassifiers
 {
 	class UMLConformingDispatchStrategy : public SignatureBasedDispatchStrategy
 	{
+		public:
+			virtual bool operationsMatch(const OperationPtr&, const OperationPtr&) override;
+			bool isConsistentWith(const OperationPtr&, const OperationPtr&);
+			bool conformsTo(const ClassifierPtr&, const ClassifierPtr&);
+			bool compatibleWith(const MultiplicityElementPtr&, const MultiplicityElementPtr&);
 	}; // UMLConformingDispatchStrategy
 }
 
