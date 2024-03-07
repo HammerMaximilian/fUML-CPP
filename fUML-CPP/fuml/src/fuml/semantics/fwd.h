@@ -548,4 +548,11 @@ using ValuePtr = std::shared_ptr<Value>;
 using ValueList = std::vector<ValuePtr>;
 using ValueListPtr = std::shared_ptr<ValueList>;
 
+#ifndef AS
+	#define AS(T, SP) std::dynamic_pointer_cast<T>(SP)
+#endif
+#ifndef IS
+	#define IS(T, SP) (std::dynamic_pointer_cast<T>(SP)!=nullptr)
+#endif
+
 #endif /* FUML_SEMANTICS_FWD_H_ */

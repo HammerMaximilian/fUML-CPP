@@ -160,7 +160,11 @@ using CS_StructuralFeatureOfInterfaceAccessStrategyPtr = std::shared_ptr<CS_Stru
 using CS_OpaqueExpressionEvaluation = pscs::semantics::values::CS_OpaqueExpressionEvaluation;
 using CS_OpaqueExpressionEvaluationPtr = std::shared_ptr<CS_OpaqueExpressionEvaluation>;
 
-#define AS(T, SP) std::dynamic_pointer_cast<T>(SP)
-#define IS(T, SP) (std::dynamic_pointer_cast<T>(SP)!=nullptr)
+#ifndef AS
+	#define AS(T, SP) std::dynamic_pointer_cast<T>(SP)
+#endif
+#ifndef IS
+	#define IS(T, SP) (std::dynamic_pointer_cast<T>(SP)!=nullptr)
+#endif
 
 #endif /* PSCS_SEMANTICS_FWD_H_ */
