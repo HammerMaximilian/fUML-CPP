@@ -6,7 +6,7 @@
  */
 
 #include <fuml/extensions/structuredclassifiers/UMLConformingDispatchStrategy.h>
-#include <uml/classification/Classifier.h>
+#include <uml/structuredclassifiers/Class_.h>
 #include <uml/classification/Operation.h>
 #include <uml/classification/Parameter.h>
 #include <uml/classification/ParameterDirectionKind.h>
@@ -17,17 +17,15 @@ bool UMLConformingDispatchStrategy::operationsMatch(const OperationPtr& ownedOpe
 {
     // Check if the owned operation is equal to or overrides the base operation.
     // In this context, an owned operation overrides a base operation if:
+	//	- base operation is directly or indirectly redefined by owned operation
+	//	- the class that owns base operation is equal to or a base class of the class that owns owned operation
     //  - they have the same number of owned parameters and for each parameter the following holds:
     //      - direction, ordering and uniqueness are the same
     //      - the corresponding types are covariant, contravariant or invariant
     //      - the multiplicities are compatible depending on the parameter direction
 
-    bool matches;
-    if (ownedOperation == baseOperation)
-    {
-        matches = true;
-    }
-    else
+    bool matches = RedefinitionBasedDispatchStrategy::operationsMatch(ownedOperation, baseOperation);
+    if (matches)
     {
         matches = this->isConsistentWith(ownedOperation, baseOperation);
     }
@@ -39,16 +37,14 @@ bool UMLConformingDispatchStrategy::isConsistentWith(const OperationPtr& ownedOp
 {
     bool isConsistentWith = false;
 
-    // NOTE: UML specification implies first checking if the context of baseOperation is valid
-    // (i.e. is a direct or indirect base class of the owner of ownedOperation).
-    // Here this is already implicitely done by only traversing base classes of ownedOperation's owner
+    isConsistentWith = this->conformsTo(ownedOperation->class_.lock(), baseOperation->class_.lock());
 
     const ParameterListPtr& ownedOperationParameters = ownedOperation->ownedParameter;
     const ParameterListPtr& baseOperationParameters = baseOperation->ownedParameter;
 
     unsigned int ownedOperationParametersSize = ownedOperationParameters->size();
 
-    isConsistentWith = baseOperationParameters->size() == ownedOperationParametersSize;
+    isConsistentWith = isConsistentWith && (baseOperationParameters->size() == ownedOperationParametersSize);
 
     for (unsigned int i = 0; isConsistentWith == true && i < ownedOperationParametersSize; i++)
     {
@@ -98,7 +94,14 @@ bool UMLConformingDispatchStrategy::conformsTo(const ClassifierPtr& type, const 
     }
     else
     {
-        conformsTo = this->isSpecializationOf(type, otherType);
+        unsigned int i = 1,
+        			generalSize = type->general->size();
+
+        while(!conformsTo && i <= generalSize)
+        {
+        	const ClassifierPtr& general = type->general->at(i - 1);
+        	conformsTo = this->conformsTo(general, otherType);
+        }
     }
 
     return conformsTo;

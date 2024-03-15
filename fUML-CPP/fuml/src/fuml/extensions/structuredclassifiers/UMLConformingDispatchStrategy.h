@@ -8,11 +8,11 @@
 #ifndef FUML_EXTENSIONS_STRUCTUREDCLASSIFIERS_UMLCONFORMINGDISPATCHSTRATEGY_H_
 #define FUML_EXTENSIONS_STRUCTUREDCLASSIFIERS_UMLCONFORMINGDISPATCHSTRATEGY_H_
 
-#include <fuml/extensions/structuredclassifiers/SignatureBasedDispatchStrategy.h>
+#include <fuml/semantics/structuredclassifiers/RedefinitionBasedDispatchStrategy.h>
 
 namespace fuml::extensions::structuredclassifiers
 {
-	class UMLConformingDispatchStrategy : public SignatureBasedDispatchStrategy
+	class UMLConformingDispatchStrategy : public RedefinitionBasedDispatchStrategy
 	{
 		public:
 			virtual bool operationsMatch(const OperationPtr&, const OperationPtr&) override;
