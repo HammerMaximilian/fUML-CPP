@@ -24,6 +24,7 @@
 #include <uml/actions/InputPin.h>
 #include <uml/actions/OutputPin.h>
 #include <uml/activities/ExceptionHandler.h>
+#include <uml/activities/ForkNode.h>
 #include <uml/classification/Property.h>
 #include <uml/commonbehavior/Behavior.h>
 #include <uml/structuredclassifiers/Association.h>
@@ -55,7 +56,7 @@ void ActionActivation::run()
 
 	if (this->outgoingEdges->size() > 0)
 	{
-		this->outgoingEdges->at(0)->target->run();
+		this->outgoingEdges->at(0)->target.lock()->run();
 	}
 
 	this->firing = false;
@@ -137,7 +138,7 @@ void ActionActivation::terminate()
 
 	if (this->outgoingEdges->size() > 0)
 	{
-		this->outgoingEdges->at(0)->target->terminate();
+		this->outgoingEdges->at(0)->target.lock()->terminate();
 	}
 } // terminate
 
@@ -300,19 +301,33 @@ void ActionActivation::addOutgoingEdge(const ActivityEdgeInstancePtr& edge)
 	// control flows, with an implicit fork for offers out of the action.]
 
 	ActivityNodeActivationPtr forkNodeActivation;
+	static ForkNodePtr anonymousFork;
 
 	if (this->outgoingEdges->size() == 0)
 	{
+		if(anonymousFork == nullptr)
+		{
+			anonymousFork.reset(new ForkNode());
+			anonymousFork->setName("Anonymous Fork");
+		}
+
 		forkNodeActivation.reset(new ForkNodeActivation());
+		forkNodeActivation->node = anonymousFork;
 		forkNodeActivation->setThisActivityNodeActivationPtr(forkNodeActivation);
 		forkNodeActivation->running = false;
 		ActivityEdgeInstancePtr newEdge(new ActivityEdgeInstance());
 		ActivityNodeActivation::addOutgoingEdge(newEdge);
 		forkNodeActivation->addIncomingEdge(newEdge);
+
+		// Make sure to store the new anonymous fork node activation
+		// persistently within the same group as this node, as it is
+		// only referenced via weak pointers by it's adjacent edge instances,
+		// and would thus be deleted when going out of scope.
+		this->group.lock()->nodeActivations->push_back(forkNodeActivation);
 	}
 	else
 	{
-		forkNodeActivation = this->outgoingEdges->at(0)->target;
+		forkNodeActivation = this->outgoingEdges->at(0)->target.lock();
 	}
 
 	forkNodeActivation->addOutgoingEdge(edge);
@@ -434,7 +449,7 @@ bool ActionActivation::isSourceFor(const ActivityEdgeInstancePtr& edgeInstance)
 	bool isSource = false;
 	if (this->outgoingEdges->size() > 0)
 	{
-		isSource = this->outgoingEdges->at(0)->target->isSourceFor(edgeInstance);
+		isSource = this->outgoingEdges->at(0)->target.lock()->isSourceFor(edgeInstance);
 	}
 
 	return isSource;

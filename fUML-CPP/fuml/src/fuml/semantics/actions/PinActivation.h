@@ -15,7 +15,7 @@ namespace fuml::semantics::actions
 	class PinActivation : public ObjectNodeActivation
 	{
 		public:
-			ActionActivationPtr actionActivation = nullptr;
+			ActionActivationPtr_w actionActivation;
 
 		public:
 			virtual ~PinActivation() = 0;

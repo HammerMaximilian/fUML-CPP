@@ -28,7 +28,7 @@ void InputPinActivation::receiveOffer()
 	}
 	else
 	{
-		this->actionActivation->receiveOffer();
+		this->actionActivation.lock()->receiveOffer();
 	}
 } // receiveOffer
 
@@ -58,7 +58,7 @@ void InputPinActivation::fire(const TokenListPtr& incomingTokens)
 		if (this->streamingIsTerminated())
 		{
 			CallActionActivationPtr callActionActivation = std::dynamic_pointer_cast<CallActionActivation>(
-				this->actionActivation);
+				this->actionActivation.lock());
 			if (callActionActivation)
 			{
 				callActionActivation->completeStreamingCall();

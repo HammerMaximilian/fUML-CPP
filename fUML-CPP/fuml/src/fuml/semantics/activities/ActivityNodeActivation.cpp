@@ -174,7 +174,7 @@ bool ActivityNodeActivation::isSourceFor(const ActivityEdgeInstancePtr& edgeInst
 	// Check if this node activation is the effective source for the given
 	// edge instance.
 
-	return (edgeInstance->source == this->thisActivityNodeActivationPtr.lock());
+	return (edgeInstance->source.lock() == this->thisActivityNodeActivationPtr.lock());
 } // isSourceFor
 
 ActivityExecutionPtr ActivityNodeActivation::getActivityExecution()

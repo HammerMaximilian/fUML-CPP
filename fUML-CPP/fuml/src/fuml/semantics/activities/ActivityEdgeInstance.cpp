@@ -28,7 +28,7 @@ void ActivityEdgeInstance::sendOffer(const TokenListPtr& tokens)
 
 	this->offers->push_back(offer);
 
-	this->target->receiveOffer();
+	this->target.lock()->receiveOffer();
 } // sendOffer
 
 int ActivityEdgeInstance::countOfferedValues()
