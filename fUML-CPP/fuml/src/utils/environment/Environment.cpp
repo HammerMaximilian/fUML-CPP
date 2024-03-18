@@ -89,6 +89,7 @@ using namespace fuml::library::unlimitednaturalfunctions;
 
 Environment::Environment()
 {
+	this->initializeEnvironment();
 }
 
 Environment::~Environment()
