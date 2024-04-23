@@ -23,7 +23,7 @@ ExecutionPtr CallBehaviorActionActivation::getCallExecution()
 	// [Note that this requires the behavior context to be compatible with
 	// the type of the current contect object.]
 
-	const BehaviorPtr& behavior = std::dynamic_pointer_cast<CallBehaviorAction>(this->node)->behavior;
+	const BehaviorPtr& behavior = AS(CallBehaviorAction, this->node)->behavior;
 
 	Object_Ptr context;
 	if (behavior->context.lock() == nullptr)
@@ -44,5 +44,5 @@ ParameterListPtr CallBehaviorActionActivation::getParameters()
 	// Get the owned parameters of the behavior of the call behavior
 	// action for this call behavior action activation.
 
-	return std::dynamic_pointer_cast<CallBehaviorAction>(this->node)->behavior->ownedParameter;
+	return AS(CallBehaviorAction, this->node)->behavior->ownedParameter;
 } // getParameters

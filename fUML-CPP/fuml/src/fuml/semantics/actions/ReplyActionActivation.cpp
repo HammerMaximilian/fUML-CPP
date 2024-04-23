@@ -20,18 +20,18 @@ void ReplyActionActivation::doAction()
 	// the return information pin using the reply values given
 	// on the reply value pins.
 
-	ReplyActionPtr action = std::dynamic_pointer_cast<ReplyAction>(this->node);
+	ReplyActionPtr action = AS(ReplyAction, this->node);
 	const TriggerPtr& replyToCall = action->replyToCall;
 	const InputPinListPtr& replyValuePins = action->replyValue;
 	const InputPinPtr& returnInformationPin = action->returnInformation;
 
 	ValueListPtr values = this->takeTokens(returnInformationPin);
-	ReturnInformationPtr returnInformation = std::dynamic_pointer_cast<ReturnInformation>(values->at(0));
+	ReturnInformationPtr returnInformation = AS(ReturnInformation, values->at(0));
 	fuml::Debug::println(
 		"[doAction] action = " + action->name + " returnInformation = "
 			+ std::to_string(returnInformation->hashCode()));
 
-	CallEventPtr callEvent = std::dynamic_pointer_cast<CallEvent>(replyToCall->event);
+	CallEventPtr callEvent = AS(CallEvent, replyToCall->event);
 
 	if (callEvent && (callEvent->operation == returnInformation->getOperation()))
 	{

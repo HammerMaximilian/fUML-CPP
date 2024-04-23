@@ -21,10 +21,10 @@ void SendSignalActionActivation::doAction()
 	// Otherwise, construct a signal using the values from the argument pins
 	// and send it to the referent object.
 
-	SendSignalActionPtr action = std::dynamic_pointer_cast<SendSignalAction>(this->node);
+	SendSignalActionPtr action = AS(SendSignalAction, this->node);
 	ValuePtr target = this->takeTokens(action->target)->at(0);
 
-	ReferencePtr reference = std::dynamic_pointer_cast<Reference>(target);
+	ReferencePtr reference = AS(Reference, target);
 
 	if (reference)
 	{
@@ -46,7 +46,7 @@ void SendSignalActionActivation::doAction()
 
 		SignalEventOccurrencePtr signalEventOccurrence(new SignalEventOccurrence());
 		signalEventOccurrence->setThisEventOccurrencePtr(signalEventOccurrence);
-		signalEventOccurrence->signalInstance = std::dynamic_pointer_cast<SignalInstance>(signalInstance->copy());
+		signalEventOccurrence->signalInstance = AS(SignalInstance, signalInstance->copy());
 		signalEventOccurrence->sendTo(reference);
 	}
 } // doAction

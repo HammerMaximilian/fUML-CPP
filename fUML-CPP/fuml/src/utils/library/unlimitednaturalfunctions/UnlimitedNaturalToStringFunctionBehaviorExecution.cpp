@@ -26,7 +26,7 @@ UnlimitedNaturalToStringFunctionBehaviorExecution::UnlimitedNaturalToStringFunct
 void UnlimitedNaturalToStringFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,
 	const ParameterValueListPtr& outputParameters)
 {
-	UnlimitedNaturalValuePtr unv1 = std::dynamic_pointer_cast<UnlimitedNaturalValue>(inputParameters->at(0)->values->at(0));
+	UnlimitedNaturalValuePtr unv1 = AS(UnlimitedNaturalValue, inputParameters->at(0)->values->at(0));
 	int un = unv1->value;
 	fuml::Debug::println("[doBody] argument = " + std::to_string(un));
 

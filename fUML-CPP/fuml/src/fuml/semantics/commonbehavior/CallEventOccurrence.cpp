@@ -24,7 +24,7 @@ bool CallEventOccurrence::match(const TriggerPtr& trigger)
 	// operation of this call event occurrence.
 
 	bool matches = false;
-	CallEventPtr callEvent = std::dynamic_pointer_cast<CallEvent>(trigger->event);
+	CallEventPtr callEvent = AS(CallEvent, trigger->event);
 	if (callEvent)
 	{
 		matches = (callEvent->operation == this->getOperation());

@@ -117,7 +117,7 @@ StructuralFeatureListPtr StructuredValue::getStructuralFeaturesForType(const Cla
 	NamedElementListPtr ownedMembers = type->ownedMember;
 	for (const NamedElementPtr& ownedMember : *ownedMembers)
 	{
-		StructuralFeaturePtr structuralFeature = std::dynamic_pointer_cast<StructuralFeature>(ownedMember);
+		StructuralFeaturePtr structuralFeature = AS(StructuralFeature, ownedMember);
 		if (structuralFeature)
 		{
 			features->push_back(structuralFeature);
@@ -174,7 +174,7 @@ void StructuredValue::addFeatureValues(const FeatureValueListPtr& oldFeatureValu
 bool StructuredValue::checkForAssociationEnd(const StructuralFeaturePtr& feature)
 {
 	bool isAssociationEnd = false;
-	PropertyPtr property = std::dynamic_pointer_cast<Property>(feature);
+	PropertyPtr property = AS(Property, feature);
 	if (property)
 	{
 		isAssociationEnd = (property->association.lock() != nullptr);

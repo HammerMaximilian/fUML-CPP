@@ -91,19 +91,19 @@ ValuePtr Status::getValue()
 		{
 			attributeValue.reset(new StringValue());
 			attributeValue->type = this->stringType;
-			std::dynamic_pointer_cast<StringValue>(attributeValue)->value = this->context;
+			AS(StringValue, attributeValue)->value = this->context;
 		}
 		else if (attribute->name == "code")
 		{
 			attributeValue.reset(new IntegerValue());
 			attributeValue->type = this->integerType;
-			std::dynamic_pointer_cast<IntegerValue>(attributeValue)->value = this->code;
+			AS(IntegerValue, attributeValue)->value = this->code;
 		}
 		else if (attribute->name == "description")
 		{
 			attributeValue.reset(new StringValue());
 			attributeValue->type = this->stringType;
-			std::dynamic_pointer_cast<StringValue>(attributeValue)->value = this->description;
+			AS(StringValue, attributeValue)->value = this->description;
 		}
 		ValueListPtr values(new ValueList());
 		values->push_back(attributeValue);

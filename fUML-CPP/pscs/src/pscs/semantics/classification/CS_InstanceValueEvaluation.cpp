@@ -47,7 +47,7 @@ ValuePtr CS_InstanceValueEvaluation::evaluate()
 	if (EnumerationLiteralPtr literal = AS(EnumerationLiteral, instance))
 	{
 		EnumerationValuePtr enumerationValue(new EnumerationValue());
-		enumerationValue->type = std::dynamic_pointer_cast<Enumeration>(myType);
+		enumerationValue->type = AS(Enumeration, myType);
 		enumerationValue->literal = literal;
 
 		value = enumerationValue;

@@ -36,7 +36,7 @@ TokenListPtr PinActivation::takeOfferedTokens()
 	// will have this->node == nullptr.
 	if (this->node != nullptr)
 	{
-		upper = std::dynamic_pointer_cast<Pin>(this->node)->upper;
+		upper = AS(Pin, this->node)->upper;
 	}
 
 	TokenListPtr tokens(new TokenList());

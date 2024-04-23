@@ -34,7 +34,7 @@ ValuePtr ExtensionalValue::copy()
 	// Create a new extensional value with the same feature values at the
 	// same locus as this one.
 
-	ExtensionalValuePtr newValue = std::dynamic_pointer_cast<ExtensionalValue>(CompoundValue::copy());
+	ExtensionalValuePtr newValue = AS(ExtensionalValue, CompoundValue::copy());
 	newValue->setThisExtensionalValuePtr(newValue);
 
 	if (this->locus != nullptr)

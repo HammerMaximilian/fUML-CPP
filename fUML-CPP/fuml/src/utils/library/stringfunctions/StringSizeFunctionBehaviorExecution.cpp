@@ -26,7 +26,7 @@ StringSizeFunctionBehaviorExecution::StringSizeFunctionBehaviorExecution()
 void StringSizeFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,
 	const ParameterValueListPtr& outputParameters)
 {
-	StringValuePtr sv1 = std::dynamic_pointer_cast<StringValue>(inputParameters->at(0)->values->at(0));
+	StringValuePtr sv1 = AS(StringValue, inputParameters->at(0)->values->at(0));
 	std::string s1 = sv1->value;
 	fuml::Debug::println("[doBody] argument = " + s1);
 

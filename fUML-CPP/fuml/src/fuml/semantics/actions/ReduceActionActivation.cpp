@@ -29,7 +29,7 @@ void ReduceActionActivation::doAction()
 	// make the execution the current execution, place the appropriate
 	// values on its input parameters, and execute it.
 
-	ReduceActionPtr action = std::dynamic_pointer_cast<ReduceAction>(this->node);
+	ReduceActionPtr action = AS(ReduceAction, this->node);
 
 	ValueListPtr values = this->takeTokens(action->collection);
 

@@ -104,7 +104,7 @@ void ObjectActivation::dispatchNextEvent()
 		if (matchingEventAccepterIndexes.size() > 0)
 		{
 			// *** Choose one matching event accepter non-deterministically. ***
-			int j = std::dynamic_pointer_cast<ChoiceStrategy>(this->object->locus->factory->getStrategy("choice"))
+			int j = AS(ChoiceStrategy, this->object->locus->factory->getStrategy("choice"))
 				->choose(matchingEventAccepterIndexes.size());
 			int k = matchingEventAccepterIndexes.at(j - 1);
 			EventAccepterPtr selectedEventAccepter = this->waitingEventAccepters->at(k);
@@ -119,7 +119,7 @@ EventOccurrencePtr ObjectActivation::getNextEvent()
 	// Get the next event from the event pool, using a get next event
 	// strategy.
 
-	return std::dynamic_pointer_cast<GetNextEventStrategy>(this->object->locus->factory->getStrategy("getNextEvent"))
+	return AS(GetNextEventStrategy, this->object->locus->factory->getStrategy("getNextEvent"))
 		->getNextEvent(this->thisObjectActivationPtr.lock());
 } // getNextEvent
 
@@ -156,7 +156,7 @@ void ObjectActivation::startBehavior(const Class_Ptr& classifier, const Paramete
 		Class_ListPtr types = this->object->types;
 		for (const Class_Ptr& type : *types)
 		{
-			BehaviorPtr behavior = std::dynamic_pointer_cast<Behavior>(type);
+			BehaviorPtr behavior = AS(Behavior, type);
 			if (behavior || type->classifierBehavior != nullptr)
 			{
 				this->startBehavior(type, ParameterValueListPtr(new ParameterValueList()));

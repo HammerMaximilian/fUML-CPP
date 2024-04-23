@@ -40,11 +40,11 @@ void ClassifierBehaviorInvocationEventAccepter::invokeBehavior(const Class_Ptr& 
 	this->classifier = classifier;
 	const Object_Ptr& object = this->objectActivation->object;
 
-	BehaviorPtr behavior = std::dynamic_pointer_cast<Behavior>(classifier);
+	BehaviorPtr behavior = AS(Behavior, classifier);
 
 	if (behavior)
 	{
-		this->execution = std::dynamic_pointer_cast<Execution>(object);
+		this->execution = AS(Execution, object);
 	}
 	else
 	{
@@ -69,8 +69,7 @@ bool ClassifierBehaviorInvocationEventAccepter::match(const EventOccurrencePtr& 
 	// event accepter.
 
 	bool matches = false;
-	InvocationEventOccurrencePtr invocationEventOccurrence = std::dynamic_pointer_cast<InvocationEventOccurrence>(
-		eventOccurrence);
+	InvocationEventOccurrencePtr invocationEventOccurrence = AS(InvocationEventOccurrence, eventOccurrence);
 
 	if (invocationEventOccurrence)
 	{
@@ -84,8 +83,7 @@ void ClassifierBehaviorInvocationEventAccepter::accept(const EventOccurrencePtr&
 	// Accept an invocation event occurrence. Execute the execution of this
 	// classifier behavior invocation event accepter.
 
-	InvocationEventOccurrencePtr invocationEventOccurrence = std::dynamic_pointer_cast<InvocationEventOccurrence>(
-		eventOccurrence);
+	InvocationEventOccurrencePtr invocationEventOccurrence = AS(InvocationEventOccurrence, eventOccurrence);
 
 	if (invocationEventOccurrence)
 	{

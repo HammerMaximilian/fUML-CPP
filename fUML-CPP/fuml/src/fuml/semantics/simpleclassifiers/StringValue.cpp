@@ -29,7 +29,7 @@ bool StringValue::equals(const ValuePtr& otherValue)
 	// value.
 
 	bool isEqual = false;
-	StringValuePtr stringValue = std::dynamic_pointer_cast<StringValue>(otherValue);
+	StringValuePtr stringValue = AS(StringValue, otherValue);
 	if (stringValue)
 	{
 		isEqual = (stringValue->value == this->value);
@@ -42,7 +42,7 @@ ValuePtr StringValue::copy()
 {
 	// Create a new string value with the same value as this string value.
 
-	StringValuePtr newValue = std::dynamic_pointer_cast<StringValue>(PrimitiveValue::copy());
+	StringValuePtr newValue = AS(StringValue, PrimitiveValue::copy());
 
 	newValue->value = this->value;
 	return newValue;

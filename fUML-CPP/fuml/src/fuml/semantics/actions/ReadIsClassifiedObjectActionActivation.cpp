@@ -22,7 +22,7 @@ void ReadIsClassifiedObjectActionActivation::doAction()
 	// classifier as a type.
 	// Otherwise place false on the result output pin.
 
-	ReadIsClassifiedObjectActionPtr action = std::dynamic_pointer_cast<ReadIsClassifiedObjectAction>(this->node);
+	ReadIsClassifiedObjectActionPtr action = AS(ReadIsClassifiedObjectAction, this->node);
 
 	ValuePtr input = this->takeTokens(action->object)->at(0);
 

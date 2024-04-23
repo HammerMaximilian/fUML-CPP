@@ -117,7 +117,7 @@ Object_Ptr Locus::instantiate(const Class_Ptr& type)
 
 	Object_Ptr object = nullptr;
 
-	BehaviorPtr behavior = std::dynamic_pointer_cast<Behavior>(type);
+	BehaviorPtr behavior = AS(Behavior, type);
 
 	if (behavior)
 	{

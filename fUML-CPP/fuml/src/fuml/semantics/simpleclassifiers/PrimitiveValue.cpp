@@ -17,7 +17,7 @@ ValuePtr PrimitiveValue::copy()
 {
 	// Create a new value that is equal to this primitive value.
 
-	PrimitiveValuePtr newValue = std::dynamic_pointer_cast<PrimitiveValue>(Value::copy());
+	PrimitiveValuePtr newValue = AS(PrimitiveValue, Value::copy());
 
 	newValue->type = this->type;
 	return newValue;

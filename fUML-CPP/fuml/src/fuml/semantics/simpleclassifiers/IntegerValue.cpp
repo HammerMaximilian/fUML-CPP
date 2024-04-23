@@ -29,7 +29,7 @@ bool IntegerValue::equals(const ValuePtr& otherValue)
 	// value.
 
 	bool isEqual = false;
-	IntegerValuePtr integerValue = std::dynamic_pointer_cast<IntegerValue>(otherValue);
+	IntegerValuePtr integerValue = AS(IntegerValue, otherValue);
 	if (integerValue)
 	{
 		isEqual = (integerValue->value == this->value);
@@ -42,7 +42,7 @@ ValuePtr IntegerValue::copy()
 {
 	// Create a new integer value with the same value as this integer value.
 
-	IntegerValuePtr newValue = std::dynamic_pointer_cast<IntegerValue>(PrimitiveValue::copy());
+	IntegerValuePtr newValue = AS(IntegerValue, PrimitiveValue::copy());
 
 	newValue->value = this->value;
 	return newValue;

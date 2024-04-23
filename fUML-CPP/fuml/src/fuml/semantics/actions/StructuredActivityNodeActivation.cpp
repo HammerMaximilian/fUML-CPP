@@ -27,7 +27,7 @@ void StructuredActivityNodeActivation::doAction()
 	// its behavior with isolation.
 	// Otherwise just activate it normally.
 
-	if (std::dynamic_pointer_cast<StructuredActivityNode>(this->node)->mustIsolate)
+	if (AS(StructuredActivityNode, this->node)->mustIsolate)
 	{
 		_beginIsolation();
 		this->doStructuredActivity();
@@ -47,7 +47,7 @@ void StructuredActivityNodeActivation::doStructuredActivity()
 	// simply as a group. It is overridden for the execution of conditional
 	// and loop nodes.)
 
-	ActionPtr action = std::dynamic_pointer_cast<Action>(this->node);
+	ActionPtr action = AS(Action, this->node);
 
 	// *** Concurrently send offers from all input pins. ***
 	InputPinListPtr inputPins = action->input;
@@ -103,7 +103,7 @@ ActivityNodeListPtr StructuredActivityNodeActivation::makeActivityNodeList(const
 	{
 		activityNodes->push_back(node);
 
-		ActionPtr action = std::dynamic_pointer_cast<Action>(node);
+		ActionPtr action = AS(Action, node);
 
 		if (action)
 		{
@@ -130,14 +130,13 @@ ValueListPtr StructuredActivityNodeActivation::getPinValues(const OutputPinPtr& 
 	// to the given pin in the internal activation group for this node
 	// activation.
 
-	PinActivationPtr pinActivation = std::dynamic_pointer_cast<PinActivation>(
-		this->activationGroup->getNodeActivation(pin));
+	PinActivationPtr pinActivation = AS(PinActivation, this->activationGroup->getNodeActivation(pin));
 	const TokenListPtr& tokens = pinActivation->getTokens();
 
 	ValueListPtr values(new ValueList());
 	for (const TokenPtr& token : *tokens)
 	{
-		const ValuePtr& value = std::dynamic_pointer_cast<ObjectToken>(token)->value;
+		const ValuePtr& value = AS(ObjectToken, token)->value;
 		if (value != nullptr)
 		{
 			values->push_back(value);
@@ -153,8 +152,7 @@ void StructuredActivityNodeActivation::putPinValues(const OutputPinPtr& pin, con
 	// to the given output pin on the internal activation group for this
 	// node activation.
 
-	PinActivationPtr pinActivation = std::dynamic_pointer_cast<PinActivation>(
-		this->activationGroup->getNodeActivation(pin));
+	PinActivationPtr pinActivation = AS(PinActivation, this->activationGroup->getNodeActivation(pin));
 
 	for (const ValuePtr& value : *values)
 	{
@@ -174,7 +172,7 @@ void StructuredActivityNodeActivation::createNodeActivations()
 
 	this->activationGroup.reset(new ActivityNodeActivationGroup());
 	this->activationGroup->containingNodeActivation = this->thisStructuredActivityNodeActivationPtr.lock();
-	this->activationGroup->createNodeActivations(std::dynamic_pointer_cast<StructuredActivityNode>(this->node)->node);
+	this->activationGroup->createNodeActivations(AS(StructuredActivityNode, this->node)->node);
 
 } // createNodeActivations
 
@@ -182,7 +180,7 @@ void StructuredActivityNodeActivation::createEdgeInstances()
 {
 	// Create instances for all edges owned by this node.
 
-	this->activationGroup->createEdgeInstances(std::dynamic_pointer_cast<StructuredActivityNode>(this->node)->edge);
+	this->activationGroup->createEdgeInstances(AS(StructuredActivityNode, this->node)->edge);
 } // createEdgeInstances
 
 bool StructuredActivityNodeActivation::isSourceFor(const ActivityEdgeInstancePtr& edgeInstance)

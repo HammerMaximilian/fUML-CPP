@@ -29,7 +29,7 @@ bool BooleanValue::equals(const ValuePtr& otherValue)
 	// value.
 
 	bool isEqual = false;
-	BooleanValuePtr booleanValue = std::dynamic_pointer_cast<BooleanValue>(otherValue);
+	BooleanValuePtr booleanValue = AS(BooleanValue, otherValue);
 	if (booleanValue)
 	{
 		isEqual = (booleanValue->value == this->value);
@@ -42,7 +42,7 @@ ValuePtr BooleanValue::copy()
 {
 	// Create a new boolean value with the same value as this boolean value.
 
-	BooleanValuePtr newValue = std::dynamic_pointer_cast<BooleanValue>(PrimitiveValue::copy());
+	BooleanValuePtr newValue = AS(BooleanValue, PrimitiveValue::copy());
 
 	newValue->value = this->value;
 	return newValue;

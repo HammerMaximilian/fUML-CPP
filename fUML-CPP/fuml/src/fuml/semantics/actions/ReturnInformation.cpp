@@ -48,7 +48,7 @@ bool ReturnInformation::equals(const ValuePtr& otherValue)
 
 	bool isEqual = false;
 
-	ReturnInformationPtr otherReturnInformation = std::dynamic_pointer_cast<ReturnInformation>(otherValue);
+	ReturnInformationPtr otherReturnInformation = AS(ReturnInformation, otherValue);
 
 	if (otherReturnInformation)
 	{
@@ -63,7 +63,7 @@ ValuePtr ReturnInformation::copy()
 	// Create a new return information value that is a copy of this value, with
 	// the same call event occurrence.
 
-	ReturnInformationPtr copy = std::dynamic_pointer_cast<ReturnInformation>(Value::copy());
+	ReturnInformationPtr copy = AS(ReturnInformation, Value::copy());
 	copy->callEventOccurrence = this->callEventOccurrence;
 	return copy;
 } // copy

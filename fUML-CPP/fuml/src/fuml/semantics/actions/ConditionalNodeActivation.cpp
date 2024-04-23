@@ -33,14 +33,14 @@ void ConditionalNodeActivation::doStructuredActivity()
 	// non-deterministically and run its body, then copy the outputs of that
 	// clause to the output pins of the node.
 
-	ConditionalNodePtr node = std::dynamic_pointer_cast<ConditionalNode>(this->node);
+	ConditionalNodePtr node = AS(ConditionalNode, this->node);
 
 	const ActivityNodeActivationListPtr& nodeActivations = this->activationGroup->nodeActivations;
 	ActivityNodeActivationListPtr nonExecutableNodeActivations(new ActivityNodeActivationList());
 	for (const ActivityNodeActivationPtr& nodeActivation : *nodeActivations)
 	{
-		ExecutableNodePtr executableNode = std::dynamic_pointer_cast<ExecutableNode>(nodeActivation->node);
-		PinPtr pin = std::dynamic_pointer_cast<Pin>(nodeActivation->node);
+		ExecutableNodePtr executableNode = AS(ExecutableNode, nodeActivation->node);
+		PinPtr pin = AS(Pin, nodeActivation->node);
 
 		if (!(executableNode || pin))
 		{
@@ -93,7 +93,7 @@ void ConditionalNodeActivation::doStructuredActivity()
 
 		// *** If multiple clauses are selected, choose one
 		// non-deterministically. ***
-		int i = std::dynamic_pointer_cast<ChoiceStrategy>(this->getExecutionLocus()->factory->getStrategy("choice"))
+		int i = AS(ChoiceStrategy, this->getExecutionLocus()->factory->getStrategy("choice"))
 			->choose(this->selectedClauses->size());
 		this->selectedClause = this->selectedClauses->at(i - 1);
 
@@ -125,7 +125,7 @@ void ConditionalNodeActivation::completeBody()
 
 	if (this->selectedClause != nullptr)
 	{
-		ConditionalNodePtr node = std::dynamic_pointer_cast<ConditionalNode>(this->node);
+		ConditionalNodePtr node = AS(ConditionalNode, this->node);
 		OutputPinListPtr resultPins = node->result;
 		OutputPinListPtr bodyOutputPins = this->selectedClause->bodyOutput;
 		unsigned int resultPinsSize = resultPins->size();

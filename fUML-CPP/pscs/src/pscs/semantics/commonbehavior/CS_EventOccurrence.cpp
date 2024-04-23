@@ -57,7 +57,7 @@ void CS_EventOccurrence::doSend()
 	// the internals then the operation sendIn(EventOccurrence, Port) is called.
 	// In the case were the target is not a CS_EventOccurrence then send(EventOccurence)
 	// is called.
-	if (CS_ReferencePtr reference = std::dynamic_pointer_cast<CS_Reference>(target))
+	if (CS_ReferencePtr reference = AS(CS_Reference, target))
 	{
 		if (this->propagationInward == true)
 		{

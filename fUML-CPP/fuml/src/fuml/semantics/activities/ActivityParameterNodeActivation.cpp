@@ -31,10 +31,9 @@ void ActivityParameterNodeActivation::run()
 
 	ObjectNodeActivation::run();
 
-	ParameterPtr parameter = std::dynamic_pointer_cast<ActivityParameterNode>(this->node)->parameter;
+	ParameterPtr parameter = AS(ActivityParameterNode, this->node)->parameter;
 	ParameterValuePtr parameterValue = this->getActivityExecution()->getParameterValue(parameter);
-	StreamingParameterValuePtr streamingParameterValue = std::dynamic_pointer_cast<StreamingParameterValue>(
-		parameterValue);
+	StreamingParameterValuePtr streamingParameterValue = AS(StreamingParameterValue, parameterValue);
 	if (this->node->incoming->size() == 0 && streamingParameterValue)
 	{
 		ActivityParameterNodeStreamingParameterListenerPtr listener(
@@ -60,7 +59,7 @@ void ActivityParameterNodeActivation::fire(const TokenListPtr& incomingTokens)
 	// (Note that an output activity parameter node may fire multiple times,
 	// accumulating tokens offered to it.)
 
-	ParameterPtr parameter = std::dynamic_pointer_cast<ActivityParameterNode>(this->node)->parameter;
+	ParameterPtr parameter = AS(ActivityParameterNode, this->node)->parameter;
 	ParameterValuePtr parameterValue = this->getActivityExecution()->getParameterValue(parameter);
 
 	if (this->node->incoming->size() == 0)
@@ -88,8 +87,7 @@ void ActivityParameterNodeActivation::fire(const TokenListPtr& incomingTokens)
 
 		this->addTokens(incomingTokens);
 
-		StreamingParameterValuePtr streamingParameterValue = std::dynamic_pointer_cast<StreamingParameterValue>(
-			parameterValue);
+		StreamingParameterValuePtr streamingParameterValue = AS(StreamingParameterValue, parameterValue);
 
 		if (streamingParameterValue)
 		{

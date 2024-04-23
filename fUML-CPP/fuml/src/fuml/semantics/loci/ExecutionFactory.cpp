@@ -132,7 +132,7 @@ ExecutionPtr ExecutionFactory::createExecution(const BehaviorPtr& behavior, cons
 
 	ExecutionPtr execution;
 
-	OpaqueBehaviorPtr opaqueBehavior = std::dynamic_pointer_cast<OpaqueBehavior>(behavior);
+	OpaqueBehaviorPtr opaqueBehavior = AS(OpaqueBehavior, behavior);
 
 	if (opaqueBehavior)
 	{
@@ -140,7 +140,7 @@ ExecutionPtr ExecutionFactory::createExecution(const BehaviorPtr& behavior, cons
 	}
 	else
 	{
-		execution = std::dynamic_pointer_cast<Execution>(this->instantiateVisitor(behavior));
+		execution = AS(Execution, this->instantiateVisitor(behavior));
 		execution->types->push_back(behavior);
 		execution->createFeatureValues();
 	}
@@ -164,7 +164,7 @@ EvaluationPtr ExecutionFactory::createEvaluation(const ValueSpecificationPtr& sp
 	// Create an evaluation object for a given value specification.
 	// The evaluation will take place at the locus of the factory.
 
-	EvaluationPtr evaluation = std::dynamic_pointer_cast<Evaluation>(this->instantiateVisitor(specification));
+	EvaluationPtr evaluation = AS(Evaluation, this->instantiateVisitor(specification));
 
 	evaluation->specification = specification;
 	evaluation->locus = this->locus.lock();
@@ -180,50 +180,50 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 
 	// Formerly Level L1
 
-	if (std::dynamic_pointer_cast<LiteralBoolean>(element))
+	if (IS(LiteralBoolean, element))
 	{
 		LiteralBooleanEvaluationPtr newLiteralBooleanEvaluation(new LiteralBooleanEvaluation());
 		visitor = newLiteralBooleanEvaluation;
 	}
 
-	else if (std::dynamic_pointer_cast<LiteralString>(element))
+	else if (IS(LiteralString, element))
 	{
 		LiteralStringEvaluationPtr newLiteralStringEvaluation(new LiteralStringEvaluation());
 		visitor = newLiteralStringEvaluation;
 	}
 
-	else if (std::dynamic_pointer_cast<LiteralNull>(element))
+	else if (IS(LiteralNull, element))
 	{
 		LiteralNullEvaluationPtr newLiteralNullEvaluation(new LiteralNullEvaluation());
 		visitor = newLiteralNullEvaluation;
 	}
 
-	else if (std::dynamic_pointer_cast<InstanceValue>(element))
+	else if (IS(InstanceValue, element))
 	{
 		InstanceValueEvaluationPtr newInstanceValueEvaluation(new InstanceValueEvaluation());
 		visitor = newInstanceValueEvaluation;
 	}
 
-	else if (std::dynamic_pointer_cast<LiteralUnlimitedNatural>(element))
+	else if (IS(LiteralUnlimitedNatural, element))
 	{
 		LiteralUnlimitedNaturalEvaluationPtr newLiteralUnlimitedNaturalEvaluation(
 			new LiteralUnlimitedNaturalEvaluation());
 		visitor = newLiteralUnlimitedNaturalEvaluation;
 	}
 
-	else if (std::dynamic_pointer_cast<LiteralInteger>(element))
+	else if (IS(LiteralInteger, element))
 	{
 		LiteralIntegerEvaluationPtr newLiteralIntegerEvaluation(new LiteralIntegerEvaluation());
 		visitor = newLiteralIntegerEvaluation;
 	}
 
-	else if (std::dynamic_pointer_cast<LiteralReal>(element))
+	else if (IS(LiteralReal, element))
 	{
 		LiteralRealEvaluationPtr newLiteralRealEvaluation(new LiteralRealEvaluation());
 		visitor = newLiteralRealEvaluation;
 	}
 
-	else if (std::dynamic_pointer_cast<CallEventBehavior>(element))
+	else if (IS(CallEventBehavior, element))
 	{
 		CallEventExecutionPtr newCallEventExecution(new CallEventExecution());
 		newCallEventExecution->setThisCallEventExecutionPtr(newCallEventExecution);
@@ -232,14 +232,14 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 		// Formerly Level L2
 
 	}
-	else if (std::dynamic_pointer_cast<Activity>(element))
+	else if (IS(Activity, element))
 	{
 		ActivityExecutionPtr newActivityExecution(new ActivityExecution());
 		newActivityExecution->setThisActivityExecutionPtr(newActivityExecution);
 		visitor = newActivityExecution;
 	}
 
-	else if (std::dynamic_pointer_cast<ActivityParameterNode>(element))
+	else if (IS(ActivityParameterNode, element))
 	{
 		ActivityParameterNodeActivationPtr newActivityParameterNodeActivation(new ActivityParameterNodeActivation());
 		newActivityParameterNodeActivation->setThisActivityParameterNodeActivationPtr(
@@ -247,113 +247,113 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 		visitor = newActivityParameterNodeActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<CentralBufferNode>(element)
-		&& !(std::dynamic_pointer_cast<DataStoreNode>(element)))
+	else if (IS(CentralBufferNode, element)
+		&& !(IS(DataStoreNode, element)))
 	{
 		CentralBufferNodeActivationPtr newCentralBufferNodeActivation(new CentralBufferNodeActivation());
 		newCentralBufferNodeActivation->setThisObjectNodeActivationPtr(newCentralBufferNodeActivation);
 		visitor = newCentralBufferNodeActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<InitialNode>(element))
+	else if (IS(InitialNode, element))
 	{
 		InitialNodeActivationPtr newInitialNodeActivation(new InitialNodeActivation());
 		newInitialNodeActivation->setThisActivityNodeActivationPtr(newInitialNodeActivation);
 		visitor = newInitialNodeActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ActivityFinalNode>(element))
+	else if (IS(ActivityFinalNode, element))
 	{
 		ActivityFinalNodeActivationPtr newActivityFinalNodeActivation(new ActivityFinalNodeActivation());
 		newActivityFinalNodeActivation->setThisActivityNodeActivationPtr(newActivityFinalNodeActivation);
 		visitor = newActivityFinalNodeActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<FlowFinalNode>(element))
+	else if (IS(FlowFinalNode, element))
 	{
 		FlowFinalNodeActivationPtr newFlowFinalNodeActivation(new FlowFinalNodeActivation());
 		newFlowFinalNodeActivation->setThisActivityNodeActivationPtr(newFlowFinalNodeActivation);
 		visitor = newFlowFinalNodeActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<JoinNode>(element))
+	else if (IS(JoinNode, element))
 	{
 		JoinNodeActivationPtr newJoinNodeActivation(new JoinNodeActivation());
 		newJoinNodeActivation->setThisActivityNodeActivationPtr(newJoinNodeActivation);
 		visitor = newJoinNodeActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<MergeNode>(element))
+	else if (IS(MergeNode, element))
 	{
 		MergeNodeActivationPtr newMergeNodeActivation(new MergeNodeActivation());
 		newMergeNodeActivation->setThisActivityNodeActivationPtr(newMergeNodeActivation);
 		visitor = newMergeNodeActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ForkNode>(element))
+	else if (IS(ForkNode, element))
 	{
 		ForkNodeActivationPtr newForkNodeActivation(new ForkNodeActivation());
 		newForkNodeActivation->setThisActivityNodeActivationPtr(newForkNodeActivation);
 		visitor = newForkNodeActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<DecisionNode>(element))
+	else if (IS(DecisionNode, element))
 	{
 		DecisionNodeActivationPtr newDecisionNodeActivation(new DecisionNodeActivation());
 		newDecisionNodeActivation->setThisActivityNodeActivationPtr(newDecisionNodeActivation);
 		visitor = newDecisionNodeActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<InputPin>(element))
+	else if (IS(InputPin, element))
 	{
 		InputPinActivationPtr newInputPinActivation(new InputPinActivation());
 		newInputPinActivation->setThisObjectNodeActivationPtr(newInputPinActivation);
 		visitor = newInputPinActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<OutputPin>(element))
+	else if (IS(OutputPin, element))
 	{
 		OutputPinActivationPtr newOutputPinActivation(new OutputPinActivation());
 		newOutputPinActivation->setThisObjectNodeActivationPtr(newOutputPinActivation);
 		visitor = newOutputPinActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<CallBehaviorAction>(element))
+	else if (IS(CallBehaviorAction, element))
 	{
 		CallBehaviorActionActivationPtr newCallBehaviorActionActivation(new CallBehaviorActionActivation());
 		newCallBehaviorActionActivation->setThisActionActivationPtr(newCallBehaviorActionActivation);
 		visitor = newCallBehaviorActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<CallOperationAction>(element))
+	else if (IS(CallOperationAction, element))
 	{
 		CallOperationActionActivationPtr newCallOperationActionActivation(new CallOperationActionActivation());
 		newCallOperationActionActivation->setThisActionActivationPtr(newCallOperationActionActivation);
 		visitor = newCallOperationActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<SendSignalAction>(element))
+	else if (IS(SendSignalAction, element))
 	{
 		SendSignalActionActivationPtr newSendSignalActionActivation(new SendSignalActionActivation());
 		newSendSignalActionActivation->setThisActionActivationPtr(newSendSignalActionActivation);
 		visitor = newSendSignalActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ReadSelfAction>(element))
+	else if (IS(ReadSelfAction, element))
 	{
 		ReadSelfActionActivationPtr newReadSelfActionActivation(new ReadSelfActionActivation());
 		newReadSelfActionActivation->setThisActionActivationPtr(newReadSelfActionActivation);
 		visitor = newReadSelfActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<TestIdentityAction>(element))
+	else if (IS(TestIdentityAction, element))
 	{
 		TestIdentityActionActivationPtr newTestIdentityActionActivation(new TestIdentityActionActivation());
 		newTestIdentityActionActivation->setThisActionActivationPtr(newTestIdentityActionActivation);
 		visitor = newTestIdentityActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ValueSpecificationAction>(element))
+	else if (IS(ValueSpecificationAction, element))
 	{
 		ValueSpecificationActionActivationPtr newValueSpecificationActionActivation(
 			new ValueSpecificationActionActivation());
@@ -361,21 +361,21 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 		visitor = newValueSpecificationActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<CreateObjectAction>(element))
+	else if (IS(CreateObjectAction, element))
 	{
 		CreateObjectActionActivationPtr newCreateObjectActionActivation(new CreateObjectActionActivation());
 		newCreateObjectActionActivation->setThisActionActivationPtr(newCreateObjectActionActivation);
 		visitor = newCreateObjectActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<DestroyObjectAction>(element))
+	else if (IS(DestroyObjectAction, element))
 	{
 		DestroyObjectActionActivationPtr newDestroyObjectActionActivation(new DestroyObjectActionActivation());
 		newDestroyObjectActionActivation->setThisActionActivationPtr(newDestroyObjectActionActivation);
 		visitor = newDestroyObjectActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ReadStructuralFeatureAction>(element))
+	else if (IS(ReadStructuralFeatureAction, element))
 	{
 		ReadStructuralFeatureActionActivationPtr newReadStructuralFeatureActionActivation(
 			new ReadStructuralFeatureActionActivation());
@@ -383,7 +383,7 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 		visitor = newReadStructuralFeatureActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ClearStructuralFeatureAction>(element))
+	else if (IS(ClearStructuralFeatureAction, element))
 	{
 		ClearStructuralFeatureActionActivationPtr newClearStructuralFeatureActionActivation(
 			new ClearStructuralFeatureActionActivation());
@@ -392,7 +392,7 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 		visitor = newClearStructuralFeatureActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<AddStructuralFeatureValueAction>(element))
+	else if (IS(AddStructuralFeatureValueAction, element))
 	{
 		AddStructuralFeatureValueActionActivationPtr newAddStructuralFeatureValueActionActivation(
 			new AddStructuralFeatureValueActionActivation());
@@ -401,7 +401,7 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 		visitor = newAddStructuralFeatureValueActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<RemoveStructuralFeatureValueAction>(element))
+	else if (IS(RemoveStructuralFeatureValueAction, element))
 	{
 		RemoveStructuralFeatureValueActionActivationPtr newRemoveStructuralFeatureValueActionActivation(
 			new RemoveStructuralFeatureValueActionActivation());
@@ -410,28 +410,28 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 		visitor = newRemoveStructuralFeatureValueActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ReadLinkAction>(element))
+	else if (IS(ReadLinkAction, element))
 	{
 		ReadLinkActionActivationPtr newReadLinkActionActivation(new ReadLinkActionActivation());
 		newReadLinkActionActivation->setThisActionActivationPtr(newReadLinkActionActivation);
 		visitor = newReadLinkActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ClearAssociationAction>(element))
+	else if (IS(ClearAssociationAction, element))
 	{
 		ClearAssociationActionActivationPtr newClearAssociationActionActivation(new ClearAssociationActionActivation());
 		newClearAssociationActionActivation->setThisActionActivationPtr(newClearAssociationActionActivation);
 		visitor = newClearAssociationActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<CreateLinkAction>(element))
+	else if (IS(CreateLinkAction, element))
 	{
 		CreateLinkActionActivationPtr newCreateLinkActionActivation(new CreateLinkActionActivation());
 		newCreateLinkActionActivation->setThisActionActivationPtr(newCreateLinkActionActivation);
 		visitor = newCreateLinkActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<DestroyLinkAction>(element))
+	else if (IS(DestroyLinkAction, element))
 	{
 		DestroyLinkActionActivationPtr newDestroyLinkActionActivation(new DestroyLinkActionActivation());
 		newDestroyLinkActionActivation->setThisActionActivationPtr(newDestroyLinkActionActivation);
@@ -440,28 +440,28 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 
 	// Formerly Level L3
 
-	else if (std::dynamic_pointer_cast<DataStoreNode>(element))
+	else if (IS(DataStoreNode, element))
 	{
 		DataStoreNodeActivationPtr newDataStoreNodeActivation(new DataStoreNodeActivation());
 		newDataStoreNodeActivation->setThisObjectNodeActivationPtr(newDataStoreNodeActivation);
 		visitor = newDataStoreNodeActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ConditionalNode>(element))
+	else if (IS(ConditionalNode, element))
 	{
 		ConditionalNodeActivationPtr newConditionalNodeActivation(new ConditionalNodeActivation());
 		newConditionalNodeActivation->setThisConditionalNodeActivationPtr(newConditionalNodeActivation);
 		visitor = newConditionalNodeActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<LoopNode>(element))
+	else if (IS(LoopNode, element))
 	{
 		LoopNodeActivationPtr newLoopNodeActivation(new LoopNodeActivation());
 		newLoopNodeActivation->setThisLoopNodeActivationPtr(newLoopNodeActivation);
 		visitor = newLoopNodeActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ExpansionRegion>(element))
+	else if (IS(ExpansionRegion, element))
 	{
 		ExpansionRegionActivationPtr newExpansionRegionActivation(new ExpansionRegionActivation());
 		newExpansionRegionActivation->setThisExpansionRegionActivationPtr(newExpansionRegionActivation);
@@ -471,7 +471,7 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 	// Note: Since ConditionalNode, LoopNode and ExpansionRegion are
 	// subclasses of StructuredActivityNode, element must be tested
 	// against the three subclasses before the superclass.
-	else if (std::dynamic_pointer_cast<StructuredActivityNode>(element))
+	else if (IS(StructuredActivityNode, element))
 	{
 		StructuredActivityNodeActivationPtr newStructuredActivityNodeActivation(new StructuredActivityNodeActivation());
 		newStructuredActivityNodeActivation->setThisStructuredActivityNodeActivationPtr(
@@ -479,21 +479,21 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 		visitor = newStructuredActivityNodeActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ExpansionNode>(element))
+	else if (IS(ExpansionNode, element))
 	{
 		ExpansionNodeActivationPtr newExpansionNodeActivation(new ExpansionNodeActivation());
 		newExpansionNodeActivation->setThisObjectNodeActivationPtr(newExpansionNodeActivation);
 		visitor = newExpansionNodeActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ReadExtentAction>(element))
+	else if (IS(ReadExtentAction, element))
 	{
 		ReadExtentActionActivationPtr newReadExtentActionActivation(new ReadExtentActionActivation());
 		newReadExtentActionActivation->setThisActionActivationPtr(newReadExtentActionActivation);
 		visitor = newReadExtentActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ReadIsClassifiedObjectAction>(element))
+	else if (IS(ReadIsClassifiedObjectAction, element))
 	{
 		ReadIsClassifiedObjectActionActivationPtr newReadIsClassifiedObjectActionActivation(
 			new ReadIsClassifiedObjectActionActivation());
@@ -502,14 +502,14 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 		visitor = newReadIsClassifiedObjectActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ReclassifyObjectAction>(element))
+	else if (IS(ReclassifyObjectAction, element))
 	{
 		ReclassifyObjectActionActivationPtr newReclassifyObjectActionActivation(new ReclassifyObjectActionActivation());
 		newReclassifyObjectActionActivation->setThisActionActivationPtr(newReclassifyObjectActionActivation);
 		visitor = newReclassifyObjectActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<StartObjectBehaviorAction>(element))
+	else if (IS(StartObjectBehaviorAction, element))
 	{
 		StartObjectBehaviorActionActivationPtr newStartObjectBehaviorActionActivation(
 			new StartObjectBehaviorActionActivation());
@@ -517,7 +517,7 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 		visitor = newStartObjectBehaviorActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<StartClassifierBehaviorAction>(element))
+	else if (IS(StartClassifierBehaviorAction, element))
 	{
 		StartClassifierBehaviorActionActivationPtr newStartClassifierBehaviorActionActivation(
 			new StartClassifierBehaviorActionActivation());
@@ -529,42 +529,42 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 	// Note: Since AcceptCallAction is a subclass of AcceptEventAction,
 	// element must be tested against AcceptCallAction before
 	// AcceptEventAction.
-	else if (std::dynamic_pointer_cast<AcceptCallAction>(element))
+	else if (IS(AcceptCallAction, element))
 	{
 		AcceptCallActionActivationPtr newAcceptCallActionActivation(new AcceptCallActionActivation());
 		newAcceptCallActionActivation->setThisAcceptEventActionActivationPtr(newAcceptCallActionActivation);
 		visitor = newAcceptCallActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<AcceptEventAction>(element))
+	else if (IS(AcceptEventAction, element))
 	{
 		AcceptEventActionActivationPtr newAcceptEventActionActivation(new AcceptEventActionActivation());
 		newAcceptEventActionActivation->setThisAcceptEventActionActivationPtr(newAcceptEventActionActivation);
 		visitor = newAcceptEventActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ReplyAction>(element))
+	else if (IS(ReplyAction, element))
 	{
 		ReplyActionActivationPtr newReplyActionActivation(new ReplyActionActivation());
 		newReplyActionActivation->setThisActionActivationPtr(newReplyActionActivation);
 		visitor = newReplyActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<ReduceAction>(element))
+	else if (IS(ReduceAction, element))
 	{
 		ReduceActionActivationPtr newReduceActionActivation(new ReduceActionActivation());
 		newReduceActionActivation->setThisActionActivationPtr(newReduceActionActivation);
 		visitor = newReduceActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<RaiseExceptionAction>(element))
+	else if (IS(RaiseExceptionAction, element))
 	{
 		RaiseExceptionActionActivationPtr newRaiseExceptionActionActivation(new RaiseExceptionActionActivation());
 		newRaiseExceptionActionActivation->setThisActionActivationPtr(newRaiseExceptionActionActivation);
 		visitor = newRaiseExceptionActionActivation;
 	}
 
-	else if (std::dynamic_pointer_cast<UnmarshallAction>(element))
+	else if (IS(UnmarshallAction, element))
 	{
 		UnmarshallActionActivationPtr newUnmarshallActionActivation(new UnmarshallActionActivation());
 		newUnmarshallActionActivation->setThisActionActivationPtr(newUnmarshallActionActivation);
@@ -587,7 +587,7 @@ OpaqueBehaviorExecutionPtr ExecutionFactory::instantiateOpaqueBehaviorExecution(
 		OpaqueBehaviorExecutionPtr prototype = this->primitiveBehaviorPrototypes->at(i - 1);
 		if (prototype->getBehavior() == behavior)
 		{
-			execution = std::dynamic_pointer_cast<OpaqueBehaviorExecution>(prototype->copy());
+			execution = AS(OpaqueBehaviorExecution, prototype->copy());
 		}
 		i = i + 1;
 	}

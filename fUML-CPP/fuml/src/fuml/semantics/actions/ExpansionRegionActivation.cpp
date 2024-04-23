@@ -31,7 +31,7 @@ TokenListPtr ExpansionRegionActivation::takeOfferedTokens()
 
 	ActionActivation::takeOfferedTokens();
 
-	ExpansionRegionPtr region = std::dynamic_pointer_cast<ExpansionRegion>(this->node);
+	ExpansionRegionPtr region = AS(ExpansionRegion, this->node);
 	const InputPinListPtr& inputPins = region->input;
 	const ExpansionNodeListPtr& inputElements = region->inputElement;
 
@@ -71,7 +71,7 @@ void ExpansionRegionActivation::doAction()
 	// behavior with isolation.
 	// Otherwise just activate it normally.
 
-	if (std::dynamic_pointer_cast<StructuredActivityNode>(this->node)->mustIsolate)
+	if (AS(StructuredActivityNode, this->node)->mustIsolate)
 	{
 		_beginIsolation();
 		this->doStructuredActivity();
@@ -93,7 +93,7 @@ void ExpansionRegionActivation::doStructuredActivity()
 	// Add the outputs of each activation group to the corresonding output
 	// expansion node activations.
 
-	ExpansionRegionPtr region = std::dynamic_pointer_cast<ExpansionRegion>(this->node);
+	ExpansionRegionPtr region = AS(ExpansionRegion, this->node);
 	const InputPinListPtr& inputPins = region->input;
 	const ExpansionNodeListPtr& inputElements = region->inputElement;
 	const ExpansionNodeListPtr& outputElements = region->outputElement;
@@ -192,7 +192,7 @@ void ExpansionRegionActivation::doOutput()
 {
 	// Place tokens on the output expansion nodes.
 
-	ExpansionRegionPtr region = std::dynamic_pointer_cast<ExpansionRegion>(this->node);
+	ExpansionRegionPtr region = AS(ExpansionRegion, this->node);
 	const ExpansionNodeListPtr& outputElements = region->outputElement;
 
 	fuml::Debug::println(
@@ -241,7 +241,7 @@ void ExpansionRegionActivation::sendOffers()
 	// Fire all output expansion nodes and send offers on all outgoing
 	// control flows.
 
-	ExpansionRegionPtr region = std::dynamic_pointer_cast<ExpansionRegion>(this->node);
+	ExpansionRegionPtr region = AS(ExpansionRegion, this->node);
 
 	// *** Send offers from all output expansion nodes concurrently. ***
 	const ExpansionNodeListPtr& outputElements = region->outputElement;
@@ -323,7 +323,7 @@ ExpansionNodeActivationPtr ExpansionRegionActivation::getExpansionNodeActivation
 	// Therefore, they will already be activated along with their expansion
 	// region.]
 
-	return std::dynamic_pointer_cast<ExpansionNodeActivation>(this->group.lock()->getNodeActivation(node));
+	return AS(ExpansionNodeActivation, this->group.lock()->getNodeActivation(node));
 } // getExpansionNodeActivation
 
 int ExpansionRegionActivation::numberOfValues()
@@ -332,7 +332,7 @@ int ExpansionRegionActivation::numberOfValues()
 	// this activation, which is the minimum of the number of values offered
 	// to each of the input expansion nodes of the activation.
 
-	ExpansionRegionPtr region = std::dynamic_pointer_cast<ExpansionRegion>(this->node);
+	ExpansionRegionPtr region = AS(ExpansionRegion, this->node);
 	ExpansionNodeListPtr inputElements = region->inputElement;
 
 	unsigned int n = this->getExpansionNodeActivation(inputElements->at(0))->countOfferedValues();
@@ -373,7 +373,7 @@ void ExpansionRegionActivation::resume(const ExpansionActivationGroupPtr& activa
 	// iteration. If the region is parallel, and there are no more suspended
 	// activation groups, then generate the expansion node output.
 
-	ExpansionRegionPtr region = std::dynamic_pointer_cast<ExpansionRegion>(this->node);
+	ExpansionRegionPtr region = AS(ExpansionRegion, this->node);
 
 	ActivityNodeActivation::resume();
 	this->terminateGroup(activationGroup);

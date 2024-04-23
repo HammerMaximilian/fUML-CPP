@@ -20,7 +20,7 @@ bool CS_DispatchOperationOfInterfaceStrategy::operationsMatch(const OperationPtr
     // In this case, ownedOperation matches baseOperation if it has the same name and signature
     // Otherwise, behaves like fUML RedefinitionBasedDispatchStrategy
     bool matches;
-    if (InterfacePtr interface = std::dynamic_pointer_cast<Interface>(baseOperation->namespace_.lock()))
+    if (InterfacePtr interface = AS(Interface, baseOperation->namespace_.lock()))
     {
         matches = baseOperation->name == ownedOperation->name;
         matches = matches && (baseOperation->ownedParameter->size() == ownedOperation->ownedParameter->size());

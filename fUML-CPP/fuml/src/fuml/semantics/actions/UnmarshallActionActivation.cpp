@@ -17,13 +17,13 @@ void UnmarshallActionActivation::doAction()
 	// corresponding result pin. (Note that the number of result pins is
 	// presumed to be the same as the number of attributes.)
 
-	UnmarshallActionPtr action = std::dynamic_pointer_cast<UnmarshallAction>(this->node);
+	UnmarshallActionPtr action = AS(UnmarshallAction, this->node);
 	ClassifierPtr unmarshallType = action->unmarshallType;
 	OutputPinListPtr resultPins = action->result;
 
 	ValuePtr value = this->takeTokens(action->object)->at(0);
 
-	StructuredValuePtr structuredValue = std::dynamic_pointer_cast<StructuredValue>(value);
+	StructuredValuePtr structuredValue = AS(StructuredValue, value);
 
 	if (structuredValue)
 	{

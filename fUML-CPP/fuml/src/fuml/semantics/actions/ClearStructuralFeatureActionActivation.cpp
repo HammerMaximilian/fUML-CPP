@@ -21,7 +21,7 @@ void ClearStructuralFeatureActionActivation::doAction()
 	// Otherwise, if the object input is a structured value, then
 	// set the appropriate feature of the input value to be empty.
 
-	ClearStructuralFeatureActionPtr action = std::dynamic_pointer_cast<ClearStructuralFeatureAction>(this->node);
+	ClearStructuralFeatureActionPtr action = AS(ClearStructuralFeatureAction, this->node);
 	StructuralFeaturePtr feature = action->structuralFeature;
 	AssociationPtr association = this->getAssociation(feature);
 
@@ -37,10 +37,10 @@ void ClearStructuralFeatureActionActivation::doAction()
 	}
 	else
 	{
-		StructuredValuePtr structuredValue = std::dynamic_pointer_cast<StructuredValue>(value);
+		StructuredValuePtr structuredValue = AS(StructuredValue, value);
 		if (structuredValue)
 		{
-			ReferencePtr reference = std::dynamic_pointer_cast<Reference>(value);
+			ReferencePtr reference = AS(Reference, value);
 			// If the value is a data value, then it must be copied before
 			// any change is made.
 			if (!reference)

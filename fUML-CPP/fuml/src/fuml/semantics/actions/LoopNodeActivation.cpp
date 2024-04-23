@@ -38,7 +38,7 @@ void LoopNodeActivation::doStructuredActivity()
 	// the loop variables, since values on the loop variables may be
 	// consumed when running the test for the last time.]
 
-	LoopNodePtr loopNode = std::dynamic_pointer_cast<LoopNode>(this->node);
+	LoopNodePtr loopNode = AS(LoopNode, this->node);
 	const InputPinListPtr& loopVariableInputs = loopNode->loopVariableInput;
 
 	this->bodyOutputLists->clear();
@@ -62,7 +62,7 @@ void LoopNodeActivation::doLoop(bool continuing)
 	// test part of the loop, copying values from the body outputs to the
 	// loop variables.
 
-	LoopNodePtr loopNode = std::dynamic_pointer_cast<LoopNode>(this->node);
+	LoopNodePtr loopNode = AS(LoopNode, this->node);
 	const OutputPinListPtr& loopVariables = loopNode->loopVariable;
 	const OutputPinListPtr& resultPins = loopNode->result;
 
@@ -77,7 +77,7 @@ void LoopNodeActivation::doLoop(bool continuing)
 			const ValuesPtr& bodyOutputList = bodyOutputLists->at(i);
 			const ValueListPtr& values = bodyOutputList->values;
 			this->putPinValues(loopVariable, values);
-			std::dynamic_pointer_cast<OutputPinActivation>(this->activationGroup->getNodeActivation(loopVariable))
+			AS(OutputPinActivation, this->activationGroup->getNodeActivation(loopVariable))
 				->sendUnofferedTokens();
 		}
 
@@ -87,8 +87,8 @@ void LoopNodeActivation::doLoop(bool continuing)
 		ActivityNodeActivationListPtr nonExecutableNodeActivations(new ActivityNodeActivationList());
 		for (const ActivityNodeActivationPtr& nodeActivation : *nodeActivations)
 		{
-			ExecutableNodePtr executableNode = std::dynamic_pointer_cast<ExecutableNode>(nodeActivation->node);
-			PinPtr pin = std::dynamic_pointer_cast<Pin>(nodeActivation->node);
+			ExecutableNodePtr executableNode = AS(ExecutableNode, nodeActivation->node);
+			PinPtr pin = AS(Pin, nodeActivation->node);
 
 			if (!(executableNode || pin))
 			{
@@ -148,7 +148,7 @@ bool LoopNodeActivation::runTest()
 
 	fuml::Debug::println("[runTest] Running test...");
 
-	LoopNodePtr loopNode = std::dynamic_pointer_cast<LoopNode>(this->node);
+	LoopNodePtr loopNode = AS(LoopNode, this->node);
 
 	this->activationGroup->runNodes(this->makeActivityNodeList(loopNode->test));
 
@@ -158,7 +158,7 @@ bool LoopNodeActivation::runTest()
 	bool decision = false;
 	if (values->size() > 0)
 	{
-		decision = std::dynamic_pointer_cast<BooleanValue>(values->at(0))->value;
+		decision = AS(BooleanValue, values->at(0))->value;
 	}
 
 	std::string testFailed = (decision ? "Test succeeded." : "Test failed.");
@@ -174,7 +174,7 @@ void LoopNodeActivation::runBody()
 
 	fuml::Debug::println("[runBody] Running body...");
 
-	LoopNodePtr loopNode = std::dynamic_pointer_cast<LoopNode>(this->node);
+	LoopNodePtr loopNode = AS(LoopNode, this->node);
 
 	this->activationGroup->runNodes(this->makeActivityNodeList(loopNode->bodyPart));
 
@@ -188,7 +188,7 @@ void LoopNodeActivation::saveBodyOutputs()
 {
 	// Save the body outputs for use in the next iteration.
 
-	LoopNodePtr loopNode = std::dynamic_pointer_cast<LoopNode>(this->node);
+	LoopNodePtr loopNode = AS(LoopNode, this->node);
 	const OutputPinListPtr& bodyOutputs = loopNode->bodyOutput;
 	const ValuesListPtr& bodyOutputLists = this->bodyOutputLists;
 	unsigned int bodyOutputsSize = bodyOutputs->size();
@@ -221,7 +221,7 @@ ActivityNodeListPtr LoopNodeActivation::makeLoopVariableList()
 	// Return an activity node list containing the loop variable pins for
 	// the loop node of this activation.
 
-	LoopNodePtr loopNode = std::dynamic_pointer_cast<LoopNode>(this->node);
+	LoopNodePtr loopNode = AS(LoopNode, this->node);
 	ActivityNodeListPtr nodes(new ActivityNodeList());
 
 	const OutputPinListPtr& loopVariables = loopNode->loopVariable;
@@ -240,7 +240,7 @@ void LoopNodeActivation::terminateAll()
 
 	this->isTerminateAll = true;
 
-	LoopNodePtr loopNode = std::dynamic_pointer_cast<LoopNode>(this->node);
+	LoopNodePtr loopNode = AS(LoopNode, this->node);
 	const OutputPinListPtr& bodyOutputs = loopNode->bodyOutput;
 	const OutputPinListPtr& resultPins = loopNode->result;
 	unsigned int bodyOutputsSize = bodyOutputs->size();
@@ -260,7 +260,7 @@ void LoopNodeActivation::resume()
 	// its next iteration (if any). Once the loop has completed execution
 	// without being suspended again, complete the action.
 
-	LoopNodePtr loopNode = std::dynamic_pointer_cast<LoopNode>(this->node);
+	LoopNodePtr loopNode = AS(LoopNode, this->node);
 
 	this->saveBodyOutputs();
 
@@ -300,7 +300,7 @@ void LoopNodeActivation::continueLoop()
 	// [Note that this presumes that an accept event action is not allowed
 	// in the test part of a loop node.]
 
-	LoopNodePtr loopNode = std::dynamic_pointer_cast<LoopNode>(this->node);
+	LoopNodePtr loopNode = AS(LoopNode, this->node);
 
 	bool continuing = true;
 	if (!loopNode->isTestedFirst)

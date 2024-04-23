@@ -50,7 +50,7 @@ ExecutionPtr CS_Object::dispatchIn(const OperationPtr& operation, const CS_Inter
 	if (interactionPoint->definingPort->isBehavior)
 	{
 		execution = this->dispatch(operation);
-		if (CS_CallEventExecutionPtr cS_CallEventExecution = std::dynamic_pointer_cast<CS_CallEventExecution>(execution))
+		if (CS_CallEventExecutionPtr cS_CallEventExecution = AS(CS_CallEventExecution, execution))
 		{
 			cS_CallEventExecution->interactionPoint = interactionPoint;
 		}
@@ -75,7 +75,7 @@ ExecutionPtr CS_Object::dispatchIn(const OperationPtr& operation, const CS_Inter
 		if (!(potentialTargets->empty()))
 		{
 			CS_RequestPropagationStrategyPtr strategy =
-					std::dynamic_pointer_cast<CS_RequestPropagationStrategy>(locus->factory->getStrategy("requestPropagation"));
+					AS(CS_RequestPropagationStrategy, locus->factory->getStrategy("requestPropagation"));
 			// Choose one target non-deterministically
 			ReferenceListPtr targets = strategy->select(potentialTargets, CallOperationActionActivationPtr(new CallOperationActionActivation()));
 			const ReferencePtr& target = targets->at(0);
@@ -148,7 +148,7 @@ ReferenceListPtr CS_Object::selectTargetsForSending(const CS_LinkPtr& link, cons
 					unsigned int j = 1, valuesSize = values->size();
 					while (j <= valuesSize)
 					{
-						ReferencePtr cddTarget = std::dynamic_pointer_cast<Reference>(values->at(j - 1));
+						ReferencePtr cddTarget = AS(Reference, values->at(j - 1));
 						if (!cddTarget->equals(interactionPoint))
 						{
 							potentialTargets->push_back(cddTarget);
@@ -171,12 +171,12 @@ ReferenceListPtr CS_Object::selectTargetsForSending(const CS_LinkPtr& link, cons
 				const ValueListPtr& values = link->getFeatureValues()->at(i - 1)->values;
 				if (!values->empty())
 				{
-					if(ReferencePtr reference = std::dynamic_pointer_cast<Reference>(values->at(0)))
+					if(ReferencePtr reference = AS(Reference, values->at(0)))
 					{
 						const ReferencePtr& cddTarget = reference;
 						if (connectorKind == uml::structuredclassifiers::ConnectorKind::assembly)
 						{
-							if (std::dynamic_pointer_cast<CS_InteractionPoint>(cddTarget) == nullptr)
+							if (!IS(CS_InteractionPoint, cddTarget))
 							{ // This is an assembly link
 								potentialTargets->push_back(cddTarget);
 							}
@@ -214,7 +214,7 @@ ReferenceListPtr CS_Object::selectTargetsForSending(const CS_LinkPtr& link, cons
 						{ // delegation
 						  // This is a delegation if the target is an interaction point
 						  // and if this interaction is a feature value for a container of this CS_Object
-							if (std::dynamic_pointer_cast<CS_InteractionPoint>(cddTarget))
+							if (IS(CS_InteractionPoint, cddTarget))
 							{
 								CS_ObjectListPtr directContainers = this->getDirectContainers();
 								bool isDelegation = false;
@@ -271,7 +271,7 @@ ReferenceListPtr CS_Object::selectTargetsForDispatching(const CS_LinkPtr& link, 
 				const ValueListPtr& values = link->getFeatureValues()->at(i - 1)->values;
 				if (!values->empty())
 				{
-					if(ReferencePtr reference = std::dynamic_pointer_cast<Reference>(values->at(0)))
+					if(ReferencePtr reference = AS(Reference, values->at(0)))
 					{
 						const ReferencePtr& cddTarget = reference;
 						if (cddTarget != interactionPoint && this->isOperationProvided(cddTarget, operation))
@@ -295,12 +295,12 @@ ReferenceListPtr CS_Object::selectTargetsForDispatching(const CS_LinkPtr& link, 
 				const ValueListPtr& values = link->getFeatureValues()->at(i - 1)->values;
 				if (!values->empty())
 				{
-					if(ReferencePtr reference = std::dynamic_pointer_cast<Reference>(values->at(0)))
+					if(ReferencePtr reference = AS(Reference, values->at(0)))
 					{
 						const ReferencePtr& cddTarget = reference;
 						if (connectorKind == uml::structuredclassifiers::ConnectorKind::assembly)
 						{
-							if (std::dynamic_pointer_cast<CS_InteractionPoint>(cddTarget) == nullptr)
+							if (!IS(CS_InteractionPoint, cddTarget))
 							{ // This is an assembly link
 								if (this->isOperationProvided(cddTarget, operation))
 								{
@@ -344,7 +344,7 @@ ReferenceListPtr CS_Object::selectTargetsForDispatching(const CS_LinkPtr& link, 
 						{ // delegation
 						  // This is a delegation if the target is an interaction point
 						  // and if this interaction is a feature value for a container of this CS_Object
-							if (std::dynamic_pointer_cast<CS_InteractionPoint>(cddTarget))
+							if (IS(CS_InteractionPoint, cddTarget))
 							{
 								CS_ObjectListPtr directContainers = this->getDirectContainers();
 								bool isDelegation = false;
@@ -410,7 +410,7 @@ void CS_Object::sendOut(const EventOccurrencePtr& eventOccurrence, const CS_Inte
 		}
 	}
 
-	CS_RequestPropagationStrategyPtr strategy = std::dynamic_pointer_cast<CS_RequestPropagationStrategy>(locus->factory->getStrategy("requestPropagation"));
+	CS_RequestPropagationStrategyPtr strategy = AS(CS_RequestPropagationStrategy, locus->factory->getStrategy("requestPropagation"));
 	ReferenceListPtr selectedTargets = strategy->select(allPotentialTargets, SendSignalActionActivationPtr(new SendSignalActionActivation()));
 	for (const ReferencePtr& target : *selectedTargets)
 	{
@@ -425,7 +425,7 @@ void CS_Object::sendOut(const EventOccurrencePtr& eventOccurrence, const CS_Inte
 		{
 			// The target must be an interaction point
 			// i.e. a delegation connector for a required reception can only target a port
-			CS_InteractionPointPtr cddTarget = std::dynamic_pointer_cast<CS_InteractionPoint>(targetForSendingOut);
+			CS_InteractionPointPtr cddTarget = AS(CS_InteractionPoint, targetForSendingOut);
 			if (cddTarget == target)
 			{
 				const CS_ReferencePtr& owner = cddTarget->owner;
@@ -468,7 +468,7 @@ ExecutionPtr CS_Object::dispatchOut(const OperationPtr& operation, const CS_Inte
 		}
 	}
 
-	CS_RequestPropagationStrategyPtr strategy = std::dynamic_pointer_cast<CS_RequestPropagationStrategy>(locus->factory->getStrategy("requestPropagation"));
+	CS_RequestPropagationStrategyPtr strategy = AS(CS_RequestPropagationStrategy, locus->factory->getStrategy("requestPropagation"));
 	ReferenceListPtr selectedTargets = strategy->select(allPotentialTargets, SendSignalActionActivationPtr(new SendSignalActionActivation()));
 	for (const ReferencePtr& target : *selectedTargets)
 	{
@@ -486,7 +486,7 @@ ExecutionPtr CS_Object::dispatchOut(const OperationPtr& operation, const CS_Inte
 		{
 			// The target must be an interaction point
 			// i.e. a delegation connector for a required operation can only target a port
-			CS_InteractionPointPtr cddTarget = std::dynamic_pointer_cast<CS_InteractionPoint>(targetsForDispatchingOut->at(k));
+			CS_InteractionPointPtr cddTarget = AS(CS_InteractionPoint, targetsForDispatchingOut->at(k));
 			if (cddTarget == target)
 			{
 				const CS_ReferencePtr& owner = cddTarget->owner;
@@ -502,9 +502,9 @@ FeatureValuePtr CS_Object::getFeatureValue(const StructuralFeaturePtr& feature)
 	// In the case where the feature belongs to an Interface,
 	// fUML semantics is extended in the sense that reading is
 	// delegated to a CS_StructuralFeatureOfInterfaceAccessStrategy
-	if (std::dynamic_pointer_cast<Interface>(feature->namespace_.lock()))
+	if (IS(Interface, feature->namespace_.lock()))
 	{
-		CS_StructuralFeatureOfInterfaceAccessStrategyPtr readStrategy = std::dynamic_pointer_cast<CS_StructuralFeatureOfInterfaceAccessStrategy>(locus->factory->getStrategy("structuralFeature"));
+		CS_StructuralFeatureOfInterfaceAccessStrategyPtr readStrategy = AS(CS_StructuralFeatureOfInterfaceAccessStrategy, locus->factory->getStrategy("structuralFeature"));
 		return readStrategy->read(thisCS_ObjectPtr.lock(), feature);
 	}
 	else
@@ -518,9 +518,9 @@ void CS_Object::setFeatureValue(const StructuralFeaturePtr& feature, const Value
 	// In the case where the feature belongs to an Interface,
 	// fUML semantics is extended in the sense that writing is
 	// delegated to a CS_StructuralFeatureOfInterfaceAccessStrategy
-	if (std::dynamic_pointer_cast<Interface>(feature->namespace_.lock()))
+	if (IS(Interface, feature->namespace_.lock()))
 	{
-		CS_StructuralFeatureOfInterfaceAccessStrategyPtr writeStrategy = std::dynamic_pointer_cast<CS_StructuralFeatureOfInterfaceAccessStrategy>(locus->factory->getStrategy("structuralFeature"));
+		CS_StructuralFeatureOfInterfaceAccessStrategyPtr writeStrategy = AS(CS_StructuralFeatureOfInterfaceAccessStrategy, locus->factory->getStrategy("structuralFeature"));
 		writeStrategy->write(thisCS_ObjectPtr.lock(), feature, values, position);
 	}
 	else
@@ -545,11 +545,11 @@ bool CS_Object::contains(const Object_Ptr& object_)
 		for (unsigned int j = 0; j < valuesSize && !objectIsContained; j++)
 		{
 			const ValuePtr& value = values->at(j);
-			if (CS_ObjectPtr cS_Object_ = std::dynamic_pointer_cast<CS_Object>(value))
+			if (CS_ObjectPtr cS_Object_ = AS(CS_Object, value))
 			{
 				objectIsContained = cS_Object_->contains(object_);
 			}
-			else if (CS_ReferencePtr reference = std::dynamic_pointer_cast<CS_Reference>(value))
+			else if (CS_ReferencePtr reference = AS(CS_Reference, value))
 			{
 				const CS_ObjectPtr& referent = reference->compositeReferent;
 				objectIsContained = referent->contains(object_);
@@ -577,7 +577,7 @@ bool CS_Object::directlyContains(const Object_Ptr& object_)
 			{
 				objectIsContained = true;
 			}
-			else if (CS_ReferencePtr reference = std::dynamic_pointer_cast<CS_Reference>(value))
+			else if (CS_ReferencePtr reference = AS(CS_Reference, value))
 			{
 				objectIsContained = reference->referent == object_;
 			}
@@ -600,7 +600,7 @@ CS_ObjectListPtr CS_Object::getDirectContainers()
 	{
 		if (extensionalValue != thisCS_ObjectPtr.lock())
 		{
-			if(CS_ObjectPtr cS_object = std::dynamic_pointer_cast<CS_Object>(extensionalValue))
+			if(CS_ObjectPtr cS_object = AS(CS_Object, extensionalValue))
 			{
 				const CS_ObjectPtr& cddContainer = cS_object;
 				if (cddContainer->directlyContains(thisCS_ObjectPtr.lock()))
@@ -625,9 +625,9 @@ bool CS_Object::isOperationProvided(const ReferencePtr& reference, const Operati
 	// for this operation (in the case
 	// where the namespace of this Operation is an interface)
 	bool isProvided = false;
-	if (CS_InteractionPointPtr interactionPoint = std::dynamic_pointer_cast<CS_InteractionPoint>(reference))
+	if (CS_InteractionPointPtr interactionPoint = AS(CS_InteractionPoint, reference))
 	{
-		if (std::dynamic_pointer_cast<Interface>(operation->owner.lock()))
+		if (IS(Interface, operation->owner.lock()))
 		{
 			// We have to look in provided interfaces of the port if
 			// they define directly or indirectly the Operation
@@ -644,7 +644,7 @@ bool CS_Object::isOperationProvided(const ReferencePtr& reference, const Operati
 				while (memberIndex <= interfaceMemberSize && !isProvided)
 				{
 					const NamedElementPtr& cddOperation = interface_->member()->at(memberIndex - 1);
-					if (std::dynamic_pointer_cast<Operation>(cddOperation))
+					if (IS(Operation, cddOperation))
 					{
 						isProvided = operation == cddOperation;
 					}
@@ -663,7 +663,7 @@ bool CS_Object::isOperationProvided(const ReferencePtr& reference, const Operati
 				typesSize = types->size();
 		while (typeIndex <= typesSize && !isProvided)
 		{
-			if (Class_Ptr class_ = std::dynamic_pointer_cast<Class_>(types->at(typeIndex - 1)))
+			if (Class_Ptr class_ = AS(Class_, types->at(typeIndex - 1)))
 			{
 				unsigned int memberIndex = 1;
 				const NamedElementListPtr& members = class_->member();
@@ -671,7 +671,7 @@ bool CS_Object::isOperationProvided(const ReferencePtr& reference, const Operati
 				while (memberIndex <= membersSize && !isProvided)
 				{
 					const NamedElementPtr& member = members->at(memberIndex - 1);
-					if (OperationPtr cddOperation = std::dynamic_pointer_cast<Operation>(member))
+					if (OperationPtr cddOperation = AS(Operation, member))
 					{
 						CS_DispatchOperationOfInterfaceStrategyPtr strategy(new CS_DispatchOperationOfInterfaceStrategy());
 						isProvided = strategy->operationsMatch(cddOperation, operation);
@@ -693,7 +693,7 @@ bool CS_Object::isOperationRequired(const ReferencePtr& reference, const Operati
 	// is a member of one of its required interfaces
 	// If the reference is not a interaction point, it cannot require an operation
 	bool matches = false;
-	if (CS_InteractionPointPtr interactionPoint = std::dynamic_pointer_cast<CS_InteractionPoint>(reference))
+	if (CS_InteractionPointPtr interactionPoint = AS(CS_InteractionPoint, reference))
 	{
 		unsigned int interfaceIndex = 1;
 		// Iterates on provided interfaces of the port
@@ -708,7 +708,7 @@ bool CS_Object::isOperationRequired(const ReferencePtr& reference, const Operati
 			while (memberIndex <= interfaceMembersSize && !matches)
 			{
 				const NamedElementPtr& cddOperation = interface_->member()->at(memberIndex - 1);
-				if (std::dynamic_pointer_cast<Operation>(cddOperation))
+				if (IS(Operation, cddOperation))
 				{
 					matches = operation == cddOperation;
 				}
@@ -757,7 +757,7 @@ pscs::semantics::structuredclassifiers::CS_LinkKind CS_Object::getLinkKind(const
 			{
 				vIsAValueForAFeatureOfContext = true;
 			}
-			else if (CS_InteractionPointPtr vAsInteractionPoint = std::dynamic_pointer_cast<CS_InteractionPoint>(v))
+			else if (CS_InteractionPointPtr vAsInteractionPoint = AS(CS_InteractionPoint, v))
 			{
 				v = vAsInteractionPoint->owner;
 				vIsAValueForAFeatureOfContext = this->hasValueForAFeature(v);
@@ -785,7 +785,7 @@ CS_LinkListPtr CS_Object::getLinks(const CS_InteractionPointPtr& interactionPoin
 	CS_LinkListPtr connectorInstances(new CS_LinkList());
 	for (const ExtensionalValuePtr& value : *extensionalValues)
 	{
-		if (CS_LinkPtr link = std::dynamic_pointer_cast<CS_Link>(value))
+		if (CS_LinkPtr link = AS(CS_Link, value))
 		{
 			if (this->getLinkKind(link, interactionPoint) != CS_LinkKind::None)
 			{
@@ -832,14 +832,14 @@ void CS_Object::sendOut(const EventOccurrencePtr& eventOccurrence, const PortPtr
 	ReferenceListPtr potentialTargets(new ReferenceList());
 	for (const ValuePtr& value : *values)
 	{
-		potentialTargets->push_back(std::dynamic_pointer_cast<Reference>(value));
+		potentialTargets->push_back(AS(Reference, value));
 	}
 	CS_RequestPropagationStrategyPtr strategy =
-						std::dynamic_pointer_cast<CS_RequestPropagationStrategy>(locus->factory->getStrategy("requestPropagation"));
+						AS(CS_RequestPropagationStrategy, locus->factory->getStrategy("requestPropagation"));
 	ReferenceListPtr targets = strategy->select(potentialTargets, SendSignalActionActivationPtr(new SendSignalActionActivation()));
 	for (const ReferencePtr target : *targets)
 	{
-		CS_InteractionPointPtr interactionPoint = std::dynamic_pointer_cast<CS_InteractionPoint>(target);
+		CS_InteractionPointPtr interactionPoint = AS(CS_InteractionPoint, target);
 		this->sendOut(eventOccurrence, interactionPoint);
 	}
 }
@@ -854,16 +854,16 @@ ExecutionPtr CS_Object::dispatchOut(const OperationPtr& operation, const PortPtr
 	ReferenceListPtr potentialTargets(new ReferenceList());
 	for (const ValuePtr& value : *values)
 	{
-		potentialTargets->push_back(std::dynamic_pointer_cast<Reference>(value));
+		potentialTargets->push_back(AS(Reference, value));
 	}
 	CS_RequestPropagationStrategyPtr strategy =
-						std::dynamic_pointer_cast<CS_RequestPropagationStrategy>(locus->factory->getStrategy("requestPropagation"));
+						AS(CS_RequestPropagationStrategy, locus->factory->getStrategy("requestPropagation"));
 	ReferenceListPtr targets = strategy->select(potentialTargets, CallOperationActionActivationPtr(new CallOperationActionActivation()));
 	// if targets is empty, no dispatch target has been found,
 	// and the operation call is lost
 	if (targets->size() >= 1)
 	{
-		CS_InteractionPointPtr target = std::dynamic_pointer_cast<CS_InteractionPoint>(targets->at(0));
+		CS_InteractionPointPtr target = AS(CS_InteractionPoint, targets->at(0));
 		execution = this->dispatchOut(operation, target);
 	}
 	return execution;
@@ -876,8 +876,8 @@ ExecutionPtr CS_Object::dispatchIn(const OperationPtr& operation, const PortPtr&
 	// and dispatches the operation call to this interaction point
 	FeatureValuePtr featureValue = this->getFeatureValue(onPort);
 	const ValueListPtr& values = featureValue->values;
-	int choice = std::dynamic_pointer_cast<ChoiceStrategy>(locus->factory->getStrategy("choice"))->choose(featureValue->values->size()) - 1;
-	CS_InteractionPointPtr interactionPoint = std::dynamic_pointer_cast<CS_InteractionPoint>(values->at(choice));
+	int choice = AS(ChoiceStrategy, locus->factory->getStrategy("choice"))->choose(featureValue->values->size()) - 1;
+	CS_InteractionPointPtr interactionPoint = AS(CS_InteractionPoint, values->at(choice));
 	return interactionPoint->dispatch(operation);
 }
 
@@ -890,10 +890,10 @@ void CS_Object::sendIn(const EventOccurrencePtr& eventOccurrence, const PortPtr&
 	ReferenceListPtr potentialTargets(new ReferenceList());
 	for (const ValuePtr& value : *values)
 	{
-		potentialTargets->push_back(std::dynamic_pointer_cast<Reference>(value));
+		potentialTargets->push_back(AS(Reference, value));
 	}
 	CS_RequestPropagationStrategyPtr strategy =
-						std::dynamic_pointer_cast<CS_RequestPropagationStrategy>(locus->factory->getStrategy("requestPropagation"));
+						AS(CS_RequestPropagationStrategy, locus->factory->getStrategy("requestPropagation"));
 	ReferenceListPtr targets = strategy->select(potentialTargets, SendSignalActionActivationPtr(new SendSignalActionActivation()));
 	for (const ReferencePtr target : *targets)
 	{
@@ -908,15 +908,15 @@ bool CS_Object::checkAllParents(const ClassifierPtr& type, const ClassifierPtr& 
 	// ancestors)
 	// has an InterfaceRealization relationships with the given classifier.
 	bool matched = false;
-	if (std::dynamic_pointer_cast<Interface>(classifier) == nullptr)
+	if (!IS(Interface, classifier))
 	{
 		matched = Object_::checkAllParents(type, classifier);
 	}
-	else if (std::dynamic_pointer_cast<Class_>(type) == nullptr)
+	else if (!IS(Class_, type))
 	{
 		matched = false;
 	}
-	else if (this->realizesInterface(std::dynamic_pointer_cast<Class_>(type), std::dynamic_pointer_cast<Interface>(classifier)))
+	else if (this->realizesInterface(AS(Class_, type), AS(Interface, classifier)))
 	{
 		matched = true;
 	}
@@ -969,7 +969,7 @@ bool CS_Object::isDescendant(const InterfacePtr& contract, const InterfacePtr& i
 			descendantsSize = descendants->size();
 	while (i <= descendantsSize && !matched)
 	{
-		if (InterfacePtr descendant = std::dynamic_pointer_cast<Interface>(descendants->at(i - 1)))
+		if (InterfacePtr descendant = AS(Interface, descendants->at(i - 1)))
 		{
 			if (descendant == interface_)
 			{

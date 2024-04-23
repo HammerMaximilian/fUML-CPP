@@ -26,7 +26,7 @@ void BehavioredClassifier::addOwnedBehavior(const BehaviorPtr& ownedBehavior)
 
 	this->ownedBehavior->push_back(ownedBehavior);
 
-	BehaviorPtr behavior = std::dynamic_pointer_cast<Behavior>(thisBehavioredClassifierPtr.lock());
+	BehaviorPtr behavior = AS(Behavior, thisBehavioredClassifierPtr.lock());
 
 	if (!behavior)
 	{

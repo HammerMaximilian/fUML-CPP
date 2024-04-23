@@ -30,7 +30,7 @@ bool RealValue::equals(const ValuePtr& otherValue)
 	// value.
 
 	bool isEqual = false;
-	RealValuePtr realValue = std::dynamic_pointer_cast<RealValue>(otherValue);
+	RealValuePtr realValue = AS(RealValue, otherValue);
 	if (realValue)
 	{
 		isEqual = (realValue->value == this->value);
@@ -43,7 +43,7 @@ ValuePtr RealValue::copy()
 {
 	// Create a new real value with the same value as this real value.
 
-	RealValuePtr newValue = std::dynamic_pointer_cast<RealValue>(PrimitiveValue::copy());
+	RealValuePtr newValue = AS(RealValue, PrimitiveValue::copy());
 
 	newValue->value = this->value;
 	return newValue;

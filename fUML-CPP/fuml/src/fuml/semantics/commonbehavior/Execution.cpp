@@ -28,7 +28,7 @@ ValuePtr Execution::copy()
 	// Create a new execution that has the same behavior and parameterValues
 	// as this execution.
 
-	ExecutionPtr newValue = std::dynamic_pointer_cast<Execution>(Object_::copy());
+	ExecutionPtr newValue = AS(Execution, Object_::copy());
 
 	newValue->context = this->context;
 
@@ -108,7 +108,7 @@ BehaviorPtr Execution::getBehavior()
 {
 	// Get the behavior that is the type of this execution.
 
-	return std::dynamic_pointer_cast<Behavior>(this->getTypes()->at(0));
+	return AS(Behavior, this->getTypes()->at(0));
 } // getBehavior
 
 void Execution::destroy()

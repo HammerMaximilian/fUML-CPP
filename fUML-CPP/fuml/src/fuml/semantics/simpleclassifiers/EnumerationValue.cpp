@@ -33,7 +33,7 @@ bool EnumerationValue::equals(const ValuePtr& otherValue)
 	// the same literal as this enumeration value
 
 	bool isEqual = false;
-	EnumerationValuePtr enumerationValue = std::dynamic_pointer_cast<EnumerationValue>(otherValue);
+	EnumerationValuePtr enumerationValue = AS(EnumerationValue, otherValue);
 	if (enumerationValue)
 	{
 		isEqual = (enumerationValue->literal == this->literal);
@@ -46,7 +46,7 @@ ValuePtr EnumerationValue::copy()
 {
 	// Create a new enumeration value with the same value as this enumeration value.
 
-	EnumerationValuePtr newValue = std::dynamic_pointer_cast<EnumerationValue>(Value::copy());
+	EnumerationValuePtr newValue = AS(EnumerationValue, Value::copy());
 
 	newValue->type = this->type;
 	newValue->literal = this->literal;

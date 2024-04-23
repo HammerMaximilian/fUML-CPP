@@ -20,6 +20,6 @@ void ReadSelfActionActivation::doAction()
 	ReferencePtr context(new Reference());
 	context->referent = this->getExecutionContext();
 
-	OutputPinPtr resultPin = std::dynamic_pointer_cast<ReadSelfAction>(this->node)->result;
+	OutputPinPtr resultPin = AS(ReadSelfAction, this->node)->result;
 	this->putToken(resultPin, context);
 } // doAction

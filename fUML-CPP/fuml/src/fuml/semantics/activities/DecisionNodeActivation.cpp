@@ -111,7 +111,7 @@ ValuePtr DecisionNodeActivation::executeDecisionInputBehavior(const ValuePtr& in
 	fuml::Debug::println("[executeDecisionBehavior] inputValue = " +
 							((inputValue == nullptr) ? "null" : std::to_string(inputValue->hashCode())));
 
-	BehaviorPtr decisionInputBehavior = std::dynamic_pointer_cast<DecisionNode>(this->node)->decisionInput;
+	BehaviorPtr decisionInputBehavior = AS(DecisionNode, this->node)->decisionInput;
 
 	ValuePtr decisionInputResult = nullptr;
 
@@ -209,7 +209,7 @@ TokenListPtr DecisionNodeActivation::takeOfferedTokens()
 	// Get tokens from the incoming edge that is not the decision input
 	// flow.
 
-	ObjectFlowPtr decisionInputFlow = std::dynamic_pointer_cast<DecisionNode>(this->node)->decisionInputFlow;
+	ObjectFlowPtr decisionInputFlow = AS(DecisionNode, this->node)->decisionInputFlow;
 
 	TokenListPtr allTokens(new TokenList());
 	const ActivityEdgeInstanceListPtr& incomingEdges = this->incomingEdges;
@@ -253,7 +253,7 @@ ActivityEdgeInstancePtr DecisionNodeActivation::getDecisionInputFlowInstance()
 {
 	// Get the activity edge instance for the decision input flow, if any.
 
-	ActivityEdgePtr decisionInputFlow = std::dynamic_pointer_cast<DecisionNode>(this->node)->decisionInputFlow;
+	ActivityEdgePtr decisionInputFlow = AS(DecisionNode, this->node)->decisionInputFlow;
 
 	ActivityEdgeInstancePtr edgeInstance = nullptr;
 	if (decisionInputFlow != nullptr)
@@ -318,13 +318,13 @@ bool DecisionNodeActivation::hasObjectFlowInput()
 {
 	// Check that the primary incoming edge is an object flow.
 
-	ActivityEdgePtr decisionInputFlow = std::dynamic_pointer_cast<DecisionNode>(this->node)->decisionInputFlow;
+	ActivityEdgePtr decisionInputFlow = AS(DecisionNode, this->node)->decisionInputFlow;
 
 	bool isObjectFlow = false;
 	for (const ActivityEdgeInstancePtr& incomingEdge : *(this->incomingEdges))
 	{
 		const ActivityEdgePtr& edge = incomingEdge->edge;
-		isObjectFlow = (edge != decisionInputFlow) && (std::dynamic_pointer_cast<ObjectFlow>(edge) != nullptr);
+		isObjectFlow = (edge != decisionInputFlow) && IS(ObjectFlow, edge);
 		if (isObjectFlow)
 			break;
 	}

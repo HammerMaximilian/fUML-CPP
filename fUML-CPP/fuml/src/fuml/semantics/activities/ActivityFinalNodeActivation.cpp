@@ -38,8 +38,7 @@ void ActivityFinalNodeActivation::fire(const TokenListPtr& incomingTokens)
 		}
 		else
 		{
-			ExpansionActivationGroupPtr expansionActivationGroup = std::dynamic_pointer_cast<ExpansionActivationGroup>(
-				group);
+			ExpansionActivationGroupPtr expansionActivationGroup = AS(ExpansionActivationGroup, group);
 			if (expansionActivationGroup)
 			{
 				expansionActivationGroup->regionActivation->terminate();

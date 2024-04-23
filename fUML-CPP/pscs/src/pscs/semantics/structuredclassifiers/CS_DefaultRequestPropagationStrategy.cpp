@@ -16,7 +16,7 @@ ReferenceListPtr CS_DefaultRequestPropagationStrategy::select(const ReferenceLis
     // returns all potential targets in the case where the context is a SendSignalActionActivation
     // returns the first potential target in the case where the context is anything else
     ReferenceListPtr selectedTargets(new ReferenceList());
-    if (SendSignalActionActivationPtr sendSignalActionActivation = std::dynamic_pointer_cast<SendSignalActionActivation>(context))
+    if (SendSignalActionActivationPtr sendSignalActionActivation = AS(SendSignalActionActivation, context))
     {
         for (const ReferencePtr& potentialTarget : *potentialTargets)
         {

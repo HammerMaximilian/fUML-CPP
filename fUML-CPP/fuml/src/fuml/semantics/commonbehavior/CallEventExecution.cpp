@@ -110,7 +110,7 @@ OperationPtr CallEventExecution::getOperation()
 {
 	// Return the operation being called by this call event execution.
 
-	return std::dynamic_pointer_cast<CallEventBehavior>(this->getBehavior())->operation;
+	return AS(CallEventBehavior, this->getBehavior())->operation;
 } // getOperation
 
 ParameterValueListPtr CallEventExecution::getInputParameterValues()
@@ -161,7 +161,7 @@ ValuePtr CallEventExecution::copy()
 	// Create a new call event execution that is a copy of this execution, with the
 	// caller initially not suspended.
 
-	CallEventExecutionPtr copy = std::dynamic_pointer_cast<CallEventExecution>(Execution::copy());
+	CallEventExecutionPtr copy = AS(CallEventExecution, Execution::copy());
 	copy->setThisCallEventExecutionPtr(copy);
 	copy->callerSuspended = false;
 	return copy;

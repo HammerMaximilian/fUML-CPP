@@ -35,7 +35,7 @@ ValueListPtr CS_OpaqueExpressionEvaluation::executeExpressionBehavior()
     // then execute this behavior, and return computed values.
     // Otherwise, return an empty list of values.
     ValueListPtr evaluation(new ValueList());
-    OpaqueExpressionPtr expression = std::dynamic_pointer_cast<OpaqueExpression>(specification);
+    OpaqueExpressionPtr expression = AS(OpaqueExpression, specification);
     BehaviorPtr behavior = expression->behavior;
     if (behavior != nullptr)
     {

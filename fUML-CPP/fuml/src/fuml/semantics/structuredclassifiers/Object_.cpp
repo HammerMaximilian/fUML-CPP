@@ -41,8 +41,7 @@ ExecutionPtr Object_::dispatch(const OperationPtr& operation)
 	// Dispatch the given operation to a method execution, using a dispatch
 	// strategy.
 
-	DispatchStrategyPtr dispatchStrategy = std::dynamic_pointer_cast<DispatchStrategy>(
-		this->locus->factory->getStrategy("dispatch"));
+	DispatchStrategyPtr dispatchStrategy = AS(DispatchStrategy, this->locus->factory->getStrategy("dispatch"));
 
 	return dispatchStrategy->dispatch(this->thisObject_Ptr.lock(), operation);
 } // dispatch
@@ -107,7 +106,7 @@ ValuePtr Object_::copy()
 	// However, the new object will NOT have any object activation (i.e, its
 	// classifier behaviors will not be started).
 
-	Object_Ptr newObject = std::dynamic_pointer_cast<Object_>(ExtensionalValue::copy());
+	Object_Ptr newObject = AS(Object_, ExtensionalValue::copy());
 	newObject->setThisObject_Ptr(newObject);
 
 	Class_ListPtr types = this->types;

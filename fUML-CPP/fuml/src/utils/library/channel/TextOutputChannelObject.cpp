@@ -82,33 +82,33 @@ void TextOutputChannelObject::execute(const std::shared_ptr<fuml::library::libra
 	}
 	else if (name == "writeString")
 	{
-		this->writeString(std::dynamic_pointer_cast<StringValue>(parameterValue->values->at(0))->value, status);
+		this->writeString(AS(StringValue, parameterValue->values->at(0))->value, status);
 		this->updateStatus(execution, status);
 	}
 	else if (name == "writeLine")
 	{
-		this->writeLine(std::dynamic_pointer_cast<StringValue>(parameterValue->values->at(0))->value, status);
+		this->writeLine(AS(StringValue, parameterValue->values->at(0))->value, status);
 		this->updateStatus(execution, status);
 	}
 	else if (name == "writeInteger")
 	{
-		this->writeInteger(std::dynamic_pointer_cast<IntegerValue>(parameterValue->values->at(0))->value, status);
+		this->writeInteger(AS(IntegerValue, parameterValue->values->at(0))->value, status);
 		this->updateStatus(execution, status);
 	}
 	else if (name == "writeReal")
 	{
-		this->writeReal(std::dynamic_pointer_cast<RealValue>(parameterValue->values->at(0))->value, status);
+		this->writeReal(AS(RealValue, parameterValue->values->at(0))->value, status);
 		this->updateStatus(execution, status);
 	}
 	else if (name == "writeBoolean")
 	{
-		this->writeBoolean(std::dynamic_pointer_cast<BooleanValue>(parameterValue->values->at(0))->value, status);
+		this->writeBoolean(AS(BooleanValue, parameterValue->values->at(0))->value, status);
 		this->updateStatus(execution, status);
 	}
 	else if (name == "writeUnlimitedNatural")
 	{
 		this->writeUnlimitedNatural(
-			std::dynamic_pointer_cast<UnlimitedNaturalValue>(parameterValue->values->at(0))->value, status);
+			AS(UnlimitedNaturalValue, parameterValue->values->at(0))->value, status);
 		this->updateStatus(execution, status);
 	}
 	else

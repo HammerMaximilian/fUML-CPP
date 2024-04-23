@@ -48,12 +48,12 @@ bool LinkActionActivation::endMatchesEndData(const LinkPtr& link, const LinkEndD
 		PropertyPtr end = endData->end;
 		FeatureValuePtr linkFeatureValue = link->getFeatureValue(end);
 		ValuePtr endValue = this->getTokens(endData->value)->at(0);
-		LinkEndDestructionDataPtr linkEndDestructionData = std::dynamic_pointer_cast<LinkEndDestructionData>(endData);
+		LinkEndDestructionDataPtr linkEndDestructionData = AS(LinkEndDestructionData, endData);
 		if (linkEndDestructionData)
 		{
 			if (!linkEndDestructionData->isDestroyDuplicates && !end->isUnique && end->isOrdered)
 			{
-				int destroyAt = std::dynamic_pointer_cast<UnlimitedNaturalValue>(
+				int destroyAt = AS(UnlimitedNaturalValue,
 					this->getTokens(linkEndDestructionData->destroyAt)->at(0))->value;
 				matches = linkFeatureValue->values->at(0)->equals(endValue) && linkFeatureValue->position == destroyAt;
 			}
@@ -75,5 +75,5 @@ AssociationPtr LinkActionActivation::getAssociation()
 {
 	// Get the association for the link action of this activation.
 
-	return std::dynamic_pointer_cast<LinkAction>(this->node)->endData->at(0)->end->association.lock();
+	return AS(LinkAction, this->node)->endData->at(0)->end->association.lock();
 } // getAssociation

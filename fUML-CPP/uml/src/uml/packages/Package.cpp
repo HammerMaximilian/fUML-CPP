@@ -24,7 +24,7 @@ void Package::addPackagedElement(const PackageableElementPtr& packagedElement)
 	Namespace::addOwnedMember(packagedElement);
 	this->packagedElement->push_back(packagedElement);
 
-	TypePtr type = std::dynamic_pointer_cast<Type>(packagedElement);
+	TypePtr type = AS(Type, packagedElement);
 
 	if (type)
 	{
@@ -32,7 +32,7 @@ void Package::addPackagedElement(const PackageableElementPtr& packagedElement)
 		type->_setPackage(thisPackagePtr.lock());
 	}
 
-	PackagePtr package = std::dynamic_pointer_cast<Package>(packagedElement);
+	PackagePtr package = AS(Package, packagedElement);
 
 	if (package)
 	{

@@ -26,7 +26,7 @@ void Class_::addGeneralization(const GeneralizationPtr& generalization)
 {
 	Classifier::addGeneralization(generalization);
 
-	std::shared_ptr<Class_> superClass = std::dynamic_pointer_cast<Class_>(generalization->general);
+	std::shared_ptr<Class_> superClass = AS(Class_, generalization->general);
 
 	if (superClass)
 	{
@@ -68,7 +68,7 @@ NamedElementListPtr Class_::inherit(const NamedElementListPtr& inhs)
 
 	for (const NamedElementPtr& member : *(this->ownedMember))
 	{
-		RedefinableElementPtr redefinableElement = std::dynamic_pointer_cast<RedefinableElement>(member);
+		RedefinableElementPtr redefinableElement = AS(RedefinableElement, member);
 		if (redefinableElement)
 		{
 			redefinableMembers->push_back(redefinableElement);

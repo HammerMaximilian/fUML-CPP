@@ -20,11 +20,11 @@ void AcceptCallActionActivation::accept(const EventOccurrencePtr& eventOccurrenc
 	// output pin. Then complete the acceptance of the event occurrence
 	// as usual.
 
-	AcceptCallActionPtr action = std::dynamic_pointer_cast<AcceptCallAction>(this->node);
+	AcceptCallActionPtr action = AS(AcceptCallAction, this->node);
 	const OutputPinPtr& returnInformationPin = action->returnInformation;
 
 	ReturnInformationPtr returnInformation(new ReturnInformation());
-	returnInformation->callEventOccurrence = std::dynamic_pointer_cast<CallEventOccurrence>(eventOccurrence);
+	returnInformation->callEventOccurrence = AS(CallEventOccurrence, eventOccurrence);
 
 	this->putToken(returnInformationPin, returnInformation);
 

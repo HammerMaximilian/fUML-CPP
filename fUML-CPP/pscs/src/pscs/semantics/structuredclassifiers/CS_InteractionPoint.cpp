@@ -33,7 +33,7 @@ void CS_InteractionPoint::send(const EventOccurrencePtr& eventOccurrence)
 	// (if necessary) wrapped in a CS_EventOccurrence. This event occurrence
 	// is then sent to the owning object.
 	CS_EventOccurrencePtr wrappingEventOccurrence;
-	if (CS_EventOccurrencePtr cS_EventOccurrence = std::dynamic_pointer_cast<CS_EventOccurrence>(eventOccurrence))
+	if (CS_EventOccurrencePtr cS_EventOccurrence = AS(CS_EventOccurrence, eventOccurrence))
 	{
 		wrappingEventOccurrence = cS_EventOccurrence;
 	}

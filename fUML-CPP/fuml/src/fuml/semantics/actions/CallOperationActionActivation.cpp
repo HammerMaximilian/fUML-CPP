@@ -24,7 +24,7 @@ bool CallOperationActionActivation::isReady()
 	bool ready = CallActionActivation::isReady();
 	if (ready)
 	{
-		CallOperationActionPtr action = std::dynamic_pointer_cast<CallOperationAction>(this->node);
+		CallOperationActionPtr action = AS(CallOperationAction, this->node);
 		ready = this->getPinActivation(action->target)->isReady();
 	}
 	return ready;
@@ -35,13 +35,13 @@ ExecutionPtr CallOperationActionActivation::getCallExecution()
 	// If the value on the target input pin is a reference, dispatch the
 	// operation to it and return the resulting execution object.
 
-	CallOperationActionPtr action = std::dynamic_pointer_cast<CallOperationAction>(this->node);
+	CallOperationActionPtr action = AS(CallOperationAction, this->node);
 	bool isExplicitBaseClassCall = this->isExplicitBaseClassCall(action);
 	ValuePtr target = this->takeTokens(action->target)->at(0);
 
 	ExecutionPtr execution;
 
-	ReferencePtr reference = std::dynamic_pointer_cast<Reference>(target);
+	ReferencePtr reference = AS(Reference, target);
 
 	if (reference)
 	{
@@ -60,5 +60,5 @@ ParameterListPtr CallOperationActionActivation::getParameters()
 	// Get the owned parameters of the operation of the call operation
 	// action for this call operation action activation.
 
-	return std::dynamic_pointer_cast<CallOperationAction>(this->node)->operation->ownedParameter;
+	return AS(CallOperationAction, this->node)->operation->ownedParameter;
 } // getParameters

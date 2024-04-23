@@ -27,7 +27,7 @@ void DestroyObjectActionActivation::doAction()
 	// referent via either composite attributes or composition links.
 	// Destroy the referent object.
 
-	DestroyObjectActionPtr action = std::dynamic_pointer_cast<DestroyObjectAction>(this->node);
+	DestroyObjectActionPtr action = AS(DestroyObjectAction, this->node);
 	ValuePtr value = this->takeTokens(action->target)->at(0);
 
 	this->destroyObject(value, action->isDestroyLinks, action->isDestroyOwnedObjects);
@@ -39,7 +39,7 @@ void DestroyObjectActionActivation::destroyObject(const ValuePtr& value, bool is
 	// If the given value is a reference, then destroy the referenced
 	// object, per the given destroy action attribute values.
 
-	ReferencePtr reference = std::dynamic_pointer_cast<Reference>(value);
+	ReferencePtr reference = AS(Reference, value);
 
 	if (reference)
 	{
@@ -50,7 +50,7 @@ void DestroyObjectActionActivation::destroyObject(const ValuePtr& value, bool is
 			const ExtensionalValueListPtr& extensionalValues = this->getExecutionLocus()->extensionalValues;
 			for (const ExtensionalValuePtr& extensionalValue : *extensionalValues)
 			{
-				LinkPtr link = std::dynamic_pointer_cast<Link>(extensionalValue);
+				LinkPtr link = AS(Link, extensionalValue);
 
 				if (link)
 				{
@@ -79,7 +79,7 @@ void DestroyObjectActionActivation::destroyObject(const ValuePtr& value, bool is
 			FeatureValueListPtr objectFeatureValues = reference->getFeatureValues();
 			for (const FeatureValuePtr& featureValue : *objectFeatureValues)
 			{
-				if (std::dynamic_pointer_cast<Property>(featureValue->feature)->aggregation
+				if (AS(Property, featureValue->feature)->aggregation
 					== AggregationKind::composite)
 				{
 					fuml::Debug::println("[destroyObject] Destroying owned objects...");
@@ -108,7 +108,7 @@ ValuePtr DestroyObjectActionActivation::getCompositeValue(const ReferencePtr& re
 	{
 		const ValuePtr& value = featureValue->values->at(0);
 		if (!value->equals(reference)
-			&& std::dynamic_pointer_cast<Property>(featureValue->feature)->aggregation == AggregationKind::composite)
+			&& AS(Property, featureValue->feature)->aggregation == AggregationKind::composite)
 		{
 			compositeValue = value;
 			break;

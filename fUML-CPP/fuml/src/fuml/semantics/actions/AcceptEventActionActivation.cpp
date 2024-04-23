@@ -97,7 +97,7 @@ void AcceptEventActionActivation::accept(const EventOccurrencePtr& eventOccurren
 	// If there are no incoming edges, then re-register this accept event
 	// action execution with the context object.
 
-	AcceptEventActionPtr action = std::dynamic_pointer_cast<AcceptEventAction>(this->node);
+	AcceptEventActionPtr action = AS(AcceptEventAction, this->node);
 	const OutputPinListPtr& resultPins = action->result;
 
 	fuml::Debug::println(
@@ -107,8 +107,7 @@ void AcceptEventActionActivation::accept(const EventOccurrencePtr& eventOccurren
 	{
 		if (!action->isUnmarshall)
 		{
-			SignalEventOccurrencePtr signalEventOccurrence = std::dynamic_pointer_cast<SignalEventOccurrence>(
-				eventOccurrence);
+			SignalEventOccurrencePtr signalEventOccurrence = AS(SignalEventOccurrence, eventOccurrence);
 			if (signalEventOccurrence)
 			{
 				SignalInstancePtr signalInstance = signalEventOccurrence->signalInstance;
@@ -150,7 +149,7 @@ bool AcceptEventActionActivation::match(const EventOccurrencePtr& eventOccurrenc
 	// Return true if the given event occurrence matches a trigger of the
 	// accept event action of this activation.
 
-	AcceptEventActionPtr action = std::dynamic_pointer_cast<AcceptEventAction>(this->node);
+	AcceptEventActionPtr action = AS(AcceptEventAction, this->node);
 	const TriggerListPtr& triggers = action->trigger;
 
 	return eventOccurrence->matchAny(triggers);

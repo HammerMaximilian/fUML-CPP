@@ -74,7 +74,7 @@ void OperationExecution::execute()
 		}
 	}
 
-	std::dynamic_pointer_cast<ImplementationObject>(this->context)->execute(thisOperationExecutionPtr.lock());
+	AS(ImplementationObject, this->context)->execute(thisOperationExecutionPtr.lock());
 }
 
 std::string OperationExecution::getOperationName()

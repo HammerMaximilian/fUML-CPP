@@ -108,7 +108,7 @@ BooleanValuePtr ClauseActivation::getDecision()
 	BooleanValuePtr deciderValue = nullptr;
 	if (deciderValues->size() > 0)
 	{
-		deciderValue = std::dynamic_pointer_cast<BooleanValue>(deciderValues->at(0));
+		deciderValue = AS(BooleanValue, deciderValues->at(0));
 	}
 
 	return deciderValue;

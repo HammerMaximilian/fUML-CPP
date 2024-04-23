@@ -31,7 +31,7 @@ ValuePtr CS_CallEventExecution::copy()
 {
 	// Create a new call event execution that is a copy of this execution, no
 	// referenced interaction point.
-	CS_CallEventExecutionPtr copy = std::dynamic_pointer_cast<CS_CallEventExecution>(CallEventExecution::copy());
+	CS_CallEventExecutionPtr copy = AS(CS_CallEventExecution, CallEventExecution::copy());
 	copy->interactionPoint = nullptr;
 	return copy;
 }

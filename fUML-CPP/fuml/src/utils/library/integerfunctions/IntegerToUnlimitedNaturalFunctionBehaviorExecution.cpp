@@ -27,7 +27,7 @@ void IntegerToUnlimitedNaturalFunctionBehaviorExecution::doBody(const ParameterV
 	const ParameterValueListPtr& outputParameters)
 {
 	// Extract integer arguments and perform an integer function on them.
-	IntegerValuePtr iv = std::dynamic_pointer_cast<IntegerValue>(inputParameters->at(0)->values->at(0));
+	IntegerValuePtr iv = AS(IntegerValue, inputParameters->at(0)->values->at(0));
 	int i = iv->value;
 	fuml::Debug::println("[doBody] argument = " + std::to_string(i));
 
