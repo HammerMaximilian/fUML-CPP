@@ -22,7 +22,7 @@ void Association::addOwnedEnd(const PropertyPtr& ownedEnd)
 	this->ownedEnd->push_back(ownedEnd);
 	ownedEnd->_setOwningAssociation(thisAssociationPtr.lock());
 
-	this->_addMemberEnd(ownedEnd);
+	this->addMemberEnd(ownedEnd);
 } // addOwnedEnd
 
 void Association::addNavigableOwnedEnd(const PropertyPtr& navigableOwnedEnd)
