@@ -19,6 +19,7 @@ namespace pscs::semantics::actions
 
 			virtual void doAction() override;
 			virtual ExecutionPtr getCallExecution() override;
+			virtual OutputPinListPtr getOfferingOutputPins() override; // Extension
 			bool isOperationProvided(const PortPtr&, const OperationPtr&);
 			bool isOperationRequired(const PortPtr&, const OperationPtr&);
 			bool isCreate(const OperationPtr&);
