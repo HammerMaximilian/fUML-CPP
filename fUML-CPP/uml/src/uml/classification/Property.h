@@ -39,6 +39,7 @@ namespace uml::classification
 			void _setAssociation(const AssociationPtr&);
 			void _setClass(const Class_Ptr&);
 			void _setDatatype(const DataTypePtr&);
+			void setDefaultValue(const ValueSpecificationPtr&);
 			void setIsID(bool);
 			void _setOwningAssociation(const AssociationPtr&);
 			void _setOpposite(const PropertyPtr&);

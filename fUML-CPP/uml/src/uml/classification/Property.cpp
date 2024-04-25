@@ -38,6 +38,11 @@ void Property::_setDatatype(const DataTypePtr& datatype)
 	NamedElement::_setNamespace(datatype);
 } // _setDataType
 
+void Property::setDefaultValue(const ValueSpecificationPtr& defaultValue)
+{
+	this->defaultValue = defaultValue;
+} // setDefaultValue
+
 void Property::setIsID(bool isID)
 {
 	this->isID = isID;
