@@ -788,6 +788,27 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [/let]
 [/template]
 
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Enumeration)) post(trim())]
+[let anEnumeration : Enumeration = anElement.oclAsType(Enumeration)]
+// [anEnumeration.eClass().name + ' ' + anEnumeration.getName()/]
+[anEnumeration.getFullNameSanitized()/]->setThisEnumerationPtr([anEnumeration.getFullNameSanitized()/]);
+[anEnumeration.generateDataTypeInitialization()/]
+[comment Property 'Enumeration::ownedLiteral' /]
+[for (anEnumerationLiteral : EnumerationLiteral | anEnumeration.ownedLiteral)]
+	[anEnumerationLiteral.generateElementInitialization()/]
+[anEnumeration.getFullNameSanitized()/]->addOwnedLiteral([anEnumerationLiteral.getFullNameSanitized()/]);
+[/for]
+[/let]
+[/template]
+
+[template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(DataType)) post(trim())]
+[let aDataType : DataType = anElement.oclAsType(DataType)]
+// [aDataType.eClass().name + ' ' + aDataType.getName()/]
+[aDataType.getFullNameSanitized()/]->setThisDataTypePtr([aDataType.getFullNameSanitized()/]);
+[aDataType.generateDataTypeInitialization()/]
+[/let]
+[/template]
+
 [template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Interface)) post(trim())]
 [let anInterface : Interface = anElement.oclAsType(Interface)]
 // [anInterface.eClass().name + ' ' + anInterface.getName()/]
@@ -905,6 +926,11 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [comment Property 'Property::isID' /]
 	[if (aProperty.isID)]
 [aProperty.getFullNameSanitized()/]->setIsID(true);
+	[/if]
+[comment Property 'Property::defaultValue' /]
+	[if (not aProperty.defaultValue.oclIsUndefined())]
+	[aProperty.defaultValue.generateValueSpecificationInitialization()/]
+[aProperty.getFullNameSanitized()/]->setDefaultValue([aProperty.defaultValue.getFullNameSanitized()/]);
 	[/if]
 [/let]
 [if (anElement.oclIsKindOf(Port))]
@@ -1177,6 +1203,15 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [if (not (aConnectorEnd.partWithPort.oclIsUndefined()))]
 [aConnectorEnd.getFullNameSanitized()/]->setPartWithPort([aConnectorEnd.partWithPort.getFullNameSanitized()/]);
 [/if]
+[/template]
+
+[template private generateDataTypeInitialization(aDataType : DataType)]
+[aDataType.generateClassifierInitialization()/]
+[comment Property 'DataType::ownedOperation' /]
+[for (anOperation : Operation | aDataType.ownedOperation)]
+	[anOperation.generateElementInitialization()/]
+[aDataType.getFullNameSanitized()/]->addOwnedOperation([aDataType.getFullNameSanitized()/]);
+[/for]
 [/template]
 
 [template private generateDependencyInitialization(aDependency : Dependency) post(trim())]
