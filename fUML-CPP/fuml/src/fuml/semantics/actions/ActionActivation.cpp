@@ -172,13 +172,16 @@ bool ActionActivation::isReady()
 
 	bool ready = isControlReady();
 
-	const InputPinListPtr& inputPins = AS(Action, this->node)->input;
-
-	for (const InputPinPtr& inputPin : *inputPins)
+	if(ready)
 	{
-		ready = this->getPinActivation(inputPin)->isReady();
-		if (!ready)
-			break;
+		const InputPinListPtr& inputPins = AS(Action, this->node)->input;
+
+		for (const InputPinPtr& inputPin : *inputPins)
+		{
+			ready = this->getPinActivation(inputPin)->isReady();
+			if (!ready)
+				break;
+		}
 	}
 
 	return ready;
