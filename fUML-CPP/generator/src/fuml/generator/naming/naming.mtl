@@ -48,6 +48,8 @@ string.
 	substituteAll('!', '_').
 	substituteAll('?', '_').
 	substituteAll('§', '_').
+	substituteAll('$', '_').
+	substituteAll('%', '_').
 	substituteAll('&', '_').
 	substituteAll('=', '_').
 	substituteAll('~', '_').
