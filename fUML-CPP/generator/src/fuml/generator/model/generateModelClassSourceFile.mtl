@@ -812,6 +812,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [template private generateElementInitialization(anElement : Element) ? (anElement.oclIsKindOf(Interface)) post(trim())]
 [let anInterface : Interface = anElement.oclAsType(Interface)]
 // [anInterface.eClass().name + ' ' + anInterface.getName()/]
+[anInterface.getFullNameSanitized()/]->setThisInterfacePtr([anInterface.getFullNameSanitized()/]);
 [anInterface.generateClassifierInitialization()/]
 [comment Property 'Interface::ownedOperation' /]
 [for (anOperation : Operation | anInterface.ownedOperation)]
@@ -1276,7 +1277,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [anInvocationAction.generateActionInitialization()/]
 [comment Property 'anInvocationAction::onPort'/]
 [if (not anInvocationAction.onPort.oclIsUndefined())]
-[anInvocationAction.getFullNameSanitized()/].SetOnPort([anInvocationAction.onPort.getFullNameSanitized()/]);
+[anInvocationAction.getFullNameSanitized()/]->setOnPort([anInvocationAction.onPort.getFullNameSanitized()/]);
 [/if]
 [/template]
 
@@ -1412,6 +1413,8 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [/template]
 
 [template private generateTriggerInitialization(aTrigger : Trigger) post(trim())]
+// [aTrigger.eClass().name + ' ' + aTrigger.getName()/]
+[aTrigger.getFullNameSanitized()/]->setThisElementPtr([aTrigger.getFullNameSanitized()/]);
 [aTrigger.generateNamedElementInitialization()/]
 [comment Property 'Trigger::event' /]
 	[if (not (aTrigger.event.oclIsUndefined()))]

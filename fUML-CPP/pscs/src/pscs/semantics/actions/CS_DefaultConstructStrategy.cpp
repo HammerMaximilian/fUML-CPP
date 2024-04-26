@@ -128,6 +128,7 @@ void CS_DefaultConstructStrategy::addStructuralFeatureValue(const CS_ReferencePt
         {
             // insert an interaction point
             CS_InteractionPointPtr interactionPoint(new CS_InteractionPoint());
+            interactionPoint->setThisCS_InteractionPoint_Ptr(interactionPoint);
 			interactionPoint->definingPort = port,
 			interactionPoint->referent = AS(CS_Object, value),
 			interactionPoint->owner = context;
