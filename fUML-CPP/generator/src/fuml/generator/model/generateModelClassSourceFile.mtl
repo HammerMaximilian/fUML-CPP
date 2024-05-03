@@ -470,6 +470,11 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 	[aSendSignalAction.target.generatePinInitialization()/]
 [aSendSignalAction.getFullNameSanitized()/]->setTarget([aSendSignalAction.target.getFullNameSanitized()/]);
 	[/if]
+[comment Property 'InvocationAction::argument' handled here /]
+[for (anInputPin : InputPin | aSendSignalAction.argument)]
+	[anInputPin.generatePinInitialization()/]
+[aSendSignalAction.getFullNameSanitized()/]->addArgument([anInputPin.getFullNameSanitized()/]);
+[/for]
 [/let]
 [/template]
 
