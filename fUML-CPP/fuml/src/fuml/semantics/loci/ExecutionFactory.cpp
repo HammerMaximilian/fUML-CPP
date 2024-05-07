@@ -42,7 +42,9 @@
 #include <fuml/semantics/actions/TestIdentityActionActivation.h>
 #include <fuml/semantics/actions/UnmarshallActionActivation.h>
 #include <fuml/semantics/actions/ValueSpecificationActionActivation.h>
-#include <fuml/semantics/activities/ActivityExecution.h>
+//#include <fuml/semantics/activities/ActivityExecution.h>
+// Use custom version of ActivityExecution
+#include <fuml/extensions/activities/CustomActivityExecution.h>
 #include <fuml/semantics/activities/ActivityFinalNodeActivation.h>
 #include <fuml/semantics/activities/ActivityParameterNodeActivation.h>
 #include <fuml/semantics/activities/CentralBufferNodeActivation.h>
@@ -234,7 +236,9 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 	}
 	else if (IS(Activity, element))
 	{
-		ActivityExecutionPtr newActivityExecution(new ActivityExecution());
+		//ActivityExecutionPtr newActivityExecution(new ActivityExecution());
+		// Use custom version of ActivityExecution
+		ActivityExecutionPtr newActivityExecution(new fuml::extensions::activities::CustomActivityExecution());
 		newActivityExecution->setThisActivityExecutionPtr(newActivityExecution);
 		visitor = newActivityExecution;
 	}
