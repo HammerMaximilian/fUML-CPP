@@ -236,9 +236,9 @@ SemanticVisitorPtr ExecutionFactory::instantiateVisitor(const ElementPtr& elemen
 	}
 	else if (IS(Activity, element))
 	{
-		//ActivityExecutionPtr newActivityExecution(new ActivityExecution());
+		ActivityExecutionPtr newActivityExecution(new ActivityExecution());
 		// Use custom version of ActivityExecution
-		ActivityExecutionPtr newActivityExecution(new fuml::extensions::activities::CustomActivityExecution());
+		//ActivityExecutionPtr newActivityExecution(new fuml::extensions::activities::CustomActivityExecution());
 		newActivityExecution->setThisActivityExecutionPtr(newActivityExecution);
 		visitor = newActivityExecution;
 	}
