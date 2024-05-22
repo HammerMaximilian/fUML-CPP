@@ -14,6 +14,7 @@
 #include <fuml/semantics/actions/TokenSet.h>
 #include <fuml/semantics/activities/Token.h>
 #include <fuml/semantics/values/Value.h>
+#include <uml/actions/ExpansionNode.h>
 #include <uml/actions/ExpansionRegion.h>
 #include <uml/actions/InputPin.h>
 
@@ -104,6 +105,7 @@ void ExpansionRegionActivation::doStructuredActivity()
 	while (k <= n)
 	{
 		ExpansionActivationGroupPtr activationGroup(new ExpansionActivationGroup());
+		activationGroup->setThisExpansionActivationGroupPtr(activationGroup);
 		activationGroup->regionActivation = this->thisExpansionRegionActivationPtr.lock();
 		activationGroup->index = k;
 
@@ -313,7 +315,7 @@ void ExpansionRegionActivation::terminateGroup(const ExpansionActivationGroupPtr
 	}
 } // terminateGroup
 
-ExpansionNodeActivationPtr ExpansionRegionActivation::getExpansionNodeActivation(const ExpansionNodePtr&)
+ExpansionNodeActivationPtr ExpansionRegionActivation::getExpansionNodeActivation(const ExpansionNodePtr& node)
 {
 	// Return the expansion node activation corresponding to the given
 	// expansion node, in the context of the activity node activation group
