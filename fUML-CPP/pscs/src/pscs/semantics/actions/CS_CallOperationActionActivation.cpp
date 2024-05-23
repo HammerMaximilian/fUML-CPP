@@ -139,7 +139,7 @@ ExecutionPtr CS_CallOperationActionActivation::getCallExecution()
 bool CS_CallOperationActionActivation::isOperationProvided(const PortPtr& port, const OperationPtr& operation)
 {
     bool isProvided = false;
-    if (!IS(Interface, operation->owner.lock()))
+    if (IS(Interface, operation->owner.lock()))
     {
         // We have to look in provided interfaces of the port if
         // they define directly or indirectly the Operation
