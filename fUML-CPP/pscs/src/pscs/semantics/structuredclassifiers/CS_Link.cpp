@@ -14,7 +14,7 @@ bool CS_Link::hasValueForAFeature(const ValuePtr& value)
 {
 	// Returns true if the given value object is used as a value for a FeatureValue
 	// of this link
-	return this->getFeature(value) == nullptr;
+	return this->getFeature(value) != nullptr;
 }
 
 StructuralFeaturePtr CS_Link::getFeature(const ValuePtr& value)
@@ -26,7 +26,7 @@ StructuralFeaturePtr CS_Link::getFeature(const ValuePtr& value)
 	while (i <= allFeatureValuesSize && feature == nullptr)
 	{
 		const FeatureValuePtr& featureValue = allFeatureValues->at(i - 1);
-		if (not featureValue->values->size() && featureValue->values->at(0) == value)
+		if (not featureValue->values->empty() && featureValue->values->at(0) == value)
 		{
 			feature = featureValue->feature;
 		}
