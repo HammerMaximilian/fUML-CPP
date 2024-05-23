@@ -504,6 +504,10 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 	[anInputPin.generatePinInitialization()/]
 [aSendSignalAction.getFullNameSanitized()/]->addArgument([anInputPin.getFullNameSanitized()/]);
 [/for]
+[comment Property 'InvocationAction::onPort' handled here /]
+	[if (not (aSendSignalAction.onPort.oclIsUndefined()))]
+[aSendSignalAction.getFullNameSanitized()/]->setOnPort([generateElementReference(aSendSignalAction.onPort, aSendSignalAction)/]);
+	[/if]
 [/let]
 [/template]
 
