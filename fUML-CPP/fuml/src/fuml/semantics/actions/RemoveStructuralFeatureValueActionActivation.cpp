@@ -32,8 +32,7 @@ void RemoveStructuralFeatureValueActionActivation::doAction()
 	// If isRemoveDuplicates is false, and there is a removeAt input pin
 	// remove the feature value at that position.
 
-	RemoveStructuralFeatureValueActionPtr action = std::dynamic_pointer_cast<RemoveStructuralFeatureValueAction>(
-		this->node);
+	RemoveStructuralFeatureValueActionPtr action = AS(RemoveStructuralFeatureValueAction, this->node);
 	const StructuralFeaturePtr& feature = action->structuralFeature;
 	AssociationPtr association = this->getAssociation(feature);
 
@@ -49,7 +48,7 @@ void RemoveStructuralFeatureValueActionActivation::doAction()
 	int removeAt = 0;
 	if (action->removeAt != nullptr)
 	{
-		removeAt = std::dynamic_pointer_cast<UnlimitedNaturalValue>(this->takeTokens(action->removeAt)->at(0))->value;
+		removeAt = AS(UnlimitedNaturalValue, this->takeTokens(action->removeAt)->at(0))->value;
 	}
 
 	if (association != nullptr)
@@ -70,7 +69,7 @@ void RemoveStructuralFeatureValueActionActivation::doAction()
 			// non-deterministically choose one. ***
 			if (links->size() > 0)
 			{
-				int i = std::dynamic_pointer_cast<ChoiceStrategy>(
+				int i = AS(ChoiceStrategy,
 					this->getExecutionLocus()->factory->getStrategy("choice"))->choose(links->size());
 				links->at(i - 1)->destroy();
 			}
@@ -94,12 +93,12 @@ void RemoveStructuralFeatureValueActionActivation::doAction()
 	}
 	else
 	{
-		StructuredValuePtr structuredValue = std::dynamic_pointer_cast<StructuredValue>(value);
+		StructuredValuePtr structuredValue = AS(StructuredValue, value);
 
 		if (structuredValue)
 		{
 
-			ReferencePtr reference = std::dynamic_pointer_cast<Reference>(value);
+			ReferencePtr reference = AS(Reference, value);
 
 			// If the value is a data value, then it must be copied before
 			// any change is made.
@@ -134,7 +133,7 @@ void RemoveStructuralFeatureValueActionActivation::doAction()
 				{
 					// *** Nondeterministically choose which value to remove.
 					// ***
-					int k = std::dynamic_pointer_cast<ChoiceStrategy>(
+					int k = AS(ChoiceStrategy,
 						this->getExecutionLocus()->factory->getStrategy("choice"))->choose(positions.size());
 					featureValue->values->erase(featureValue->values->begin() + positions.at(k - 1) - 1);
 				}

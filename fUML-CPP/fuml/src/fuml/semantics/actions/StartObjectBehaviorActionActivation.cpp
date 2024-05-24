@@ -24,22 +24,22 @@ void StartObjectBehaviorActionActivation::doAction()
 	// If the object input pin has no type, then start the classifier
 	// behaviors of all types of the referent object.
 
-	StartObjectBehaviorActionPtr action = std::dynamic_pointer_cast<StartObjectBehaviorAction>(this->node);
+	StartObjectBehaviorActionPtr action = AS(StartObjectBehaviorAction, this->node);
 
 	ValuePtr object = this->takeTokens(action->object)->at(0);
 
-	ReferencePtr reference = std::dynamic_pointer_cast<Reference>(object);
+	ReferencePtr reference = AS(Reference, object);
 
 	if (reference)
 	{
-		Class_Ptr type = std::dynamic_pointer_cast<Class_>(action->object->type);
+		Class_Ptr type = AS(Class_, action->object->type);
 		const InputPinListPtr& argumentPins = action->argument;
 
 		ParameterValueListPtr inputs(new ParameterValueList());
 
 		if (type != nullptr)
 		{
-			BehaviorPtr behavior = std::dynamic_pointer_cast<Behavior>(type);
+			BehaviorPtr behavior = AS(Behavior, type);
 
 			if (behavior)
 			{

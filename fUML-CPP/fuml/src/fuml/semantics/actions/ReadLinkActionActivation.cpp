@@ -22,7 +22,7 @@ void ReadLinkActionActivation::doAction()
 	// For all links that match the link end data, place the value of the
 	// remaining "open" end on the result pin.
 
-	ReadLinkActionPtr action = std::dynamic_pointer_cast<ReadLinkAction>(this->node);
+	ReadLinkActionPtr action = AS(ReadLinkAction, this->node);
 	const LinkEndDataListPtr& endDataList = action->endData;
 	LinkEndDataPtr openEnd = nullptr;
 
@@ -40,7 +40,7 @@ void ReadLinkActionActivation::doAction()
 	FeatureValueListPtr featureValues(new FeatureValueList());
 	for (const ExtensionalValuePtr& value : *extent)
 	{
-		LinkPtr link = std::dynamic_pointer_cast<Link>(value);
+		LinkPtr link = AS(Link, value);
 		if (this->linkMatchesEndData(link, endDataList))
 		{
 			FeatureValuePtr featureValue = link->getFeatureValue(openEnd->end);

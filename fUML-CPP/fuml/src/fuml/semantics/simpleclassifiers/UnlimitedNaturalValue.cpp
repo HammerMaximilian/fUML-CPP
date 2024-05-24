@@ -30,7 +30,7 @@ bool UnlimitedNaturalValue::equals(const ValuePtr& otherValue)
 	// value.
 
 	bool isEqual = false;
-	UnlimitedNaturalValuePtr unlimitedNaturalValue = std::dynamic_pointer_cast<UnlimitedNaturalValue>(otherValue);
+	UnlimitedNaturalValuePtr unlimitedNaturalValue = AS(UnlimitedNaturalValue, otherValue);
 	if (unlimitedNaturalValue)
 	{
 		isEqual = (unlimitedNaturalValue->value == this->value);
@@ -43,7 +43,7 @@ ValuePtr UnlimitedNaturalValue::copy()
 {
 	// Create a new unlimited natural value with the same value as this unlimited natural value.
 
-	UnlimitedNaturalValuePtr newValue = std::dynamic_pointer_cast<UnlimitedNaturalValue>(PrimitiveValue::copy());
+	UnlimitedNaturalValuePtr newValue = AS(UnlimitedNaturalValue, PrimitiveValue::copy());
 
 	newValue->value = this->value;
 	return newValue;

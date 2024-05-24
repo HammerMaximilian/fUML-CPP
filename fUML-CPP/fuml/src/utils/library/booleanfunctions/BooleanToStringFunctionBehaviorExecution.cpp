@@ -26,7 +26,7 @@ BooleanToStringFunctionBehaviorExecution::BooleanToStringFunctionBehaviorExecuti
 void BooleanToStringFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,
 	const ParameterValueListPtr& outputParameters)
 {
-	BooleanValuePtr bv1 = std::dynamic_pointer_cast<BooleanValue>(inputParameters->at(0)->values->at(0));
+	BooleanValuePtr bv1 = AS(BooleanValue, inputParameters->at(0)->values->at(0));
 	fuml::Debug::println("[doBody] argument = " + bv1->value);
 
 	StringValuePtr resultObj(new StringValue());

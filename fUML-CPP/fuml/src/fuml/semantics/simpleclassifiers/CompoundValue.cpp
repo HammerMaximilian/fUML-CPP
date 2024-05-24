@@ -23,7 +23,7 @@ bool CompoundValue::equals(const ValuePtr& otherValue)
 	// To be equal, the otherValue must also be a compund value with the
 	// same types and equal values for each feature.
 
-	CompoundValuePtr otherCompoundValue = std::dynamic_pointer_cast<CompoundValue>(otherValue);
+	CompoundValuePtr otherCompoundValue = AS(CompoundValue, otherValue);
 
 	bool isEqual = (otherCompoundValue != nullptr);
 
@@ -67,7 +67,7 @@ ValuePtr CompoundValue::copy()
 	// Create a new data value with the same featureValues as this data
 	// value.
 
-	CompoundValuePtr newValue = std::dynamic_pointer_cast<CompoundValue>(Value::copy());
+	CompoundValuePtr newValue = AS(CompoundValue, Value::copy());
 
 	FeatureValueListPtr featureValues = this->featureValues;
 	for (const FeatureValuePtr& featureValue : *featureValues)
@@ -149,7 +149,7 @@ std::string CompoundValue::toString()
 
 		for (const ValuePtr& value : *(featureValue->values))
 		{
-			ReferencePtr reference = std::dynamic_pointer_cast<Reference>(value);
+			ReferencePtr reference = AS(Reference, value);
 			if (reference)
 			{
 				Object_Ptr object = reference->referent;

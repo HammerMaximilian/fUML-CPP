@@ -1,8 +1,10 @@
 [comment encoding = UTF-8 /]
 [module generateCProjectFile('http://www.eclipse.org/uml2/5.0.0/UML')]
 
+[import fuml::generator::executionmode::executionmode /]
+[import fuml::generator::naming::naming /]
 
-[template public generateCProjectFile(any : OclAny)]
+[template public generateCProjectFile(aPackage : Package)]
 [file ('.cproject', false, 'UTF-8')]
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
@@ -22,7 +24,7 @@
 					<folderInfo id="cdt.managedbuild.config.gnu.mingw.exe.debug.10437566." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.mingw.exe.debug.341695486" name="MinGW GCC" superClass="cdt.managedbuild.toolchain.gnu.mingw.exe.debug">
 							<targetPlatform id="cdt.managedbuild.target.gnu.platform.mingw.exe.debug.954937190" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.mingw.exe.debug"/>
-							<builder buildPath="${workspace_loc:/HelloWorldExample}/Debug" id="cdt.managedbuild.tool.gnu.builder.mingw.base.1352777030" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="cdt.managedbuild.tool.gnu.builder.mingw.base"/>
+							<builder buildPath="${workspace_loc:/[aPackage.getNameSanitized()/]}/Debug" id="cdt.managedbuild.tool.gnu.builder.mingw.base.1352777030" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="cdt.managedbuild.tool.gnu.builder.mingw.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.assembler.mingw.exe.debug.2014140921" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.mingw.exe.debug">
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1128619008" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -32,7 +34,12 @@
 								<option defaultValue="gnu.cpp.compiler.debugging.level.max" id="gnu.cpp.compiler.mingw.exe.debug.option.debugging.level.1219299132" name="Debug Level" superClass="gnu.cpp.compiler.mingw.exe.debug.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.617857989" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/uml/src}&quot;"/>
+									[if (isFUMLExecutable())]
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/fuml/src}&quot;"/>
+									[/if]
+									[if (isPSCSExecutable())]
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/pscs/src}&quot;"/>
+									[/if]
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1949740574" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -42,14 +49,25 @@
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.73330418" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.debug.235228278" name="MinGW C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.debug"/>
-							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.debug.1299585166" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.debug">
+							<tool id="cdt.managedbuild
+.tool.gnu.cpp.linker.mingw.exe.debug.1299585166" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.debug">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.124180209" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" value="umld"/>
+									[if (isFUMLExecutable())]
 									<listOptionValue builtIn="false" value="fumld"/>
+									[/if]
+									[if (isPSCSExecutable())]
+									<listOptionValue builtIn="false" value="pscsd"/>
+									[/if]
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.paths.1535387862" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/uml/Debug}&quot;"/>
+									[if (isFUMLExecutable())]
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/fuml/Debug}&quot;"/>
+									[/if]
+									[if (isPSCSExecutable())]
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/pscs/Debug}&quot;"/>
+									[/if]
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.201150612" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -80,7 +98,7 @@
 					<folderInfo id="cdt.managedbuild.config.gnu.mingw.exe.release.91669829." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.mingw.exe.release.859706102" name="MinGW GCC" superClass="cdt.managedbuild.toolchain.gnu.mingw.exe.release">
 							<targetPlatform id="cdt.managedbuild.target.gnu.platform.mingw.exe.release.1337885277" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.mingw.exe.release"/>
-							<builder buildPath="${workspace_loc:/HelloWorldExample}/Release" id="cdt.managedbuild.tool.gnu.builder.mingw.base.823518741" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="cdt.managedbuild.tool.gnu.builder.mingw.base"/>
+							<builder buildPath="${workspace_loc:/[aPackage.getNameSanitized()/]}/Release" id="cdt.managedbuild.tool.gnu.builder.mingw.base.823518741" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="cdt.managedbuild.tool.gnu.builder.mingw.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.assembler.mingw.exe.release.819240018" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.mingw.exe.release">
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1757849992" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -90,7 +108,15 @@
 								<option defaultValue="gnu.cpp.compiler.debugging.level.none" id="gnu.cpp.compiler.mingw.exe.release.option.debugging.level.277596542" name="Debug Level" superClass="gnu.cpp.compiler.mingw.exe.release.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.1425140577" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/uml/src}&quot;"/>
+									[if (isFUMLExecutable())]
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/fuml/src}&quot;"/>
+									[/if]
+									[if (isPSCSExecutable())]
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/pscs/src}&quot;"/>
+									[/if]
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.preprocessor.def.1430445734" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="NDEBUG"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1680379945" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -103,11 +129,21 @@
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.release.1882698267" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.release">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.1935870035" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" value="uml"/>
+									[if (isFUMLExecutable())]
 									<listOptionValue builtIn="false" value="fuml"/>
+									[/if]
+									[if (isPSCSExecutable())]
+									<listOptionValue builtIn="false" value="pscs"/>
+									[/if]
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.paths.1742924679" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/uml/Release}&quot;"/>
+									[if (isFUMLExecutable())]
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/fuml/Release}&quot;"/>
+									[/if]
+									[if (isPSCSExecutable())]
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/pscs/Release}&quot;"/>
+									[/if]
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.447859078" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -125,7 +161,7 @@
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="HelloWorldExample.cdt.managedbuild.target.gnu.mingw.exe.932943594" name="Executable" projectType="cdt.managedbuild.target.gnu.mingw.exe"/>
+		<project id="[aPackage.getNameSanitized()/].cdt.managedbuild.target.gnu.mingw.exe.932943594" name="Executable" projectType="cdt.managedbuild.target.gnu.mingw.exe"/>
 	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>

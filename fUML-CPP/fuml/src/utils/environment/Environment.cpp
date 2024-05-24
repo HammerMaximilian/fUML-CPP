@@ -89,39 +89,7 @@ using namespace fuml::library::unlimitednaturalfunctions;
 
 Environment::Environment()
 {
-	// Setup Locus, Executor & ExecutionFactory
-	this->locus.reset(new Locus());
-	this->locus->setThisLocusPtr(locus);
-	this->locus->setExecutor(ExecutorPtr(new Executor()));
-	this->locus->setFactory(ExecutionFactoryPtr(new ExecutionFactory()));
-
-	// Setup semantic strategies
-	this->locus->factory->setStrategy(FirstChoiceStrategyPtr(new FirstChoiceStrategy()));
-	this->locus->factory->setStrategy(RedefinitionBasedDispatchStrategyPtr(new RedefinitionBasedDispatchStrategy()));
-	this->locus->factory->setStrategy(FIFOGetNextEventStrategyPtr(new FIFOGetNextEventStrategy()));
-
-	// Setup builtin primitive types
-	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
-	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
-	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
-	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
-	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
-
-	//Setup primitive behavior prototypes
-	this->addBooleanFunctionsPrototypes();
-	this->addIntegerFunctionsPrototypes();
-	this->addListFunctionsPrototypes();
-	this->addRealFunctionsPrototypes();
-	this->addStringFunctionsPrototypes();
-	this->addUnlimitedNaturalFunctionsPrototypes();
-
-	// Add instances for StandardInputChannel & StandardOutputChannel
-	std::shared_ptr<StandardInputChannelObject> standardInputChannelObject(new StandardInputChannelObject());
-	standardInputChannelObject->setThisImplementationObjectPtr(standardInputChannelObject);
-	this->add(standardInputChannelObject);
-	std::shared_ptr<StandardOutputChannelObject> standardOutputChannelObject(new StandardOutputChannelObject());
-	standardOutputChannelObject->setThisImplementationObjectPtr(standardOutputChannelObject);
-	this->add(standardOutputChannelObject);
+	this->initializeEnvironment();
 }
 
 Environment::~Environment()
@@ -138,7 +106,7 @@ void Environment::execute(std::string behaviorName)
 		return;
 	}
 
-	BehaviorPtr behavior = std::dynamic_pointer_cast<Behavior>(object);
+	BehaviorPtr behavior = AS(Behavior, object);
 
 	if (behavior == nullptr)
 	{
@@ -146,7 +114,7 @@ void Environment::execute(std::string behaviorName)
 		return;
 	}
 
-	Class_Ptr contextType = std::dynamic_pointer_cast<Class_>(behavior->context.lock());
+	Class_Ptr contextType = AS(Class_, behavior->context.lock());
 
 	if (contextType != nullptr)
 	{
@@ -177,6 +145,52 @@ void Environment::addBuiltInType(const PrimitiveTypePtr& builtInType)
 void Environment::addPrimitiveBehaviorPrototype(const OpaqueBehaviorExecutionPtr& prototype)
 {
 	this->locus->factory->addPrimitiveBehaviorPrototype(prototype);
+}
+
+void Environment::initializeLoci()
+{
+	// Setup Locus, Executor & ExecutionFactory
+	this->locus.reset(new Locus());
+	this->locus->setThisLocusPtr(locus);
+	this->locus->setExecutor(ExecutorPtr(new Executor()));
+	this->locus->setFactory(ExecutionFactoryPtr(new ExecutionFactory()));
+}
+
+void Environment::initializeLociContents()
+{
+	// Setup semantic strategies
+	this->locus->factory->setStrategy(FirstChoiceStrategyPtr(new FirstChoiceStrategy()));
+	this->locus->factory->setStrategy(RedefinitionBasedDispatchStrategyPtr(new RedefinitionBasedDispatchStrategy()));
+	this->locus->factory->setStrategy(FIFOGetNextEventStrategyPtr(new FIFOGetNextEventStrategy()));
+
+	// Setup builtin primitive types
+	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Boolean);
+	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Integer);
+	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_Real);
+	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_String);
+	this->addBuiltInType(fuml::primitivetypes::PrimitiveTypesModel::Instance()->PrimitiveTypes_UnlimitedNatural);
+
+	//Setup primitive behavior prototypes
+	this->addBooleanFunctionsPrototypes();
+	this->addIntegerFunctionsPrototypes();
+	this->addListFunctionsPrototypes();
+	this->addRealFunctionsPrototypes();
+	this->addStringFunctionsPrototypes();
+	this->addUnlimitedNaturalFunctionsPrototypes();
+
+	// Add instances for StandardInputChannel & StandardOutputChannel
+	std::shared_ptr<StandardInputChannelObject> standardInputChannelObject(new StandardInputChannelObject());
+	standardInputChannelObject->setThisImplementationObjectPtr(standardInputChannelObject);
+	this->add(standardInputChannelObject);
+	std::shared_ptr<StandardOutputChannelObject> standardOutputChannelObject(new StandardOutputChannelObject());
+	standardOutputChannelObject->setThisImplementationObjectPtr(standardOutputChannelObject);
+	this->add(standardOutputChannelObject);
+}
+
+void Environment::initializeEnvironment()
+{
+	this->initializeLoci();
+	this->initializeLociContents();
 }
 
 void Environment::addBooleanFunctionsPrototypes()

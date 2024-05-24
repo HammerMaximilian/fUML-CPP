@@ -26,7 +26,7 @@ RealToStringFunctionBehaviorExecution::RealToStringFunctionBehaviorExecution()
 void RealToStringFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,
 	const ParameterValueListPtr& outputParameters)
 {
-	RealValuePtr rv = std::dynamic_pointer_cast<RealValue>(inputParameters->at(0)->values->at(0));
+	RealValuePtr rv = AS(RealValue, inputParameters->at(0)->values->at(0));
 	float r = rv->value;
 	fuml::Debug::println("[doBody] argument = " + std::to_string(r));
 

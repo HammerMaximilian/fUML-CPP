@@ -25,7 +25,7 @@ ValuePtr SignalInstance::copy()
 	// Create a new signal instance with the same type and feature values as
 	// this signal instance.
 
-	SignalInstancePtr newValue = std::dynamic_pointer_cast<SignalInstance>(CompoundValue::copy());
+	SignalInstancePtr newValue = AS(SignalInstance, CompoundValue::copy());
 
 	newValue->type = this->type;
 

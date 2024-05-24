@@ -43,6 +43,8 @@ using namespace [aPackage.getNameSanitized()/];
 
 [aPackage.getNameSanitized() + 'Environment'/]::[aPackage.getNameSanitized() + 'Environment'/]()
 {
+	this->initializeEnvironment();
+
 	/*
 	 * Create custom opaque behavior execution instances and add them to the execution environment.
 	 */

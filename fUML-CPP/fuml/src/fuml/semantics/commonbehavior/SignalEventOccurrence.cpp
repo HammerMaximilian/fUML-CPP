@@ -20,7 +20,7 @@ bool SignalEventOccurrence::match(const TriggerPtr& trigger)
 	// signal instance or one of its supertypes.
 
 	bool matches = false;
-	SignalEventPtr event = std::dynamic_pointer_cast<SignalEvent>(trigger->event);
+	SignalEventPtr event = AS(SignalEvent, trigger->event);
 
 	if (event)
 	{
@@ -40,7 +40,7 @@ ParameterValueListPtr SignalEventOccurrence::getParameterValues(const EventPtr& 
 	// the event signal.)
 
 	ParameterValueListPtr parameterValues(new ParameterValueList());
-	SignalEventPtr signalEvent = std::dynamic_pointer_cast<SignalEvent>(event);
+	SignalEventPtr signalEvent = AS(SignalEvent, event);
 
 	if (signalEvent)
 	{

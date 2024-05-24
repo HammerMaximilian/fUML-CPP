@@ -95,7 +95,7 @@ BehaviorPtr SignatureBasedDispatchStrategy::getMethod(const Class_Ptr& type, con
         unsigned int sizeOfGeneral = general->size();
         while(method == nullptr && i <= sizeOfGeneral)
         {
-            if(Class_Ptr baseClass = std::dynamic_pointer_cast<Class_>(general->at(i - 1)))
+            if(Class_Ptr baseClass = AS(Class_, general->at(i - 1)))
             {
                 method = this->getMethod(baseClass, operation);
             }
@@ -133,8 +133,8 @@ bool SignatureBasedDispatchStrategy::operationsMatch(const OperationPtr& ownedOp
                 // NOTE: In this implementation, return types may be covariant classifiers.
                 if (ownedParameter->type != baseParameter->type)
                 {
-                	ClassifierPtr ownedOperationReturnType = std::dynamic_pointer_cast<Classifier>(ownedParameter->type);
-                	ClassifierPtr baseOperationReturnType = std::dynamic_pointer_cast<Classifier>(baseParameter->type);
+                	ClassifierPtr ownedOperationReturnType = AS(Classifier, ownedParameter->type);
+                	ClassifierPtr baseOperationReturnType = AS(Classifier, baseParameter->type);
 
                     matches = ownedOperationReturnType &&
                             baseOperationReturnType &&

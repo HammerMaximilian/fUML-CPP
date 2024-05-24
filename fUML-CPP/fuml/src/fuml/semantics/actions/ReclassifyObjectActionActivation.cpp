@@ -30,13 +30,13 @@ void ReclassifyObjectActionActivation::doAction()
 	// Any features that previously had values maintain those values,
 	// while new features are initialized as being empty.
 
-	ReclassifyObjectActionPtr action = std::dynamic_pointer_cast<ReclassifyObjectAction>(this->node);
+	ReclassifyObjectActionPtr action = AS(ReclassifyObjectAction, this->node);
 	const ClassifierListPtr& newClassifiers = action->newClassifier;
 	const ClassifierListPtr& oldClassifiers = action->oldClassifier;
 
 	ValuePtr input = this->takeTokens(action->object)->at(0);
 
-	ReferencePtr reference = std::dynamic_pointer_cast<Reference>(input);
+	ReferencePtr reference = AS(Reference, input);
 
 	if (reference)
 	{
@@ -91,7 +91,7 @@ void ReclassifyObjectActionActivation::doAction()
 
 			if (toBeAdded)
 			{
-				object->types->push_back(std::dynamic_pointer_cast<Class_>(classifier));
+				object->types->push_back(AS(Class_, classifier));
 			}
 		}
 

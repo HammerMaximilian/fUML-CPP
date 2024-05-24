@@ -54,7 +54,7 @@ ValuePtr Link::copy()
 	// Create a new link with the same type, locus and feature values as
 	// this link.
 
-	LinkPtr newValue = std::dynamic_pointer_cast<Link>(ExtensionalValue::copy());
+	LinkPtr newValue = AS(Link, ExtensionalValue::copy());
 	newValue->setThisExtensionalValuePtr(newValue);
 
 	newValue->type = this->type;

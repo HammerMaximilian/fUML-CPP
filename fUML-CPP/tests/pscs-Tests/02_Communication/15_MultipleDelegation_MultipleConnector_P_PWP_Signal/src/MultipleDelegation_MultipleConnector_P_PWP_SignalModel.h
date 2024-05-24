@@ -1,0 +1,425 @@
+/*
+ * MultipleDelegation_MultipleConnector_P_PWP_SignalModel.h
+ * 
+ * Auto-generated file
+ */
+
+#ifndef MULTIPLEDELEGATION_MULTIPLECONNECTOR_P_PWP_SIGNAL_MODEL_H
+#define MULTIPLEDELEGATION_MULTIPLECONNECTOR_P_PWP_SIGNAL_MODEL_H
+
+#include <uml/fwd.h>
+#include <utils/environment/InMemoryModel.h>
+
+/* Start of user code : User-defined includes and forward declarations
+ * This section may be used for includes and forward declarations.
+ * It will not be overwritten by future generation processes.
+ */
+
+/*
+ * End of user code
+ */
+
+namespace MultipleDelegation_MultipleConnector_P_PWP_Signal
+{
+	class MultipleDelegation_MultipleConnector_P_PWP_SignalModel : public uml::environment::InMemoryModel
+	{
+		public:
+		/*
+		 * Model MultipleDelegation_MultipleConnector_P_PWP_Signal
+		 */
+		PackagePtr MultipleDelegation_MultipleConnector_P_PWP_Signal = nullptr;
+			ActivityPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main = nullptr;
+				ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_ObjectFlow0 = nullptr;
+					LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_ObjectFlow0_LiteralBoolean1 = nullptr;
+					LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_ObjectFlow0_LiteralInteger2 = nullptr;
+				ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_ObjectFlow3 = nullptr;
+					LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_ObjectFlow3_LiteralBoolean4 = nullptr;
+					LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_ObjectFlow3_LiteralInteger5 = nullptr;
+				ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_ObjectFlow6 = nullptr;
+					LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_ObjectFlow6_LiteralInteger7 = nullptr;
+					LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_ObjectFlow6_LiteralBoolean8 = nullptr;
+				CreateObjectActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Create_Tester = nullptr;
+					OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Create_Tester_result = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Create_Tester_result_LiteralInteger9 = nullptr;
+						LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Create_Tester_result_LiteralUnlimitedNatural10 = nullptr;
+				ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_ObjectFlow11 = nullptr;
+					LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_ObjectFlow11_LiteralBoolean12 = nullptr;
+					LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_ObjectFlow11_LiteralInteger13 = nullptr;
+				StartObjectBehaviorActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Start_Tester = nullptr;
+					InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Start_Tester_object = nullptr;
+						LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Start_Tester_object_LiteralUnlimitedNatural14 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Start_Tester_object_LiteralInteger15 = nullptr;
+				ForkNodePtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Fork_Tester = nullptr;
+				ControlFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_ControlFlow16 = nullptr;
+				CallOperationActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Tester_ = nullptr;
+					OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Tester__result = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Tester__result_LiteralInteger17 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Tester__result_LiteralInteger18 = nullptr;
+						LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Tester__result_LiteralUnlimitedNatural19 = nullptr;
+					InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Tester__target = nullptr;
+						LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Tester__target_LiteralUnlimitedNatural20 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Tester__target_LiteralInteger21 = nullptr;
+				SendSignalActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Send_Start = nullptr;
+					InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Send_Start_target = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Send_Start_target_LiteralInteger22 = nullptr;
+						LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_main_Send_Start_target_LiteralUnlimitedNatural23 = nullptr;
+			SignalEventPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_ContinueEvent = nullptr;
+			SignalEventPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_SEvent = nullptr;
+			SignalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Continue = nullptr;
+			AssociationPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_U = nullptr;
+				PropertyPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_U_x = nullptr;
+					LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_U_x_LiteralUnlimitedNatural24 = nullptr;
+					LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_U_x_LiteralInteger25 = nullptr;
+				PropertyPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_U_y = nullptr;
+					LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_U_y_LiteralInteger26 = nullptr;
+					LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_U_y_LiteralUnlimitedNatural27 = nullptr;
+			Class_Ptr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester = nullptr;
+				ActivityPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity = nullptr;
+					ReadStructuralFeatureActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_a_b = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_a_b_object = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_a_b_object_LiteralInteger28 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_a_b_object_LiteralUnlimitedNatural29 = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_a_b_result = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_a_b_result_LiteralInteger30 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_a_b_result_LiteralUnlimitedNatural31 = nullptr;
+					ReadStructuralFeatureActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a4 = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a4_result = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a4_result_LiteralInteger32 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a4_result_LiteralUnlimitedNatural33 = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a4_object = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a4_object_LiteralInteger34 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a4_object_LiteralUnlimitedNatural35 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow36 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow36_LiteralInteger37 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow36_LiteralBoolean38 = nullptr;
+					ReadStructuralFeatureActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_b_p = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_b_p_result = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_b_p_result_LiteralUnlimitedNatural39 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_b_p_result_LiteralInteger40 = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_b_p_object = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_b_p_object_LiteralInteger41 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_b_p_object_LiteralUnlimitedNatural42 = nullptr;
+					CallBehaviorActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Call_testP = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Call_testP_p = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Call_testP_p_LiteralUnlimitedNatural43 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Call_testP_p_LiteralInteger44 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Call_testP_p_LiteralInteger45 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow46 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow46_LiteralBoolean47 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow46_LiteralInteger48 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow49 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow49_LiteralInteger50 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow49_LiteralBoolean51 = nullptr;
+					ReadStructuralFeatureActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a2 = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a2_result = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a2_result_LiteralInteger52 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a2_result_LiteralUnlimitedNatural53 = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a2_object = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a2_object_LiteralInteger54 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a2_object_LiteralUnlimitedNatural55 = nullptr;
+					ReadStructuralFeatureActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a3 = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a3_result = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a3_result_LiteralInteger56 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a3_result_LiteralUnlimitedNatural57 = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a3_object = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a3_object_LiteralInteger58 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a3_object_LiteralUnlimitedNatural59 = nullptr;
+					ReadStructuralFeatureActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a1 = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a1_result = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a1_object = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a1_object_LiteralUnlimitedNatural60 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_c_a1_object_LiteralInteger61 = nullptr;
+					ForkNodePtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Fork_c = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow62 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow62_LiteralInteger63 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow62_LiteralBoolean64 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow65 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow65_LiteralBoolean66 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow65_LiteralInteger67 = nullptr;
+					OpaqueBehaviorPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_testP = nullptr;
+						ParameterPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_testP_p = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow68 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow68_LiteralBoolean69 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow68_LiteralInteger70 = nullptr;
+					ControlFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ControlFlow71 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow72 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow72_LiteralBoolean73 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow72_LiteralInteger74 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow75 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow75_LiteralBoolean76 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow75_LiteralInteger77 = nullptr;
+					ControlFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ControlFlow78 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow79 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow79_LiteralInteger80 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow79_LiteralBoolean81 = nullptr;
+					ReadSelfActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_this = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_this_result = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_this_result_LiteralInteger82 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_this_result_LiteralUnlimitedNatural83 = nullptr;
+					ReadStructuralFeatureActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_this_c = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_this_c_object = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_this_c_object_LiteralUnlimitedNatural84 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_this_c_object_LiteralInteger85 = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_this_c_result = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_this_c_result_LiteralUnlimitedNatural86 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_Read_this_c_result_LiteralInteger87 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow88 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow88_LiteralInteger89 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow88_LiteralBoolean90 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow91 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow91_LiteralBoolean92 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow91_LiteralInteger93 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow94 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow94_LiteralInteger95 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ObjectFlow94_LiteralBoolean96 = nullptr;
+					ControlFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_testActivity_ControlFlow97 = nullptr;
+				OperationPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_Tester_Tester = nullptr;
+					ParameterPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_Tester_Tester_result = nullptr;
+				PropertyPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_c = nullptr;
+				ActivityPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow98 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow98_LiteralInteger99 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow98_LiteralBoolean100 = nullptr;
+					ControlFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ControlFlow101 = nullptr;
+					AcceptEventActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Start = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Start_result = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Start_result_LiteralInteger102 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Start_result_LiteralUnlimitedNatural103 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Start_result_LiteralInteger104 = nullptr;
+						TriggerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Start_Trigger105 = nullptr;
+					ReadStructuralFeatureActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Read_this_c = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Read_this_c_object = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Read_this_c_object_LiteralInteger106 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Read_this_c_object_LiteralUnlimitedNatural107 = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Read_this_c_result = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Read_this_c_result_LiteralUnlimitedNatural108 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Read_this_c_result_LiteralInteger109 = nullptr;
+					ReadStructuralFeatureActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Read_c_p = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Read_c_p_object = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Read_c_p_object_LiteralInteger110 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Read_c_p_object_LiteralUnlimitedNatural111 = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Read_c_p_result = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Read_c_p_result_LiteralUnlimitedNatural112 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Read_c_p_result_LiteralInteger113 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow114 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow114_LiteralBoolean115 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow114_LiteralInteger116 = nullptr;
+					AcceptEventActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_2 = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_2_result = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_2_result_LiteralUnlimitedNatural117 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_2_result_LiteralInteger118 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_2_result_LiteralInteger119 = nullptr;
+						TriggerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_2_Trigger120 = nullptr;
+					ControlFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ControlFlow121 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow122 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow122_LiteralInteger123 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow122_LiteralBoolean124 = nullptr;
+					AcceptEventActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_1 = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_1_result = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_1_result_LiteralUnlimitedNatural125 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_1_result_LiteralInteger126 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_1_result_LiteralInteger127 = nullptr;
+						TriggerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_1_Trigger128 = nullptr;
+					ForkNodePtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Fork_this = nullptr;
+					SendSignalActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Send_S = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Send_S_target = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Send_S_target_LiteralInteger129 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Send_S_target_LiteralUnlimitedNatural130 = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Send_S_v = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Send_S_v_LiteralInteger131 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Send_S_v_LiteralUnlimitedNatural132 = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Send_S_t = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Send_S_t_LiteralUnlimitedNatural133 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Send_S_t_LiteralInteger134 = nullptr;
+					AcceptEventActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_4 = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_4_result = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_4_result_LiteralInteger135 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_4_result_LiteralInteger136 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_4_result_LiteralUnlimitedNatural137 = nullptr;
+						TriggerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_4_Trigger138 = nullptr;
+					CallOperationActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Call_test_ = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Call_test__target = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Call_test__target_LiteralUnlimitedNatural139 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Call_test__target_LiteralInteger140 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow141 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow141_LiteralInteger142 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow141_LiteralBoolean143 = nullptr;
+					AcceptEventActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_3 = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_3_result = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_3_result_LiteralUnlimitedNatural144 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_3_result_LiteralInteger145 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_3_result_LiteralInteger146 = nullptr;
+						TriggerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Accept_Continue_3_Trigger147 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow148 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow148_LiteralInteger149 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow148_LiteralBoolean150 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow151 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow151_LiteralInteger152 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow151_LiteralBoolean153 = nullptr;
+					ControlFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ControlFlow154 = nullptr;
+					ValueSpecificationActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Value_4 = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Value_4_result = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Value_4_result_LiteralUnlimitedNatural155 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Value_4_result_LiteralInteger156 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_Value_4_LiteralInteger157 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow158 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow158_LiteralBoolean159 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ObjectFlow158_LiteralInteger160 = nullptr;
+					ReadSelfActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_this = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_this_result = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_this_result_LiteralUnlimitedNatural161 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_this_result_LiteralInteger162 = nullptr;
+					ControlFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ControlFlow163 = nullptr;
+					ControlFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ControlFlow164 = nullptr;
+					ControlFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_TesterClassifierBehavior_ControlFlow165 = nullptr;
+				OperationPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_test = nullptr;
+				GeneralizationPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Tester_Generalization166 = nullptr;
+			SignalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_S = nullptr;
+				PropertyPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_S_v = nullptr;
+				PropertyPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_S_t = nullptr;
+			Class_Ptr MultipleDelegation_MultipleConnector_P_PWP_Signal_C = nullptr;
+				PropertyPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_a2 = nullptr;
+					LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_a2_LiteralUnlimitedNatural167 = nullptr;
+					LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_a2_LiteralInteger168 = nullptr;
+				PropertyPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_a1 = nullptr;
+					LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_a1_LiteralUnlimitedNatural169 = nullptr;
+					LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_a1_LiteralInteger170 = nullptr;
+				PropertyPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_a3 = nullptr;
+					LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_a3_LiteralInteger171 = nullptr;
+					LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_a3_LiteralUnlimitedNatural172 = nullptr;
+				ConnectorPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_u3 = nullptr;
+					ConnectorEndPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_u3_ConnectorEnd173 = nullptr;
+					ConnectorEndPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_u3_ConnectorEnd174 = nullptr;
+				PropertyPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_a4 = nullptr;
+					LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_a4_LiteralUnlimitedNatural175 = nullptr;
+					LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_a4_LiteralInteger176 = nullptr;
+				ConnectorPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_u1 = nullptr;
+					ConnectorEndPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_u1_ConnectorEnd177 = nullptr;
+						LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_u1_ConnectorEnd177_LiteralUnlimitedNatural178 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_u1_ConnectorEnd177_LiteralInteger179 = nullptr;
+					ConnectorEndPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_u1_ConnectorEnd180 = nullptr;
+						LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_u1_ConnectorEnd180_LiteralUnlimitedNatural181 = nullptr;
+				PortPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_p = nullptr;
+				ConnectorPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_u2 = nullptr;
+					ConnectorEndPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_u2_ConnectorEnd182 = nullptr;
+					ConnectorEndPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_u2_ConnectorEnd183 = nullptr;
+				ConnectorPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_u4 = nullptr;
+					ConnectorEndPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_u4_ConnectorEnd184 = nullptr;
+					ConnectorEndPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_C_u4_ConnectorEnd185 = nullptr;
+			InterfacePtr MultipleDelegation_MultipleConnector_P_PWP_Signal_I = nullptr;
+				ReceptionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_I_S = nullptr;
+			Class_Ptr MultipleDelegation_MultipleConnector_P_PWP_Signal_B = nullptr;
+				ActivityPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow186 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow186_LiteralBoolean187 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow186_LiteralInteger188 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow189 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow189_LiteralBoolean190 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow189_LiteralInteger191 = nullptr;
+					ControlFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ControlFlow192 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow193 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow193_LiteralInteger194 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow193_LiteralBoolean195 = nullptr;
+					AcceptEventActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Accept_S = nullptr;
+						TriggerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Accept_S_Trigger196 = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Accept_S_s = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Accept_S_s_LiteralUnlimitedNatural197 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Accept_S_s_LiteralInteger198 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Accept_S_s_LiteralInteger199 = nullptr;
+					AddStructuralFeatureValueActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Set_this_p = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Set_this_p_result = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Set_this_p_result_LiteralUnlimitedNatural200 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Set_this_p_result_LiteralInteger201 = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Set_this_p_object = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Set_this_p_object_LiteralInteger202 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Set_this_p_object_LiteralUnlimitedNatural203 = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Set_this_p_value = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Set_this_p_value_LiteralInteger204 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Set_this_p_value_LiteralUnlimitedNatural205 = nullptr;
+					SendSignalActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Send_Continue = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Send_Continue_target = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Send_Continue_target_LiteralUnlimitedNatural206 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Send_Continue_target_LiteralInteger207 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow208 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow208_LiteralBoolean209 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow208_LiteralInteger210 = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow211 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow211_LiteralBoolean212 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow211_LiteralInteger213 = nullptr;
+					ReadStructuralFeatureActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Read_s_v = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Read_s_v_result = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Read_s_v_result_LiteralInteger214 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Read_s_v_result_LiteralUnlimitedNatural215 = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Read_s_v_object = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Read_s_v_object_LiteralInteger216 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Read_s_v_object_LiteralUnlimitedNatural217 = nullptr;
+					ReadStructuralFeatureActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Read_s_t = nullptr;
+						InputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Read_s_t_object = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Read_s_t_object_LiteralInteger218 = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Read_s_t_object_LiteralUnlimitedNatural219 = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Read_s_t_result = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Read_s_t_result_LiteralUnlimitedNatural220 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Read_s_t_result_LiteralInteger221 = nullptr;
+					ReadSelfActionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_this = nullptr;
+						OutputPinPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_this_result = nullptr;
+							LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_this_result_LiteralUnlimitedNatural222 = nullptr;
+							LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_this_result_LiteralInteger223 = nullptr;
+					ForkNodePtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_Fork_s = nullptr;
+					ObjectFlowPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow224 = nullptr;
+						LiteralBooleanPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow224_LiteralBoolean225 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_BClassifierBehavior_ObjectFlow224_LiteralInteger226 = nullptr;
+				InterfaceRealizationPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_IRealization = nullptr;
+				OperationPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_B_B = nullptr;
+					ParameterPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_B_B_result = nullptr;
+				PropertyPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_p = nullptr;
+				ReceptionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_B_S = nullptr;
+			Class_Ptr MultipleDelegation_MultipleConnector_P_PWP_Signal_A = nullptr;
+				PortPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_A_q = nullptr;
+				ConnectorPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_A_r = nullptr;
+					ConnectorEndPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_A_r_ConnectorEnd227 = nullptr;
+						LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_A_r_ConnectorEnd227_LiteralUnlimitedNatural228 = nullptr;
+						LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_A_r_ConnectorEnd227_LiteralInteger229 = nullptr;
+					ConnectorEndPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_A_r_ConnectorEnd230 = nullptr;
+						LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_A_r_ConnectorEnd230_LiteralUnlimitedNatural231 = nullptr;
+				OperationPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_A_A_A = nullptr;
+					ParameterPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_A_A_A_result = nullptr;
+				PropertyPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_A_b = nullptr;
+					LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_A_b_LiteralInteger232 = nullptr;
+					LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_A_b_LiteralUnlimitedNatural233 = nullptr;
+			SignalEventPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_StartEvent = nullptr;
+			AssociationPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_R = nullptr;
+				PropertyPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_R_x = nullptr;
+					LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_R_x_LiteralUnlimitedNatural234 = nullptr;
+					LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_R_x_LiteralInteger235 = nullptr;
+				PropertyPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_R_y = nullptr;
+					LiteralIntegerPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_R_y_LiteralInteger236 = nullptr;
+					LiteralUnlimitedNaturalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_R_y_LiteralUnlimitedNatural237 = nullptr;
+			Class_Ptr MultipleDelegation_MultipleConnector_P_PWP_Signal_AbstractTester = nullptr;
+				ReceptionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_AbstractTester_Continue = nullptr;
+				OperationPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_AbstractTester_test = nullptr;
+				ReceptionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_AbstractTester_Start = nullptr;
+			Class_Ptr MultipleDelegation_MultipleConnector_P_PWP_Signal_IImpl = nullptr;
+				InterfaceRealizationPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_IImpl_IRealization = nullptr;
+				ReceptionPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_IImpl_S = nullptr;
+			SignalPtr MultipleDelegation_MultipleConnector_P_PWP_Signal_Start = nullptr;
+
+		public:
+			virtual ~MultipleDelegation_MultipleConnector_P_PWP_SignalModel();
+			static const std::shared_ptr<MultipleDelegation_MultipleConnector_P_PWP_SignalModel>& Instance();
+
+		private:
+			MultipleDelegation_MultipleConnector_P_PWP_SignalModel();
+			void initializeInMemoryModel();
+
+		/* Start of user code : User-defined members
+		 * This section may be used for user-defined members.
+		 * It will not be overwritten by future generation processes.
+		 */
+
+		/*
+ 		 * End of user code
+		 */
+	};
+}
+
+#endif /* MULTIPLEDELEGATION_MULTIPLECONNECTOR_P_PWP_SIGNAL_MODEL_H */

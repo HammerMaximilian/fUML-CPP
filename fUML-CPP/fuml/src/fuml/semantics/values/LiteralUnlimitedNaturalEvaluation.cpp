@@ -13,7 +13,7 @@ ValuePtr LiteralUnlimitedNaturalEvaluation::evaluate()
 {
 	// Evaluate a literal unlimited Natural, producing a unlimited Natural value.
 
-	LiteralUnlimitedNaturalPtr literal = std::dynamic_pointer_cast<LiteralUnlimitedNatural>(this->specification);
+	LiteralUnlimitedNaturalPtr literal = AS(LiteralUnlimitedNatural, this->specification);
 	UnlimitedNaturalValuePtr unlimitedNaturalValue(new UnlimitedNaturalValue());
 	unlimitedNaturalValue->type = this->getType("UnlimitedNatural");
 	unlimitedNaturalValue->value = literal->value;

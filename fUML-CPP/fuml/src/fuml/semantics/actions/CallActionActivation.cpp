@@ -40,7 +40,7 @@ bool CallActionActivation::isReady()
 
 	bool ready = this->isControlReady();
 
-	CallActionPtr callAction = std::dynamic_pointer_cast<CallAction>(this->node);
+	CallActionPtr callAction = AS(CallAction, this->node);
 	InputPinListPtr argumentPins = callAction->argument;
 
 	if (ready && argumentPins->size() > 0)
@@ -63,8 +63,7 @@ bool CallActionActivation::isReady()
 		while (ready && j <= argumentPinsSize)
 		{
 			const InputPinPtr& argumentPin = argumentPins->at(j - 1);
-			InputPinActivationPtr pinActivation = std::dynamic_pointer_cast<InputPinActivation>(
-				this->getPinActivation(argumentPin));
+			InputPinActivationPtr pinActivation = AS(InputPinActivation, this->getPinActivation(argumentPin));
 			if (j > inputParametersSize)
 			{
 				ready = pinActivation->isReady();
@@ -117,7 +116,7 @@ void CallActionActivation::doAction()
 	{
 		this->callExecutions->push_back(callExecution);
 
-		CallActionPtr callAction = std::dynamic_pointer_cast<CallAction>(this->node);
+		CallActionPtr callAction = AS(CallAction, this->node);
 		InputPinListPtr argumentPins = callAction->argument;
 		OutputPinListPtr resultPins = callAction->result;
 
@@ -141,10 +140,8 @@ void CallActionActivation::doAction()
 				{
 					parameterValue.reset(new StreamingParameterValue());
 					parameterValue->values = this->getTokens(argumentPin);
-					streamingPinActivation = std::dynamic_pointer_cast<InputPinActivation>(
-						this->getPinActivation(argumentPin));
-					streamingPinActivation->streamingParameterValue = std::dynamic_pointer_cast<StreamingParameterValue>(
-						parameterValue);
+					streamingPinActivation = AS(InputPinActivation,	this->getPinActivation(argumentPin));
+					streamingPinActivation->streamingParameterValue = AS(StreamingParameterValue, parameterValue);
 				}
 				else
 				{
@@ -171,7 +168,7 @@ void CallActionActivation::doAction()
 					parameterValue->parameter = parameter;
 					PinStreamingParameterListenerPtr listener(new PinStreamingParameterListener());
 					listener->nodeActivation = this->getPinActivation(resultPin);
-					std::dynamic_pointer_cast<StreamingParameterValue>(parameterValue)->register_(listener);
+					AS(StreamingParameterValue, parameterValue)->register_(listener);
 
 					// Note: Add a new parameter value, so that there will
 					// be two separate input and output parameter values for a

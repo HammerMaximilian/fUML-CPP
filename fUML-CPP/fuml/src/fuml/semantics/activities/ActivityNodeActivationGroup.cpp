@@ -53,9 +53,8 @@ void ActivityNodeActivationGroup::run(const ActivityNodeActivationListPtr& activ
 
 		fuml::Debug::println("[run] Checking node " + activation->node->name + "...");
 
-		PinActivationPtr pinActivation = std::dynamic_pointer_cast<PinActivation>(activation);
-		ExpansionNodeActivationPtr expansionNodeActivation = std::dynamic_pointer_cast<ExpansionNodeActivation>(
-			activation);
+		PinActivationPtr pinActivation = AS(PinActivation, activation);
+		ExpansionNodeActivationPtr expansionNodeActivation = AS(ExpansionNodeActivation, activation);
 
 		if (!(pinActivation || expansionNodeActivation))
 		{
@@ -65,11 +64,11 @@ void ActivityNodeActivationGroup::run(const ActivityNodeActivationListPtr& activ
 			// For an action activation, also consider incoming edges to
 			// input pins
 
-			ActionActivationPtr actionActivation = std::dynamic_pointer_cast<ActionActivation>(activation);
+			ActionActivationPtr actionActivation = AS(ActionActivation, activation);
 
 			if (isEnabled && actionActivation)
 			{
-				InputPinListPtr inputPins = std::dynamic_pointer_cast<Action>(activation->node)->input;
+				InputPinListPtr inputPins = AS(Action, activation->node)->input;
 
 				for (const InputPinPtr& inputPin : *inputPins)
 				{
@@ -85,8 +84,7 @@ void ActivityNodeActivationGroup::run(const ActivityNodeActivationListPtr& activ
 			{
 				fuml::Debug::println("[run] Node " + activation->node->name + " is enabled.");
 
-				ActivityParameterNodeActivationPtr activityParameterNodeActivation = std::dynamic_pointer_cast<
-					ActivityParameterNodeActivation>(activation);
+				ActivityParameterNodeActivationPtr activityParameterNodeActivation = AS(ActivityParameterNodeActivation, activation);
 
 				if (activityParameterNodeActivation)
 				{
@@ -206,7 +204,7 @@ ActivityNodeActivationPtr ActivityNodeActivationGroup::createNodeActivation(cons
 	// Create an activity node activation for a given activity node in this
 	// activity node activation group.
 
-	ActivityNodeActivationPtr activation = std::dynamic_pointer_cast<ActivityNodeActivation>(
+	ActivityNodeActivationPtr activation = AS(ActivityNodeActivation,
 		this->getActivityExecution()->locus->factory->instantiateVisitor(node));
 	activation->initialize(node, this->thisActivityNodeActivationGroupPtr.lock());
 
@@ -226,7 +224,7 @@ ActivityNodeActivationPtr ActivityNodeActivationGroup::getNodeActivation(const A
 
 	ActivityNodeActivationPtr activation = nullptr;
 
-	PinPtr pin = std::dynamic_pointer_cast<Pin>(node);
+	PinPtr pin = AS(Pin, node);
 
 	StructuredActivityNodeActivationPtr containingNodeActivation = this->containingNodeActivation.lock();
 
@@ -305,8 +303,7 @@ ActivityParameterNodeActivationListPtr ActivityNodeActivationGroup::getOutputPar
 	for (const ActivityNodeActivationPtr& activation : *nodeActivations)
 	{
 
-		ActivityParameterNodeActivationPtr activityParameterNodeActivation = std::dynamic_pointer_cast<
-			ActivityParameterNodeActivation>(activation);
+		ActivityParameterNodeActivationPtr activityParameterNodeActivation = AS(ActivityParameterNodeActivation, activation);
 
 		if (activityParameterNodeActivation)
 		{

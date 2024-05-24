@@ -12,7 +12,7 @@ bool ControlToken::equals(const TokenPtr& other)
 	// Return true if the other token is a control token, because control
 	// tokens are interchangable.
 
-	return (std::dynamic_pointer_cast<ControlToken>(other) != nullptr);
+	return IS(ControlToken, other);
 }
 
 TokenPtr ControlToken::copy()

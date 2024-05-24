@@ -23,15 +23,15 @@ void StartClassifierBehaviorActionActivation::doAction()
 	// behaviors of all types of the referent object. [The required behavior
 	// in this case is not clear from the spec.]
 
-	StartClassifierBehaviorActionPtr action = std::dynamic_pointer_cast<StartClassifierBehaviorAction>(this->node);
+	StartClassifierBehaviorActionPtr action = AS(StartClassifierBehaviorAction, this->node);
 
 	ValuePtr object = this->takeTokens(action->object)->at(0);
 
-	ReferencePtr reference = std::dynamic_pointer_cast<Reference>(object);
+	ReferencePtr reference = AS(Reference, object);
 
 	if (reference)
 	{
-		reference->startBehavior(std::dynamic_pointer_cast<Class_>(action->object->type),
+		reference->startBehavior(AS(Class_, action->object->type),
 			ParameterValueListPtr(new ParameterValueList()));
 	}
 } // doAction

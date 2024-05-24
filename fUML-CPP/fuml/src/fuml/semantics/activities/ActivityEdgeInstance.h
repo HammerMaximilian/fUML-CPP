@@ -19,8 +19,8 @@ namespace fuml::semantics::activities
 		public:
 			ActivityEdgePtr edge = nullptr;
 			ActivityNodeActivationGroupPtr_w group;
-			ActivityNodeActivationPtr source = nullptr;
-			ActivityNodeActivationPtr target = nullptr;
+			ActivityNodeActivationPtr_w source;
+			ActivityNodeActivationPtr_w target;
 			OfferListPtr offers = std::make_shared<OfferList>();
 
 		public:

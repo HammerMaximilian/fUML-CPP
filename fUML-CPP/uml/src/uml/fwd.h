@@ -598,4 +598,11 @@ using ValueSpecificationPtr = std::shared_ptr<ValueSpecification>;
 using ValueSpecificationList = std::vector<ValueSpecificationPtr>;
 using ValueSpecificationListPtr = std::shared_ptr<ValueSpecificationList>;
 
+#ifndef AS
+	#define AS(T, SP) std::dynamic_pointer_cast<T>(SP)
+#endif
+#ifndef IS
+	#define IS(T, SP) (std::dynamic_pointer_cast<T>(SP)!=nullptr)
+#endif
+
 #endif /* UML_FWD_H_ */

@@ -36,26 +36,26 @@ ValuePtr InstanceValueEvaluation::evaluate()
 	// Set each feature of the created value to the result of evaluating the
 	// value specifications for the specified slot for the feature.
 
-	InstanceSpecificationPtr instance = std::dynamic_pointer_cast<InstanceValue>(this->specification)->instance;
+	InstanceSpecificationPtr instance = AS(InstanceValue, this->specification)->instance;
 	const ClassifierListPtr& types = instance->classifier;
 	const ClassifierPtr& myType = types->at(0);
 
 	fuml::Debug::println(std::string("[evaluate] type = " + myType->name));
 
 	ValuePtr value;
-	EnumerationLiteralPtr enumerationLiteral = std::dynamic_pointer_cast<EnumerationLiteral>(instance);
+	EnumerationLiteralPtr enumerationLiteral = AS(EnumerationLiteral, instance);
 
 	if (enumerationLiteral)
 	{
 		EnumerationValuePtr enumerationValue(new EnumerationValue());
-		enumerationValue->type = std::dynamic_pointer_cast<Enumeration>(myType);
+		enumerationValue->type = AS(Enumeration, myType);
 		enumerationValue->literal = enumerationLiteral;
 		value = enumerationValue;
 	}
 	else
 	{
 		StructuredValuePtr structuredValue = nullptr;
-		DataTypePtr dataType = std::dynamic_pointer_cast<DataType>(myType);
+		DataTypePtr dataType = AS(DataType, myType);
 
 		if (dataType)
 		{
@@ -66,7 +66,7 @@ ValuePtr InstanceValueEvaluation::evaluate()
 		else
 		{
 			Object_Ptr object = nullptr;
-			BehaviorPtr behavior = std::dynamic_pointer_cast<Behavior>(myType);
+			BehaviorPtr behavior = AS(Behavior, myType);
 			if (behavior)
 			{
 				object = this->locus->factory->createExecution(behavior, nullptr);
@@ -76,7 +76,7 @@ ValuePtr InstanceValueEvaluation::evaluate()
 				object.reset(new Object_());
 				for (const ClassifierPtr& type : *types)
 				{
-					object->types->push_back(std::dynamic_pointer_cast<Class_>(type));
+					object->types->push_back(AS(Class_, type));
 				}
 			}
 

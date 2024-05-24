@@ -15,11 +15,16 @@
 #include "[anOpaqueBehavior.getNameSanitized() + 'Execution.h'/]"
 
 #include "[anOpaqueBehavior.getRootPackage().getNameSanitized() + 'Model.h'/]"
-#include <fuml/Debug.h>
-#include <fuml/semantics/commonbehavior/ParameterValue.h>
-#include <fuml/semantics/loci/ExecutionFactory.h>
-#include <fuml/semantics/loci/Locus.h>
-#include <uml/commonbehavior/OpaqueBehavior.h>
+[for (includeStatement : String | 
+	anOpaqueBehavior.getOpaqueBehaviorExecutionIncludesFromModel()
+	->including('#include <fuml/Debug.h>')
+	->including('#include <fuml/semantics/commonbehavior/ParameterValue.h>')
+	->including('#include <fuml/semantics/loci/ExecutionFactory.h>')
+	->including('#include <fuml/semantics/loci/Locus.h>')
+	->including('#include <uml/commonbehavior/OpaqueBehavior.h>')
+	->asOrderedSet())]
+[includeStatement/]
+[/for]
 
 /* [protected (': User-defined includes and using directives')]
  * This section may be used for includes and using directives.
@@ -93,3 +98,11 @@ ValuePtr [anOpaqueBehavior.getNameSanitized() + 'Execution'/]::new_()
 	else anElement.getNearestPackage().getRootPackage()
 	endif /]
 [query private isRootPackage(aPackage : Package) : Boolean = aPackage.nestingPackage = null /]
+
+[query private getOpaqueBehaviorExecutionIncludesFromModel(anOpaqueBehavior : OpaqueBehavior) : Set(String) =
+	if(anOpaqueBehavior.language->includes('Include') and anOpaqueBehavior._body->size() >= anOpaqueBehavior.language->size())
+	then anOpaqueBehavior._body->at(anOpaqueBehavior.language->indexOf('Include')).tokenize('\n').tokenize('\r\n')->asSet()
+	else Set(String){}
+	endif
+/]
+

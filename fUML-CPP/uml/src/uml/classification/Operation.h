@@ -25,7 +25,7 @@ namespace uml::classification
 			OperationListPtr redefinedOperation = std::make_shared<OperationList>();
 			TypePtr type = nullptr;
 			ParameterListPtr ownedParameter = std::make_shared<ParameterList>();
-			InterfacePtr interface = nullptr; // PSCS-specific
+			InterfacePtr_w interface; // PSCS-specific
 
 		private:
 			OperationPtr_w thisOperationPtr;

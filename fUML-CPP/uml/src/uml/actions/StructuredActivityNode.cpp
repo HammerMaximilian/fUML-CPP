@@ -49,7 +49,7 @@ void StructuredActivityNode::_setContext(const ClassifierPtr& context)
 	Action::_setContext(context);
 	for (const ActivityNodePtr& node : *(this->node))
 	{
-		ActionPtr action = std::dynamic_pointer_cast<Action>(node);
+		ActionPtr action = AS(Action, node);
 		if (action)
 		{
 			action->_setContext(context);

@@ -33,7 +33,7 @@ void DestroyLinkActionActivation::doAction()
 
 	fuml::Debug::println("[doAction] DestroyLinkAction...");
 
-	DestroyLinkActionPtr action = std::dynamic_pointer_cast<DestroyLinkAction>(this->node);
+	DestroyLinkActionPtr action = AS(DestroyLinkAction, this->node);
 	const LinkEndDestructionDataListPtr& destructionDataList = action->endData;
 
 	fuml::Debug::println("[doAction] end data size = " + std::to_string(destructionDataList->size()));
@@ -58,7 +58,7 @@ void DestroyLinkActionActivation::doAction()
 
 	for (const ExtensionalValuePtr& value : *extent)
 	{
-		LinkPtr link = std::dynamic_pointer_cast<Link>(value);
+		LinkPtr link = AS(Link, value);
 		if (this->linkMatchesEndData(link, endDataList))
 		{
 			matchingLinks->push_back(link);
@@ -85,7 +85,7 @@ void DestroyLinkActionActivation::doAction()
 		// non-deterministically choose one. ***
 		if (matchingLinks->size() > 0)
 		{
-			int i = std::dynamic_pointer_cast<ChoiceStrategy>(this->getExecutionLocus()->factory->getStrategy("choice"))
+			int i = AS(ChoiceStrategy, this->getExecutionLocus()->factory->getStrategy("choice"))
 				->choose(matchingLinks->size());
 			matchingLinks->at(i - 1)->destroy();
 		}

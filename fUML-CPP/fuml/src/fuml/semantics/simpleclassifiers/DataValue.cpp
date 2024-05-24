@@ -24,7 +24,7 @@ ValuePtr DataValue::copy()
 	// Create a new data value with the same type and feature values as this
 	// data value.
 
-	DataValuePtr newValue = std::dynamic_pointer_cast<DataValue>(CompoundValue::copy());
+	DataValuePtr newValue = AS(DataValue, CompoundValue::copy());
 
 	newValue->type = this->type;
 

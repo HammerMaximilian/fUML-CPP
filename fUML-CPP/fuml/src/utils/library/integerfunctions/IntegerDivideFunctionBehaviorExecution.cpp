@@ -26,8 +26,8 @@ IntegerDivideFunctionBehaviorExecution::IntegerDivideFunctionBehaviorExecution()
 void IntegerDivideFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,
 	const ParameterValueListPtr& outputParameters)
 {
-	int arg1 = (std::dynamic_pointer_cast<IntegerValue>(inputParameters->at(0)->values->at(0)))->value;
-	int arg2 = (std::dynamic_pointer_cast<IntegerValue>(inputParameters->at(1)->values->at(0)))->value;
+	int arg1 = (AS(IntegerValue, inputParameters->at(0)->values->at(0)))->value;
+	int arg2 = (AS(IntegerValue, inputParameters->at(1)->values->at(0)))->value;
 
 	// Check for illegal divide by zero
 	if (arg2 == 0)

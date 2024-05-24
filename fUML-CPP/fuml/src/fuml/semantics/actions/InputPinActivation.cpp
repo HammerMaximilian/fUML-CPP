@@ -28,7 +28,7 @@ void InputPinActivation::receiveOffer()
 	}
 	else
 	{
-		this->actionActivation->receiveOffer();
+		this->actionActivation.lock()->receiveOffer();
 	}
 } // receiveOffer
 
@@ -57,8 +57,7 @@ void InputPinActivation::fire(const TokenListPtr& incomingTokens)
 
 		if (this->streamingIsTerminated())
 		{
-			CallActionActivationPtr callActionActivation = std::dynamic_pointer_cast<CallActionActivation>(
-				this->actionActivation);
+			CallActionActivationPtr callActionActivation = AS(CallActionActivation, this->actionActivation.lock());
 			if (callActionActivation)
 			{
 				callActionActivation->completeStreamingCall();
@@ -79,7 +78,7 @@ bool InputPinActivation::isReady()
 	bool ready = ActivityNodeActivation::isReady();
 	if (ready)
 	{
-		int minimum = std::dynamic_pointer_cast<Pin>(this->node)->lower;
+		int minimum = AS(Pin, this->node)->lower;
 		if (this->isStreaming())
 		{
 			if (minimum > 0)
@@ -101,7 +100,7 @@ bool InputPinActivation::isReadyForStreaming()
 	// there is at least one offered value.
 
 	return ActivityNodeActivation::isReady()
-		&& (std::dynamic_pointer_cast<Pin>(this->node)->lower == 0 || getTotalValueCount() >= 1);
+		&& (AS(Pin, this->node)->lower == 0 || getTotalValueCount() >= 1);
 } // isReadyForStreaming
 
 bool InputPinActivation::isStreaming()

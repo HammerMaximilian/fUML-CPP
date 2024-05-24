@@ -13,7 +13,7 @@ ValuePtr LiteralIntegerEvaluation::evaluate()
 {
 	// Evaluate a literal integer, producing a integer value.
 
-	LiteralIntegerPtr literal = std::dynamic_pointer_cast<LiteralInteger>(this->specification);
+	LiteralIntegerPtr literal = AS(LiteralInteger, this->specification);
 	IntegerValuePtr integerValue(new IntegerValue());
 	integerValue->type = this->getType("Integer");
 	integerValue->value = literal->value;

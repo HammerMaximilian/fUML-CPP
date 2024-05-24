@@ -35,7 +35,7 @@ BehaviorPtr RedefinitionBasedDispatchStrategy::getMethod(const Object_Ptr& objec
 		while (method == nullptr && j <= membersSize)
 		{
 			NamedElementPtr member = members->at(j - 1);
-			OperationPtr memberOperation = std::dynamic_pointer_cast<Operation>(member);
+			OperationPtr memberOperation = AS(Operation, member);
 
 			if (memberOperation)
 			{

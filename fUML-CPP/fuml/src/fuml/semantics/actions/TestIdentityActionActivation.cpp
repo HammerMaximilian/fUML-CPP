@@ -18,7 +18,7 @@ void TestIdentityActionActivation::doAction()
 	// If they are equal, place true on the pin execution for the result
 	// output pin, otherwise place false.
 
-	TestIdentityActionPtr action = std::dynamic_pointer_cast<TestIdentityAction>(this->node);
+	TestIdentityActionPtr action = AS(TestIdentityAction, this->node);
 
 	ValuePtr firstValue = this->takeTokens(action->first)->at(0);
 	ValuePtr secondValue = this->takeTokens(action->second)->at(0);

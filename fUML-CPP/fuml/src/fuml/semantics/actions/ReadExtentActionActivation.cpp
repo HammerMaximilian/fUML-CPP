@@ -18,14 +18,14 @@ void ReadExtentActionActivation::doAction()
 	// (which must be a class) identified in the action.
 	// Place references to the resulting set of objects on the result pin.
 
-	ReadExtentActionPtr action = std::dynamic_pointer_cast<ReadExtentAction>(this->node);
+	ReadExtentActionPtr action = AS(ReadExtentAction, this->node);
 	ExtensionalValueListPtr objects = this->getExecutionLocus()->getExtent(action->classifier);
 
 	ValueListPtr references(new ValueList());
 	for (const ValuePtr& object : *objects)
 	{
 		ReferencePtr reference(new Reference());
-		reference->referent = std::dynamic_pointer_cast<Object_>(object);
+		reference->referent = AS(Object_, object);
 		references->push_back(reference);
 	}
 

@@ -30,7 +30,7 @@ void AddStructuralFeatureValueActionActivation::doAction()
 	// If isReplaceAll is false and there is an insertAt pin, insert the
 	// value at the appropriate position.
 
-	AddStructuralFeatureValueActionPtr action = std::dynamic_pointer_cast<AddStructuralFeatureValueAction>(this->node);
+	AddStructuralFeatureValueActionPtr action = AS(AddStructuralFeatureValueAction, this->node);
 	StructuralFeaturePtr feature = action->structuralFeature;
 	AssociationPtr association = this->getAssociation(feature);
 
@@ -43,7 +43,7 @@ void AddStructuralFeatureValueActionActivation::doAction()
 	int insertAt = 0;
 	if (action->insertAt != nullptr)
 	{
-		insertAt = (std::dynamic_pointer_cast<UnlimitedNaturalValue>(this->takeTokens(action->insertAt)->at(0)))->value;
+		insertAt = (AS(UnlimitedNaturalValue, this->takeTokens(action->insertAt)->at(0)))->value;
 	}
 
 	if (association != nullptr)
@@ -95,10 +95,10 @@ void AddStructuralFeatureValueActionActivation::doAction()
 	}
 	else
 	{
-		StructuredValuePtr structuredValue = std::dynamic_pointer_cast<StructuredValue>(value);
+		StructuredValuePtr structuredValue = AS(StructuredValue, value);
 		if (structuredValue)
 		{
-			ReferencePtr reference = std::dynamic_pointer_cast<Reference>(structuredValue);
+			ReferencePtr reference = AS(Reference, structuredValue);
 
 			// If the value is a data value, then it must be copied before
 			// any change is made.
@@ -120,7 +120,7 @@ void AddStructuralFeatureValueActionActivation::doAction()
 					// *** If there is no insertAt pin, then the structural
 					// feature must be unordered, and the insertion position is
 					// immaterial. ***
-					insertAt = (std::dynamic_pointer_cast<ChoiceStrategy>(
+					insertAt = (AS(ChoiceStrategy,
 						this->getExecutionLocus()->factory->getStrategy("choice")))->choose(
 						featureValue->values->size());
 				}

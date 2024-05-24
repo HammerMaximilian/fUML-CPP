@@ -26,13 +26,13 @@ StringSubstringFunctionBehaviorExecution::StringSubstringFunctionBehaviorExecuti
 void StringSubstringFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,
 	const ParameterValueListPtr& outputParameters)
 {
-	StringValuePtr sv1 = std::dynamic_pointer_cast<StringValue>(inputParameters->at(0)->values->at(0));
+	StringValuePtr sv1 = AS(StringValue, inputParameters->at(0)->values->at(0));
 	std::string s1 = sv1->value;
 	fuml::Debug::println("[doBody] argument, string = " + s1);
-	IntegerValuePtr lowerValue = std::dynamic_pointer_cast<IntegerValue>(inputParameters->at(1)->values->at(0));
+	IntegerValuePtr lowerValue = AS(IntegerValue, inputParameters->at(1)->values->at(0));
 	int lower = lowerValue->value; // lower value
 	fuml::Debug::println("[doBody] argument, lower = " + std::to_string(lower));
-	IntegerValuePtr upperValue = std::dynamic_pointer_cast<IntegerValue>(inputParameters->at(2)->values->at(0));
+	IntegerValuePtr upperValue = AS(IntegerValue, inputParameters->at(2)->values->at(0));
 	int upper = upperValue->value; // upper value
 	fuml::Debug::println("[doBody] argument, upper = " + std::to_string(upper));
 

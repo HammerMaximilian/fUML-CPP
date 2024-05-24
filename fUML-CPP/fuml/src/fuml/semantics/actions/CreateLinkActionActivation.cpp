@@ -28,7 +28,7 @@ void CreateLinkActionActivation::doAction()
 	// given end data values,
 	// inserted at the given insertAt position (for ordered ends).
 
-	CreateLinkActionPtr action = std::dynamic_pointer_cast<CreateLinkAction>(this->node);
+	CreateLinkActionPtr action = AS(CreateLinkAction, this->node);
 	const LinkEndCreationDataListPtr& endDataList = action->endData;
 
 	AssociationPtr linkAssociation = this->getAssociation();
@@ -46,7 +46,7 @@ void CreateLinkActionActivation::doAction()
 	for (const ExtensionalValuePtr& value : *extent)
 	{
 
-		LinkPtr link = std::dynamic_pointer_cast<Link>(value);
+		LinkPtr link = AS(Link, value);
 
 		bool match = true;
 		bool destroy = false;
@@ -79,7 +79,7 @@ void CreateLinkActionActivation::doAction()
 		int insertAt = 0;
 		if (endData->insertAt != nullptr)
 		{
-			insertAt = std::dynamic_pointer_cast<UnlimitedNaturalValue>(this->takeTokens(endData->insertAt)->at(0))
+			insertAt = AS(UnlimitedNaturalValue, this->takeTokens(endData->insertAt)->at(0))
 				->value;
 		}
 

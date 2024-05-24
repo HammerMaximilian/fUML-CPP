@@ -44,7 +44,7 @@ void TextInputChannelObject::execute(const std::shared_ptr<fuml::library::librar
 		{
 			resultValue.reset(new StringValue());
 			resultValue->type = this->locus->factory->getBuiltInType("String");
-			std::dynamic_pointer_cast<StringValue>(resultValue)->value = result;
+			AS(StringValue, resultValue)->value = result;
 		}
 		this->updateStatus(execution, status);
 	}
@@ -55,7 +55,7 @@ void TextInputChannelObject::execute(const std::shared_ptr<fuml::library::librar
 		{
 			resultValue.reset(new StringValue());
 			resultValue->type = this->locus->factory->getBuiltInType("String");
-			std::dynamic_pointer_cast<StringValue>(resultValue)->value = result;
+			AS(StringValue, resultValue)->value = result;
 		}
 		this->updateStatus(execution, status);
 	}
@@ -66,7 +66,7 @@ void TextInputChannelObject::execute(const std::shared_ptr<fuml::library::librar
 		{
 			resultValue.reset(new StringValue());
 			resultValue->type = this->locus->factory->getBuiltInType("String");
-			std::dynamic_pointer_cast<StringValue>(resultValue)->value = result;
+			AS(StringValue, resultValue)->value = result;
 		}
 		this->updateStatus(execution, status);
 	}
@@ -77,7 +77,7 @@ void TextInputChannelObject::execute(const std::shared_ptr<fuml::library::librar
 		{
 			resultValue.reset(new IntegerValue());
 			resultValue->type = this->locus->factory->getBuiltInType("Integer");
-			std::dynamic_pointer_cast<IntegerValue>(resultValue)->value = result;
+			AS(IntegerValue, resultValue)->value = result;
 		}
 		this->updateStatus(execution, status);
 	}
@@ -88,7 +88,7 @@ void TextInputChannelObject::execute(const std::shared_ptr<fuml::library::librar
 		{
 			resultValue.reset(new RealValue());
 			resultValue->type = this->locus->factory->getBuiltInType("Real");
-			std::dynamic_pointer_cast<RealValue>(resultValue)->value = result;
+			AS(RealValue, resultValue)->value = result;
 		}
 		this->updateStatus(execution, status);
 	}
@@ -97,7 +97,7 @@ void TextInputChannelObject::execute(const std::shared_ptr<fuml::library::librar
 		bool result = this->readBoolean(status);
 		resultValue.reset(new BooleanValue());
 		resultValue->type = this->locus->factory->getBuiltInType("Boolean");
-		std::dynamic_pointer_cast<BooleanValue>(resultValue)->value = result;
+		AS(BooleanValue, resultValue)->value = result;
 		this->updateStatus(execution, status);
 	}
 	else if (name == "readUnlimitedNatural")
@@ -107,7 +107,7 @@ void TextInputChannelObject::execute(const std::shared_ptr<fuml::library::librar
 		{
 			resultValue.reset(new UnlimitedNaturalValue());
 			resultValue->type = this->locus->factory->getBuiltInType("UnlimitedNatural");
-			std::dynamic_pointer_cast<UnlimitedNaturalValue>(resultValue)->value = result;
+			AS(UnlimitedNaturalValue, resultValue)->value = result;
 		}
 		this->updateStatus(execution, status);
 	}

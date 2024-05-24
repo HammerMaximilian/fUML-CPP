@@ -1,8 +1,7 @@
 <img src="logo.png" width="300"/>
 
-# fUML Reference Implementation for *C++*
-This software is an open source reference implementation of the *Semantics of a Foundational Subset for Executable UML Models* (fUML)
-specification by the *Object Management Group* (OMG) (see [here](https://www.omg.org/spec/FUML/1.5/About-FUML)). This implementation is based on the Java fUML reference implementation developed by
+# fUML/PSCS Reference Implementation for *C++*
+This software is an open source reference implementation of the *Semantics of a Foundational Subset for Executable UML Models* (fUML) and *Precise Semantics of UML Composite Structures* (PSCS) specifications by the *Object Management Group* (OMG) (see [fUML](https://www.omg.org/spec/FUML/1.5/About-FUML) and [PSCS](https://www.omg.org/spec/PSCS/1.2/About-PSCS)). The fUML implementation of this software is based on the Java fUML reference implementation developed by
 *Model Driven Solutions* (see [https://github.com/ModelDriven/fUML-Reference-Implementation](https://github.com/ModelDriven/fUML-Reference-Implementation))
 
 ## Licensing
@@ -45,7 +44,7 @@ For detailed information, please see the [User Guide](fUML-C++_User_Guide.pdf) s
   * The *usersrc* directory may contain arbitrary nested subdirectories
 * Add include directories for uml and fuml to your project
 * Add uml and fuml binaries to the linker options of your projects
-* Create a `<model-name>Environment` class by deriving from class `fuml::environment::Environment`
+* Create a `<model-name>Environment` class by deriving from class `fuml::environment::Environment` (or `pscs::environment::Environment` for PSCS-compatibility)
 * Create a `<model-name>Model` class by deriving from class `uml::environment::InMemoryModel` (this class will contain all of your model elements)
 * Create a class containing a main method and call `<model-name>Environment::Instance()->execute("<behavior-name>");` for each behavior you want to execute in subsequent order
 * Build project and run executable 

@@ -11,6 +11,7 @@
 [import fuml::generator::eclipse::generateReleaseLaunchConfigurationFile /]
 [import fuml::generator::environment::generateEnvironmentClassHeaderFile /]
 [import fuml::generator::environment::generateEnvironmentClassSourceFile /]
+[import fuml::generator::executionmode::executionmode /]
 [import fuml::generator::git::generateGitignore /]
 [import fuml::generator::mainsource::generateMainSourceFile /]
 [import fuml::generator::model::generateModelClassHeaderFile /]
@@ -32,27 +33,46 @@
 [/comment]
 [comment] [setUseExtendedNamingConvention(true)/] [/comment]
 
+[comment]
+ * Uncomment the following line to generate the model as none-executable (i.e. generates InMemoryModel only)
+[/comment]
+[comment] [setIsNoneExecutable()/] [/comment]
+[comment]
+ * Uncomment the following line to generate the model as fUML-executable (i.e. generates bypasses PSCS execution environment)
+[/comment]
+[comment] [setIsFUMLExecutable()/] [/comment]
+[comment]
+ * Uncomment the following line to generate the model as PSCS-executable
+[/comment]
+[setIsPSCSExecutable()/]
+
+
 [comment Ensure that this is only done for the root package /]
 [if (aPackage.nestingPackage = null)]
-	[aPackage.generateEnvironmentClassHeaderFile()/]
-	[aPackage.generateEnvironmentClassSourceFile()/]
+
+	[if (isExecutable())]
+		[aPackage.generateEnvironmentClassHeaderFile()/]
+		[aPackage.generateEnvironmentClassSourceFile()/]
+
+		[for (anOpaqueBehavior : OpaqueBehavior | aPackage.allOwnedElements()->filter(OpaqueBehavior))]
+			[anOpaqueBehavior.generateOpaqueBehaviorExecutionClassHeaderFile()/]
+			[anOpaqueBehavior.generateOpaqueBehaviorExecutionClassSourceFile()/]
+		[/for]
+
+		[generateCDTManagedBuilderCorePrefsFile()/]
+		[generateDebugLaunchConfigurationFile()/]
+		[generateReleaseLaunchConfigurationFile()/]
+	[/if]
 
 	[aPackage.generateModelClassHeaderFile()/]
 	[aPackage.generateModelClassSourceFile()/]
 
-	[for (anOpaqueBehavior : OpaqueBehavior | aPackage.allOwnedElements()->filter(OpaqueBehavior))]
-		[anOpaqueBehavior.generateOpaqueBehaviorExecutionClassHeaderFile()/]
-		[anOpaqueBehavior.generateOpaqueBehaviorExecutionClassSourceFile()/]
-	[/for]
-
 	[aPackage.generateMainSourceFile()/]
+
 	[generateCoreResourcesPrefs()/]
-	[generateCDTManagedBuilderCorePrefsFile()/]
-	[generateCProjectFile()/]
-	[generateDebugLaunchConfigurationFile()/]
+	[aPackage.generateCProjectFile()/]
 	[generateGitignore()/]
 	[generateLanguageSettingsXML()/]
 	[generateProjectFile()/]
-	[generateReleaseLaunchConfigurationFile()/]
 [/if]
 [/template]

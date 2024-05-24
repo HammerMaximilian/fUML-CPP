@@ -42,7 +42,7 @@ ExpansionRegionActivationPtr ExpansionNodeActivation::getExpansionRegionActivati
 	// expansion node, in the context of the activity node activation group
 	// this expansion node activation is in.
 
-	ExpansionNodePtr node = std::dynamic_pointer_cast<ExpansionNode>(this->node);
+	ExpansionNodePtr node = AS(ExpansionNode, this->node);
 
 	ExpansionRegionPtr region = node->regionAsInput;
 	if (region == nullptr)
@@ -50,6 +50,6 @@ ExpansionRegionActivationPtr ExpansionNodeActivation::getExpansionRegionActivati
 		region = node->regionAsOutput;
 	}
 
-	return std::dynamic_pointer_cast<ExpansionRegionActivation>(this->group.lock()->getNodeActivation(region));
+	return AS(ExpansionRegionActivation, this->group.lock()->getNodeActivation(region));
 
 } // getExpansionRegionActivation

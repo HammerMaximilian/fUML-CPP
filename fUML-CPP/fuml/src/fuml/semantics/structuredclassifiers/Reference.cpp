@@ -45,7 +45,7 @@ bool Reference::equals(const ValuePtr& otherValue)
 	// referent as this reference.
 
 	bool isEqual = false;
-	ReferencePtr reference = std::dynamic_pointer_cast<Reference>(otherValue);
+	ReferencePtr reference = AS(Reference, otherValue);
 	if (reference)
 	{
 		if (this->referent == nullptr)
@@ -65,7 +65,7 @@ ValuePtr Reference::copy()
 {
 	// Create a new reference with the same referent as this reference.
 
-	ReferencePtr newValue = std::dynamic_pointer_cast<Reference>(StructuredValue::copy());
+	ReferencePtr newValue = AS(Reference, StructuredValue::copy());
 
 	newValue->referent = this->referent;
 

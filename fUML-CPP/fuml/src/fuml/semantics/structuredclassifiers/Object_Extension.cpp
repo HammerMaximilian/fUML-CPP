@@ -22,8 +22,7 @@ ExecutionPtr Object_::dispatch(const OperationPtr& operation, bool isExplicitBas
 		return this->dispatch(operation);
 	}
 
-	DispatchStrategyPtr dispatchStrategy = std::dynamic_pointer_cast<DispatchStrategy>(
-		this->locus->factory->getStrategy("dispatch"));
+	DispatchStrategyPtr dispatchStrategy = AS(DispatchStrategy, this->locus->factory->getStrategy("dispatch"));
 
 	return dispatchStrategy->dispatch(this->thisObject_Ptr.lock(), operation, isExplicitBaseClassCall);
 } // dispatch

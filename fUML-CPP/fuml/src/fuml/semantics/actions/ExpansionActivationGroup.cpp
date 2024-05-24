@@ -25,7 +25,7 @@ ActivityNodeActivationPtr ExpansionActivationGroup::getNodeActivation(const Acti
 	// Otherwise return the node activation from the activation group, as
 	// usual.
 
-	ExpansionRegionPtr region = std::dynamic_pointer_cast<ExpansionRegion>(this->regionActivation->node);
+	ExpansionRegionPtr region = AS(ExpansionRegion, this->regionActivation->node);
 
 	const InputPinListPtr& inputs = region->input;
 	ActivityNodeActivationPtr activation = nullptr;

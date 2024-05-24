@@ -29,7 +29,7 @@ void ListGetFunctionBehaviorExecution::doBody(const ParameterValueListPtr& input
 	const ValueListPtr& vl = inputParameters->at(0)->values;
 
 	// Get the position in the list from the second argument
-	IntegerValuePtr iv = std::dynamic_pointer_cast<IntegerValue>(inputParameters->at(0)->values->at(0));
+	IntegerValuePtr iv = AS(IntegerValue, inputParameters->at(0)->values->at(0));
 	int position = iv->value;
 	fuml::Debug::println("[doBody] List Get, position=" + std::to_string(position));
 

@@ -1,0 +1,18 @@
+[comment encoding = UTF-8 /]
+[module standardprofile('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[query public StandardProfile_name(any : OclAny) : String = 'StandardProfile' /]
+[query public StandardProfileName_Create_name(any : OclAny) : OclAny = 'Create' /]
+[query public StandardProfileName_Create_qualifiedName(any : OclAny) : OclAny = StandardProfile_name() + '::' + StandardProfileName_Create_name() /]
+
+[query public StandardProfile_access(any : OclAny) : String = 'uml::standardprofile::StandardProfileModel::Instance()' /]
+[query private StandardProfileName_Create_access(any : OclAny) : OclAny = StandardProfile_access() + '->' + 'Stereotype_' + StandardProfileName_Create_name() /]
+
+[query public StandardProfile_include(arg : OclAny) : String = 'utils/standardprofile/' + StandardProfile_name() + 'Model.h' /]
+
+[query public getStandardProfile_StereotypeAccess(stereotypeName : String) : String =
+	if(stereotypeName = StandardProfileName_Create_name())
+	then StandardProfileName_Create_access()
+	else ''
+	endif
+/]

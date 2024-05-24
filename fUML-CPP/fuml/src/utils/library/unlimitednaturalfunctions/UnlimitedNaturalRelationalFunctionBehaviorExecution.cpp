@@ -27,7 +27,7 @@ void UnlimitedNaturalRelationalFunctionBehaviorExecution::doBody(const Parameter
 
 	for (const ParameterValuePtr& inputParameter : *inputParameters)
 	{
-		int value = std::dynamic_pointer_cast<UnlimitedNaturalValue>(inputParameter->values->at(0))->value;
+		int value = AS(UnlimitedNaturalValue, inputParameter->values->at(0))->value;
 		fuml::Debug::println("[doBody] argument = " + std::to_string(value));
 		arguments->push_back(value);
 	}

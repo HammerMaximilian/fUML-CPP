@@ -520,6 +520,8 @@ using RedefinitionBasedDispatchStrategy = fuml::semantics::structuredclassifiers
 using RedefinitionBasedDispatchStrategyPtr = std::shared_ptr<RedefinitionBasedDispatchStrategy>;
 using Reference = fuml::semantics::structuredclassifiers::Reference;
 using ReferencePtr = std::shared_ptr<Reference>;
+using ReferenceList = std::vector<ReferencePtr>;
+using ReferenceListPtr = std::shared_ptr<ReferenceList>;
 
 
 /*
@@ -545,5 +547,12 @@ using Value = fuml::semantics::values::Value;
 using ValuePtr = std::shared_ptr<Value>;
 using ValueList = std::vector<ValuePtr>;
 using ValueListPtr = std::shared_ptr<ValueList>;
+
+#ifndef AS
+	#define AS(T, SP) std::dynamic_pointer_cast<T>(SP)
+#endif
+#ifndef IS
+	#define IS(T, SP) (std::dynamic_pointer_cast<T>(SP)!=nullptr)
+#endif
 
 #endif /* FUML_SEMANTICS_FWD_H_ */

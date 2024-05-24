@@ -12,7 +12,17 @@
 ExecutionPtr Reference::dispatch(const OperationPtr& operation, bool isExplicitBaseClassCall)
 {
 	// Extends Reference::dispatch(const Operation)Ptr& by flag "isExplicitBaseClassCall".
-	// Delegate "isExplicitBaseClassCall" to Object_::dispatch(const OperationPtr&, bool).
+	// If "isExplicitBaseClassCall" is true, delegate to Object_::dispatch(const OperationPtr&, bool).
+	// Else, call standard method dispatch(const OperationPtr&) to maintain possible method overriding.
 
-	return this->referent->dispatch(operation, isExplicitBaseClassCall);
+	if(isExplicitBaseClassCall)
+	{
+		return this->referent->dispatch(operation, isExplicitBaseClassCall);
+	}
+
+	else
+	{
+		return this->dispatch(operation);
+	}
+
 } // dispatch

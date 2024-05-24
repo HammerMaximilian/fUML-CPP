@@ -20,7 +20,7 @@ void ReadStructuralFeatureActionActivation::doAction()
 	// the values of the appropriate feature of the input value and place
 	// them on the result output pin.
 
-	ReadStructuralFeatureActionPtr action = std::dynamic_pointer_cast<ReadStructuralFeatureAction>(this->node);
+	ReadStructuralFeatureActionPtr action = AS(ReadStructuralFeatureAction, this->node);
 	const StructuralFeaturePtr& feature = action->structuralFeature;
 
 	ValuePtr value = this->takeTokens(action->object)->at(0);

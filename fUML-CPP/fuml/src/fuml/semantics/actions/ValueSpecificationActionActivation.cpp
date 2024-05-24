@@ -16,7 +16,7 @@ void ValueSpecificationActionActivation::doAction()
 	// Evaluate the value specification for the action and place the result
 	// on the result pin of the action.
 
-	ValueSpecificationActionPtr action = std::dynamic_pointer_cast<ValueSpecificationAction>(this->node);
+	ValueSpecificationActionPtr action = AS(ValueSpecificationAction, this->node);
 
 	ValuePtr value = this->getExecutionLocus()->executor->evaluate(action->value);
 	this->putToken(action->result, value);

@@ -50,8 +50,7 @@ void ExecutableNodeActivation::propagateException(const ValuePtr& exception)
 	}
 	else
 	{
-		ChoiceStrategyPtr strategy = std::dynamic_pointer_cast<ChoiceStrategy>(
-			this->getExecutionLocus()->factory->getStrategy("choice"));
+		ChoiceStrategyPtr strategy = AS(ChoiceStrategy,	this->getExecutionLocus()->factory->getStrategy("choice"));
 		ExceptionHandlerPtr handler = matchingExceptionHandlers->at(
 			strategy->choose(matchingExceptionHandlers->size()) - 1);
 		this->handle(exception, handler);
@@ -63,7 +62,7 @@ ExceptionHandlerListPtr ExecutableNodeActivation::getMatchingExceptionHandlers(c
 	// Return the set of exception handlers that have an exception type
 	// for which the given exception is an instance.
 
-	ExceptionHandlerListPtr handlers = std::dynamic_pointer_cast<ExecutableNode>(this->node)->handler;
+	ExceptionHandlerListPtr handlers = AS(ExecutableNode, this->node)->handler;
 	ExceptionHandlerListPtr matchingHandlers(new ExceptionHandlerList());
 
 	for (const ExceptionHandlerPtr& handler : *handlers)

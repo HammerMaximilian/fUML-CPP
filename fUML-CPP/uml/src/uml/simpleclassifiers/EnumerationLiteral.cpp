@@ -10,7 +10,6 @@
 
 void EnumerationLiteral::_setEnumeration(const EnumerationPtr& enumeration)
 {
-	InstanceSpecification::addClassifier(enumeration);
 	this->classifier = enumeration;
 	this->enumeration = enumeration;
 }

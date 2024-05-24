@@ -32,7 +32,7 @@ void MultiplicityElement::setUpperValue(const ValueSpecificationPtr& upperValue)
 {
 	this->upperValue = upperValue;
 
-	LiteralUnlimitedNaturalPtr literalUnlimitedNatural = std::dynamic_pointer_cast<LiteralUnlimitedNatural>(upperValue);
+	LiteralUnlimitedNaturalPtr literalUnlimitedNatural = AS(LiteralUnlimitedNatural, upperValue);
 
 	if (literalUnlimitedNatural)
 	{
@@ -44,7 +44,7 @@ void MultiplicityElement::setLowerValue(const ValueSpecificationPtr& lowerValue)
 {
 	this->lowerValue = lowerValue;
 
-	LiteralIntegerPtr literalInteger = std::dynamic_pointer_cast<LiteralInteger>(lowerValue);
+	LiteralIntegerPtr literalInteger = AS(LiteralInteger, lowerValue);
 
 	if (literalInteger)
 	{
@@ -59,7 +59,7 @@ void MultiplicityElement::setUpper(int upper)
 
 	this->upper = upper;
 	this->upperValue = std::make_shared<LiteralUnlimitedNatural>();
-	(std::dynamic_pointer_cast<LiteralUnlimitedNatural>(this->upperValue))->setValue(this->upper);
+	(AS(LiteralUnlimitedNatural, this->upperValue))->setValue(this->upper);
 } // setUpper
 
 void MultiplicityElement::setLower(int lower)
@@ -69,5 +69,5 @@ void MultiplicityElement::setLower(int lower)
 
 	this->lower = lower;
 	this->lowerValue = std::make_shared<LiteralInteger>();
-	(std::dynamic_pointer_cast<LiteralInteger>(this->lowerValue))->setValue(this->lower);
+	(AS(LiteralInteger, this->lowerValue))->setValue(this->lower);
 } // setLower

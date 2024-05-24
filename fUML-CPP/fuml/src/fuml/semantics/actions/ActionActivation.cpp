@@ -24,6 +24,7 @@
 #include <uml/actions/InputPin.h>
 #include <uml/actions/OutputPin.h>
 #include <uml/activities/ExceptionHandler.h>
+#include <uml/activities/ForkNode.h>
 #include <uml/classification/Property.h>
 #include <uml/commonbehavior/Behavior.h>
 #include <uml/structuredclassifiers/Association.h>
@@ -55,7 +56,7 @@ void ActionActivation::run()
 
 	if (this->outgoingEdges->size() > 0)
 	{
-		this->outgoingEdges->at(0)->target->run();
+		this->outgoingEdges->at(0)->target.lock()->run();
 	}
 
 	this->firing = false;
@@ -70,7 +71,7 @@ TokenListPtr ActionActivation::takeOfferedTokens()
 
 	// Note: This is included here to happen in the same isolation scope as
 	// the isReady test.
-	ActionPtr action = std::dynamic_pointer_cast<Action>(this->node);
+	ActionPtr action = AS(Action, this->node);
 	this->firing = !(action->isLocallyReentrant);
 
 	TokenListPtr offeredTokens(new TokenList());
@@ -137,7 +138,7 @@ void ActionActivation::terminate()
 
 	if (this->outgoingEdges->size() > 0)
 	{
-		this->outgoingEdges->at(0)->target->terminate();
+		this->outgoingEdges->at(0)->target.lock()->terminate();
 	}
 } // terminate
 
@@ -171,13 +172,16 @@ bool ActionActivation::isReady()
 
 	bool ready = isControlReady();
 
-	const InputPinListPtr& inputPins = std::dynamic_pointer_cast<Action>(this->node)->input;
-
-	for (const InputPinPtr& inputPin : *inputPins)
+	if(ready)
 	{
-		ready = this->getPinActivation(inputPin)->isReady();
-		if (!ready)
-			break;
+		const InputPinListPtr& inputPins = AS(Action, this->node)->input;
+
+		for (const InputPinPtr& inputPin : *inputPins)
+		{
+			ready = this->getPinActivation(inputPin)->isReady();
+			if (!ready)
+				break;
+		}
 	}
 
 	return ready;
@@ -192,7 +196,7 @@ bool ActionActivation::isControlReady()
 	// action are control flows.)
 
 	bool ready = ActivityNodeActivation::isReady()
-		&& (std::dynamic_pointer_cast<Action>(this->node)->isLocallyReentrant || !this->isFiring());
+		&& (AS(Action, this->node)->isLocallyReentrant || !this->isFiring());
 
 	if(ready)
 	{
@@ -218,7 +222,7 @@ void ActionActivation::sendOffers()
 {
 	// Fire all output pins and send offers on all outgoing control flows.
 
-	ActionPtr action = std::dynamic_pointer_cast<Action>(this->node);
+	ActionPtr action = AS(Action, this->node);
 
 	// *** Send offers from all output pins concurrently. ***
 	OutputPinListPtr outputPins = this->getOfferingOutputPins();
@@ -247,7 +251,7 @@ OutputPinListPtr ActionActivation::getOfferingOutputPins()
 	// (This is normally all the output pins of the action, but it can be
 	// overridden in subclasses to only return a subset of the output pins.)
 
-	return std::dynamic_pointer_cast<Action>(this->node)->output;
+	return AS(Action, this->node)->output;
 } // getOfferingOutputPins
 
 void ActionActivation::createNodeActivations()
@@ -257,7 +261,7 @@ void ActionActivation::createNodeActivations()
 	// [Note: Pins are owned by their actions, not by the enclosing activity
 	// (or group), so they must be activated through the action activation.]
 
-	ActionPtr action = std::dynamic_pointer_cast<Action>(this->node);
+	ActionPtr action = AS(Action, this->node);
 
 	ActivityNodeListPtr inputPinNodes(new ActivityNodeList());
 	const InputPinListPtr& inputPins = action->input;
@@ -272,7 +276,7 @@ void ActionActivation::createNodeActivations()
 
 	for (const ActivityNodePtr& node : *inputPinNodes)
 	{
-		this->addPinActivation(std::dynamic_pointer_cast<PinActivation>(group->getNodeActivation(node)));
+		this->addPinActivation(AS(PinActivation, group->getNodeActivation(node)));
 	}
 
 	ActivityNodeListPtr outputPinNodes(new ActivityNodeList());
@@ -286,7 +290,7 @@ void ActionActivation::createNodeActivations()
 
 	for (const ActivityNodePtr& node : *outputPinNodes)
 	{
-		this->addPinActivation(std::dynamic_pointer_cast<PinActivation>(group->getNodeActivation(node)));
+		this->addPinActivation(AS(PinActivation, group->getNodeActivation(node)));
 	}
 } // createNodeActivations
 
@@ -300,19 +304,33 @@ void ActionActivation::addOutgoingEdge(const ActivityEdgeInstancePtr& edge)
 	// control flows, with an implicit fork for offers out of the action.]
 
 	ActivityNodeActivationPtr forkNodeActivation;
+	static ForkNodePtr anonymousFork;
 
 	if (this->outgoingEdges->size() == 0)
 	{
+		if(anonymousFork == nullptr)
+		{
+			anonymousFork.reset(new ForkNode());
+			anonymousFork->setName("Anonymous Fork");
+		}
+
 		forkNodeActivation.reset(new ForkNodeActivation());
+		forkNodeActivation->node = anonymousFork;
 		forkNodeActivation->setThisActivityNodeActivationPtr(forkNodeActivation);
 		forkNodeActivation->running = false;
 		ActivityEdgeInstancePtr newEdge(new ActivityEdgeInstance());
 		ActivityNodeActivation::addOutgoingEdge(newEdge);
 		forkNodeActivation->addIncomingEdge(newEdge);
+
+		// Make sure to store the new anonymous fork node activation
+		// persistently within the same group as this node, as it is
+		// only referenced via weak pointers by it's adjacent edge instances,
+		// and would thus be deleted when going out of scope.
+		this->group.lock()->nodeActivations->push_back(forkNodeActivation);
 	}
 	else
 	{
-		forkNodeActivation = this->outgoingEdges->at(0)->target;
+		forkNodeActivation = this->outgoingEdges->at(0)->target.lock();
 	}
 
 	forkNodeActivation->addOutgoingEdge(edge);
@@ -434,7 +452,7 @@ bool ActionActivation::isSourceFor(const ActivityEdgeInstancePtr& edgeInstance)
 	bool isSource = false;
 	if (this->outgoingEdges->size() > 0)
 	{
-		isSource = this->outgoingEdges->at(0)->target->isSourceFor(edgeInstance);
+		isSource = this->outgoingEdges->at(0)->target.lock()->isSourceFor(edgeInstance);
 	}
 
 	return isSource;
@@ -463,7 +481,7 @@ AssociationPtr ActionActivation::getAssociation(const StructuralFeaturePtr& feat
 	// the associated association.
 
 	AssociationPtr association = nullptr;
-	PropertyPtr property = std::dynamic_pointer_cast<Property>(feature);
+	PropertyPtr property = AS(Property, feature);
 	if (property)
 	{
 		association = property->association.lock();
@@ -494,7 +512,7 @@ ValueListPtr ActionActivation::getValues(const ValuePtr& sourceValue, const Stru
 	}
 	else
 	{
-		values = std::dynamic_pointer_cast<StructuredValue>(sourceValue)->getFeatureValue(feature)->values;
+		values = AS(StructuredValue, sourceValue)->getFeatureValue(feature)->values;
 	}
 
 	return values;
@@ -532,7 +550,7 @@ LinkListPtr ActionActivation::getMatchingLinksForEndValue(const AssociationPtr& 
 			}
 			if (matches)
 			{
-				LinkPtr castedLink = std::dynamic_pointer_cast<Link>(link);
+				LinkPtr castedLink = AS(Link, link);
 				if (!end->isOrdered || links->size() == 0)
 				{
 					links->push_back(castedLink);
@@ -584,7 +602,7 @@ BooleanValuePtr ActionActivation::makeBooleanValue(bool value)
 
 	LiteralBooleanPtr booleanLiteral(new LiteralBoolean());
 	booleanLiteral->value = value;
-	return std::dynamic_pointer_cast<BooleanValue>(this->getExecutionLocus()->executor->evaluate(booleanLiteral));
+	return AS(BooleanValue, this->getExecutionLocus()->executor->evaluate(booleanLiteral));
 } // makeBooleanValue
 
 void ActionActivation::handle(const ValuePtr& exception, const ExceptionHandlerPtr& handler)
@@ -594,7 +612,7 @@ void ActionActivation::handle(const ValuePtr& exception, const ExceptionHandlerP
 	// to the output pins of this action activation.
 
 	ExecutableNodeActivation::handle(exception, handler);
-	this->transferOutputs(std::dynamic_pointer_cast<Action>(handler->handlerBody));
+	this->transferOutputs(AS(Action, handler->handlerBody));
 } // handle
 
 void ActionActivation::transferOutputs(const ActionPtr& handlerBody)
@@ -602,10 +620,10 @@ void ActionActivation::transferOutputs(const ActionPtr& handlerBody)
 	// Transfer the output values from activation of the given exception
 	// handler body to the output pins of this action activation.
 
-	ActionActivationPtr handlerBodyActivation = std::dynamic_pointer_cast<ActionActivation>(
+	ActionActivationPtr handlerBodyActivation = AS(ActionActivation,
 		this->group.lock()->getNodeActivation(handlerBody));
 	const OutputPinListPtr& sourceOutputs = handlerBody->output;
-	OutputPinListPtr targetOutputs = std::dynamic_pointer_cast<Action>(this->node)->output;
+	OutputPinListPtr targetOutputs = AS(Action, this->node)->output;
 
 	unsigned int sourceOutputsSize = sourceOutputs->size();
 

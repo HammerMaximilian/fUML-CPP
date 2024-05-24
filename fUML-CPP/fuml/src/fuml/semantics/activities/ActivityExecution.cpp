@@ -31,7 +31,7 @@ void ActivityExecution::execute()
 	// the execution is complete, copy the values on the tokens offered by
 	// output parameter nodes to the corresponding output parameters.
 
-	ActivityPtr activity = std::dynamic_pointer_cast<Activity>(this->getTypes()->at(0));
+	ActivityPtr activity = AS(Activity, this->getTypes()->at(0));
 
 	fuml::Debug::println("[execute] Activity " + activity->name + "...");
 	fuml::Debug::println("[event] Execute activity=" + activity->name);
@@ -66,13 +66,13 @@ void ActivityExecution::complete()
 	// Copy the values on the tokens offered by output parameter nodes for
 	// non-stream parameters to the corresponding output parameter values.
 
-	ActivityPtr activity = std::dynamic_pointer_cast<Activity>(this->getTypes()->at(0));
+	ActivityPtr activity = AS(Activity, this->getTypes()->at(0));
 
 	ActivityParameterNodeActivationListPtr outputActivations = this->activationGroup->getOutputParameterNodeActivations();
 
 	for (const ActivityParameterNodeActivationPtr& outputActivation : *outputActivations)
 	{
-		ParameterPtr parameter = std::dynamic_pointer_cast<ActivityParameterNode>(outputActivation->node)->parameter;
+		ParameterPtr parameter = AS(ActivityParameterNode, outputActivation->node)->parameter;
 
 		if (!parameter->isStream)
 		{
@@ -82,7 +82,7 @@ void ActivityExecution::complete()
 			TokenListPtr tokens = outputActivation->getTokens();
 			for (const TokenPtr& token : *tokens)
 			{
-				const ValuePtr& value = std::dynamic_pointer_cast<ObjectToken>(token)->value;
+				const ValuePtr& value = AS(ObjectToken, token)->value;
 				if (value != nullptr)
 				{
 					parameterValue->values->push_back(value);

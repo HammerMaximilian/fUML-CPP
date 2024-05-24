@@ -32,7 +32,7 @@ void Activity::addNode(const ActivityNodePtr& node)
 		node->_setActivity(thisActivityPtr.lock());
 	}
 
-	StructuredActivityNodePtr structuredActivityNode = std::dynamic_pointer_cast<StructuredActivityNode>(node);
+	StructuredActivityNodePtr structuredActivityNode = AS(StructuredActivityNode, node);
 
 	if (structuredActivityNode
 		&& (std::find(this->structuredNode->begin(), this->structuredNode->end(), node) == this->structuredNode->end()))
@@ -69,7 +69,7 @@ void Activity::_setContext(const BehavioredClassifierPtr& context)
 
 	for (const ActivityNodePtr& node : *(this->node))
 	{
-		ActionPtr action = std::dynamic_pointer_cast<Action>(node);
+		ActionPtr action = AS(Action, node);
 		if (action)
 		{
 			action->_setContext(context);

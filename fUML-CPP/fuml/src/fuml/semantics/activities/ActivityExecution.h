@@ -18,7 +18,7 @@ namespace fuml::semantics::activities
 			ActivityNodeActivationGroupPtr activationGroup = nullptr;
 			bool isStreaming;
 
-		private:
+		protected:
 			ActivityExecutionPtr_w thisActivityExecutionPtr;
 
 		public:

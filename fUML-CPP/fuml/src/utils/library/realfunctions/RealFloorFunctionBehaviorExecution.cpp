@@ -27,7 +27,7 @@ RealFloorFunctionBehaviorExecution::RealFloorFunctionBehaviorExecution()
 void RealFloorFunctionBehaviorExecution::doBody(const ParameterValueListPtr& inputParameters,
 	const ParameterValueListPtr& outputParameters)
 {
-	RealValuePtr rv = std::dynamic_pointer_cast<RealValue>(inputParameters->at(0)->values->at(0));
+	RealValuePtr rv = AS(RealValue, inputParameters->at(0)->values->at(0));
 	float x = rv->value;
 
 	int resultInt = std::floor(x);

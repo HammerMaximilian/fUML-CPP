@@ -16,7 +16,7 @@ namespace uml::simpleclassifiers
     {
     	public:
     		InterfacePtr contract = nullptr;
-    		BehavioredClassifierPtr implementingClassifier = nullptr;
+    		BehavioredClassifierPtr_w implementingClassifier;
 
     	public:
     		virtual ~InterfaceRealization() = default;

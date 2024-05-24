@@ -27,7 +27,7 @@ void RealRelationalFunctionBehaviorExecution::doBody(const ParameterValueListPtr
 
 	for (const ParameterValuePtr& inputParameter : *inputParameters)
 	{
-		float value = std::dynamic_pointer_cast<RealValue>(inputParameter->values->at(0))->value;
+		float value = AS(RealValue, inputParameter->values->at(0))->value;
 		fuml::Debug::println("[doBody] argument = " + std::to_string(value));
 		arguments->push_back(value);
 	}
