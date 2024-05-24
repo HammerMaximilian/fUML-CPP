@@ -6,7 +6,7 @@
 delegation and assembly connectors.</body>
     </ownedComment>
     <ownedComment xmi:type="uml:Comment" xmi:id="_-Ua7UBkTEe-JLYJU6luPjg">
-      <body>Passing: false</body>
+      <body>Passing: true</body>
     </ownedComment>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_HXZFABiCEe-oJ-HZAfFLyg">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -16,8 +16,8 @@ delegation and assembly connectors.</body>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_DDozkBkAEe-JLYJU6luPjg" name="b" type="_5QvmEBkTEe-JLYJU6luPjg" aggregation="composite"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_KEMFMBkAEe-JLYJU6luPjg" name="c" type="_7SgCcBkTEe-JLYJU6luPjg" aggregation="composite"/>
       <ownedConnector xmi:type="uml:Connector" xmi:id="_T6XgIBkAEe-JLYJU6luPjg" name="r" type="_v-iHwBj7Ee-JLYJU6luPjg">
-        <end xmi:type="uml:ConnectorEnd" xmi:id="_T6YuQBkAEe-JLYJU6luPjg" partWithPort="_DDozkBkAEe-JLYJU6luPjg" role="_dEAiABj8Ee-JLYJU6luPjg"/>
-        <end xmi:type="uml:ConnectorEnd" xmi:id="_T6YuQRkAEe-JLYJU6luPjg" partWithPort="_KEMFMBkAEe-JLYJU6luPjg" role="_gPEv0Bj8Ee-JLYJU6luPjg"/>
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_T6YuQBkAEe-JLYJU6luPjg" partWithPort="_DDozkBkAEe-JLYJU6luPjg" role="_Fq29YBkUEe-JLYJU6luPjg"/>
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_T6YuQRkAEe-JLYJU6luPjg" partWithPort="_KEMFMBkAEe-JLYJU6luPjg" role="_ZKwroBkUEe-JLYJU6luPjg"/>
       </ownedConnector>
       <ownedBehavior xmi:type="uml:Activity" xmi:id="_bLBqUBkAEe-JLYJU6luPjg" name="testActivity" specification="_6lVxkBj_Ee-JLYJU6luPjg" node="_4hDwMBkAEe-JLYJU6luPjg _7HniwBkAEe-JLYJU6luPjg _8OYWgBkAEe-JLYJU6luPjg _IrL1cBkBEe-JLYJU6luPjg _K6rbwBkVEe-JLYJU6luPjg">
         <ownedBehavior xmi:type="uml:FunctionBehavior" xmi:id="_oX4GIBkAEe-JLYJU6luPjg" name="testV">

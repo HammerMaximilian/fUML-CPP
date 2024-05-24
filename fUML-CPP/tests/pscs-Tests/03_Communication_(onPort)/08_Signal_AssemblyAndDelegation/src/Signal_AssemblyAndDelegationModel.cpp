@@ -1017,12 +1017,12 @@ void Signal_AssemblyAndDelegationModel::initializeInMemoryModel()
 		Signal_AssemblyAndDelegation_TestCaseAssemblyAndDelegation_r->setName("r");
 			Signal_AssemblyAndDelegation_TestCaseAssemblyAndDelegation_r->setVisibility(VisibilityKind::public_);
 				
-				Signal_AssemblyAndDelegation_TestCaseAssemblyAndDelegation_r_ConnectorEnd41->setRole(Signal_AssemblyAndDelegation_A_p);
+				Signal_AssemblyAndDelegation_TestCaseAssemblyAndDelegation_r_ConnectorEnd41->setRole(Signal_AssemblyAndDelegation_B_p);
 				Signal_AssemblyAndDelegation_TestCaseAssemblyAndDelegation_r_ConnectorEnd41->setPartWithPort(Signal_AssemblyAndDelegation_TestCaseAssemblyAndDelegation_b);
 				
 			Signal_AssemblyAndDelegation_TestCaseAssemblyAndDelegation_r->addEnd(Signal_AssemblyAndDelegation_TestCaseAssemblyAndDelegation_r_ConnectorEnd41);
 				
-				Signal_AssemblyAndDelegation_TestCaseAssemblyAndDelegation_r_ConnectorEnd40->setRole(Signal_AssemblyAndDelegation_Tester_q);
+				Signal_AssemblyAndDelegation_TestCaseAssemblyAndDelegation_r_ConnectorEnd40->setRole(Signal_AssemblyAndDelegation_C_q);
 				Signal_AssemblyAndDelegation_TestCaseAssemblyAndDelegation_r_ConnectorEnd40->setPartWithPort(Signal_AssemblyAndDelegation_TestCaseAssemblyAndDelegation_c);
 				
 			Signal_AssemblyAndDelegation_TestCaseAssemblyAndDelegation_r->addEnd(Signal_AssemblyAndDelegation_TestCaseAssemblyAndDelegation_r_ConnectorEnd40);
