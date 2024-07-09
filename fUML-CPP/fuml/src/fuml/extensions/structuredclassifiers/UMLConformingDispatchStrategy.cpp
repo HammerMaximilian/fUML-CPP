@@ -101,6 +101,7 @@ bool UMLConformingDispatchStrategy::conformsTo(const ClassifierPtr& type, const 
         {
         	const ClassifierPtr& general = type->general->at(i - 1);
         	conformsTo = this->conformsTo(general, otherType);
+        	i++;
         }
     }
 

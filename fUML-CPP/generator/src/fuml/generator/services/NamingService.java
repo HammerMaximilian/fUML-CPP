@@ -42,6 +42,26 @@ public class NamingService
 		return name;
 	}
 	
+	public String getRealName(Element element)
+	{
+		String realName = "";
+		
+		if(element instanceof Operation)
+		{
+			Operation operation = (Operation)element;
+			
+			realName = ((operation.getName() != null && !(operation.getName().isBlank())) ? 
+					((useExtendedNamingConvention) ? element.eClass().getName() + "_" : "")
+					+ operation.getName() : element.eClass().getName() + String.valueOf(internalElementCount++));
+		}
+		else
+		{
+			realName = getName(element);
+		}
+		
+		return realName;
+	}
+	
 	public void setUseExtendedNamingConvention(boolean _useExtendedNamingConvention)
 	{
 		useExtendedNamingConvention = _useExtendedNamingConvention;

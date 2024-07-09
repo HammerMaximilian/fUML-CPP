@@ -1394,7 +1394,7 @@ this->addToElementRepository("[anElement.getName()/]", [anElement.getFullNameSan
 [template private generateNamedElementInitialization(aNamedElement : NamedElement) post(trim())]
 [comment Property 'NamedElement::name' /]
 [aNamedElement.generateElementStereotypeApplications()/]
-[aNamedElement.getFullNameSanitized()/]->setName("[aNamedElement.getName()/]");
+[aNamedElement.getFullNameSanitized()/]->setName("[if(aNamedElement.oclIsKindOf(Operation))][aNamedElement.getRealName()/][else][aNamedElement.getName()/][/if]");
 [aNamedElement.getFullNameSanitized()/]->setVisibility(VisibilityKind::[aNamedElement.visibility/][if(aNamedElement.visibility <> VisibilityKind::_package)]_[/if]);
 [/template]
 
