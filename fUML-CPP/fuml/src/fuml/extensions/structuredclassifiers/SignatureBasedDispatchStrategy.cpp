@@ -83,6 +83,7 @@ BehaviorPtr SignatureBasedDispatchStrategy::getMethod(const Class_Ptr& type, con
                 method = ownedOperation->method->at(0);
             }
         }
+        i++;
     }
 
     // If type does not own or override the given operation directly,
@@ -99,6 +100,7 @@ BehaviorPtr SignatureBasedDispatchStrategy::getMethod(const Class_Ptr& type, con
             {
                 method = this->getMethod(baseClass, operation);
             }
+            i++;
         }
     }
 
@@ -118,7 +120,8 @@ bool SignatureBasedDispatchStrategy::operationsMatch(const OperationPtr& ownedOp
     }
     else
     {
-        matches = baseOperation->name == ownedOperation->name;
+    	matches = this->isSpecializationOf(ownedOperation->class_.lock(), baseOperation->class_.lock());
+        matches = matches && baseOperation->name == ownedOperation->name;
         matches = matches && (baseOperation->ownedParameter->size() == ownedOperation->ownedParameter->size());
         ParameterListPtr ownedOperationParameters = ownedOperation->ownedParameter;
         ParameterListPtr baseOperationParameters = baseOperation->ownedParameter;
