@@ -7,10 +7,12 @@
 
 #include <fuml/semantics/actions/CallOperationActionActivation.h>
 
+#include <fuml/Debug.h>
 #include <fuml/semantics/actions/PinActivation.h>
 #include <fuml/semantics/loci/ExecutionFactory.h>
 #include <fuml/semantics/loci/Locus.h>
 #include <fuml/semantics/structuredclassifiers/Reference.h>
+#include <stdexcept>
 #include <uml/actions/CallOperationAction.h>
 #include <uml/actions/InputPin.h>
 #include <uml/classification/Operation.h>
@@ -45,7 +47,14 @@ ExecutionPtr CallOperationActionActivation::getCallExecution()
 
 	if (reference)
 	{
-		execution = reference->dispatch(action->operation, isExplicitBaseClassCall);
+		try
+		{
+			execution = reference->dispatch(action->operation, isExplicitBaseClassCall);
+		}
+		catch(const std::runtime_error& re)
+		{
+			Debug::println(re.what());
+		}
 	}
 	else
 	{
