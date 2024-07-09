@@ -22,18 +22,20 @@ For detailed information, please see the [User Guide](fUML-C++_User_Guide.pdf) s
 For detailed information, please see the [User Guide](fUML-C++_User_Guide.pdf) section *2. Setup*.
 ### 1. Setting up Eclipse
 * Import fUML-C++ root project *fUML-CPP* into your workspace
-* Import nested projects *uml* and *fuml*
+* Import nested projects *uml*, *fuml* and *pscs* (for PSCS-compatibility)
 ### 2. Environment Variables
-* Add binary directories paths of *uml* and *fuml* to your system's environment variables (e.g. add them to PATH in Windows)
+* Add binary directories paths of *uml*, *fuml* and *pscs* (for PSCS-compatibility) to your system's environment variables (e.g. add them to PATH in Windows)
 * Depending on whether you want to build debug version, release version or both versions of the dynamic libraries:
   * `"<fUML-C++-rootdir>\uml\Debug"` for debug version of uml
   * `"<fUML-C++-rootdir>\uml\Release"` for release version of uml
   * `"<fUML-C++-rootdir>\fuml\Debug"` for debug version of fuml
   * `"<fUML-C++-rootdir>\fuml\Release"` for release version of fuml
+  * `"<fUML-C++-rootdir>\pscs\Debug"` for debug version of pscs
+  * `"<fUML-C++-rootdir>\pscs\Release"` for release version of pscs
 
 ## Building
 For detailed information, please see the [User Guide](fUML-C++_User_Guide.pdf) section *3. Build*.
-* Build dynamic libraries for *uml* and *fuml* (**in that order**) using Eclipse C++-Development Tools managed build
+* Build dynamic libraries for *uml*, *fuml* and *pscs* (**in that order**) using Eclipse C++-Development Tools managed build
 * Depending on your preferences and needs, build debug, release or both
 
 ## Usage
