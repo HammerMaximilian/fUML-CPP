@@ -7,6 +7,7 @@
 
 #include <uml/actions/StructuredActivityNode.h>
 #include <uml/activities/ActivityEdge.h>
+#include <uml/activities/Variable.h>
 
 void StructuredActivityNode::setThisStructuredActivityNodePtr(
 		StructuredActivityNodePtr_w thisStructuredActivityNodePtr)
@@ -62,3 +63,9 @@ void StructuredActivityNode::_setActivity(const ActivityPtr& activity)
 	Action::_setActivity(activity);
 	this->activity = activity;
 } // _setActivity
+
+void StructuredActivityNode::addVariable(const VariablePtr& variable)
+{
+	this->variable->push_back(variable);
+	variable->_setScope(thisStructuredActivityNodePtr.lock());
+} // addVariable

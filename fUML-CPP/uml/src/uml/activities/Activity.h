@@ -21,6 +21,7 @@ namespace uml::activities
 			bool isReadOnly = false;
 			ActivityEdgeListPtr edge = std::make_shared<ActivityEdgeList>();
 			ActivityGroupListPtr group = std::make_shared<ActivityGroupList>();
+			VariableListPtr variable = std::make_shared<VariableList>();
 
 		private:
 			ActivityPtr_w thisActivityPtr;
@@ -35,6 +36,7 @@ namespace uml::activities
 			void addGroup(const ActivityGroupPtr&);
 			void addEdge(const ActivityEdgePtr&);
 			virtual void _setContext(const BehavioredClassifierPtr&) override;
+			void addVariable(const VariablePtr&);
 	};
 // Activity
 }

@@ -19,12 +19,14 @@ namespace uml
 		class AcceptEventAction;
 		class Action;
 		class AddStructuralFeatureValueAction;
+		class AddVariableValueAction;
 		class CallAction;
 		class CallBehaviorAction;
 		class CallOperationAction;
 		class Clause;
 		class ClearAssociationAction;
 		class ClearStructuralFeatureAction;
+		class ClearVariableAction;
 		class ConditionalNode;
 		class CreateLinkAction;
 		class CreateObjectAction;
@@ -48,9 +50,11 @@ namespace uml
 		class ReadLinkAction;
 		class ReadSelfAction;
 		class ReadStructuralFeatureAction;
+		class ReadVariableAction;
 		class ReclassifyObjectAction;
 		class ReduceAction;
 		class RemoveStructuralFeatureValueAction;
+		class RemoveVariableValueAction;
 		class ReplyAction;
 		class SendSignalAction;
 		class StartClassifierBehaviorAction;
@@ -60,8 +64,10 @@ namespace uml
 		class TestIdentityAction;
 		class UnmarshallAction;
 		class ValueSpecificationAction;
+		class VariableAction;
 		class WriteLinkAction;
 		class WriteStructuralFeatureAction;
+		class WriteVariableAction;
 	}
 
 	namespace activities
@@ -87,6 +93,7 @@ namespace uml
 		class MergeNode;
 		class ObjectFlow;
 		class ObjectNode;
+		class Variable;
 	}
 
 	namespace classification
@@ -197,6 +204,8 @@ using Action = uml::actions::Action;
 using ActionPtr = std::shared_ptr<Action>;
 using AddStructuralFeatureValueAction = uml::actions::AddStructuralFeatureValueAction;
 using AddStructuralFeatureValueActionPtr = std::shared_ptr<AddStructuralFeatureValueAction>;
+using AddVariableValueAction = uml::actions::AddVariableValueAction;
+using AddVariableValueActionPtr = std::shared_ptr<AddVariableValueAction>;
 using CallAction = uml::actions::CallAction;
 using CallActionPtr = std::shared_ptr<CallAction>;
 using CallBehaviorAction = uml::actions::CallBehaviorAction;
@@ -212,6 +221,8 @@ using ClearAssociationAction = uml::actions::ClearAssociationAction;
 using ClearAssociationActionPtr = std::shared_ptr<ClearAssociationAction>;
 using ClearStructuralFeatureAction = uml::actions::ClearStructuralFeatureAction;
 using ClearStructuralFeatureActionPtr = std::shared_ptr<ClearStructuralFeatureAction>;
+using ClearVariableAction = uml::actions::ClearVariableAction;
+using ClearVariableActionPtr = std::shared_ptr<ClearVariableAction>;
 using ConditionalNode = uml::actions::ConditionalNode;
 using ConditionalNodePtr = std::shared_ptr<ConditionalNode>;
 using CreateLinkAction = uml::actions::CreateLinkAction;
@@ -270,12 +281,16 @@ using ReadSelfAction = uml::actions::ReadSelfAction;
 using ReadSelfActionPtr = std::shared_ptr<ReadSelfAction>;
 using ReadStructuralFeatureAction = uml::actions::ReadStructuralFeatureAction;
 using ReadStructuralFeatureActionPtr = std::shared_ptr<ReadStructuralFeatureAction>;
+using ReadVariableAction = uml::actions::ReadVariableAction;
+using ReadVariableActionPtr = std::shared_ptr<ReadVariableAction>;
 using ReclassifyObjectAction = uml::actions::ReclassifyObjectAction;
 using ReclassifyObjectActionPtr = std::shared_ptr<ReclassifyObjectAction>;
 using ReduceAction = uml::actions::ReduceAction;
 using ReduceActionPtr = std::shared_ptr<ReduceAction>;
 using RemoveStructuralFeatureValueAction = uml::actions::RemoveStructuralFeatureValueAction;
 using RemoveStructuralFeatureValueActionPtr = std::shared_ptr<RemoveStructuralFeatureValueAction>;
+using RemoveVariableValueAction = uml::actions::RemoveVariableValueAction;
+using RemoveVariableValueActionPtr = std::shared_ptr<RemoveVariableValueAction>;
 using ReplyAction = uml::actions::ReplyAction;
 using ReplyActionPtr = std::shared_ptr<ReplyAction>;
 using SendSignalAction = uml::actions::SendSignalAction;
@@ -297,10 +312,14 @@ using UnmarshallAction = uml::actions::UnmarshallAction;
 using UnmarshallActionPtr = std::shared_ptr<UnmarshallAction>;
 using ValueSpecificationAction = uml::actions::ValueSpecificationAction;
 using ValueSpecificationActionPtr = std::shared_ptr<ValueSpecificationAction>;
+using VariableAction = uml::actions::VariableAction;
+using VariableActionPtr = std::shared_ptr<VariableAction>;
 using WriteLinkAction = uml::actions::WriteLinkAction;
 using WriteLinkActionPtr = std::shared_ptr<WriteLinkAction>;
 using WriteStructuralFeatureAction = uml::actions::WriteStructuralFeatureAction;
 using WriteStructuralFeatureActionPtr = std::shared_ptr<WriteStructuralFeatureAction>;
+using WriteVariableAction = uml::actions::WriteVariableAction;
+using WriteVariableActionPtr = std::shared_ptr<WriteVariableAction>;
 
 /*
  * Activites
@@ -360,6 +379,10 @@ using ObjectFlow = uml::activities::ObjectFlow;
 using ObjectFlowPtr = std::shared_ptr<ObjectFlow>;
 using ObjectNode = uml::activities::ObjectNode;
 using ObjectNodePtr = std::shared_ptr<ObjectNode>;
+using Variable = uml::activities::Variable;
+using VariablePtr = std::shared_ptr<Variable>;
+using VariableList = std::vector<VariablePtr>;
+using VariableListPtr = std::shared_ptr<VariableList>;
 
 /*
  * Classification

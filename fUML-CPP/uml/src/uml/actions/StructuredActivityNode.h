@@ -22,6 +22,7 @@ namespace uml::actions
 			ActivityEdgeListPtr edge = std::make_shared<ActivityEdgeList>();
 			OutputPinListPtr structuredNodeOutput = std::make_shared<OutputPinList>();
 			InputPinListPtr structuredNodeInput = std::make_shared<InputPinList>();
+			VariableListPtr variable = std::make_shared<VariableList>();
 
 		private:
 			StructuredActivityNodePtr_w thisStructuredActivityNodePtr;
@@ -37,6 +38,7 @@ namespace uml::actions
 			void addStructuredNodeInput(const InputPinPtr&);
 			void _setContext(const ClassifierPtr&);
 			void _setActivity(const ActivityPtr&);
+			void addVariable(const VariablePtr&);
 	};
 // StructuredActivityNode
 }

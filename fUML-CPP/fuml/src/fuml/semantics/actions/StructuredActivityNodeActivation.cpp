@@ -70,7 +70,7 @@ void StructuredActivityNodeActivation::terminate()
 	ActionActivation::terminate();
 } // terminate
 
-ActivityNodeActivationPtr StructuredActivityNodeActivation::getNodeActivation(const ActivityNodePtr&)
+ActivityNodeActivationPtr StructuredActivityNodeActivation::getNodeActivation(const ActivityNodePtr& node)
 {
 	// If this structured activity node activation is not for the given
 	// node, then check if there is an activation for the node in the
@@ -170,8 +170,11 @@ void StructuredActivityNodeActivation::createNodeActivations()
 
 	ActionActivation::createNodeActivations();
 
-	this->activationGroup.reset(new ActivityNodeActivationGroup());
-	this->activationGroup->containingNodeActivation = this->thisStructuredActivityNodeActivationPtr.lock();
+	ActivityNodeActivationGroupPtr group(new ActivityNodeActivationGroup());
+	group->setThisActivityNodeActivationGroupPtr(group);
+	group->containingNodeActivation = this->thisStructuredActivityNodeActivationPtr.lock();
+
+	this->activationGroup = group;
 	this->activationGroup->createNodeActivations(AS(StructuredActivityNode, this->node)->node);
 
 } // createNodeActivations

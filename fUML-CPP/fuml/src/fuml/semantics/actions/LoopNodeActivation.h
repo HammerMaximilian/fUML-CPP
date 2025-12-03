@@ -12,7 +12,7 @@
 
 namespace fuml::semantics::actions
 {
-	class LoopNodeActivation : public StructuredActivityNodeActivation
+	class LoopNodeActivation : virtual public StructuredActivityNodeActivation
 	{
 		public:
 			ValuesListPtr bodyOutputLists = std::make_shared<ValuesList>();

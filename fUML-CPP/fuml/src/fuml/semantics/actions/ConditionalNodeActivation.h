@@ -12,7 +12,7 @@
 
 namespace fuml::semantics::actions
 {
-	class ConditionalNodeActivation : public StructuredActivityNodeActivation
+	class ConditionalNodeActivation : virtual public StructuredActivityNodeActivation
 	{
 		public:
 			ClauseActivationListPtr clauseActivations = std::make_shared<ClauseActivationList>();

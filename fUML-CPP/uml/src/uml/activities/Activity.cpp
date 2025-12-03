@@ -9,6 +9,7 @@
 #include <uml/actions/StructuredActivityNode.h>
 #include <uml/activities/Activity.h>
 #include <uml/activities/ActivityEdge.h>
+#include <uml/activities/Variable.h>
 #include <iterator>
 
 void Activity::setThisActivityPtr(ActivityPtr_w thisActivityPtr)
@@ -76,3 +77,9 @@ void Activity::_setContext(const BehavioredClassifierPtr& context)
 		}
 	}
 } // _setContext
+
+void Activity::addVariable(const VariablePtr& variable)
+{
+	this->variable->push_back(variable);
+	variable->_setActivityScope(thisActivityPtr.lock());
+} // addVariable
